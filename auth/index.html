@@ -164,7 +164,6 @@
                             navigator.clipboard.writeText(entryCodeElement.textContent).then(() => {
                                 const originalText = entryCodeElement.textContent;
                                 entryCodeElement.textContent = '已复制!';
-                                // 1.5秒后恢复原状
                                 setTimeout(() => {
                                     entryCodeElement.textContent = originalText;
                                 }, 1500);

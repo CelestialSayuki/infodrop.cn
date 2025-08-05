@@ -1,9 +1,8 @@
 import { Window } from './Window.js';
 
 export class WindowManager {
-  constructor(mainContentArea, dockManager, svgContainer) {
+  constructor(mainContentArea, svgContainer) {
     this.mainContentArea = mainContentArea;
-    this.dock = dockManager;
     this.svgContainer = svgContainer;
     this.openWindows = new Map();
     this.zIndexCounter = 100;
@@ -27,9 +26,7 @@ export class WindowManager {
     if (this.openWindows.has(url)) {
       const existingWindow = this.openWindows.get(url);
       
-      if (existingWindow.state === 'minimized') {
-        existingWindow.restore();
-      } else if (parseInt(existingWindow.element.style.zIndex) === this.zIndexCounter) {
+      if (parseInt(existingWindow.element.style.zIndex) === this.zIndexCounter) {
         existingWindow.close();
       } else {
         existingWindow.bringToFront();
@@ -74,7 +71,6 @@ export class WindowManager {
     
     this.openWindows.delete(url);
 
-    this.dock.remove(windowInstance);
     this.updateScrollLock();
   }
 

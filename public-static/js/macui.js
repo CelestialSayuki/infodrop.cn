@@ -1,18 +1,14 @@
 import { WindowManager } from './lib/WindowManager.js';
-import { DockManager } from './lib/DockManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainContentArea = document.querySelector('.main-content');
   const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
-    // --- 移动端专属逻辑 ---
     setupMobileNavigation();
   } else {
-    // --- 桌面端逻辑 (保持不变) ---
     const svgContainer = document.getElementById('animation-svg-container');
-    const dockManager = new DockManager('#dock-container', '#dock-preview', mainContentArea);
-    const windowManager = new WindowManager(mainContentArea, dockManager, svgContainer);
+    const windowManager = new WindowManager(mainContentArea, svgContainer);
 
     document.querySelectorAll('.sidebar-menu a[href]:not(.no-mac-window)').forEach(link => {
       const href = link.getAttribute('href');
@@ -26,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // 公共逻辑
   setupSidebarMenu();
   setupUpdateHistory();
   setupCountdownTimer();
@@ -38,7 +33,6 @@ function setupMobileNavigation() {
   const overlay = document.getElementById('overlay');
   const mainContentArea = document.querySelector('.main-content');
 
-  // 切换侧边栏显示状态
   const toggleSidebar = () => {
     sidebar.classList.toggle('is-visible');
     overlay.classList.toggle('is-visible');
@@ -47,19 +41,16 @@ function setupMobileNavigation() {
   hamburgerBtn.addEventListener('click', toggleSidebar);
   overlay.addEventListener('click', toggleSidebar);
 
-  // 为侧边栏链接绑定新的点击事件
   document.querySelectorAll('.sidebar-menu a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('javascript:')) {
       link.addEventListener('click', (event) => {
         event.preventDefault();
         
-        // 点击链接后先关闭侧边栏
         if (sidebar.classList.contains('is-visible')) {
           toggleSidebar();
         }
         
-        // 异步加载内容
         loadContentIntoMainArea(href, mainContentArea);
       });
     }
@@ -67,7 +58,6 @@ function setupMobileNavigation() {
 }
 
 async function loadContentIntoMainArea(url, container) {
-  // 显示加载动画
   container.innerHTML = '<div class="loading-spinner">加载中...</div>';
   
   try {
@@ -79,19 +69,12 @@ async function loadContentIntoMainArea(url, container) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, 'text/html');
     
-    // 提取目标页面的主要内容, 这里假设内容都在 <body> 中
-    // 如果目标页面有特定容器，例如 <main> 或 #content，用它会更精确
     const newContent = doc.body.innerHTML;
     
     container.innerHTML = newContent;
 
-    // 重新处理新内容中的相对路径 (复用 utils.js 中的函数)
-    // 注意: 需要确保 rewriteElementPaths 可被访问
-    // 如果 macui.js 不是 module 类型，需要调整 utils.js 的导出方式
-    // 或者直接在这里实现路径重写
     const baseUrl = new URL(url, window.location.href);
     container.querySelectorAll('a[href], img[src]').forEach(el => {
-        // 此处简化了路径重写逻辑，实际应用中可复用 `utils.js` 的函数
         if (el.hasAttribute('href')) {
             let path = el.getAttribute('href');
             if (path && !path.startsWith('http')) {

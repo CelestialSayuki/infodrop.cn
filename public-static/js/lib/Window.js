@@ -14,7 +14,6 @@ export class Window {
 
     this.state = 'opening';
     this.element = null;
-    this.dockItem = null;
     this.preMaximizeRect = null;
 
     this._createDOM();
@@ -56,7 +55,6 @@ export class Window {
   _setupEventListeners() {
     const header = this.element.querySelector('.macos-window-header');
     this.element.querySelector('.control-close').onclick = (e) => { e.stopPropagation(); this.close(); };
-    this.element.querySelector('.control-minimize').onclick = (e) => { e.stopPropagation(); this.minimize(); };
     this.element.querySelector('.control-maximize').onclick = (e) => { e.stopPropagation(); this.toggleMaximize(); };
     let action = '', startX, startY, startWidth, startHeight, startLeft, startTop, resizeDirection = '';
     const getResizeDirection = (e) => {
@@ -267,58 +265,6 @@ export class Window {
   updateTitle(newTitle) { this.title = newTitle; this.element.querySelector('.macos-window-title').textContent = newTitle; }
   bringToFront() { this.element.style.zIndex = this.manager.getNextZIndex(); }
   close() { if (this.state === 'closing') return; this.state = 'closing'; this.element.classList.add('is-closing'); this.element.addEventListener('animationend', () => { this.manager.destroyWindow(this.url); }, { once: true }); }
-  minimize() {
-    if (this.state !== 'open' && this.state !== 'maximized') return;
-    this.dockItem = this.manager.dock.add(this);
-    this.preMinimizeRect = this.element.getBoundingClientRect();
-    requestAnimationFrame(() => {
-        const startRect = this.preMinimizeRect;
-        const endRect = this.dockItem.getBoundingClientRect();
-        const parentRect = this.manager.mainContentArea.getBoundingClientRect();
-        const startX = startRect.left - parentRect.left;
-        const startY = startRect.top - parentRect.top;
-        const endX = endRect.left - parentRect.left + (endRect.width / 2);
-        const endY = endRect.top - parentRect.top + (endRect.height / 2);
-        const pathD = `M ${startX},${startY} C ${startX},${startY + (endY - startY) * 0.8} ${endX},${endY} ${endX},${endY}`;
-        this.manager.svgContainer.innerHTML = `<path d="${pathD}" fill="none" stroke="none" />`;
-        const ghost = document.createElement('div');
-        ghost.className = 'window-ghost';
-        ghost.style.cssText = `top: ${startRect.top}px; left: ${startRect.left}px; width: ${startRect.width}px; height: ${startRect.height}px; background-color: ${getComputedStyle(this.element).backgroundColor}; offset-path: path('${pathD}'); animation: genie-minimize 0.4s both;`;
-        document.body.appendChild(ghost);
-        this.element.style.display = 'none';
-        this.state = 'minimized';
-        this.manager.updateScrollLock();
-        ghost.onanimationend = () => { ghost.remove(); this.manager.svgContainer.innerHTML = ''; };
-    });
-  }
-  restore() {
-    if (this.state !== 'minimized') return;
-    const startRect = this.dockItem.getBoundingClientRect();
-    const endRect = this.preMinimizeRect;
-    requestAnimationFrame(() => {
-        const parentRect = this.manager.mainContentArea.getBoundingClientRect();
-        const startX = startRect.left - parentRect.left + (startRect.width / 2);
-        const startY = startRect.top - parentRect.top + (startRect.height / 2);
-        const endX = endRect.left - parentRect.left;
-        const endY = endRect.top - parentRect.top;
-        const pathD = `M ${startX},${startY} C ${startX},${startY} ${endX},${endY + (startY - endY) * 0.2} ${endX},${endY}`;
-        this.manager.svgContainer.innerHTML = `<path d="${pathD}" fill="none" stroke="none" />`;
-        const ghost = document.createElement('div');
-        ghost.className = 'window-ghost';
-        ghost.style.cssText = `top: ${endRect.top}px; left: ${endRect.left}px; width: ${endRect.width}px; height: ${endRect.height}px; background-color: ${getComputedStyle(this.element).backgroundColor}; offset-path: path('${pathD}'); animation: genie-restore 0.4s both;`;
-        document.body.appendChild(ghost);
-        this.manager.dock.remove(this);
-        this.dockItem = null;
-        ghost.onanimationend = () => {
-            ghost.remove();
-            this.manager.svgContainer.innerHTML = '';
-            this.element.style.display = 'flex';
-            this.state = this.element.classList.contains('is-maximized') ? 'maximized' : 'open';
-            this.bringToFront();
-            this.manager.updateScrollLock();
-        };
-    });
-  }
   toggleMaximize() {
     const isMaximized = this.element.classList.contains('is-maximized');
     if (isMaximized) {

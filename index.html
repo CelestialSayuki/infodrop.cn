@@ -3,14 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>开源的 Apple 苹果产品参数中心 / infodrop.cn</title>
-    
     <script>
-        // 脚本的初始部分保持不变
         if (localStorage.getItem('sw_installed_version')) {
             document.documentElement.className += ' is-preloaded';
         }
     </script>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fa">
@@ -92,7 +89,6 @@
     </style>
     
     <script>
-        // 浏览器兼容性检查部分保持不变
         (function() {
             window.isBrowserSupported = true;
             function getBrowserInfo() {
@@ -334,7 +330,7 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
-                    <li><span>2025.08.05：删除最小化功能，增加网页缓存</span></li>
+                    <li><span>2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span></li>
                     <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
                     <li><span>2025.08.01：新增原生缓存测试软件</span></li>
                     <li><span>2025.07.31：新增启动界面</span></li>
@@ -380,7 +376,7 @@
             </div>
             <div class="card">
                 <ul id="issues">
-                    <li><span>最小化无法正常工作</span></li>
+                    <li><span>部分设备可能出现网页加载失败，您可以尝试清空页面缓存后重进（#1）</span></li>
                 </ul>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-bottom: 30px;">
@@ -397,9 +393,9 @@
     <script type="module" src="public-static/js/macui.js"></script>
 
     <script>
-        (async function() { // IIFE an async function to use await at the top level
-            
-            // ==================== 核心改动：缓存完整性验证 ====================
+        (async function() {
+            let updateIsPending = false;
+
             async function verifyCacheIntegrity() {
                 const localVersion = localStorage.getItem('sw_installed_version');
                 if (localVersion) {
@@ -407,17 +403,13 @@
                     if (!(await caches.has(expectedCacheName))) {
                         console.warn(`完整性验证失败：记录的版本 ${localVersion} 存在，但找不到对应的缓存 ${expectedCacheName}。准备清理并刷新。`);
                         localStorage.removeItem('sw_installed_version');
-                        // 强制刷新以进入首次加载流程
                         window.location.reload();
-                        // 返回一个永远不会解决的 Promise 来暂停后续所有脚本执行
                         return new Promise(() => {});
                     }
                 }
             }
 
-            // 在执行任何操作前，首先进行完整性验证
             await verifyCacheIntegrity();
-            // ===============================================================
 
             const showMainContent = () => {
                 const appContainer = document.getElementById('app-container');
@@ -456,6 +448,7 @@
                     
                     if (localVersion !== serverVersion) {
                         console.log("发现新版本，开始更新...");
+                        updateIsPending = true;
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
                         if (!isStandalone) {
@@ -487,15 +480,26 @@
             document.addEventListener('DOMContentLoaded', () => {
                 if (window.isBrowserSupported === false) return;
                 
-                // 完整性检查已在顶部完成，这里的 isPreloaded 判断现在是可靠的
-                const isPreloaded = document.documentElement.classList.contains('is-preloaded');
-                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-                
                 if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
                     return;
                 }
                 
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (updateIsPending) {
+                        const loadingScreen = document.getElementById('loading-screen');
+                        if (loadingScreen) {
+                            loadingScreen.addEventListener('transitionend', () => {
+                                window.location.reload();
+                            }, { once: true });
+
+                            loadingScreen.classList.add('hidden');
+                        } else {
+                            window.location.reload();
+                        }
+                    }
+                });
+
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
                     const progressBarFill = document.querySelector('.progress-bar-fill');
@@ -503,18 +507,20 @@
 
                     if (event.data.type === 'CACHE_PROGRESS') {
                         const { percent } = event.data.payload;
-                        progressBarFill.style.transition = 'none'; // 对于快速更新，取消动画直接显示进度
+                        progressBarFill.style.transition = 'none';
                         progressBarFill.style.width = `${percent}%`;
                     }
                     if (event.data.type === 'CACHE_COMPLETE') {
-                        progressBarFill.style.transition = 'width 0.2s ease-out'; // 最后完成时加个动画
+                        progressBarFill.style.transition = 'width 0.2s ease-out';
                         progressBarFill.style.width = '100%';
                         localStorage.setItem('sw_installed_version', event.data.payload.version);
-                        setTimeout(hideLoadingScreen, 500);
                     }
                 });
 
                 navigator.serviceWorker.register('./sw.js').then(async (registration) => {
+                    const isPreloaded = document.documentElement.classList.contains('is-preloaded');
+                    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
                     if (isStandalone) {
                         runLoadingAnimation();
                         const progressBarFill = document.querySelector('.progress-bar-fill');
