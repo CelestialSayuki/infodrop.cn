@@ -99,7 +99,7 @@
           { "name": "黑色", "hex": "rgb(60, 64, 66)" },
           { "name": "白色", "hex": "rgb(250, 250, 250)" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_16_e_Sim_Black_ios18.usdz\" target=\"_blank\">黑色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_16_e_Sim_White_ios18.usdz\" target=\"_blank\">白色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_16_e_Sim_Black_ios18.usdz\" target=\"_blank\">黑色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_16_e_Sim_White_ios18.usdz\" target=\"_blank\">白色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A18<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5X<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -147,7 +147,7 @@
           { "name": "白色钛金属", "hex": "rgb(211, 209, 205)" },
           { "name": "黑色钛金属", "hex": "rgb(24, 25, 25)" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-max-sim-natural-titanium.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-max-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-max-sim-white-titanium.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-max-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-max-sim-natural-titanium.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-max-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-max-sim-white-titanium.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-max-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A18 Pro<br>(2P+4E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5X<br>256G、512G、1T</div>",
         "display": "6.9\" XDR OLED",
@@ -195,7 +195,7 @@
           { "name": "白色钛金属", "hex": "rgb(211, 209, 205)" },
           { "name": "黑色钛金属", "hex": "rgb(24, 25, 25)" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-sim-natural-titanium.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-sim-white-titanium.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pro-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-sim-natural-titanium.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-sim-white-titanium.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pro-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A18 Pro<br>(2P+4E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5X<br>128G、256G、512G、1T</div>",
         "display": "6.3\" XDR OLED",
@@ -244,7 +244,7 @@
           { "name": "白色", "hex": "#e7e7e7" },
           { "name": "黑色", "hex": "#202020" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-plus-ultramarine-sim.usdz\" target=\"_blank\">群青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-plus-teal-sim.usdz\" target=\"_blank\">深青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-plus-pink-sim.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-plus-white-sim.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-plus-black-sim.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-plus-ultramarine-sim.usdz\" target=\"_blank\">群青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-plus-teal-sim.usdz\" target=\"_blank\">深青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-plus-pink-sim.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-plus-white-sim.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-plus-black-sim.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A18<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5X<br>128G、256G、512G</div>",
         "display": "6.7\" XDR OLED",
@@ -293,7 +293,7 @@
           { "name": "白色", "hex": "#e7e7e7" },
           { "name": "黑色", "hex": "#202020" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-ultramarine-sim.usdz\" target=\"_blank\">群青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-teal-sim.usdz\" target=\"_blank\">深青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-pink-sim.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-white-sim.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone-16-black-sim.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-ultramarine-sim.usdz\" target=\"_blank\">群青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-teal-sim.usdz\" target=\"_blank\">深青色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-pink-sim.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-white-sim.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone-16-black-sim.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A18<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5X<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -340,7 +340,7 @@
           { "name": "白色钛金属", "hex": "#dddddd" },
           { "name": "黑色钛金属", "hex": "#1b1b1b" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_max_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_max_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_max_white_titanium_no5g.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_max_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_max_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_max_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_max_white_titanium_no5g.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_max_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A17 Pro<br>(2P+4E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5<br>256G、512G、1T</div>",
         "display": "6.7\" XDR OLED",
@@ -387,7 +387,7 @@
           { "name": "白色钛金属", "hex": "#dddddd" },
           { "name": "黑色钛金属", "hex": "#1b1b1b" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_white_titanium_no5g.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_pro_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_white_titanium_no5g.usdz\" target=\"_blank\">白色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_pro_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A17 Pro<br>(2P+4E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8GB LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "6.1\" XDR OLED",
@@ -435,7 +435,7 @@
           { "name": "蓝色", "hex": "#CED5D9" },
           { "name": "黑色", "hex": "#35393B" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR5<br>128G、256G、512G</div>",
         "display": "6.7\" XDR OLED",
@@ -483,7 +483,7 @@
           { "name": "蓝色", "hex": "#CED5D9" },
           { "name": "黑色", "hex": "#35393B" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR5<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -530,7 +530,7 @@
           { "name": "银色", "hex": "#f0f2f2" },
           { "name": "深空黑色", "hex": "#403e3d" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_14_pro_max_deep_purple_no5G.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_14_pro_max_deep_purple_no5G.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "6.7\" XDR OLED",
@@ -577,7 +577,7 @@
           { "name": "银色", "hex": "#f0f2f2" },
           { "name": "深空黑色", "hex": "#403e3d" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_14_pro_deep_purple_no5G.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_14_pro_deep_purple_no5G.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "6.1\" XDR OLED",
@@ -626,7 +626,7 @@
           { "name": "红色", "hex": "#fc0324" },
           { "name": "黄色", "hex": "#f5e488" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_14_plus_blue_no5G.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_14_plus_blue_no5G.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR4X<br>128G、256G、512G</div>",
         "display": "6.7\" XDR OLED",
@@ -675,7 +675,7 @@
           { "name": "红色", "hex": "#fc0324" },
           { "name": "黄色", "hex": "#f5e488" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_14_blue_no5G.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_14_blue_no5G.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR4X<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -721,7 +721,7 @@
           { "name": "星光色", "hex": "#faf6f2" },
           { "name": "红色", "hex": "#bf0013" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_se_3rd_Gen_midnight.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_se_3rd_Gen_midnight.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>64G、128G、256G</div>",
         "display": "4.7\" LCD",
@@ -769,7 +769,7 @@
           { "name": "石墨色", "hex": "#54524f" },
           { "name": "远峰蓝色", "hex": "#a7c1d9" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
         "display": "6.7\" XDR OLED",
@@ -817,7 +817,7 @@
           { "name": "石墨色", "hex": "#54524f" },
           { "name": "远峰蓝色", "hex": "#a7c1d9" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
         "display": "6.1\" XDR OLED",
@@ -866,7 +866,7 @@
           { "name": "星光色", "hex": "#faf6f2" },
           { "name": "红色", "hex": "#bf0013" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -915,7 +915,7 @@
           { "name": "星光色", "hex": "#faf6f2" },
           { "name": "红色", "hex": "#bf0013" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>128G、256G、512G</div>",
         "display": "5.4\" XDR OLED",
@@ -1009,7 +1009,7 @@
           { "name": "石墨色", "hex": "#52514d" },
           { "name": "银色", "hex": "#e3e4df" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_12_pro_pacific_blue_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_12_pro_pacific_blue_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6GB LPDDR4X<br>128G、256G、512G</div>",
         "display": "6.1\" XDR OLED",
@@ -1058,7 +1058,7 @@
           { "name": "白色", "hex": "#f6f2ef" },
           { "name": "黑色", "hex": "#25212b" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>64G、128G、256G</div>",
         "display": "6.1\" XDR OLED",
@@ -1107,7 +1107,7 @@
           { "name": "白色", "hex": "#f6f2ef" },
           { "name": "黑色", "hex": "#25212b" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>64G、128G、256G</div>",
         "display": "5.4\" XDR OLED",
@@ -1153,7 +1153,7 @@
           { "name": "白色", "hex": "#f3f3f3" },
           { "name": "红色", "hex": "#b41325" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_se_2nd_Gen_black_ios13.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_se_2nd_Gen_black_ios13.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3GB LPDDR4X<br>64G、128G、256G</div>",
         "display": "4.7\" LCD",
@@ -1247,7 +1247,7 @@
           { "name": "深空灰色", "hex": "#535150" },
           { "name": "金色", "hex": "#fad7bd" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_11_pro.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_11_pro.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>64G、256G、512G</div>",
         "display": "5.8\" XDR OLED",
@@ -1296,7 +1296,7 @@
           { "name": "白色", "hex": "#f9f6ef" },
           { "name": "红色", "hex": "#ba0c2e" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/iphone/iphone_11.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/iphone/iphone_11.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4GB LPDDR4X<br>64G、128G、256G</div>",
         "display": "6.1\" Liquid LCD",

@@ -95,7 +95,7 @@
           { "name": "深空黑色", "hex": "rgb(64, 64, 64)" },
           { "name": "银色", "hex": "rgb(227, 228, 229)" }
         ],
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_16in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_16in_silver.usdz\" target=\"_blank\">银色</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_16in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_16in_silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\">M4 Pro<br>(10P+4E)</div><div class=\"li-div-cpu li-div-cpu-a\">M4 Max<br>(10/12P+4E)</div>",
         "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×20</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×32/40</div>",
@@ -133,7 +133,7 @@
           { "name": "深空黑色", "hex": "rgb(64, 64, 64)" },
           { "name": "银色", "hex": "rgb(227, 228, 229)" }
         ],
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\">M4 Pro<br>(8/10P+4E)</div><div class=\"li-div-cpu li-div-cpu-a\">M4 Max<br>(10/12P+4E)</div>",
         "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×16/20</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×32/40</div>",
@@ -171,7 +171,7 @@
           { "name": "深空黑色", "hex": "rgb(64, 64, 64)" },
           { "name": "银色", "hex": "rgb(227, 228, 229)" }
         ],
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(4P+6E Core)</div>",
         "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -209,7 +209,7 @@
                 { "name": "深空黑色", "hex": "rgb(64, 64, 64)" },
                 { "name": "银色", "hex": "rgb(227, 228, 229)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2023_m3_pro_16_space_black.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2023_m3_pro_16_space_black.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N3B",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\">M3 Pro<br>(6P+6E)</div><div class=\"li-div-cpu li-div-cpu-a\">M3 Max<br>(10/12P+4E)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×18</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×30/40</div>",
@@ -247,7 +247,7 @@
                 { "name": "深空黑色", "hex": "rgb(64, 64, 64)" },
                 { "name": "银色", "hex": "rgb(227, 228, 229)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2023_m3_pro_14_space_black.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2023_m3_pro_14_space_black.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N3B",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\">M3 Pro<br>(5/6P+6E)</div><div class=\"li-div-cpu li-div-cpu-a\">M3 Max<br>(10/12P+4E)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×14/18</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×30/40</div>",
@@ -285,7 +285,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 229)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2023_m3_14_space_gray.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2023_m3_14_space_gray.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N3B",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -323,7 +323,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 229)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2023_16_space_gray_ios15.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2023_16_space_gray_ios15.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5P",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"M2 Pro\">M2 Pro<br>(8P+4E Core)</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"M2 Max\">M2 Max<br>(8P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M2 Pro\">Apple ×19</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M2 Max\">Apple ×30/38</div>",
@@ -361,7 +361,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 229)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2023_14_space_gray_ios15.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2023_14_space_gray_ios15.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5P",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"M2 Pro\">M2 Pro<br>(6/8P+4E)</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"M2 Max\">M2 Max<br>(8P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M2 Pro\">Apple ×16/19</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M2 Max\">Apple ×30/38</div>",
@@ -399,7 +399,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(199, 200, 202)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5P",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"M2\">M2<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"M2\">Apple ×10</div>",
@@ -437,7 +437,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(199, 200, 202)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2021_16_space_gray.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2021_16_space_gray.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"M1 Pro\">M1 Pro<br>(8P+2E Core)</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"M1 Max\">M1 Max<br>(8P+2E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1 Pro\">Apple ×16</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1 Max\">Apple ×24/32</div>",
@@ -475,7 +475,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(199, 200, 202)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2021_14_space_gray.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2021_14_space_gray.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"十核 M1 Pro\">M1 Pro<br>(6/8P+2E)</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"十核 M1 Max\">M1 Max<br>(8P+2E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1 Pro\">Apple ×14/16</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1 Max\">Apple ×24/32</div>",
@@ -513,7 +513,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(199, 200, 202)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"M1\">M1<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"M1\">Apple ×8</div>",
@@ -627,7 +627,7 @@
                 { "name": "深空灰色", "hex": "rgb(171, 174, 179)" },
                 { "name": "银色", "hex": "rgb(199, 200, 202)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_pro_2019_16.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_pro_2019_16.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "Intel 14nm (Coffee Lake)",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-c\" title=\"i7-9750H\">六核 i7<br>9750H</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"i9-9880H\">八核 i9<br>9880H</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"i9-9980HK\">八核 i9<br>9980HK</div>",
             "gpuInfo": "Intel® UHD Graphics 630<br>AMD 5300M/5500M/5600M",

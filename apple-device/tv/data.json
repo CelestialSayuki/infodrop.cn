@@ -60,7 +60,7 @@
         "releaseDate": "2022.10.18",
         "supportedOS": "tvOS 16 ~ 最新",
         "modelIdentifier": "AppleTV14,1",
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/tv/apple_tv_4k_3rdgen_wifi_ethernet_siri_remote_3rdgen.usdz\" target=\"_blank\">查看</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/tv/apple_tv_4k_3rdgen_wifi_ethernet_siri_remote_3rdgen.usdz\" target=\"_blank\">查看</a>",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+3E+5GPU)</div>",
         "ramRom": "4GB LPDDR4X<br>64G、128G",
         "remoteType": "Siri Remote (3rd Gen)",

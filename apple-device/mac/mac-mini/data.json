@@ -66,7 +66,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/mac_mini_2024_silver.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/mac_mini_2024_silver.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N3E",
         "chip": "<div class=\"li-div-cpu li-div-cpu-a\">M4<br>(4P+6E Core)</div><div class=\"li-div-cpu li-div-cpu-a\">M4 Pro<br>(8/10P+4E)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×10</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×16/20</div>",
@@ -95,7 +95,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/mac_mini_2023_m2_pro_chip_silver_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/mac_mini_2023_m2_pro_chip_silver_ios15.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N5P",
         "chip": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"M2\">M2<br>(4P+4E Core)</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"M2 Pro\">M2 Pro<br>(6/8P+4E)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×10</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×16/19</div>",
@@ -124,7 +124,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/mac_mini_2020_m1_silver_ios12.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/mac_mini_2020_m1_silver_ios12.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N5",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M1\">M1<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"八核 M1\">Apple ×8</div>",

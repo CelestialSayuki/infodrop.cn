@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>开源的 Apple 苹果产品参数中心 / Project Mammoth</title>
+    
+    <script>
+        if (localStorage.getItem('sw_installed_version')) {
+            document.documentElement.className += ' is-preloaded';
+        }
+    </script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fa">
@@ -19,6 +25,9 @@
     <link rel="stylesheet" href="./public-static/css/new.css">
 
     <style>
+        .is-preloaded #loading-screen {
+            display: none;
+        }
         #loading-screen {
             position: fixed;
             top: 0;
@@ -35,13 +44,11 @@
             visibility: visible;
             transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
         }
-
         #loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
-
         .apple-logo {
             width: 15vw;
             height: auto;
@@ -49,7 +56,6 @@
             transition: opacity 0.5s ease-in-out;
             margin-bottom: 35px;
         }
-
         .progress-bar-container {
             width: 240px;
             height: 5px;
@@ -59,7 +65,6 @@
             opacity: 0;
             transition: opacity 0.5s ease-in;
         }
-
         .progress-bar-fill {
             width: 0%;
             height: 100%;
@@ -67,7 +72,6 @@
             border-radius: 5px;
             transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
         }
-
         .loading-text {
             color: #a8a8b1;
             margin-top: 20px;
@@ -76,11 +80,9 @@
             opacity: 0;
             transition: opacity 0.5s ease-in;
         }
-        
         #app-container {
             visibility: hidden;
         }
-
         @media (max-width: 768px) {
             .apple-logo {
                 width: 45vw;
@@ -91,7 +93,6 @@
     <script>
         (function() {
             window.isBrowserSupported = true;
-
             function getBrowserInfo() {
                 const ua = navigator.userAgent;
                 const isSafari = ua.includes('Safari') && !ua.includes('Chrome') && !ua.includes('Edg');
@@ -109,14 +110,12 @@
                 }
                 return { name: 'unknown', version: 0 };
             }
-
             const browser = getBrowserInfo();
             let isUnsupported = false;
             let requiredVersion = '';
             let browserNameForDisplay = '';
             let updateTargetWord = '浏览器';
             let mainTitle = '浏览器版本过低';
-
             if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
                 isUnsupported = true;
                 requiredVersion = '13.0';
@@ -128,18 +127,14 @@
                 requiredVersion = '90';
                 browserNameForDisplay = 'Chrome/Chromium';
             }
-
             if (isUnsupported) {
                 window.isBrowserSupported = false;
-
                 document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
                         const logo = document.querySelector('#loading-screen .apple-logo');
                         const loadingScreen = document.getElementById('loading-screen');
-                        
                         if (logo && loadingScreen) {
                             logo.style.opacity = '0';
-
                             setTimeout(function() {
                                 const errorMessageHTML = `
                                     <div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 400px;">
@@ -156,12 +151,9 @@
                                         </div>
                                     </div>
                                 `;
-                                
                                 loadingScreen.innerHTML = errorMessageHTML;
-
                                 const prohibitedIcon = document.getElementById('prohibited-icon');
                                 const messageText = document.getElementById('unsupported-message-text');
-
                                 if (prohibitedIcon && messageText) {
                                     setTimeout(() => {
                                         prohibitedIcon.style.opacity = '1';
@@ -179,7 +171,7 @@
 
 <body>
     <div id="loading-screen">
-        <img class="apple-logo" src="public-static/img/apple.svg" alt="Apple Logo">
+        <img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo">
         <div class="progress-bar-container">
             <div class="progress-bar-fill"></div>
         </div>
@@ -398,87 +390,83 @@
         </main>
         <div class="overlay" id="overlay"></div>
     </div>
+    
+    <script src="./public-static/js/table-generator.js"></script>
+    <script type="module" src="public-static/js/macui.js"></script>
 
     <script>
-            // 这个函数无需改动
-            function showMainContent() {
+        (function() {
+            const showMainContent = () => {
                 const appContainer = document.getElementById('app-container');
-                appContainer.style.visibility = 'visible';
-                document.body.style.overflow = 'auto';
-            }
+                if (appContainer) {
+                    appContainer.style.visibility = 'visible';
+                    document.body.style.overflow = 'auto';
+                }
+            };
 
-            // 【已修改】这个函数现在只负责显示/隐藏加载屏幕
-            function runLoadingAnimation() {
+            const hideLoadingScreen = () => {
                 const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    showMainContent();
+                    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
+                }
+            };
+
+            const runLoadingAnimation = (isSimulated = false) => {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (!loadingScreen) return;
                 const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
-
+                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
                 loadingScreen.style.display = 'flex';
-                loadingScreen.classList.remove('hidden');
                 progressBarContainer.style.opacity = '1';
-            }
+                if (isSimulated && progressBarFill) {
+                    setTimeout(() => {
+                        progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
+                        progressBarFill.style.width = '100%';
+                    }, 100);
+                    setTimeout(hideLoadingScreen, 1500);
+                }
+            };
 
-            if (window.isBrowserSupported !== false) {
-                 document.addEventListener('DOMContentLoaded', runLoadingAnimation);
-            }
-        </script>
-
-        <script src="./public-static/js/table-generator.js"></script>
-        <script type="module" src="public-static/js/macui.js"></script>
-
-        <script>
-            (async function() {
-                if ('serviceWorker' in navigator && window.isBrowserSupported !== false) {
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.isBrowserSupported === false) return;
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                const isPreloaded = document.documentElement.classList.contains('is-preloaded');
+                if (isStandalone) {
+                    runLoadingAnimation(true);
+                } else if (isPreloaded) {
+                    showMainContent();
+                    if ('serviceWorker' in navigator) {
+                        navigator.serviceWorker.register('./sw.js');
+                    }
+                } else if ('serviceWorker' in navigator) {
+                    runLoadingAnimation(false);
                     const progressBarFill = document.querySelector('.progress-bar-fill');
-
-                    // 【核心改动】监听来自 Service Worker 的所有消息
                     navigator.serviceWorker.addEventListener('message', event => {
-                        if (event.data) {
-                            // 如果是进度消息，就更新进度条
-                            if (event.data.type === 'CACHE_PROGRESS') {
-                                const { percent, currentFile } = event.data.payload;
-                                if (progressBarFill) {
-                                    progressBarFill.style.transition = 'width 0.1s linear'; // 让进度条更新更平滑
-                                    progressBarFill.style.width = `${percent}%`;
-                                }
-                            }
-                            
-                            // 如果是“完成”消息，才隐藏加载屏幕
-                            if (event.data.type === 'CACHE_COMPLETE') {
-                                console.log('缓存全部完成，准备进入网站');
-                                // 确保进度条显示为100%
-                                if (progressBarFill) {
-                                   progressBarFill.style.width = '100%';
-                                }
-                                
-                                setTimeout(() => {
-                                    const loadingScreen = document.getElementById('loading-screen');
-                                    if (loadingScreen) {
-                                        loadingScreen.classList.add('hidden');
-                                        showMainContent();
-                                        loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
-                                    }
-                                }, 500); // 延迟一点，让用户看到100%
+                        if (!event.data) return;
+                        if (event.data.type === 'CACHE_PROGRESS') {
+                            const { percent } = event.data.payload;
+                            if (progressBarFill) {
+                                progressBarFill.style.transition = 'width 0.1s linear';
+                                progressBarFill.style.width = `${percent}%`;
                             }
                         }
+                        if (event.data.type === 'CACHE_COMPLETE') {
+                            if (progressBarFill) progressBarFill.style.width = '100%';
+                            localStorage.setItem('sw_installed_version', event.data.payload.version);
+                            setTimeout(hideLoadingScreen, 500);
+                        }
                     });
-                    
-                    // 注册 Service Worker，但不再用 .ready 来隐藏屏幕
-                    try {
-                        const registration = await navigator.serviceWorker.register('./sw.js');
-                        console.log('Service Worker 注册成功, 范围: ', registration.scope);
-                    } catch (error) {
-                        console.error('Service Worker 注册失败: ', error);
-                    }
-
+                    navigator.serviceWorker.register('./sw.js').catch(err => {
+                        console.error("SW 注册失败:", err);
+                        hideLoadingScreen();
+                    });
                 } else {
-                     // 如果不支持SW，则使用旧的简单加载动画
-                    const loadingScreen = document.getElementById('loading-screen');
-                    if(loadingScreen) {
-                        loadingScreen.classList.add('hidden');
-                        showMainContent();
-                    }
+                    hideLoadingScreen();
                 }
-            })();
-        </script>
+            });
+        })();
+    </script>
 </body>
 </html>

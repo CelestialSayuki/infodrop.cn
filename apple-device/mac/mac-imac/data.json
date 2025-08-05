@@ -86,7 +86,7 @@
           { "name": "绿色", "hex": "#9ac8ae" },
           { "name": "银色", "hex": "#e3e4e5" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-blue.usdz\" target=\"_blank\">蓝</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-purple.usdz\" target=\"_blank\">紫</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-pink.usdz\" target=\"_blank\">粉</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-orange.usdz\" target=\"_blank\">橙</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-yellow.usdz\" target=\"_blank\">黄</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-green.usdz\" target=\"_blank\">绿</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-silver.usdz\" target=\"_blank\">银</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-blue.usdz\" target=\"_blank\">蓝</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-purple.usdz\" target=\"_blank\">紫</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-pink.usdz\" target=\"_blank\">粉</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-orange.usdz\" target=\"_blank\">橙</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-yellow.usdz\" target=\"_blank\">黄</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-green.usdz\" target=\"_blank\">绿</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-silver.usdz\" target=\"_blank\">银</a>",
         "process": "TSMC N3E",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(4P+6E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -125,7 +125,7 @@
           { "name": "绿色", "hex": "#9ac8ae" },
           { "name": "银色", "hex": "#e3e4e5" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-blue.usdz\" target=\"_blank\">蓝</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-purple.usdz\" target=\"_blank\">紫</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-pink.usdz\" target=\"_blank\">粉</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-orange.usdz\" target=\"_blank\">橙</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-yellow.usdz\" target=\"_blank\">黄</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-green.usdz\" target=\"_blank\">绿</a> <a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-m4-with-accessories-silver.usdz\" target=\"_blank\">银</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-blue.usdz\" target=\"_blank\">蓝</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-purple.usdz\" target=\"_blank\">紫</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-pink.usdz\" target=\"_blank\">粉</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-orange.usdz\" target=\"_blank\">橙</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-yellow.usdz\" target=\"_blank\">黄</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-green.usdz\" target=\"_blank\">绿</a> <a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-m4-with-accessories-silver.usdz\" target=\"_blank\">银</a>",
         "process": "TSMC N3E",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×8</div>",
@@ -164,7 +164,7 @@
           { "name": "橙色", "hex": "#e9aa95" },
           { "name": "紫色", "hex": "#acaccb" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-2023-4port-green.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-2023-4port-green.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N3B",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -200,7 +200,7 @@
           { "name": "粉色", "hex": "#edb9af" },
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-2023-4port-green.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-2023-4port-green.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N3B",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×8</div>",
@@ -239,7 +239,7 @@
           { "name": "橙色", "hex": "#e9aa95" },
           { "name": "紫色", "hex": "#acaccb" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/mac/imac-24-2021-blue-ios14.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/mac/imac-24-2021-blue-ios14.usdz\" target=\"_blank\">查看</a>",
         "process": "TSMC N5",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M1\">M1<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1\">Apple ×7</div>\n\t\t\t\t\t\t\t<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"M1\">Apple ×8</div>",

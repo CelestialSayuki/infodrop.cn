@@ -39,7 +39,12 @@ self.addEventListener('install', (event) => {
         
         const clients = await self.clients.matchAll({ includeUncontrolled: true });
         for (const client of clients) {
-          client.postMessage({ type: 'CACHE_COMPLETE' });
+          client.postMessage({
+            type: 'CACHE_COMPLETE',
+            payload: {
+              version: CACHE_VERSION
+            }
+          });
         }
       } catch (error) {
         console.error('[SW] Pre-caching process failed:', error);

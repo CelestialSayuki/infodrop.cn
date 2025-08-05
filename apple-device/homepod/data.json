@@ -65,7 +65,7 @@
           { "name": "白色", "hex": "#ffffff" },
           { "name": "午夜色", "hex": "#313232" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
         "chip": "S7",
         "ramRom": "1.5GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",
@@ -98,7 +98,7 @@
           { "name": "午夜色", "hex": "#222428" },
           { "name": "深空灰色", "hex": "#36373a" }
         ],
-        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰</a>",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰</a>",
         "chip": "S5",
         "ramRom": "1GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",

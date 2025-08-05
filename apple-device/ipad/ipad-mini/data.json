@@ -90,7 +90,7 @@
           { "name": "紫色", "hex": "#e3dee9" },
           { "name": "蓝色", "hex": "#d7e5e6" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A17 Pro<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512GB</div>",
         "display": "8.3\" Liquid LED",
@@ -128,7 +128,7 @@
           { "name": "粉色", "hex": "#e8d1cf" },
           { "name": "紫色", "hex": "#b9b8d1" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_mini_6th_Gen_ios15_purple_wifi.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6th_Gen_ios15_purple_wifi.usdz\" target=\"_blank\">查看</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
         "display": "8.3\" Liquid LED",

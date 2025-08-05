@@ -97,7 +97,7 @@
           { "name": "天蓝色", "hex": "rgb(200, 216, 224)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-15in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-15in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-15in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-15in-silver.usdz\" target=\"_blank\">银色</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-15in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-15in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-15in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-15in-silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M2\">M4<br>(4P+6E Core)</div>",
         "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -137,7 +137,7 @@
           { "name": "天蓝色", "hex": "rgb(200, 216, 224)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-13in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-13in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-13in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"http://cdn.hubweb.cn/AR/mac/macbook-air-2025-13in-silver.usdz\" target=\"_blank\">银色</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-13in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-13in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-13in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"http://cdn.infodrop.cn/AR/mac/macbook-air-2025-13in-silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(4P+6E Core)</div>",
         "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×8</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×10</div>",
@@ -177,7 +177,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 230)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_air_2024_15_midnight.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_air_2024_15_midnight.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N3B",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M2\">M3<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -217,7 +217,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 230)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_air_2024_13_midnight.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_air_2024_13_midnight.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N3B",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×8</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×10</div>",
@@ -257,7 +257,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 230)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_air_2023_15_silver.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_air_2023_15_silver.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5P",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M2\">M2<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Apple ×10</div>",
@@ -297,7 +297,7 @@
                 { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
                 { "name": "银色", "hex": "rgb(227, 228, 230)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_air_2022_m2_chip_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_air_2022_m2_chip_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5P",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M2\">M2<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×8</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×10</div>",
@@ -336,7 +336,7 @@
                 { "name": "银色", "hex": "rgb(199, 200, 202)" },
                 { "name": "金色", "hex": "rgb(223, 204, 183)" }
             ],
-            "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/macbook_air_2020_m1_chip_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
+            "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/macbook_air_2020_m1_chip_space_gray_ios12.usdz\" target=\"_blank\">查看</a>",
             "chipProcess": "TSMC N5",
             "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\" title=\"八核 M1\">M1<br>(4P+4E Core)</div>",
             "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×7</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\">Apple ×8</div>",
