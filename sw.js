@@ -47,7 +47,7 @@ self.addEventListener('install', (event) => {
               }
             }
           } catch (err) {
-            console.error(`[SW] Failed to fetch and cache: ${url}`, err);
+              
           }
         }
         
@@ -61,7 +61,6 @@ self.addEventListener('install', (event) => {
           });
         }
       } catch (error) {
-        console.error('[SW] Pre-caching process failed:', error);
         throw error;
       }
     })
@@ -74,7 +73,6 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keyList.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] Deleting old cache:', key);
             return caches.delete(key);
           }
         })

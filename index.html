@@ -401,7 +401,6 @@
                 if (localVersion) {
                     const expectedCacheName = `project-mammoth-cache-${localVersion}`;
                     if (!(await caches.has(expectedCacheName))) {
-                        console.warn(`完整性验证失败：记录的版本 ${localVersion} 存在，但找不到对应的缓存 ${expectedCacheName}。准备清理并刷新。`);
                         localStorage.removeItem('sw_installed_version');
                         window.location.reload();
                         return new Promise(() => {});
@@ -444,10 +443,8 @@
                     const response = await fetch('./public-static/version.json', { cache: 'no-store' });
                     const serverConfig = await response.json();
                     const serverVersion = "v" + serverConfig.version;
-                    console.log(`后台检查版本: 本地=${localVersion}, 服务器=${serverVersion}`);
                     
                     if (localVersion !== serverVersion) {
-                        console.log("发现新版本，开始更新...");
                         updateIsPending = true;
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
@@ -467,12 +464,10 @@
                         
                         if (registration && registration.update) {
                             await registration.update();
-                            console.log("Service Worker 更新程序已启动。");
                         }
                         return true;
                     }
                 } catch (error) {
-                    console.error("检查更新失败:", error);
                 }
                 return false;
             }
@@ -486,17 +481,16 @@
                 }
                 
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    if (updateIsPending) {
-                        const loadingScreen = document.getElementById('loading-screen');
-                        if (loadingScreen) {
-                            loadingScreen.addEventListener('transitionend', () => {
-                                window.location.reload();
-                            }, { once: true });
+                    const loadingScreen = document.getElementById('loading-screen');
+                    if (!loadingScreen) return;
 
-                            loadingScreen.classList.add('hidden');
-                        } else {
+                    if (updateIsPending) {
+                        loadingScreen.addEventListener('transitionend', () => {
                             window.location.reload();
-                        }
+                        }, { once: true });
+                        loadingScreen.classList.add('hidden');
+                    } else {
+                        hideLoadingScreen();
                     }
                 });
 
@@ -544,7 +538,6 @@
                         runLoadingAnimation();
                     }
                 }).catch(err => {
-                    console.error("SW 注册失败:", err);
                     hideLoadingScreen();
                 });
             });
