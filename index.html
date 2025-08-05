@@ -78,9 +78,6 @@
             opacity: 0;
             transition: opacity 0.5s ease-in;
         }
-        #app-container {
-            visibility: hidden;
-        }
         @media (max-width: 768px) {
             .apple-logo {
                 width: 45vw;
@@ -396,7 +393,7 @@
         (async function() {
             let updateIsPending = false;
 
-            async function verifyCacheIntegrity() {
+            await (async function() {
                 const localVersion = localStorage.getItem('sw_installed_version');
                 if (localVersion) {
                     const expectedCacheName = `project-mammoth-cache-${localVersion}`;
@@ -406,24 +403,15 @@
                         return new Promise(() => {});
                     }
                 }
-            }
-
-            await verifyCacheIntegrity();
-
-            const showMainContent = () => {
-                const appContainer = document.getElementById('app-container');
-                if (appContainer) {
-                    appContainer.style.visibility = 'visible';
-                    document.body.style.overflow = 'auto';
-                }
-            };
+            })();
 
             const hideLoadingScreen = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (loadingScreen) {
+                    loadingScreen.addEventListener('transitionend', () => {
+                        loadingScreen.remove();
+                    }, { once: true });
                     loadingScreen.classList.add('hidden');
-                    showMainContent();
-                    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
                 }
             };
 
@@ -468,6 +456,7 @@
                         return true;
                     }
                 } catch (error) {
+
                 }
                 return false;
             }
@@ -484,14 +473,16 @@
                     const loadingScreen = document.getElementById('loading-screen');
                     if (!loadingScreen) return;
 
-                    if (updateIsPending) {
-                        loadingScreen.addEventListener('transitionend', () => {
-                            window.location.reload();
-                        }, { once: true });
-                        loadingScreen.classList.add('hidden');
-                    } else {
-                        hideLoadingScreen();
-                    }
+                    setTimeout(() => {
+                        if (updateIsPending) {
+                            loadingScreen.addEventListener('transitionend', () => {
+                                window.location.reload();
+                            }, { once: true });
+                            loadingScreen.classList.add('hidden');
+                        } else {
+                            hideLoadingScreen();
+                        }
+                    }, 500);
                 });
 
                 navigator.serviceWorker.addEventListener('message', event => {
