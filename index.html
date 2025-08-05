@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>开源的 Apple 苹果产品参数中心 / Project Mammoth</title>
+    <title>开源的 Apple 苹果产品参数中心 / infodrop.cn</title>
     
     <script>
+        // 脚本的初始部分保持不变
         if (localStorage.getItem('sw_installed_version')) {
             document.documentElement.className += ' is-preloaded';
         }
@@ -91,6 +92,7 @@
     </style>
     
     <script>
+        // 浏览器兼容性检查部分保持不变
         (function() {
             window.isBrowserSupported = true;
             function getBrowserInfo() {
@@ -286,7 +288,7 @@
                 <a href="#">
                     <img src="./public-static/img/logo.jpg" height="30px" width="30px">
                 </a>
-                <div class="top_title" id="top_title">Project Mammoth</div>
+                <div class="top_title" id="top_title">infodrop.cn</div>
             </div>
             <div class="top_right_menu">
                 <a href="https://www.github.com/CelestialSayuki/OpenHubweb">源码</a>
@@ -317,11 +319,10 @@
             <div class="title">
                 <strong>未来工作</strong>
                 <br>
-                <span>说明：针对 Project Mammoth 的改造，以求与hubweb功能形成区分。</span>
+                <span>说明：针对 infodrop.cn 的改造，以求更加完美的体验。</span>
             </div>
             <div class="card">
                 <ul>
-                    <li><span>在网页内进行入群审核</span></li>
                     <li><span>支持各种测试提交成绩</span></li>
                     <li><span>提供部分测试工具的下载</span></li>
                 </ul>
@@ -333,18 +334,19 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
+                    <li><span>2025.08.05：删除最小化功能，增加网页缓存</span></li>
                     <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
                     <li><span>2025.08.01：新增原生缓存测试软件</span></li>
                     <li><span>2025.07.31：新增启动界面</span></li>
                     <li><span>2025.07.30：新增 Speedometer 测试</span></li>
-                    <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
-                    <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
-                    <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
                     <li class="more-btn-li">
                         <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
                     </li>
                 </ul>
                 <template id="more-updates-template">
+                    <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
+                    <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
+                    <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
                     <li><span>2025.07.10：删除设备发售价格，官网序列号查询</span></li>
                     <li><span>2025.07.08：重写了比较页面</span></li>
                     <li><span>2025.07.07：移除依赖 hubweb.cn 的支持文件</span></li>
@@ -395,7 +397,28 @@
     <script type="module" src="public-static/js/macui.js"></script>
 
     <script>
-        (function() {
+        (async function() { // IIFE an async function to use await at the top level
+            
+            // ==================== 核心改动：缓存完整性验证 ====================
+            async function verifyCacheIntegrity() {
+                const localVersion = localStorage.getItem('sw_installed_version');
+                if (localVersion) {
+                    const expectedCacheName = `project-mammoth-cache-${localVersion}`;
+                    if (!(await caches.has(expectedCacheName))) {
+                        console.warn(`完整性验证失败：记录的版本 ${localVersion} 存在，但找不到对应的缓存 ${expectedCacheName}。准备清理并刷新。`);
+                        localStorage.removeItem('sw_installed_version');
+                        // 强制刷新以进入首次加载流程
+                        window.location.reload();
+                        // 返回一个永远不会解决的 Promise 来暂停后续所有脚本执行
+                        return new Promise(() => {});
+                    }
+                }
+            }
+
+            // 在执行任何操作前，首先进行完整性验证
+            await verifyCacheIntegrity();
+            // ===============================================================
+
             const showMainContent = () => {
                 const appContainer = document.getElementById('app-container');
                 if (appContainer) {
@@ -413,58 +436,111 @@
                 }
             };
 
-            const runLoadingAnimation = (isSimulated = false) => {
+            const runLoadingAnimation = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (!loadingScreen) return;
                 const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
-                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
                 loadingScreen.style.display = 'flex';
                 progressBarContainer.style.opacity = '1';
-                if (isSimulated && progressBarFill) {
-                    setTimeout(() => {
-                        progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
-                        progressBarFill.style.width = '100%';
-                    }, 100);
-                    setTimeout(hideLoadingScreen, 1500);
-                }
             };
+            
+            async function checkForUpdates(registration) {
+                const localVersion = localStorage.getItem('sw_installed_version');
+                if (!localVersion) return false;
+
+                try {
+                    const response = await fetch('./public-static/version.json', { cache: 'no-store' });
+                    const serverConfig = await response.json();
+                    const serverVersion = "v" + serverConfig.version;
+                    console.log(`后台检查版本: 本地=${localVersion}, 服务器=${serverVersion}`);
+                    
+                    if (localVersion !== serverVersion) {
+                        console.log("发现新版本，开始更新...");
+                        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+                        if (!isStandalone) {
+                            const loadingScreen = document.getElementById('loading-screen');
+                            if (loadingScreen) {
+                                loadingScreen.classList.remove('hidden');
+                                document.documentElement.classList.remove('is-preloaded');
+                                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
+                                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
+                                if(progressBarFill) progressBarFill.style.width = '0%';
+                                if(progressBarContainer) progressBarContainer.style.opacity = '1';
+                            }
+                        }
+
+                        localStorage.removeItem('sw_installed_version');
+                        
+                        if (registration && registration.update) {
+                            await registration.update();
+                            console.log("Service Worker 更新程序已启动。");
+                        }
+                        return true;
+                    }
+                } catch (error) {
+                    console.error("检查更新失败:", error);
+                }
+                return false;
+            }
 
             document.addEventListener('DOMContentLoaded', () => {
                 if (window.isBrowserSupported === false) return;
-                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                
+                // 完整性检查已在顶部完成，这里的 isPreloaded 判断现在是可靠的
                 const isPreloaded = document.documentElement.classList.contains('is-preloaded');
-                if (isStandalone) {
-                    runLoadingAnimation(true);
-                } else if (isPreloaded) {
-                    showMainContent();
-                    if ('serviceWorker' in navigator) {
-                        navigator.serviceWorker.register('./sw.js');
-                    }
-                } else if ('serviceWorker' in navigator) {
-                    runLoadingAnimation(false);
-                    const progressBarFill = document.querySelector('.progress-bar-fill');
-                    navigator.serviceWorker.addEventListener('message', event => {
-                        if (!event.data) return;
-                        if (event.data.type === 'CACHE_PROGRESS') {
-                            const { percent } = event.data.payload;
-                            if (progressBarFill) {
-                                progressBarFill.style.transition = 'width 0.1s linear';
-                                progressBarFill.style.width = `${percent}%`;
-                            }
-                        }
-                        if (event.data.type === 'CACHE_COMPLETE') {
-                            if (progressBarFill) progressBarFill.style.width = '100%';
-                            localStorage.setItem('sw_installed_version', event.data.payload.version);
-                            setTimeout(hideLoadingScreen, 500);
-                        }
-                    });
-                    navigator.serviceWorker.register('./sw.js').catch(err => {
-                        console.error("SW 注册失败:", err);
-                        hideLoadingScreen();
-                    });
-                } else {
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                
+                if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
+                    return;
                 }
+                
+                navigator.serviceWorker.addEventListener('message', event => {
+                    if (!event.data) return;
+                    const progressBarFill = document.querySelector('.progress-bar-fill');
+                    if (!progressBarFill) return;
+
+                    if (event.data.type === 'CACHE_PROGRESS') {
+                        const { percent } = event.data.payload;
+                        progressBarFill.style.transition = 'none'; // 对于快速更新，取消动画直接显示进度
+                        progressBarFill.style.width = `${percent}%`;
+                    }
+                    if (event.data.type === 'CACHE_COMPLETE') {
+                        progressBarFill.style.transition = 'width 0.2s ease-out'; // 最后完成时加个动画
+                        progressBarFill.style.width = '100%';
+                        localStorage.setItem('sw_installed_version', event.data.payload.version);
+                        setTimeout(hideLoadingScreen, 500);
+                    }
+                });
+
+                navigator.serviceWorker.register('./sw.js').then(async (registration) => {
+                    if (isStandalone) {
+                        runLoadingAnimation();
+                        const progressBarFill = document.querySelector('.progress-bar-fill');
+                        setTimeout(() => {
+                            if (progressBarFill) {
+                               progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
+                               progressBarFill.style.width = '100%';
+                            }
+                        }, 100);
+
+                        const updateStarted = await checkForUpdates(registration);
+                        if (!updateStarted) {
+                            setTimeout(hideLoadingScreen, 1500);
+                        }
+                    } else if (isPreloaded) {
+                        const updateStarted = await checkForUpdates(registration);
+                        if (!updateStarted) {
+                            hideLoadingScreen();
+                        }
+                    } else {
+                        runLoadingAnimation();
+                    }
+                }).catch(err => {
+                    console.error("SW 注册失败:", err);
+                    hideLoadingScreen();
+                });
             });
         })();
     </script>

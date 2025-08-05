@@ -117,7 +117,6 @@
   "./apple-silicon/chip-a/data.json",
   "./apple-silicon/chip-s/data.json",
   "./apple-silicon/chip-t/data.json",
-  "./public-static/version.json",
   "./public-static/css/comparison-table-ui.css",
   "./public-static/css/new.css",
   "./public-static/js/macui.js",
