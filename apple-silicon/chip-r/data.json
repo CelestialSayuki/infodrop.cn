@@ -1,0 +1,87 @@
+{
+  "title": "苹果 R 系列参数对比",
+  "lastUpdated": "2025.06.12",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" }
+      ]
+    },
+    {
+      "groupName": "概要",
+      "features": [
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "transistorCount", "name": "晶体管数" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "CPU",
+      "features": [
+        { "id": "cpuSpec", "name": "CPU规格" },
+        { "id": "coreArchitecture", "name": "内核架构" }
+      ]
+    },
+    {
+      "groupName": "缓存",
+      "features": [
+        { "id": "l2Cache", "name": "L2共享缓存" },
+        { "id": "l3Slc", "name": "L3/SLC" }
+      ]
+    },
+    {
+      "groupName": "接口",
+      "features": [
+        { "id": "internalIo", "name": "内置I/O" }
+      ]
+    },
+    {
+      "groupName": "信号",
+      "features": [
+        { "id": "signalType", "name": "信号类型" },
+        { "id": "processingSpeed", "name": "处理速度" }
+      ]
+    },
+    {
+      "groupName": "带宽",
+      "features": [
+        { "id": "bandwidth", "name": "通信带宽" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "R1",
+      "generation": "(APL1W08-T6500)",
+      "image": "img/R1_product.webp",
+      "images": {
+        "宣传图": "img/R1_product.webp",
+        "芯片图": "img/R1.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图"],
+        "releaseDate": "2023.06",
+        "processTech": "TSMC N5",
+        "transistorCount": "-",
+        "dieSize": "8.18×11.35 (92.84mm²)",
+        "cpuSpec": "<div class=\"li-div-cpu li-div-cpu-one li-div-cpu-b\">LPE-Core ×4</div>",
+        "coreArchitecture": "64-bit ARMv8.4-A",
+        "l2Cache": "共享 256KB ×2 组",
+        "l3Slc": "20MB System Level Cache",
+        "internalIo": "Camera Serial Interface ×26<br>PCIe ×(1+2) Lines",
+        "signalType": "相机、各传感器及麦克风输入",
+        "processingSpeed": "12毫秒 (从信号采集到显示)",
+        "bandwidth": "256GB/s",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">Apple Vision Pro</div>"
+      }
+    }
+  ]
+}

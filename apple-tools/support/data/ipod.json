@@ -1,0 +1,35 @@
+{
+    "osVersions": [
+        { "id": "ios_1", "name": "iOS 1", "icon": "./apple-tools/support/img/ios_1.webp" },
+        { "id": "ios_2", "name": "iOS 2", "icon": "./apple-tools/support/img/ios_2.webp" },
+        { "id": "ios_3", "name": "iOS 3", "icon": "./apple-tools/support/img/ios_3.webp" },
+        { "id": "ios_4", "name": "iOS 4", "icon": "./apple-tools/support/img/ios_4.webp" },
+        { "id": "ios_5", "name": "iOS 5", "icon": "./apple-tools/support/img/ios_5.webp" },
+        { "id": "ios_6", "name": "iOS 6", "icon": "./apple-tools/support/img/ios_6.webp" },
+        { "id": "ios_7", "name": "iOS 7", "icon": "./apple-tools/support/img/ios_7.webp" },
+        { "id": "ios_8", "name": "iOS 8", "icon": "./apple-tools/support/img/ios_8.webp" },
+        { "id": "ios_9", "name": "iOS 9", "icon": "./apple-tools/support/img/ios_9.webp" },
+        { "id": "ios_10", "name": "iOS 10", "icon": "./apple-tools/support/img/ios_10.webp" },
+        { "id": "ios_11", "name": "iOS 11", "icon": "./apple-tools/support/img/ios_11.webp" },
+        { "id": "ios_12", "name": "iOS 12", "icon": "./apple-tools/support/img/ios_12.webp" },
+        { "id": "ios_13", "name": "iOS 13", "icon": "./apple-tools/support/img/ios_13.webp" },
+        { "id": "ios_14", "name": "iOS 14", "icon": "./apple-tools/support/img/ios_14.webp" },
+        { "id": "ios_15", "name": "iOS 15", "icon": "./apple-tools/support/img/ios_15.webp" }
+    ],
+    "headers": [
+        { "key": "model", "text": "机型", "width": "14%" },
+        { "key": "chip", "text": "处理器", "width": "6%" },
+        { "key": "date", "text": "发布时间", "width": "6%" },
+        { "key": "identifier", "text": "标识符", "width": "11%" },
+        { "key": "os", "text": "系统支持版本" }
+    ],
+    "devices": [
+        { "model": "iPod touch", "chip": "S5L8900", "date": "2007.09", "identifier": "iPod1,1", "supportedOS": ["ios_1", "ios_2", "ios_3"] },
+        { "model": "iPod touch (2nd generation)", "chip": "S5L8720", "date": "2008.09", "identifier": "iPod2,1", "supportedOS": ["ios_2", "ios_3", "ios_4"] },
+        { "model": "iPod touch (3rd generation)", "chip": "S5L8922", "date": "2009.09", "identifier": "iPod3,1", "supportedOS": ["ios_3", "ios_4", "ios_5", "ios_6"] },
+        { "model": "iPod touch (4th generation)", "chip": "A4", "date": "2010.09", "identifier": "iPod4,1", "supportedOS": ["ios_4", "ios_5", "ios_6", "ios_7"], "special": {"ios_7": "grayscale"} },
+        { "model": "iPod touch (5th generation)", "chip": "A5", "date": "2012.09", "identifier": "iPod5,1", "supportedOS": ["ios_6", "ios_7", "ios_8", "ios_9"] },
+        { "model": "iPod touch (6th generation)", "chip": "A8", "date": "2015.07", "identifier": "iPod7,1", "supportedOS": ["ios_8", "ios_9", "ios_10", "ios_11", "ios_12"] },
+        { "model": "iPod touch (7th generation)", "chip": "A10 Fusion", "date": "2019.05", "identifier": "iPod9,1", "supportedOS": ["ios_12", "ios_13", "ios_14", "ios_15"] }
+    ]
+}

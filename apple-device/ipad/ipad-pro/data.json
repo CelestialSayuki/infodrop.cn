@@ -1,0 +1,604 @@
+{
+  "title": "苹果 iPad Pro 参数对比",
+  "lastUpdated": "2025.04.14",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "osSupport", "name": "支持系统" },
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" },
+        { "id": "arLink", "name": "增强现实" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "chip", "name": "芯片" },
+        { "id": "ramRom", "name": "RAM/ROM" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "id": "display", "name": "屏幕参数" },
+        { "id": "resolution", "name": "分辨率" },
+        { "id": "refreshRate", "name": "刷新率" },
+        { "id": "brightness", "name": "亮度(nits)" },
+        { "id": "colorGamut", "name": "色彩" }
+      ]
+    },
+    {
+      "groupName": "摄像头",
+      "features": [
+        { "id": "rearCamera", "name": "后置摄像头" },
+        { "id": "frontCamera", "name": "前置摄像头" },
+        { "id": "lidar", "name": "激光雷达" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "pencilSupport", "name": "笔" },
+        { "id": "wiredInterface", "name": "有线接口" },
+        { "id": "cellular", "name": "基带(蜂窝版)" },
+        { "id": "wifi", "name": "无线局域网" },
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "感应器",
+      "features": [
+        { "id": "unlockMethod", "name": "解锁方式" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "id": "batteryCapacity", "name": "电池容量" },
+        { "id": "batteryLife", "name": "续航时长" }
+      ]
+    },
+    {
+      "groupName": "音频",
+      "features": [
+        { "id": "audioIO", "name": "输入输出" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "iPad Pro 13 英寸",
+      "generation": "(M4)",
+      "image": "img/ipad-pro-11-inch-or-13-inch-m4.webp",
+      "data": {
+        "slogan": "磅礴的薄",
+        "releaseDate": "2024.05.07",
+        "osSupport": "iPadOS 17 ~ 最新",
+        "modelId": "iPad16,5 / iPad16,6",
+        "colors": [
+          { "name": "深空黑色", "hex": "#2e2c2e" },
+          { "name": "银色", "hex": "#e3e4e5" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_13in_black_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空黑色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_13in_silver_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">银色</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(3/4P+6E+10GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR5X<br>256G、512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR5X<br>1T、2T</div>",
+        "display": "13\" 双层串联 OLED",
+        "resolution": "2752×2064, 264ppi",
+        "refreshRate": "10-120Hz ProMotion",
+        "brightness": "1000(典型), 1600(HDR)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "lidar": "IMX591 dToF 距离感应",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "Qualcomm X70M",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "38.99Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×4 + 扬声器系统 ×4",
+        "dimensionsWeight": "215.5×281.6×5.1, 579/582g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/119891\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 11 英寸",
+      "generation": "(M4)",
+      "image": "img/ipad-pro-11-inch-or-13-inch-m4.webp",
+      "data": {
+        "slogan": "磅礴的薄",
+        "releaseDate": "2024.05.07",
+        "osSupport": "iPadOS 17 ~ 最新",
+        "modelId": "iPad16,3 / iPad16,4",
+        "colors": [
+          { "name": "深空黑色", "hex": "#2e2c2e" },
+          { "name": "银色", "hex": "#e3e4e5" }
+        ],
+        "arLink": "-",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M4<br>(3/4P+6E+10GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR5X<br>256G、512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR5X<br>1T、2T</div>",
+        "display": "11\" 双层串联 OLED",
+        "resolution": "2420×1668, 264ppi",
+        "refreshRate": "10-120Hz ProMotion",
+        "brightness": "1000(典型), 1600(HDR)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "lidar": "IMX591 dToF 距离感应",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "Qualcomm X70M",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "31.29Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×4 + 扬声器 ×4",
+        "dimensionsWeight": "177.5×249.7×5.3, 444/446g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/119892\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "(第 6 代)",
+      "image": "img/ipad_pro_129_6.webp",
+      "data": {
+        "slogan": "由 M2 强势驱动",
+        "releaseDate": "2022.10.18",
+        "osSupport": "iPadOS 16 ~ 最新",
+        "modelId": "iPad14,5 / iPad14,6",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_12_9_6gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M2<br>(4P+4E+10GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR5<br>128/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR5<br>1T、2T</div>",
+        "display": "12.9\" Liquid mini-LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型), 1600(HDR)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "40.88Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "214.9×280.6×6.4, 682/684g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111841\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 11 英寸",
+      "generation": "(第 4 代)",
+      "image": "img/ipad_pro_11_4.webp",
+      "data": {
+        "slogan": "由 M2 强势驱动",
+        "releaseDate": "2022.10.18",
+        "osSupport": "iPadOS 16 ~ 最新",
+        "modelId": "iPad14,3 / iPad14,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_11in_4gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M2<br>(4P+4E+10GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR5<br>128/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR5<br>1T、2T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2388×1668, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "28.65Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "178.5×247.6×5.9, 466/468g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111842\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "(第 5 代)",
+      "image": "img/ipad_pro_129_5.webp",
+      "data": {
+        "slogan": "终极 iPad 体验",
+        "releaseDate": "2021.04.21",
+        "osSupport": "iPadOS 14 ~ 最新",
+        "modelId": "iPad13,8 / 13,9 / 13,10 / 13,11",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_12_9_5th_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M1<br>(4P+4E+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR4X<br>128/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR4X<br>1T、2T</div>",
+        "display": "12.9\" Liquid mini-LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型), 1600(HDR)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "Qualcomm X55M",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "40.88Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "214.9×280.6×6.4, 682/684g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111896\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 11 英寸",
+      "generation": "(第 3 代)",
+      "image": "img/ipad_pro_11_3.webp",
+      "data": {
+        "slogan": "终极 iPad 体验",
+        "releaseDate": "2021.04.21",
+        "osSupport": "iPadOS 14 ~ 最新",
+        "modelId": "iPad13,4 / 13,5 / 13,6 / 13,7",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_11in_3rd_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M1<br>(4P+4E+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">8G LPDDR4X<br>128/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">16G LPDDR4X<br>1T、2T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2388×1668, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 40Gb/s)",
+        "cellular": "Qualcomm X55M",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "28.65Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "178.5×247.6×5.9, 466/468g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111897\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "(第 4 代)",
+      "image": "img/ipad_pro_129_4.webp",
+      "data": {
+        "slogan": "你的下一台电脑，何必是电脑。",
+        "releaseDate": "2020.03.18",
+        "osSupport": "iPadOS 13 ~ 最新",
+        "modelId": "iPad8,11 / iPad8,12",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_pro_12_9_4th_Gen_magic_keyboard_ios13.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12Z Bionic<br>(4P+4E+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6G LPDDR4X<br>128G、256G、512G、1T</div>",
+        "display": "12.9\" Liquid LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "Intel XMM7660",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "36.71Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "214.9×280.6×5.9, 641/643g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111977\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 11 英寸",
+      "generation": "(第 2 代)",
+      "image": "img/ipad_pro_11_2.webp",
+      "data": {
+        "slogan": "你的下一台电脑，何必是电脑。",
+        "releaseDate": "2020.03.18",
+        "osSupport": "iPadOS 13 ~ 最新",
+        "modelId": "iPad8,9 / iPad8,10",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12Z Bionic<br>(4P+4E+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6G LPDDR4X<br>128G、256G、512G、1T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2388×1668, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>\n\t\t\t\t\t\t\t超广角：1000W 像素 ƒ/2.4",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "IMX590 dToF 距离感应",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "Intel XMM7660",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "28.65Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "178.5×247.6×5.9, 471/473g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/118452\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "(第 3 代)",
+      "image": "img/ipad_pro_129_3.webp",
+      "data": {
+        "slogan": "新一代 iPad Pro，全面新生。",
+        "releaseDate": "2018.10.31",
+        "osSupport": "iOS 12 ~ 最新",
+        "modelId": "iPad8,5 / 8,6 / 8,7 / 8,8",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12X Bionic<br>(4P+4E+7GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">4G LPDDR4X<br>64/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">6G LPDDR4X<br>1T</div>",
+        "display": "12.9\" Liquid LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "Intel XMM7560",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "36.71Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "214.9×280.6×5.9, 631/633g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111979\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 11 英寸",
+      "generation": "(第 1 代)",
+      "image": "img/ipad_pro_11_1.webp",
+      "data": {
+        "slogan": "新一代 iPad Pro，全面新生。",
+        "releaseDate": "2018.10.31",
+        "osSupport": "iOS 12 ~ 最新",
+        "modelId": "iPad8,1 / 8,2 / 8,3 / 8,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12X Bionic<br>(4P+4E+7GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-a\">4G LPDDR4X<br>64/256/512G</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">6G LPDDR4X<br>1T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2388×1668, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "Intel XMM7560",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "面容 ID",
+        "batteryCapacity": "29.37Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×5 + 扬声器 ×4",
+        "dimensionsWeight": "178.6×247.6×5.9, 468g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111974\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "(第 2 代)",
+      "image": "img/ipad_pro_129_2.webp",
+      "data": {
+        "slogan": "不止能做好，还能做到更好。",
+        "releaseDate": "2017.06.06",
+        "osSupport": "iOS 10 ~ iPadOS 17",
+        "modelId": "iPad7,1 / iPad7,2",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10X Fusion<br>(3P+3E+12GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4<br>64G、256G、512G</div>",
+        "display": "12.9\" LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9645",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "41Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×4",
+        "dimensionsWeight": "220.6×305.7×6.9, 677/692g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111964\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 10.5 英寸",
+      "generation": "",
+      "image": "img/ipad_pro_105_2.webp",
+      "data": {
+        "slogan": "不止能做好，还能做到更好。",
+        "releaseDate": "2017.06.06",
+        "osSupport": "iOS 10 ~ iPadOS 17",
+        "modelId": "iPad7,3 / iPad7,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" },
+          { "name": "玫瑰金色", "hex": "#ecc6c1" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10X Fusion<br>(3P+3E+12GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4<br>64G、256G、512G</div>",
+        "display": "10.5\" LED",
+        "resolution": "2224×1668, 264ppi",
+        "refreshRate": "24-120Hz ProMotion",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9645",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "30.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×4",
+        "dimensionsWeight": "174.1×250.6×6.1, 469/477g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111927\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 9.7 英寸",
+      "generation": "",
+      "image": "img/ipad_pro_97_1.webp",
+      "data": {
+        "slogan": "你的下一台电脑，现更以两种尺寸呈现",
+        "releaseDate": "2016.03.22",
+        "osSupport": "iOS 9 ~ iPadOS 16",
+        "modelId": "iPad6,3 / iPad6,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" },
+          { "name": "玫瑰金色", "hex": "#ecc5c1" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A9X<br>(2P+12GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2G LPDDR4<br>32G、128G、256G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "30Hz、60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "主摄：1200W 像素 ƒ/2.2",
+        "frontCamera": "500W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9635",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "27.5Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×4",
+        "dimensionsWeight": "169.5×240×6.1, 437/444g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111965\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Pro 12.9 英寸",
+      "generation": "",
+      "image": "img/ipad_pro_129_1.webp",
+      "data": {
+        "slogan": "轻，薄，磅礴。",
+        "releaseDate": "2015.09.10",
+        "osSupport": "iOS 9 ~ iPadOS 16",
+        "modelId": "iPad6,7 / iPad6,8",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A9X<br>(2P+12GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4<br>32G、128G、256G</div>",
+        "display": "12.9\" LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "30Hz、60Hz",
+        "brightness": "400(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "主摄：800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "lidar": "/",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9625",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "38.5Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×4",
+        "dimensionsWeight": "220.6×305.7×6.9, 713/723g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112024\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple System Support</title>
+    <style>
+        .system-support-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 15px 10px 25px 10px; font-size: 14px; }
+        .system-support-wrapper h1 { font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; padding-left: 15px; }
+        .system-support-wrapper .lead { padding: 0 15px 15px; margin-bottom: 1rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
+        .system-support-wrapper h4 { font-size: 1.05rem; margin-bottom: 1rem; padding-left: 15px; }
+        .system-support-wrapper .tab-link { color: #6c757d; font-weight: normal; text-decoration: none; cursor: pointer; transition: color 0.2s ease-in-out; }
+        .system-support-wrapper .tab-link:hover { color: #000; }
+        .system-support-wrapper .tab-link.active { color: #000; font-weight: bold; }
+        .system-support-wrapper #sub-nav-container { margin-bottom: 1rem; font-size: 0.9rem; padding-left: 15px; }
+        .system-support-wrapper .table-responsive { width: 100%; overflow-x: auto; overflow-y: auto; transition: opacity 0.2s ease-in-out;}
+        .system-support-wrapper table { width: 100%; border-collapse: collapse; }
+        .system-support-wrapper table th, .system-support-wrapper table td { padding: 0.7rem 0.75rem; vertical-align: middle; text-align: center; border-top: 1px solid #dee2e6; font-size: 13px; }
+        .system-support-wrapper table th:first-child, .system-support-wrapper table td:first-child { text-align: left; }
+        .system-support-wrapper thead { background-color: rgba(248, 249, 250, 0.95); will-change: transform; position: sticky; top: 0; z-index: 1;}
+        .system-support-wrapper thead th { border-bottom: 2px solid #dee2e6; font-weight: 600; }
+        .system-support-wrapper tbody { border-top: 2px solid #dee2e6; }
+        .system-support-wrapper .glow-border, .system-support-wrapper .grayscale-border { border: none; }
+        .system-support-wrapper .glow-border { box-shadow: 0 0 8px 2px rgb(46 188 255 / 70%), 0 0 8px 2px rgb(253 0 113 / 70%); }
+        .system-support-wrapper .grayscale-border { box-shadow: 0 0 8px 2px rgb(150 150 150 / 60%); }
+        .system-support-wrapper .os-support-cell { white-space: nowrap; text-align: left; }
+        .system-support-wrapper .os-icon, .system-support-wrapper .img_null { width: 32px; height: 32px; margin: 1px 2px; vertical-align: middle; display: inline-block; border-radius: 7px; }
+        .system-support-wrapper .os-icon.round { border-radius: 50%; }
+        .system-support-wrapper .os-icon.tvos-image-shape, .system-support-wrapper .img_null_other { width: 42px; height: 32px; border-radius: 7px; display: inline-block; vertical-align: middle; margin: 1px 2px; }
+        .system-support-wrapper .img_null_other_g { line-height: 32px; background-color: rgba(100, 100, 100, 0.1); color: #7a7a7a; font-weight: 500; font-size: 10px; border-radius: 7px; text-align: center; display: inline-block; vertical-align: middle; margin: 1px 2px; }
+        .system-support-wrapper .img_null, .system-support-wrapper .img_null_other, .system-support-wrapper .img_null_other_g { border: 1px dashed rgba(150, 150, 150, 0.5); }
+        .macos-window.theme-dark .system-support-wrapper { background-color: var(--dark-glass-bg); }
+        .macos-window.theme-dark .system-support-wrapper h1 { color: var(--dark-text-secondary); }
+        .macos-window.theme-dark .system-support-wrapper .lead { color: var(--dark-text-secondary); border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+        .macos-window.theme-dark .system-support-wrapper .tab-link { color: #888; }
+        .macos-window.theme-dark .system-support-wrapper .tab-link:hover { color: #ddd; }
+        .macos-window.theme-dark .system-support-wrapper .tab-link.active { color: #fff; }
+        .macos-window.theme-dark .system-support-wrapper thead { background-color: rgba(29, 29, 29, 0.95); }
+        .macos-window.theme-dark .system-support-wrapper table th, .macos-window.theme-dark .system-support-wrapper table td, .macos-window.theme-dark .system-support-wrapper tbody { border-color: #3a3a3a; }
+        .macos-window.theme-dark .system-support-wrapper .img_null_other_g { background-color: rgba(255, 255, 255, 0.15); color: #999; }
+    </style>
+</head>
+<body>
+<div class="system-support-wrapper">
+    <h1>Apple System Support</h1>
+    <p class="lead">本页收集了 Apple 设备支持的操作系统信息，图标底部有渐变光晕效果表示该款设备支持 Apple Intelligence，图标底部有灰色光晕效果表示该款设备支持由第三方（iBoot 漏洞, OS X Patcher, macOS Patcher, Opencore Legacy Patcher）提供。</p>
+
+    <h4 id="main-nav">
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="ios">iPhone</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="ipados">iPad</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="macos">Mac (Intel & Apple Silicon)</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="ipod">iPod touch</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="watchos">Watch</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="tvos">Apple TV</a> /
+        <a href="#" class="tab-link" data-tab-group="main" data-tab-target="visionos">Apple Vision</a>
+    </h4>
+
+    <div id="sub-nav-container"></div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead id="data-table-head"></thead>
+            <tbody id="data-table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    async function fetchData(osKey) {
+        try {
+            const response = await fetch(`./apple-tools/support/data/${osKey}.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error(`Could not fetch data for ${osKey}:`, error);
+            document.getElementById('data-table-body').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;">无法加载 ${osKey}.json。请按 F12 键查看控制台错误。</td></tr>`;
+            return null;
+        }
+    }
+
+    function createDeviceRow(device, allOsVersions, headers, currentOsKey) {
+        const cells = [];
+        const supportedSet = new Set(device.supportedOS || []);
+        for (const header of headers) {
+            if (header.key === 'os') {
+                let osIconsHtml = allOsVersions.map(os_version => {
+                    let additionalClass = device.iconClass || '';
+                    let hasSpecial = device.special && device.special[os_version.id];
+                    let baseIconClass = 'os-icon';
+                    let baseNullClass = 'img_null';
+                    if (currentOsKey === 'tvos') {
+                        const osIdPrefix = os_version.id.split('_')[0];
+                        if (osIdPrefix === 'tvos') {
+                            baseIconClass = 'os-icon tvos-image-shape';
+                            baseNullClass = 'img_null_other';
+                        }
+                    }
+                    if (hasSpecial) {
+                        if (device.special[os_version.id] === 'glow') additionalClass += ' glow-border';
+                        if (device.special[os_version.id] === 'grayscale') additionalClass += ' grayscale-border';
+                    }
+                    if (supportedSet.has(os_version.id)) {
+                        return os_version.icon ?
+                            `<img src="${os_version.icon}" title="${os_version.name || os_version.id}" class="${baseIconClass} ${additionalClass.trim()}">` :
+                            `<div class="${baseNullClass} ${additionalClass.trim()} img_null_other_g">${os_version.name}</div>`;
+                    } else {
+                        return `<div class="${baseNullClass}"></div>`;
+                    }
+                }).join('');
+                cells.push(`<td class="os-support-cell">${osIconsHtml}</td>`);
+            } else {
+                cells.push(`<td>${device[header.key] || ''}</td>`);
+            }
+        }
+        return `<tr>${cells.join('')}</tr>`;
+    }
+
+    function renderTable(osKey, categoryData, subCategoryKey = null) {
+        const tableHead = document.getElementById('data-table-head');
+        const tableBody = document.getElementById('data-table-body');
+        if (!tableHead || !tableBody || !categoryData) return;
+
+        // Removed domCache check
+
+        const headHtml = '<tr>' + categoryData.headers.map(h => `<th width="${h.width || ''}">${h.text}</th>`).join('') + '</tr>';
+        let devicesToRender = [];
+        if (categoryData.devices) {
+            devicesToRender = categoryData.devices;
+        } else if (categoryData.categories) {
+            const key = subCategoryKey || Object.keys(categoryData.categories)[0];
+            if (categoryData.categories[key] && categoryData.categories[key].devices) {
+                devicesToRender = categoryData.categories[key].devices;
+            }
+        }
+        const bodyHtml = devicesToRender.map(device => {
+            if (osKey === 'watchos' || osKey === 'visionos') device.iconClass = 'round';
+            return createDeviceRow(device, categoryData.osVersions, categoryData.headers, osKey);
+        }).join('');
+
+        tableHead.innerHTML = headHtml;
+        tableBody.innerHTML = bodyHtml;
+    }
+    
+    function adjustTableHeight() {
+        const tableContainer = document.querySelector('.table-responsive');
+        if (!tableContainer) return;
+
+        const topOffset = tableContainer.getBoundingClientRect().top;
+        const bottomPadding = 60;
+        const availableHeight = window.innerHeight - topOffset - bottomPadding;
+
+        tableContainer.style.maxHeight = Math.max(250, availableHeight) + 'px';
+    }
+
+    function renderSubNav(osKey, categoryData) {
+        const subNavContainer = document.getElementById('sub-nav-container');
+        if (!subNavContainer) return;
+        subNavContainer.innerHTML = '';
+        if (categoryData && categoryData.categories) {
+            const links = Object.keys(categoryData.categories).map((key, index) => {
+                const category = categoryData.categories[key];
+                return `<a href="#" class="tab-link ${index === 0 ? 'active' : ''}" data-tab-group="${osKey}" data-tab-target="${key}">${category.name}</a>`;
+            }).join(' / ');
+            subNavContainer.innerHTML = `<span>${links}</span>`;
+        }
+    }
+    async function unifiedClickHandler(event) {
+        const link = event.target.closest('.tab-link');
+        if (!link || link.classList.contains('active')) {
+            event.preventDefault();
+            return;
+        }
+
+        event.preventDefault();
+        
+        const tableContainer = document.querySelector('.table-responsive');
+
+        tableContainer.style.opacity = 0;
+
+        await new Promise(resolve => setTimeout(resolve, 200));
+
+        const group = link.dataset.tabGroup;
+        const target = link.dataset.tabTarget;
+
+        document.querySelectorAll(`.tab-link[data-tab-group="${group}"]`).forEach(el => el.classList.remove('active'));
+        link.classList.add('active');
+
+        document.getElementById('data-table-head').innerHTML = '';
+        document.getElementById('data-table-body').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;">正在加载...</td></tr>`;
+
+        const osKey = group === 'main' ? target : group;
+        const subKey = group === 'main' ? null : target;
+        
+        const categoryData = await fetchData(osKey);
+
+        if (categoryData) {
+            if (group === 'main') {
+                renderSubNav(osKey, categoryData);
+            }
+            renderTable(osKey, categoryData, subKey);
+        }
+        
+        tableContainer.style.opacity = 1;
+        adjustTableHeight();
+    }
+
+    async function initializePage() {
+        document.getElementById('main-nav').addEventListener('click', unifiedClickHandler);
+        document.getElementById('sub-nav-container').addEventListener('click', unifiedClickHandler);
+
+        const tableContainer = document.querySelector('.table-responsive');
+        tableContainer.style.opacity = 0;
+
+        const defaultTab = document.querySelector('.tab-link[data-tab-target="ios"]');
+        if (defaultTab) {
+            const target = defaultTab.dataset.tabTarget;
+            defaultTab.classList.add('active');
+
+            document.getElementById('data-table-body').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;">正在加载...</td></tr>`;
+            
+            const categoryData = await fetchData(target);
+            if (categoryData) {
+                renderSubNav(target, categoryData);
+                renderTable(target, categoryData, null);
+                tableContainer.style.opacity = 1;
+            }
+        }
+        adjustTableHeight();
+    }
+    window.addEventListener('resize', adjustTableHeight);
+    initializePage();
+</script>
+</body>
+</html>

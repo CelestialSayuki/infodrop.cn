@@ -1,0 +1,265 @@
+{
+  "title": "苹果 iPod touch 参数对比",
+  "lastUpdated": "2025.04.09",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "osSupport", "name": "支持系统" },
+        { "id": "modelId", "name": "型号标识" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "chip", "name": "芯片" },
+        { "id": "ramRom", "name": "RAM/ROM" },
+        { "id": "audioProcessor", "name": "音频处理器" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "id": "display", "name": "屏幕参数" },
+        { "id": "resolution", "name": "分辨率" },
+        { "id": "contrastRatio", "name": "对比度" },
+        { "id": "brightness", "name": "最大亮度" }
+      ]
+    },
+    {
+      "groupName": "摄像头",
+      "features": [
+        { "id": "rearCamera", "name": "后置摄像头" },
+        { "id": "frontCamera", "name": "前置摄像头" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "id": "batteryCapacity", "name": "电池容量" },
+        { "id": "chargeMethod", "name": "充电方式" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "wifi", "name": "无线局域网" },
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "音频",
+      "features": [
+        { "id": "audioIO", "name": "输入输出" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "moldModel", "name": "模具型号" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "iPod touch",
+      "generation": "(第 7 代)",
+      "image": "img/ipod_touch_7.webp",
+      "data": {
+        "slogan": "够快，够快乐。",
+        "releaseDate": "2019.05.29",
+        "osSupport": "iOS 12 ~ iOS 15",
+        "modelId": "iPod9,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10 Fusion<br>(2P+2E+6GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2GB LPDDR4<br>32G、128G、256G</div>",
+        "audioProcessor": "-",
+        "display": "4\"",
+        "resolution": "1136×640, 326ppi",
+        "contrastRatio": "800:1",
+        "brightness": "500 尼特",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "batteryCapacity": "1043mAh",
+        "chargeMethod": "闪电接口",
+        "wifi": "802.11 a/b/g/n/ac",
+        "bluetooth": "Bluetooth 4.1",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "123.4×58.6×6.1mm, 88g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A2178</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111961\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "(第 6 代)",
+      "image": "img/ipod_touch_6.webp",
+      "data": {
+        "slogan": "新鲜色彩，全系列都出彩。",
+        "releaseDate": "2015.07.16",
+        "osSupport": "iOS 8 ~ iOS 12",
+        "modelId": "iPod7,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A8<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1GB LPDDR3<br>16G、32G、64G、128G</div>",
+        "audioProcessor": "Cirrus Logic 338S1116",
+        "display": "4\"",
+        "resolution": "1136×640, 326ppi",
+        "contrastRatio": "800:1",
+        "brightness": "500 尼特",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "batteryCapacity": "1043mAh",
+        "chargeMethod": "闪电接口",
+        "wifi": "802.11 a/b/g/n/ac",
+        "bluetooth": "Bluetooth 4.1",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "123.4×58.6×6.1mm, 88g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A1574</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112023\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "(第 5 代)",
+      "image": "img/ipod_touch_5.webp",
+      "data": {
+        "slogan": "精工细作，尽情享乐之作。",
+        "releaseDate": "2012.09.13",
+        "osSupport": "iOS 6 ~ iOS 9",
+        "modelId": "iPod5,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A5<br>(2P+2GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">512MB LPDDR2<br>16G、32G、64G</div>",
+        "audioProcessor": "Cirrus Logic 338S1077",
+        "display": "4\"",
+        "resolution": "1136×640, 326ppi",
+        "contrastRatio": "800:1",
+        "brightness": "500 尼特",
+        "rearCamera": "500W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "batteryCapacity": "1030mAh",
+        "chargeMethod": "闪电接口",
+        "wifi": "802.11 a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "123.4×58.6×6.1mm, 88g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A1421,A1509</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112021\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "(第 4 代)",
+      "image": "img/ipod_touch_4.webp",
+      "data": {
+        "slogan": "介绍全新 iPod touch",
+        "releaseDate": "2010.09.02",
+        "osSupport": "iOS 4 ~ iOS 6",
+        "modelId": "iPod4,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A4<br>(1P+1GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">256MB LPDDR<br>8G、16G、32G、64G</div>",
+        "audioProcessor": "Cirrus Logic 338S0589",
+        "display": "3.5\"",
+        "resolution": "960×640, 326ppi",
+        "contrastRatio": "800:1",
+        "brightness": "500 尼特",
+        "rearCamera": "70W 像素",
+        "frontCamera": "30W 像素",
+        "batteryCapacity": "930mAh",
+        "chargeMethod": "30 针接口",
+        "wifi": "802.11 b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "111×58.6×7.2mm, 101g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A1367</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112431\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "(第 3 代)",
+      "image": "img/ipod_touch_3.webp",
+      "data": {
+        "slogan": "音乐、视频及应用，尽在指点之间",
+        "releaseDate": "2009.09.10",
+        "osSupport": "iPhone OS 3 ~ iOS 5",
+        "modelId": "iPod3,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">Samsung S5L8922<br>(1P+1GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">256MB LPDDR<br>8G、16G、32G、64G</div>",
+        "audioProcessor": "Cirrus Logic 338S0559",
+        "display": "3.5\"",
+        "resolution": "480×320, 163ppi",
+        "contrastRatio": "200:1",
+        "brightness": "-",
+        "rearCamera": "❌",
+        "frontCamera": "❌",
+        "batteryCapacity": "789mAh",
+        "chargeMethod": "30 针接口",
+        "wifi": "802.11 b/g",
+        "bluetooth": "Bluetooth 2.1",
+        "audioIO": "-",
+        "dimensionsWeight": "110×61.8×8.5mm, 115g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A1318</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112461\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "(第 2 代)",
+      "image": "img/ipod_touch_2.webp",
+      "data": {
+        "slogan": "/",
+        "releaseDate": "2008.09.10",
+        "osSupport": "iPhone OS 2 ~ iOS 4",
+        "modelId": "iPod2,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">Samsung S5L8720<br>(1P+1GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">128MB LPDDR<br>8G、16G、32G</div>",
+        "audioProcessor": "Cirrus Logic 338S0559",
+        "display": "3.5\"",
+        "resolution": "480×320, 163ppi",
+        "contrastRatio": "200:1",
+        "brightness": "-",
+        "rearCamera": "❌",
+        "frontCamera": "❌",
+        "batteryCapacity": "739mAh",
+        "chargeMethod": "30 针接口",
+        "wifi": "802.11 b/g",
+        "bluetooth": "Bluetooth 2.1",
+        "audioIO": "-",
+        "dimensionsWeight": "110×61.8×8.5mm, 115g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-a\">全球版<br>A1288</div>\n\t\t\t\t\t\t\t<div class=\"li-div-npu li-div-npu-a\">国内版<br>A1319</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112319\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPod touch",
+      "generation": "",
+      "image": "img/ipod_touch_1.webp",
+      "data": {
+        "slogan": "/",
+        "releaseDate": "2007.09.05",
+        "osSupport": "iPhone OS 1 ~ iPhone OS 3",
+        "modelId": "iPod1,1",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">Samsung S5L8900<br>(1P+1GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">128MB LPDDR<br>8G、16G、32G</div>",
+        "audioProcessor": "WM8758BG",
+        "display": "3.5\"",
+        "resolution": "480×320, 163ppi",
+        "contrastRatio": "200:1",
+        "brightness": "-",
+        "rearCamera": "❌",
+        "frontCamera": "❌",
+        "batteryCapacity": "580mAh",
+        "chargeMethod": "30 针接口",
+        "wifi": "802.11 b/g",
+        "bluetooth": "❌",
+        "audioIO": "-",
+        "dimensionsWeight": "110×61.8×8mm, 120g",
+        "moldModel": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">A1213</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112532\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

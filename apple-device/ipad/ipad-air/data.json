@@ -1,0 +1,419 @@
+{
+  "title": "苹果 iPad Air 参数对比",
+  "lastUpdated": "2025.03.27",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "osSupport", "name": "支持系统" },
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" },
+        { "id": "arLink", "name": "增强现实" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "chip", "name": "芯片" },
+        { "id": "ramRom", "name": "RAM/ROM" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "id": "display", "name": "屏幕参数" },
+        { "id": "resolution", "name": "分辨率" },
+        { "id": "refreshRate", "name": "刷新率" },
+        { "id": "brightness", "name": "亮度(nits)" },
+        { "id": "colorGamut", "name": "色彩" }
+      ]
+    },
+    {
+      "groupName": "摄像头",
+      "features": [
+        { "id": "rearCamera", "name": "后置摄像头" },
+        { "id": "frontCamera", "name": "前置摄像头" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "pencilSupport", "name": "笔" },
+        { "id": "wiredInterface", "name": "有线接口" },
+        { "id": "cellular", "name": "基带(蜂窝版)" },
+        { "id": "wifi", "name": "无线局域网" },
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "感应器",
+      "features": [
+        { "id": "unlockMethod", "name": "解锁方式" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "id": "batteryCapacity", "name": "电池容量" },
+        { "id": "batteryLife", "name": "续航时长" }
+      ]
+    },
+    {
+      "groupName": "音频",
+      "features": [
+        { "id": "audioIO", "name": "输入输出" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "iPad Air 13 英寸",
+      "generation": "(M3)",
+      "image": "img/ipad-air-11-inch-13-inch-m3.webp",
+      "data": {
+        "slogan": "快如飞",
+        "releaseDate": "2025.03.04",
+        "osSupport": "iPadOS 18 ~ 最新",
+        "modelId": "iPad15,5 / iPad15,6",
+        "colors": [
+          { "name": "蓝色", "hex": "#d7e5e6" },
+          { "name": "紫色", "hex": "#e3dee9" },
+          { "name": "星光色", "hex": "#e3dcd1" },
+          { "name": "深空灰色", "hex": "#6b696e" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E+9GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512G、1T</div>",
+        "display": "13\" Liquid LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "36.59Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "280.6×214.9×6.1, 616/617g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/122242\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air 11 英寸",
+      "generation": "(M3)",
+      "image": "img/ipad-air-11-inch-13-inch-m3.webp",
+      "data": {
+        "slogan": "快如飞",
+        "releaseDate": "2025.03.04",
+        "osSupport": "iPadOS 18 ~ 最新",
+        "modelId": "iPad15,3 / iPad15,4",
+        "colors": [
+          { "name": "蓝色", "hex": "#d7e5e6" },
+          { "name": "紫色", "hex": "#e3dee9" },
+          { "name": "星光色", "hex": "#e3dcd1" },
+          { "name": "深空灰色", "hex": "#6b696e" }
+        ],
+        "arLink": "-",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M3<br>(4P+4E+9GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512G、1T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.93Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "247.6×178.5×6.1, 460g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/122241\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air 13 英寸",
+      "generation": "(M2)",
+      "image": "img/ipad-air-11-inch-13-inch-m2.webp",
+      "data": {
+        "slogan": "好清新",
+        "releaseDate": "2024.05.07",
+        "osSupport": "iPadOS 17 ~ 最新",
+        "modelId": "iPad14,10 / iPad14,11",
+        "colors": [
+          { "name": "蓝色", "hex": "#d7e5e6" },
+          { "name": "紫色", "hex": "#e3dee9" },
+          { "name": "星光色", "hex": "#e5e0d8" },
+          { "name": "深空灰色", "hex": "#6b696e" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_13in_m2_blue_mgk_ap-pro_wifi.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_13in_m2_purple_mgk_ap-pro_wifi.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_13in_m2_starlight_mgk_ap-pro_wifi.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_13in_m2_sgray_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空灰色</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M2<br>(4P+4E+9GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512G、1T</div>",
+        "display": "13\" Liquid LED",
+        "resolution": "2732×2048, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "600(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "36.59Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "280.6×214.9×6.1, 617/618g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/119893\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air 11 英寸",
+      "generation": "(M2)",
+      "image": "img/ipad-air-11-inch-13-inch-m2.webp",
+      "data": {
+        "slogan": "好清新",
+        "releaseDate": "2024.05.07",
+        "osSupport": "iPadOS 17 ~ 最新",
+        "modelId": "iPad14,8 / iPad14,9",
+        "colors": [
+          { "name": "蓝色", "hex": "#d7e5e6" },
+          { "name": "紫色", "hex": "#e3dee9" },
+          { "name": "星光色", "hex": "#e5e0d8" },
+          { "name": "深空灰色", "hex": "#6b696e" }
+        ],
+        "arLink": "-",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M2<br>(4P+4E+9GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512G、1T</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.0",
+        "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT160 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.93Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "247.6×178.5×6.1, 462g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/119894\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air",
+      "generation": "(第 5 代)",
+      "image": "img/ipad_air_5.webp",
+      "data": {
+        "slogan": "轻，靓，重量级。",
+        "releaseDate": "2022.03.09",
+        "osSupport": "iPadOS 15 ~ 最新",
+        "modelId": "iPad13,16 / 13,17",
+        "colors": [
+          { "name": "深空灰色", "hex": "#6b696e" },
+          { "name": "星光色", "hex": "#e5e0d8" },
+          { "name": "粉色", "hex": "#e8d2cf" },
+          { "name": "紫色", "hex": "#b9b8d1" },
+          { "name": "蓝色", "hex": "#88aebf" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_5th_Gen_purple_wifi.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">M1<br>(4P+4E+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR4X<br>64G、256G</div>",
+        "display": "10.9\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 10Gb/s)",
+        "cellular": "Qualcomm X60M",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.6Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "247.6×178.5×6.1, 461/462g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111887\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air",
+      "generation": "(第 4 代)",
+      "image": "img/ipad_air_4.webp",
+      "data": {
+        "slogan": "凭实力出彩。",
+        "releaseDate": "2020.09.16",
+        "osSupport": "iPadOS 14 ~ 最新",
+        "modelId": "iPad13,1 / 13,2",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "玫瑰金色", "hex": "#ecc5c1" },
+          { "name": "天蓝色", "hex": "#cee3f6" },
+          { "name": "绿色", "hex": "#ccdfc9" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_air_4th_Gen_ios13.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
+        "display": "10.9\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 5Gb/s)",
+        "cellular": "Intel XMM7660",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.6Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "247.6×178.5×6.1, 458/460g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111905\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air",
+      "generation": "(第 3 代)",
+      "image": "img/ipad_air_3.webp",
+      "data": {
+        "slogan": "强劲在手，无论高手新手。",
+        "releaseDate": "2019.03.18",
+        "osSupport": "iOS 12 ~ 最新",
+        "modelId": "iPad11,3 / 11,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#f6cdb9" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>64G、256G</div>",
+        "display": "10.5\" LED",
+        "resolution": "2224×1668, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, 广色域显示(P3)",
+        "rearCamera": "800W 像素 ƒ/1.8",
+        "frontCamera": "700W 像素 ƒ/2.2",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Intel XMM7560",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "30.2Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "250.6×174.1×6.1, 456/464g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111939\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air 2",
+      "generation": "",
+      "image": "img/ipad_air_2.webp",
+      "data": {
+        "slogan": "轻轻地，改变一切。",
+        "releaseDate": "2014.10.17",
+        "osSupport": "iOS 8 ~ iPadOS 15",
+        "modelId": "iPad5,3 / 5,4",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A8X<br>(3P+8GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2G LPDDR3<br>16G、32G、64G、128G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "400(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "pencilSupport": "/",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9625",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "27.3Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "240×169.5×6.1, 437/444g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112017\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad Air",
+      "generation": "",
+      "image": "img/ipad_air_1.webp",
+      "data": {
+        "slogan": "轻出份量",
+        "releaseDate": "2013.10.23",
+        "osSupport": "iOS 7 ~ iOS 12",
+        "modelId": "iPad4,1 / 4,2",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A7<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1G LPDDR3<br>16G、32G、64G、128G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "400(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "500W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素",
+        "pencilSupport": "/",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9615",
+        "wifi": "802.11a/b/g/n 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.0",
+        "unlockMethod": "/",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×1",
+        "dimensionsWeight": "240×169.5×7.5, 469/478g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112020\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

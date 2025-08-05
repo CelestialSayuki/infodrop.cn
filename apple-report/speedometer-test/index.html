@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedometer 3.1 测试</title>
+    <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+    <style>
+        html, body { overflow: auto !important; height: 100% !important; }
+        .main-content { padding: 20px; }
+        .card { background-color: var(--card-bg-color, #fff); border: 1px solid var(--border-color, #dee2e6); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        @media (prefers-color-scheme: dark) {
+            .card { background-color: var(--dark-card-bg-color, #1e242c); border-color: var(--border-color, #30363d); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+        h1, h2 { border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-top:0; margin-bottom: 20px; }
+        .speedometer-embed-container { border: 1px solid var(--border-color); border-radius: 8px; height: 900px; overflow: hidden; margin-bottom: 20px; }
+        .speedometer-embed-container iframe { width: 100%; height: 100%; border: none; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: .5rem; color: var(--text-secondary); }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: var(--input-bg-color); color: var(--text-primary); box-sizing: border-box; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); }
+        .form-group input[readonly] { background-color: rgba(128, 128, 128, 0.1); cursor: not-allowed; }
+        .form-group small { display: block; margin-top: .5rem; color: var(--text-secondary); font-size: 0.85em; line-height: 1.5; }
+        button[type="submit"] { display: block; width: 100%; padding: 12px; font-size: 1rem; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.2s; }
+        button[type="submit"]:hover { background-color: #0056b3; }
+        button[type="submit"]:disabled { background-color: #6c757d; cursor: not-allowed; }
+        #message { padding: 15px; margin-top: 20px; border-radius: 6px; text-align: center; opacity: 0; transition: opacity 0.5s; display: none; }
+        #message.success { background-color: #d4edda; color: #155724; }
+        #message.error { background-color: #f8d7da; color: #721c24; }
+        @media (prefers-color-scheme: dark) {
+            #message.success { background-color: #2ea0434d; color: #58a6ff; }
+            #message.error { background-color: #f851494d; color: #ff7b72; }
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <div class="main-content">
+        <div id="upload-section" class="content-section active card">
+            
+            <div id="unsupported-device-message" style="display: none; text-align: center; padding: 40px 20px;">
+                <h1 style="border-bottom: none;">设备不支持</h1>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);"></p>
+            </div>
+
+            <div id="test-content">
+                <h1>Speedometer 3.1 跑分上传</h1>
+                <div class="speedometer-embed-container">
+                    <iframe id="speedometerIframe" src="core/index.html" frameborder="0"></iframe>
+                </div>
+                <div class="form-section">
+                    <h2>跑分结果</h2>
+                    <form id="uploadForm">
+                        <div class="form-group">
+                            <label for="speedometerScore">Speedometer 3.1 分数:</label>
+                            <input type="text" id="speedometerScore" name="speedometerScore" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="speedometerError">误差:</label>
+                            <input type="text" id="speedometerError" name="speedometerError" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="benchmarkType">跑分类型:</label>
+                            <select id="benchmarkType" name="benchmarkType" required>
+                                <option value="" selected disabled>-- 请选择跑分类型 --</option>
+                                <option value="Base">Base</option>
+                                <option value="Peak">Peak</option>
+                                <option value="Webview">Webview</option>
+                            </select>
+                            <small class="benchmark-type-description">
+                                <strong>Base：</strong>安卓系统自带浏览器的性能，代表大部分用户到手的实际水平。<br>
+                                <strong>Peak：</strong>最新版Webview/Chrome的性能，代表处理器最高水平。非安卓机器都选这个。<br>
+                                <strong>Webview：</strong>安卓系统自带Webview水平，代表日常软件性能水平。
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="browserVersion">Webview/系统版本:</label>
+                            <input type="text" id="browserVersion" name="browserVersion" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="userAgent">User Agent (UA):</label>
+                            <input type="text" id="userAgent" name="userAgent" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpuInfo">CPU 型号 (请备注设备厂商):</label>
+                            <input type="text" id="cpuInfo" name="cpuInfo" required>
+                        </div>
+                        <button type="submit" id="submitBenchmarkButton">上传结果</button>
+                    </form>
+                    <div id="message" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function checkAndBlockUnsupportedBrowsers() {
+                const ua = navigator.userAgent;
+                const testContent = document.getElementById('test-content');
+                const unsupportedMessageDiv = document.getElementById('unsupported-device-message');
+                const unsupportedMessageText = unsupportedMessageDiv ? unsupportedMessageDiv.querySelector('p') : null;
+
+                if (!testContent || !unsupportedMessageDiv || !unsupportedMessageText) {
+                    console.error("Required elements for browser check are missing.");
+                    return false;
+                }
+
+                const showUnsupportedMessage = (message) => {
+                    unsupportedMessageText.innerHTML = message;
+                    testContent.style.display = 'none';
+                    unsupportedMessageDiv.style.display = 'block';
+                };
+
+                const isSafari = ua.includes('Safari') && !ua.includes('Chrome') && !ua.includes('Edg');
+                if (isSafari) {
+                    let majorVersion = 0;
+                    let versionMatch = ua.match(/Version\/([\d.]+)/);
+                    if (versionMatch) {
+                        majorVersion = parseInt(versionMatch[1], 10);
+                    } else {
+                        let osMatch = ua.match(/OS (\d+)_/);
+                        if (osMatch) {
+                            majorVersion = parseInt(osMatch[1], 10);
+                        }
+                    }
+                    if (majorVersion > 0 && majorVersion < 16) {
+                        showUnsupportedMessage('您的系统 Safari 浏览器版本过低 (低于 16.0)，无法进行此项测试。');
+                        return true;
+                    }
+                    return false;
+                }
+
+                let versionMatch;
+                let browserName = '';
+                const minVersion = 100;
+
+                if ((versionMatch = ua.match(/EdgA?\/([\d.]+)/))) {
+                    browserName = 'Edge';
+                } else if ((versionMatch = ua.match(/Chrome\/([\d.]+)/))) {
+                    browserName = 'Chrome';
+                } else if ((versionMatch = ua.match(/Firefox\/([\d.]+)/))) {
+                    browserName = 'Firefox';
+                }
+
+                if (browserName && versionMatch) {
+                    const majorVersion = parseInt(versionMatch[1], 10);
+                    if (majorVersion < minVersion) {
+                        showUnsupportedMessage(`您的浏览器版本过低 (低于 ${minVersion}.0)，无法进行此项测试。`);
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            if (checkAndBlockUnsupportedBrowsers()) {
+                return;
+            }
+            
+            const { createClient } = supabase;
+            const SUPABASE_URL = 'https://pdmmtiiwdazcvcbyxkor.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbW10aWl3ZGF6Y3ZjYnl4a29yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg1MjM3NTMsImV4cCI6MjA2NDA5OTc1M30.FOebKEr65b9mkWH8rCCePYkeNVCWny52T8SqTtX2cjs';
+            const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            const pageContext = document.querySelector('#upload-section');
+            if (!pageContext) {
+                console.error("无法找到 Speedometer 测试页面的主容器 #upload-section。");
+                return;
+            }
+
+            const messageDiv = pageContext.querySelector('#message');
+            const uploadForm = pageContext.querySelector('#uploadForm');
+            const browserVersionInput = pageContext.querySelector('#browserVersion');
+            const submitBenchmarkButton = pageContext.querySelector('#submitBenchmarkButton');
+            const benchmarkTypeSelectForm = pageContext.querySelector('#benchmarkType');
+            const speedometerScoreInput = pageContext.querySelector('#speedometerScore');
+            const speedometerErrorInput = pageContext.querySelector('#speedometerError');
+            const cpuInfoInput = pageContext.querySelector('#cpuInfo');
+            const userAgentInput = pageContext.querySelector('#userAgent');
+
+            function showMessage(msg, type) {
+                if (!messageDiv) return;
+                messageDiv.textContent = msg;
+                messageDiv.className = '';
+                messageDiv.classList.add(type);
+                messageDiv.style.display = 'block';
+                messageDiv.style.opacity = '1';
+                setTimeout(() => {
+                    messageDiv.style.opacity = '0';
+                    setTimeout(() => { messageDiv.style.display = 'none'; }, 500);
+                }, 5000);
+            }
+
+            window.addEventListener('message', (event) => {
+                if (event.data && event.data.type === 'speedometerResult') {
+                    const { score, error } = event.data;
+                    if (speedometerScoreInput) speedometerScoreInput.value = score;
+                    if (speedometerErrorInput) speedometerErrorInput.value = error;
+                    if (submitBenchmarkButton && speedometerScoreInput.value && speedometerErrorInput.value && benchmarkTypeSelectForm.value && cpuInfoInput.value && browserVersionInput.value) {
+                         submitBenchmarkButton.click();
+                    } else {
+                        showMessage('Speedometer 跑分完成，请检查并填写所有必填信息后上传。', 'info');
+                    }
+                } else if (event.data && event.data.type === 'speedometerResultError') {
+                    showMessage(`Speedometer 跑分失败: ${event.data.message}`, 'error');
+                }
+            });
+
+            uploadForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                if (submitBenchmarkButton) submitBenchmarkButton.disabled = true;
+                
+                const data = {
+                    speedometerScore: parseFloat(speedometerScoreInput.value) || 0,
+                    speedometerError: speedometerErrorInput.value,
+                    benchmarkType: benchmarkTypeSelectForm.value,
+                    browserVersion: browserVersionInput.value,
+                    cpuInfo: cpuInfoInput.value,
+                    userAgent: userAgentInput.value
+                };
+
+                if (!data.speedometerScore || !data.speedometerError || !data.benchmarkType || !data.browserVersion || !data.cpuInfo || !data.userAgent) {
+                    showMessage('请填写所有必填字段。', 'error');
+                    if (submitBenchmarkButton) submitBenchmarkButton.disabled = false;
+                    return;
+                }
+
+                try {
+                    const { error } = await supabaseClient.from('speedometer_results').insert([data]);
+                    if (error) throw error;
+                    showMessage('结果上传成功！', 'success');
+                    uploadForm.reset();
+                    autofillBrowserInfo();
+                    lockBenchmarkTypeForSafari();
+                } catch (error) {
+                    showMessage(`上传结果失败: ${error.message || '未知错误'}`, 'error');
+                } finally {
+                    if (submitBenchmarkButton) submitBenchmarkButton.disabled = false;
+                }
+            });
+            
+            function lockBenchmarkTypeForSafari() {
+                const isPureSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
+                if (isPureSafari && benchmarkTypeSelectForm) {
+                    benchmarkTypeSelectForm.value = 'Peak';
+                    benchmarkTypeSelectForm.disabled = true;
+                }
+            }
+
+            function autofillBrowserInfo() {
+                if (!browserVersionInput || !userAgentInput) return;
+
+                let userAgent = navigator.userAgent;
+                userAgentInput.value = userAgent;
+
+                let browserName = '未知浏览器', browserVersion = '未知版本';
+                if (/(iPhone|iPad|iPod).*AppleWebKit/.test(userAgent) && !/Chrome|Edg|OPR|Opera/.test(userAgent)) {
+                    browserName = 'Safari (Mobile)';
+                    let osMatch = userAgent.match(/OS (\d+_\d+(_\d+)?)/);
+                    if (osMatch) browserVersion = osMatch[1].replace(/_/g, '.');
+                } else if (/EdgA?/.test(userAgent)) {
+                    browserName = 'Edge';
+                    let versionMatch = userAgent.match(/EdgA?\/([\d.]+)/);
+                    if (versionMatch) browserVersion = versionMatch[1];
+                } else if (/OPR|Opera/.test(userAgent)) {
+                    browserName = 'Opera';
+                    let versionMatch = userAgent.match(/(?:OPR|Opera)\/([\d.]+)/);
+                    if (versionMatch) browserVersion = versionMatch[1];
+                } else if (/Chrome/.test(userAgent)) {
+                    browserName = 'Chrome';
+                    let versionMatch = userAgent.match(/Chrome\/([\d.]+)/);
+                    if (versionMatch) browserVersion = versionMatch[1];
+                } else if (/Firefox/.test(userAgent)) {
+                    browserName = 'Firefox';
+                    let versionMatch = userAgent.match(/Firefox\/([\d.]+)/);
+                    if (versionMatch) browserVersion = versionMatch[1];
+                } else if (/Safari/.test(userAgent)) {
+                    browserName = 'Safari';
+                    let versionMatch = userAgent.match(/Version\/([\d.]+)/);
+                    if (versionMatch) browserVersion = versionMatch[1];
+                }
+                browserVersionInput.value = `${browserName} ${browserVersion}`;
+            }
+            
+            autofillBrowserInfo();
+            lockBenchmarkTypeForSafari();
+        });
+    </script>
+</body>
+</html>

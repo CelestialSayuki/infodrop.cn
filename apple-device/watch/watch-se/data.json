@@ -1,0 +1,130 @@
+{
+  "title": "苹果 Apple Watch SE 参数对比",
+  "lastUpdated": "2025.04.08",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "外观颜色", "id": "colors" },
+        { "name": "增强现实", "id": "augmentedReality" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "芯片", "id": "chipInfo" },
+        { "name": "RAM<br>ROM", "id": "ramRom" },
+        { "name": "无线芯片", "id": "wirelessChip" },
+        { "name": "超宽频芯片", "id": "ultraWidebandChip" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "name": "屏幕参数", "id": "screenResolution" },
+        { "name": "屏幕材质", "id": "screenMaterial" },
+        { "name": "亮度", "id": "brightness" },
+        { "name": "表镜材质", "id": "crystalMaterial" }
+      ]
+    },
+    {
+      "groupName": "表背",
+      "features": [
+        { "name": "表背材质", "id": "caseBackMaterial" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "基带(蜂窝版)", "id": "cellularBaseband" },
+        { "name": "无线局域网", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "name": "电池容量", "id": "batteryCapacity" },
+        { "name": "续航时间", "id": "batteryLife" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "防尘防水", "id": "durability" },
+        { "name": "传感器", "id": "sensors" },
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple Watch SE",
+      "generation": "(第 2 代)",
+      "image": "img/apple_watch_se_2.webp",
+      "data": {
+        "slogan": "超值超有料",
+        "releaseDate": "2022.09.08",
+        "supportedOS": "watchOS 9 ~ 最新",
+        "modelIdentifier": "Watch6,10 / 6,11 / 6,12 / 6,13",
+        "colors": [
+          { "name": "午夜色", "hex": "rgb(26, 37, 48)" },
+          { "name": "星光色", "hex": "rgb(222, 214, 209)" },
+          { "name": "银色", "hex": "rgb(224, 224, 224)" }
+        ],
+        "augmentedReality": "-",
+        "chipInfo": "S8 SiP",
+        "ramRom": "1.5GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">324x394<br>(40mm)</div><div class=\"li-div-cpu li-div-cpu-a\">368x448<br>(44mm)</div>",
+        "screenMaterial": "LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃",
+        "caseBackMaterial": "复合材料 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 5.3",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">245mAh<br>(40mm)</div><div class=\"li-div-power li-div-power-a\">296mAh<br>(44mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(256 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">高动态范围<br>陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第二代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111853\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch SE",
+      "generation": "(第 1 代)",
+      "image": "img/apple_watch_se.webp",
+      "data": {
+        "slogan": "事事拿手，轻松入手。",
+        "releaseDate": "2020.09.16",
+        "supportedOS": "watchOS 7 ~ watchOS 10",
+        "modelIdentifier": "Watch5,9 / 5,10 / 5,11 / 5,12",
+        "colors": [],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_SE_gps_alum_silver_l_sport_band_abyss_blue_ios15.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S5 SiP",
+        "ramRom": "1GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">324x394<br>(40mm)</div><div class=\"li-div-cpu li-div-cpu-a\">368x448<br>(44mm)</div>",
+        "screenMaterial": "LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">245mAh<br>(40mm)</div><div class=\"li-div-power li-div-power-a\">296mAh<br>(44mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(32 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第二代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">气压高度计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111862\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

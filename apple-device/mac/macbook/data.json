@@ -1,0 +1,361 @@
+{
+  "title": "苹果 MacBook 参数对比",
+  "lastUpdated": "2025.06.13",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "芯片工艺", "id": "chipProcess" },
+        { "name": "芯片信息", "id": "chipInfo" },
+        { "name": "显卡信息", "id": "gpuInfo" }
+      ]
+    },
+    {
+      "groupName": "容量",
+      "features": [
+        { "name": "内存<br>存储容量", "id": "memoryStorage" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "name": "屏幕参数", "id": "screenSpecs" },
+        { "name": "分辨率", "id": "resolution" },
+        { "name": "亮度(nits)", "id": "brightness" },
+        { "name": "色彩", "id": "colorGamut" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "机身接口", "id": "ports" },
+        { "name": "Wi-Fi", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "name": "电池容量", "id": "batteryCapacity" },
+        { "name": "充电规格", "id": "chargingSpecs" },
+        { "name": "续航时长", "id": "batteryLife" }
+      ]
+    },
+    {
+      "groupName": "摄像头",
+      "features": [
+        { "name": "摄像头", "id": "camera" }
+      ]
+    },
+    {
+      "groupName": "解锁",
+      "features": [
+        { "name": "触控 ID", "id": "touchId" }
+      ]
+    },
+    {
+      "groupName": "键盘",
+      "features": [
+        { "name": "键盘描述", "id": "keyboard" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "尺寸重量", "id": "dimensionsWeight" },
+        { "name": "模具型号", "id": "modelNumber" },
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "MacBook",
+      "generation": "(Retina, 12 英寸, 2017 年)",
+      "image": "img/macbook-2017.webp",
+      "data": {
+        "slogan": "轻于时代，先于时代。",
+        "releaseDate": "2017.06.06",
+        "supportedOS": "macOS 10.12 ~ macOS 13",
+        "modelIdentifier": "MacBook10,1",
+        "chipProcess": "Intel 14nm (ISA, Kaby Lake)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-c\" title=\"m3-7Y32\">双核 m3<br>7Y32</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"i5-7Y54\">双核 i5<br>7Y54</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"i7-7Y75\">双核 i7<br>7Y75</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Intel® HD 615</div>",
+        "memoryStorage": "8、16GB<br>256GB、512GB",
+        "screenSpecs": "12\" IPS 显示屏",
+        "resolution": "2304×1440, 226ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-C (最高 5Gb/s) ×1<br>3.5 毫米耳机插孔 ×1",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 4.2",
+        "batteryCapacity": "41.4Wh",
+        "chargingSpecs": "USB‑C, 30W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>10小时<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>12小时<br></div>",
+        "camera": "480p",
+        "touchId": "/",
+        "keyboard": "全尺寸背光键盘",
+        "dimensionsWeight": "1.31×28.05×19.65cm,0.92kg",
+        "modelNumber": "A1534",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111986\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(Retina, 12 英寸, 2016 年)",
+      "image": "img/macbook-2016.webp",
+      "data": {
+        "slogan": "轻于时代，先于时代。",
+        "releaseDate": "2016.04.20",
+        "supportedOS": "OS X 10.11 ~ macOS 12",
+        "modelIdentifier": "MacBook9,1",
+        "chipProcess": "Intel 14nm (Skylake)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-c\" title=\"m3-6Y30\">双核 m3<br>6Y30</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"m5-6Y54\">双核 m5<br>6Y54</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"m7-6Y75\">双核 m7<br>6Y75</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Intel® HD 515</div>",
+        "memoryStorage": "8GB<br>256GB、512GB",
+        "screenSpecs": "12\" IPS 显示屏",
+        "resolution": "2304×1440, 226ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-C (最高 5Gb/s) ×1<br>3.5 毫米耳机插孔 ×1",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 4.0",
+        "batteryCapacity": "41.4Wh",
+        "chargingSpecs": "USB‑C, 29W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>10小时<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>11小时<br></div>",
+        "camera": "480p",
+        "touchId": "/",
+        "keyboard": "全尺寸背光键盘",
+        "dimensionsWeight": "1.31×28.05×19.65cm,0.92kg",
+        "modelNumber": "A1534",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112033\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(Retina, 12 英寸, 2015 年初)",
+      "image": "img/macbook-2015.webp",
+      "data": {
+        "slogan": "全新 MacBook",
+        "releaseDate": "2015.03.10",
+        "supportedOS": "OS X 10.10 ~ macOS 11",
+        "modelIdentifier": "MacBook8,1",
+        "chipProcess": "Intel 14nm (Broadwell)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-c\" title=\"M-5Y31\">双核 m<br>5Y31</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"M-5Y51\">双核 m<br>5Y51</div><div class=\"li-div-cpu li-div-cpu-c\" title=\"M-5Y71\">双核 m<br>5Y71</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\">Intel® HD 5300</div>",
+        "memoryStorage": "8GB<br>256GB、512GB",
+        "screenSpecs": "12\" IPS 显示屏",
+        "resolution": "2304×1440, 226ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-C (最高 5Gb/s) ×1<br>3.5 毫米耳机插孔 ×1",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 4.0",
+        "batteryCapacity": "39.7Wh",
+        "chargingSpecs": "USB‑C, 29W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>9小时<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>10小时<br></div>",
+        "camera": "480p",
+        "touchId": "/",
+        "keyboard": "全尺寸背光键盘",
+        "dimensionsWeight": "1.31×28.05×19.65cm,0.92kg",
+        "modelNumber": "A1534",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112442\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(13 英寸, 2010 年中)",
+      "image": "img/macbook-2010.webp",
+      "data": {
+        "slogan": "人人适用的笔记本电脑",
+        "releaseDate": "2010.05.19",
+        "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
+        "modelIdentifier": "MacBook7,1",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b li-div-cpu-one\" title=\"Core™2 Duo P8600\">Intel Core™2 Duo P8600</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">NVIDIA GeForce 320M</div>",
+        "memoryStorage": "2、4GB<br>250GB",
+        "screenSpecs": "13.3\"",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DP ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "batteryCapacity": "63.5Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.74×33.03×23.17cm,2.13kg",
+        "modelNumber": "A1342",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112581\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(13 英寸, 2009 年末)",
+      "image": "img/macbook-2009-10.webp",
+      "data": {
+        "slogan": "从头到尾，全新打造",
+        "releaseDate": "2009.10.21",
+        "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
+        "modelIdentifier": "MacBook6,1",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b li-div-cpu-one\" title=\"Core™2 Duo P5500\">Intel Core™2 Duo P5500</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">NVIDIA GeForce 9400M</div>",
+        "memoryStorage": "2、4GB<br>250GB",
+        "screenSpecs": "13.3\"",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DP ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "batteryCapacity": "60Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.74×33.03×23.17cm,2.13kg",
+        "modelNumber": "A1342",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112623\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(13 英寸, 2009 年中)",
+      "image": "img/macbook-2009-05.webp",
+      "data": {
+        "slogan": "更快速的处理器, 更广阔的存储空间",
+        "releaseDate": "2009.05.28",
+        "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
+        "modelIdentifier": "MacBook5,2",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b li-div-cpu-one\" title=\"Core™2 Duo P7450\">Intel Core™2 Duo P7450</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">NVIDIA GeForce 9400M</div>",
+        "memoryStorage": "2、4GB<br>160GB",
+        "screenSpecs": "13.3\" TFT 显示屏",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DP ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "batteryCapacity": "55Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.75×32.5×22.7cm,2.27kg",
+        "modelNumber": "A1181",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112459\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(13 英寸, 2009 年初)",
+      "image": "img/macbook-2009-01.webp",
+      "data": {
+        "slogan": "奠定笔记本前所未有的全新标准",
+        "releaseDate": "2009.01.22",
+        "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
+        "modelIdentifier": "MacBook5,2",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b li-div-cpu-one\" title=\"Core™2 Duo P7350\">Intel Core™2 Duo P7350</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">NVIDIA GeForce 9400M</div>",
+        "memoryStorage": "2、4GB<br>120GB",
+        "screenSpecs": "13.3\" TFT 显示屏",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DP ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "batteryCapacity": "55Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.75×32.5×22.7cm,2.27kg",
+        "modelNumber": "A1181",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111344\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(13 英寸, 2008 年末)",
+      "image": "img/macbook-2008-10.webp",
+      "data": {
+        "slogan": "奠定笔记本前所未有的全新标准",
+        "releaseDate": "2008.10.15",
+        "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
+        "modelIdentifier": "MacBook5,1",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"Core™2 Duo P7350\">Intel Core™2<br>Duo P7350</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"Core™2 Duo P8600\">Intel Core™2<br>Duo P8600</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">NVIDIA GeForce 9400M</div>",
+        "memoryStorage": "2、4GB<br>160GB、250GB",
+        "screenSpecs": "13.3\" TFT 显示屏",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DP ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "batteryCapacity": "45Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.41×32.5×22.7cm,2.04kg",
+        "modelNumber": "A1278",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112512\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "MacBook",
+      "generation": "(2008 年初)",
+      "image": "img/macbook-2008-02.webp",
+      "data": {
+        "slogan": "全新 MacBook，魅力倍增",
+        "releaseDate": "2008.02.27",
+        "supportedOS": "Mac OS X 10.5 ~ Mac OS X 10.7",
+        "modelIdentifier": "MacBook4,1",
+        "chipProcess": "Intel 45nm (Penryn)",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-a\" title=\"Core™2 Duo T8100\">Intel Core™2<br>Duo T8100</div><div class=\"li-div-cpu li-div-cpu-a\" title=\"Core™2 Duo T8300\">Intel Core™2<br>Duo T8300</div>",
+        "gpuInfo": "<div class=\"li-div-gpu li-div-gpu-b li-div-gpu-one\" title=\"\">Intel® X3100</div>",
+        "memoryStorage": "1、2、4GB<br>120GB、160GB、250GB",
+        "screenSpecs": "13.3\" TFT 显示屏",
+        "resolution": "1280×800, 114ppi",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "ports": "USB-A (最高 480Mb/s) ×2<br>Mini DVI ×1",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.0",
+        "batteryCapacity": "55Wh",
+        "chargingSpecs": "MagSafe, 60W Max",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线上网<br>-<br></div><div class=\"li-div-score li-div-score-a\">影片播放<br>-<br></div>",
+        "camera": "-",
+        "touchId": "/",
+        "keyboard": "全尺寸键盘",
+        "dimensionsWeight": "2.75×32.5×22.7cm,2.27kg",
+        "modelNumber": "A1181",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112467\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

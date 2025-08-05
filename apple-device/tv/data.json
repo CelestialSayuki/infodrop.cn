@@ -1,0 +1,223 @@
+{
+  "title": "Apple TV 参数对比",
+  "lastUpdated": "2024.12.26",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "增强现实", "id": "augmentedReality" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "芯片", "id": "chipInfo" },
+        { "name": "RAM<br>ROM", "id": "ramRom" }
+      ]
+    },
+    {
+      "groupName": "遥控",
+      "features": [
+        { "name": "遥控", "id": "remoteType" },
+        { "name": "充电/供电", "id": "remoteCharging" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "隔空播放", "id": "airplay" },
+        { "name": "音频/视频", "id": "audioVideo" },
+        { "name": "以太网连接", "id": "ethernet" },
+        { "name": "Wi-Fi", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "尺寸<br>重量",
+      "features": [
+        { "name": "主机", "id": "dimensionsWeightHost" },
+        { "name": "遥控", "id": "dimensionsWeightRemote" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple TV 4K",
+      "generation": "(第 3 代)",
+      "image": "img/apple-tv-4k-3rd-gen.webp",
+      "data": {
+        "slogan": "The Apple experience.<br>Cinematic in every sense.",
+        "releaseDate": "2022.10.18",
+        "supportedOS": "tvOS 16 ~ 最新",
+        "modelIdentifier": "AppleTV14,1",
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/tv/apple_tv_4k_3rdgen_wifi_ethernet_siri_remote_3rdgen.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+3E+5GPU)</div>",
+        "ramRom": "4GB LPDDR4X<br>64G、128G",
+        "remoteType": "Siri Remote (3rd Gen)",
+        "remoteCharging": "USB-C",
+        "airplay": "✅",
+        "audioVideo": "HDMI2.1 ×1",
+        "ethernet": "千兆以太网 (仅以太网版)",
+        "wifi": "802.11ax HT80 2×2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeightHost": "31×93×93mm, 208/214g",
+        "dimensionsWeightRemote": "136×35×9.25mm, 66g",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/111839\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV 4K",
+      "generation": "(第 2 代)",
+      "image": "img/apple-tv-4k-2nd-gen.webp",
+      "data": {
+        "slogan": "A higher<br>definition of TV.",
+        "releaseDate": "2021.04.21",
+        "supportedOS": "tvOS 14 ~ 最新",
+        "modelIdentifier": "AppleTV11,1",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "3GB LPDDR4X<br>32G、64G",
+        "remoteType": "Siri Remote (2nd Gen)",
+        "remoteCharging": "Lightning",
+        "airplay": "✅",
+        "audioVideo": "HDMI2.1 ×1",
+        "ethernet": "千兆以太网",
+        "wifi": "802.11ax HT80 2×2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeightHost": "35×98×98mm, 425g",
+        "dimensionsWeightRemote": "136×35×9.25mm, 63g",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/111922\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV 4K",
+      "generation": "(第 1 代)",
+      "image": "img/apple-tv-4k-1st-gen.webp",
+      "data": {
+        "slogan": "The 4K HDR era.<br>Now playing.",
+        "releaseDate": "2017.09.13",
+        "supportedOS": "tvOS 11 ~ 最新",
+        "modelIdentifier": "AppleTV6,2",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A10X Fusion<br>(3P+3E+12GPU)</div>",
+        "ramRom": "3GB LPDDR4<br>32G、64G",
+        "remoteType": "Siri Remote (1st Gen)",
+        "remoteCharging": "Lightning",
+        "airplay": "✅",
+        "audioVideo": "HDMI2.0a ×1",
+        "ethernet": "千兆以太网",
+        "wifi": "802.11ac HT80 2×2 MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeightHost": "35×98×98mm, 425g",
+        "dimensionsWeightRemote": "124×38×6.3mm, 45g",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/111929\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV HD",
+      "generation": "",
+      "image": "img/apple-tv-hd.webp",
+      "data": {
+        "slogan": "The future of televion.",
+        "releaseDate": "2015.09.10",
+        "supportedOS": "tvOS 9 ~ 最新",
+        "modelIdentifier": "AppleTV5,3",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A8<br>(2P+4GPU)</div>",
+        "ramRom": "2GB LPDDR3<br>32G、64G",
+        "remoteType": "Siri Remote (1st or 2nd)",
+        "remoteCharging": "Lightning",
+        "airplay": "✅",
+        "audioVideo": "HDMI1.4 ×1",
+        "ethernet": "百兆以太网",
+        "wifi": "802.11ac 2×2 MIMO",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeightHost": "35×98×98mm, 425g",
+        "dimensionsWeightRemote": "124×38×6.3mm,45g (1st)<br>136×35×9.25mm,63g (2nd)",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/111928\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV",
+      "generation": "(第 3 代)",
+      "image": "img/apple-tv-2-3.webp",
+      "data": {
+        "slogan": "Great HD content.<br>AirPlay.",
+        "releaseDate": "2012.03.08 / 2013.01.29",
+        "supportedOS": "iOS 5 ~ iOS 8",
+        "modelIdentifier": "AppleTV3,1 / 3,2",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A5<br>(1P+1GPU)</div>",
+        "ramRom": "512MB LPDDR2<br>8G",
+        "remoteType": "Apple Remote",
+        "remoteCharging": "3V CR2032",
+        "airplay": "✅",
+        "audioVideo": "HDMI × 1",
+        "ethernet": "百兆以太网",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "支持",
+        "dimensionsWeightHost": "23×98×98mm, 0.6磅",
+        "dimensionsWeightRemote": "-",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/112429\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV",
+      "generation": "(第 2 代)",
+      "image": "img/apple-tv-2-3.webp",
+      "data": {
+        "slogan": "The all-new tv",
+        "releaseDate": "2010.09.02",
+        "supportedOS": "iOS 4 ~ iOS 7",
+        "modelIdentifier": "AppleTV2,1",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">A4<br>(1P+1GPU)</div>",
+        "ramRom": "256MB LPDDR<br>8G",
+        "remoteType": "Apple Remote",
+        "remoteCharging": "3V CR2032",
+        "airplay": "✅",
+        "audioVideo": "HDMI × 1",
+        "ethernet": "百兆以太网",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "支持",
+        "dimensionsWeightHost": "23×98×98mm, 0.6磅",
+        "dimensionsWeightRemote": "-",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/112428\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple TV",
+      "generation": "(第 1 代)",
+      "image": "img/apple-tv-1.webp",
+      "data": {
+        "slogan": "If it's on iTunes, it's on TV.<br>Introducing Apple TV.",
+        "releaseDate": "2006.09.12",
+        "supportedOS": "Apple TV 1 ~ Apple TV 3",
+        "modelIdentifier": "AppleTV1,1",
+        "augmentedReality": "-",
+        "chipInfo": "<div class=\"li-div-cpu li-div-cpu-b\">Intel Pentium M<br>(1P)</div>",
+        "ramRom": "256MB DDR2<br>40G、160G",
+        "remoteType": "Apple Remote",
+        "remoteCharging": "-",
+        "airplay": "❌",
+        "audioVideo": "HDMI × 1",
+        "ethernet": "百兆以太网",
+        "wifi": "802.11b/g/n",
+        "bluetooth": "❌",
+        "dimensionsWeightHost": "28×197×197mm, 2.4磅",
+        "dimensionsWeightRemote": "-",
+        "specsManual": "<a href=\"https://support.apple.com/en-us/112555\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

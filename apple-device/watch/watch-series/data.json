@@ -1,0 +1,414 @@
+{
+  "title": "苹果 Apple Watch Series 参数对比",
+  "lastUpdated": "2025.04.08",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "外观颜色", "id": "colors" },
+        { "name": "增强现实", "id": "augmentedReality" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "芯片", "id": "chipInfo" },
+        { "name": "RAM<br>ROM", "id": "ramRom" },
+        { "name": "无线芯片", "id": "wirelessChip" },
+        { "name": "超宽频芯片", "id": "ultraWidebandChip" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "name": "屏幕参数", "id": "screenResolution" },
+        { "name": "屏幕材质", "id": "screenMaterial" },
+        { "name": "亮度", "id": "brightness" },
+        { "name": "表镜材质", "id": "crystalMaterial" }
+      ]
+    },
+    {
+      "groupName": "表背",
+      "features": [
+        { "name": "表背材质", "id": "caseBackMaterial" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "基带(蜂窝版)", "id": "cellularBaseband" },
+        { "name": "无线局域网", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "name": "电池容量", "id": "batteryCapacity" },
+        { "name": "续航时间", "id": "batteryLife" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "防尘防水", "id": "durability" },
+        { "name": "传感器", "id": "sensors" },
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple Watch Series 10",
+      "generation": "",
+      "image": "img/apple_watch_s10.webp",
+      "data": {
+        "slogan": "薄爆表",
+        "releaseDate": "2024.09.10",
+        "supportedOS": "watchOS 11 ~ 最新",
+        "modelIdentifier": "Watch7,8 / 7,9 / 7,10 / 7,11",
+        "colors": [
+          { "name": "亮黑色", "hex": "#010203" },
+          { "name": "玫瑰金色", "hex": "#cca899" },
+          { "name": "银色", "hex": "#deddde" }
+        ],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_10-jet-black.usdz\" target=\"_blank\">亮黑色</a><a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_10-titanium-gold.usdz\" target=\"_blank\">金色钛金属</a>",
+        "chipInfo": "S10 SiP",
+        "ramRom": "2GB<br>64GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "U2",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">374x446<br>(42mm)</div><div class=\"li-div-cpu li-div-cpu-a\">416x496<br>(46mm)</div>",
+        "screenMaterial": "全天候 LTPO3 OLED (广视角)",
+        "brightness": "最高 2000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (钛)",
+        "caseBackMaterial": "蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.3",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">-mAh<br>(42mm)</div><div class=\"li-div-power li-div-power-a\">327mAh<br>(46mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IP6X + 5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(256 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">高动态范围<br>陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第三代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">血氧传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">体温传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">水温传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">深度计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/121202\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 9",
+      "generation": "",
+      "image": "img/apple_watch_s9.webp",
+      "data": {
+        "slogan": "智能加成，加亮加实力。",
+        "releaseDate": "2023.09.13",
+        "supportedOS": "watchOS 10 ~ 最新",
+        "modelIdentifier": "Watch7,1 / 7,2 / 7,3 / 7,4",
+        "colors": [
+          { "name": "午夜色", "hex": "#1a2530" },
+          { "name": "星光色", "hex": "#ded6d1" },
+          { "name": "银色", "hex": "#e0e0e0" },
+          { "name": "粉色", "hex": "#fadcde" },
+          { "name": "红色", "hex": "#d61139" },
+          { "name": "石墨色（不锈钢版可选）", "hex": "#3e3a36" },
+          { "name": "银色（不锈钢版可选）", "hex": "#e6e6e7" },
+          { "name": "金色（不锈钢版可选）", "hex": "#d4bda1" }
+        ],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_9.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S9 SiP",
+        "ramRom": "2GB<br>64GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "U2",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">352x430<br>(41mm)</div><div class=\"li-div-cpu li-div-cpu-a\">396x484<br>(45mm)</div>",
+        "screenMaterial": "全天候 LTPO OLED",
+        "brightness": "最高 2000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.3",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">282mAh<br>(41mm)</div><div class=\"li-div-power li-div-power-a\">308mAh<br>(45mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IP6X + 5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(256 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">高动态范围<br>陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第三代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">血氧传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">体温传感器</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111833\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 8",
+      "generation": "",
+      "image": "img/apple_watch_s8.webp",
+      "data": {
+        "slogan": "健康的一大步",
+        "releaseDate": "2022.09.08",
+        "supportedOS": "watchOS 9 ~ 最新",
+        "modelIdentifier": "Watch6,14 / 6,15 / 6,16 / 6,17",
+        "colors": [
+          { "name": "午夜色", "hex": "#1a2530" },
+          { "name": "星光色", "hex": "#ded6d1" },
+          { "name": "银色", "hex": "#e0e0e0" },
+          { "name": "红色", "hex": "#c80e2d" }
+        ],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_8.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S8 SiP",
+        "ramRom": "1.5GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "U1",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">352x430<br>(41mm)</div><div class=\"li-div-cpu li-div-cpu-a\">396x484<br>(45mm)</div>",
+        "screenMaterial": "全天候 LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.3",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">282mAh<br>(41mm)</div><div class=\"li-div-power li-div-power-a\">308mAh<br>(45mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IP6X + 5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(256 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第三代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">血氧传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">体温传感器</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111848\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 7",
+      "generation": "",
+      "image": "img/apple_watch_s7.webp",
+      "data": {
+        "slogan": "全屏先手",
+        "releaseDate": "2021.09.15",
+        "supportedOS": "watchOS 8 ~ 最新",
+        "modelIdentifier": "Watch6,6 / 6,7 / 6,8 / 6,9",
+        "colors": [],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_7_gps_alum_midnight_l_sport_band_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S7 SiP",
+        "ramRom": "1.5GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "U1",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">352x430<br>(41mm)</div><div class=\"li-div-cpu li-div-cpu-a\">396x484<br>(45mm)</div>",
+        "screenMaterial": "全天候 LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢, 钛)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">284mAh<br>(41mm)</div><div class=\"li-div-power li-div-power-a\">309mAh<br>(45mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IP6X + 5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(32 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第三代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">血氧传感器</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111909\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 6",
+      "generation": "",
+      "image": "img/apple_watch_s6.webp",
+      "data": {
+        "slogan": "健康的未来，现在戴上。",
+        "releaseDate": "2020.09.16",
+        "supportedOS": "watchOS 7 ~ 最新",
+        "modelIdentifier": "Watch6,1 / 6,2 / 6,3 / 6,4",
+        "colors": [],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_6.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S6 SiP",
+        "ramRom": "1.5GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "U1",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">324x394<br>(40mm)</div><div class=\"li-div-cpu li-div-cpu-a\">368x448<br>(44mm)</div>",
+        "screenMaterial": "全天候 LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢, 钛)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">265.9mAh<br>(40mm)</div><div class=\"li-div-power li-div-power-a\">303.8mAh<br>(44mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(32 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第三代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">气压高度计<br>(全天候)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">血氧传感器</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111918\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 5",
+      "generation": "",
+      "image": "img/apple_watch_s5.webp",
+      "data": {
+        "slogan": "这块表，好不一样。",
+        "releaseDate": "2019.09.11",
+        "supportedOS": "watchOS 6 ~ watchOS 10",
+        "modelIdentifier": "Watch5,1 / 5,2 / 5,3 / 5,4",
+        "colors": [],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_5.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S5 SiP",
+        "ramRom": "1GB<br>32GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">324x394<br>(40mm)</div><div class=\"li-div-cpu li-div-cpu-a\">368x448<br>(44mm)</div>",
+        "screenMaterial": "全天候 LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢, 钛, 陶瓷)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">245mAh<br>(40mm)</div><div class=\"li-div-power li-div-power-a\">296mAh<br>(44mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(32 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学, 第二代)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">气压高度计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">磁力计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/118453\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 4",
+      "generation": "",
+      "image": "img/apple_watch_s4.webp",
+      "data": {
+        "slogan": "焕然一新，唤醒更好的你。",
+        "releaseDate": "2018.09.13",
+        "supportedOS": "watchOS 5 ~ watchOS 10",
+        "modelIdentifier": "Watch4,1 / 4,2 / 4,3 / 4,4",
+        "colors": [],
+        "augmentedReality": "-",
+        "chipInfo": "S4 SiP",
+        "ramRom": "1GB<br>16GB",
+        "wirelessChip": "W3",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">324x394<br>(40mm)</div><div class=\"li-div-cpu li-div-cpu-a\">368x448<br>(44mm)</div>",
+        "screenMaterial": "LTPO OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢)",
+        "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+        "cellularBaseband": "Intel XMM7560",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">224.9mAh<br>(40mm)</div><div class=\"li-div-power li-div-power-a\">291.8mAh<br>(44mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(32 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(电极式)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">气压高度计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111984\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 3",
+      "generation": "",
+      "image": "img/apple_watch_s3.webp",
+      "data": {
+        "slogan": "更自由，更来电。",
+        "releaseDate": "2017.09.13",
+        "supportedOS": "watchOS 4 ~ watchOS 8",
+        "modelIdentifier": "Watch3,1 / 3,2 / 3,3 / 3,4",
+        "colors": [],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/watch/apple_watch_series_3.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "S3 SiP",
+        "ramRom": "768MB<br>8GB、16GB",
+        "wirelessChip": "W2",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">272x340<br>(38mm)</div><div class=\"li-div-cpu li-div-cpu-a\">312x390<br>(42mm)</div>",
+        "screenMaterial": "OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢, 陶瓷)",
+        "caseBackMaterial": "复合材质、陶瓷+蓝宝石玻璃",
+        "cellularBaseband": "MDM9635",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 4.2",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">279mAh<br>(38mm)</div><div class=\"li-div-power li-div-power-a\">342mAh<br>(42mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">加速度计<br>(16 g-force)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">气压高度计</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111891\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 2",
+      "generation": "",
+      "image": "img/apple_watch_s2.webp",
+      "data": {
+        "slogan": "Series 2 新登场。",
+        "releaseDate": "2016.09.08",
+        "supportedOS": "watchOS 3 ~ watchOS 6",
+        "modelIdentifier": "Watch2,3 / 2,4",
+        "colors": [],
+        "augmentedReality": "-",
+        "chipInfo": "S2",
+        "ramRom": "512MB<br>8GB",
+        "wirelessChip": "❌",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">272x340<br>(38mm)</div><div class=\"li-div-cpu li-div-cpu-a\">312x390<br>(42mm)</div>",
+        "screenMaterial": "OLED",
+        "brightness": "最高 1000 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (不锈钢, 陶瓷)",
+        "caseBackMaterial": "复合材质、精密陶瓷",
+        "cellularBaseband": "❌",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 4.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">273mAh<br>(38mm)</div><div class=\"li-div-power li-div-power-a\">334mAh<br>(42mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "5ATM",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\">加速度计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学)</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112022\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch Series 1",
+      "generation": "",
+      "image": "img/apple_watch_s1.webp",
+      "data": {
+        "slogan": "原作之上，再添源动力。",
+        "releaseDate": "2016.09.08",
+        "supportedOS": "watchOS 3 ~ watchOS 6",
+        "modelIdentifier": "Watch2,6 / 2,7",
+        "colors": [],
+        "augmentedReality": "-",
+        "chipInfo": "S1P",
+        "ramRom": "512MB<br>8GB",
+        "wirelessChip": "❌",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">272x340<br>(38mm)</div><div class=\"li-div-cpu li-div-cpu-a\">312x390<br>(42mm)</div>",
+        "screenMaterial": "OLED",
+        "brightness": "最高 450 尼特",
+        "crystalMaterial": "Ion-X 玻璃<br><br>",
+        "caseBackMaterial": "复合材质",
+        "cellularBaseband": "❌",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 4.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">205mAh<br>(38mm)</div><div class=\"li-div-power li-div-power-a\">246mAh<br>(42mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IPX7",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\">加速度计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学)</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111985\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Apple Watch",
+      "generation": "(第 1 代)",
+      "image": "img/apple_watch.webp",
+      "data": {
+        "slogan": "我们真正与你贴近的个人设备",
+        "releaseDate": "2014.09.10",
+        "supportedOS": "watchOS 1 ~ watchOS 4",
+        "modelIdentifier": "Watch1,1 / 1,2",
+        "colors": [],
+        "augmentedReality": "-",
+        "chipInfo": "S1",
+        "ramRom": "512MB<br>8GB",
+        "wirelessChip": "❌",
+        "ultraWidebandChip": "❌",
+        "screenResolution": "<div class=\"li-div-cpu li-div-cpu-a\">272x340<br>(38mm)</div><div class=\"li-div-cpu li-div-cpu-a\">312x390<br>(42mm)</div>",
+        "screenMaterial": "OLED",
+        "brightness": "最高 450 尼特",
+        "crystalMaterial": "Ion-X 玻璃 (Sport)<br>蓝宝石玻璃 (Edition)",
+        "caseBackMaterial": "复合材质、精密陶瓷",
+        "cellularBaseband": "❌",
+        "wifi": "802.11b/g/n 2.4GHz",
+        "bluetooth": "Bluetooth 4.0",
+        "batteryCapacity": "<div class=\"li-div-power li-div-power-a\">205mAh<br>(38mm)</div><div class=\"li-div-power li-div-power-a\">246mAh<br>(42mm)</div>",
+        "batteryLife": "18 小时",
+        "durability": "IPX7",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\">加速度计</div><div class=\"li-div-score li-div-score-a li-div-score-one\">陀螺仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">心率传感器<br>(光学)</div>",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112009\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

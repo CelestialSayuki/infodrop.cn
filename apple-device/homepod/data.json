@@ -1,0 +1,145 @@
+{
+  "title": "苹果 HomePod 参数对比",
+  "lastUpdated": "2024.12.26",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" },
+        { "id": "arLink", "name": "增强现实" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "chip", "name": "芯片" },
+        { "id": "ramRom", "name": "RAM/ROM" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "wifi", "name": "无线局域网" },
+        { "id": "bluetooth", "name": "蓝牙" },
+        { "id": "thread", "name": "Thread协议" },
+        { "id": "uwb", "name": "超宽带技术" }
+      ]
+    },
+    {
+      "groupName": "输出",
+      "features": [
+        { "id": "speakers", "name": "喇叭数量" }
+      ]
+    },
+    {
+      "groupName": "输入",
+      "features": [
+        { "id": "mics", "name": "普通麦克风" },
+        { "id": "bassMic", "name": "低音麦克风" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "spatialAwareness", "name": "空间感知" },
+        { "id": "handoff", "name": "靠近接力" },
+        { "id": "sensors", "name": "感应器" },
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "HomePod",
+      "generation": "(第 2 代)",
+      "image": "img/homepod-2.webp",
+      "data": {
+        "slogan": "声声有天地",
+        "releaseDate": "2023.01.18",
+        "modelId": "AudioAccessory6,1",
+        "colors": [
+          { "name": "白色", "hex": "#ffffff" },
+          { "name": "午夜色", "hex": "#313232" }
+        ],
+        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
+        "chip": "S7",
+        "ramRom": "1.5GB<br>32GB",
+        "wifi": "802.11n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "thread": "✅",
+        "uwb": "U1",
+        "speakers": "1 个高振幅低音单元<br>5 个高音单元 (组成阵列)",
+        "mics": "4 个麦克风 (组成阵列)",
+        "bassMic": "1 个",
+        "spatialAwareness": "✅",
+        "handoff": "✅",
+        "sensors": "温湿度传感器<br>加速感应器",
+        "dimensionsWeight": "16.8×14.2×14.2cm, 2.3kg",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111843\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "HomePod mini",
+      "generation": "",
+      "image": "img/homepod-mini.webp",
+      "data": {
+        "slogan": "小宇宙爆发。",
+        "releaseDate": "2020.10.14",
+        "modelId": "AudioAccessory5,1",
+        "colors": [
+          { "name": "白色", "hex": "#ffffff" },
+          { "name": "黄色", "hex": "#ffc953" },
+          { "name": "橙色", "hex": "#e56645" },
+          { "name": "蓝色", "hex": "#25485e" },
+          { "name": "午夜色", "hex": "#222428" },
+          { "name": "深空灰色", "hex": "#36373a" }
+        ],
+        "arLink": "<a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.hubweb.cn/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰</a>",
+        "chip": "S5",
+        "ramRom": "1GB<br>32GB",
+        "wifi": "802.11n 2.4&5GHz",
+        "bluetooth": "Bluetooth 5.0",
+        "thread": "✅",
+        "uwb": "U1",
+        "speakers": "1 个全频驱动单元<br>2 个无源辐射器",
+        "mics": "4 个麦克风 (组成阵列)",
+        "bassMic": "❌",
+        "spatialAwareness": "❌",
+        "handoff": "✅",
+        "sensors": "温湿度传感器<br>加速感应器",
+        "dimensionsWeight": "8.43×9.79×9.79cm, 345g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111914\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "HomePod",
+      "generation": "(第 1 代)",
+      "image": "img/homepod-1.webp",
+      "data": {
+        "slogan": "家的新声。",
+        "releaseDate": "2017.06.06",
+        "modelId": "AudioAccessory1,1 / 1,2",
+        "colors": [],
+        "arLink": "-",
+        "chip": "A8",
+        "ramRom": "1GB<br>16GB",
+        "wifi": "802.11ac with MIMO",
+        "bluetooth": "Bluetooth 5.0",
+        "thread": "❌",
+        "uwb": "❌",
+        "speakers": "1 个高振幅低音单元<br>7 个高音单元 (组成阵列)",
+        "mics": "6 个麦克风 (组成阵列)",
+        "bassMic": "1 个",
+        "spatialAwareness": "✅",
+        "handoff": "✅ (需更新系统)",
+        "sensors": "❌",
+        "dimensionsWeight": "17.2×14.2×14.2cm, 2.5kg",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111994\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

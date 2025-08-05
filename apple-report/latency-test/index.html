@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内存延迟测试工具</title>
+
+    <style>
+        :root {
+            --light-bg: #f8f9fa;
+            --dark-bg: #0d1117;
+            --light-glass-bg: rgba(255, 255, 255, 0.5);
+            --dark-glass-bg: rgba(22, 27, 34, 0.6);
+            --light-text: #212529;
+            --dark-text: #c9d1d9;
+            --light-text-secondary: #586069;
+            --dark-text-secondary: #8b949e;
+            --light-border: rgba(0, 0, 0, 0.1);
+            --dark-border: rgba(255, 255, 255, 0.15);
+            --accent-color: #007aff;
+            --accent-color-hover: #0056b3;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+            --light-glass-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
+            --dark-glass-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--accent-color-hover);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .title {
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .title strong {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .title span {
+            font-size: 0.9rem;
+            color: var(--light-text-secondary);
+        }
+
+        .card {
+            background-color: var(--light-glass-bg);
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: var(--light-glass-shadow);
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding-left: 5px;
+            line-height: 1.8;
+        }
+
+        .card ul li {
+            padding: 6px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .card ul li::before {
+            content: '\F28A';
+            font-family: 'bootstrap-icons';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .div {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            background-color: var(--light-glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--light-glass-shadow);
+            border: 1px solid var(--light-border);
+            margin-bottom: 20px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            a {
+                color: #8ab4f8;
+            }
+            .title strong {
+                color: var(--dark-text);
+            }
+            .title span {
+                color: var(--dark-text-secondary);
+            }
+            .card {
+                background-color: var(--dark-glass-bg);
+                border: 1px solid var(--dark-border);
+                box-shadow: var(--dark-glass-shadow);
+            }
+            .div {
+                color: var(--dark-text-secondary);
+                background-color: var(--dark-glass-bg);
+                box-shadow: var(--dark-glass-shadow);
+                border: 1px solid var(--dark-border);
+            }
+        }
+        .card p.hint {
+            font-size: 0.8rem;
+            color: var(--light-text-secondary);
+        }
+        
+        .ua-info {
+            font-size: 0.8rem;
+            color: var(--light-text-secondary);
+            background-color: var(--light-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            word-break: break-all;
+        }
+
+        details {
+            border: 1px solid var(--light-border);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .debug-options label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"], select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--light-border);
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            margin: 0 5px;
+            min-width: 100px;
+        }
+        
+        #results-card {
+            position: relative;
+            display: none;
+        }
+              
+        #results-card.invalid-data::before {
+            content: '数据无效';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e60026;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 10;
+        }
+        
+        #statusMessage {
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .results-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        #results-chart {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+        }
+        
+        #raw-results-container h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        #rawresult {
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 15px;
+            background-color: transparent;
+            border: 1px solid var(--light-border);
+            border-radius: var(--border-radius);
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            flex-grow: 1;
+            min-height: 0;
+        }
+        
+        #raw-results-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #submitdiv {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-border);
+            text-align: center;
+        }
+        
+        input[type="button"] {
+            font-family: 'SF Pro Text', 'PingFang SC', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 18px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 122, 255, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease-out;
+        }
+
+        input[type="button"]:hover {
+            background-color: var(--accent-color-hover);
+            box-shadow: 0 4px 8px rgba(0, 122, 255, 0.3);
+        }
+
+        input[type="button"]:active {
+            background-color: #004da3;
+            box-shadow: 0 1px 2px rgba(0, 122, 255, 0.2);
+        }
+
+        input[type="button"]:disabled {
+            background-color: #a0a0a0;
+            color: #e0e0e0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .card p.hint {
+                color: var(--dark-text-secondary);
+            }
+
+            .ua-info {
+                background-color: var(--dark-bg);
+                color: var(--dark-text-secondary);
+            }
+            
+            input[type="text"],
+            select {
+                background-color: var(--dark-bg);
+                border: 1px solid var(--dark-border);
+                color: var(--dark-text);
+            }
+
+            input[type="text"]::placeholder {
+                color: var(--dark-text-secondary);
+            }
+            
+            #rawresult {
+                border-color: var(--dark-border);
+                color: var(--dark-text);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="card">
+            <h2>内存延迟测试工具</h2>
+            <p>基于 Pointer-Chasing方法</p>
+            <p class="hint">提示：测试时如浏览器标签崩溃，可尝试在“调试选项”中减小“测试最大大小”。</p>
+            <div class="ua-info" id="info-ua">正在加载浏览器信息...</div>
+            
+            <details>
+                <summary>调试选项</summary>
+                <div class="debug-options">
+                    <label>
+                        测试特定大小:
+                        <input type="text" id="customTestSize" placeholder="例如: 1024"> KB
+                        <input type="button" value="开始测试" onclick="singleTest()">
+                    </label>
+                    <label>
+                        测试最大大小:
+                        <input type="text" id="maxTestSize" placeholder="262144"> KB
+                    </label>
+                </div>
+            </details>
+            
+            <input type="button" id="startStopBtn" value="开始全面测试" onclick="startTest()">
+        </div>
+
+        <div class="card">
+            <h2>原生测试应用下载</h2>
+            <p>可以使用原生应用程序进行测试，原生应用可以直接与操作系统和硬件交互，提供更精确的性能数据，目前软件仍处于早期测试版，可靠性尚未确定。</p>
+            <p class="hint">仅支持 macOS 13+ 及 iOS 16+</p>
+            <ul>
+                <li><a href="/apple-report/latency-test/app/macOS.zip" target="_blank" rel="noopener noreferrer">下载 macOS (Universal) 版本</a></li>
+                <li><a href="/apple-report/latency-test/app/iOS.ipa" target="_blank" rel="noopener noreferrer">下载 iOS / iPadOS 版本</a></li>
+            </ul>
+        </div>
+
+        <div class="card" id="results-card">
+            <h2>测试结果</h2>
+            <div id="statusMessage"></div>
+            <div class="results-grid">
+                <div id="results-chart"></div>
+                <div id="raw-results-container">
+                    <h3>原始数据 (KB, ns)</h3>
+                    <div id="rawresult"></div>
+                </div>
+            </div>
+            <div id="submitdiv">
+                <label for="selectBrand">提交您的测试结果：</label>
+                <select id="selectBrand">
+                    <option value="" selected>-- 请选择品牌 --</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Intel">Intel</option>
+                    <option value="AMD">AMD</option>
+                    <option value="Qualcomm">Qualcomm</option>
+                    <option value="MediaTek">MediaTek</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="Other">其他</option>
+                </select>
+                <input type="text" id="modelNameInput" placeholder="请在此输入具体型号" style="max-width: 180px;" maxlength="40">
+                <input type="button" id="submittext" value="提交" onclick="submittext()">
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+    (() => {
+        const workerCode = `
+                    onmessage = function (e) {
+                        var lat = latencyTest(e.data[0], 100000000); 
+                        if (e.data.length > 1) postMessage([lat, e.data[0]]);
+                        else postMessage([lat]);
+                    }
+                    function latencyTest(sizeKb, iterations) {
+                        var listSize = sizeKb * 1024 / 4;
+                        var testArr = [];
+
+                        if (sizeKb <= 32) iterations = iterations * 8;
+                        else if (sizeKb <= 512) iterations = iterations * 4;
+                        else if (sizeKb <= 4096) iterations = iterations * 2;
+                        else if (sizeKb > 65536) iterations = iterations / 5;
+                        
+                        for (var i = 0; i < listSize; i++) { testArr[i] = i; }
+                        var iter = listSize;
+                        while (iter > 1) {
+                            iter -= 1;
+                            var j = (iter - 1) == 0 ? 0 : Math.floor(Math.random() * (iter));
+                            var tmp = testArr[iter];
+                            testArr[iter] = testArr[j];
+                            testArr[j] = tmp;
+                        }
+                        var uintTestArr = new Uint32Array(testArr);
+                        var start = performance.now();
+                        var current = uintTestArr[0];
+                        for (var i = 0; i < iterations; i++) {
+                            current = uintTestArr[current];
+                        }
+                        var end = performance.now();
+                        var elapsedTimeMs = end - start;
+                        var latency = 1000000.0 * elapsedTimeMs / iterations;
+                        return [latency, current];
+                    }`;
+
+        let worker;
+        const testSizeArray = [1, 2, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 600, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192, 10240, 12288, 16384, 24576, 32768, 49152, 65536, 98304, 131072, 262144];
+        let latencyResults = [];
+        let testRunning = false;
+        let testIdx = 0;
+        let maxTestSize = 0;
+        const warmupPasses = 16;
+        let warmupPassesLeft = warmupPasses;
+        let chart;
+
+        const startStopBtn = document.getElementById('startStopBtn');
+        const statusMessageEl = document.getElementById('statusMessage');
+        const rawResultEl = document.getElementById('rawresult');
+        const resultsCardEl = document.getElementById('results-card');
+        const submitDivEl = document.getElementById('submitdiv');
+
+        function initializeWorker() {
+            try {
+                const blob = new Blob([workerCode], { type: "text/javascript" });
+                worker = new Worker(window.URL.createObjectURL(blob));
+                worker.onmessage = handleWorkerMessage;
+            } catch (e) {
+                console.error("Failed to initialize worker:", e);
+                statusMessageEl.textContent = "错误：无法初始化测试核心。";
+            }
+        }
+
+        function validateResults() {
+            const sortedResults = [...latencyResults].sort((a, b) => a.size - b.size);
+
+            if (sortedResults.length < 2) {
+                return true;
+            }
+
+            for (let i = 1; i < sortedResults.length; i++) {
+                if (sortedResults[i].latency < sortedResults[i - 1].latency * 0.95) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
+        function handleWorkerMessage(e) {
+            const [latencyData, testedSizeParam] = e.data;
+            const lat = latencyData[0];
+            let testedSize = testedSizeParam !== undefined ? testedSizeParam : testSizeArray[testIdx];
+            
+            if (warmupPassesLeft > 0) {
+                warmupPassesLeft--;
+                statusMessageEl.textContent = `预热中 (${warmupPasses - warmupPassesLeft}/${warmupPasses})... 测试 ${testSizeArray[testIdx]} KB`;
+                worker.postMessage([testSizeArray[testIdx]]);
+            } else {
+                if (latencyResults.length === testIdx) {
+                    latencyResults.push({ size: testedSize, latency: lat });
+                    updateChart();
+                    rawResultEl.textContent += `${testedSize},${lat.toFixed(2)}\n`;
+                    rawResultEl.scrollTop = rawResultEl.scrollHeight;
+                }
+                
+                testIdx++;
+                if (testIdx >= testSizeArray.length || (maxTestSize > 0 && testSizeArray[testIdx] > maxTestSize)) {
+                    stopTest(true);
+                } else if (testRunning) {
+                    statusMessageEl.textContent = `测试中... ${testSizeArray[testIdx]} KB`;
+                    worker.postMessage([testSizeArray[testIdx]]);
+                }
+            }
+        }
+
+        function updateChart() {
+            if (!chart) {
+                const chartDom = document.getElementById('results-chart');
+                chart = echarts.init(chartDom, document.body.classList.contains('theme-dark') ? 'dark' : 'light');
+            }
+            
+            const sortedResults = [...latencyResults].sort((a, b) => a.size - b.size);
+            
+            chart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: params => `大小: ${params[0].name} KB<br/>延迟: ${params[0].value.toFixed(2)} ns`
+                },
+                grid: { top: '10%', right: '5%', bottom: '10%', left: '12%' },
+                xAxis: {
+                    type: 'category',
+                    data: sortedResults.map(r => r.size),
+                    name: '数据块大小 (KB)',
+                    nameLocation: 'middle',
+                    nameGap: 30,
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '延迟 (ns)',
+                    axisLabel: { formatter: '{value} ns' }
+                },
+                series: [{
+                    type: 'bar',
+                    data: sortedResults.map(r => r.latency),
+                    itemStyle: {
+                        color: (params) => {
+                            if (params.value > 100) return '#e60026';
+                            if (params.value > 50) return '#ffd500';
+                            return '#007aff';
+                        }
+                    }
+                }]
+            });
+        }
+        
+        window.startTest = function() {
+                    if (testRunning) return;
+                
+                    resultsCardEl.style.display = "block";
+                    submitDivEl.style.display = "hidden";
+                    resultsCardEl.classList.remove('invalid-data');
+                    document.getElementById('submittext').disabled = false;
+                    
+                    maxTestSize = parseInt(document.getElementById('maxTestSize').value) || 0;
+                    testRunning = true;
+                    testIdx = 0;
+                    latencyResults = [];
+                    rawResultEl.textContent = "";
+
+                    warmupPassesLeft = warmupPasses;
+                    
+                    startStopBtn.value = "停止测试";
+                    startStopBtn.onclick = () => stopTest(false);
+
+                    statusMessageEl.textContent = `预热中 (0/${warmupPasses})... 测试 ${testSizeArray[testIdx]} KB`;
+                    worker.postMessage([testSizeArray[testIdx]]);
+                }
+                
+                window.stopTest = function(finished = false) {
+                    if (!testRunning) return;
+                    testRunning = false;
+                    startStopBtn.value = "开始全面测试";
+                    startStopBtn.onclick = startTest;
+                    
+                    if (finished) {
+                        if (latencyResults.length > 1 && !validateResults()) {
+                            statusMessageEl.textContent = "测试完成，但数据无效（更大数据块的延迟反而显著降低），因此结果不允许上传。";
+                            resultsCardEl.classList.add('invalid-data');
+                            submitDivEl.style.display = "block";
+                            document.getElementById('submittext').disabled = true;
+                        } else {
+                            statusMessageEl.textContent = "测试完成！";
+                            submitDivEl.style.display = "block";
+                            resultsCardEl.classList.remove('invalid-data');
+                            document.getElementById('submittext').disabled = false;
+                        }
+                    } else {
+                        statusMessageEl.textContent = "测试已停止。";
+                        submitDivEl.style.display = "none";
+                    }
+                }
+
+        window.singleTest = function() {
+            resultsCardEl.style.display = "block";
+            const requestedSize = parseInt(document.getElementById('customTestSize').value);
+            if (!requestedSize || requestedSize <= 0) {
+                alert("请输入有效的测试大小。");
+                return;
+            }
+            statusMessageEl.textContent = `测试中... ${requestedSize} KB`;
+            warmupPassesLeft = 0;
+            worker.postMessage([requestedSize, requestedSize]);
+        }
+
+        window.submittext = function() {
+                    if (document.getElementById('submittext').disabled) {
+                        alert('当前测试数据无效，无法提交。');
+                        return;
+                    }
+
+                    const brandSelect = document.getElementById('selectBrand');
+                    const modelInput = document.getElementById('modelNameInput');
+                    
+                    const brand = brandSelect.value;
+                    const model = modelInput.value.trim();
+
+                    if (!brand) {
+                        alert('请选择处理器品牌！');
+                        brandSelect.focus();
+                        return;
+                    }
+
+                    if (!model) {
+                        alert('请输入具体型号！');
+                        modelInput.focus();
+                        return;
+                    }
+
+                    const processorModel = brand + ' ' + model;
+
+                    const data = {
+                        deviceInfo: `UA: ${document.getElementById('info-ua').textContent}`,
+                        processorModel: processorModel,
+                        testResults: `[${rawResultEl.textContent.trim().split('\n').map(line => `[${line}]`).join(',')}]`
+                    };
+                    
+                    fetch('./apple-report/latency-test/submit.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error('网络响应失败');
+                        return response.text();
+                    })
+                    .then(data => {
+                        alert('提交成功，感谢您的贡献！');
+                        submitDivEl.style.display = "none";
+                    })
+                    .catch(error => {
+                        alert('提交失败: ' + error.message);
+                    });
+                }
+        
+        function init() {
+            const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
+            const setTheme = (isDark) => document.body.classList.toggle('theme-dark', isDark);
+            setTheme(darkModeMatcher.matches);
+            darkModeMatcher.addEventListener('change', e => setTheme(e.matches));
+            
+            document.getElementById('info-ua').textContent = navigator.userAgent;
+            
+            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+                 document.getElementById('maxTestSize').placeholder = "262144 (Chrome 推荐)";
+            }
+            
+            initializeWorker();
+        }
+
+        init();
+    })();
+    </script>
+</body>
+</html>

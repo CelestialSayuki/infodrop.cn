@@ -1,0 +1,60 @@
+{
+  "title": "苹果协处理器参数对比",
+  "lastUpdated": "2024.12.26",
+  "featureGroups": [
+    {
+      "groupName": "概要",
+      "features": [
+        { "id": "frequency", "name": "主频" },
+        { "id": "microcontroller", "name": "微控制器" }
+      ]
+    },
+    {
+      "groupName": "架构",
+      "features": [
+        { "id": "microArchitecture", "name": "微架构" }
+      ]
+    },
+    {
+      "groupName": "工艺",
+      "features": [
+        { "id": "processTech", "name": "技术工艺" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" },
+        { "id": "coprocessorImage", "name": "协处理器图" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple M8",
+      "generation": "(LPC18B1)",
+      "image": "img/NXP_LPC18B1.png",
+      "data": {
+        "frequency": "150MHz",
+        "microcontroller": "NXP LPC18B1",
+        "microArchitecture": "ARMv7-M Cortex M3",
+        "processTech": "90nm",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod touch (第 6 代)</div>",
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg\" style=\"padding:4px;max-height: 120px;\">"
+      }
+    },
+    {
+      "name": "Apple M7",
+      "generation": "(LPC18A1)",
+      "image": "img/NXP_LPC18A1.png",
+      "data": {
+        "frequency": "150MHz",
+        "microcontroller": "NXP LPC18A1",
+        "microArchitecture": "ARMv7-M Cortex M3",
+        "processTech": "90nm",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 5s<br>iPad Air<br>iPad mini 2<br>iPad mini 3</div>",
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg\" style=\"padding:4px;max-height: 120px;\">"
+      }
+    }
+  ]
+}

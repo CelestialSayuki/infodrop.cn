@@ -1,0 +1,79 @@
+{
+  "title": "苹果 U 系列参数对比",
+  "lastUpdated": "2025.02.22",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" }
+      ]
+    },
+    {
+      "groupName": "概要",
+      "features": [
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "架构",
+      "features": [
+        { "id": "coreArchitecture", "name": "内核架构" }
+      ]
+    },
+    {
+      "groupName": "传输",
+      "features": [
+        { "id": "frequency", "name": "传输频率" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple U2",
+      "generation": "(339M00298)",
+      "image": "img/U2_product.webp",
+      "images": {
+        "宣传图": "img/U2_product.webp",
+        "芯片图": "img/U2_temp.webp",
+        "内部图": "img/die/U2_temp.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图", "内部图"],
+        "releaseDate": "2023.09",
+        "processTech": "-",
+        "dieSize": "-",
+        "coreArchitecture": "-",
+        "frequency": "-",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 15 全系列<br>iPhone 16 全系列 (16e 除外)<br>Apple Watch Series 9<br>Apple Watch Series 10<br>Apple Watch Ultra 2</div>"
+      }
+    },
+    {
+      "name": "Apple U1",
+      "generation": "(TMKA75)",
+      "image": "img/U1_product.webp",
+      "images": {
+        "宣传图": "img/U1_product.webp",
+        "芯片图": "img/U1_temp.webp",
+        "内部图": "img/die/U1_TMKA75_temp.webp",
+        "Die": "img/die/die_shot_U1_TMKA75_temp.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图", "内部图", "Die"],
+        "releaseDate": "2019.09",
+        "processTech": "TSMC N16 FF",
+        "dieSize": "-",
+        "coreArchitecture": "ARMv7E-M Cortex-M4",
+        "frequency": "6.24GHz & 8.2368GHz",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 11 全系列<br>iPhone 12 全系列<br>iPhone 13 全系列<br>iPhone 14 全系列<br>Apple Watch Series 6<br>Apple Watch Series 7<br>Apple Watch Series 8<br>Apple Watch Ultra<br>AirPods Pro (第 2 代)<br>HomePod mini<br>HomePod (第 2 代)<br>AirTag</div>"
+      }
+    }
+  ]
+}

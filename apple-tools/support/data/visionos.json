@@ -1,0 +1,17 @@
+{
+    "osVersions": [
+        { "id": "visionos_1", "name": "visionOS 1", "icon": "./apple-tools/support/img/vision-pro-icon.webp" },
+        { "id": "visionos_2", "name": "visionOS 2", "icon": "./apple-tools/support/img/visionos-2-logo.webp" },
+        { "id": "visionos_26", "name": "visionOS 26", "icon": "./apple-tools/support/img/visionos-26-logo.webp" }
+    ],
+    "headers": [
+        { "key": "model", "text": "机型", "width": "9%" },
+        { "key": "chip", "text": "处理器", "width": "8%" },
+        { "key": "date", "text": "发布时间", "width": "8%" },
+        { "key": "identifier", "text": "标识符", "width": "10%" },
+        { "key": "os", "text": "系统支持版本" }
+    ],
+    "devices": [
+        { "model": "Apple Vision Pro", "chip": "M2 + R1", "date": "2024.02", "identifier": "RealityDevice14,1", "supportedOS": ["visionos_1", "visionos_2", "visionos_26"], "special": { "visionos_2": "glow", "visionos_26": "glow" } }
+    ]
+}

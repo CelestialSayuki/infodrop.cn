@@ -1,0 +1,136 @@
+{
+  "title": "苹果 H 系列参数对比",
+  "lastUpdated": "2025.02.12",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" }
+      ]
+    },
+    {
+      "groupName": "概要",
+      "features": [
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "架构",
+      "features": [
+        { "id": "coreArchitecture", "name": "内核架构" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" },
+        { "id": "moldImage", "name": "模具图" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple H2",
+      "generation": "(-)",
+      "image": "img/H2.webp",
+      "images": {
+        "芯片图": "img/H2.webp",
+        "宣传图": "img/H2_product.webp",
+        "Die": "img/die/die_shot_H2_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图", "宣传图", "Die"],
+        "releaseDate": "2022.09",
+        "processTech": "TSMC N6 RF",
+        "dieSize": "-",
+        "coreArchitecture": "ARM 兼容架构",
+        "bluetooth": "Bluetooth 5.3",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2</div>",
+        "moldImage": ""
+      }
+    },
+    {
+      "name": "Apple H1",
+      "generation": "(343S00404)",
+      "image": "img/H1_343S00404.png",
+      "images": {
+        "芯片图": "img/H1_343S00404.png",
+        "Die": "img/die/die_shot_H1_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图", "Die"],
+        "releaseDate": "2020.12",
+        "processTech": "16nm",
+        "dieSize": "12mm²",
+        "coreArchitecture": "ARM 兼容架构",
+        "bluetooth": "Bluetooth 5.0",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">AirPods Max</div>",
+        "moldImage": ""
+      }
+    },
+    {
+      "name": "Apple H1 SiP",
+      "generation": "(-)",
+      "image": "img/H1_SiP.png",
+      "images": {
+        "芯片图": "img/H1_SiP.png"
+      },
+      "data": {
+        "displayType": ["芯片图"],
+        "releaseDate": "-",
+        "processTech": "16nm",
+        "dieSize": "-",
+        "coreArchitecture": "ARM 兼容架构",
+        "bluetooth": "Bluetooth 5.0",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">AirPods (第 3 代)<br>AirPods Pro (第 1 代)<br>Beats Fit Pro</div>",
+        "moldImage": ""
+      }
+    },
+    {
+      "name": "Apple H1",
+      "generation": "(343S00290)",
+      "image": "img/H1_343S00290.png",
+      "images": {
+        "芯片图": "img/H1_343S00290.png",
+        "Die": "img/die/die_shot_H1_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图", "Die"],
+        "releaseDate": "2019.03",
+        "processTech": "16nm",
+        "dieSize": "12mm²",
+        "coreArchitecture": "ARM 兼容架构",
+        "bluetooth": "Bluetooth 5.0",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">AirPods (第 2 代)<br>PowerBeats Pro<br>Beats Solo Pro</div>",
+        "moldImage": ""
+      }
+    },
+    {
+      "name": "Apple H1",
+      "generation": "(343S00289)",
+      "image": "img/H1_343S00289.png",
+      "images": {
+        "芯片图": "img/H1_343S00289.png",
+        "Die": "img/die/die_shot_H1_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图", "Die"],
+        "releaseDate": "2019.03",
+        "processTech": "16nm",
+        "dieSize": "12mm²",
+        "coreArchitecture": "ARM 兼容架构",
+        "bluetooth": "Bluetooth 5.0",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">AirPods (第 2 代)<br>Powerbeats 4 (2020)</div>",
+        "moldImage": ""
+      }
+    }
+  ]
+}

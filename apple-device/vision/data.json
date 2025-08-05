@@ -1,0 +1,111 @@
+{
+  "title": "苹果 Vision 参数对比",
+  "lastUpdated": "2025.06.10",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "增强现实", "id": "augmentedReality" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "芯片", "id": "chipInfo" },
+        { "name": "RAM<br>ROM", "id": "ramRom" },
+        { "name": "音频芯片", "id": "audioChip" }
+      ]
+    },
+    {
+      "groupName": "显示",
+      "features": [
+        { "name": "屏幕参数", "id": "screenType" },
+        { "name": "分辨率", "id": "resolution" },
+        { "name": "色域", "id": "colorGamut" },
+        { "name": "刷新率", "id": "refreshRate" }
+      ]
+    },
+    {
+      "groupName": "相机",
+      "features": [
+        { "name": "支持特性", "id": "cameraFeatures" },
+        { "name": "规格信息", "id": "cameraSpecs" }
+      ]
+    },
+    {
+      "groupName": "音频",
+      "features": [
+        { "name": "空间音频", "id": "spatialAudio" }
+      ]
+    },
+    {
+      "groupName": "感应器",
+      "features": [
+        { "name": "解锁方式", "id": "unlockMethod" },
+        { "name": "传感器", "id": "sensors" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "无线局域网", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "name": "续航时长<br>(搭配电池)", "id": "batteryLife" }
+      ]
+    },
+    {
+      "groupName": "IPD",
+      "features": [
+        { "name": "瞳孔间距", "id": "ipd" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "重量", "id": "weight" },
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple Vision Pro",
+      "generation": "",
+      "image": "img/vision-pro.webp",
+      "data": {
+        "slogan": "眼前的世界，从此大开眼界。",
+        "releaseDate": "2023.06.06",
+        "supportedOS": "visionOS 1 ~ 最新",
+        "modelIdentifier": "RealityDevice14,1",
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "M2 + R1",
+        "ramRom": "16GB LPDDR5<br>256G、512G、1T",
+        "audioChip": "H2",
+        "screenType": "Micro‑OLED",
+        "resolution": "2300万像素",
+        "colorGamut": "92% DCI‑P3",
+        "refreshRate": "90Hz、96Hz、100Hz",
+        "cameraFeatures": "空间照片和视频捕获",
+        "cameraSpecs": "18毫米，ƒ/2.0",
+        "spatialAudio": "动态头部追踪的空间音频",
+        "unlockMethod": "Optic ID",
+        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">高分辨率主摄<br>(两个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">外界追踪摄像头<br>(六个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">眼动追踪摄像头<br>(四个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">原深感相机</div><div class=\"li-div-score li-div-score-a li-div-score-one\">激光雷达扫描仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">惯性测量单元<br>IMU (四个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">防闪烁传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div>",
+        "wifi": "Wi‑Fi 6 (802.11ax)",
+        "bluetooth": "Bluetooth 5.3",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">一般使用时长<br>2h</div><div class=\"li-div-score li-div-score-a\">视频观看时长<br>2.5h</div>",
+        "ipd": "51~75mm",
+        "weight": "600~650g",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/117810\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

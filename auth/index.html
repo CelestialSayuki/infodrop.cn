@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ群认证</title>
+    <style>
+        .auth-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 30px; font-size: 14px; }
+        .auth-wrapper h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; padding-left: 15px; }
+        .auth-wrapper .lead { padding: 0 15px 15px; margin-bottom: 2rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
+        .form-group { margin-bottom: 1.5rem; padding: 0 15px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+        .form-group input[type="text"] { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; }
+        .form-group input[type="text"]:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25); }
+        .btn { display: inline-block; padding: 12px 25px; font-size: 1rem; font-weight: 500; text-align: center; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+        .btn-primary { background-color: var(--accent-color); color: white; width: 100%; }
+        .btn:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
+        .btn-primary:hover { background-color: var(--accent-color-hover); }
+        .btn:active { transform: scale(0.98); }
+        #quiz-section { display: none; }
+        .question-block { margin-bottom: 2rem; padding: 20px; border: 1px solid transparent; border-radius: 10px; }
+        .question-block p { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
+        .options-list { list-style: none; padding: 0; }
+        .options-list li { padding: 10px 15px; margin-bottom: 8px; border-radius: 8px; transition: background-color 0.2s; }
+        .options-list li:hover { background-color: rgba(0, 122, 255, 0.1); }
+        .options-list input[type="radio"] { margin-right: 10px; accent-color: var(--accent-color); }
+        .options-list label { cursor: pointer; display: inline-block; width: 95%; }
+        .macos-window.theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); }
+        .macos-window.theme-dark .auth-wrapper h1, .macos-window.theme-dark .auth-wrapper .lead { color: var(--dark-text); }
+        .macos-window.theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+        .macos-window.theme-dark .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
+        .macos-window.theme-dark .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
+        #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: center; line-height: 1.8; }
+        .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
+        .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
+        .result-processing { background-color: rgba(0, 122, 255, 0.1); color: var(--accent-color); }
+        #result-message.result-success strong {
+            display: inline-block;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            letter-spacing: 3px;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            user-select: all;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #result-message.result-success strong:hover {
+             background-color: #f0f0f0;
+        }
+        .macos-window.theme-dark #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
+        .macos-window.theme-dark #result-message.result-success strong:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .macos-window.theme-dark .result-success { background-color: rgba(40, 201, 64, 0.2); }
+
+    </style>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div id="qq-input-section">
+            <h1>✍️ QQ群入群认证</h1>
+            <p class="lead">为了维护良好的社区环境，您需要完成答题才能加入QQ群。</p>
+            <div class="form-group">
+                <label for="qq-number">请输入您的QQ号</label>
+                <input type="text" inputmode="numeric" id="qq-number" placeholder="在此输入QQ号" oninput="this.value=this.value.replace(/[^\d]/g,'')">
+            </div>
+            <div class="form-group">
+                <button id="start-quiz-btn" class="btn btn-primary">开始答题</button>
+            </div>
+        </div>
+        <form id="quiz-section">
+            <h1>测验题目</h1>
+            <p class="lead" id="quiz-user-info"></p>
+            <div id="questions-container"></div>
+            <div class="form-group">
+                <button type="button" id="submit-btn" class="btn btn-primary">提交答案</button>
+            </div>
+        </form>
+        <div id="result-message"></div>
+    </div>
+    <script>
+    (function() {
+        const windowRoot = document.currentScript.closest('.macos-window');
+        if (!windowRoot) { return; }
+        let currentQuizId = null;
+        let currentUserQQ = null;
+        const qqInput = windowRoot.querySelector('#qq-number');
+        const startBtn = windowRoot.querySelector('#start-quiz-btn');
+        const submitBtn = windowRoot.querySelector('#submit-btn');
+        const quizSection = windowRoot.querySelector('#quiz-section');
+        const qqInputSection = windowRoot.querySelector('#qq-input-section');
+        const resultMessage = windowRoot.querySelector('#result-message');
+        const questionsContainer = windowRoot.querySelector('#questions-container');
+        const quizUserInfo = windowRoot.querySelector('#quiz-user-info');
+        function renderQuestions(questions) {
+            questionsContainer.innerHTML = '';
+            questions.forEach((q, index) => {
+                const questionBlock = document.createElement('div');
+                questionBlock.className = 'question-block';
+                let optionsHtml = '<ul class="options-list">';
+                for (const key in q.options) {
+                    const optionId = `${q.id}-${key}`;
+                    optionsHtml += `<li><input type="radio" name="${q.id}" value="${key}" id="${optionId}"><label for="${optionId}">${q.options[key]}</label></li>`;
+                }
+                optionsHtml += '</ul>';
+                questionBlock.innerHTML = `<p>${index + 1}. ${q.text}</p>${optionsHtml}`;
+                questionsContainer.appendChild(questionBlock);
+            });
+        }
+        async function startQuiz() {
+            currentUserQQ = qqInput.value;
+            if (currentUserQQ.length < 5) { alert('请输入一个有效的QQ号！'); return; }
+            startBtn.disabled = true;
+            startBtn.textContent = '正在获取题目...';
+            try {
+                const response = await fetch(`./auth/api/quiz.php?qq=${currentUserQQ}`);
+                if (!response.ok) throw new Error('网络错误或服务器问题');
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+                currentQuizId = data.quizId;
+                renderQuestions(data.questions);
+                quizUserInfo.textContent = `QQ：${currentUserQQ}，请认真作答，题目、进群码与QQ号绑定，发送给其他人不能绕过进群验证。`;
+                qqInputSection.style.display = 'none';
+                quizSection.style.display = 'block';
+            } catch (error) {
+                console.error("获取题目失败:", error);
+                alert("获取题目失败：" + error.message);
+                startBtn.disabled = false;
+                startBtn.textContent = '开始答题';
+            }
+        }
+        async function submitQuiz() {
+            const formData = new FormData(quizSection);
+            const userAnswers = {};
+            for (const [name, value] of formData.entries()) {
+                userAnswers[name] = value;
+            }
+            submitBtn.disabled = true;
+            quizSection.style.display = 'none';
+            resultMessage.style.display = 'block';
+            resultMessage.className = 'result-processing';
+            resultMessage.textContent = '正在提交，请稍后...';
+            const payload = { quizId: currentQuizId, qq: currentUserQQ, answers: userAnswers };
+            try {
+                const response = await fetch(`./auth/api/submit.php`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                if (!response.ok) throw new Error('网络错误或服务器问题');
+                const result = await response.json();
+                if (result.error) throw new Error(result.error);
+                resultMessage.innerHTML = result.message;
+                resultMessage.className = result.success ? 'result-success' : 'result-fail';
+                if (result.success) {
+                    const entryCodeElement = resultMessage.querySelector('strong');
+                    if (entryCodeElement) {
+                        entryCodeElement.addEventListener('click', () => {
+                            navigator.clipboard.writeText(entryCodeElement.textContent).then(() => {
+                                const originalText = entryCodeElement.textContent;
+                                entryCodeElement.textContent = '已复制!';
+                                // 1.5秒后恢复原状
+                                setTimeout(() => {
+                                    entryCodeElement.textContent = originalText;
+                                }, 1500);
+                            }).catch(err => {
+                                console.error('复制失败: ', err);
+                                alert('复制失败，请手动复制。');
+                            });
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("提交答案失败:", error);
+                alert("提交失败：" + error.message);
+                quizSection.style.display = 'block';
+                resultMessage.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        }
+        if (startBtn) { startBtn.addEventListener('click', startQuiz); }
+        if (submitBtn) { submitBtn.addEventListener('click', submitQuiz); }
+    })();
+    </script>
+</body>
+</html>

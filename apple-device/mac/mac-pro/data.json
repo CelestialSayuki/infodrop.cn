@@ -1,0 +1,204 @@
+{
+  "title": "苹果 Mac Pro 参数对比",
+  "lastUpdated": "2025.06.13",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "name": "宣传口号", "id": "slogan" },
+        { "name": "发布时间", "id": "releaseDate" },
+        { "name": "支持系统", "id": "supportedOS" },
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "外观颜色", "id": "colors" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "name": "增强现实", "id": "augmentedReality" },
+        { "name": "芯片工艺", "id": "chipProcess" },
+        { "name": "芯片信息", "id": "chipInfo" },
+        { "name": "显卡信息", "id": "gpuInfo" },
+        { "name": "神经引擎", "id": "neuralEngine" }
+      ]
+    },
+    {
+      "groupName": "容量",
+      "features": [
+        { "name": "内存<br>存储容量", "id": "memoryStorage" }
+      ]
+    },
+    {
+      "groupName": "显示",
+      "features": [
+        { "name": "显示输出", "id": "displayOutput" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "name": "最大功率", "id": "maxPower" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "name": "机身接口", "id": "ports" },
+        { "name": "扩展插槽", "id": "expansionSlots" },
+        { "name": "Wi-Fi", "id": "wifi" },
+        { "name": "蓝牙", "id": "bluetooth" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "name": "尺寸重量", "id": "dimensionsWeight" },
+        { "name": "安全芯片", "id": "securityChip" },
+        { "name": "模具型号", "id": "modelNumber" },
+        { "name": "规格与手册", "id": "specsManual" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Mac Pro",
+      "generation": "(机架式, 2023 年)",
+      "image": "img/mac-pro-rack-2019-240.webp",
+      "data": {
+        "slogan": "逆天性能，纯标配。",
+        "releaseDate": "2023.06.06",
+        "supportedOS": "macOS 13 ~ 最新",
+        "modelIdentifier": "Mac14,8",
+        "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
+        "augmentedReality": "-",
+        "chipProcess": "TSMC N5P",
+        "chipInfo": "M2 Ultra<br>(16P+8E Core)",
+        "gpuInfo": "Apple ×60 / Apple ×76",
+        "neuralEngine": "32 核 31.6 TOPS",
+        "memoryStorage": "64、128、192GB 统一内存<br>1TB、2TB、4TB、8TB",
+        "displayOutput": "最多8路4K / 6路6K / 3路8K",
+        "maxPower": "1280 瓦",
+        "ports": "雷雳4 (最高 40Gb/s) ×8<br>USB-A (最高 5Gb/s) ×3<br>10Gb 以太网端口 ×2<br>3.5 毫米耳机插孔 ×1<br>HDMI 2.1 ×2",
+        "expansionSlots": "PCI Express ×7",
+        "wifi": "802.11ax Wi-Fi 6E",
+        "bluetooth": "Bluetooth 5.3",
+        "dimensionsWeight": "22.02×48.2×53.95cm, 17.21kg",
+        "securityChip": "/",
+        "modelNumber": "A2787",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111836\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/103967\" target=\"_blank\">维修手册</a>"
+      }
+    },
+    {
+      "name": "Mac Pro",
+      "generation": "(2023 年)",
+      "image": "img/mac-pro-2019-240.webp",
+      "data": {
+        "slogan": "逆天性能，纯标配。",
+        "releaseDate": "2023.06.06",
+        "supportedOS": "macOS 13 ~ 最新",
+        "modelIdentifier": "Mac14,8",
+        "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/mac_pro_2023_ios16.usdz\" target=\"_blank\">查看</a>",
+        "chipProcess": "TSMC N5P",
+        "chipInfo": "M2 Ultra<br>(16P+8E Core)",
+        "gpuInfo": "Apple ×60 / Apple ×76",
+        "neuralEngine": "32 核 31.6 TOPS",
+        "memoryStorage": "64、128、192GB 统一内存<br>1TB、2TB、4TB、8TB",
+        "displayOutput": "最多8路4K / 6路6K / 3路8K",
+        "maxPower": "1280 瓦",
+        "ports": "雷雳4 (最高 40Gb/s) ×8<br>USB-A (最高 5Gb/s) ×3<br>10Gb 以太网端口 ×2<br>3.5 毫米耳机插孔 ×1<br>HDMI 2.1 ×2",
+        "expansionSlots": "PCI Express ×7",
+        "wifi": "802.11ax Wi-Fi 6E",
+        "bluetooth": "Bluetooth 5.3",
+        "dimensionsWeight": "52.9×45×21.8cm, 16.86kg",
+        "securityChip": "/",
+        "modelNumber": "A2786",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111343\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/104074\" target=\"_blank\">维修手册</a>"
+      }
+    },
+    {
+      "name": "Mac Pro",
+      "generation": "(机架式, 2019 年)",
+      "image": "img/mac-pro-rack-2019-240.webp",
+      "data": {
+        "slogan": "以实力刷新一切。",
+        "releaseDate": "2019.06.04",
+        "supportedOS": "macOS 10.15 ~ 最新",
+        "modelIdentifier": "MacPro7,1",
+        "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
+        "augmentedReality": "-",
+        "chipProcess": "Intel 14nm (Cascade Lake)",
+        "chipInfo": "Intel Xeon W-3223,3235<br>3245,3265M,3275M",
+        "gpuInfo": "580X,W5500X,5700X,6600X<br>W6900X,6800X/Duo,Vega II/Duo",
+        "neuralEngine": "/",
+        "memoryStorage": "32/48/96/192/284/768GB、1.5TB<br>256/512GB、1/2/4/8TB",
+        "displayOutput": "最多12路4K / 6路5K",
+        "maxPower": "1400 瓦",
+        "ports": "雷雳3 (最高 40Gb/s) ×4<br>USB-A (最高 5Gb/s) ×2<br>10Gb 以太网端口 ×2<br>3.5 毫米耳机插孔 ×1<br><br>",
+        "expansionSlots": "PCI Express ×8",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeight": "22.02×48.2×53.95cm, 17.6kg",
+        "securityChip": "Apple T2 安全芯片",
+        "modelNumber": "A2304",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/111907\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac Pro",
+      "generation": "(2019 年)",
+      "image": "img/mac-pro-2019-240.webp",
+      "data": {
+        "slogan": "以实力刷新一切。",
+        "releaseDate": "2019.06.04",
+        "supportedOS": "macOS 10.15 ~ 最新",
+        "modelIdentifier": "MacPro7,1",
+        "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
+        "augmentedReality": "<a href=\"http://cdn.hubweb.cn/AR/mac/mac_pro_2019_on.usdz\" target=\"_blank\">查看</a>",
+        "chipProcess": "Intel 14nm (Cascade Lake)",
+        "chipInfo": "Intel Xeon W-3223,3235<br>3245,3265M,3275M",
+        "gpuInfo": "580X,W5500X,5700X,6600X<br>W6900X,6800X/Duo,Vega II/Duo",
+        "neuralEngine": "/",
+        "memoryStorage": "32/48/96/192/284/768GB、1.5TB<br>256/512GB、1/2/4/8TB",
+        "displayOutput": "最多12路4K / 6路5K",
+        "maxPower": "1400 瓦",
+        "ports": "雷雳3 (最高 40Gb/s) ×4<br>USB-A (最高 5Gb/s) ×2<br>10Gb 以太网端口 ×2<br>3.5 毫米耳机插孔 ×1<br><br>",
+        "expansionSlots": "PCI Express ×8",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeight": "52.9×45×21.8cm, 18kg",
+        "securityChip": "Apple T2 安全芯片",
+        "modelNumber": "A1991",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/118461\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac Pro",
+      "generation": "(2013 年末)",
+      "image": "img/mac-pro-late2013-240.webp",
+      "data": {
+        "slogan": "专业台式电脑的未来，先睹为快。",
+        "releaseDate": "2013.06.10",
+        "supportedOS": "OS X 10.9 ~ macOS 12",
+        "modelIdentifier": "MacPro6,1",
+        "colors": [{ "name": "黑色", "hex": "#303030" }],
+        "augmentedReality": "-",
+        "chipProcess": "Intel 32nm (Ivy Bridge)",
+        "chipInfo": "Intel Xeon E5-1620<br>E5-1650,1680,2697",
+        "gpuInfo": "双 AMD FirePro<br>D300/D500/D700",
+        "neuralEngine": "/",
+        "memoryStorage": "12、16、32、64GB<br>256GB、512GB、1TB",
+        "displayOutput": "最多6路2K / 3路5K",
+        "maxPower": "450 瓦",
+        "ports": "雷雳2 (最高 20Gb/s) ×6<br>USB-A (最高 5Gb/s) ×4<br>千兆以太网端口 ×2<br>3.5 毫米耳机插孔 ×1<br>HDMI 1.4 ×1",
+        "expansionSlots": "PCI Express ×8",
+        "wifi": "802.11ac Wi-Fi",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "25.1×16.7cm, 5kg",
+        "securityChip": "/",
+        "modelNumber": "A1481",
+        "specsManual": "<a href=\"https://support.apple.com/zh-cn/112025\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

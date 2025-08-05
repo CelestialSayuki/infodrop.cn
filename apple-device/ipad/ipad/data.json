@@ -1,0 +1,471 @@
+{
+  "title": "苹果 iPad 参数对比",
+  "lastUpdated": "2025.06.10",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "osSupport", "name": "支持系统" },
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" },
+        { "id": "arLink", "name": "增强现实" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "chip", "name": "芯片" },
+        { "id": "ramRom", "name": "RAM/ROM" }
+      ]
+    },
+    {
+      "groupName": "显示屏",
+      "features": [
+        { "id": "display", "name": "屏幕参数" },
+        { "id": "resolution", "name": "分辨率" },
+        { "id": "refreshRate", "name": "刷新率" },
+        { "id": "brightness", "name": "亮度(nits)" },
+        { "id": "colorGamut", "name": "色彩" }
+      ]
+    },
+    {
+      "groupName": "摄像头",
+      "features": [
+        { "id": "rearCamera", "name": "后置摄像头" },
+        { "id": "frontCamera", "name": "前置摄像头" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "pencilSupport", "name": "笔" },
+        { "id": "wiredInterface", "name": "有线接口" },
+        { "id": "cellular", "name": "基带(蜂窝版)" },
+        { "id": "wifi", "name": "无线局域网" },
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "感应器",
+      "features": [
+        { "id": "unlockMethod", "name": "解锁方式" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "id": "batteryCapacity", "name": "电池容量" },
+        { "id": "batteryLife", "name": "续航时长" }
+      ]
+    },
+    {
+      "groupName": "音频",
+      "features": [
+        { "id": "audioIO", "name": "输入输出" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "iPad",
+      "generation": "(A16)",
+      "image": "img/ipad-a16.webp",
+      "data": {
+        "slogan": "可圈可点可画心",
+        "releaseDate": "2025.03.04",
+        "osSupport": "iPadOS 18 ~ 最新",
+        "modelId": "iPad15,7 / 15,8",
+        "colors": [
+          { "name": "银色", "hex": "#e3e4e5" },
+          { "name": "粉色", "hex": "#de6274" },
+          { "name": "蓝色", "hex": "#6480a3" },
+          { "name": "黄色", "hex": "#f0d95b" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-11-silver.usdz\" target=\"_blank\">银色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-11-pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-11-blue.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad-11-yellow.usdz\" target=\"_blank\">黄色</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16<br>(2P+3E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6G LPDDR5<br>128G、256G、512G</div>",
+        "display": "11\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, sRGB",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "pencilSupport": "Pencil（第1代）(需搭配转换器)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 480Mb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.3",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.93Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "248.6×179.5×7, 477/481g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/122240\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 10 代)",
+      "image": "img/ipad_10.webp",
+      "data": {
+        "slogan": "可圈可点可画心",
+        "releaseDate": "2022.10.18",
+        "osSupport": "iPadOS 16 ~ 最新",
+        "modelId": "iPad13,18 / 13,19",
+        "colors": [
+          { "name": "银色", "hex": "#e3e4e5" },
+          { "name": "粉色", "hex": "#de6274" },
+          { "name": "蓝色", "hex": "#6480a3" },
+          { "name": "黄色", "hex": "#f0d95b" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_10gen_silver_wifi_ios15.usdz\" target=\"_blank\">银色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_10gen_pink_wifi_ios15.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_10gen_blue_wifi_ios15.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_10gen_yellow_wifi_ios15.usdz\" target=\"_blank\">黄色</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
+        "display": "10.9\" Liquid LED",
+        "resolution": "2360×1640, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, sRGB",
+        "rearCamera": "1200W 像素 ƒ/1.8",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "pencilSupport": "Pencil（第1代）(需搭配转换器)<br>Apple Pencil (USB‑C)",
+        "wiredInterface": "USB-C (最高可达 480Mb/s)",
+        "cellular": "-",
+        "wifi": "802.11ax HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 5.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "28.6Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "248.6×179.5×7, 477g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111840\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 9 代)",
+      "image": "img/ipad_9.webp",
+      "data": {
+        "slogan": "事事玩得转",
+        "releaseDate": "2021.09.15",
+        "osSupport": "iPadOS 15 ~ 最新",
+        "modelId": "iPad12,1 / 12,2",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696e" },
+          { "name": "银色", "hex": "#e2e3e4" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_9th_Gen_ios15_silver_wifi.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>64G、256G</div>",
+        "display": "10.2\" LED",
+        "resolution": "2160×1620, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "原彩显示, sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "1200W 像素 ƒ/2.4",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "-",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "250.6×174.1×7.5, 487/498g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111898\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 8 代)",
+      "image": "img/ipad_8.webp",
+      "data": {
+        "slogan": "特有本事，特超值。",
+        "releaseDate": "2020.09.16",
+        "osSupport": "iPadOS 14 ~ 最新",
+        "modelId": "iPad11,6 / 11,7",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#f6cdb9" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_8th_Gen_ios13.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>32G、128G</div>",
+        "display": "10.2\" LED",
+        "resolution": "2160×1620, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.4",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Intel XMM7560",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "250.6×174.1×7.5, 490/495g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/118451\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 7 代)",
+      "image": "img/ipad_7.webp",
+      "data": {
+        "slogan": "这个电脑, 拿掉了电脑的条条框框。",
+        "releaseDate": "2019.09.11",
+        "osSupport": "iPadOS 13 ~ iPadOS 18",
+        "modelId": "iPad7,11 / 7,12",
+        "colors": [
+          { "name": "深空灰色", "hex": "#68696d" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#f6cdb9" }
+        ],
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.hubweb.cn/AR/ipad/ipad_7th_Gen_blsh_ios13.usdz\" target=\"_blank\">查看</a>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10 Fusion<br>(2P+2E+6GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4<br>32G、128G</div>",
+        "display": "10.2\" LED",
+        "resolution": "2160×1620, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.2",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Intel XMM7560",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "250.6×174.1×7.5, 483/493g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111911\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 6 代)",
+      "image": "img/ipad_6.webp",
+      "data": {
+        "slogan": "这个电脑, 拿掉了电脑的条条框框。",
+        "releaseDate": "2018.03.27",
+        "osSupport": "iOS 11 ~ iPadOS 17",
+        "modelId": "iPad7,5 / 7,6",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#f6cdb9" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10 Fusion<br>(2P+2E+6GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2G LPDDR4<br>32G、128G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.4",
+        "pencilSupport": "Apple Pencil (第 1 代)",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9635",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "240×169.5×7.5, 469/478g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111957\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 5 代)",
+      "image": "img/ipad_5.webp",
+      "data": {
+        "slogan": "这方寸间，乐趣全开。",
+        "releaseDate": "2017.03.21",
+        "osSupport": "iOS 10 ~ iPadOS 16",
+        "modelId": "iPad6,11 / 6,12",
+        "colors": [
+          { "name": "深空灰色", "hex": "#b1b2b7" },
+          { "name": "银色", "hex": "#e2e3e4" },
+          { "name": "金色", "hex": "#e3ccb4" }
+        ],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A9<br>(2P+6GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2G LPDDR4<br>32G、128G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "500(典型)",
+        "colorGamut": "sRGB",
+        "rearCamera": "800W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素 ƒ/2.4",
+        "pencilSupport": "/",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9625",
+        "wifi": "802.11ac HT80 2x2 MIMO",
+        "bluetooth": "Bluetooth 4.2",
+        "unlockMethod": "触控 ID",
+        "batteryCapacity": "32.4Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×2 + 扬声器 ×2",
+        "dimensionsWeight": "240×169.5×7.5, 469/478g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111960\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 4 代)",
+      "image": "img/ipad_4.webp",
+      "data": {
+        "slogan": "绚丽夺目一如既往, 速度提升 2 倍。",
+        "releaseDate": "2012.10.24",
+        "osSupport": "iOS 6 ~ iOS 10",
+        "modelId": "iPad3,4 / 3,5 / 3,6",
+        "colors": [],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A6X<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1G LPDDR2<br>16G、32G、64G、128G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "rearCamera": "500W 像素 ƒ/2.4",
+        "frontCamera": "120W 像素",
+        "pencilSupport": "/",
+        "wiredInterface": "闪电接口",
+        "cellular": "Qualcomm MDM9615",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "unlockMethod": "/",
+        "batteryCapacity": "42.5Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "241.2×185.7×9.4, 652/662g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111993\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "(第 3 代)",
+      "image": "img/ipad_3.webp",
+      "data": {
+        "slogan": "配备绚丽夺目的 Retina 显示屏",
+        "releaseDate": "2012.03.08",
+        "osSupport": "iOS 5 ~ iOS 9",
+        "modelId": "iPad3,1 / 3,2",
+        "colors": [],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A5X<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1G LPDDR2<br>16G、32G、64G</div>",
+        "display": "9.7\" LED",
+        "resolution": "2048×1536, 264ppi",
+        "refreshRate": "60Hz",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "rearCamera": "500W 像素",
+        "frontCamera": "30W 像素",
+        "pencilSupport": "/",
+        "wiredInterface": "30-pin 基座接口",
+        "cellular": "Qualcomm MDM9600",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "unlockMethod": "/",
+        "batteryCapacity": "42.5Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "241.2×185.7×9.4, 652/662g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111992\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad 2",
+      "generation": "",
+      "image": "img/ipad_2.webp",
+      "data": {
+        "slogan": "薄了，轻了，快了。",
+        "releaseDate": "2011.03.03",
+        "osSupport": "iOS 4 ~ iOS 9",
+        "modelId": "iPad2,1 / 2,2 / 2,3 / 2,4",
+        "colors": [],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A5<br>(2P+2GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">512MB DDR2<br>16G、32G、64G</div>",
+        "display": "9.7\" LED",
+        "resolution": "1024×768, 132ppi",
+        "refreshRate": "60Hz",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "rearCamera": "70W 像素",
+        "frontCamera": "30W 像素",
+        "pencilSupport": "/",
+        "wiredInterface": "30-pin 基座接口",
+        "cellular": "Qualcomm MDM6600",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "unlockMethod": "/",
+        "batteryCapacity": "25Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "241.2×185.7×8.8, 601/613g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111990\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "iPad",
+      "generation": "",
+      "image": "img/ipad_1.webp",
+      "data": {
+        "slogan": "奇妙与革命性的产品",
+        "releaseDate": "2010.01.28",
+        "osSupport": "iPhoneOS 3 ~ iOS 5",
+        "modelId": "iPad1,1",
+        "colors": [],
+        "arLink": "/",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A4<br>(1P+1GPU)</div>",
+        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">256MB DDR<br>16G、32G、64G</div>",
+        "display": "9.7\" LED",
+        "resolution": "1024×768, 132ppi",
+        "refreshRate": "60Hz",
+        "brightness": "-",
+        "colorGamut": "sRGB",
+        "rearCamera": "/",
+        "frontCamera": "/",
+        "pencilSupport": "/",
+        "wiredInterface": "30-pin 基座接口",
+        "cellular": "-",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "unlockMethod": "/",
+        "batteryCapacity": "25Wh",
+        "batteryLife": "<div class=\"li-div-score li-div-score-b\">无线局域网<br>浏览网页：10h</div>",
+        "audioIO": "麦克风 ×1 + 扬声器 ×1",
+        "dimensionsWeight": "242.8×189.7×13.4, 680/730g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112438\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

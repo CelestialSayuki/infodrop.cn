@@ -1,0 +1,84 @@
+{
+  "title": "苹果 C 系列参数对比",
+  "lastUpdated": "2025.03.13",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" }
+      ]
+    },
+    {
+      "groupName": "概要",
+      "features": [
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "transistorCount", "name": "晶体管数" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "规格",
+      "features": [
+        { "id": "nrca", "name": "NRCA" },
+        { "id": "lte", "name": "LTE" },
+        { "id": "endc", "name": "ENDC" },
+        { "id": "downlinkCa", "name": "Downlink CA" },
+        { "id": "uplinkCa", "name": "Uplink CA" },
+        { "id": "uplinkMimo", "name": "Uplink MIMO" },
+        { "id": "switchedUplink", "name": "Switched Uplink" },
+        { "id": "mmWave", "name": "mmWave" }
+      ]
+    },
+    {
+      "groupName": "支持",
+      "features": [
+        { "id": "support5g", "name": "5G网络" },
+        { "id": "support4g", "name": "4G网络" },
+        { "id": "support3g", "name": "3G网络" },
+        { "id": "support2g", "name": "2G网络" },
+        { "id": "satelliteComm", "name": "卫星通信" },
+        { "id": "satelliteNav", "name": "卫星导航" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple C1",
+      "generation": "(APL1114)",
+      "image": "img/C1_product.webp",
+      "images": {
+        "宣传图": "img/C1_product.webp",
+        "芯片图": "img/C1_APL1114.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图"],
+        "releaseDate": "2025.02",
+        "processTech": "TSMC N4",
+        "transistorCount": "-",
+        "dieSize": "6.20×6.40 (39.68mm²)",
+        "nrca": "160MHz Mac Combos",
+        "lte": "4CA, 4×4 MIMO<br>16 Layers Max, Cat 19",
+        "endc": "LTE 3CA+1FR1 (NR 100MHz Max)<br>LTE 2CA+2FR1 (NR 120MHz Max)",
+        "downlinkCa": "3×",
+        "uplinkCa": "❌",
+        "uplinkMimo": "❌",
+        "switchedUplink": "❌",
+        "mmWave": "❌",
+        "support5g": "5G NR 3GPP Rel.15<br>Band 载波聚合",
+        "support4g": "4G LTE-FDD/TDD Band<br>载波聚合 & VoLTE",
+        "support3g": "3G DC-HSPA/HSPA+/HDSPA<br>HSUPA/UMTS & 3G TD-SCDMA",
+        "support2g": "2G GSM/EDGE & CDMA",
+        "satelliteComm": "支持卫星通信系统",
+        "satelliteNav": "GPS/A-GPS, GLONASS ,Galileo<br>GZSS, Beidou, NavIC",
+        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 16e</div>"
+      }
+    }
+  ]
+}

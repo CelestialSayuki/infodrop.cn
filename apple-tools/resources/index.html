@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .resource-content-wrapper {
+            background-color: var(--light-glass-bg);
+            border-radius: var(--border-radius);
+            margin: 10px;
+            padding: 25px;
+        }
+
+        .resource-content-wrapper h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            padding-left: 15px;
+        }
+
+        .resource-content-wrapper .lead {
+            padding: 0 15px 15px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--light-text-secondary);
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+
+        .resource-content-wrapper .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0;
+            font-size: 13px;
+        }
+        
+        .resource-content-wrapper .table > thead {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: rgba(248, 249, 250, 0.95);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+        
+        .macos-window.theme-dark .resource-content-wrapper .table > thead {
+            background-color: rgba(29, 29, 29, 0.85);
+        }
+        
+        .resource-content-wrapper .table > thead > tr > th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-border, rgba(0, 0, 0, 0.15));
+            background-color: transparent;
+        }
+        
+        .resource-content-wrapper .table th:first-child,
+        .resource-content-wrapper .table td:first-child {
+            width: 40%;
+        }
+        .resource-content-wrapper .table th:last-child,
+        .resource-content-wrapper .table td:last-child {
+            width: 12%;
+        }
+
+        .resource-content-wrapper .table tbody td {
+            padding: 12px 15px;
+            vertical-align: top;
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+
+        .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .table-section-header th {
+            background-color: rgba(0, 0, 0, 0.03);
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+            border-top: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+
+        .macos-window.theme-dark .resource-content-wrapper {
+            background-color: var(--dark-glass-bg);
+        }
+        
+        .macos-window.theme-dark .resource-content-wrapper h1,
+        .macos-window.theme-dark .resource-content-wrapper .lead {
+             color: var(--dark-text-secondary);
+        }
+
+        .macos-window.theme-dark .resource-content-wrapper .lead {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+
+        .macos-window.theme-dark .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+             background-color: rgba(255, 255, 255, 0.08);
+        }
+        .macos-window.theme-dark .resource-content-wrapper .table > thead > tr > th {
+             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+        }
+         .macos-window.theme-dark .resource-content-wrapper .table tbody td {
+             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .macos-window.theme-dark .table-section-header th {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .table-container {
+            overflow-y: auto;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .macos-window.theme-dark .table-container {
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+    </style>
+</head>
+<body>
+    <div class="resource-content-wrapper">
+        <h1>📄 Apple 各类资源汇总</h1>
+        <p class="lead">
+            包含 Apple 设备配件设计指南、Metal 特征汇总表、Apple Silicon CPU 优化指南等。
+        </p>
+        <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>资源名称</th>
+                    <th>作者</th>
+                    <th>发布时间</th>
+                    <th>页数</th>
+                    <th>语言</th>
+                    <th>下载</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-section-header">
+                    <th colspan="6">AVFoundation 资源</th>
+                </tr>
+                <tr><td>QuickTime Color Test Patterns</td><td>Apple Inc.</td><td>2020.06.02</td><td></td><td>英文</td><td><a target="_blank" href="https://developer.apple.com/file/QuickTime-Test-Pattern.zip">英文</a></td></tr>
+            </tbody>
+            <tbody>
+                <tr class="table-section-header">
+                    <th colspan="6">Apple 设备配件设计指南</th>
+                </tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R25)</td><td>Apple Inc.</td><td>2025.03.18</td><td>582</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-25.pdf">英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R24)</td><td>Apple Inc.</td><td>2024.10.22</td><td>573</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-24.pdf">英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R23)</td><td>Apple Inc.</td><td>2024.09.20</td><td>567</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-23.pdf">英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R22)</td><td>Apple Inc.</td><td>2024.05.14</td><td>527</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-22.pdf">英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R21)</td><td>Apple Inc.</td><td>2023.10.10</td><td>473<br>924</td><td>英文<br>中英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-21.pdf">英文</a><br><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-21-ZH.pdf">中英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R20)</td><td>Apple Inc.</td><td>2022.10.26</td><td>405</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Accessory-Design-Guidelines-Release-20.pdf">英文</a></td></tr>
+                <tr><td>Accessory Design Guidelines for Apple Devices (Release R19)</td><td>Apple Inc.</td><td>2022.09.21</td><td>386</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document//Accessory-Design-Guidelines-Release-19.pdf">英文</a></td></tr>
+            </tbody>
+            <tbody>
+                <tr class="table-section-header">
+                    <th colspan="6">Metal 特征汇总表</th>
+                </tr>
+                <tr><td>Metal Feature Set Tables</td><td>Apple Inc.</td><td>2025.05.27</td><td>15</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Metal-Feature-Set-Tables-2025-05-27.pdf">英文</a></td></tr>
+            </tbody>
+            <tbody>
+                 <tr class="table-section-header">
+                    <th colspan="6">Apple Silicon CPU 优化指南</th>
+                </tr>
+                <tr><td>Apple Silicon CPU Optimization Guide: 4.0</td><td>Apple Inc.</td><td>2025.06.07</td><td>292</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Silicon-CPU-Optimization-Guide-40.pdf">英文</a></td></tr>
+            </tbody>
+            <tbody>
+                <tr class="table-section-header">
+                    <th colspan="6">Apple 供应商名单</th>
+                </tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2024.04.18</td><td>27</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2024-04-18.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2023.05.18</td><td>25</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2023-05-18.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2022.10.05</td><td>27</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2022-10-05.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2021.05.27</td><td>17</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2021-05-27.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2019.02.26</td><td>33</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2019-02-26.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2018.03.01</td><td>30</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2018-03-01.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2017.03.01</td><td>29</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2017-03-01.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2016.03.03</td><td>21</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2016-03-03.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2015.03.10</td><td>20</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2015-03-10.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2014.04.18</td><td>29</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2014-04-18.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2013.01.23</td><td>33</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2013-01-23.pdf">英文</a></td></tr>
+                <tr><td>Apple Supplier List</td><td>Apple Inc.</td><td>2012.01.13</td><td>2</td><td>英文</td><td><a target="_blank" href="http://cdn.hubweb.cn/Document/Apple-Supplier-List-2012-01-13.pdf">英文</a></td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <script>
+        function adjustTableHeight() {
+            const tableContainer = document.querySelector('.table-container');
+            if (!tableContainer) return;
+
+            const topOffset = tableContainer.getBoundingClientRect().top;
+            const bottomPadding = 80;
+            const availableHeight = window.innerHeight - topOffset - bottomPadding;
+
+            tableContainer.style.maxHeight = Math.max(150, availableHeight) + 'px';
+        }
+        adjustTableHeight();
+        window.addEventListener('resize', adjustTableHeight);
+    </script>
+</body>
+</html>

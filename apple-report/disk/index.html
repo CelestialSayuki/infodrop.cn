@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Bench 硬盘性能检测</title>
+    <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+
+    <style type="text/css">
+        /* 关键步骤 2: 大幅精简内部样式，只保留此页面特有的样式 */
+        .main-content {
+            padding: 20px;
+        }
+
+        /* 为表格容器添加内外边距 */
+        .table-container {
+            width: 100%;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* 表格样式优化 */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse; /* 移除单元格间距 */
+        }
+
+        /* 粘性表头样式优化 */
+        .results-table thead {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            /* 使用 CSS 变量确保背景色能自适应深/浅色模式 */
+            background-color: var(--card-header-bg-color, rgba(255, 255, 255, 0.8));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .card h1 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+        .results-table th, .results-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap; /* 防止内容换行 */
+        }
+
+        .results-table tbody tr:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        /* 型号列样式，允许换行并设置最小宽度 */
+        .results-table .model-cell {
+            white-space: normal;
+            min-width: 280px;
+        }
+
+        .model-cell .model-id {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* 搜索框样式优化 */
+        #DiskBenchInput {
+            width: 100%;
+            font-size: 1rem;
+            padding: 12px 18px;
+            margin-bottom: 0; /* 移除多余的边距 */
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg-color);
+            color: var(--text-primary);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #DiskBenchInput:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--accent-color-translucent);
+        }
+        @media (prefers-color-scheme: dark) {
+            .results-table thead {
+                background-color: var(--dark-card-header-bg-color, rgba(28, 33, 40, 0.8));
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0;">
+    <div class="main-content">
+        <div class="card">
+            <h1>Disk Bench 硬盘性能检测</h1>
+            <p class="lead" style="margin-bottom: 24px;">
+                本页收集了 Apple 各设备的磁盘各项性能数值，包括顺序读写速度性能、随机测试存储器的 4k (Q1T1) 性能。<br>
+                <span style="font-size: 14px; font-style:oblique;">数据来源：Jazz Disk Bench</span>
+            </p>
+
+            <input type="text" id="DiskBenchInput" onkeyup="filterTable()" placeholder="搜索设备型号、机型 ID 或容量...">
+
+            <div class="table-container">
+                <table class="results-table" id="DiskBench">
+                    <thead>
+                        <tr>
+                            <th class="model-cell">型号</th>
+                            <th>发布时间</th>
+                            <th>容量</th>
+                            <th>顺序读取 (MB/s)</th>
+                            <th>顺序写入 (MB/s)</th>
+                            <th>随机读取 (MB/s)</th>
+                            <th>随机写入 (MB/s)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>iPad (A16) <span style='font-size:0.6rem;'>(iPad15,7 / iPad15,8)</span></td>
+                                <td>2025.03</td><td>512 GB</td>
+                                <td>1426.18 MB/s</td>
+                                <td>1497.08 MB/s</td>
+                                <td>43.60 MB/s</td>
+                                <td>33.76 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (A16) <span style='font-size:0.6rem;'>(iPad15,7 / iPad15,8)</span></td>
+                                <td>2025.03</td><td>256 GB</td>
+                                <td>1412.28 MB/s</td>
+                                <td>1333.14 MB/s</td>
+                                <td>42.52 MB/s</td>
+                                <td>25.81 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (A16) <span style='font-size:0.6rem;'>(iPad15,7 / iPad15,8)</span></td>
+                                <td>2025.03</td><td>128 GB</td>
+                                <td>1404.85 MB/s</td>
+                                <td>876.69 MB/s</td>
+                                <td>43.04 MB/s</td>
+                                <td>25.50 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16e <span style='font-size:0.6rem;'>(iPhone17,5)</span></td>
+                                <td>2025.02</td><td>512 GB</td>
+                                <td>1492.25 MB/s</td>
+                                <td>1450.82 MB/s</td>
+                                <td>43.48 MB/s</td>
+                                <td>33.17 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16e <span style='font-size:0.6rem;'>(iPhone17,5)</span></td>
+                                <td>2025.02</td><td>256 GB</td>
+                                <td>1479.99 MB/s</td>
+                                <td>1415.19 MB/s</td>
+                                <td>42.77 MB/s</td>
+                                <td>31.09 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16e <span style='font-size:0.6rem;'>(iPhone17,5)</span></td>
+                                <td>2025.02</td><td>128 GB</td>
+                                <td>1501.39 MB/s</td>
+                                <td>916.34 MB/s</td>
+                                <td>43.04 MB/s</td>
+                                <td>25.64 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, M4 Pro, 2024) <span style='font-size:0.6rem;'>(Mac16,7)</span></td>
+                                <td>2024.10</td><td>1024 GB</td>
+                                <td>5580.09 MB/s</td>
+                                <td>2321.44 MB/s</td>
+                                <td>37.74 MB/s</td>
+                                <td>28.61 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, M4 Pro, 2024) <span style='font-size:0.6rem;'>(Mac16,7)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>5837.08 MB/s</td>
+                                <td>3266.07 MB/s</td>
+                                <td>48.11 MB/s</td>
+                                <td>39.23 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, M4 Max, 2024) <span style='font-size:0.6rem;'>(Mac16,5)</span></td>
+                                <td>2024.10</td><td>1024 GB</td>
+                                <td>5681.37 MB/s</td>
+                                <td>2289.65 MB/s</td>
+                                <td>34.71 MB/s</td>
+                                <td>29.42 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M4 Pro, 2024) <span style='font-size:0.6rem;'>(Mac16,8)</span></td>
+                                <td>2024.10</td><td>2048 GB</td>
+                                <td>5626.37 MB/s</td>
+                                <td>4830.19 MB/s</td>
+                                <td>31.56 MB/s</td>
+                                <td>30.51 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M4 Pro, 2024) <span style='font-size:0.6rem;'>(Mac16,8)</span></td>
+                                <td>2024.10</td><td>1024 GB</td>
+                                <td>5818.18 MB/s</td>
+                                <td>2479.42 MB/s</td>
+                                <td>36.57 MB/s</td>
+                                <td>30.78 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M4 Pro, 2024) <span style='font-size:0.6rem;'>(Mac16,8)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>5417.99 MB/s</td>
+                                <td>3778.60 MB/s</td>
+                                <td>47.44 MB/s</td>
+                                <td>40.08 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4) <span style='font-size:0.6rem;'>(Mac16,10)</span></td>
+                                <td>2024.10</td><td>2048 GB</td>
+                                <td>3123.08 MB/s</td>
+                                <td>2961.05 MB/s</td>
+                                <td>47.32 MB/s</td>
+                                <td>44.24 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4) <span style='font-size:0.6rem;'>(Mac16,10)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>3190.03 MB/s</td>
+                                <td>3103.03 MB/s</td>
+                                <td>50.35 MB/s</td>
+                                <td>36.98 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4) <span style='font-size:0.6rem;'>(Mac16,10)</span></td>
+                                <td>2024.10</td><td>256 GB</td>
+                                <td>2877.40 MB/s</td>
+                                <td>1694.64 MB/s</td>
+                                <td>45.60 MB/s</td>
+                                <td>30.28 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4 Pro) <span style='font-size:0.6rem;'>(Mac16,11)</span></td>
+                                <td>2024.10</td><td>4096 GB</td>
+                                <td>5657.46 MB/s</td>
+                                <td>5475.94 MB/s</td>
+                                <td>34.36 MB/s</td>
+                                <td>30.22 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4 Pro) <span style='font-size:0.6rem;'>(Mac16,11)</span></td>
+                                <td>2024.10</td><td>2048 GB</td>
+                                <td>4413.79 MB/s</td>
+                                <td>3953.67 MB/s</td>
+                                <td>34.92 MB/s</td>
+                                <td>30.45 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4 Pro) <span style='font-size:0.6rem;'>(Mac16,11)</span></td>
+                                <td>2024.10</td><td>1024 GB</td>
+                                <td>5785.31 MB/s</td>
+                                <td>2461.54 MB/s</td>
+                                <td>36.49 MB/s</td>
+                                <td>30.94 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2024 年, M4 Pro) <span style='font-size:0.6rem;'>(Mac16,11)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>5075.45 MB/s</td>
+                                <td>3751.12 MB/s</td>
+                                <td>49.51 MB/s</td>
+                                <td>39.73 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (A17 Pro) <span style='font-size:0.6rem;'>(iPad16,1 / iPad16,2)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>1625.31 MB/s</td>
+                                <td>1430.51 MB/s</td>
+                                <td>43.50 MB/s</td>
+                                <td>33.27 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (A17 Pro) <span style='font-size:0.6rem;'>(iPad16,1 / iPad16,2)</span></td>
+                                <td>2024.10</td><td>256 GB</td>
+                                <td>1535.18 MB/s</td>
+                                <td>1274.27 MB/s</td>
+                                <td>41.79 MB/s</td>
+                                <td>32.22 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (A17 Pro) <span style='font-size:0.6rem;'>(iPad16,1 / iPad16,2)</span></td>
+                                <td>2024.10</td><td>128 GB</td>
+                                <td>1540.90 MB/s</td>
+                                <td>897.03 MB/s</td>
+                                <td>42.76 MB/s</td>
+                                <td>24.72 MB/s</td>
+                            </tr><tr>
+                                <td>iMac (24 英寸, 2023) <span style='font-size:0.6rem;'>(Mac16,3)</span></td>
+                                <td>2024.10</td><td>512 GB</td>
+                                <td>3289.09 MB/s</td>
+                                <td>2940.16 MB/s</td>
+                                <td>50.48 MB/s</td>
+                                <td>37.28 MB/s</td>
+                            </tr><tr>
+                                <td>iMac (24 英寸, 2023) <span style='font-size:0.6rem;'>(Mac16,2)</span></td>
+                                <td>2024.10</td><td>256 GB</td>
+                                <td>2433.10 MB/s</td>
+                                <td>1643.66 MB/s</td>
+                                <td>38.30 MB/s</td>
+                                <td>28.35 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro Max <span style='font-size:0.6rem;'>(iPhone17,2)</span></td>
+                                <td>2024.09</td><td>1024 GB</td>
+                                <td>1588.59 MB/s</td>
+                                <td>1231.16 MB/s</td>
+                                <td>38.40 MB/s</td>
+                                <td>27.46 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro Max <span style='font-size:0.6rem;'>(iPhone17,2)</span></td>
+                                <td>2024.09</td><td>512 GB</td>
+                                <td>1495.76 MB/s</td>
+                                <td>1430.74 MB/s</td>
+                                <td>40.90 MB/s</td>
+                                <td>32.76 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro Max <span style='font-size:0.6rem;'>(iPhone17,2)</span></td>
+                                <td>2024.09</td><td>256 GB</td>
+                                <td>1610.86 MB/s</td>
+                                <td>1398.01 MB/s</td>
+                                <td>40.52 MB/s</td>
+                                <td>31.08 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro <span style='font-size:0.6rem;'>(iPhone17,1)</span></td>
+                                <td>2024.09</td><td>1024 GB</td>
+                                <td>1593.28 MB/s</td>
+                                <td>1235.62 MB/s</td>
+                                <td>39.16 MB/s</td>
+                                <td>28.08 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro <span style='font-size:0.6rem;'>(iPhone17,1)</span></td>
+                                <td>2024.09</td><td>512 GB</td>
+                                <td>1500.68 MB/s</td>
+                                <td>1406.27 MB/s</td>
+                                <td>42.65 MB/s</td>
+                                <td>32.30 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro <span style='font-size:0.6rem;'>(iPhone17,1)</span></td>
+                                <td>2024.09</td><td>256 GB</td>
+                                <td>1591.21 MB/s</td>
+                                <td>1367.39 MB/s</td>
+                                <td>41.10 MB/s</td>
+                                <td>30.84 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Pro <span style='font-size:0.6rem;'>(iPhone17,1)</span></td>
+                                <td>2024.09</td><td>128 GB</td>
+                                <td>1512.34 MB/s</td>
+                                <td>910.46 MB/s</td>
+                                <td>43.57 MB/s</td>
+                                <td>25.67 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Plus <span style='font-size:0.6rem;'>(iPhone17,4)</span></td>
+                                <td>2024.09</td><td>512 GB</td>
+                                <td>1639.84 MB/s</td>
+                                <td>1478.96 MB/s</td>
+                                <td>43.46 MB/s</td>
+                                <td>33.36 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Plus <span style='font-size:0.6rem;'>(iPhone17,4)</span></td>
+                                <td>2024.09</td><td>256 GB</td>
+                                <td>1641.03 MB/s</td>
+                                <td>1450.42 MB/s</td>
+                                <td>43.13 MB/s</td>
+                                <td>29.59 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 Plus <span style='font-size:0.6rem;'>(iPhone17,4)</span></td>
+                                <td>2024.09</td><td>128 GB</td>
+                                <td>1558.60 MB/s</td>
+                                <td>936.02 MB/s</td>
+                                <td>43.41 MB/s</td>
+                                <td>25.92 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 <span style='font-size:0.6rem;'>(iPhone17,3)</span></td>
+                                <td>2024.09</td><td>512 GB</td>
+                                <td>1418.28 MB/s</td>
+                                <td>1467.05 MB/s</td>
+                                <td>41.86 MB/s</td>
+                                <td>32.24 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 <span style='font-size:0.6rem;'>(iPhone17,3)</span></td>
+                                <td>2024.09</td><td>256 GB</td>
+                                <td>1446.33 MB/s</td>
+                                <td>1391.30 MB/s</td>
+                                <td>37.30 MB/s</td>
+                                <td>29.51 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 16 <span style='font-size:0.6rem;'>(iPhone17,3)</span></td>
+                                <td>2024.09</td><td>128 GB</td>
+                                <td>1554.72 MB/s</td>
+                                <td>945.85 MB/s</td>
+                                <td>43.69 MB/s</td>
+                                <td>25.87 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 13 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,5 / iPad16,6)</span></td>
+                                <td>2024.05</td><td>2048 GB</td>
+                                <td>2866.39 MB/s</td>
+                                <td>2666.79 MB/s</td>
+                                <td>40.32 MB/s</td>
+                                <td>32.14 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 13 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,5 / iPad16,6)</span></td>
+                                <td>2024.05</td><td>1024 GB</td>
+                                <td>2817.08 MB/s</td>
+                                <td>1981.14 MB/s</td>
+                                <td>39.01 MB/s</td>
+                                <td>29.82 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 13 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,5 / iPad16,6)</span></td>
+                                <td>2024.05</td><td>512 GB</td>
+                                <td>3074.68 MB/s</td>
+                                <td>2732.50 MB/s</td>
+                                <td>50.28 MB/s</td>
+                                <td>37.66 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 13 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,5 / iPad16,6)</span></td>
+                                <td>2024.05</td><td>256 GB</td>
+                                <td>1581.39 MB/s</td>
+                                <td>1430.13 MB/s</td>
+                                <td>48.25 MB/s</td>
+                                <td>30.01 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,3 / iPad16,4)</span></td>
+                                <td>2024.05</td><td>2048 GB</td>
+                                <td>2871.59 MB/s</td>
+                                <td>2687.15 MB/s</td>
+                                <td>39.64 MB/s</td>
+                                <td>31.67 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,3 / iPad16,4)</span></td>
+                                <td>2024.05</td><td>1024 GB</td>
+                                <td>2878.02 MB/s</td>
+                                <td>1680.42 MB/s</td>
+                                <td>39.66 MB/s</td>
+                                <td>29.61 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,3 / iPad16,4)</span></td>
+                                <td>2024.05</td><td>512 GB</td>
+                                <td>3007.01 MB/s</td>
+                                <td>2653.68 MB/s</td>
+                                <td>49.42 MB/s</td>
+                                <td>36.86 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (M4) <span style='font-size:0.6rem;'>(iPad16,3 / iPad16,4)</span></td>
+                                <td>2024.05</td><td>256 GB</td>
+                                <td>1586.24 MB/s</td>
+                                <td>1418.07 MB/s</td>
+                                <td>48.32 MB/s</td>
+                                <td>29.42 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 13 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,10 / iPad14,11)</span></td>
+                                <td>2024.05</td><td>1024 GB</td>
+                                <td>1565.76 MB/s</td>
+                                <td>1448.52 MB/s</td>
+                                <td>38.02 MB/s</td>
+                                <td>27.32 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 13 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,10 / iPad14,11)</span></td>
+                                <td>2024.05</td><td>512 GB</td>
+                                <td>1613.07 MB/s</td>
+                                <td>1494.55 MB/s</td>
+                                <td>44.71 MB/s</td>
+                                <td>33.30 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 13 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,10 / iPad14,11)</span></td>
+                                <td>2024.05</td><td>256 GB</td>
+                                <td>1587.24 MB/s</td>
+                                <td>1516.80 MB/s</td>
+                                <td>46.59 MB/s</td>
+                                <td>28.05 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 13 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,10 / iPad14,11)</span></td>
+                                <td>2024.05</td><td>128 GB</td>
+                                <td>1557.61 MB/s</td>
+                                <td>883.79 MB/s</td>
+                                <td>44.34 MB/s</td>
+                                <td>22.33 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 11 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,8 / iPad14,9)</span></td>
+                                <td>2024.05</td><td>1024 GB</td>
+                                <td>1596.69 MB/s</td>
+                                <td>1336.40 MB/s</td>
+                                <td>39.33 MB/s</td>
+                                <td>29.87 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 11 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,8 / iPad14,9)</span></td>
+                                <td>2024.05</td><td>256 GB</td>
+                                <td>1583.20 MB/s</td>
+                                <td>1340.83 MB/s</td>
+                                <td>47.16 MB/s</td>
+                                <td>28.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 11 英寸 (M2) <span style='font-size:0.6rem;'>(iPad14,8 / iPad14,9)</span></td>
+                                <td>2024.05</td><td>128 GB</td>
+                                <td>1598.92 MB/s</td>
+                                <td>890.23 MB/s</td>
+                                <td>46.82 MB/s</td>
+                                <td>22.67 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (13 英寸, M3, 2024 年) <span style='font-size:0.6rem;'>(Mac15,12)</span></td>
+                                <td>2024.03</td><td>512 GB</td>
+                                <td>2996.71 MB/s</td>
+                                <td>2677.68 MB/s</td>
+                                <td>48.88 MB/s</td>
+                                <td>35.51 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (13 英寸, M3, 2024 年) <span style='font-size:0.6rem;'>(Mac15,12)</span></td>
+                                <td>2024.03</td><td>256 GB</td>
+                                <td>3047.62 MB/s</td>
+                                <td>1633.17 MB/s</td>
+                                <td>49.90 MB/s</td>
+                                <td>30.38 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, M3 Max, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,9)</span></td>
+                                <td>2023.10</td><td>8192 GB</td>
+                                <td>5579.57 MB/s</td>
+                                <td>4786.36 MB/s</td>
+                                <td>39.26 MB/s</td>
+                                <td>31.15 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, M2 Max, 2023 年) <span style='font-size:0.6rem;'>(Mac14,6)</span></td>
+                                <td>2023.10</td><td>8192 GB</td>
+                                <td>5085.67 MB/s</td>
+                                <td>4404.69 MB/s</td>
+                                <td>43.39 MB/s</td>
+                                <td>35.37 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,9 / Mac15,11)</span></td>
+                                <td>2023.10</td><td>8192 GB</td>
+                                <td>5579.57 MB/s</td>
+                                <td>4786.36 MB/s</td>
+                                <td>39.26 MB/s</td>
+                                <td>31.15 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,9 / Mac15,11)</span></td>
+                                <td>2023.10</td><td>2048 GB</td>
+                                <td>5595.63 MB/s</td>
+                                <td>3878.79 MB/s</td>
+                                <td>38.16 MB/s</td>
+                                <td>31.98 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,9 / Mac15,11)</span></td>
+                                <td>2023.10</td><td>1024 GB</td>
+                                <td>5573.64 MB/s</td>
+                                <td>2338.96 MB/s</td>
+                                <td>36.19 MB/s</td>
+                                <td>30.43 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M3, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,3)</span></td>
+                                <td>2023.10</td><td>512 GB</td>
+                                <td>2719.79 MB/s</td>
+                                <td>2347.89 MB/s</td>
+                                <td>47.79 MB/s</td>
+                                <td>34.34 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M3 Pro, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,6)</span></td>
+                                <td>2023.10</td><td>1024 GB</td>
+                                <td>4675.80 MB/s</td>
+                                <td>2120.08 MB/s</td>
+                                <td>37.55 MB/s</td>
+                                <td>31.17 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M3 Pro, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,6)</span></td>
+                                <td>2023.10</td><td>512 GB</td>
+                                <td>4795.63 MB/s</td>
+                                <td>3514.30 MB/s</td>
+                                <td>50.07 MB/s</td>
+                                <td>41.27 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, M3 Max, 2023 年 11 月) <span style='font-size:0.6rem;'>(Mac15,8)</span></td>
+                                <td>2023.10</td><td>8192 GB</td>
+                                <td>5535.14 MB/s</td>
+                                <td>5417.99 MB/s</td>
+                                <td>35.07 MB/s</td>
+                                <td>31.50 MB/s</td>
+                            </tr><tr>
+                                <td>iMac (24 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac15,5)</span></td>
+                                <td>2023.10</td><td>512 GB</td>
+                                <td>3230.25 MB/s</td>
+                                <td>2942.53 MB/s</td>
+                                <td>51.51 MB/s</td>
+                                <td>36.46 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro Max <span style='font-size:0.6rem;'>(iPhone16,2)</span></td>
+                                <td>2023.09</td><td>1024 GB</td>
+                                <td>1507.66 MB/s</td>
+                                <td>1208.53 MB/s</td>
+                                <td>34.74 MB/s</td>
+                                <td>24.66 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro Max <span style='font-size:0.6rem;'>(iPhone16,2)</span></td>
+                                <td>2023.09</td><td>512 GB</td>
+                                <td>1546.71 MB/s</td>
+                                <td>1359.53 MB/s</td>
+                                <td>41.62 MB/s</td>
+                                <td>31.18 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro Max <span style='font-size:0.6rem;'>(iPhone16,2)</span></td>
+                                <td>2023.09</td><td>256 GB</td>
+                                <td>1541.40 MB/s</td>
+                                <td>1233.66 MB/s</td>
+                                <td>41.44 MB/s</td>
+                                <td>28.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro <span style='font-size:0.6rem;'>(iPhone16,1)</span></td>
+                                <td>2023.09</td><td>1024 GB</td>
+                                <td>1543.77 MB/s</td>
+                                <td>1260.61 MB/s</td>
+                                <td>35.57 MB/s</td>
+                                <td>25.51 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro <span style='font-size:0.6rem;'>(iPhone16,1)</span></td>
+                                <td>2023.09</td><td>512 GB</td>
+                                <td>1524.01 MB/s</td>
+                                <td>1333.96 MB/s</td>
+                                <td>41.96 MB/s</td>
+                                <td>29.80 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro <span style='font-size:0.6rem;'>(iPhone16,1)</span></td>
+                                <td>2023.09</td><td>256 GB</td>
+                                <td>1549.20 MB/s</td>
+                                <td>1258.25 MB/s</td>
+                                <td>42.08 MB/s</td>
+                                <td>28.45 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Pro <span style='font-size:0.6rem;'>(iPhone16,1)</span></td>
+                                <td>2023.09</td><td>128 GB</td>
+                                <td>1479.51 MB/s</td>
+                                <td>833.08 MB/s</td>
+                                <td>42.03 MB/s</td>
+                                <td>24.04 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Plus <span style='font-size:0.6rem;'>(iPhone15,5)</span></td>
+                                <td>2023.09</td><td>512 GB</td>
+                                <td>1559.54 MB/s</td>
+                                <td>1453.68 MB/s</td>
+                                <td>41.62 MB/s</td>
+                                <td>31.42 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Plus <span style='font-size:0.6rem;'>(iPhone15,5)</span></td>
+                                <td>2023.09</td><td>256 GB</td>
+                                <td>1514.00 MB/s</td>
+                                <td>1192.97 MB/s</td>
+                                <td>40.84 MB/s</td>
+                                <td>26.71 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 Plus <span style='font-size:0.6rem;'>(iPhone15,5)</span></td>
+                                <td>2023.09</td><td>128 GB</td>
+                                <td>1476.91 MB/s</td>
+                                <td>917.84 MB/s</td>
+                                <td>42.02 MB/s</td>
+                                <td>25.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 <span style='font-size:0.6rem;'>(iPhone15,4)</span></td>
+                                <td>2023.09</td><td>512 GB</td>
+                                <td>1568.88 MB/s</td>
+                                <td>1414.86 MB/s</td>
+                                <td>41.20 MB/s</td>
+                                <td>31.20 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 <span style='font-size:0.6rem;'>(iPhone15,4)</span></td>
+                                <td>2023.09</td><td>256 GB</td>
+                                <td>1499.68 MB/s</td>
+                                <td>1303.30 MB/s</td>
+                                <td>41.11 MB/s</td>
+                                <td>26.79 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 15 <span style='font-size:0.6rem;'>(iPhone15,4)</span></td>
+                                <td>2023.09</td><td>128 GB</td>
+                                <td>1430.63 MB/s</td>
+                                <td>770.93 MB/s</td>
+                                <td>42.35 MB/s</td>
+                                <td>21.85 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (15 英寸, M2, 2023 年) <span style='font-size:0.6rem;'>(Mac14,15)</span></td>
+                                <td>2023.06</td><td>2048 GB</td>
+                                <td>2827.20 MB/s</td>
+                                <td>1987.70 MB/s</td>
+                                <td>38.83 MB/s</td>
+                                <td>31.61 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (15 英寸, M2, 2023 年) <span style='font-size:0.6rem;'>(Mac14,15)</span></td>
+                                <td>2023.06</td><td>512 GB</td>
+                                <td>2865.37 MB/s</td>
+                                <td>2740.10 MB/s</td>
+                                <td>45.18 MB/s</td>
+                                <td>34.04 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (15 英寸, M2, 2023 年) <span style='font-size:0.6rem;'>(Mac14,15)</span></td>
+                                <td>2023.06</td><td>256 GB</td>
+                                <td>1441.36 MB/s</td>
+                                <td>1265.22 MB/s</td>
+                                <td>43.00 MB/s</td>
+                                <td>27.38 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2023 年, M2 Max) <span style='font-size:0.6rem;'>(Mac14,13)</span></td>
+                                <td>2023.06</td><td>4096 GB</td>
+                                <td>5752.81 MB/s</td>
+                                <td>3820.90 MB/s</td>
+                                <td>39.52 MB/s</td>
+                                <td>34.45 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2023 年) <span style='font-size:0.6rem;'>(Mac14,14)</span></td>
+                                <td>2023.06</td><td>8192 GB</td>
+                                <td>5305.70 MB/s</td>
+                                <td>5120.00 MB/s</td>
+                                <td>38.05 MB/s</td>
+                                <td>30.19 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2023 年) <span style='font-size:0.6rem;'>(Mac14,14)</span></td>
+                                <td>2023.06</td><td>4096 GB</td>
+                                <td>4946.86 MB/s</td>
+                                <td>3605.63 MB/s</td>
+                                <td>35.94 MB/s</td>
+                                <td>31.12 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2023 年) <span style='font-size:0.6rem;'>(Mac14,13)</span></td>
+                                <td>2023.06</td><td>1024 GB</td>
+                                <td>5490.97 MB/s</td>
+                                <td>2399.44 MB/s</td>
+                                <td>36.44 MB/s</td>
+                                <td>29.72 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2023 年) <span style='font-size:0.6rem;'>(Mac14,13)</span></td>
+                                <td>2023.06</td><td>512 GB</td>
+                                <td>3222.81 MB/s</td>
+                                <td>3009.27 MB/s</td>
+                                <td>50.99 MB/s</td>
+                                <td>40.41 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,6)</span></td>
+                                <td>2023.01</td><td>4096 GB</td>
+                                <td>5466.70 MB/s</td>
+                                <td>4481.04 MB/s</td>
+                                <td>38.83 MB/s</td>
+                                <td>34.80 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,6)</span></td>
+                                <td>2023.01</td><td>1024 GB</td>
+                                <td>5457.60 MB/s</td>
+                                <td>2309.05 MB/s</td>
+                                <td>38.07 MB/s</td>
+                                <td>30.77 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,10)</span></td>
+                                <td>2023.01</td><td>512 GB</td>
+                                <td>3066.09 MB/s</td>
+                                <td>2844.55 MB/s</td>
+                                <td>46.69 MB/s</td>
+                                <td>38.60 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,9)</span></td>
+                                <td>2023.01</td><td>1024 GB</td>
+                                <td>4183.89 MB/s</td>
+                                <td>2316.42 MB/s</td>
+                                <td>36.87 MB/s</td>
+                                <td>30.49 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,5)</span></td>
+                                <td>2023.01</td><td>1024 GB</td>
+                                <td>5688.89 MB/s</td>
+                                <td>1081.31 MB/s</td>
+                                <td>36.10 MB/s</td>
+                                <td>30.43 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,5)</span></td>
+                                <td>2023.01</td><td>1024 GB</td>
+                                <td>5234.23 MB/s</td>
+                                <td>1944.05 MB/s</td>
+                                <td>36.17 MB/s</td>
+                                <td>30.25 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2023 年) <span style='font-size:0.6rem;'>(Mac14,9)</span></td>
+                                <td>2023.01</td><td>512 GB</td>
+                                <td>2956.63 MB/s</td>
+                                <td>2803.21 MB/s</td>
+                                <td>47.67 MB/s</td>
+                                <td>38.75 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2023 年) <span style='font-size:0.6rem;'>(Mac14,3)</span></td>
+                                <td>2023.01</td><td>2048 GB</td>
+                                <td>2964.32 MB/s</td>
+                                <td>2534.79 MB/s</td>
+                                <td>39.96 MB/s</td>
+                                <td>31.87 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2023 年) <span style='font-size:0.6rem;'>(Mac14,12)</span></td>
+                                <td>2023.01</td><td>1024 GB</td>
+                                <td>5446.47 MB/s</td>
+                                <td>2363.17 MB/s</td>
+                                <td>37.72 MB/s</td>
+                                <td>31.83 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2023 年) <span style='font-size:0.6rem;'>(Mac14,12)</span></td>
+                                <td>2023.01</td><td>512 GB</td>
+                                <td>3057.36 MB/s</td>
+                                <td>2941.18 MB/s</td>
+                                <td>47.83 MB/s</td>
+                                <td>39.37 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (2023 年) <span style='font-size:0.6rem;'>(Mac14,3)</span></td>
+                                <td>2023.01</td><td>256 GB</td>
+                                <td>1514.29 MB/s</td>
+                                <td>1345.04 MB/s</td>
+                                <td>48.55 MB/s</td>
+                                <td>27.74 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 6 代) <span style='font-size:0.6rem;'>(iPad14,5 / iPad14,6)</span></td>
+                                <td>2022.10</td><td>2048 GB</td>
+                                <td>2764.05 MB/s</td>
+                                <td>2571.11 MB/s</td>
+                                <td>38.56 MB/s</td>
+                                <td>31.09 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 6 代) <span style='font-size:0.6rem;'>(iPad14,5 / iPad14,6)</span></td>
+                                <td>2022.10</td><td>1024 GB</td>
+                                <td>2862.39 MB/s</td>
+                                <td>1293.64 MB/s</td>
+                                <td>38.73 MB/s</td>
+                                <td>29.18 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 6 代) <span style='font-size:0.6rem;'>(iPad14,5 / iPad14,6)</span></td>
+                                <td>2022.10</td><td>512 GB</td>
+                                <td>3149.23 MB/s</td>
+                                <td>2544.88 MB/s</td>
+                                <td>45.55 MB/s</td>
+                                <td>34.39 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 6 代) <span style='font-size:0.6rem;'>(iPad14,5 / iPad14,6)</span></td>
+                                <td>2022.10</td><td>256 GB</td>
+                                <td>1580.22 MB/s</td>
+                                <td>1381.28 MB/s</td>
+                                <td>44.50 MB/s</td>
+                                <td>28.59 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 6 代) <span style='font-size:0.6rem;'>(iPad14,5 / iPad14,6)</span></td>
+                                <td>2022.10</td><td>128 GB</td>
+                                <td>1481.87 MB/s</td>
+                                <td>847.37 MB/s</td>
+                                <td>43.64 MB/s</td>
+                                <td>21.82 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad14,3 / iPad14,4)</span></td>
+                                <td>2022.10</td><td>2048 GB</td>
+                                <td>2761.09 MB/s</td>
+                                <td>2673.85 MB/s</td>
+                                <td>38.88 MB/s</td>
+                                <td>31.76 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad14,3 / iPad14,4)</span></td>
+                                <td>2022.10</td><td>1024 GB</td>
+                                <td>2858.40 MB/s</td>
+                                <td>1302.51 MB/s</td>
+                                <td>38.87 MB/s</td>
+                                <td>28.93 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad14,3 / iPad14,4)</span></td>
+                                <td>2022.10</td><td>512 GB</td>
+                                <td>3096.80 MB/s</td>
+                                <td>2392.24 MB/s</td>
+                                <td>45.61 MB/s</td>
+                                <td>34.30 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad14,3 / iPad14,4)</span></td>
+                                <td>2022.10</td><td>256 GB</td>
+                                <td>1587.72 MB/s</td>
+                                <td>1367.80 MB/s</td>
+                                <td>43.75 MB/s</td>
+                                <td>29.02 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad14,3 / iPad14,4)</span></td>
+                                <td>2022.10</td><td>128 GB</td>
+                                <td>1491.25 MB/s</td>
+                                <td>815.81 MB/s</td>
+                                <td>43.55 MB/s</td>
+                                <td>22.00 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 10 代) <span style='font-size:0.6rem;'>(iPad13,18 / iPad13,19)</span></td>
+                                <td>2022.10</td><td>256 GB</td>
+                                <td>1460.00 MB/s</td>
+                                <td>1005.43 MB/s</td>
+                                <td>32.68 MB/s</td>
+                                <td>23.37 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 10 代) <span style='font-size:0.6rem;'>(iPad13,18 / iPad13,19)</span></td>
+                                <td>2022.10</td><td>64 GB</td>
+                                <td>756.28 MB/s</td>
+                                <td>489.02 MB/s</td>
+                                <td>31.28 MB/s</td>
+                                <td>18.88 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro Max <span style='font-size:0.6rem;'>(iPhone15,3)</span></td>
+                                <td>2022.09</td><td>1024 GB</td>
+                                <td>1521.43 MB/s</td>
+                                <td>1167.36 MB/s</td>
+                                <td>29.63 MB/s</td>
+                                <td>22.81 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro Max <span style='font-size:0.6rem;'>(iPhone15,3)</span></td>
+                                <td>2022.09</td><td>512 GB</td>
+                                <td>1548.77 MB/s</td>
+                                <td>1195.77 MB/s</td>
+                                <td>35.63 MB/s</td>
+                                <td>28.40 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro Max <span style='font-size:0.6rem;'>(iPhone15,3)</span></td>
+                                <td>2022.09</td><td>256 GB</td>
+                                <td>1532.81 MB/s</td>
+                                <td>1135.03 MB/s</td>
+                                <td>35.67 MB/s</td>
+                                <td>26.58 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro Max <span style='font-size:0.6rem;'>(iPhone15,3)</span></td>
+                                <td>2022.09</td><td>128 GB</td>
+                                <td>1435.00 MB/s</td>
+                                <td>735.33 MB/s</td>
+                                <td>35.74 MB/s</td>
+                                <td>24.00 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro <span style='font-size:0.6rem;'>(iPhone15,2)</span></td>
+                                <td>2022.09</td><td>1024 GB</td>
+                                <td>1506.20 MB/s</td>
+                                <td>1178.32 MB/s</td>
+                                <td>29.92 MB/s</td>
+                                <td>22.57 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro <span style='font-size:0.6rem;'>(iPhone15,2)</span></td>
+                                <td>2022.09</td><td>512 GB</td>
+                                <td>1499.83 MB/s</td>
+                                <td>1252.98 MB/s</td>
+                                <td>35.12 MB/s</td>
+                                <td>27.74 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro <span style='font-size:0.6rem;'>(iPhone15,2)</span></td>
+                                <td>2022.09</td><td>256 GB</td>
+                                <td>1537.30 MB/s</td>
+                                <td>1126.98 MB/s</td>
+                                <td>36.08 MB/s</td>
+                                <td>27.04 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Pro <span style='font-size:0.6rem;'>(iPhone15,2)</span></td>
+                                <td>2022.09</td><td>128 GB</td>
+                                <td>1439.90 MB/s</td>
+                                <td>717.56 MB/s</td>
+                                <td>34.50 MB/s</td>
+                                <td>22.84 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Plus <span style='font-size:0.6rem;'>(iPhone14,8)</span></td>
+                                <td>2022.09</td><td>512 GB</td>
+                                <td>1525.13 MB/s</td>
+                                <td>1435.85 MB/s</td>
+                                <td>34.88 MB/s</td>
+                                <td>27.51 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Plus <span style='font-size:0.6rem;'>(iPhone14,8)</span></td>
+                                <td>2022.09</td><td>256 GB</td>
+                                <td>1504.17 MB/s</td>
+                                <td>1114.95 MB/s</td>
+                                <td>34.60 MB/s</td>
+                                <td>25.09 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 Plus <span style='font-size:0.6rem;'>(iPhone14,8)</span></td>
+                                <td>2022.09</td><td>128 GB</td>
+                                <td>1426.99 MB/s</td>
+                                <td>799.42 MB/s</td>
+                                <td>32.87 MB/s</td>
+                                <td>21.77 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 <span style='font-size:0.6rem;'>(iPhone14,7)</span></td>
+                                <td>2022.09</td><td>512 GB</td>
+                                <td>1592.26 MB/s</td>
+                                <td>1398.57 MB/s</td>
+                                <td>34.37 MB/s</td>
+                                <td>27.76 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 <span style='font-size:0.6rem;'>(iPhone14,7)</span></td>
+                                <td>2022.09</td><td>256 GB</td>
+                                <td>1574.10 MB/s</td>
+                                <td>1231.84 MB/s</td>
+                                <td>33.75 MB/s</td>
+                                <td>25.82 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 14 <span style='font-size:0.6rem;'>(iPhone14,7)</span></td>
+                                <td>2022.09</td><td>128 GB</td>
+                                <td>1423.71 MB/s</td>
+                                <td>720.67 MB/s</td>
+                                <td>33.88 MB/s</td>
+                                <td>22.57 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (13 英寸, M2, 2022 年) <span style='font-size:0.6rem;'>(Mac14,7)</span></td>
+                                <td>2022.06</td><td>512 GB</td>
+                                <td>2476.71 MB/s</td>
+                                <td>1911.12 MB/s</td>
+                                <td>43.77 MB/s</td>
+                                <td>33.51 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (13 英寸, M2, 2022 年) <span style='font-size:0.6rem;'>(Mac14,7)</span></td>
+                                <td>2022.06</td><td>256 GB</td>
+                                <td>1572.96 MB/s</td>
+                                <td>1486.83 MB/s</td>
+                                <td>44.37 MB/s</td>
+                                <td>27.57 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M2, 2022 年) <span style='font-size:0.6rem;'>(Mac14,2)</span></td>
+                                <td>2022.06</td><td>1024 GB</td>
+                                <td>2527.34 MB/s</td>
+                                <td>1658.05 MB/s</td>
+                                <td>35.77 MB/s</td>
+                                <td>27.97 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M2, 2022 年) <span style='font-size:0.6rem;'>(Mac14,2)</span></td>
+                                <td>2022.06</td><td>512 GB</td>
+                                <td>2913.82 MB/s</td>
+                                <td>1988.72 MB/s</td>
+                                <td>44.62 MB/s</td>
+                                <td>33.67 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M2, 2022 年) <span style='font-size:0.6rem;'>(Mac14,2)</span></td>
+                                <td>2022.06</td><td>256 GB</td>
+                                <td>1468.51 MB/s</td>
+                                <td>1360.09 MB/s</td>
+                                <td>44.18 MB/s</td>
+                                <td>26.35 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2022 年, M1 Ultra)     <span style='font-size:0.6rem;'>(Mac13,2)</span></td>
+                                <td>2022.03</td><td>4096 GB</td>
+                                <td>4700.81 MB/s</td>
+                                <td>3993.68 MB/s</td>
+                                <td>35.61 MB/s</td>
+                                <td>30.45 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2022 年) <span style='font-size:0.6rem;'>(Mac13,1)</span></td>
+                                <td>2022.03</td><td>4096 GB</td>
+                                <td>3180.12 MB/s</td>
+                                <td>2929.91 MB/s</td>
+                                <td>53.25 MB/s</td>
+                                <td>49.68 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2022 年) <span style='font-size:0.6rem;'>(Mac13,1)</span></td>
+                                <td>2022.03</td><td>1024 GB</td>
+                                <td>5592.61 MB/s</td>
+                                <td>2129.02 MB/s</td>
+                                <td>37.25 MB/s</td>
+                                <td>31.41 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2022 年) <span style='font-size:0.6rem;'>(Mac13,2)</span></td>
+                                <td>2022.03</td><td>1024 GB</td>
+                                <td>5626.37 MB/s</td>
+                                <td>2290.83 MB/s</td>
+                                <td>37.16 MB/s</td>
+                                <td>31.06 MB/s</td>
+                            </tr><tr>
+                                <td>Mac Studio (2022 年) <span style='font-size:0.6rem;'>(Mac13,1)</span></td>
+                                <td>2022.03</td><td>512 GB</td>
+                                <td>5829.01 MB/s</td>
+                                <td>3828.37 MB/s</td>
+                                <td>45.15 MB/s</td>
+                                <td>37.54 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 3 代) <span style='font-size:0.6rem;'>(iPhone14,6)</span></td>
+                                <td>2022.03</td><td>512 GB</td>
+                                <td>1263.31 MB/s</td>
+                                <td>1151.99 MB/s</td>
+                                <td>29.77 MB/s</td>
+                                <td>23.41 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 3 代) <span style='font-size:0.6rem;'>(iPhone14,6)</span></td>
+                                <td>2022.03</td><td>256 GB</td>
+                                <td>1490.32 MB/s</td>
+                                <td>1192.63 MB/s</td>
+                                <td>33.35 MB/s</td>
+                                <td>25.85 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 3 代) <span style='font-size:0.6rem;'>(iPhone14,6)</span></td>
+                                <td>2022.03</td><td>128 GB</td>
+                                <td>1309.98 MB/s</td>
+                                <td>759.16 MB/s</td>
+                                <td>33.02 MB/s</td>
+                                <td>21.99 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 3 代) <span style='font-size:0.6rem;'>(iPhone14,6)</span></td>
+                                <td>2022.03</td><td>64 GB</td>
+                                <td>696.98 MB/s</td>
+                                <td>433.85 MB/s</td>
+                                <td>29.37 MB/s</td>
+                                <td>15.06 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 5 代) <span style='font-size:0.6rem;'>(iPad13,16 / iPad13,17)</span></td>
+                                <td>2022.03</td><td>256 GB</td>
+                                <td>1574.04 MB/s</td>
+                                <td>991.65 MB/s</td>
+                                <td>45.73 MB/s</td>
+                                <td>29.62 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 5 代) <span style='font-size:0.6rem;'>(iPad13,16 / iPad13,17)</span></td>
+                                <td>2022.03</td><td>64 GB</td>
+                                <td>742.85 MB/s</td>
+                                <td>329.64 MB/s</td>
+                                <td>38.08 MB/s</td>
+                                <td>16.08 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,2)</span></td>
+                                <td>2021.10</td><td>2048 GB</td>
+                                <td>5627.90 MB/s</td>
+                                <td>4224.13 MB/s</td>
+                                <td>38.73 MB/s</td>
+                                <td>34.12 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,1)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>5446.81 MB/s</td>
+                                <td>2188.03 MB/s</td>
+                                <td>39.40 MB/s</td>
+                                <td>31.68 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,2)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>5595.63 MB/s</td>
+                                <td>2265.49 MB/s</td>
+                                <td>39.91 MB/s</td>
+                                <td>32.49 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,2)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>4761.01 MB/s</td>
+                                <td>2065.06 MB/s</td>
+                                <td>33.33 MB/s</td>
+                                <td>28.38 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,1)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>4685.17 MB/s</td>
+                                <td>1987.45 MB/s</td>
+                                <td>31.77 MB/s</td>
+                                <td>28.27 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (16 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,1)</span></td>
+                                <td>2021.10</td><td>512 GB</td>
+                                <td>5434.55 MB/s</td>
+                                <td>3861.18 MB/s</td>
+                                <td>45.76 MB/s</td>
+                                <td>38.37 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,3)</span></td>
+                                <td>2021.10</td><td>2048 GB</td>
+                                <td>4452.17 MB/s</td>
+                                <td>3401.99 MB/s</td>
+                                <td>33.88 MB/s</td>
+                                <td>28.44 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,3)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>4903.65 MB/s</td>
+                                <td>2115.12 MB/s</td>
+                                <td>36.07 MB/s</td>
+                                <td>29.75 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,4)</span></td>
+                                <td>2021.10</td><td>1024 GB</td>
+                                <td>5851.43 MB/s</td>
+                                <td>2258.00 MB/s</td>
+                                <td>39.20 MB/s</td>
+                                <td>31.20 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (14 英寸, 2021 年) <span style='font-size:0.6rem;'>(MacBookPro18,3)</span></td>
+                                <td>2021.10</td><td>512 GB</td>
+                                <td>5370.01 MB/s</td>
+                                <td>3908.68 MB/s</td>
+                                <td>45.17 MB/s</td>
+                                <td>37.51 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro Max <span style='font-size:0.6rem;'>(iPhone14,3)</span></td>
+                                <td>2021.09</td><td>1024 GB</td>
+                                <td>1507.24 MB/s</td>
+                                <td>1136.70 MB/s</td>
+                                <td>30.74 MB/s</td>
+                                <td>23.72 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro Max <span style='font-size:0.6rem;'>(iPhone14,3)</span></td>
+                                <td>2021.09</td><td>512 GB</td>
+                                <td>1515.56 MB/s</td>
+                                <td>1095.80 MB/s</td>
+                                <td>34.92 MB/s</td>
+                                <td>27.56 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro Max <span style='font-size:0.6rem;'>(iPhone14,3)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>1522.90 MB/s</td>
+                                <td>1023.01 MB/s</td>
+                                <td>33.93 MB/s</td>
+                                <td>25.14 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro Max <span style='font-size:0.6rem;'>(iPhone14,3)</span></td>
+                                <td>2021.09</td><td>128 GB</td>
+                                <td>1361.01 MB/s</td>
+                                <td>651.74 MB/s</td>
+                                <td>34.11 MB/s</td>
+                                <td>21.81 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro <span style='font-size:0.6rem;'>(iPhone14,2)</span></td>
+                                <td>2021.09</td><td>1024 GB</td>
+                                <td>1438.82 MB/s</td>
+                                <td>905.99 MB/s</td>
+                                <td>29.29 MB/s</td>
+                                <td>20.83 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro <span style='font-size:0.6rem;'>(iPhone14,2)</span></td>
+                                <td>2021.09</td><td>512 GB</td>
+                                <td>1419.03 MB/s</td>
+                                <td>1192.63 MB/s</td>
+                                <td>31.85 MB/s</td>
+                                <td>24.44 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro <span style='font-size:0.6rem;'>(iPhone14,2)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>1563.26 MB/s</td>
+                                <td>1089.42 MB/s</td>
+                                <td>33.63 MB/s</td>
+                                <td>24.47 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 Pro <span style='font-size:0.6rem;'>(iPhone14,2)</span></td>
+                                <td>2021.09</td><td>128 GB</td>
+                                <td>1410.92 MB/s</td>
+                                <td>688.73 MB/s</td>
+                                <td>32.75 MB/s</td>
+                                <td>20.54 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 mini <span style='font-size:0.6rem;'>(iPhone14,4)</span></td>
+                                <td>2021.09</td><td>512 GB</td>
+                                <td>1444.39 MB/s</td>
+                                <td>1333.52 MB/s</td>
+                                <td>34.63 MB/s</td>
+                                <td>27.43 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 mini <span style='font-size:0.6rem;'>(iPhone14,4)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>1452.49 MB/s</td>
+                                <td>1019.90 MB/s</td>
+                                <td>33.23 MB/s</td>
+                                <td>24.59 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 mini <span style='font-size:0.6rem;'>(iPhone14,4)</span></td>
+                                <td>2021.09</td><td>128 GB</td>
+                                <td>1296.73 MB/s</td>
+                                <td>609.66 MB/s</td>
+                                <td>33.09 MB/s</td>
+                                <td>22.49 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 <span style='font-size:0.6rem;'>(iPhone14,5)</span></td>
+                                <td>2021.09</td><td>512 GB</td>
+                                <td>1430.24 MB/s</td>
+                                <td>1373.04 MB/s</td>
+                                <td>34.85 MB/s</td>
+                                <td>26.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 <span style='font-size:0.6rem;'>(iPhone14,5)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>1461.33 MB/s</td>
+                                <td>1018.29 MB/s</td>
+                                <td>33.96 MB/s</td>
+                                <td>25.82 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 13 <span style='font-size:0.6rem;'>(iPhone14,5)</span></td>
+                                <td>2021.09</td><td>128 GB</td>
+                                <td>1341.84 MB/s</td>
+                                <td>666.48 MB/s</td>
+                                <td>33.69 MB/s</td>
+                                <td>22.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (第 6 代) <span style='font-size:0.6rem;'>(iPad14,1 / iPad14,2)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>1464.46 MB/s</td>
+                                <td>1189.65 MB/s</td>
+                                <td>33.77 MB/s</td>
+                                <td>26.68 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (第 6 代) <span style='font-size:0.6rem;'>(iPad14,1 / iPad14,2)</span></td>
+                                <td>2021.09</td><td>64 GB</td>
+                                <td>699.69 MB/s</td>
+                                <td>412.67 MB/s</td>
+                                <td>30.23 MB/s</td>
+                                <td>13.93 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 9 代) <span style='font-size:0.6rem;'>(iPad12,1 / iPad12,2)</span></td>
+                                <td>2021.09</td><td>256 GB</td>
+                                <td>465.19 MB/s</td>
+                                <td>417.30 MB/s</td>
+                                <td>20.52 MB/s</td>
+                                <td>14.29 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 9 代) <span style='font-size:0.6rem;'>(iPad12,1 / iPad12,2)</span></td>
+                                <td>2021.09</td><td>64 GB</td>
+                                <td>723.16 MB/s</td>
+                                <td>219.27 MB/s</td>
+                                <td>25.08 MB/s</td>
+                                <td>11.25 MB/s</td>
+                            </tr><tr>
+                                <td>iMac (24 英寸, M1, 2021 年) <span style='font-size:0.6rem;'>(iMac21,1)</span></td>
+                                <td>2021.05</td><td>512 GB</td>
+                                <td>2860.34 MB/s</td>
+                                <td>1885.82 MB/s</td>
+                                <td>47.16 MB/s</td>
+                                <td>36.23 MB/s</td>
+                            </tr><tr>
+                                <td>iMac (24 英寸, M1, 2021 年) <span style='font-size:0.6rem;'>(iMac21,2)</span></td>
+                                <td>2021.05</td><td>256 GB</td>
+                                <td>2687.66 MB/s</td>
+                                <td>2085.54 MB/s</td>
+                                <td>48.41 MB/s</td>
+                                <td>35.29 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 5 代) <span style='font-size:0.6rem;'>(iPad13,9 / iPad13,11 )</span></td>
+                                <td>2021.04</td><td>2048 GB</td>
+                                <td>2842.36 MB/s</td>
+                                <td>2147.83 MB/s</td>
+                                <td>38.86 MB/s</td>
+                                <td>30.45 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 5 代) <span style='font-size:0.6rem;'>(iPad13,9 / iPad13,11 )</span></td>
+                                <td>2021.04</td><td>1024 GB</td>
+                                <td>2628.20 MB/s</td>
+                                <td>2090.27 MB/s</td>
+                                <td>41.88 MB/s</td>
+                                <td>32.62 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 5 代) <span style='font-size:0.6rem;'>(iPad13,8 / iPad13,10)</span></td>
+                                <td>2021.04</td><td>512 GB</td>
+                                <td>3036.18 MB/s</td>
+                                <td>2087.25 MB/s</td>
+                                <td>48.97 MB/s</td>
+                                <td>38.82 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 5 代) <span style='font-size:0.6rem;'>(iPad13,8 / iPad13,10)</span></td>
+                                <td>2021.04</td><td>256 GB</td>
+                                <td>3015.18 MB/s</td>
+                                <td>1718.49 MB/s</td>
+                                <td>47.78 MB/s</td>
+                                <td>36.75 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 5 代) <span style='font-size:0.6rem;'>(iPad13,8 / iPad13,10)</span></td>
+                                <td>2021.04</td><td>128 GB</td>
+                                <td>1562.39 MB/s</td>
+                                <td>927.01 MB/s</td>
+                                <td>45.86 MB/s</td>
+                                <td>30.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad13,5 / iPad13,7)</span></td>
+                                <td>2021.04</td><td>2048 GB</td>
+                                <td>2519.87 MB/s</td>
+                                <td>2136.62 MB/s</td>
+                                <td>38.09 MB/s</td>
+                                <td>30.15 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad13,5 / iPad13,7)</span></td>
+                                <td>2021.04</td><td>1024 GB</td>
+                                <td>2829.10 MB/s</td>
+                                <td>2081.30 MB/s</td>
+                                <td>43.14 MB/s</td>
+                                <td>33.58 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad13,4 / iPad13,6)</span></td>
+                                <td>2021.04</td><td>512 GB</td>
+                                <td>2902.25 MB/s</td>
+                                <td>2197.20 MB/s</td>
+                                <td>48.42 MB/s</td>
+                                <td>37.96 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad13,4 / iPad13,6)</span></td>
+                                <td>2021.04</td><td>256 GB</td>
+                                <td>2883.45 MB/s</td>
+                                <td>1605.21 MB/s</td>
+                                <td>46.04 MB/s</td>
+                                <td>34.83 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad13,4 / iPad13,6)</span></td>
+                                <td>2021.04</td><td>128 GB</td>
+                                <td>1517.81 MB/s</td>
+                                <td>891.15 MB/s</td>
+                                <td>44.96 MB/s</td>
+                                <td>29.05 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (13 英寸, M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookPro17,1)</span></td>
+                                <td>2020.11</td><td>1024 GB</td>
+                                <td>2766.20 MB/s</td>
+                                <td>2211.82 MB/s</td>
+                                <td>40.10 MB/s</td>
+                                <td>31.59 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (13 英寸, M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookPro17,1)</span></td>
+                                <td>2020.11</td><td>512 GB</td>
+                                <td>2943.74 MB/s</td>
+                                <td>2110.95 MB/s</td>
+                                <td>48.94 MB/s</td>
+                                <td>39.39 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Pro (13 英寸, M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookPro17,1)</span></td>
+                                <td>2020.11</td><td>256 GB</td>
+                                <td>2836.70 MB/s</td>
+                                <td>1824.55 MB/s</td>
+                                <td>39.80 MB/s</td>
+                                <td>31.36 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookAir10,1)</span></td>
+                                <td>2020.11</td><td>1024 GB</td>
+                                <td>2534.07 MB/s</td>
+                                <td>1643.74 MB/s</td>
+                                <td>39.61 MB/s</td>
+                                <td>29.35 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookAir10,1)</span></td>
+                                <td>2020.11</td><td>512 GB</td>
+                                <td>2797.85 MB/s</td>
+                                <td>2323.69 MB/s</td>
+                                <td>47.67 MB/s</td>
+                                <td>39.28 MB/s</td>
+                            </tr><tr>
+                                <td>MacBook Air (M1, 2020 年) <span style='font-size:0.6rem;'>(MacBookAir10,1)</span></td>
+                                <td>2020.11</td><td>256 GB</td>
+                                <td>2914.74 MB/s</td>
+                                <td>1863.75 MB/s</td>
+                                <td>44.87 MB/s</td>
+                                <td>33.11 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (M1, 2020 年) <span style='font-size:0.6rem;'>(Macmini9,1)</span></td>
+                                <td>2020.11</td><td>1024 GB</td>
+                                <td>2703.83 MB/s</td>
+                                <td>2108.71 MB/s</td>
+                                <td>40.32 MB/s</td>
+                                <td>31.49 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (M1, 2020 年) <span style='font-size:0.6rem;'>(Macmini9,1)</span></td>
+                                <td>2020.11</td><td>1024 GB</td>
+                                <td>2628.98 MB/s</td>
+                                <td>1938.53 MB/s</td>
+                                <td>45.27 MB/s</td>
+                                <td>37.93 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (M1, 2020 年) <span style='font-size:0.6rem;'>(Macmini9,1)</span></td>
+                                <td>2020.11</td><td>512 GB</td>
+                                <td>2883.03 MB/s</td>
+                                <td>2345.52 MB/s</td>
+                                <td>49.60 MB/s</td>
+                                <td>32.53 MB/s</td>
+                            </tr><tr>
+                                <td>Mac mini (M1, 2020 年) <span style='font-size:0.6rem;'>(Macmini9,1)</span></td>
+                                <td>2020.11</td><td>256 GB</td>
+                                <td>3048.94 MB/s</td>
+                                <td>1626.04 MB/s</td>
+                                <td>48.63 MB/s</td>
+                                <td>38.16 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro Max <span style='font-size:0.6rem;'>(iPhone13,4)</span></td>
+                                <td>2020.10</td><td>512 GB</td>
+                                <td>1472.43 MB/s</td>
+                                <td>1085.86 MB/s</td>
+                                <td>31.68 MB/s</td>
+                                <td>24.26 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro Max <span style='font-size:0.6rem;'>(iPhone13,4)</span></td>
+                                <td>2020.10</td><td>256 GB</td>
+                                <td>1478.48 MB/s</td>
+                                <td>945.37 MB/s</td>
+                                <td>33.04 MB/s</td>
+                                <td>24.81 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro Max <span style='font-size:0.6rem;'>(iPhone13,4)</span></td>
+                                <td>2020.10</td><td>128 GB</td>
+                                <td>1408.05 MB/s</td>
+                                <td>635.20 MB/s</td>
+                                <td>33.30 MB/s</td>
+                                <td>23.49 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro <span style='font-size:0.6rem;'>(iPhone13,3)</span></td>
+                                <td>2020.10</td><td>512 GB</td>
+                                <td>1458.98 MB/s</td>
+                                <td>1202.30 MB/s</td>
+                                <td>29.68 MB/s</td>
+                                <td>23.15 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro <span style='font-size:0.6rem;'>(iPhone13,3)</span></td>
+                                <td>2020.10</td><td>256 GB</td>
+                                <td>1435.49 MB/s</td>
+                                <td>859.92 MB/s</td>
+                                <td>31.72 MB/s</td>
+                                <td>24.40 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 Pro <span style='font-size:0.6rem;'>(iPhone13,3)</span></td>
+                                <td>2020.10</td><td>128 GB</td>
+                                <td>1441.26 MB/s</td>
+                                <td>667.81 MB/s</td>
+                                <td>32.46 MB/s</td>
+                                <td>22.18 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 mini <span style='font-size:0.6rem;'>(iPhone13,1)</span></td>
+                                <td>2020.10</td><td>256 GB</td>
+                                <td>1440.45 MB/s</td>
+                                <td>1000.93 MB/s</td>
+                                <td>31.84 MB/s</td>
+                                <td>23.70 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 mini <span style='font-size:0.6rem;'>(iPhone13,1)</span></td>
+                                <td>2020.10</td><td>128 GB</td>
+                                <td>1389.39 MB/s</td>
+                                <td>718.56 MB/s</td>
+                                <td>32.56 MB/s</td>
+                                <td>22.42 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 mini <span style='font-size:0.6rem;'>(iPhone13,1)</span></td>
+                                <td>2020.10</td><td>64 GB</td>
+                                <td>1171.35 MB/s</td>
+                                <td>399.23 MB/s</td>
+                                <td>30.25 MB/s</td>
+                                <td>17.10 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 <span style='font-size:0.6rem;'>(iPhone13,2)</span></td>
+                                <td>2020.10</td><td>256 GB</td>
+                                <td>1388.46 MB/s</td>
+                                <td>848.32 MB/s</td>
+                                <td>32.24 MB/s</td>
+                                <td>23.70 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 <span style='font-size:0.6rem;'>(iPhone13,2)</span></td>
+                                <td>2020.10</td><td>128 GB</td>
+                                <td>1377.15 MB/s</td>
+                                <td>523.87 MB/s</td>
+                                <td>32.71 MB/s</td>
+                                <td>23.02 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 12 <span style='font-size:0.6rem;'>(iPhone13,2)</span></td>
+                                <td>2020.10</td><td>64 GB</td>
+                                <td>1102.19 MB/s</td>
+                                <td>379.73 MB/s</td>
+                                <td>30.31 MB/s</td>
+                                <td>16.08 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 4 代) <span style='font-size:0.6rem;'>(iPad13,1 / iPad13,2)</span></td>
+                                <td>2020.09</td><td>256 GB</td>
+                                <td>1443.12 MB/s</td>
+                                <td>1096.75 MB/s</td>
+                                <td>33.00 MB/s</td>
+                                <td>25.16 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 4 代) <span style='font-size:0.6rem;'>(iPad13,1 / iPad13,2)</span></td>
+                                <td>2020.09</td><td>64 GB</td>
+                                <td>1176.20 MB/s</td>
+                                <td>406.71 MB/s</td>
+                                <td>30.50 MB/s</td>
+                                <td>16.97 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 8 代) <span style='font-size:0.6rem;'>(iPad11,6 / iPad11,7)</span></td>
+                                <td>2020.09</td><td>128 GB</td>
+                                <td>690.19 MB/s</td>
+                                <td>324.63 MB/s</td>
+                                <td>23.11 MB/s</td>
+                                <td>15.42 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 8 代) <span style='font-size:0.6rem;'>(iPad11,6 / iPad11,7)</span></td>
+                                <td>2020.09</td><td>32 GB</td>
+                                <td>246.58 MB/s</td>
+                                <td>64.35 MB/s</td>
+                                <td>18.41 MB/s</td>
+                                <td>7.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 2 代) <span style='font-size:0.6rem;'>(iPhone12,8)</span></td>
+                                <td>2020.04</td><td>256 GB</td>
+                                <td>726.80 MB/s</td>
+                                <td>466.39 MB/s</td>
+                                <td>22.03 MB/s</td>
+                                <td>16.56 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 2 代) <span style='font-size:0.6rem;'>(iPhone12,8)</span></td>
+                                <td>2020.04</td><td>128 GB</td>
+                                <td>721.35 MB/s</td>
+                                <td>305.39 MB/s</td>
+                                <td>21.83 MB/s</td>
+                                <td>14.89 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE (第 2 代) <span style='font-size:0.6rem;'>(iPhone12,8)</span></td>
+                                <td>2020.04</td><td>64 GB</td>
+                                <td>572.00 MB/s</td>
+                                <td>182.61 MB/s</td>
+                                <td>21.29 MB/s</td>
+                                <td>11.49 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad8,11 / iPad8,12)</span></td>
+                                <td>2020.03</td><td>1024 GB</td>
+                                <td>1274.24 MB/s</td>
+                                <td>1042.77 MB/s</td>
+                                <td>17.71 MB/s</td>
+                                <td>14.20 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad8,11 / iPad8,12)</span></td>
+                                <td>2020.03</td><td>512 GB</td>
+                                <td>1350.07 MB/s</td>
+                                <td>1058.61 MB/s</td>
+                                <td>24.13 MB/s</td>
+                                <td>18.62 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad8,11 / iPad8,12)</span></td>
+                                <td>2020.03</td><td>256 GB</td>
+                                <td>1515.90 MB/s</td>
+                                <td>811.88 MB/s</td>
+                                <td>23.29 MB/s</td>
+                                <td>17.63 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 4 代) <span style='font-size:0.6rem;'>(iPad8,11 / iPad8,12)</span></td>
+                                <td>2020.03</td><td>128 GB</td>
+                                <td>761.52 MB/s</td>
+                                <td>398.76 MB/s</td>
+                                <td>22.05 MB/s</td>
+                                <td>15.25 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad8,9 / iPad8,10)</span></td>
+                                <td>2020.03</td><td>1024 GB</td>
+                                <td>1302.99 MB/s</td>
+                                <td>1077.92 MB/s</td>
+                                <td>22.49 MB/s</td>
+                                <td>17.19 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad8,9 / iPad8,10)</span></td>
+                                <td>2020.03</td><td>512 GB</td>
+                                <td>1328.29 MB/s</td>
+                                <td>934.90 MB/s</td>
+                                <td>24.16 MB/s</td>
+                                <td>18.67 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad8,9 / iPad8,10)</span></td>
+                                <td>2020.03</td><td>256 GB</td>
+                                <td>1469.69 MB/s</td>
+                                <td>843.99 MB/s</td>
+                                <td>21.80 MB/s</td>
+                                <td>16.59 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad8,9 / iPad8,10)</span></td>
+                                <td>2020.03</td><td>128 GB</td>
+                                <td>736.74 MB/s</td>
+                                <td>398.41 MB/s</td>
+                                <td>22.31 MB/s</td>
+                                <td>15.68 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro Max <span style='font-size:0.6rem;'>(iPhone12,5)</span></td>
+                                <td>2019.09</td><td>512 GB</td>
+                                <td>710.26 MB/s</td>
+                                <td>496.81 MB/s</td>
+                                <td>21.04 MB/s</td>
+                                <td>15.95 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro Max <span style='font-size:0.6rem;'>(iPhone12,5)</span></td>
+                                <td>2019.09</td><td>256 GB</td>
+                                <td>731.03 MB/s</td>
+                                <td>488.65 MB/s</td>
+                                <td>22.64 MB/s</td>
+                                <td>16.97 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro Max <span style='font-size:0.6rem;'>(iPhone12,5)</span></td>
+                                <td>2019.09</td><td>64 GB</td>
+                                <td>559.45 MB/s</td>
+                                <td>175.31 MB/s</td>
+                                <td>21.03 MB/s</td>
+                                <td>11.22 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro <span style='font-size:0.6rem;'>(iPhone12,3)</span></td>
+                                <td>2019.09</td><td>512 GB</td>
+                                <td>724.69 MB/s</td>
+                                <td>550.08 MB/s</td>
+                                <td>21.60 MB/s</td>
+                                <td>16.68 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro <span style='font-size:0.6rem;'>(iPhone12,3)</span></td>
+                                <td>2019.09</td><td>256 GB</td>
+                                <td>743.56 MB/s</td>
+                                <td>498.04 MB/s</td>
+                                <td>22.11 MB/s</td>
+                                <td>16.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 Pro <span style='font-size:0.6rem;'>(iPhone12,3)</span></td>
+                                <td>2019.09</td><td>64 GB</td>
+                                <td>593.56 MB/s</td>
+                                <td>207.61 MB/s</td>
+                                <td>21.74 MB/s</td>
+                                <td>11.79 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 <span style='font-size:0.6rem;'>(iPhone12,1)</span></td>
+                                <td>2019.09</td><td>256 GB</td>
+                                <td>739.51 MB/s</td>
+                                <td>550.29 MB/s</td>
+                                <td>22.45 MB/s</td>
+                                <td>17.07 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 <span style='font-size:0.6rem;'>(iPhone12,1)</span></td>
+                                <td>2019.09</td><td>128 GB</td>
+                                <td>696.05 MB/s</td>
+                                <td>284.52 MB/s</td>
+                                <td>21.52 MB/s</td>
+                                <td>14.63 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 11 <span style='font-size:0.6rem;'>(iPhone12,1)</span></td>
+                                <td>2019.09</td><td>64 GB</td>
+                                <td>587.81 MB/s</td>
+                                <td>183.35 MB/s</td>
+                                <td>21.50 MB/s</td>
+                                <td>12.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 7 代) <span style='font-size:0.6rem;'>(iPad7,11 / iPad7,12)</span></td>
+                                <td>2019.09</td><td>128 GB</td>
+                                <td>543.24 MB/s</td>
+                                <td>280.63 MB/s</td>
+                                <td>14.79 MB/s</td>
+                                <td>6.85 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 7 代) <span style='font-size:0.6rem;'>(iPad7,11 / iPad7,12)</span></td>
+                                <td>2019.09</td><td>32 GB</td>
+                                <td>295.98 MB/s</td>
+                                <td>61.64 MB/s</td>
+                                <td>16.13 MB/s</td>
+                                <td>5.01 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (第 5 代) <span style='font-size:0.6rem;'>(iPad11,1 / iPad11,2)</span></td>
+                                <td>2019.03</td><td>256 GB</td>
+                                <td>743.11 MB/s</td>
+                                <td>564.44 MB/s</td>
+                                <td>23.32 MB/s</td>
+                                <td>18.14 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini (第 5 代) <span style='font-size:0.6rem;'>(iPad11,1 / iPad11,2)</span></td>
+                                <td>2019.03</td><td>64 GB</td>
+                                <td>541.86 MB/s</td>
+                                <td>153.59 MB/s</td>
+                                <td>21.80 MB/s</td>
+                                <td>10.35 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 3 代) <span style='font-size:0.6rem;'>(iPad11,3 / iPad11,4)</span></td>
+                                <td>2019.03</td><td>256 GB</td>
+                                <td>728.10 MB/s</td>
+                                <td>641.95 MB/s</td>
+                                <td>24.30 MB/s</td>
+                                <td>18.74 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air (第 3 代) <span style='font-size:0.6rem;'>(iPad11,3 / iPad11,4)</span></td>
+                                <td>2019.03</td><td>64 GB</td>
+                                <td>550.22 MB/s</td>
+                                <td>159.35 MB/s</td>
+                                <td>23.01 MB/s</td>
+                                <td>11.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad8,6 / iPad8,8)</span></td>
+                                <td>2018.10</td><td>1024 GB</td>
+                                <td>1498.19 MB/s</td>
+                                <td>1128.93 MB/s</td>
+                                <td>23.23 MB/s</td>
+                                <td>17.71 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad8,5 / iPad8,7)</span></td>
+                                <td>2018.10</td><td>512 GB</td>
+                                <td>1413.71 MB/s</td>
+                                <td>1061.20 MB/s</td>
+                                <td>21.16 MB/s</td>
+                                <td>16.78 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad8,5 / iPad8,7)</span></td>
+                                <td>2018.10</td><td>256 GB</td>
+                                <td>1405.29 MB/s</td>
+                                <td>603.49 MB/s</td>
+                                <td>21.00 MB/s</td>
+                                <td>15.92 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 3 代) <span style='font-size:0.6rem;'>(iPad8,5 / iPad8,7)</span></td>
+                                <td>2018.10</td><td>64 GB</td>
+                                <td>679.87 MB/s</td>
+                                <td>304.83 MB/s</td>
+                                <td>23.63 MB/s</td>
+                                <td>14.81 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 1 代) <span style='font-size:0.6rem;'>(iPad8,2 / iPad8,4)</span></td>
+                                <td>2018.10</td><td>1024 GB</td>
+                                <td>1450.29 MB/s</td>
+                                <td>1134.50 MB/s</td>
+                                <td>23.56 MB/s</td>
+                                <td>22.47 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 1 代) <span style='font-size:0.6rem;'>(iPad8,1 / iPad8,3)</span></td>
+                                <td>2018.10</td><td>512 GB</td>
+                                <td>810.79 MB/s</td>
+                                <td>647.03 MB/s</td>
+                                <td>21.27 MB/s</td>
+                                <td>15.58 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 1 代) <span style='font-size:0.6rem;'>(iPad8,1 / iPad8,3)</span></td>
+                                <td>2018.10</td><td>256 GB</td>
+                                <td>1411.32 MB/s</td>
+                                <td>595.35 MB/s</td>
+                                <td>20.31 MB/s</td>
+                                <td>15.53 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 11 英寸 (第 1 代) <span style='font-size:0.6rem;'>(iPad8,1 / iPad8,3)</span></td>
+                                <td>2018.10</td><td>64 GB</td>
+                                <td>714.14 MB/s</td>
+                                <td>286.63 MB/s</td>
+                                <td>22.47 MB/s</td>
+                                <td>13.69 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS Max <span style='font-size:0.6rem;'>(iPhone11,6)</span></td>
+                                <td>2018.09</td><td>512 GB</td>
+                                <td>726.91 MB/s</td>
+                                <td>593.83 MB/s</td>
+                                <td>22.70 MB/s</td>
+                                <td>18.25 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS Max <span style='font-size:0.6rem;'>(iPhone11,6)</span></td>
+                                <td>2018.09</td><td>256 GB</td>
+                                <td>715.57 MB/s</td>
+                                <td>496.91 MB/s</td>
+                                <td>23.53 MB/s</td>
+                                <td>18.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS Max <span style='font-size:0.6rem;'>(iPhone11,6)</span></td>
+                                <td>2018.09</td><td>64 GB</td>
+                                <td>500.65 MB/s</td>
+                                <td>146.67 MB/s</td>
+                                <td>22.10 MB/s</td>
+                                <td>10.23 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS <span style='font-size:0.6rem;'>(iPhone11,2)</span></td>
+                                <td>2018.09</td><td>512 GB</td>
+                                <td>709.31 MB/s</td>
+                                <td>613.80 MB/s</td>
+                                <td>23.60 MB/s</td>
+                                <td>18.62 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS <span style='font-size:0.6rem;'>(iPhone11,2)</span></td>
+                                <td>2018.09</td><td>256 GB</td>
+                                <td>719.87 MB/s</td>
+                                <td>536.74 MB/s</td>
+                                <td>24.07 MB/s</td>
+                                <td>18.73 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XS <span style='font-size:0.6rem;'>(iPhone11,2)</span></td>
+                                <td>2018.09</td><td>64 GB</td>
+                                <td>541.43 MB/s</td>
+                                <td>144.16 MB/s</td>
+                                <td>22.39 MB/s</td>
+                                <td>11.01 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XR <span style='font-size:0.6rem;'>(iPhone11,8)</span></td>
+                                <td>2018.09</td><td>256 GB</td>
+                                <td>690.09 MB/s</td>
+                                <td>499.44 MB/s</td>
+                                <td>22.69 MB/s</td>
+                                <td>17.56 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XR <span style='font-size:0.6rem;'>(iPhone11,8)</span></td>
+                                <td>2018.09</td><td>128 GB</td>
+                                <td>708.78 MB/s</td>
+                                <td>271.73 MB/s</td>
+                                <td>23.15 MB/s</td>
+                                <td>16.18 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone XR <span style='font-size:0.6rem;'>(iPhone11,8)</span></td>
+                                <td>2018.09</td><td>64 GB</td>
+                                <td>550.88 MB/s</td>
+                                <td>135.02 MB/s</td>
+                                <td>22.20 MB/s</td>
+                                <td>11.35 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 6 代) <span style='font-size:0.6rem;'>(iPad7,5 / iPad7,6)</span></td>
+                                <td>2018.03</td><td>128 GB</td>
+                                <td>551.40 MB/s</td>
+                                <td>257.19 MB/s</td>
+                                <td>15.12 MB/s</td>
+                                <td>6.67 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 6 代) <span style='font-size:0.6rem;'>(iPad7,5 / iPad7,6)</span></td>
+                                <td>2018.03</td><td>32 GB</td>
+                                <td>381.93 MB/s</td>
+                                <td>74.56 MB/s</td>
+                                <td>14.71 MB/s</td>
+                                <td>5.05 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone X <span style='font-size:0.6rem;'>(iPhone10,3 / iPhone10,6)</span></td>
+                                <td>2017.09</td><td>256 GB</td>
+                                <td>715.27 MB/s</td>
+                                <td>580.01 MB/s</td>
+                                <td>19.61 MB/s</td>
+                                <td>15.95 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone X <span style='font-size:0.6rem;'>(iPhone10,3 / iPhone10,6)</span></td>
+                                <td>2017.09</td><td>64 GB</td>
+                                <td>561.63 MB/s</td>
+                                <td>143.91 MB/s</td>
+                                <td>16.96 MB/s</td>
+                                <td>8.85 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 8 Plus <span style='font-size:0.6rem;'>(iPhone10,2 / iPhone10,5)</span></td>
+                                <td>2017.09</td><td>256 GB</td>
+                                <td>741.42 MB/s</td>
+                                <td>588.88 MB/s</td>
+                                <td>19.71 MB/s</td>
+                                <td>15.44 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 8 Plus <span style='font-size:0.6rem;'>(iPhone10,2 / iPhone10,5)</span></td>
+                                <td>2017.09</td><td>64 GB</td>
+                                <td>623.75 MB/s</td>
+                                <td>166.70 MB/s</td>
+                                <td>17.44 MB/s</td>
+                                <td>9.57 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 8 <span style='font-size:0.6rem;'>(iPhone10,1 / iPhone10,4)</span></td>
+                                <td>2017.09</td><td>256 GB</td>
+                                <td>729.34 MB/s</td>
+                                <td>602.78 MB/s</td>
+                                <td>19.37 MB/s</td>
+                                <td>15.76 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 8 <span style='font-size:0.6rem;'>(iPhone10,1 / iPhone10,4)</span></td>
+                                <td>2017.09</td><td>128 GB</td>
+                                <td>698.50 MB/s</td>
+                                <td>379.82 MB/s</td>
+                                <td>20.12 MB/s</td>
+                                <td>13.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 8 <span style='font-size:0.6rem;'>(iPhone10,1 / iPhone10,4)</span></td>
+                                <td>2017.09</td><td>64 GB</td>
+                                <td>613.13 MB/s</td>
+                                <td>179.95 MB/s</td>
+                                <td>17.44 MB/s</td>
+                                <td>9.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad7,1 / iPad7,2)</span></td>
+                                <td>2017.06</td><td>512 GB</td>
+                                <td>587.34 MB/s</td>
+                                <td>441.23 MB/s</td>
+                                <td>18.99 MB/s</td>
+                                <td>7.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad7,1 / iPad7,2)</span></td>
+                                <td>2017.06</td><td>256 GB</td>
+                                <td>555.32 MB/s</td>
+                                <td>332.80 MB/s</td>
+                                <td>18.05 MB/s</td>
+                                <td>5.98 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 (第 2 代) <span style='font-size:0.6rem;'>(iPad7,1 / iPad7,2)</span></td>
+                                <td>2017.06</td><td>64 GB</td>
+                                <td>581.61 MB/s</td>
+                                <td>77.36 MB/s</td>
+                                <td>18.82 MB/s</td>
+                                <td>3.90 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 10.5 英寸 <span style='font-size:0.6rem;'>(iPad7,3 / iPad7,4)</span></td>
+                                <td>2017.06</td><td>512 GB</td>
+                                <td>572.51 MB/s</td>
+                                <td>423.80 MB/s</td>
+                                <td>18.43 MB/s</td>
+                                <td>6.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 10.5 英寸 <span style='font-size:0.6rem;'>(iPad7,3 / iPad7,4)</span></td>
+                                <td>2017.06</td><td>256 GB</td>
+                                <td>543.33 MB/s</td>
+                                <td>333.02 MB/s</td>
+                                <td>17.79 MB/s</td>
+                                <td>5.36 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 10.5 英寸 <span style='font-size:0.6rem;'>(iPad7,3 / iPad7,4)</span></td>
+                                <td>2017.06</td><td>64 GB</td>
+                                <td>466.72 MB/s</td>
+                                <td>68.94 MB/s</td>
+                                <td>17.79 MB/s</td>
+                                <td>4.27 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 5 代) <span style='font-size:0.6rem;'>(iPad6,11 / iPad6,12)</span></td>
+                                <td>2017.03</td><td>128 GB</td>
+                                <td>530.09 MB/s</td>
+                                <td>300.23 MB/s</td>
+                                <td>16.68 MB/s</td>
+                                <td>5.99 MB/s</td>
+                            </tr><tr>
+                                <td>iPad (第 5 代) <span style='font-size:0.6rem;'>(iPad6,11 / iPad6,12)</span></td>
+                                <td>2017.03</td><td>32 GB</td>
+                                <td>438.06 MB/s</td>
+                                <td>67.64 MB/s</td>
+                                <td>17.36 MB/s</td>
+                                <td>3.72 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 Plus <span style='font-size:0.6rem;'>(iPhone9,2 / iPhone9,4)</span></td>
+                                <td>2016.09</td><td>256 GB</td>
+                                <td>565.28 MB/s</td>
+                                <td>363.21 MB/s</td>
+                                <td>15.62 MB/s</td>
+                                <td>8.74 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 Plus <span style='font-size:0.6rem;'>(iPhone9,2 / iPhone9,4)</span></td>
+                                <td>2016.09</td><td>128 GB</td>
+                                <td>547.35 MB/s</td>
+                                <td>263.90 MB/s</td>
+                                <td>14.21 MB/s</td>
+                                <td>6.18 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 Plus <span style='font-size:0.6rem;'>(iPhone9,2 / iPhone9,4)</span></td>
+                                <td>2016.09</td><td>32 GB</td>
+                                <td>412.40 MB/s</td>
+                                <td>36.92 MB/s</td>
+                                <td>14.83 MB/s</td>
+                                <td>3.90 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 <span style='font-size:0.6rem;'>(iPhone9,1 / iPhone9,3)</span></td>
+                                <td>2016.09</td><td>256 GB</td>
+                                <td>537.67 MB/s</td>
+                                <td>380.15 MB/s</td>
+                                <td>15.82 MB/s</td>
+                                <td>7.54 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 <span style='font-size:0.6rem;'>(iPhone9,1 / iPhone9,3)</span></td>
+                                <td>2016.09</td><td>128 GB</td>
+                                <td>525.50 MB/s</td>
+                                <td>248.09 MB/s</td>
+                                <td>14.55 MB/s</td>
+                                <td>6.20 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 7 <span style='font-size:0.6rem;'>(iPhone9,1 / iPhone9,3)</span></td>
+                                <td>2016.09</td><td>32 GB</td>
+                                <td>400.17 MB/s</td>
+                                <td>46.30 MB/s</td>
+                                <td>14.55 MB/s</td>
+                                <td>4.32 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE <span style='font-size:0.6rem;'>(iPhone8,4)</span></td>
+                                <td>2016.03</td><td>128 GB</td>
+                                <td>513.68 MB/s</td>
+                                <td>277.61 MB/s</td>
+                                <td>16.15 MB/s</td>
+                                <td>6.42 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE <span style='font-size:0.6rem;'>(iPhone8,4)</span></td>
+                                <td>2016.03</td><td>64 GB</td>
+                                <td>507.50 MB/s</td>
+                                <td>163.06 MB/s</td>
+                                <td>14.99 MB/s</td>
+                                <td>5.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE <span style='font-size:0.6rem;'>(iPhone8,4)</span></td>
+                                <td>2016.03</td><td>32 GB</td>
+                                <td>343.66 MB/s</td>
+                                <td>60.89 MB/s</td>
+                                <td>15.61 MB/s</td>
+                                <td>4.43 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone SE <span style='font-size:0.6rem;'>(iPhone8,4)</span></td>
+                                <td>2016.03</td><td>16 GB</td>
+                                <td>435.10 MB/s</td>
+                                <td>43.13 MB/s</td>
+                                <td>17.49 MB/s</td>
+                                <td>4.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 9.7 英寸 <span style='font-size:0.6rem;'>(iPad6,3 / iPad6,4)</span></td>
+                                <td>2016.03</td><td>256 GB</td>
+                                <td>559.48 MB/s</td>
+                                <td>334.53 MB/s</td>
+                                <td>17.01 MB/s</td>
+                                <td>6.73 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 9.7 英寸 <span style='font-size:0.6rem;'>(iPad6,3 / iPad6,4)</span></td>
+                                <td>2016.03</td><td>128 GB</td>
+                                <td>526.64 MB/s</td>
+                                <td>219.55 MB/s</td>
+                                <td>17.53 MB/s</td>
+                                <td>5.19 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 9.7 英寸 <span style='font-size:0.6rem;'>(iPad6,3 / iPad6,4)</span></td>
+                                <td>2016.03</td><td>32 GB</td>
+                                <td>536.69 MB/s</td>
+                                <td>71.57 MB/s</td>
+                                <td>16.83 MB/s</td>
+                                <td>4.41 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s Plus <span style='font-size:0.6rem;'>(iPhone8,2)</span></td>
+                                <td>2015.09</td><td>128 GB</td>
+                                <td>510.48 MB/s</td>
+                                <td>285.54 MB/s</td>
+                                <td>15.52 MB/s</td>
+                                <td>6.35 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s Plus <span style='font-size:0.6rem;'>(iPhone8,2)</span></td>
+                                <td>2015.09</td><td>64 GB</td>
+                                <td>502.65 MB/s</td>
+                                <td>174.58 MB/s</td>
+                                <td>16.00 MB/s</td>
+                                <td>5.28 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s Plus <span style='font-size:0.6rem;'>(iPhone8,2)</span></td>
+                                <td>2015.09</td><td>32 GB</td>
+                                <td>472.79 MB/s</td>
+                                <td>62.81 MB/s</td>
+                                <td>16.46 MB/s</td>
+                                <td>3.91 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s Plus <span style='font-size:0.6rem;'>(iPhone8,2)</span></td>
+                                <td>2015.09</td><td>16 GB</td>
+                                <td>427.93 MB/s</td>
+                                <td>31.92 MB/s</td>
+                                <td>16.59 MB/s</td>
+                                <td>3.90 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s <span style='font-size:0.6rem;'>(iPhone8,1)</span></td>
+                                <td>2015.09</td><td>128 GB</td>
+                                <td>477.04 MB/s</td>
+                                <td>325.96 MB/s</td>
+                                <td>15.37 MB/s</td>
+                                <td>5.98 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s <span style='font-size:0.6rem;'>(iPhone8,1)</span></td>
+                                <td>2015.09</td><td>64 GB</td>
+                                <td>471.64 MB/s</td>
+                                <td>159.32 MB/s</td>
+                                <td>14.49 MB/s</td>
+                                <td>4.58 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s <span style='font-size:0.6rem;'>(iPhone8,1)</span></td>
+                                <td>2015.09</td><td>32 GB</td>
+                                <td>312.05 MB/s</td>
+                                <td>41.65 MB/s</td>
+                                <td>16.33 MB/s</td>
+                                <td>4.50 MB/s</td>
+                            </tr><tr>
+                                <td>iPhone 6s <span style='font-size:0.6rem;'>(iPhone8,1)</span></td>
+                                <td>2015.09</td><td>16 GB</td>
+                                <td>377.47 MB/s</td>
+                                <td>38.45 MB/s</td>
+                                <td>15.91 MB/s</td>
+                                <td>3.92 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 <span style='font-size:0.6rem;'>(iPad6,7 / iPad6,8)</span></td>
+                                <td>2015.09</td><td>512 GB</td>
+                                <td>578.00 MB/s</td>
+                                <td>421.26 MB/s</td>
+                                <td>17.37 MB/s</td>
+                                <td>6.74 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 <span style='font-size:0.6rem;'>(iPad6,7 / iPad6,8)</span></td>
+                                <td>2015.09</td><td>256 GB</td>
+                                <td>592.59 MB/s</td>
+                                <td>407.00 MB/s</td>
+                                <td>18.02 MB/s</td>
+                                <td>10.24 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 <span style='font-size:0.6rem;'>(iPad6,7 / iPad6,8)</span></td>
+                                <td>2015.09</td><td>128 GB</td>
+                                <td>536.44 MB/s</td>
+                                <td>286.42 MB/s</td>
+                                <td>16.02 MB/s</td>
+                                <td>5.64 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 <span style='font-size:0.6rem;'>(iPad6,7 / iPad6,8)</span></td>
+                                <td>2015.09</td><td>32 GB</td>
+                                <td>393.78 MB/s</td>
+                                <td>68.83 MB/s</td>
+                                <td>17.43 MB/s</td>
+                                <td>3.95 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Pro 12.9 英寸 <span style='font-size:0.6rem;'>(iPad6,7 / iPad6,8)</span></td>
+                                <td>2015.09</td><td>32 GB</td>
+                                <td>393.78 MB/s</td>
+                                <td>68.83 MB/s</td>
+                                <td>17.43 MB/s</td>
+                                <td>3.95 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini 4 <span style='font-size:0.6rem;'>(iPad5,1 / iPad5,2)</span></td>
+                                <td>2015.09</td><td>128 GB</td>
+                                <td>307.51 MB/s</td>
+                                <td>191.59 MB/s</td>
+                                <td>8.24 MB/s</td>
+                                <td>4.64 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini 4 <span style='font-size:0.6rem;'>(iPad5,1 / iPad5,2)</span></td>
+                                <td>2015.09</td><td>64 GB</td>
+                                <td>292.91 MB/s</td>
+                                <td>118.66 MB/s</td>
+                                <td>8.10 MB/s</td>
+                                <td>4.49 MB/s</td>
+                            </tr><tr>
+                                <td>iPad mini 4 <span style='font-size:0.6rem;'>(iPad5,1 / iPad5,2)</span></td>
+                                <td>2015.09</td><td>16 GB</td>
+                                <td>277.06 MB/s</td>
+                                <td>43.59 MB/s</td>
+                                <td>9.32 MB/s</td>
+                                <td>3.61 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 2 <span style='font-size:0.6rem;'>(iPad5,3 / iPad5,4)</span></td>
+                                <td>2014.10</td><td>128 GB</td>
+                                <td>304.24 MB/s</td>
+                                <td>155.14 MB/s</td>
+                                <td>8.36 MB/s</td>
+                                <td>4.44 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 2 <span style='font-size:0.6rem;'>(iPad5,3 / iPad5,4)</span></td>
+                                <td>2014.10</td><td>64 GB</td>
+                                <td>308.97 MB/s</td>
+                                <td>127.33 MB/s</td>
+                                <td>8.23 MB/s</td>
+                                <td>4.13 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 2 <span style='font-size:0.6rem;'>(iPad5,3 / iPad5,4)</span></td>
+                                <td>2014.10</td><td>32 GB</td>
+                                <td>309.52 MB/s</td>
+                                <td>64.89 MB/s</td>
+                                <td>8.63 MB/s</td>
+                                <td>3.15 MB/s</td>
+                            </tr><tr>
+                                <td>iPad Air 2 <span style='font-size:0.6rem;'>(iPad5,3 / iPad5,4)</span></td>
+                                <td>2014.10</td><td>16 GB</td>
+                                <td>215.40 MB/s</td>
+                                <td>28.43 MB/s</td>
+                                <td>8.68 MB/s</td>
+                                <td>3.20 MB/s</td>
+                            </tr>
+                    </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * 搜索功能：根据输入框内容过滤表格行
+         */
+        function filterTable() {
+            const input = document.getElementById("DiskBenchInput");
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById("DiskBench");
+            const tr = table.getElementsByTagName("tr");
+
+            // 从 1 开始循环，跳过 thead 中的表头行
+            for (let i = 1; i < tr.length; i++) {
+                const row = tr[i];
+                // 获取整行的文本内容进行匹配，这样可以搜索所有列
+                const rowText = row.textContent || row.innerText;
+                
+                if (rowText.toUpperCase().indexOf(filter) > -1) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        }
+
+        /**
+         * 高度调整功能：动态计算并设置表格容器的最大高度
+         */
+        function adjustTableHeight() {
+            const tableContainer = document.querySelector('.table-container');
+            if (!tableContainer) return;
+
+            // 获取表格容器距离视口顶部的距离
+            const topOffset = tableContainer.getBoundingClientRect().top;
+            
+            // 在视口底部保留一些空间，避免表格紧贴边缘
+            const bottomPadding = 60;
+            
+            // 计算可用高度
+            const availableHeight = window.innerHeight - topOffset - bottomPadding;
+
+            // 设置一个最小高度（例如 300px）防止窗口过小时表格被过度压缩
+            tableContainer.style.maxHeight = Math.max(100, availableHeight) + 'px';
+        }
+
+        // 页面首次加载时运行高度调整
+        adjustTableHeight();
+
+        // 当窗口大小改变时，重新运行高度调整
+        window.addEventListener('resize', adjustTableHeight);
+    </script>
+</body>
+</html>

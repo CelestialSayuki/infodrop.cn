@@ -1,0 +1,39 @@
+{
+    "osVersions": [
+        { "id": "tiger1", "name": " Apple TV 1", "icon": "./apple-tools/support/img/mac-osx-tiger.webp" },
+        { "id": "tiger2", "name": "Apple TV 2", "icon": "./apple-tools/support/img/mac-osx-tiger.webp" },
+        { "id": "tiger3", "name": "Apple TV 3", "icon": "./apple-tools/support/img/mac-osx-tiger.webp" },
+        { "id": "ios_4", "name": "iOS 4", "icon": "./apple-tools/support/img/ios_4.webp" },
+        { "id": "ios_5", "name": "iOS 5", "icon": "./apple-tools/support/img/ios_5.webp" },
+        { "id": "ios_6", "name": "iOS 6", "icon": "./apple-tools/support/img/ios_6.webp" },
+        { "id": "ios_7", "name": "iOS 7", "icon": "./apple-tools/support/img/ios_7.webp" },
+        { "id": "ios_8", "name": "iOS 8", "icon": "./apple-tools/support/img/ios_8.webp" },
+        { "id": "tvos_9", "name": "tvOS 9", "icon": "" },
+        { "id": "tvos_10", "name": "tvOS 10", "icon": "" },
+        { "id": "tvos_11", "name": "tvOS 11", "icon": "" },
+        { "id": "tvos_12", "name": "tvOS 12", "icon": "" },
+        { "id": "tvos_13", "name": "tvOS 13", "icon": "" },
+        { "id": "tvos_14", "name": "tvOS 14", "icon": "" },
+        { "id": "tvos_15", "name": "tvOS 15", "icon": "" },
+        { "id": "tvos_16", "name": "tvOS 16", "icon": "./apple-tools/support/img/tvos-16-logo.webp" },
+        { "id": "tvos_17", "name": "tvOS 17", "icon": "./apple-tools/support/img/tvos-17-logo.webp" },
+        { "id": "tvos_18", "name": "tvOS 18", "icon": "./apple-tools/support/img/tvos-18-logo.png" },
+        { "id": "tvos_26", "name": "tvOS 26", "icon": "./apple-tools/support/img/tvos-26-logo.webp" }
+    ],
+    "headers": [
+        { "key": "model", "text": "机型", "width": "15%" },
+        { "key": "chip", "text": "处理器", "width": "8%" },
+        { "key": "date", "text": "发布时间", "width": "9%" },
+        { "key": "identifier", "text": "标识符", "width": "12%" },
+        { "key": "os", "text": "系统支持版本" }
+    ],
+    "devices": [
+        { "model": "Apple TV (1st generation)", "chip": "Intel Pentium M", "date": "2006.09", "identifier": "AppleTV1,1", "supportedOS": ["tiger1", "tiger2", "tiger3"] },
+        { "model": "Apple TV (2nd generation)", "chip": "A4", "date": "2010.09", "identifier": "AppleTV2,1", "supportedOS": ["ios_4", "ios_5", "ios_6", "ios_7"] },
+        { "model": "Apple TV (3rd generation)", "chip": "A5", "date": "2012.03/2013.01", "identifier": "AppleTV3,1/AppleTV3,2", "supportedOS": ["ios_5", "ios_6", "ios_7", "ios_8"] },
+        { "model": "Apple TV HD", "chip": "A8", "date": "2015.10", "identifier": "AppleTV5,3", "supportedOS": ["tvos_9", "tvos_10", "tvos_11", "tvos_12", "tvos_13", "tvos_14", "tvos_15", "tvos_16", "tvos_17", "tvos_18", "tvos_26"] },
+        { "model": "Apple TV 4K (1st generation)", "chip": "A10X Fusion", "date": "2017.09", "identifier": "AppleTV6,2", "supportedOS": ["tvos_11", "tvos_12", "tvos_13", "tvos_14", "tvos_15", "tvos_16", "tvos_17", "tvos_18", "tvos_26"] },
+        { "model": "Apple TV 4K (2nd generation)", "chip": "A12 Bionic", "date": "2021.05", "identifier": "AppleTV11,1", "supportedOS": ["tvos_14", "tvos_15", "tvos_16", "tvos_17", "tvos_18", "tvos_26"] },
+        { "model": "Apple TV 4K (3rd generation)", "chip": "A15 Bionic", "date": "2022.11", "identifier": "AppleTV14,1", "supportedOS": ["tvos_16", "tvos_17", "tvos_18", "tvos_26"] }
+    ]
+}

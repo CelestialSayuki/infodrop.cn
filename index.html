@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>开源的 Apple 苹果产品参数中心 / Project Mammoth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fa">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161b22">
+    <meta name="apple-mobile-web-app-title" content="苹果产品参数">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="./public-static/img/apple-touch-icon.jpg?2556" rel="apple-touch-icon-precomposed">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./public-static/css/new.css">
+
+    <style>
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .apple-logo {
+            width: 15vw;
+            height: auto;
+            fill: #ffffff;
+            transition: opacity 0.5s ease-in-out;
+            margin-bottom: 35px;
+        }
+
+        .progress-bar-container {
+            width: 240px;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 5px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .loading-text {
+            color: #a8a8b1;
+            margin-top: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.9em;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        #app-container {
+            visibility: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .apple-logo {
+                width: 45vw;
+            }
+        }
+    </style>
+    
+    <script>
+        (function() {
+            window.isBrowserSupported = true;
+
+            function getBrowserInfo() {
+                const ua = navigator.userAgent;
+                const isSafari = ua.includes('Safari') && !ua.includes('Chrome') && !ua.includes('Edg');
+                if (isSafari) {
+                    let versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
+                    if (versionMatch && versionMatch[1]) {
+                        return { name: 'Safari', version: parseInt(versionMatch[1], 10) };
+                    }
+                }
+                if (ua.includes('Chrome')) {
+                    let versionMatch = ua.match(/Chrome\/([\d.]+)/);
+                    if (versionMatch && versionMatch[1]) {
+                        return { name: 'Chrome', version: parseInt(versionMatch[1], 10) };
+                    }
+                }
+                return { name: 'unknown', version: 0 };
+            }
+
+            const browser = getBrowserInfo();
+            let isUnsupported = false;
+            let requiredVersion = '';
+            let browserNameForDisplay = '';
+            let updateTargetWord = '浏览器';
+            let mainTitle = '浏览器版本过低';
+
+            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
+                isUnsupported = true;
+                requiredVersion = '13.0';
+                browserNameForDisplay = 'Safari';
+                updateTargetWord = '系统浏览器';
+                mainTitle = '系统版本过低';
+            } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 90) {
+                isUnsupported = true;
+                requiredVersion = '90';
+                browserNameForDisplay = 'Chrome/Chromium';
+            }
+
+            if (isUnsupported) {
+                window.isBrowserSupported = false;
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(function() {
+                        const logo = document.querySelector('#loading-screen .apple-logo');
+                        const loadingScreen = document.getElementById('loading-screen');
+                        
+                        if (logo && loadingScreen) {
+                            logo.style.opacity = '0';
+
+                            setTimeout(function() {
+                                const errorMessageHTML = `
+                                    <div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 400px;">
+                                        <div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">
+                                            <svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>
+                                                <path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                        <div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">
+                                            <h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">${mainTitle}</h1>
+                                            <p style="font-size: 1em; line-height: 1.6;">您当前的${updateTargetWord} (${browser.name} ${browser.version}) 不受支持。</p>
+                                            <p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请将您的${updateTargetWord}更新至 ${requiredVersion} 或更高版本。</p>
+                                        </div>
+                                    </div>
+                                `;
+                                
+                                loadingScreen.innerHTML = errorMessageHTML;
+
+                                const prohibitedIcon = document.getElementById('prohibited-icon');
+                                const messageText = document.getElementById('unsupported-message-text');
+
+                                if (prohibitedIcon && messageText) {
+                                    setTimeout(() => {
+                                        prohibitedIcon.style.opacity = '1';
+                                        messageText.style.opacity = '1';
+                                    }, 50);
+                                }
+                            }, 500);
+                        }
+                    }, 500);
+                });
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <img class="apple-logo" src="public-static/img/apple.svg" alt="Apple Logo">
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <div class="loading-text"></div>
+    </div>
+    
+    <div id="app-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#">
+                        <i class="bi bi-cpu"></i>Apple Silicon</a>
+                    <ul>
+                        <li><a href="./apple-silicon/chip-a/">苹果 A 系列</a></li>
+                        <li><a href="./apple-silicon/chip-s/">苹果 S 系列</a></li>
+                        <li><a href="./apple-silicon/chip-m/">苹果 M 系列</a></li>
+                        <li><a href="./apple-silicon/chip-r/">苹果 R 系列</a></li>
+                        <li><a href="./apple-silicon/chip-t/">苹果 T 系列</a></li>
+                        <li><a href="./apple-silicon/chip-u/">苹果 U 系列</a></li>
+                        <li><a href="./apple-silicon/chip-w/">苹果 W 系列</a></li>
+                        <li><a href="./apple-silicon/chip-h/">苹果 H 系列</a></li>
+                        <li><a href="./apple-silicon/chip-c/">苹果 C 系列</a></li>
+                        <li><a href="./apple-silicon/chip-coprocessor/">协处理器</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-apple"></i>Apple 设备</a>
+                    <ul>
+                        <li>
+                            <a href="#">Mac 系列</a>
+                            <ul class="sub-menu">
+                                <li><a href="./apple-device/mac/macbook/">MacBook</a></li>
+                                <li><a href="./apple-device/mac/macbook-air/">MacBook Air</a></li>
+                                <li><a href="./apple-device/mac/macbook-pro/">MacBook Pro</a></li>
+                                <li><a href="./apple-device/mac/mac-imac/">iMac</a></li>
+                                <li><a href="./apple-device/mac/mac-mini/">Mac mini</a></li>
+                                <li><a href="./apple-device/mac/mac-studio/">Mac Studio</a></li>
+                                <li><a href="./apple-device/mac/mac-pro/">Mac Pro</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">iPad 系列</a>
+                            <ul class="sub-menu">
+                                <li><a href="./apple-device/ipad/ipad-pro/">iPad Pro</a></li>
+                                <li><a href="./apple-device/ipad/ipad-air/">iPad Air</a></li>
+                                <li><a href="./apple-device/ipad/ipad/">iPad</a></li>
+                                <li><a href="./apple-device/ipad/ipad-mini/">iPad mini</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Watch 系列</a>
+                            <ul class="sub-menu">
+                                <li><a href="./apple-device/watch/watch-ultra/">AW Ultra</a></li>
+                                <li><a href="./apple-device/watch/watch-series/">AW Series</a></li>
+                                <li><a href="./apple-device/watch/watch-se/">AW SE</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./apple-device/iphone/">iPhone</a></li>
+                        <li><a href="./apple-device/vision/">Vision</a></li>
+                        <li><a href="./apple-device/airpods/">AirPods</a></li>
+                        <li><a href="./apple-device/homepod/">HomePod</a></li>
+                        <li><a href="./apple-device/tv/">Apple TV</a></li>
+                        <li><a href="./apple-device/ipod/">iPod touch</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-motherboard"></i>其他参数</a>
+                    <ul>
+                        <li><a href="./apple-device/iphone/cmos.php">iPhone 摄像头</a></li>
+                        <li><a href="./apple-other/battery/">电池详细信息</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-tools"></i>苹果工具</a>
+                    <ul>
+                        <li><a href="./apple-tools/support/">系统兼容情况</a></li>
+                        <li><a href="./apple-tools/resources/">苹果资源汇总</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-bar-chart-line"></i>测试与结果</a>
+                    <ul>
+                        <li><a href="./apple-report/cpu/">CPU 跑分报表</a></li>
+                        <li><a href="./apple-report/gpu/">GPU 跑分报表</a></li>
+                        <li><a href="./apple-report/ai/">AI 跑分报表</a></li>
+                        <li><a href="./apple-report/frequency-voltage/">DFVS 频率电压表</a></li>
+                        <li><a href="./apple-report/latency-test/">缓存延迟测试</a></li>
+                        <li><a href="./apple-report/latency-result/">缓存测试结果</a></li>
+                        <li><a href="./apple-report/disk/">Disk 读写性能</a></li>
+                        <li><a href="./apple-report/speedometer-test/" class="no-mac-window" target="_blank">Web 性能测试</a></li>
+                        <li><a href="./apple-report/speedometer-result/">Web 测试结果</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/auth"><i class="bi bi-person-check"></i>QQ进群认证</a>
+                </li>
+                <li>
+                    <a href="#"><i class="bi bi-terminal"></i>后台</a>
+                    <ul>
+                        <li><a href="/console/speedometer">Speedometer 成绩管理</a></li>
+                        <li><a href="/console/latency">缓存成绩管理</a></li>
+                        <li><a href="/console/dvfs">DVFS 数据上传</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <header class="main-header">
+            <div class="top_left_logo">
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a href="#">
+                    <img src="./public-static/img/logo.jpg" height="30px" width="30px">
+                </a>
+                <div class="top_title" id="top_title">Project Mammoth</div>
+            </div>
+            <div class="top_right_menu">
+                <a href="https://www.github.com/CelestialSayuki/OpenHubweb">源码</a>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="hero-banner">
+                <h1>现代化的 Apple 产品参数中心</h1>
+            </div>
+            <div class="title" id="divdown1" style="display: none;">
+                <strong>倒计时（苹果 Apple 全球开发者大会）🥳</strong>
+                <br>
+                <span>北京时间 2025 年 6 月 10 日凌晨 1 点（太平洋时间 2025 年 6 月 9 日上午 10 点）。</span>
+            </div>
+            <div class="div" id="divdown2" style="display: none;">加载中......</div>
+            <div class="title">
+                <strong>QQ讨论群</strong>
+                <br>
+                <span>说明：本网站的讨论群，暂时无需审核即可加入。</span>
+            </div>
+            <div class="card">
+                <ul id="QQ-Group-number">
+                    <li>
+                        <span>主群：1030970215</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="title">
+                <strong>未来工作</strong>
+                <br>
+                <span>说明：针对 Project Mammoth 的改造，以求与hubweb功能形成区分。</span>
+            </div>
+            <div class="card">
+                <ul>
+                    <li><span>在网页内进行入群审核</span></li>
+                    <li><span>支持各种测试提交成绩</span></li>
+                    <li><span>提供部分测试工具的下载</span></li>
+                </ul>
+            </div>
+            <div class="title">
+                <strong>更新记录</strong>
+                <br>
+                <span>说明：网站收录的信息不定期更新以保证正确性，该处显示当前网站的更新日志。</span>
+            </div>
+            <div class="card">
+                <ul id="update-history-list">
+                    <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
+                    <li><span>2025.08.01：新增原生缓存测试软件</span></li>
+                    <li><span>2025.07.31：新增启动界面</span></li>
+                    <li><span>2025.07.30：新增 Speedometer 测试</span></li>
+                    <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
+                    <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
+                    <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
+                    <li class="more-btn-li">
+                        <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
+                    </li>
+                </ul>
+                <template id="more-updates-template">
+                    <li><span>2025.07.10：删除设备发售价格，官网序列号查询</span></li>
+                    <li><span>2025.07.08：重写了比较页面</span></li>
+                    <li><span>2025.07.07：移除依赖 hubweb.cn 的支持文件</span></li>
+                    <li><span>2025.07.05：支持窗口化显示</span></li>
+                    <li><span>2025.06.27：开始逐步替换UI</span></li>
+                    <li><span>2025.06.23：本网站与 hubweb.cn 分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span></li>
+                </template>
+            </div>
+            <div class="title">
+                <strong>媒体账号</strong>
+                <br>
+                <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
+            </div>
+            <div class="card">
+                <b style="font-style:oblique;">维护者Bilibili：</b>
+                <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
+                <br>
+                <b style="font-style:oblique;">维护者Twitter：</b>
+                <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
+                <br>
+                <b style="font-style:oblique;">维护者E-mail：</b>CelestialSayuki@qq.com
+                <br>
+                <b style="font-style:oblique;">维护者Telegram：</b>
+                <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
+                <br>
+            </div>
+            <div class="title">
+                <strong>已知问题</strong>
+                <br>
+                <span>说明：网站处于极早期测试阶段，存在较多可见 UI 问题，已被发现但未修理的暂且显示在这里。</span>
+            </div>
+            <div class="card">
+                <ul id="issues">
+                    <li><span>最小化无法正常工作</span></li>
+                </ul>
+            </div>
+            <div style="text-align: center; margin-top: 50px; padding-bottom: 30px;">
+                <span class="spen_ab">This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
+            </div>
+            <div id="dock-container" class="dock-container"></div>
+            <svg id="animation-svg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></svg>
+            <div id="dock-preview" class="dock-preview"></div>
+        </main>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <script>
+            function showMainContent() {
+                const appContainer = document.getElementById('app-container');
+                appContainer.style.visibility = 'visible';
+                document.body.style.overflow = 'auto';
+            }
+
+            function runLoadingAnimation() {
+                const loadingScreen = document.getElementById('loading-screen');
+                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
+
+                loadingScreen.style.display = 'flex';
+                loadingScreen.classList.remove('hidden');
+                progressBarContainer.style.opacity = '1';
+
+            }
+
+            if (window.isBrowserSupported !== false) {
+                 document.addEventListener('DOMContentLoaded', runLoadingAnimation);
+            }
+        </script>
+
+        <script src="./public-static/js/table-generator.js"></script>
+        <script type="module" src="public-static/js/macui.js"></script>
+
+        <script>
+            (async function() {
+                if ('serviceWorker' in navigator && window.isBrowserSupported !== false) {
+                    const progressBarFill = document.querySelector('.progress-bar-fill');
+
+                    navigator.serviceWorker.addEventListener('message', event => {
+                        if (event.data && event.data.type === 'CACHE_PROGRESS') {
+                            const { percent, currentFile } = event.data.payload;
+                            console.log(`正在缓存 (${percent}%): ${currentFile}`);
+                            if (progressBarFill) {
+                                progressBarFill.style.width = `${percent}%`;
+                            }
+                        }
+                    });
+
+                    try {
+                        const registration = await navigator.serviceWorker.register('./sw.js');
+                        console.log('Service Worker 注册成功, 范围: ', registration.scope);
+
+                        navigator.serviceWorker.ready.then(() => {
+                            console.log('Service Worker 已就绪');
+                            setTimeout(() => {
+                                const loadingScreen = document.getElementById('loading-screen');
+                                if (loadingScreen) {
+                                    loadingScreen.classList.add('hidden');
+                                    showMainContent();
+                                    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
+                                }
+                            }, 500);
+                        });
+
+                    } catch (error) {
+                        console.error('Service Worker 注册失败: ', error);
+                    }
+                } else {
+                    const loadingScreen = document.getElementById('loading-screen');
+                    if(loadingScreen) {
+                        loadingScreen.classList.add('hidden');
+                        showMainContent();
+                    }
+                }
+            })();
+        </script>
+</body>
+</html>

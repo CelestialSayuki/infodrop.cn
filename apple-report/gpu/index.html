@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../../public-static/css/new.css" />
+  <style type="text/css">
+    .main-content {
+      padding: 20px;
+      margin: 0 auto;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .retext {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: var(--light-text-secondary);
+      width: 100%;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background-color: rgba(237, 237, 237, 0.3);
+      max-width: 1500px;
+      margin: 40px auto;
+    }
+    .width_float {
+      width: 100%;
+    }
+
+    body {
+      min-width: 650px;
+    }
+    #mainLayout {
+        margin: 0;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .retext {
+        color: var(--dark-text-secondary);
+      }
+      hr {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      .card {
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+      }
+    }
+  </style>
+</head>
+
+<body style="margin: 0;" id="mainLayout">
+
+  <div class="main-content">
+    <div class="card">
+      <div class="width_float" id="container_GeekBench6_iPhone" style="height:340px;"></div>
+      <div class="retext width_float">iPhone</div>
+
+      <div class="width_float" id="container_GeekBench6_iPad" style="height:400px;"></div>
+      <div class="retext width_float">iPad</div>
+
+      <div class="width_float" id="container_GeekBench6_Mac" style="height:400px;"></div>
+      <div class="retext width_float" style="width: 50%;">Mac</div>
+      <hr style="color: rgba(237, 237, 237, 0.3);" size="1">
+
+      <div class="width_float" id="container_3DMark_iPhone" style="height:320px;"></div>
+      <div class="retext width_float">iPhone</div>
+
+      <div class="width_float" id="container_3DMark_iPad" style="height:300px;"></div>
+      <div class="retext width_float">iPad</div>
+
+      <div class="width_float" id="container_3DMark_Mac" style="height:380px;"></div>
+      <div class="retext width_float">Mac</div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../../public-static/js/echarts.min.js"></script>
+
+  <script type="text/javascript">
+    (() => {
+      const geekBench6iPhoneData = [
+        { device: '(4GPU) A12 Bionic', metal: 10017 },
+        { device: '(4GPU) A13 Bionic', metal: 14621 },
+        { device: '(4GPU) A14 Bionic', metal: 17174 },
+        { device: '(4GPU) A15 Bionic', metal: 19088 },
+        { device: '(5GPU) A15 Bionic', metal: 22728 },
+        { device: '(4GPU) A18', metal: 24380 },
+        { device: '(5GPU) A16 Bionic', metal: 24962 },
+        { device: '(5GPU) A18', metal: 28386 },
+        { device: '(6GPU) A17 Pro', metal: 29273 },
+        { device: '(6GPU) A18 Pro', metal: 33688 },
+      ];
+
+      function processGeekBench6Data(rawData) {
+        const yAxisData = rawData.map(item => item.device);
+        return {
+          yAxisData,
+          seriesData: {
+            metal: rawData.map(item => item.metal),
+          }
+        };
+      }
+
+      function createGeekBench6Chart(domElement, chartData, title, subtext) {
+        const chart = echarts.init(domElement, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+        let currentData = [...chartData];
+
+        const getOption = (data) => {
+          const { yAxisData, seriesData } = processGeekBench6Data(data);
+          return {
+            backgroundColor: 'transparent', color: ["#FFB6C1"],
+            title: { text: title, subtext: subtext },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 } },
+            grid: { left: '3%', right: '4%', bottom: '10', containLabel: true },
+            xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+            yAxis: { type: 'category', data: yAxisData, axisLabel: { textStyle: { fontSize: "11" } } },
+            series: [{
+              name: 'Metal', type: 'bar',
+              data: seriesData.metal,
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            }]
+          };
+        };
+
+        chart.on('legendselectchanged', function(params) {
+          const legendMap = { 'Metal': 'metal' };
+          let sortKey = null;
+          for (const name in params.selected) {
+            if (params.selected[name]) {
+              sortKey = legendMap[name];
+              break;
+            }
+          }
+          if (sortKey) {
+            currentData.sort((a, b) => (Number(a[sortKey]) || 0) - (Number(b[sortKey]) || 0));
+          }
+          chart.setOption(getOption(currentData));
+        });
+
+        chart.setOption(getOption(currentData));
+
+        const resizeObserver = new ResizeObserver(() => {
+          chart.resize();
+        });
+        resizeObserver.observe(domElement);
+
+        return chart;
+      }
+
+      createGeekBench6Chart(document.getElementById('container_GeekBench6_iPhone'), geekBench6iPhoneData, 'GeekBench 6 性能跑分');
+
+      var dom_gb6_ipad = document.getElementById('container_GeekBench6_iPad');
+      if (dom_gb6_ipad) {
+        var myChart_gb6_ipad = echarts.init(dom_gb6_ipad, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light', { renderer: 'svg', useDirtyRect: false });
+        var option_gb6_ipad;
+        option_gb6_ipad = {
+          backgroundColor: 'transparent', color: ["#FFB6C1"],
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: { bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 } },
+          grid: { top: '0%', left: '3%', right: '4%', bottom: '10', containLabel: true },
+          xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+          yAxis: {
+            type: 'category',
+            data: [
+              '(6GPU) A10 Fusion', '(4GPU) A12 Bionic', '(4GPU) A13 Bionic', '(4GPU) A14 Bionic', '(7GPU) A12X Bionic', '(8GPU) A12Z Bionic', '(5GPU) A15 Bionic', '(4GPU) A16 Bionic', '(5GPU) A17 Pro', '(8GPU) M1', '(Vision Pro, 10GPU) M2', '(9GPU) M2', '(9GPU) M3', '(10GPU) M2', '(10GPU) M4',
+            ],
+            axisLabel: { textStyle: { fontSize: "11" } }
+          },
+          series: [{
+            name: 'Metal', type: 'bar',
+            data: [
+              4645, 10142, 14429, 17454, 18003, 19584, 20717, 20921, 26307, 35315, 40715, 44033, 47873, 49093, 56725,
+            ],
+            itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+          }]
+        };
+        if (option_gb6_ipad && typeof option_gb6_ipad === 'object') { myChart_gb6_ipad.setOption(option_gb6_ipad); }
+        const resizeObserver_gb6_ipad = new ResizeObserver(() => { myChart_gb6_ipad.resize(); });
+        resizeObserver_gb6_ipad.observe(dom_gb6_ipad);
+      }
+
+      var dom_gb6_mac = document.getElementById('container_GeekBench6_Mac');
+      if (dom_gb6_mac) {
+        var myChart_gb6_mac = echarts.init(dom_gb6_mac, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light', { renderer: 'svg', useDirtyRect: false });
+        var option_gb6_mac;
+        option_gb6_mac = {
+          backgroundColor: 'transparent', color: ["#FFB6C1", "#5470C6"],
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: { bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 } },
+          grid: { top: '0%', left: '3%', bottom: '10', containLabel: true },
+          xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+          yAxis: {
+            type: 'category',
+            data: [
+              '(8GPU) M1', '(10GPU) M2', '(10GPU) M3', '(10GPU) M4', '(16GPU) M1 Pro', '(18GPU) M3 Pro', '(19GPU) M2 Pro', '(20GPU) M4 Pro', '(32GPU) M1 Max', '(38GPU) M2 Max', '(40GPU) M3 Max', '(64GPU) M1 Ultra', '(40GPU) M4 Max', '(76GPU) M2 Ultra', '(80GPU) M3 Ultra',
+            ],
+            axisLabel: { textStyle: { fontSize: "11" } }
+          },
+          series: [{
+            name: 'Metal', type: 'bar',
+            data: [
+              35484, 49352, 50125, 59277, 72645, 83987, 88810, 117271, 126546, 152879, 167806, 188166, 209731, 237936, 272936,
+            ],
+            itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+          }]
+        };
+        if (option_gb6_mac && typeof option_gb6_mac === 'object') { myChart_gb6_mac.setOption(option_gb6_mac); }
+        const resizeObserver_gb6_mac = new ResizeObserver(() => { myChart_gb6_mac.resize(); });
+        resizeObserver_gb6_mac.observe(dom_gb6_mac);
+      }
+
+      var dom_3d_iphone = document.getElementById('container_3DMark_iPhone');
+      if (dom_3d_iphone) {
+        var myChart_3DMark_iPhone = echarts.init(dom_3d_iphone, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light', { renderer: 'svg', useDirtyRect: false });
+        var option_3DMark_iPhone;
+        option_3DMark_iPhone = {
+          backgroundColor: 'transparent',
+          color: ["#FFC000", "#EEB422", '#EEC900'],
+          title: { text: '3DMark'},
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: {
+            bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+            }
+          },
+          grid: { left: '3%', right: '4%', bottom: '10', containLabel: true },
+          xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+          yAxis: {
+            type: 'category',
+            data: [
+              '(4GPU) A12 Bionic', '(4GPU) A13 Bionic', '(4GPU) A14 Bionic', '(4GPU) A15 Bionic', '(5GPU) A15 Bionic', '(5GPU) A16 Bionic', '(4GPU) A18', '(6GPU) A17 Pro', '(5GPU) A18', '(6GPU) A18 Pro',
+            ],
+            axisLabel: { textStyle: { fontSize: "11" } }
+          },
+          series: [
+            {
+              name: 'Wild Life Extreme',
+              type: 'bar',
+              data: [
+                1482, 2068, 2450, 2560, 3206, 3383, 3862, 4389, 4588, 5148,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay',
+              type: 'bar',
+              data: [
+                0, 2653, 2907, 3293, 4119, 4309, 5878, 6822, 7427, 8832,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Steel Nomad Light',
+              type: 'bar',
+              data: [
+                0, 0, 0, 0, 0, 0, 1627, 1863, 1916, 2153,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            }
+          ]
+        };
+        myChart_3DMark_iPhone.setOption(option_3DMark_iPhone);
+
+        function getSortedData_3DMark_iPhone(selectedLegend) {
+          const { yAxis, series } = option_3DMark_iPhone;
+          let selectedSeries = series.filter(s => selectedLegend[s.name]);
+          let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data;
+          let sortedIndices = sortData
+            .map((value, index) => ({ value: +value || 0, index }))
+            .sort((a, b) => a.value - b.value)
+            .map(item => item.index);
+          return {
+            yAxis: sortedIndices.map(index => yAxis.data[index]),
+            series: series.map(s => ({
+              ...s,
+              data: sortedIndices.map(index => s.data[index])
+            }))
+          };
+        }
+
+        function updateChart_3DMark_iPhone(selectedLegend) {
+          const sortedData = getSortedData_3DMark_iPhone(selectedLegend);
+          myChart_3DMark_iPhone.setOption({
+            yAxis: { data: sortedData.yAxis },
+            series: sortedData.series
+          });
+        }
+        myChart_3DMark_iPhone.on('legendselectchanged', function (params) {
+          const selectedLegend = params.selected;
+          updateChart_3DMark_iPhone(selectedLegend);
+        });
+        const resizeObserver_3d_iphone = new ResizeObserver(() => { myChart_3DMark_iPhone.resize(); });
+        resizeObserver_3d_iphone.observe(dom_3d_iphone);
+      }
+
+      var dom_3d_ipad = document.getElementById('container_3DMark_iPad');
+      if (dom_3d_ipad) {
+        var myChart_3DMark_iPad = echarts.init(dom_3d_ipad, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light', { renderer: 'svg', useDirtyRect: false });
+        var option_3DMark_iPad;
+        option_3DMark_iPad = {
+          backgroundColor: 'transparent',
+          color: ["#FFC000", "#EEB422", '#EEC900'],
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: {
+            bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+            }
+          },
+          grid: { top: '0%', left: '3%', right: '4%', bottom: '10', containLabel: true },
+          xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+          yAxis: {
+            type: 'category',
+            data: [
+              '(4GPU) A16 Bionic', '(4GPU) A12 Bionic', '(4GPU) A13 Bionic', '(4GPU) A14 Bionic', '(5GPU) A15 Bionic', '(7GPU) A12X Bionic', '(8GPU) A12Z Bionic', '(5GPU) A17 Pro', '(8GPU) M1', '(9GPU) M3', '(10GPU) M2', '(10GPU) M4',
+            ],
+            axisLabel: { textStyle: { fontSize: "11" } }
+          },
+          series: [
+            {
+              name: 'Wild Life Extreme',
+              type: 'bar',
+              data: [
+                '', 1689, 1961, 2483, 2752, 3206, 3574, 3719, 5123, 6134, 7017, 9132,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay',
+              type: 'bar',
+              data: [
+                '', 0, 2552, 2965, 3723, 0, 0, 5736, 6413, 12392, 8781, 15250,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Steel Nomad Light',
+              type: 'bar',
+              data: [
+                0, 0, 0, 0, 0, 0, 0, 1531, 1993, '', 2662, 3718,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            }
+          ]
+        };
+        myChart_3DMark_iPad.setOption(option_3DMark_iPad);
+
+        function getSortedData_3DMark_iPad(selectedLegend) {
+          const { yAxis, series } = option_3DMark_iPad;
+          let selectedSeries = series.filter(s => selectedLegend[s.name]);
+          let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data;
+          let sortedIndices = sortData
+            .map((value, index) => ({ value: +value || 0, index }))
+            .sort((a, b) => a.value - b.value)
+            .map(item => item.index);
+          return {
+            yAxis: sortedIndices.map(index => yAxis.data[index]),
+            series: series.map(s => ({
+              ...s,
+              data: sortedIndices.map(index => s.data[index])
+            }))
+          };
+        }
+
+        function updateChart_3DMark_iPad(selectedLegend) {
+          const sortedData = getSortedData_3DMark_iPad(selectedLegend);
+          myChart_3DMark_iPad.setOption({
+            yAxis: { data: sortedData.yAxis },
+            series: sortedData.series
+          });
+        }
+        myChart_3DMark_iPad.on('legendselectchanged', function (params) {
+          const selectedLegend = params.selected;
+          updateChart_3DMark_iPad(selectedLegend);
+        });
+        const resizeObserver_3d_ipad = new ResizeObserver(() => { myChart_3DMark_iPad.resize(); });
+        resizeObserver_3d_ipad.observe(dom_3d_ipad);
+      }
+
+      var dom_3d_mac = document.getElementById('container_3DMark_Mac');
+      if (dom_3d_mac) {
+        var myChart_3DMark_Mac = echarts.init(dom_3d_mac, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light', { renderer: 'svg', useDirtyRect: false });
+        var option_3DMark_Mac;
+        option_3DMark_Mac = {
+          backgroundColor: 'transparent',
+          color: ["#FFC000", "#EEB422", '#EEC900'],
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: {
+            bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+            }
+          },
+          grid: { top: '0%', left: '3%', right: '4%', bottom: '10', containLabel: true },
+          xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+          yAxis: {
+            type: 'category',
+            data: [
+              '(8GPU) M1', '(10GPU) M2', '(10GPU) M3', '(10GPU) M4', '(16GPU) M1 Pro', '(19GPU) M2 Pro', '(18GPU) M3 Pro', '(16GPU) M4 Pro', '(20GPU) M4 Pro', '(32GPU) M1 Max', '(38GPU) M2 Max', '(40GPU) M3 Max', '(64GPU) M1 Ultra', '(40GPU) M4 Max', '(76GPU) M2 Ultra', '(80GPU) M3 Ultra',
+            ],
+            axisLabel: { textStyle: { fontSize: "11" } }
+          },
+          series: [
+            {
+              name: 'Wild Life Extreme',
+              type: 'bar',
+              data: [
+                5028, 6837, 8286, 8670, 10310, 13027, 14529, 15450, 19331, 20231, 25188, 31386, 37180, 37706, 45720, 55317,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay',
+              type: 'bar',
+              data: [
+                6432, 8506, 13518, 15231, 12533, 15371, '', '', 33451, 21711, 29816, 49446, '', 60187, 49901, '',
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Steel Nomad Light',
+              type: 'bar',
+              data: [
+                2030, 2720, 3450, 4133, 3802, 4979, 6045, 6726, 7818, 7154, 9542, 12500, '', 14330, 14564, 19112,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            }
+          ]
+        };
+        myChart_3DMark_Mac.setOption(option_3DMark_Mac);
+
+        function getSortedData_3DMark_Mac(selectedLegend) {
+          const { yAxis, series } = option_3DMark_Mac;
+          let selectedSeries = series.filter(s => selectedLegend[s.name]);
+          let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data;
+          let sortedIndices = sortData
+            .map((value, index) => ({ value: +value || 0, index }))
+            .sort((a, b) => a.value - b.value)
+            .map(item => item.index);
+          return {
+            yAxis: sortedIndices.map(index => yAxis.data[index]),
+            series: series.map(s => ({
+              ...s,
+              data: sortedIndices.map(index => s.data[index])
+            }))
+          };
+        }
+
+        function updateChart_3DMark_Mac(selectedLegend) {
+          const sortedData = getSortedData_3DMark_Mac(selectedLegend);
+          myChart_3DMark_Mac.setOption({
+            yAxis: { data: sortedData.yAxis },
+            series: sortedData.series
+          });
+        }
+        myChart_3DMark_Mac.on('legendselectchanged', function (params) {
+          const selectedLegend = params.selected;
+          updateChart_3DMark_Mac(selectedLegend);
+        });
+        const resizeObserver_3d_mac = new ResizeObserver(() => { myChart_3DMark_Mac.resize(); });
+        resizeObserver_3d_mac.observe(dom_3d_mac);
+      }
+    })();
+  </script>
+</body>
+</html>

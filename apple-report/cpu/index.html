@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../../public-static/css/new.css" />
+  <style type="text/css">
+    .main-content {
+      padding: 20px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+    }
+
+    .retext {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: var(--light-text-secondary);
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background-color: rgba(237, 237, 237, 0.3);
+      max-width: 1500px;
+      margin: 40px auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .retext {
+        color: var(--dark-text-secondary);
+      }
+
+      hr {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div class="main-content">
+    <div class="card">
+      <div id="GeekBench6_iphone" style="width: 100%; height:270px;"></div>
+      <div class="retext">iPhone</div>
+      <div id="GeekBench6_ipad" style="width: 100%; height:380px;"></div>
+      <div class="retext">iPad</div>
+      <div id="GeekBench6_mac" style="width: 100%; height:570px;"></div>
+      <div class="retext">Mac</div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../../public-static/js/echarts.min.js"></script>
+  <script type="text/javascript">
+    (() => {
+      const geekBenchIphoneData = [
+        { device: "(2P+4E) A12 Bionic", sc: 1345, mc: 3142 },
+        { device: "(2P+4E) A13 Bionic", sc: 1780, mc: 4340 },
+        { device: "(2P+4E) A14 Bionic", sc: 2202, mc: 5513 },
+        { device: "(2P+4E) A15 Bionic", sc: 2495, mc: 6433 },
+        { device: "(2P+4E) A16 Bionic", sc: 2719, mc: 7301 },
+        { device: "(2P+4E) A17 Pro", sc: 3042, mc: 7949 },
+        { device: "(2P+4E) A18", sc: 3567, mc: 9165 },
+        { device: "(2P+4E) A18 Pro", sc: 3658, mc: 9518 },
+      ];
+
+      const geekBenchIpadData = [
+        { device: "(2P+2E) A10 Fusion", sc: 894, mc: 1498 },
+        { device: "(2P+4E) A12 Bionic", sc: 1355, mc: 3183 },
+        { device: "(2P+4E) A13 Bionic", sc: 1802, mc: 4227 },
+        { device: "(4P+4E) A12X Bionic", sc: 1347, mc: 4788 },
+        { device: "(4P+4E) A12Z Bionic", sc: 1351, mc: 4801 },
+        { device: "(2P+4E) A14 Bionic", sc: 2135, mc: 5270 },
+        { device: "(2P+4E) A15 Bionic", sc: 2200, mc: 5833 },
+        { device: "(2P+3E) A16 Bionic", sc: 2627, mc: 6377 },
+        { device: "(2P+4E) A17 Pro", sc: 3041, mc: 7805 },
+        { device: "(Vision Pro, 4P+4E) M2", sc: 2486, mc: 8205 },
+        { device: "(4P+4E) M1", sc: 2453, mc: 8668 },
+        { device: "(4P+4E) M2", sc: 2720, mc: 10270 },
+        { device: "(4P+4E) M3", sc: 3242, mc: 12071 },
+        { device: "(3P+6E) M4", sc: 3982, mc: 13577 },
+        { device: "(4P+6E) M4", sc: 4004, mc: 15032 },
+      ];
+
+      const geekBenchMacData = [
+        { device: "(4P+4E) M1", sc: 2422, mc: 8896 },
+        { device: "(4P+4E) M2", sc: 2709, mc: 10244 },
+        { device: "(6P+2E) M1 Pro", sc: 2447, mc: 11047 },
+        { device: "(4P+4E) M3", sc: 3216, mc: 12184 },
+        { device: "(8P+2E) M1 Pro", sc: 2450, mc: 12960 },
+        { device: "(6P+4E) M2 Pro", sc: 2724, mc: 13214 },
+        { device: "(8P+2E) M1 Max", sc: 2476, mc: 13263 },
+        { device: "(4P+4E) M4", sc: 3832, mc: 13906 },
+        { device: "(5P+6E) M3 Pro", sc: 3217, mc: 14602 },
+        { device: "(8P+4E) M2 Pro", sc: 2725, mc: 15190 },
+        { device: "(4P+6E) M4", sc: 3952, mc: 15291 },
+        { device: "(8P+4E) M2 Max", sc: 2887, mc: 15556 },
+        { device: "(6P+6E) M3 Pro", sc: 3224, mc: 15942 },
+        { device: "(16P+4E) M1 Ultra", sc: 2460, mc: 19241 },
+        { device: "(10P+4E) M3 Max", sc: 3257, mc: 19696 },
+        { device: "(8P+4E) M4 Pro", sc: 4004, mc: 21058 },
+        { device: "(12P+4E) M3 Max", sc: 3267, mc: 21835 },
+        { device: "(16P+8E) M2 Ultra", sc: 2885, mc: 22367 },
+        { device: "(10P+4E) M4 Pro", sc: 4017, mc: 23552 },
+        { device: "(10P+4E) M4 Max", sc: 4089, mc: 24213 },
+        { device: "(12P+4E) M4 Max", sc: 4129, mc: 27093 },
+        { device: "(20P+8E) M3 Ultra", sc: 3259, mc: 27707 },
+        { device: "(24P+8E) M3 Ultra", sc: 3267, mc: 28693 },
+      ];
+
+      function createBarChart(domId, rawData, config) {
+        const domElement = document.getElementById(domId);
+        if (!domElement) return;
+
+        const chart = echarts.init(
+          domElement,
+          window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
+          { renderer: "svg", useDirtyRect: false }
+        );
+
+        let currentData = [...rawData];
+
+        const sortData = (sortKey, ascending = true) => {
+          if (sortKey) {
+            currentData.sort((a, b) => {
+              const valA = Number(a[sortKey]) || 0;
+              const valB = Number(b[sortKey]) || 0;
+              return ascending ? valA - valB : valB - valA;
+            });
+          }
+        };
+
+        sortData(config.initialSortKey, config.ascendingSort);
+
+        const getOption = (data) => {
+          const yAxisData = data.map((item) => item[config.yAxisKey]);
+          const series = config.seriesInfo.map((sInfo) => ({
+            ...config.commonSeriesOptions,
+            ...sInfo.specificOptions,
+            name: sInfo.name,
+            type: "bar",
+            data: data.map((item) => item[sInfo.key] || null),
+          }));
+
+          return {
+            backgroundColor: "transparent",
+            color: config.colors,
+            title: { text: config.title, subtext: config.subtext, ...config.titleOptions },
+            tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+            legend: { bottom: 30, right: 0, type: "scroll", orient: "vertical", textStyle: { fontSize: 11 }, ...config.legendOptions },
+            grid: { left: "3%", right: "4%", bottom: "10", containLabel: true, ...config.gridOptions },
+            xAxis: { type: "value", boundaryGap: [0, 0.01], axisLabel: { textStyle: { fontSize: "11" } } },
+            yAxis: { type: "category", data: yAxisData, axisLabel: { textStyle: { fontSize: "11" } } },
+            series: series,
+          };
+        };
+
+        if (config.seriesInfo.length > 1) {
+          chart.on("legendselectchanged", (params) => {
+            const keyMap = config.seriesInfo.reduce((acc, s) => { acc[s.name] = s.key; return acc; }, {});
+            let sortKey = null;
+
+            const legendOrder = config.seriesInfo.map((s) => s.name);
+            for (const name of legendOrder) {
+              if (params.selected[name]) {
+                sortKey = keyMap[name];
+                break;
+              }
+            }
+            sortData(sortKey || config.initialSortKey, config.ascendingSort);
+            chart.setOption(getOption(currentData));
+          });
+        }
+
+        chart.setOption(getOption(currentData));
+        const resizeObserver = new ResizeObserver(() => chart.resize());
+        resizeObserver.observe(domElement);
+      }
+
+      const geekBenchConfig = {
+        title: "GeekBench 6 性能跑分",
+        colors: ["#4fa3bf", "#87c7dc"],
+        seriesInfo: [
+            { name: "CPU 单核", key: "sc", specificOptions: { z: 2 } },
+            { name: "CPU 多核", key: "mc", specificOptions: { z: 1 } },
+        ],
+        yAxisKey: "device",
+        initialSortKey: "mc",
+        ascendingSort: true,
+        commonSeriesOptions: {
+          barGap: "-100%",
+          itemStyle: {
+            label: { show: true, color: "#808080", fontSize: 11, fontWeight: "bold", position: "right" },
+            barBorderRadius: [0, 20, 20, 0],
+          },
+        },
+      };
+
+      createBarChart('GeekBench6_iphone', geekBenchIphoneData, geekBenchConfig);
+      createBarChart('GeekBench6_ipad', geekBenchIpadData, { ...geekBenchConfig, title: '', subtext: '' });
+      createBarChart('GeekBench6_mac', geekBenchMacData, { ...geekBenchConfig, title: '', subtext: '' });
+    })();
+  </script>
+</body>
+
+</html>
