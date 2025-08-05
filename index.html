@@ -400,12 +400,14 @@
     </div>
 
     <script>
+            // 这个函数无需改动
             function showMainContent() {
                 const appContainer = document.getElementById('app-container');
                 appContainer.style.visibility = 'visible';
                 document.body.style.overflow = 'auto';
             }
 
+            // 【已修改】这个函数现在只负责显示/隐藏加载屏幕
             function runLoadingAnimation() {
                 const loadingScreen = document.getElementById('loading-screen');
                 const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
@@ -413,7 +415,6 @@
                 loadingScreen.style.display = 'flex';
                 loadingScreen.classList.remove('hidden');
                 progressBarContainer.style.opacity = '1';
-
             }
 
             if (window.isBrowserSupported !== false) {
@@ -429,36 +430,48 @@
                 if ('serviceWorker' in navigator && window.isBrowserSupported !== false) {
                     const progressBarFill = document.querySelector('.progress-bar-fill');
 
+                    // 【核心改动】监听来自 Service Worker 的所有消息
                     navigator.serviceWorker.addEventListener('message', event => {
-                        if (event.data && event.data.type === 'CACHE_PROGRESS') {
-                            const { percent, currentFile } = event.data.payload;
-                            console.log(`正在缓存 (${percent}%): ${currentFile}`);
-                            if (progressBarFill) {
-                                progressBarFill.style.width = `${percent}%`;
+                        if (event.data) {
+                            // 如果是进度消息，就更新进度条
+                            if (event.data.type === 'CACHE_PROGRESS') {
+                                const { percent, currentFile } = event.data.payload;
+                                if (progressBarFill) {
+                                    progressBarFill.style.transition = 'width 0.1s linear'; // 让进度条更新更平滑
+                                    progressBarFill.style.width = `${percent}%`;
+                                }
+                            }
+                            
+                            // 如果是“完成”消息，才隐藏加载屏幕
+                            if (event.data.type === 'CACHE_COMPLETE') {
+                                console.log('缓存全部完成，准备进入网站');
+                                // 确保进度条显示为100%
+                                if (progressBarFill) {
+                                   progressBarFill.style.width = '100%';
+                                }
+                                
+                                setTimeout(() => {
+                                    const loadingScreen = document.getElementById('loading-screen');
+                                    if (loadingScreen) {
+                                        loadingScreen.classList.add('hidden');
+                                        showMainContent();
+                                        loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
+                                    }
+                                }, 500); // 延迟一点，让用户看到100%
                             }
                         }
                     });
-
+                    
+                    // 注册 Service Worker，但不再用 .ready 来隐藏屏幕
                     try {
                         const registration = await navigator.serviceWorker.register('./sw.js');
                         console.log('Service Worker 注册成功, 范围: ', registration.scope);
-
-                        navigator.serviceWorker.ready.then(() => {
-                            console.log('Service Worker 已就绪');
-                            setTimeout(() => {
-                                const loadingScreen = document.getElementById('loading-screen');
-                                if (loadingScreen) {
-                                    loadingScreen.classList.add('hidden');
-                                    showMainContent();
-                                    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
-                                }
-                            }, 500);
-                        });
-
                     } catch (error) {
                         console.error('Service Worker 注册失败: ', error);
                     }
+
                 } else {
+                     // 如果不支持SW，则使用旧的简单加载动画
                     const loadingScreen = document.getElementById('loading-screen');
                     if(loadingScreen) {
                         loadingScreen.classList.add('hidden');

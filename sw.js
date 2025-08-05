@@ -1,31 +1,26 @@
-const CACHE_VERSION = 'v0.0.2';
+const CACHE_VERSION = 'v0.0.3';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
+const APP_SHELL_URL = './index.html';
 const MANIFEST_URL = './precache-manifest.json';
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] 安装中, 版本:', CACHE_VERSION);
   self.skipWaiting();
-
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      console.log('[SW] 开始预缓存所有文件...');
-      
       try {
         const response = await fetch(MANIFEST_URL, { cache: 'no-cache' });
-        if (!response.ok) {
-          throw new Error('无法获取预缓存清单文件');
-        }
+        if (!response.ok) throw new Error('Failed to fetch precache manifest.');
+        
         const filesToCache = await response.json();
         const totalFiles = filesToCache.length;
-        console.log(`[SW] 需要缓存的文件总数: ${totalFiles}`);
-
         let cachedCount = 0;
+
         for (const url of filesToCache) {
           try {
             await cache.add(url);
             cachedCount++;
             
-            const clients = await self.clients.matchAll();
+            const clients = await self.clients.matchAll({ includeUncontrolled: true });
             for (const client of clients) {
               client.postMessage({
                 type: 'CACHE_PROGRESS',
@@ -38,13 +33,16 @@ self.addEventListener('install', (event) => {
               });
             }
           } catch (err) {
-            console.error(`[SW] 缓存失败: ${url}`, err);
+            console.error(`[SW] Failed to cache: ${url}`, err);
           }
         }
-        console.log('[SW] 所有文件预缓存完成！');
-
+        
+        const clients = await self.clients.matchAll({ includeUncontrolled: true });
+        for (const client of clients) {
+          client.postMessage({ type: 'CACHE_COMPLETE' });
+        }
       } catch (error) {
-        console.error('[SW] 预缓存过程失败:', error);
+        console.error('[SW] Pre-caching process failed:', error);
         throw error;
       }
     })
@@ -52,13 +50,11 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] 激活成功, 版本:', CACHE_VERSION);
   event.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
         keyList.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] 删除旧缓存:', key);
             return caches.delete(key);
           }
         })
@@ -69,9 +65,39 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
+  if (event.request.method !== 'GET') return;
+
+  event.respondWith((async () => {
+    const cachedResponse = await caches.match(event.request);
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    const url = new URL(event.request.url);
+    if (url.pathname.endsWith('/')) {
+      try {
+        const indexResponse = await caches.match(url.pathname + 'index.html');
+        if (indexResponse) {
+          return indexResponse;
+        }
+      } catch (e) {
+        // Continue
+      }
+    }
+    
+    try {
+      const networkResponse = await fetch(event.request);
+      const cache = await caches.open(CACHE_NAME);
+      await cache.put(event.request, networkResponse.clone());
+      return networkResponse;
+    } catch (error) {
+      if (event.request.mode === 'navigate') {
+        return await caches.match(APP_SHELL_URL);
+      }
+      return new Response("Network error", {
+        status: 408,
+        headers: { 'Content-Type': 'text/plain' },
+      });
+    }
+  })());
 });
