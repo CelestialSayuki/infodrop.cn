@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.0.8';
+const CACHE_VERSION = 'v0.0.9';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
 const MANIFEST_URL = './precache-manifest.json';
