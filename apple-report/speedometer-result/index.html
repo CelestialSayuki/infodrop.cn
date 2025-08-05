@@ -71,13 +71,11 @@
 
         <script>
             setTimeout(() => {
-                // 从全局 supabase 对象中获取 createClient
                 const { createClient } = supabase;
                 const SUPABASE_URL = 'https://pdmmtiiwdazcvcbyxkor.supabase.co';
                 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbW10aWl3ZGF6Y3ZjYnl4a29yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg1MjM3NTMsImV4cCI6MjA2NDA5OTc1M30.FOebKEr65b9mkWH8rCCePYkeNVCWny52T8SqTtX2cjs';
                 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
                 
-                // --- 之后的所有代码保持不变 ---
                 const filterBrowserVersionCheckboxesContainer = document.getElementById('filterBrowserVersionCheckboxes');
                 const selectAllBrowserButton = document.getElementById('selectAllBrowserButton');
                 const deselectAllBrowserButton = document.getElementById('deselectAllBrowserButton');

@@ -1,4 +1,7 @@
 [
+  "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js",
+  "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js",
+  "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
   "./",
   "./index.html",
   "./sw.js",
