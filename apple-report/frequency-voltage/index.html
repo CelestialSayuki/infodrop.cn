@@ -69,142 +69,166 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 
   <script type="text/javascript">
-    (() => {
-      const q24vVQRvqqpCoreData = [[744,790],[1260,790],[1620,790],[1944,810],[2196,815],[2472,835],[2688,860],[2916,880],[3144,915],[3336,935],[3504,955],[3648,965],[3756,980],[3864,1000],[3924,1005],[3972,1005],[4044,1005]];const q24vVQRvqtpCoreData = [[744,790],[1260,790],[1620,790],[1944,800],[2196,810],[2472,830],[2688,850],[2916,875],[3144,905],[3336,915],[3504,950],[3648,960],[3756,975],[3864,990],[3924,1000],[3972,1000],[4044,1000]];const UZS1GObzEqpCoreData = [[744,790],[1260,790],[1620,790],[1944,800],[2196,805],[2472,820],[2688,860],[2916,880],[3144,915],[3336,920],[3504,945],[3648,965],[3756,980],[3864,990],[3924,995],[3972,995],[4044,995]];const lLOhU14rChpCoreData = [[576,790],[1092,790],[1344,790],[1584,800],[1824,830],[2064,845],[2304,865],[2544,900],[2724,920],[2904,945],[3084,980],[3264,1000],[3444,1035],[3564,1055],[3684,1105],[3732,1105],[3780,1105]];const xxUFwpjTHIpCoreData = [[636,790],[924,790],[1176,790],[1428,790],[1680,795],[1920,815],[2100,835],[2280,860],[2460,885],[2640,910],[2820,945],[2940,965],[3060,985],[3180,1025],[3300,1095],[3420,1095],[3468,1095]];const ZPgWu4GzgYpCoreData = [[660,790],[912,790],[1152,790],[1380,790],[1596,805],[1812,830],[2016,850],[2208,875],[2400,905],[2580,935],[2760,965],[2940,1000],[3120,1065],[3180,1065],[3240,1065]];const vZgA4BU6fqpCoreData = [[600,768],[948,768],[1296,793],[1644,815],[1992,853],[2280,896],[2508,940],[2748,1040],[2892,1040],[3000,1040]];const z6mLS5STFTpCoreData = [[504,765],[804,768],[1176,778],[1704,887],[2136,1025],[2316,1071],[2376,1100],[2436,1100],[2496,1100]];const WLIBwdCcGwpCoreData = [[453,750],[852,750],[1332,790],[1812,940],[2064,1009],[2304,1096],[2376,1096]];const tUYKnEmyyBpCoreData = [[396,737],[768,737],[804,737],[1140,771],[1548,837],[1956,962],[2316,1068],[2400,1068]];const DhIwghqrBLpCoreData = [[396,800],[732,800],[1092,800],[756,800],[1056,800],[1356,800],[1644,840],[1944,912],[2244,1021],[2340,1021]];const uqfPame3mdpCoreData = [[1260,790],[1512,810],[1800,835],[2088,860],[2352,885],[2616,905],[2868,920],[3096,940],[3300,960],[3468,970],[3624,1000],[3756,1010],[3828,1020],[3888,1020],[3948,1020],[3996,1020],[4044,1020],[4104,1020],[4416,1080],[4512,1080]];const mQrS7x8K9VpCoreData = [[1260,790],[1512,810],[1800,835],[2088,860],[2352,885],[2616,905],[2868,920],[3096,940],[3300,950],[3468,970],[3624,990],[3756,1020],[3852,1020],[3924,1020],[3996,1020],[4044,1020],[4104,1020],[4416,1070],[4512,1070]];const pwJVs66jUrpCoreData = [[912,790],[1260,790],[1512,790],[1800,815],[2088,840],[2352,860],[2616,885],[2868,905],[3096,945],[3300,975],[3468,985],[3624,1000],[3756,1025],[3876,1045],[3936,1045],[3984,1045],[4044,1045],[4104,1045],[4416,1110],[4464,1110]];const suE8FPz4OqpCoreData = [[1092,790],[1356,800],[1596,810],[1884,840],[2172,870],[2424,900],[2616,925],[2808,950],[2988,980],[3144,1005],[3288,1025],[3420,1050],[3516,1080],[3576,1080],[3624,1080],[3708,1080],[3780,1080],[3864,1080],[3960,1200],[4056,1200]];const FUOBNF2VvdpCoreData = [[696,790],[1092,790],[1356,795],[1596,820],[1884,835],[2172,860],[2424,890],[2616,910],[2808,935],[2988,960],[3144,995],[3288,1030],[3420,1090],[3576,1090],[3624,1090],[3708,1090],[3780,1090],[3864,1090],[3960,1150],[4056,1150]];const r1WqQxHz0LpCoreData = [[816,790],[1092,790],[1356,790],[1596,800],[1884,820],[2172,825],[2424,860],[2616,905],[2808,940],[2988,960],[3144,995],[3288,1020],[3420,1040],[3540,1095],[3636,1095],[3720,1095],[3780,1095],[3864,1095],[3960,1145],[4056,1145]];const GDybK2lHYipCoreData = [[702,790],[948,790],[1188,790],[1452,806],[1704,834],[1968,859],[2208,896],[2400,915],[2568,937],[2724,984],[2868,1018],[3000,1068],[3132,1096],[3264,1150],[3360,1150],[3408,1150],[3504,1150]];const uAejA8vd2VpCoreData = [[660,790],[924,790],[1188,790],[1452,790],[1704,800],[1968,830],[2208,855],[2400,880],[2568,910],[2724,945],[2868,980],[2988,1020],[3096,1050],[3204,1140],[3324,1140],[3408,1140],[3504,1140]];const eJcrJvktubpCoreData = [[600,768],[828,768],[1056,784],[1296,812],[1524,818],[1752,843],[1980,868],[2208,912],[2448,965],[2676,1025],[2904,1068],[3036,1068],[3132,1068],[3168,1068],[3228,1068]];const gKoWm23NkEpCoreData = [[600,768],[828,768],[1056,784],[1296,812],[1524,818],[1752,843],[1980,868],[2208,912],[2448,965],[2676,1025],[2904,1068],[3036,1068],[3132,1068],[3168,1068],[3228,1068]];const ihyz2I05rLpCoreData = [[600,768],[828,768],[1056,793],[1296,821],[1524,837],[1752,856],[1980,871],[2208,909],[2448,965],[2676,1025],[2904,1068],[3036,1068],[3132,1068],[3168,1068],[3228,1068]];const DRnF6qUdckpCoreData = [[600,781],[828,781],[1056,781],[1284,800],[1500,812],[1728,831],[1956,865],[2184,909],[2388,953],[2592,1003],[2772,1053],[2988,1081],[3096,1081],[3144,1081],[3204,1081]];
-      const p_cpu_chartDom = document.getElementById('P_CPU_Freq_Volt');
-      if (!p_cpu_chartDom) return;
-      const p_cpu_myChart = echarts.init(p_cpu_chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
-      const p_cpu_option = {
-          backgroundColor: 'transparent',
-          title: { text: 'DVFS P-CPU 处理单元频率电压对应表', subtext: '点击图例即可查看电压与频率的对应关系曲线图', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
-          tooltip: { trigger: 'axis', axisPointer: {type: 'line'}, formatter: function (params) { let result = ''; params.forEach(item => { const xValue = item.value[0]; const yValue = item.value[1]; result += `${item.seriesName}: (${xValue}MHz, ${yValue}mV)<br/>`; }); return result; } },
-          grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
-          legend: [ { data: ['A18 (16e)','A18','A18 Pro','A17 Pro','A16','A15','A14','A12Z','A11','A10X','A10','M4 Max'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'A10X': false,'A10': false,'M4 Max': false,'M4 Pro': false,'M4': false,'M3 Max': false,'M3 Pro': false,'M3': false,'M2 Pro': false,'M2': false,'M1 Ultra': false,'M1 Max': false,'M1 Pro': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '9%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } }, { data: ['M4 Pro','M4','M3 Max','M3 Pro','M3','M2 Pro','M2','M1 Ultra','M1 Max','M1 Pro','M1'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'A10X': false,'A10': false,'M4 Max': false,'M4 Pro': false,'M4': false,'M3 Max': false,'M3 Pro': false,'M3': false,'M2 Pro': false,'M2': false,'M1 Ultra': false,'M1 Max': false,'M1 Pro': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } } ],
-          xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: {textStyle: {fontSize: "11"}} },
-          yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: {textStyle: {fontSize: "11"}}, splitNumber: 5, min: 700, max: 1250 },
-          series: [{name: 'A18 (16e)',data: q24vVQRvqqpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18',data: q24vVQRvqtpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18 Pro',data: UZS1GObzEqpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A17 Pro',data: lLOhU14rChpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A16',data: xxUFwpjTHIpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A15',data: ZPgWu4GzgYpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A14',data: vZgA4BU6fqpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A12Z',data: z6mLS5STFTpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A11',data: WLIBwdCcGwpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A10X',data: tUYKnEmyyBpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A10',data: DhIwghqrBLpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Max',data: uqfPame3mdpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Pro',data: mQrS7x8K9VpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4',data: pwJVs66jUrpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Max',data: suE8FPz4OqpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Pro',data: FUOBNF2VvdpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3',data: r1WqQxHz0LpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2 Pro',data: GDybK2lHYipCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2',data: uAejA8vd2VpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Ultra',data: eJcrJvktubpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Max',data: gKoWm23NkEpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Pro',data: ihyz2I05rLpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1',data: DRnF6qUdckpCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},]
-      };
-      p_cpu_myChart.setOption(p_cpu_option);
-      const p_cpu_resizeObserver = new ResizeObserver(() => { p_cpu_myChart.resize(); });
-      p_cpu_resizeObserver.observe(p_cpu_chartDom);
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-          p_cpu_myChart.dispose();
-          p_cpu_myChart = echarts.init(p_cpu_chartDom, e.matches ? 'dark' : 'light');
-          p_cpu_myChart.setOption(p_cpu_option);
-      });
+    (async () => {
+        const chartInstances = {};
+
+        // --- 新增：颜色生成逻辑 ---
+        const colorPalette = [
+            '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
+            '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
+        ];
+        // 根据字符串生成一个固定的颜色
+        function getColorForString(str) {
+            let hash = 0;
+            if (str.length === 0) return colorPalette[0];
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash |= 0; // Convert to 32bit integer
+            }
+            const index = Math.abs(hash % colorPalette.length);
+            return colorPalette[index];
+        }
+        // --- 颜色生成逻辑结束 ---
+
+
+        const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax) => {
+            const chartDom = document.getElementById(containerId);
+            if (!chartDom) return;
+
+            if (chartInstances[containerId]) {
+                chartInstances[containerId].dispose();
+            }
+            
+            if (!seriesData || seriesData.length === 0) {
+                chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
+                chartDom.style.height = '100px';
+                return;
+            } else {
+                chartDom.style.height = '600px';
+            }
+
+            let myChart = echarts.init(chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+            chartInstances[containerId] = myChart;
+
+            const legendData = [...new Set(seriesData.map(s => s.chip))];
+            const selected = {};
+            
+            if (legendData.length > 0) {
+                legendData.forEach(name => selected[name] = false);
+                selected[legendData[0]] = true;
+            }
+            
+            // --- 核心改动：为每个系列分配颜色 ---
+            seriesData.forEach(series => {
+                const color = getColorForString(series.devices); // 使用设备名称来决定颜色
+                series.name = series.chip;
+                series.type = 'line';
+                series.symbol = 'circle';
+                series.symbolSize = 6;
+                // 将颜色应用到图元和线上
+                series.itemStyle = { color: color };
+                series.lineStyle = { color: color, width: 2 };
+            });
+            // --- 颜色分配结束 ---
+
+            const option = {
+                backgroundColor: 'transparent',
+                title: {
+                    text: titleText,
+                    subtext: '聚合了相同芯片及DVFS配置的数据',
+                    textStyle: { fontSize: 16 },
+                    subtextStyle: { fontSize: 12 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'line' },
+                    formatter: (params) => {
+                        if (!params || params.length === 0) return '';
+                        const grouped = new Map();
+                        params.forEach(p => {
+                            const series = seriesData[p.seriesIndex];
+                            if (!series) return;
+                            const key = `${series.chip}|${series.devices}|${series.builds}`;
+                            if (!grouped.has(key)) {
+                                grouped.set(key, { commonInfo: series, points: [] });
+                            }
+                            grouped.get(key).points.push(p);
+                        });
+                        let tooltipHtml = '';
+                        grouped.forEach((group) => {
+                            tooltipHtml += `<strong>${group.commonInfo.chip}</strong><br/>` +
+                                         `设备型号: ${group.commonInfo.devices}<br/>` +
+                                         `系统版本: ${group.commonInfo.builds}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
+                            const displayedPoints = new Set();
+                            group.points.forEach(point => {
+                                if (point.value?.length === 2) {
+                                    const pointKey = `${point.value[0]}|${point.value[1]}`;
+                                    if (displayedPoints.has(pointKey)) return;
+                                    tooltipHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
+                                    displayedPoints.add(pointKey);
+                                }
+                            });
+                            tooltipHtml += '<br/>';
+                        });
+                        return tooltipHtml.replace(/<br\/>$/, '');
+                    }
+                },
+                grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
+                legend: {
+                    data: legendData,
+                    selected: selected,
+                    type: 'scroll',
+                    orient: 'vertical',
+                    right: '1%',
+                    top: '20%',
+                    bottom: '5%',
+                    textStyle: { fontSize: 11 }
+                },
+                xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
+                yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
+                series: seriesData
+            };
+            myChart.setOption(option);
+
+            const resizeObserver = new ResizeObserver(() => myChart.resize());
+            resizeObserver.observe(chartDom);
+
+            if (!chartDom.dataset.themeListenerAttached) {
+                const themeListener = () => {
+                    myChart.dispose();
+                    myChart = echarts.init(chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+                    myChart.setOption(option);
+                    chartInstances[containerId] = myChart;
+                };
+                window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", themeListener);
+                chartDom.dataset.themeListenerAttached = 'true';
+            }
+        };
+
+        const main = async () => {
+            try {
+                const response = await fetch('./console/dvfs/get-dvfs-data.php');
+                if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
+                const allChartData = await response.json();
+                if (allChartData.error) throw new Error(allChartData.error);
+
+                renderChart('P_CPU_Freq_Volt', allChartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250);
+                renderChart('E_CPU_Freq_Volt', allChartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100);
+                renderChart('GPU_Freq_Volt', allChartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100);
+                renderChart('ANE_Freq_Volt', allChartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250);
+
+            } catch (error) {
+                console.error("加载或渲染图表失败:", error);
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                     mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
+                }
+            }
+        };
+        
+        main();
     })();
-  </script>
-  <script type="text/javascript">
-  (() => {
-    const q24vVQRvqqeCoreData = [[816,790],[1140,790],[1464,790],[1788,800],[2112,840],[2424,875]];const q24vVQRvqteCoreData = [[816,790],[1140,790],[1464,790],[1788,800],[2112,830],[2424,865]];const UZS1GObzEqeCoreData = [[816,790],[1140,790],[1464,790],[1788,800],[2112,835],[2424,860]];const lLOhU14rCheCoreData = [[744,790],[960,790],[1344,820],[1728,825],[2112,895]];const xxUFwpjTHIeCoreData = [[600,790],[816,790],[1200,790],[1584,810],[2016,855]];const ZPgWu4GzgYeCoreData = [[600,790],[816,790],[1200,790],[1584,820],[2016,870]];const vZgA4BU6fqeCoreData = [[600,768],[912,768],[1212,790],[1524,803],[1824,859]];const z6mLS5STFTeCoreData = [[528,765],[804,768],[1056,771],[1308,821],[1572,921]];const WLIBwdCcGweCoreData = [[453,750],[672,750],[972,750],[1272,853],[1572,1028],[1680,1028]];const uqfPame3mdeCoreData = [[1020,790],[1404,800],[1788,830],[2112,865],[2352,900],[2532,940],[2592,940]];const mQrS7x8K9VeCoreData = [[1020,790],[1404,800],[1788,830],[2112,860],[2352,900],[2532,940],[2592,940]];const pwJVs66jUreCoreData = [[900,790],[1080,790],[1476,795],[1860,840],[2172,885],[2496,930],[2808,1005],[2892,1005]];const suE8FPz4OqeCoreData = [[1020,790],[1320,800],[1704,840],[2088,895],[2484,990],[2568,990]];const FUOBNF2VvdeCoreData = [[744,790],[1044,795],[1476,820],[2004,885],[2268,935],[2448,970],[2640,1040],[2748,1040]];const r1WqQxHz0LeCoreData = [[744,790],[1044,790],[1476,795],[2004,895],[2268,950],[2556,1010],[2748,1060]];const GDybK2lHYieCoreData = [[912,590],[1284,625],[1752,678],[2004,721],[2256,803],[2424,856]];const uAejA8vd2VeCoreData = [[600,790],[912,790],[1284,790],[1752,820],[2004,890],[2256,960],[2424,1030]];const eJcrJvktubeCoreData = [[600,568],[972,568],[1332,596],[1704,646],[2064,721]];const gKoWm23NkEeCoreData = [[600,565],[972,565],[1332,596],[1704,643],[2064,718]];const ihyz2I05rLeCoreData = [[600,565],[972,565],[1332,593],[1704,646],[2064,721]];const DRnF6qUdckeCoreData = [[600,771],[972,771],[1332,800],[1704,887],[2064,962]];
-
-    const e_cpu_chartDom = document.getElementById('E_CPU_Freq_Volt');
-    if (!e_cpu_chartDom) return;
-
-    let e_cpu_myChart = echarts.init(e_cpu_chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
-    const e_cpu_option = {
-        backgroundColor: 'transparent',
-        title: { text: 'DVFS E-CPU 处理单元频率电压对应表', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
-        tooltip: { trigger: 'axis', axisPointer: {type: 'line'}, formatter: function (params) { let result = ''; params.forEach(item => { const xValue = item.value[0]; const yValue = item.value[1]; result += `${item.seriesName}: (${xValue}MHz, ${yValue}mV)<br/>`; }); return result; } },
-        grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
-        legend: [ { data: ['A18 (16e)','A18','A18 Pro','A17 Pro','A16','A15','A14','A12Z','A11','M4 Max','M4 Pro'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'M4 Max': false,'M4 Pro': false,'M4': false,'M3 Max': false,'M3 Pro': false,'M3': false,'M2 Pro': false,'M2': false,'M1 Ultra': false,'M1 Max': false,'M1 Pro': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '9%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } }, { data: ['M4','M3 Max','M3 Pro','M3','M2 Pro','M2','M1 Ultra','M1 Max','M1 Pro','M1'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'M4 Max': false,'M4 Pro': false,'M4': false,'M3 Max': false,'M3 Pro': false,'M3': false,'M2 Pro': false,'M2': false,'M1 Ultra': false,'M1 Max': false,'M1 Pro': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } } ],
-        xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: {textStyle: {fontSize: "11"}} },
-        yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: {textStyle: {fontSize: "11"}}, splitNumber: 5, min: 500, max: 1100 },
-        series: [{name: 'A18 (16e)',data: q24vVQRvqqeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18',data: q24vVQRvqteCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18 Pro',data: UZS1GObzEqeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A17 Pro',data: lLOhU14rCheCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A16',data: xxUFwpjTHIeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A15',data: ZPgWu4GzgYeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A14',data: vZgA4BU6fqeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A12Z',data: z6mLS5STFTeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A11',data: WLIBwdCcGweCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Max',data: uqfPame3mdeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Pro',data: mQrS7x8K9VeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4',data: pwJVs66jUreCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Max',data: suE8FPz4OqeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Pro',data: FUOBNF2VvdeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3',data: r1WqQxHz0LeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2 Pro',data: GDybK2lHYieCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2',data: uAejA8vd2VeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Ultra',data: eJcrJvktubeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Max',data: gKoWm23NkEeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Pro',data: ihyz2I05rLeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1',data: DRnF6qUdckeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},]
-    };
-    e_cpu_myChart.setOption(e_cpu_option);
-
-    const e_cpu_resizeObserver = new ResizeObserver(() => { e_cpu_myChart.resize(); });
-    e_cpu_resizeObserver.observe(e_cpu_chartDom);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        e_cpu_myChart.dispose();
-        e_cpu_myChart = echarts.init(e_cpu_chartDom, e.matches ? 'dark' : 'light');
-        e_cpu_myChart.setOption(e_cpu_option);
-    });
-  })();
-  </script>
-  <script type="text/javascript">
-  (() => {
-    const q24vVQRvqqgpuCoreData = [[338,580],[492,615],[618,625],[836,720],[952,755],[1053,795],[1152,825],[1204,860]];const q24vVQRvqtgpuCoreData = [[338,590],[492,610],[618,620],[836,710],[952,745],[1053,785],[1152,830],[1204,860]];const UZS1GObzEqgpuCoreData = [[338,590],[492,615],[618,635],[796,680],[952,755],[1053,800],[1152,835],[1204,860],[1326,940]];const lLOhU14rChgpuCoreData = [[338,590],[492,625],[642,655],[796,705],[936,780],[1026,830],[1098,865],[1152,895],[1206,920]];const xxUFwpjTHIgpuCoreData = [[338,580],[627,635],[808,665],[984,720],[1140,785],[1272,835],[1338,865]];const ZPgWu4GzgYgpuCoreData = [[338,585],[627,640],[808,700],[984,755],[1140,825],[1272,875],[1338,905]];const vZgA4BU6fqgpuCoreData = [[300,575],[528,628],[720,675],[918,746],[1098,831],[1278,906]];const z6mLS5STFTgpuCoreData = [[316,606],[456,675],[612,743],[740,793],[900,878],[1098,968]];const WLIBwdCcGwgpuCoreData = [[326,587],[480,659],[632,728],[888,834],[1140,950]];const tUYKnEmyyBgpuCoreData = [[426,671],[616,712],[848,846],[1086,968]];const DhIwghqrBLgpuCoreData = [[378,634],[440,662],[630,728],[756,787],[852,828],[1008,937]];const uqfPame3mdgpuCoreData = [[338,610],[618,675],[796,715],[952,785],[1062,825],[1182,875],[1242,915],[1326,955]];const mQrS7x8K9VgpuCoreData = [[338,635],[618,640],[796,690],[952,765],[1062,805],[1182,855],[1242,900],[1326,940]];const pwJVs66jUrgpuCoreData = [[338,630],[618,645],[796,680],[952,765],[1053,810],[1152,850],[1204,880],[1326,955]];const q24vVQRvqqnewgpuCoreData = [[338,580],[492,615],[618,625],[796,675],[928,720],[1056,755],[1170,795],[1278,825],[1338,860]];const suE8FPz4OqgpuCoreData = [[338,625],[618,670],[832,760],[952,795],[1064,850],[1182,910],[1242,935]];const FUOBNF2VvdgpuCoreData = [[338,650],[618,690],[832,745],[952,805],[1064,880],[1182,930],[1242,965]];const gpuCoreData = [[338,590],[492,610],[618,620],[796,665],[928,710],[1056,745],[1170,785],[1278,830],[1338,860]];const r1WqQxHz0LgpuCoreData = [[338,595],[618,665],[836,745],[952,790],[1053,850],[1152,885],[1204,910]];const UZS1GObzEqnewgpuCoreData = [[338,590],[492,615],[618,635],[796,680],[928,725],[1056,755],[1170,800],[1278,835],[1338,860],[1470,940]];const uqfPame3mdnewgpuCoreData = [[338,610],[618,675],[796,715],[924,740],[1056,785],[1182,825],[1312,875],[1380,915],[1470,955],[1578,1055]];const lLOhU14rChnewgpuCoreData = [[338,590],[492,625],[642,655],[796,705],[956,765],[1038,780],[1140,830],[1218,865],[1278,895],[1338,920]];const GDybK2lHYigpuCoreData = [[444,621],[612,650],[808,693],[968,740],[1110,793],[1236,834],[1338,881],[1398,918]];const mQrS7x8K9VnewgpuCoreData = [[338,635],[618,640],[796,690],[924,725],[1056,765],[1182,805],[1312,855],[1380,900],[1470,940],[1578,1025]];const uAejA8vd2VgpuCoreData = [[444,610],[612,655],[808,690],[968,750],[1110,780],[1236,850],[1338,890],[1398,925]];const pwJVs66jUrnewgpuCoreData = [[338,630],[618,645],[796,680],[928,725],[1056,765],[1170,810],[1278,850],[1338,880],[1470,955],[1578,1045]];const eJcrJvktubgpuCoreData = [[389,640],[486,659],[648,681],[778,721],[972,784],[1296,903]];const suE8FPz4OqnewgpuCoreData = [[338,625],[618,670],[796,720],[924,760],[1056,795],[1182,850],[1312,910],[1380,935]];const gKoWm23NkEgpuCoreData = [[388,612],[486,640],[648,671],[777,709],[972,765],[1296,875]];const ihyz2I05rLgpuCoreData = [[388,603],[486,625],[648,653],[777,700],[972,765],[1296,878]];const FUOBNF2VvdnewgpuCoreData = [[338,650],[618,690],[796,710],[924,745],[1056,805],[1182,880],[1312,930],[1380,965]];const r1WqQxHz0LnewgpuCoreData = [[338,595],[618,665],[796,705],[928,745],[1056,790],[1170,850],[1278,885],[1338,910]];const DRnF6qUdckgpuCoreData = [[396,600],[528,634],[720,684],[924,778],[1128,868],[1278,940]];
-
-    const gpu_chartDom = document.getElementById('GPU_Freq_Volt');
-    if (!gpu_chartDom) return;
-
-    let gpu_myChart = echarts.init(gpu_chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
-    const gpu_option = {
-        backgroundColor: 'transparent',
-        title: { text: 'DVFS GPU 处理单元频率电压对应表', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
-        tooltip: { trigger: 'axis', axisPointer: {type: 'line'}, formatter: function (params) { let result = ''; params.forEach(item => { const xValue = item.value[0]; const yValue = item.value[1]; result += `${item.seriesName}: (${xValue}MHz, ${yValue}mV)<br/>`; }); return result; } },
-        grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
-        legend: [ { data: ['A18 (16e)','A18','A18 Pro','A17 Pro','A16','A15','A14','A12Z','A11','A10X','A10','M4 Max','M4 Pro','M4','A18 (16e)','M3 Max','M3 Pro'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'A10X': false,'A10': false,'M4 Max': false,'M4 Pro': false,'M4': false,'A18 (1e)': false,'M3 Max': false,'M3 Pro': false,'A18': false,'M3': false,'A18 Pro': true,'M4 Max': false,'A17 Pro': false,'M2 Pro': false,'M4 Pro': false,'M2': false,'M4': false,'M1 Ultra': false,'M3 Max': false,'M1 Max': false,'M1 Pro': false,'M3 Pro': false,'M3': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '9%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } }, { data: ['A18','M3','A18 Pro','M4 Max','A17 Pro','M2 Pro','M4 Pro','M2','M4','M1 Ultra','M3 Max','M1 Max','M1 Pro','M3 Pro','M3','M1'], selected: {'A18 (16e)': false,'A18': false,'A18 Pro': true,'A17 Pro': false,'A16': false,'A15': false,'A14': false,'A12Z': false,'A11': false,'A10X': false,'A10': false,'M4 Max': false,'M4 Pro': false,'M4': false,'A18 (1e)': false,'M3 Max': false,'M3 Pro': false,'A18': false,'M3': false,'A18 Pro': true,'M4 Max': false,'A17 Pro': false,'M2 Pro': false,'M4 Pro': false,'M2': false,'M4': false,'M1 Ultra': false,'M3 Max': false,'M1 Max': false,'M1 Pro': false,'M3 Pro': false,'M3': false,'M1': false,}, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } } ],
-        xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: {textStyle: {fontSize: "11"}} },
-        yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: {textStyle: {fontSize: "11"}}, splitNumber: 5, min: 500, max: 1100 },
-        series: [{name: 'A18 (16e)',data: q24vVQRvqqgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18',data: q24vVQRvqtgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18 Pro',data: UZS1GObzEqgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A17 Pro',data: lLOhU14rChgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A16',data: xxUFwpjTHIgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A15',data: ZPgWu4GzgYgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A14',data: vZgA4BU6fqgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A12Z',data: z6mLS5STFTgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A11',data: WLIBwdCcGwgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A10X',data: tUYKnEmyyBgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A10',data: DhIwghqrBLgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Max',data: uqfPame3mdgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Pro',data: mQrS7x8K9VgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4',data: pwJVs66jUrgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18 (16e)',data: q24vVQRvqqnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Max',data: suE8FPz4OqgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Pro',data: FUOBNF2VvdgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18',data: gpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3',data: r1WqQxHz0LgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A18 Pro',data: UZS1GObzEqnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Max',data: uqfPame3mdnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'A17 Pro',data: lLOhU14rChnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2 Pro',data: GDybK2lHYigpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4 Pro',data: mQrS7x8K9VnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M2',data: uAejA8vd2VgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M4',data: pwJVs66jUrnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Ultra',data: eJcrJvktubgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Max',data: suE8FPz4OqnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Max',data: gKoWm23NkEgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1 Pro',data: ihyz2I05rLgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3 Pro',data: FUOBNF2VvdnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M3',data: r1WqQxHz0LnewgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},{name: 'M1',data: DRnF6qUdckgpuCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},]
-    };
-    gpu_myChart.setOption(gpu_option);
-
-    const gpu_resizeObserver = new ResizeObserver(() => { gpu_myChart.resize(); });
-    gpu_resizeObserver.observe(gpu_chartDom);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        gpu_myChart.dispose();
-        gpu_myChart = echarts.init(gpu_chartDom, e.matches ? 'dark' : 'light');
-        gpu_myChart.setOption(gpu_option);
-    });
-  })();
-  </script>
-  <script type="text/javascript">
-  (() => {
-    const uqfPame3mdaneCoreData = [[744,630],[900,630],[924,650],[1032,665],[1164,690],[1272,715],[1356,750],[1500,775],[1524,810],[1668,835],[1680,870],[1800,905],[1812,940],[1932,965],[1956,975],[2064,1000],[2148,1000],[2160,1000],[2208,1000],[2232,1140],[2256,1170],[2292,630],[2304,630],[2328,630],[2364,630]];
-    const mQrS7x8K9VaneCoreData = [[744,660],[900,660],[924,680],[1032,695],[1164,715],[1272,735],[1356,740],[1500,780],[1524,805],[1668,840],[1680,865],[1800,900],[1812,960],[1932,965],[1956,980],[2064,980],[2148,980],[2160,980],[2208,1135],[2232,1165],[2256,660],[2292,660],[2304,660],[2328,660],[2364,660]];
-    const suE8FPz4OqaneCoreData = [[708,665],[984,715],[1260,745],[1536,795],[1812,825],[2088,905],[2364,985]];
-    const GDybK2lHYianeCoreData = [[600,578],[852,618],[1104,671],[1356,721],[1596,778],[1848,843],[2100,906]];
-    const eJcrJvktubaneCoreData = [[300,584],[540,637],[780,665],[1020,743],[1260,806],[1500,909]];
-    const gKoWm23NkEaneCoreData = [[300,562],[540,618],[780,650],[1020,731],[1260,793],[1500,878]];
-    const ihyz2I05rLaneCoreData = [[300,550],[540,609],[780,653],[1020,725],[1260,787],[1500,887]];
-
-    const ane_chartDom = document.getElementById('ANE_Freq_Volt');
-    if (!ane_chartDom) return;
-
-    let ane_myChart = echarts.init(ane_chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
-    const ane_option = {
-        backgroundColor: 'transparent',
-        title: { text: 'DVFS ANE 处理单元频率电压对应表', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
-        tooltip: { trigger: 'axis', axisPointer: {type: 'line'}, formatter: function (params) { let result = ''; params.forEach(item => { const xValue = item.value[0]; const yValue = item.value[1]; result += `${item.seriesName}: (${xValue}MHz, ${yValue}mV)<br/>`; }); return result; } },
-        grid: { top: '15%', left: '3%', right: '12%', bottom: '5%', containLabel: true },
-        legend: {
-            data: ['M4 Max', 'M4 Pro', 'M3 Max', 'M2 Pro', 'M1 Ultra', 'M1 Max', 'M1 Pro'],
-            selected: {
-                'M4 Max': true, 'M4 Pro': false, 'M3 Max': false, 'M2 Pro': false, 'M1 Ultra': false, 'M1 Max': false, 'M1 Pro': false,
-            },
-            type: 'scroll',
-            orient: 'vertical',
-            right: '1%',
-            top: '20%',
-            bottom: '5%',
-            textStyle: { fontSize: 11 }
-        },
-        xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: {textStyle: {fontSize: "11"}} },
-        yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: {textStyle: {fontSize: "11"}}, min: 500, max: 1250 },
-        series: [
-            {name: 'M4 Max',data: uqfPame3mdaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M4 Pro',data: mQrS7x8K9VaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M3 Max',data: suE8FPz4OqaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M2 Pro',data: GDybK2lHYianeCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M1 Ultra',data: eJcrJvktubaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M1 Max',data: gKoWm23NkEaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6},
-            {name: 'M1 Pro',data: ihyz2I05rLaneCoreData,type: 'line',smooth: false,lineStyle: { width: 2 },symbol: 'circle',symbolSize: 6}
-        ]
-    };
-    ane_myChart.setOption(ane_option);
-    
-    const ane_resizeObserver = new ResizeObserver(() => { ane_myChart.resize(); });
-    ane_resizeObserver.observe(ane_chartDom);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        ane_myChart.dispose();
-        ane_myChart = echarts.init(ane_chartDom, e.matches ? 'dark' : 'light');
-        ane_myChart.setOption(ane_option);
-    });
-  })();
   </script>
 
 </body>

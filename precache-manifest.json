@@ -127,5 +127,6 @@
   "./public-static/js/lib/utils.js",
   "./public-static/img/2025-devices.webp",
   "./public-static/img/logo.jpg",
-  "./public-static/img/apple.svg"
+  "./public-static/img/apple.svg",
+  "./console/dvfs/index.html"
 ]
