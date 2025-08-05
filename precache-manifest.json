@@ -124,7 +124,6 @@
   "./public-static/js/echarts.min.js",
   "./public-static/js/lib/WindowManager.js",
   "./public-static/js/lib/Window.js",
-  "./public-static/js/lib/DockManager.js",
   "./public-static/js/lib/utils.js",
   "./public-static/img/2025-devices.webp",
   "./public-static/img/logo.jpg",
