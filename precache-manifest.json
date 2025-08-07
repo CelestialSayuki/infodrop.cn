@@ -3,6 +3,7 @@
   "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js",
   "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
   "./",
+  "./manifest.json",
   "./index.html",
   "./sw.js",
   "./apple-other/battery/index.html",
