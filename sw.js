@@ -138,7 +138,7 @@ self.addEventListener('fetch', (event) => {
 
     try {
       const networkResponse = await fetch(event.request);
-      if (networkResponse.ok) {
+      if (networkResponse.ok || networkResponse.type === 'opaque') {
         await runtimeCache.put(event.request, networkResponse.clone());
       }
       return networkResponse;
