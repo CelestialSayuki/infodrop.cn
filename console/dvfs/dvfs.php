@@ -74,16 +74,12 @@ function parse_voltage_states_default(string $hex_data, bool $isLegacy): array {
     return $all_forks;
 }
 
-/**
- * 解析GPU的DVFS数据，分为两个递增分支。
- */
 function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
     $all_data_points = [];
     $binary_data = hex2bin($hex_data);
     $data_length = strlen($binary_data);
     $freq_divisor = $isLegacy ? 1000000 : 1000;
 
-    // 解析所有数据点
     for ($i = 0; $i < $data_length; $i += 8) {
         if ($i + 8 > $data_length) continue;
         
@@ -99,7 +95,6 @@ function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
         }
     }
 
-    // 将数据点分配到两个分支
     $forks = [[], []];
     foreach ($all_data_points as $point) {
         $assigned = false;
@@ -111,18 +106,13 @@ function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
             }
         }
         if (!$assigned) {
-            // 如果无法分配到任一分支，默认放入第一个分支
             $forks[0][] = $point;
         }
     }
 
-    // 过滤掉空分支
     return array_filter($forks, fn($fork) => !empty($fork));
 }
 
-/**
- * 主解析函数，根据核心类型选择解析方法。
- */
 function parse_voltage_states(string $hex_data, bool $isLegacy, string $core_type): array {
     if ($core_type === 'gpu_dvfs') {
         return parse_voltage_states_gpu($hex_data, $isLegacy);
@@ -180,11 +170,6 @@ try {
         $chip_name = $specific_chip_name;
     }
 
-    $db_path = __DIR__ . '/processed_data.sqlite';
-    $pdo = new PDO('sqlite:' . $db_path);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->exec("CREATE TABLE IF NOT EXISTS dvfs_uploads (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT NOT NULL, chip TEXT, device TEXT, build TEXT, e_core_dvfs TEXT, p_core_dvfs TEXT, ane_dvfs TEXT, gpu_dvfs TEXT, data_hash TEXT NOT NULL UNIQUE)");
-
     $core_type_mapping = [
         'voltage-states1-sram' => 'e_core_dvfs',
         'voltage-states5-sram' => 'p_core_dvfs',
@@ -212,18 +197,19 @@ try {
         throw new Exception('文件有效，但未找到任何DVFS核心状态数据，已跳过保存。', 400);
     }
     
+    $db_path = __DIR__ . '/processed_data.sqlite';
+    $pdo = new PDO('sqlite:' . $db_path);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec("CREATE TABLE IF NOT EXISTS dvfs_uploads (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT NOT NULL, chip TEXT, device TEXT, build TEXT, e_core_dvfs TEXT, p_core_dvfs TEXT, ane_dvfs TEXT, gpu_dvfs TEXT, data_hash TEXT NOT NULL UNIQUE)");
+    
     $stmt = $pdo->prepare("INSERT OR IGNORE INTO dvfs_uploads (timestamp, chip, device, build, e_core_dvfs, p_core_dvfs, ane_dvfs, gpu_dvfs, data_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
+    
     for ($i = 0; $i < $max_forks; $i++) {
         $dvfs_data_for_this_row = [];
 
         foreach ($core_type_mapping as $db_column) {
             $forks = $all_parsed_forks[$db_column] ?? [];
-            if ($i == 0) {
-                $dvfs_data_for_this_row[$db_column] = isset($forks[0]) ? json_encode($forks[0]) : null;
-            } else {
-                $dvfs_data_for_this_row[$db_column] = isset($forks[$i]) ? json_encode($forks[$i]) : null;
-            }
+            $dvfs_data_for_this_row[$db_column] = isset($forks[$i]) ? json_encode($forks[$i]) : null;
         }
 
         if (count(array_filter($dvfs_data_for_this_row)) == 0) continue;
@@ -231,7 +217,7 @@ try {
         $data_signature_parts = ["chip:{$chip_name}", "device:{$device_name}", "build:{$build_info}"];
         foreach($dvfs_data_for_this_row as $db_column => $json_data) {
             if ($json_data !== null) {
-                 $data_signature_parts[] = "{$db_column}:{$json_data}";
+                $data_signature_parts[] = "{$db_column}:{$json_data}";
             }
         }
         $data_hash = hash('sha256', implode('|', $data_signature_parts));
@@ -244,8 +230,38 @@ try {
         ]);
     }
     
-    $message = "<strong>✅ 数据存储成功！</strong><br>设备型号: ".htmlspecialchars($device_name)."<br>芯片型号: " . htmlspecialchars($chip_name) . "<br>共发现并存入 {$max_forks} 个数据分支。";
-    send_json_response(true, $message);
+    $final_message = "<strong>✅ 数据解析成功！</strong><br>设备型号: ".htmlspecialchars($device_name)."<br>芯片型号: " . htmlspecialchars($chip_name);
+    
+    $html_tables = '';
+    $core_name_map = [
+        'e_core_dvfs' => '效能核心 (E-Core) DVFS',
+        'p_core_dvfs' => '性能核心 (P-Core) DVFS',
+        'gpu_dvfs'    => '图形处理器 (GPU) DVFS',
+        'ane_dvfs'    => '神经网络引擎 (ANE) DVFS'
+    ];
+
+    foreach ($core_type_mapping as $db_column) {
+        if (isset($all_parsed_forks[$db_column])) {
+            $forks = $all_parsed_forks[$db_column];
+            $flat_data = array_merge(...$forks);
+            usort($flat_data, fn($a, $b) => $a['freq_mhz'] <=> $b['freq_mhz']);
+            
+            $title = $core_name_map[$db_column] ?? $db_column;
+            
+            $html_tables .= "<h3>" . htmlspecialchars($title) . "</h3>";
+            $html_tables .= "<table border='1' style='width:100%; border-collapse: collapse;'><thead><tr><th style='padding:5px;'>频率 (MHz)</th><th style='padding:5px;'>电压 (mV)</th></tr></thead><tbody>";
+            
+            foreach ($flat_data as $point) {
+                $html_tables .= "<tr><td style='padding:5px;'>" . htmlspecialchars($point['freq_mhz']) . "</td><td style='padding:5px;'>" . htmlspecialchars($point['voltage_mv']) . "</td></tr>";
+            }
+            
+            $html_tables .= "</tbody></table>";
+        }
+    }
+
+    $final_message .= $html_tables;
+
+    send_json_response(true, $final_message);
 
 } catch (Exception $e) {
     send_json_response(false, '处理失败：' . $e->getMessage(), $e->getCode() > 0 ? $e->getCode() : 400);

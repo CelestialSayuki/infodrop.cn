@@ -1,3 +1,4 @@
 config.php
 auth/api/submit.php
 auth/api/quiz.php
+console/dvfs/processed_data.sqlite

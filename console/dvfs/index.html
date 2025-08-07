@@ -49,13 +49,24 @@
         .macos-window.theme-dark .file-input-label { background-color: #4f4f52; color: var(--dark-text); }
         #file-name-display { font-size: 0.9rem; color: var(--light-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .macos-window.theme-dark #file-name-display { color: #a9a9a9; }
+        .sysdiagnose-tips { font-size: 0.9rem; color: var(--light-text-secondary); padding: 0 15px 15px; margin-top: -1rem; line-height: 1.5; }
+        .macos-window.theme-dark .sysdiagnose-tips { color: #a9a9a9; }
+        .sysdiagnose-tips strong { color: var(--light-text); }
+        .macos-window.theme-dark .sysdiagnose-tips strong { color: var(--dark-text); }
     </style>
 </head>
 <body>
     <div class="auth-wrapper">
         <div id="upload-section">
             <h1>📊 DVFS 数据上传</h1>
-            <p class="lead">请上传从设备中获取的 `IOService.txt` 或 `IODeviceTree.txt` 文件以进行数据分析。系统将解析文件内容并返回结果。</p>
+            <p class="lead">请上传从设备 Sysdiagnose 中获取的 `IOService.txt` 或 `IODeviceTree.txt` 文件以进行数据分析。系统将解析文件内容并返回结果。</p>
+            <div class="sysdiagnose-tips">
+                <p><strong>如何触发 Sysdiagnose：</strong></p>
+                <ul>
+                    <li><a href="https://podcasters.apple.com/assets/Mac-sysdiagnose-logging-instructions.pdf" target="_blank">Mac 版 Sysdiagnose 详细说明</a></li>
+                    <li><a href="https://podcasters.apple.com/assets/iOS-sysdiagnose-logging-instructions.pdf" target="_blank">iPhone/iPad 版 Sysdiagnose 详细说明</a></li>
+                </ul>
+            </div>
             <div class="form-group">
                 <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;">选择文件</label>
                 <div class="file-input-wrapper">

@@ -84,32 +84,26 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // 新增：策略1 - 针对后端API请求，使用“网络优先，缓存兜底”策略
   if (url.pathname.includes('/console/dvfs/get-dvfs-data.php')) {
     event.respondWith((async () => {
       const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
       try {
-        // 优先尝试网络请求
         const networkResponse = await fetch(event.request);
 
-        // 如果请求成功，用新数据更新缓存，并返回新数据
         if (networkResponse.ok) {
           await runtimeCache.put(event.request, networkResponse.clone());
         }
         return networkResponse;
       } catch (error) {
-        // 如果网络请求失败（比如离线），则尝试从缓存中获取
         console.log('[SW] API网络请求失败，尝试从缓存中读取...');
         const cachedResponse = await runtimeCache.match(event.request);
         
-        // 如果缓存中有数据，则返回它；如果没有，则请求失败
         return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
       }
     })());
     return;
   }
 
-  // 策略2: 对于图片和字体等资源，使用 "缓存优先" 策略
   if (url.origin === self.location.origin && (event.request.destination === 'image' || event.request.destination === 'font')) {
     event.respondWith((async () => {
       const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
@@ -133,7 +127,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 策略3: 默认，处理预缓存的核心文件和SPA导航
   event.respondWith((async () => {
     const cachedResponse = await caches.match(event.request);
     if (cachedResponse) {
