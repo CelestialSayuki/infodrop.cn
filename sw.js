@@ -11,7 +11,6 @@ self.addEventListener('install', (event) => {
       try {
         const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error('Failed to fetch precache manifest.');
-        
         const filesToCache = await response.json();
         const totalFiles = filesToCache.length;
         let cachedCount = 0;
@@ -27,7 +26,7 @@ self.addEventListener('install', (event) => {
             await cache.put(request, networkResponse);
             cachedCount++;
             const percent = Math.round((cachedCount / totalFiles) * 100);
-            
+
             if (percent > lastReportedPercent) {
               lastReportedPercent = percent;
               const clients = await self.clients.matchAll({ includeUncontrolled: true });
@@ -44,10 +43,10 @@ self.addEventListener('install', (event) => {
               }
             }
           } catch (err) {
-            console.error(`[SW] Failed to cache ${err.message}`);
+
           }
         }
-        
+
         const clients = await self.clients.matchAll({ includeUncontrolled: true });
         for (const client of clients) {
           client.postMessage({
@@ -82,67 +81,69 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
   const url = new URL(event.request.url);
 
-  if (url.pathname.includes('/console/dvfs/get-dvfs-data.php')) {
-    event.respondWith((async () => {
-      const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
-      try {
-        const networkResponse = await fetch(event.request);
+    const isPhpApi = url.pathname.includes('/console/dvfs/get-dvfs-data.php');
+    const isSupabaseApi = url.href.includes('supabase.co/rest/v1/speedometer_results');
 
-        if (networkResponse.ok) {
-          await runtimeCache.put(event.request, networkResponse.clone());
+    if (isPhpApi || isSupabaseApi) {
+      event.respondWith((async () => {
+        const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
+        try {
+          const networkResponse = await fetch(event.request);
+
+          if (networkResponse.ok) {
+            await runtimeCache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        } catch (error) {
+          const cachedResponse = await runtimeCache.match(event.request);
+          
+          return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
         }
-        return networkResponse;
-      } catch (error) {
-        console.log('[SW] API网络请求失败，尝试从缓存中读取...');
-        const cachedResponse = await runtimeCache.match(event.request);
-        
-        return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
-      }
-    })());
-    return;
+      })());
+      return;
   }
 
-  if (url.origin === self.location.origin && (event.request.destination === 'image' || event.request.destination === 'font')) {
-    event.respondWith((async () => {
-      const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
-      const cachedResponse = await runtimeCache.match(event.request);
-
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      try {
-        const networkResponse = await fetch(event.request);
-        if (networkResponse.ok) {
-          await runtimeCache.put(event.request, networkResponse.clone());
-        }
-        return networkResponse;
-      } catch (error) {
-        console.error('[SW] Network fetch failed for runtime asset:', error);
-        throw error;
-      }
-    })());
+  if (url.pathname.endsWith('version.json')) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
     return;
   }
 
   event.respondWith((async () => {
-    const cachedResponse = await caches.match(event.request);
-    if (cachedResponse) {
-      return cachedResponse;
+    const precache = await caches.open(CACHE_NAME);
+    const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
+
+    const precachedResponse = await precache.match(event.request);
+    if (precachedResponse) {
+      return precachedResponse;
     }
 
+    const runtimeCachedResponse = await runtimeCache.match(event.request);
+    if (runtimeCachedResponse) {
+      return runtimeCachedResponse;
+    }
+    
     const hasFileExtension = /[^/]+\.[^/]+$/.test(url.pathname);
-    if (!hasFileExtension) {
+    if (!hasFileExtension && url.origin === self.location.origin) {
       const path = url.pathname.endsWith('/') ? url.pathname : url.pathname + '/';
-      const indexUrl = new URL(path + 'index.html', url.origin);
-      const indexCachedResponse = await caches.match(indexUrl);
-      if (indexCachedResponse) {
-        return indexCachedResponse;
+      const pathIndexUrl = new URL(path + 'index.html', url.origin);
+      
+      const precachedIndexResponse = await precache.match(pathIndexUrl);
+      if (precachedIndexResponse) {
+        return precachedIndexResponse;
       }
     }
 
-    return fetch(event.request);
+    try {
+      const networkResponse = await fetch(event.request);
+      if (networkResponse.ok) {
+        await runtimeCache.put(event.request, networkResponse.clone());
+      }
+      return networkResponse;
+    } catch (error) {
+      throw error;
+    }
   })());
 });
