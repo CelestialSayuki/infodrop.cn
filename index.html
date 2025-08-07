@@ -286,6 +286,7 @@
                 <div class="top_title" id="top_title">开源的 Apple 信息整合网站 / infodrop.cn</div>
             </div>
             <div class="top_right_menu">
+                <a id="version-display" style="margin-right: 1em; cursor: default; text-decoration: none;" href="javascript:void(0);"></a>
                 <a href="https://www.github.com/CelestialSayuki/infodrop.cn">源码</a>
             </div>
         </header>
@@ -467,6 +468,22 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 if (window.isBrowserSupported === false) return;
+
+                fetch('./public-static/version.json', { cache: 'no-store' })
+                    .then(response => response.json())
+                    .then(data => {
+                        const versionElement = document.getElementById('version-display');
+                        if (versionElement && data.version) {
+                            versionElement.textContent = `v${data.version}`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching version:', error);
+                        const versionElement = document.getElementById('version-display');
+                        if (versionElement) {
+                            versionElement.style.display = 'none';
+                        }
+                    });
                 
                 if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
