@@ -330,7 +330,7 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
-                    <li><span>2025.08.08：补充 Apple Watch SiP 的标识符</span></li>
+                    <li><span>2025.08.08：补充 Apple Watch SiP 的标识符，更正 Apple Watch Edition 信息</span></li>
                     <li><span>2025.08.07：苹果资源页新增内容</span></li>
                     <li><span>2025.08.06：新增 dvfs 上传</span></li>
                     <li><span>2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span></li>
@@ -436,8 +436,8 @@
                 try {
                     const response = await fetch('./public-static/version.json', { cache: 'no-store' });
                     const serverConfig = await response.json();
-                    const serverVersion = "v" + serverConfig.version;
-                    
+                    const serverVersion = serverConfig.version;
+
                     if (localVersion !== serverVersion) {
                         updateIsPending = true;
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
@@ -475,7 +475,7 @@
                     .then(data => {
                         const versionElement = document.getElementById('version-display');
                         if (versionElement && data.version) {
-                            versionElement.textContent = `v${data.version}`;
+                            versionElement.textContent = `前端版本：${data.version}`;
                         }
                     })
                     .catch(error => {
