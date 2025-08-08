@@ -16,134 +16,6 @@ html, body {
     overflow-y: hidden;
 }
 
-.dock-container {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    background-color: var(--light-glass-bg, rgba(240, 240, 240, 0.7));
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: var(--border-radius, 12px);
-    border: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 2000;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.dock-container.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.dock-item {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dock-item:hover {
-    transform: scale(1.15);
-}
-
-@media (prefers-color-scheme: dark) {
-    .dock-container {
-        background-color: var(--dark-glass-bg, rgba(30, 30, 30, 0.7));
-        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    }
-}
-
-.dock-preview {
-    position: absolute;
-    background-color: rgba(20, 20, 20, 0.85);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 10001;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-}
-
-.dock-preview::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 10px;
-    height: 10px;
-    background-color: rgba(20, 20, 20, 0.85);
-}
-
-@media (prefers-color-scheme: dark) {
-    .dock-preview,
-    .dock-preview::after {
-        background-color: rgba(40, 40, 40, 0.9);
-    }
-}
-
-.window-ghost {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #ccc;
-    border-radius: 12px;
-    z-index: 10000;
-    transform-origin: top left;
-    pointer-events: none;
-    offset-path: none;
-    animation-fill-mode: forwards;
-    animation-duration: 0.7s;
-    animation-timing-function: cubic-bezier(0.6, 0, 0.8, 1);
-}
-
-@keyframes genie-minimize {
-    0% {
-        offset-distance: 0%;
-        transform: scale(1);
-        opacity: 0.8;
-    }
-
-    100% {
-        offset-distance: 100%;
-        transform: scale(0.05);
-        opacity: 0;
-    }
-}
-
-@keyframes genie-restore {
-    0% {
-        offset-distance: 100%;
-        transform: scale(0.05);
-        opacity: 0;
-    }
-
-    100% {
-        offset-distance: 0%;
-        transform: scale(1);
-        opacity: 0.8;
-    }
-}
-
 .macos-window {
     position: absolute;
     width: 800px;
@@ -220,10 +92,13 @@ html, body {
 
 .macos-window-controls {
     display: flex;
-    gap: 8px;
     align-items: center;
     padding: 0 4px;
     cursor: default;
+}
+
+.macos-window-controls > .control-btn:not(:last-child) {
+    margin-right: 8px;
 }
 
 .control-btn {
@@ -575,7 +450,10 @@ ul {
 .main-header .top_left_logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+}
+
+.main-header .top_left_logo > *:not(:last-child) {
+    margin-right: 15px;
 }
 
 .main-header .top_left_logo img {

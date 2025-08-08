@@ -38,9 +38,12 @@
 
 .macos-window-header .header-actions {
   display: flex;
-  gap: 8px;
   position: absolute;
   right: 12px;
+}
+
+.macos-window-header .header-actions > *:not(:last-child) {
+  margin-right: 8px;
 }
 
 .header-btn {
@@ -77,9 +80,12 @@
 
 .products-grid-container {
   display: flex;
-  gap: 12px;
   margin-left: 12px;
   flex-shrink: 0;
+}
+
+.products-grid-container > .product-column:not(:last-child) {
+    margin-right: 12px;
 }
 
 .product-content-wrapper {

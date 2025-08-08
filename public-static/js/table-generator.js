@@ -66,7 +66,18 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                 cellHTML = `<div class="color-swatches">${value.map(c => `<div class="swatch" style="background-color: ${c.hex};" title="${c.name}"></div>`).join('')}</div>`;
               }
             }
-            dataList.innerHTML += `<li>${cellHTML}</li>`;
+            const li = document.createElement('li');
+            li.innerHTML = cellHTML;
+
+            if (typeof cellHTML === 'string' && (
+                cellHTML.includes('li-div-score') ||
+                cellHTML.includes('li-div-gpu') ||
+                cellHTML.includes('li-div-cpu') ||
+                cellHTML.includes('li-div-npu')
+            )) {
+                li.classList.add('multi-div-row');
+            }
+            dataList.appendChild(li);
           });
         });
         contentWrapper.appendChild(dataList);
