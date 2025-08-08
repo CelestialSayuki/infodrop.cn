@@ -23,6 +23,12 @@
                         return { name: 'Chrome', version: parseInt(versionMatch[1], 10) };
                     }
                 }
+                if (ua.includes('Firefox')) {
+                    let versionMatch = ua.match(/Firefox\/([\d.]+)/);
+                    if (versionMatch && versionMatch[1]) {
+                        return { name: 'Firefox', version: parseInt(versionMatch[1], 10) };
+                    }
+                }
                 return { name: 'unknown', version: 0 };
             }
 
@@ -35,14 +41,18 @@
 
             if (browser.name === 'Safari' && browser.version > 0 && browser.version < 14) {
                 isUnsupported = true;
-                requiredVersion = '14.0';
+                requiredVersion = '11.0';
                 browserNameForDisplay = 'Safari';
                 updateTargetWord = '系统浏览器';
                 mainTitle = '系统版本过低';
             } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 90) {
                 isUnsupported = true;
-                requiredVersion = '90';
+                requiredVersion = '70';
                 browserNameForDisplay = 'Chrome/Chromium';
+            } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 80) {
+                isUnsupported = true;
+                requiredVersion = '70';
+                browserNameForDisplay = 'Firefox';
             }
 
             if (isUnsupported) {

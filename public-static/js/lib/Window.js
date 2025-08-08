@@ -1,10 +1,6 @@
 import { rewriteElementPaths, scopeCss, loadScriptsSequentially } from './utils.js';
 
 export class Window {
-  static idCounter = 0;
-  static MIN_WIDTH = 300;
-  static MIN_HEIGHT = 200;
-  static RESIZE_BORDER_WIDTH = 10;
 
   constructor(url, title, windowManager) {
     this.id = `dynamic-window-${++Window.idCounter}`;
@@ -333,3 +329,8 @@ export class Window {
     this.manager.updateScrollLock();
   }
 }
+
+Window.idCounter = 0;
+Window.MIN_WIDTH = 300;
+Window.MIN_HEIGHT = 200;
+Window.RESIZE_BORDER_WIDTH = 10;

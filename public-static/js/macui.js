@@ -136,7 +136,10 @@ function setupSidebarMenu() {
           if (siblingSubmenu) {
             const heightToSubtract = siblingSubmenu.scrollHeight;
             sibling.classList.remove('open');
-            sibling.querySelector('a')?.classList.remove('active');
+            const siblingLink = sibling.querySelector('a');
+            if (siblingLink) {
+                siblingLink.classList.remove('active');
+            }
             siblingSubmenu.style.maxHeight = null;
             adjustAncestorHeight(sibling, -heightToSubtract);
           }
