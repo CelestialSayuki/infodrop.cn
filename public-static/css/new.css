@@ -241,10 +241,7 @@ html, body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: transparent;
+  fill: transparent;
 }
 
 .macos-window-controls:hover .control-close .icon {
@@ -254,7 +251,7 @@ html, body {
   stroke: #90591d;
 }
 .macos-window-controls:hover .control-maximize .icon {
-  stroke: #2a6218;
+  fill: #2a6218;
 }
 
 .control-close {
@@ -288,7 +285,7 @@ html, body {
   background-color: #4a9741;
 }
 .control-maximize:active .icon {
-  stroke: #113107;
+  fill: #113107;
 }
 
 .macos-window-title {

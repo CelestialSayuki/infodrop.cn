@@ -40,7 +40,7 @@ export class Window {
             <svg class="icon" viewBox="0 0 12 12"><path d="M3 6 L9 6" stroke-width="1.5" /></svg>
           </span>
           <span class="control-btn control-maximize">
-            <svg class="icon icon-maximize" viewBox="0 0 12 12"><path d="M3 9V5h4M9 3v4H5" stroke-width="1.5"/></svg>
+            <svg class="icon icon-maximize" viewBox="0 0 14 14"><<path d="M 9.86 6.08 C 9.68 6.01 9.46 6.05 9.32 6.19 L 6.2 9.31 C 6.06 9.45 6.01 9.67 6.09 9.86 C 6.17 10.04 6.35 10.16 6.55 10.16 L 9.67 10.16 C 9.95 10.16 10.17 9.94 10.17 9.66 L 10.17 6.55 C 10.17 6.34 10.05 6.16 9.86 6.08 Z M 7.81 4.68 C 7.95 4.54 8 4.32 7.92 4.14 C 7.84 3.95 7.66 3.83 7.46 3.83 L 4.34 3.83 C 4.06 3.83 3.84 4.05 3.84 4.33 L 3.84 7.45 C 3.84 7.65 3.96 7.83 4.15 7.91 C 4.33 7.99 4.55 7.94 4.69 7.8 L 7.81 4.68 Z"/></svg>
           </span>
         </div>
         <div class="macos-window-title">${this.title}</div>
@@ -324,8 +324,8 @@ export class Window {
     const isMaximized = this.element.classList.contains('is-maximized');
     const maximizeBtn = this.element.querySelector('.control-maximize');
     
-    const maximizeIcon = `<svg class="icon icon-maximize" viewBox="0 0 12 12"><path d="M3 9V5h4M9 3v4H5" stroke-width="1.5"/></svg>`;
-    const restoreIcon = `<svg class="icon icon-restore" viewBox="0 0 12 12"><path d="M5 7V3h4M3 9V5h4" stroke-width="1.5"/></svg>`;
+    const maximizeIcon = `<svg class="icon icon-maximize" viewBox="0 0 14 14"><path d="M 9.86 6.08 C 9.68 6.01 9.46 6.05 9.32 6.19 L 6.2 9.31 C 6.06 9.45 6.01 9.67 6.09 9.86 C 6.17 10.04 6.35 10.16 6.55 10.16 L 9.67 10.16 C 9.95 10.16 10.17 9.94 10.17 9.66 L 10.17 6.55 C 10.17 6.34 10.05 6.16 9.86 6.08 Z M 7.81 4.68 C 7.95 4.54 8 4.32 7.92 4.14 C 7.84 3.95 7.66 3.83 7.46 3.83 L 4.34 3.83 C 4.06 3.83 3.84 4.05 3.84 4.33 L 3.84 7.45 C 3.84 7.65 3.96 7.83 4.15 7.91 C 4.33 7.99 4.55 7.94 4.69 7.8 L 7.81 4.68 Z"/></svg>`;
+    const restoreIcon = `<svg class="icon icon-restore" viewBox="0 0 14 14"><path d="M 6.61 2.83 C 6.43 2.76 6.21 2.8 6.07 2.94 L 2.95 6.06 C 2.81 6.2 2.76 6.42 2.84 6.61 C 2.92 6.79 3.1 6.91 3.3 6.91 L 6.42 6.91 C 6.7 6.91 6.92 6.69 6.92 6.41 L 6.92 3.3 C 6.92 3.09 6.8 2.91 6.61 2.83 Z M 11.06 7.93 C 11.2 7.79 11.25 7.57 11.17 7.39 C 11.09 7.2 10.91 7.08 10.71 7.08 L 7.59 7.08 C 7.31 7.08 7.09 7.3 7.09 7.58 L 7.09 10.7 C 7.09 10.9 7.21 11.08 7.4 11.16 C 7.58 11.24 7.8 11.19 7.94 11.05 L 11.06 7.93 Z"/></svg>`;
     
     if (isMaximized) {
       this.element.classList.remove('is-maximized');
