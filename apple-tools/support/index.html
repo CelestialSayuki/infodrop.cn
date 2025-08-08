@@ -13,11 +13,20 @@
         .system-support-wrapper .tab-link:hover { color: #000; }
         .system-support-wrapper .tab-link.active { color: #000; font-weight: bold; }
         .system-support-wrapper #sub-nav-container { margin-bottom: 1rem; font-size: 0.9rem; padding-left: 15px; }
-        .system-support-wrapper .table-responsive { width: 100%; overflow-x: auto; overflow-y: auto; transition: opacity 0.2s ease-in-out;}
+        .system-support-wrapper .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+            will-change: opacity;
+        }
+        .system-support-wrapper .table-responsive.fade-out { opacity: 0; }
+        .system-support-wrapper .table-responsive.fade-in { opacity: 1; }
         .system-support-wrapper table { width: 100%; border-collapse: collapse; }
         .system-support-wrapper table th, .system-support-wrapper table td { padding: 0.7rem 0.75rem; vertical-align: middle; text-align: center; border-top: 1px solid #dee2e6; font-size: 13px; }
         .system-support-wrapper table th:first-child, .system-support-wrapper table td:first-child { text-align: left; }
-        .system-support-wrapper thead { background-color: rgba(248, 249, 250, 0.95); will-change: transform; position: sticky; top: 0; z-index: 1;}
+        .system-support-wrapper thead { background-color: rgba(248, 249, 250, 0.95); will-change: transform; position: sticky; top: 0; z-index: 1; }
         .system-support-wrapper thead th { border-bottom: 2px solid #dee2e6; font-weight: 600; }
         .system-support-wrapper tbody { border-top: 2px solid #dee2e6; }
         .system-support-wrapper .glow-border, .system-support-wrapper .grayscale-border { border: none; }
@@ -71,8 +80,7 @@
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const data = await response.json();
-            return data;
+            return await response.json();
         } catch (error) {
             console.error(`Could not fetch data for ${osKey}:`, error);
             document.getElementById('data-table-body').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;">无法加载 ${osKey}.json。请按 F12 键查看控制台错误。</td></tr>`;
@@ -122,9 +130,14 @@
         const tableBody = document.getElementById('data-table-body');
         if (!tableHead || !tableBody || !categoryData) return;
 
-        // Removed domCache check
+        const fragment = document.createDocumentFragment();
+        const headRow = document.createElement('tr');
+        headRow.innerHTML = categoryData.headers.map(h => `<th width="${h.width || ''}">${h.text}</th>`).join('');
+        fragment.appendChild(headRow);
+        tableHead.innerHTML = '';
+        tableHead.appendChild(fragment);
 
-        const headHtml = '<tr>' + categoryData.headers.map(h => `<th width="${h.width || ''}">${h.text}</th>`).join('') + '</tr>';
+        const bodyFragment = document.createDocumentFragment();
         let devicesToRender = [];
         if (categoryData.devices) {
             devicesToRender = categoryData.devices;
@@ -134,15 +147,16 @@
                 devicesToRender = categoryData.categories[key].devices;
             }
         }
-        const bodyHtml = devicesToRender.map(device => {
+        devicesToRender.forEach(device => {
             if (osKey === 'watchos' || osKey === 'visionos') device.iconClass = 'round';
-            return createDeviceRow(device, categoryData.osVersions, categoryData.headers, osKey);
-        }).join('');
-
-        tableHead.innerHTML = headHtml;
-        tableBody.innerHTML = bodyHtml;
+            const row = document.createElement('tr');
+            row.innerHTML = createDeviceRow(device, categoryData.osVersions, categoryData.headers, osKey);
+            bodyFragment.appendChild(row);
+        });
+        tableBody.innerHTML = '';
+        tableBody.appendChild(bodyFragment);
     }
-    
+
     function adjustTableHeight() {
         const tableContainer = document.querySelector('.table-responsive');
         if (!tableContainer) return;
@@ -150,7 +164,6 @@
         const topOffset = tableContainer.getBoundingClientRect().top;
         const bottomPadding = 60;
         const availableHeight = window.innerHeight - topOffset - bottomPadding;
-
         tableContainer.style.maxHeight = Math.max(250, availableHeight) + 'px';
     }
 
@@ -166,6 +179,7 @@
             subNavContainer.innerHTML = `<span>${links}</span>`;
         }
     }
+
     async function unifiedClickHandler(event) {
         const link = event.target.closest('.tab-link');
         if (!link || link.classList.contains('active')) {
@@ -174,12 +188,11 @@
         }
 
         event.preventDefault();
-        
         const tableContainer = document.querySelector('.table-responsive');
+        tableContainer.classList.remove('fade-in');
+        tableContainer.classList.add('fade-out');
 
-        tableContainer.style.opacity = 0;
-
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 300));
 
         const group = link.dataset.tabGroup;
         const target = link.dataset.tabTarget;
@@ -192,18 +205,20 @@
 
         const osKey = group === 'main' ? target : group;
         const subKey = group === 'main' ? null : target;
-        
-        const categoryData = await fetchData(osKey);
 
+        const categoryData = await fetchData(osKey);
         if (categoryData) {
             if (group === 'main') {
                 renderSubNav(osKey, categoryData);
             }
             renderTable(osKey, categoryData, subKey);
         }
-        
-        tableContainer.style.opacity = 1;
-        adjustTableHeight();
+
+        requestAnimationFrame(() => {
+            tableContainer.classList.remove('fade-out');
+            tableContainer.classList.add('fade-in');
+            adjustTableHeight();
+        });
     }
 
     async function initializePage() {
@@ -211,7 +226,7 @@
         document.getElementById('sub-nav-container').addEventListener('click', unifiedClickHandler);
 
         const tableContainer = document.querySelector('.table-responsive');
-        tableContainer.style.opacity = 0;
+        tableContainer.classList.add('fade-out');
 
         const defaultTab = document.querySelector('.tab-link[data-tab-target="ios"]');
         if (defaultTab) {
@@ -219,16 +234,18 @@
             defaultTab.classList.add('active');
 
             document.getElementById('data-table-body').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;">正在加载...</td></tr>`;
-            
+
             const categoryData = await fetchData(target);
             if (categoryData) {
                 renderSubNav(target, categoryData);
                 renderTable(target, categoryData, null);
-                tableContainer.style.opacity = 1;
+                tableContainer.classList.remove('fade-out');
+                tableContainer.classList.add('fade-in');
             }
         }
         adjustTableHeight();
     }
+
     window.addEventListener('resize', adjustTableHeight);
     initializePage();
 </script>
