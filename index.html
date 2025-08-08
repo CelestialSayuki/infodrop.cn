@@ -39,17 +39,17 @@
             let updateTargetWord = '浏览器';
             let mainTitle = '浏览器版本过低';
 
-            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 14) {
+            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 11) {
                 isUnsupported = true;
                 requiredVersion = '11.0';
                 browserNameForDisplay = 'Safari';
                 updateTargetWord = '系统浏览器';
                 mainTitle = '系统版本过低';
-            } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 90) {
+            } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 70) {
                 isUnsupported = true;
                 requiredVersion = '70';
                 browserNameForDisplay = 'Chrome/Chromium';
-            } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 80) {
+            } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 70) {
                 isUnsupported = true;
                 requiredVersion = '70';
                 browserNameForDisplay = 'Firefox';
@@ -302,7 +302,7 @@
         </header>
         <main class="main-content">
             <div class="hero-banner">
-                <h1>现代化的 Apple 产品参数中心</h1>
+                <h1>先进的 Apple 产品参数中心</h1>
             </div>
             <div class="title" id="divdown1" style="display: none;">
                 <strong>倒计时（苹果 Apple 全球开发者大会）🥳</strong>

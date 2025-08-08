@@ -1,7 +1,7 @@
 {
   "name": "开源的 Apple 产品参数中心",
   "short_name": "Apple参数",
-  "description": "一个现代化的 Apple 产品参数中心和信息整合网站。",
+  "description": "一个先进的 Apple 产品参数中心和信息整合网站。",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",

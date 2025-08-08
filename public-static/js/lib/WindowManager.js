@@ -7,11 +7,19 @@ export class WindowManager {
     this.openWindows = new Map();
     this.zIndexCounter = 100;
     
-    this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    this.isDarkMode = mediaQuery.matches;
+
+    const themeChangeHandler = (e) => {
         this.isDarkMode = e.matches;
         this._updateAllWindowsTheme();
-    });
+    };
+
+    if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', themeChangeHandler);
+    } else {
+        mediaQuery.addListener(themeChangeHandler);
+    }
   }
 
   get windowCount() {
