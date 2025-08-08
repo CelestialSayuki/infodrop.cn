@@ -2,7 +2,7 @@ import { WindowManager } from './lib/WindowManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainContentArea = document.querySelector('.main-content');
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   if (isMobile) {
     setupMobileNavigation();
