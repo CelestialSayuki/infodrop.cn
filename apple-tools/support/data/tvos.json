@@ -17,7 +17,7 @@
         { "id": "tvos_15", "name": "tvOS 15", "icon": "" },
         { "id": "tvos_16", "name": "tvOS 16", "icon": "./apple-tools/support/img/tvos-16-logo.webp" },
         { "id": "tvos_17", "name": "tvOS 17", "icon": "./apple-tools/support/img/tvos-17-logo.webp" },
-        { "id": "tvos_18", "name": "tvOS 18", "icon": "./apple-tools/support/img/tvos-18-logo.png" },
+        { "id": "tvos_18", "name": "tvOS 18", "icon": "./apple-tools/support/img/tvos-18-logo.webp" },
         { "id": "tvos_26", "name": "tvOS 26", "icon": "./apple-tools/support/img/tvos-26-logo.webp" }
     ],
     "headers": [
