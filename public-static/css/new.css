@@ -221,25 +221,74 @@ html, body {
 .macos-window-controls {
     display: flex;
     gap: 8px;
+    align-items: center;
+    padding: 0 4px;
+    cursor: default;
 }
 
 .control-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.control-btn .icon {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: transparent;
+}
+
+.macos-window-controls:hover .control-close .icon {
+  stroke: #460804;
+}
+.macos-window-controls:hover .control-minimize .icon {
+  stroke: #90591d;
+}
+.macos-window-controls:hover .control-maximize .icon {
+  stroke: #2a6218;
 }
 
 .control-close {
-    background-color: #ff5f57;
+  background-color: #ed6a5e;
+  border: 1px solid #c9473a;
 }
-
 .control-minimize {
-    background-color: #ffbd2e;
+  background-color: #f5c050;
+  border: 1px solid #ecb545;
+}
+.control-maximize {
+  background-color: #61c455;
+  border: 1px solid #59bb49;
 }
 
-.control-maximize {
-    background-color: #28c940;
+.control-close:active {
+  background-color: #b15048;
+}
+.control-close:active .icon {
+  stroke: #170101;
+}
+
+.control-minimize:active {
+  background-color: #b8923b;
+}
+.control-minimize:active .icon {
+  stroke: #532a0a;
+}
+
+.control-maximize:active {
+  background-color: #4a9741;
+}
+.control-maximize:active .icon {
+  stroke: #113107;
 }
 
 .macos-window-title {
@@ -853,9 +902,8 @@ ul {
     }
 }
 
-/* new.css - 可添加在文件末尾 */
 .hamburger-btn {
-    display: none; /* 桌面端隐藏 */
+    display: none;
     background: none;
     border: none;
     color: inherit;
@@ -866,10 +914,9 @@ ul {
 
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: block; /* 移动端显示 */
+        display: block;
     }
     .main-header .top_left_logo .top_title {
-        /* 在小屏幕上可以适当隐藏标题，为按钮留出空间 */
         display: none;
     }
     .main-header {
@@ -877,10 +924,9 @@ ul {
         grid-column: 1;
         box-shadow: none;
         
-        /* --- 新增/修改的部分 --- */
-        position: sticky; /* 使元素在滚动时固定 */
-        top: 0;           /* 固定在屏幕顶部 */
-        z-index: 10;      /* 确保它显示在其他内容之上 */
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 }
 
