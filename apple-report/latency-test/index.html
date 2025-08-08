@@ -633,10 +633,6 @@
             
             document.getElementById('info-ua').textContent = navigator.userAgent;
             
-            if (navigator.userAgent.indexOf("Chrome") !== -1) {
-                 document.getElementById('maxTestSize').placeholder = "262144 (Chrome 推荐)";
-            }
-            
             initializeWorker();
         }
 

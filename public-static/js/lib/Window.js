@@ -257,9 +257,19 @@ export class Window {
             } else {
                 const response = await fetch(this.url);
                 if (!response.ok) throw new Error(`网络请求失败: ${response.status}`);
-                const htmlText = await response.text();
+                
+                let htmlText = await response.text();
+                const modifiedHtmlText = htmlText.replace(/(<script\b[^>]*>)([\s\S]*?)(<\/script>)/gi, (match, openTag, scriptContent, closeTag) => {
+                    const newScriptContent = scriptContent.replace(
+                        /document\.querySelector\((['"])(\.main-content)\1\)/g,
+                        `document.querySelector('#${this.id} .main-content')`
+                    );
+                    return openTag + newScriptContent + closeTag;
+                });
+
                 const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, 'text/html');
+                const doc = parser.parseFromString(modifiedHtmlText, 'text/html');
+                
                 doc.head.querySelectorAll('link[rel="stylesheet"]').forEach(linkNode => {
                     const absoluteUrl = new URL(linkNode.getAttribute('href'), response.url).href;
                     if (!document.getElementById(`dynamic-style-${absoluteUrl}`)) {
