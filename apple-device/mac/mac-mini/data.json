@@ -161,7 +161,7 @@
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">16GB 统一内存<br>512GB</div>",
         "power": "150 瓦",
         "thunderbolt": "/",
-        "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">USB-A (最高 5Gb/s) ×2<br>千兆以太网 (可选配 10Gb)<br>3.5 毫米耳机插孔<br>HDMI 2.0 ×1<br><br></div>",
+        "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">USB-A (最高 5Gb/s) ×2<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI 2.0 ×1<br>USB-C (最高 10Gb/s) ×2<br></div>",
         "wifi": "802.11ac Wi-Fi 5",
         "bluetooth": "Bluetooth 5.0",
         "dimensionsWeight": "3.6×19.7×19.7cm,1.2kg",

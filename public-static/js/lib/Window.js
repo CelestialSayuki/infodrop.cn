@@ -184,31 +184,74 @@ export class Window {
                 const jsonUrl = this.url + 'data.json';
                 const gridContainer = await renderComparisonTable(jsonUrl, windowBody, this.url);
                 if (gridContainer) {
-                    const updateFilterState = () => {
-                        const selectedCount = gridContainer.querySelectorAll('.product-column.selected').length;
-                        filterButton.classList.toggle('active', selectedCount > 0);
-                        if (selectedCount === 0) gridContainer.classList.remove('is-filtering');
+                    const syncUiToState = (shouldResetScroll) => {
+                        const selectedColumns = gridContainer.querySelectorAll('.product-column.selected');
+                        filterButton.classList.toggle('active', selectedColumns.length > 0);
+                        
+                        const targetElement = gridContainer.querySelector('.products-grid-container');
+
+                        if (targetElement) {
+                            if (gridContainer.classList.contains('is-filtering')) {
+                                const clone = gridContainer.cloneNode(true);
+                                Object.assign(clone.style, {
+                                    position: 'absolute',
+                                    left: '-9999px',
+                                    top: '-9999px',
+                                    visibility: 'hidden',
+                                    width: 'fit-content'
+                                });
+                                document.body.appendChild(clone);
+                                
+                                const unselectedInClone = clone.querySelectorAll('.product-column:not(.selected)');
+                                unselectedInClone.forEach(col => col.style.display = 'none');
+                                
+                                const newWidth = clone.scrollWidth;
+                                
+                                document.body.removeChild(clone);
+
+                                targetElement.style.width = `${newWidth}px`;
+                            } else {
+                                targetElement.style.width = '';
+                            }
+                        }
+                        
+                        if (shouldResetScroll) {
+                            windowBody.scrollLeft = 0;
+                        }
                     };
+
                     gridContainer.addEventListener('click', (e) => {
                         const product = e.target.closest('.product-column');
                         if (!product || e.target.closest('a')) return;
                         e.preventDefault();
                         product.classList.toggle('selected');
-                        updateFilterState();
+                        
+                        let shouldResetScroll = false;
+                        if (gridContainer.classList.contains('is-filtering')) {
+                            shouldResetScroll = true;
+                            if (gridContainer.querySelectorAll('.product-column.selected').length === 0) {
+                                gridContainer.classList.remove('is-filtering');
+                            }
+                        }
+                        syncUiToState(shouldResetScroll);
                     });
+
                     filterButton.addEventListener('click', (e) => {
                         e.preventDefault();
                         if (filterButton.classList.contains('active')) {
                             gridContainer.classList.add('is-filtering');
+                            syncUiToState(true);
                         }
                     });
+
                     resetButton.addEventListener('click', (e) => {
                         e.preventDefault();
                         gridContainer.classList.remove('is-filtering');
                         gridContainer.querySelectorAll('.product-column').forEach(p => p.classList.remove('selected'));
-                        updateFilterState();
+                        syncUiToState(true);
                     });
-                    updateFilterState();
+
+                    syncUiToState(false);
                     syncRowHeights(gridContainer);
                 }
             } else {

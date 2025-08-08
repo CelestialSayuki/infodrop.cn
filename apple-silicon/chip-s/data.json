@@ -103,7 +103,7 @@
   "products": [
     {
       "name": "Apple S10 SiP",
-      "generation": "",
+      "generation": "(T8310)",
       "image": "img/null.png",
       "images": {
         "SiP": "img/null.png",
@@ -151,7 +151,7 @@
     },
     {
       "name": "Apple S9 SiP",
-      "generation": "",
+      "generation": "(T8310)",
       "image": "img/S9_temp.webp",
       "images": {
         "SiP": "img/S9_temp.webp",
@@ -199,7 +199,7 @@
     },
     {
       "name": "Apple S8 SiP",
-      "generation": "",
+      "generation": "(T8301)",
       "image": "img/S8_temp.webp",
       "images": {
         "SiP": "img/S8_temp.webp",
@@ -249,7 +249,7 @@
     },
     {
       "name": "Apple S7 SiP",
-      "generation": "",
+      "generation": "(T8301)",
       "image": "img/S7_temp.webp",
       "images": {
         "SiP": "img/S7_temp.webp",
@@ -299,7 +299,7 @@
     },
     {
       "name": "Apple S6 SiP",
-      "generation": "",
+      "generation": "(T8301)",
       "image": "img/S6_temp.webp",
       "images": {
         "SiP": "img/S6_temp.webp",
@@ -349,7 +349,7 @@
     },
     {
       "name": "Apple S5 SiP",
-      "generation": "",
+      "generation": "(T8006)",
       "image": "img/S5_temp.webp",
       "images": {
         "SiP": "img/S5_temp.webp",
@@ -398,7 +398,7 @@
     },
     {
       "name": "Apple S4 SiP",
-      "generation": "",
+      "generation": "(T8006)",
       "image": "img/S4_temp.webp",
       "images": {
         "SiP": "img/S4_temp.webp",
@@ -447,7 +447,7 @@
     },
     {
       "name": "Apple S3 SiP",
-      "generation": "",
+      "generation": "(T8004)",
       "image": "img/S3_temp.webp",
       "images": {
         "SiP": "img/S3_temp.webp",
@@ -496,7 +496,7 @@
     },
     {
       "name": "Apple S2",
-      "generation": "",
+      "generation": "(T8002)",
       "image": "img/S2_temp.webp",
       "images": {
         "SiP": "img/S2_temp.webp",
@@ -546,7 +546,7 @@
     },
     {
       "name": "Apple S1P",
-      "generation": "",
+      "generation": "(T8002)",
       "image": "img/S1P_temp.webp",
       "images": {
         "SiP": "img/S1P_temp.webp"
@@ -593,7 +593,7 @@
     },
     {
       "name": "Apple S1",
-      "generation": "",
+      "generation": "(S7002)",
       "image": "img/S1_temp.webp",
       "images": {
         "SiP": "img/S1_temp.webp",
