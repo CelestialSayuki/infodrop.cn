@@ -213,7 +213,7 @@
         ],
         "arLink": "/",
         "process": "Intel 22nm (Haswell)",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4260U\">双核i3<br>4260U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4278U\">双核i5<br>4278U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4308U\">双核i5<br>4308U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i7-4578U\">双核i7<br>4578U</div>",
+        "chip": "<div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4260U\">双核i5<br>4260U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4278U\">双核i5<br>4278U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i5-4308U\">双核i5<br>4308U</div><div class=\"li-div-cpu li-div-cpu-d\" title=\"i7-4578U\">双核i7<br>4578U</div>",
         "gpu": "<div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"i5-4260U\">HD 5000</div><div class=\"li-div-gpu li-div-gpu-a li-div-gpu-one\" title=\"i5-4278U、i5-4308U、i7-4578U\">Iris 5100</div>",
         "npu": "<div class=\"li-div-npu li-div-npu-b li-div-npu-one\">/</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4、8、16GB<br>256GB、500GB、512GB、1TB、2TB</div>",
@@ -473,3 +473,4 @@
     }
   ]
 }
+
