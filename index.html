@@ -161,7 +161,7 @@
             transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
         }
         .loading-text {
-            color: #a8a8b1;
+            color: #ffffff;
             margin-top: 20px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-size: 0.9em;
@@ -435,9 +435,23 @@
             const runLoadingAnimation = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (!loadingScreen) return;
-                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
+                
                 loadingScreen.style.display = 'flex';
-                progressBarContainer.style.opacity = '1';
+                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
+                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
+                const loadingText = loadingScreen.querySelector('.loading-text');
+                
+                if (progressBarContainer) {
+                    progressBarContainer.style.opacity = '1';
+                }
+                if (progressBarFill) {
+                    progressBarFill.style.transition = 'none';
+                    progressBarFill.style.width = '0%';
+                }
+                if (loadingText) {
+                    loadingText.textContent = '正在准备更新...';
+                    loadingText.style.opacity = '1';
+                }
             };
             
             async function checkForUpdates(registration) {
@@ -458,10 +472,22 @@
                             if (loadingScreen) {
                                 loadingScreen.classList.remove('hidden');
                                 document.documentElement.classList.remove('is-preloaded');
+                                
                                 const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
                                 const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
-                                if(progressBarFill) progressBarFill.style.width = '0%';
-                                if(progressBarContainer) progressBarContainer.style.opacity = '1';
+                                const loadingText = loadingScreen.querySelector('.loading-text');
+                                
+                                if (progressBarFill) {
+                                    progressBarFill.style.transition = 'none';
+                                    progressBarFill.style.width = '0%';
+                                }
+                                if (progressBarContainer) {
+                                    progressBarContainer.style.opacity = '1';
+                                }
+                                if (loadingText) {
+                                    loadingText.textContent = '正在更新...';
+                                    loadingText.style.opacity = '1';
+                                }
                             }
                         }
 
@@ -473,7 +499,7 @@
                         return true;
                     }
                 } catch (error) {
-
+                    console.error('更新检查失败:', error);
                 }
                 return false;
             }
@@ -490,7 +516,7 @@
                         }
                     })
                     .catch(error => {
-                        console.error('Error fetching version:', error);
+                        console.error('获取版本信息失败:', error);
                         const versionElement = document.getElementById('version-display');
                         if (versionElement) {
                             versionElement.style.display = 'none';
@@ -521,16 +547,31 @@
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
                     const progressBarFill = document.querySelector('.progress-bar-fill');
-                    if (!progressBarFill) return;
-
-                    if (event.data.type === 'CACHE_PROGRESS') {
+                    const progressBarContainer = document.querySelector('.progress-bar-container');
+                    const loadingText = document.querySelector('.loading-text');
+                    
+                    if (event.data.type === 'CACHE_PROGRESS' ||
+                        event.data.type === 'CURRENT_PROGRESS') {
                         const { percent } = event.data.payload;
-                        progressBarFill.style.transition = 'none';
-                        progressBarFill.style.width = `${percent}%`;
+                        if (progressBarFill) {
+                            if (parseInt(progressBarFill.style.width) !== percent) {
+                                progressBarFill.style.transition = 'none';
+                                progressBarFill.style.width = `${percent}%`;
+                            }
+                        }
+                        if (progressBarContainer) {
+                            progressBarContainer.style.opacity = '1';
+                        }
+                        if (loadingText) {
+                            loadingText.textContent = `正在缓存资源: ${percent}%`;
+                            loadingText.style.opacity = '1';
+                        }
                     }
                     if (event.data.type === 'CACHE_COMPLETE') {
-                        progressBarFill.style.transition = 'width 0.2s ease-out';
-                        progressBarFill.style.width = '100%';
+                        if (progressBarFill) {
+                            progressBarFill.style.transition = 'width 0.2s ease-out';
+                            progressBarFill.style.width = '100%';
+                        }
                         localStorage.setItem('sw_installed_version', event.data.payload.version);
                     }
                 });
@@ -539,16 +580,20 @@
                     const isPreloaded = document.documentElement.classList.contains('is-preloaded');
                     const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
+                    const requestProgress = () => {
+                        if (registration.active) {
+                            registration.active.postMessage({ type: 'GET_PROGRESS' });
+                        } else if (registration.installing) {
+                            registration.installing.postMessage({ type: 'GET_PROGRESS' });
+                        } else if (registration.waiting) {
+                            registration.waiting.postMessage({ type: 'GET_PROGRESS' });
+                        }
+                    };
+                    
+                    requestProgress();
+
                     if (isStandalone) {
                         runLoadingAnimation();
-                        const progressBarFill = document.querySelector('.progress-bar-fill');
-                        setTimeout(() => {
-                            if (progressBarFill) {
-                                progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
-                                progressBarFill.style.width = '100%';
-                            }
-                        }, 100);
-
                         const updateStarted = await checkForUpdates(registration);
                         if (!updateStarted) {
                             setTimeout(hideLoadingScreen, 1500);
@@ -557,11 +602,14 @@
                         const updateStarted = await checkForUpdates(registration);
                         if (!updateStarted) {
                             hideLoadingScreen();
+                        } else {
+                            runLoadingAnimation();
                         }
                     } else {
                         runLoadingAnimation();
                     }
                 }).catch(err => {
+                    console.error('Service Worker 注册失败:', err);
                     hideLoadingScreen();
                 });
             });

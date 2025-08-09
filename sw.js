@@ -1,8 +1,12 @@
-const CACHE_VERSION = '1A1012v';
+const CACHE_VERSION = '1A1013s';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
 const MANIFEST_URL = './precache-manifest.json';
+
+let currentProgress = 0;
+let totalFiles = 0;
+let cachedCount = 0;
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -12,8 +16,9 @@ self.addEventListener('install', (event) => {
         const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error('Failed to fetch precache manifest.');
         const filesToCache = await response.json();
-        const totalFiles = filesToCache.length;
-        let cachedCount = 0;
+        totalFiles = filesToCache.length;
+        cachedCount = 0;
+        currentProgress = 0;
         let lastReportedPercent = -1;
 
         for (const url of filesToCache) {
@@ -26,6 +31,7 @@ self.addEventListener('install', (event) => {
             await cache.put(request, networkResponse);
             cachedCount++;
             const percent = Math.round((cachedCount / totalFiles) * 100);
+            currentProgress = percent;
 
             if (percent > lastReportedPercent) {
               lastReportedPercent = percent;
@@ -61,6 +67,19 @@ self.addEventListener('install', (event) => {
       }
     })
   );
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data.type === 'GET_PROGRESS') {
+    event.source.postMessage({
+      type: 'CURRENT_PROGRESS',
+      payload: {
+        total: totalFiles,
+        current: cachedCount,
+        percent: currentProgress
+      }
+    });
+  }
 });
 
 self.addEventListener('activate', (event) => {
