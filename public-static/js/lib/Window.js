@@ -54,82 +54,115 @@ export class Window {
     this.bringToFront();
   }
 
-  _setupEventListeners() {
-    const header = this.element.querySelector('.macos-window-header');
-    this.element.querySelector('.control-close').onclick = (e) => { e.stopPropagation(); this.close(); };
-    this.element.querySelector('.control-maximize').onclick = (e) => { e.stopPropagation(); this.toggleMaximize(); };
-    let action = '', startX, startY, startWidth, startHeight, startLeft, startTop, resizeDirection = '';
-    const getResizeDirection = (e) => {
-        if (this.state === 'maximized') return '';
-        const rect = this.element.getBoundingClientRect();
-        const onTop = e.clientY >= rect.top && e.clientY <= rect.top + Window.RESIZE_BORDER_WIDTH;
-        const onBottom = e.clientY <= rect.bottom && e.clientY >= rect.bottom - Window.RESIZE_BORDER_WIDTH;
-        const onLeft = e.clientX >= rect.left && e.clientX <= rect.left + Window.RESIZE_BORDER_WIDTH;
-        const onRight = e.clientX <= rect.right && e.clientX >= rect.right - Window.RESIZE_BORDER_WIDTH;
-        let dir = '';
-        if (onTop) dir += 'n';
-        if (onBottom) dir += 's';
-        if (onLeft) dir += 'w';
-        if (onRight) dir += 'e';
-        return dir;
-    };
-    this.element.addEventListener('mousemove', (e) => {
-        if (action) return;
-        const dir = getResizeDirection(e);
-        let cursor = 'default';
-        if (dir === 'n' || dir === 's') cursor = 'ns-resize';
-        else if (dir === 'e' || dir === 'w') cursor = 'ew-resize';
-        else if (dir === 'nw' || dir === 'se') cursor = 'nwse-resize';
-        else if (dir === 'ne' || dir === 'sw') cursor = 'nesw-resize';
-        this.element.style.cursor = cursor;
-    });
-    const stopInteraction = () => {
-        action = '';
-        header.style.cursor = 'move';
-        this.element.style.transition = '';
-        document.removeEventListener('mousemove', performInteraction);
-        document.removeEventListener('mouseup', stopInteraction);
-    };
-    const performInteraction = (e) => {
-        if (action === 'dragging') {
-            this.element.style.left = `${startLeft + e.clientX - startX}px`;
-            this.element.style.top = `${startTop + e.clientY - startY}px`;
-        } else if (action === 'resizing') {
-            const deltaX = e.clientX - startX;
-            const deltaY = e.clientY - startY;
-            let newWidth = startWidth, newHeight = startHeight, newLeft = startLeft, newTop = startTop;
-            if (resizeDirection.includes('e')) newWidth = startWidth + deltaX;
-            if (resizeDirection.includes('w')) { newWidth = startWidth - deltaX; newLeft = startLeft + deltaX; }
-            if (resizeDirection.includes('s')) newHeight = startHeight + deltaY;
-            if (resizeDirection.includes('n')) { newHeight = startHeight - deltaY; newTop = startTop + deltaY; }
-            if (newWidth >= Window.MIN_WIDTH) { this.element.style.width = `${newWidth}px`; this.element.style.left = `${newLeft}px`; }
-            if (newHeight >= Window.MIN_HEIGHT) { this.element.style.height = `${newHeight}px`; this.element.style.top = `${newTop}px`; }
-        }
-    };
-    this.element.addEventListener('mousedown', (e) => {
-        if (e.target.closest('.macos-window-body') || e.target.closest('.control-btn')) return;
-        e.preventDefault();
-        this.bringToFront();
-        startX = e.clientX;
-        startY = e.clientY;
-        startLeft = this.element.offsetLeft;
-        startTop = this.element.offsetTop;
-        startWidth = this.element.offsetWidth;
-        startHeight = this.element.offsetHeight;
-        resizeDirection = getResizeDirection(e);
-        if (resizeDirection && this.state !== 'maximized') {
-            action = 'resizing';
-        } else if (e.target.closest('.macos-window-header')) {
-            action = 'dragging';
-            header.style.cursor = 'grabbing';
-        }
-        if (action) {
-            this.element.style.transition = 'none';
-            document.addEventListener('mousemove', performInteraction);
-            document.addEventListener('mouseup', stopInteraction, { once: true });
-        }
-    });
-  }
+    _setupEventListeners() {
+        const header = this.element.querySelector('.macos-window-header');
+        this.element.querySelector('.control-close').onclick = (e) => { e.stopPropagation(); this.close(); };
+        this.element.querySelector('.control-maximize').onclick = (e) => { e.stopPropagation(); this.toggleMaximize(); };
+
+        let action = '', startX, startY, startWidth, startHeight, startLeft, startTop, resizeDirection = '';
+
+        const getEventCoords = (e) => {
+            if (e.touches && e.touches.length) {
+                return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+            return { x: e.clientX, y: e.clientY };
+        };
+
+        const getResizeDirection = (e) => {
+            if (this.state === 'maximized') return '';
+            const coords = getEventCoords(e);
+            const rect = this.element.getBoundingClientRect();
+            const onTop = coords.y >= rect.top && coords.y <= rect.top + Window.RESIZE_BORDER_WIDTH;
+            const onBottom = coords.y <= rect.bottom && coords.y >= rect.bottom - Window.RESIZE_BORDER_WIDTH;
+            const onLeft = coords.x >= rect.left && coords.x <= rect.left + Window.RESIZE_BORDER_WIDTH;
+            const onRight = coords.x <= rect.right && coords.x >= rect.right - Window.RESIZE_BORDER_WIDTH;
+            let dir = '';
+            if (onTop) dir += 'n';
+            if (onBottom) dir += 's';
+            if (onLeft) dir += 'w';
+            if (onRight) dir += 'e';
+            return dir;
+        };
+
+        this.element.addEventListener('mousemove', (e) => {
+            if (action) return;
+            const dir = getResizeDirection(e);
+            let cursor = 'default';
+            if (dir === 'n' || dir === 's') cursor = 'ns-resize';
+            else if (dir === 'e' || dir === 'w') cursor = 'ew-resize';
+            else if (dir === 'nw' || dir === 'se') cursor = 'nwse-resize';
+            else if (dir === 'ne' || dir === 'sw') cursor = 'nesw-resize';
+            this.element.style.cursor = cursor;
+        });
+
+        const performInteraction = (e) => {
+            if (e.type === 'touchmove') {
+                e.preventDefault();
+            }
+            const coords = getEventCoords(e);
+            if (action === 'dragging') {
+                this.element.style.left = `${startLeft + coords.x - startX}px`;
+                this.element.style.top = `${startTop + coords.y - startY}px`;
+            } else if (action === 'resizing') {
+                const deltaX = coords.x - startX;
+                const deltaY = coords.y - startY;
+                let newWidth = startWidth, newHeight = startHeight, newLeft = startLeft, newTop = startTop;
+                if (resizeDirection.includes('e')) newWidth = startWidth + deltaX;
+                if (resizeDirection.includes('w')) { newWidth = startWidth - deltaX; newLeft = startLeft + deltaX; }
+                if (resizeDirection.includes('s')) newHeight = startHeight + deltaY;
+                if (resizeDirection.includes('n')) { newHeight = startHeight - deltaY; newTop = startTop + deltaY; }
+                if (newWidth >= Window.MIN_WIDTH) { this.element.style.width = `${newWidth}px`; this.element.style.left = `${newLeft}px`; }
+                if (newHeight >= Window.MIN_HEIGHT) { this.element.style.height = `${newHeight}px`; this.element.style.top = `${newTop}px`; }
+            }
+        };
+
+        const stopInteraction = () => {
+            action = '';
+            header.style.cursor = 'move';
+            this.element.style.transition = '';
+            document.removeEventListener('mousemove', performInteraction);
+            document.removeEventListener('mouseup', stopInteraction);
+            document.removeEventListener('touchmove', performInteraction);
+            document.removeEventListener('touchend', stopInteraction);
+        };
+
+        const startInteraction = (e) => {
+            if (e.target.closest('.macos-window-body') || e.target.closest('.control-btn')) return;
+
+            this.bringToFront();
+            const coords = getEventCoords(e);
+            startX = coords.x;
+            startY = coords.y;
+            startLeft = this.element.offsetLeft;
+            startTop = this.element.offsetTop;
+            startWidth = this.element.offsetWidth;
+            startHeight = this.element.offsetHeight;
+
+            if (e.type === 'mousedown') {
+                e.preventDefault();
+                resizeDirection = getResizeDirection(e);
+                if (resizeDirection && this.state !== 'maximized') {
+                    action = 'resizing';
+                } else if (e.target.closest('.macos-window-header')) {
+                    action = 'dragging';
+                    header.style.cursor = 'grabbing';
+                }
+            } else if (e.type === 'touchstart' && e.target.closest('.macos-window-header')) {
+                action = 'dragging';
+            }
+
+            if (action) {
+                this.element.style.transition = 'none';
+                document.addEventListener('mousemove', performInteraction);
+                document.addEventListener('mouseup', stopInteraction, { once: true });
+                document.addEventListener('touchmove', performInteraction, { passive: false });
+                document.addEventListener('touchend', stopInteraction, { once: true });
+            }
+        };
+
+        this.element.addEventListener('mousedown', startInteraction);
+        this.element.addEventListener('touchstart', startInteraction);
+      }
 
   async loadContent(newUrl) {
     if (newUrl) this.url = newUrl;
@@ -218,7 +251,7 @@ export class Window {
                     }
                     
                     if (shouldResetScroll) {
-                        windowBody.scrollLeft = 0;
+                        windowBody.scrollTo({ left: 0, behavior: 'smooth' });
                     }
                 };
 
@@ -248,6 +281,9 @@ export class Window {
 
                 resetButton.addEventListener('click', (e) => {
                     e.preventDefault();
+                    gridContainer.querySelectorAll('.product-column.selected').forEach(col => {
+                        col.classList.remove('selected');
+                    });
                     gridContainer.classList.remove('is-filtering');
                     syncUiToState(true);
                 });
