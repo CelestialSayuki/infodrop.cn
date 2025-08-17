@@ -154,7 +154,7 @@
         "supportedOS": "macOS 10.15 ~ 最新",
         "modelIdentifier": "MacPro7,1",
         "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
-        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/mac_pro_2019_on.usdz\" target=\"_blank\">查看</a>",
+        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/mac/mac_pro_2019_on.usdz\" target=\"_blank\">含外壳</a><br><a href=\"http://cdn.infodrop.cn/AR/mac/mac_pro_2019_off.usdz\" target=\"_blank\">不含外壳</a>",
         "chipProcess": "Intel 14nm (Cascade Lake)",
         "chipInfo": "Intel Xeon W-3223,3235<br>3245,3265M,3275M",
         "gpuInfo": "580X,W5500X,5700X,6600X<br>W6900X,6800X/Duo,Vega II/Duo",

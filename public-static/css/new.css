@@ -893,3 +893,7 @@ ul {
         visibility: visible;
     }
 }
+
+.top_left_logo a img {
+    border-radius: 25%;
+}
