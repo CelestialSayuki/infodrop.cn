@@ -10,7 +10,7 @@
         { "id": "ios_10", "name": "iOS 10", "icon": "./apple-tools/support/img/ios_10.webp" },
         { "id": "ios_11", "name": "iOS 11", "icon": "./apple-tools/support/img/ios_11.webp" },
         { "id": "ios_12", "name": "iOS 12", "icon": "./apple-tools/support/img/ios_12.webp" },
-        { "id": "ipados_13", "name": "iPadOS 13", "icon": "./apple-tools/support/img/ipados_13.webp" },
+        { "id": "ipados_13", "name": "iPadOS 13", "icon": "./apple-tools/support/img/ios_13.webp" },
         { "id": "ipados_14", "name": "iPadOS 14", "icon": "./apple-tools/support/img/ipados_14.webp" },
         { "id": "ipados_15", "name": "iPadOS 15", "icon": "./apple-tools/support/img/ipados_15.webp" },
         { "id": "ipados_16", "name": "iPadOS 16", "icon": "./apple-tools/support/img/ipados-16-logo.webp" },
@@ -25,6 +25,10 @@
         { "key": "identifier", "text": "标识符", "width": "18%" },
         { "key": "os", "text": "系统支持版本" }
     ],
+    "tooltipMessages": {
+        "default": "官方支持此版本。",
+        "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
+    },
     "categories": {
         "pro": {
             "name": "iPad Pro",
@@ -67,7 +71,7 @@
                 { "model": "iPad (3rd generation)", "chip": "A5X", "date": "2012.03", "identifier": "iPad3,1/iPad3,2", "supportedOS": ["ios_5", "ios_6", "ios_7", "ios_8", "ios_9"] },
                 { "model": "iPad (4th generation)", "chip": "A6X", "date": "2012.10", "identifier": "iPad3,4/iPad3,5/iPad3,6", "supportedOS": ["ios_6", "ios_7", "ios_8", "ios_9", "ios_10"] },
                 { "model": "iPad (5th generation)", "chip": "A9", "date": "2017.3", "identifier": "iPad6,11/iPad6,12", "supportedOS": ["ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16"] },
-                { "model": "iPad (6th generation)", "chip": "A10 Fusion", "date": "2018.03", "identifier": "iPad7,5/iPad7,6", "supportedOS": ["ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18"], "special": { "ipados_18": "grayscale" } },
+                { "model": "iPad (6th generation)", "chip": "A10 Fusion", "date": "2018.03", "identifier": "iPad7,5/iPad7,6", "supportedOS": ["ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18"], "special": { "ipados_18": { "type": "grayscale", "tooltip": "<b>非官方支持 (iPadOS 18)</b><br><a href='https://github.com/asdfugil/ipad6-ipados18' target='_blank'>详情参考 GitHub 项目链接</a><br><br><b>已知 Bug:</b><ul><li>需要引导启动 (Tethered Boot)</li><li>Lightning AV/VGA 转接器无法工作</li><li>未修补 SSV，因而占用更多存储空间</li><li>系统相机无法录制视频</li><li>“抹掉所有内容和设置”会导致无限重启</li><li>基带无法工作</li></ul>" } } },
                 { "model": "iPad (7th generation)", "chip": "A10 Fusion", "date": "2019.09", "identifier": "iPad7,11/iPad7,12", "supportedOS": ["ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18"]},
                 { "model": "iPad (8th generation)", "chip": "A12 Bionic", "date": "2020.09", "identifier": "iPad11,6/iPad11,7", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
                 { "model": "iPad (9th generation)", "chip": "A13 Bionic", "date": "2021.09", "identifier": "iPad12,1/iPad12,2", "supportedOS": ["ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },

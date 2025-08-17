@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple System Support</title>
     <style>
-        .system-support-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 15px 10px 25px 10px; font-size: 14px; }
+        .system-support-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 15px 10px 25px 10px; font-size: 14px; position: relative; }
         .system-support-wrapper h1 { font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; padding-left: 15px; }
         .system-support-wrapper .lead { padding: 0 15px 15px; margin-bottom: 1rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
         .system-support-wrapper h4 { font-size: 1.05rem; margin-bottom: 1rem; padding-left: 15px; }
@@ -41,6 +41,13 @@
         .macos-window.theme-dark .system-support-wrapper thead { background-color: rgba(29, 29, 29, 0.95); }
         .macos-window.theme-dark .system-support-wrapper table th, .macos-window.theme-dark .system-support-wrapper table td, .macos-window.theme-dark .system-support-wrapper tbody { border-color: #3a3a3a; }
         .macos-window.theme-dark .system-support-wrapper .img_null_other_g { background-color: rgba(255, 255, 255, 0.15); color: #999; }
+        .custom-tooltip {position: absolute; background-color: rgba(250, 250, 250, 0.9); color: #333; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 14px; font-size: 13px; line-height: 1.5; z-index: 1070; width: max-content; max-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); opacity: 0; transform: translateY(5px); transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; visibility: hidden; }
+        .custom-tooltip.glow-border { box-shadow: 0 0 8px 1px rgb(46 188 255 / 60%), 0 0 8px 1px rgb(253 0 113 / 60%); }
+        .custom-tooltip.grayscale-border { box-shadow: 0 0 12px 3px rgb(150 150 150 / 60%); }
+        .custom-tooltip.is-visible { opacity: 1; transform: translateY(0); visibility: visible; }
+        .custom-tooltip .tooltip-arrow { position: absolute; width: 0; height: 0; border-style: solid; bottom: -6px; left: 50%; transform: translateX(-50%); border-width: 6px 6px 0 6px; border-color: rgba(250, 250, 250, 0.9) transparent transparent transparent; }
+        .macos-window.theme-dark .custom-tooltip { background-color: rgba(45, 45, 45, 0.9); color: #eee; border-color: rgba(255,255,255,0.2); }
+        .macos-window.theme-dark .custom-tooltip .tooltip-arrow { border-top-color: rgba(45, 45, 45, 0.9); }
     </style>
 </head>
 <body>
@@ -65,6 +72,11 @@
             <tbody id="data-table-body"></tbody>
         </table>
     </div>
+    
+    <div id="custom-tooltip" class="custom-tooltip" role="tooltip">
+        <div class="tooltip-content"></div>
+        <div class="tooltip-arrow"></div>
+    </div>
 </div>
 
 <script>
@@ -82,14 +94,12 @@
         }
     }
 
-    function createDeviceRow(device, allOsVersions, headers, currentOsKey) {
+    function createDeviceRow(device, allOsVersions, headers, currentOsKey, tooltipMessages) {
         const cells = [];
         const supportedSet = new Set(device.supportedOS || []);
         for (const header of headers) {
             if (header.key === 'os') {
                 let osIconsHtml = allOsVersions.map(os_version => {
-                    let additionalClass = device.iconClass || '';
-                    let hasSpecial = device.special && device.special[os_version.id];
                     let baseIconClass = 'os-icon';
                     let baseNullClass = 'img_null';
                     if (currentOsKey === 'tvos') {
@@ -99,17 +109,41 @@
                             baseNullClass = 'img_null_other';
                         }
                     }
-                    if (hasSpecial) {
-                        if (device.special[os_version.id] === 'glow') additionalClass += ' glow-border';
-                        if (device.special[os_version.id] === 'grayscale') additionalClass += ' grayscale-border';
-                    }
-                    if (supportedSet.has(os_version.id)) {
-                        return os_version.icon ?
-                            `<img src="${os_version.icon}" title="${os_version.name || os_version.id}" class="${baseIconClass} ${additionalClass.trim()}">` :
-                            `<div class="${baseNullClass} ${additionalClass.trim()} img_null_other_g">${os_version.name}</div>`;
-                    } else {
+
+                    if (!supportedSet.has(os_version.id)) {
                         return `<div class="${baseNullClass}"></div>`;
                     }
+
+                    const osName = os_version.name || os_version.id;
+                    let additionalClass = device.iconClass || '';
+                    let tooltipText = '';
+                    const specialProp = device.special ? device.special[os_version.id] : null;
+
+                    if (specialProp) {
+                        const type = typeof specialProp === 'object' ? specialProp.type : specialProp;
+                        if (type) additionalClass += ` ${type}-border`;
+
+                        if (type === 'glow') {
+                            tooltipText = (tooltipMessages.defaultGlow || '').replace('{os_name}', osName);
+                        } else if (type === 'grayscale' && typeof specialProp === 'object' && specialProp.tooltip) {
+                            tooltipText = specialProp.tooltip;
+                        }
+                    }
+                    
+                    if (!tooltipText && tooltipMessages.default) {
+                        tooltipText = tooltipMessages.default;
+                    }
+
+                    const tooltipAttr = tooltipText ? `data-tooltip="${tooltipText}"` : `title="${osName}"`;
+                    if (tooltipText) {
+                        additionalClass += ' has-tooltip';
+                    }
+                    
+                    const finalClass = `${baseIconClass} ${additionalClass.trim()}`;
+
+                    return os_version.icon ?
+                        `<img src="${os_version.icon}" class="${finalClass}" ${tooltipAttr}>` :
+                        `<div class="${finalClass.replace(baseIconClass, '')} ${baseNullClass} img_null_other_g" ${tooltipAttr}>${os_version.name}</div>`;
                 }).join('');
                 cells.push(`<td class="os-support-cell">${osIconsHtml}</td>`);
             } else {
@@ -119,10 +153,90 @@
         return `<tr>${cells.join('')}</tr>`;
     }
 
+    function setupCustomTooltips() {
+        const tooltipElement = document.getElementById('custom-tooltip');
+        if (!tooltipElement) return;
+        const contentElement = tooltipElement.querySelector('.tooltip-content');
+        const container = document.querySelector('.system-support-wrapper');
+        const tableBody = document.getElementById('data-table-body');
+        if (!contentElement || !tableBody || !container) return;
+
+        let hideTimeout;
+        let isTooltipVisible = false;
+        let currentTarget = null;
+        
+        const showTooltip = (target) => {
+            const tooltipContent = target.dataset.tooltip;
+            if (!tooltipContent) return;
+            tooltipElement.classList.remove('glow-border', 'grayscale-border');
+            if (target.classList.contains('glow-border')) {
+                tooltipElement.classList.add('glow-border');
+            } else if (target.classList.contains('grayscale-border')) {
+                tooltipElement.classList.add('grayscale-border');
+            }
+
+            if (isTooltipVisible && target !== currentTarget) {
+                tooltipElement.style.transition = 'none';
+                tooltipElement.classList.remove('is-visible');
+                tooltipElement.offsetHeight;
+            }
+
+            currentTarget = target;
+            clearTimeout(hideTimeout);
+            contentElement.innerHTML = tooltipContent;
+
+            tooltipElement.style.transition = '';
+
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const tooltipRect = tooltipElement.getBoundingClientRect();
+
+            let top = (targetRect.top - containerRect.top) - tooltipRect.height - 8;
+            let left = (targetRect.left - containerRect.left) + (targetRect.width / 2) - tooltipRect.width / 2;
+
+            if (left < 5) left = 5;
+            if ((left + tooltipRect.width) > container.clientWidth) {
+                left = container.clientWidth - tooltipRect.width - 5;
+            }
+            if ((targetRect.top - containerRect.top) < tooltipRect.height + 10) {
+                top = (targetRect.bottom - containerRect.top) + 8;
+            }
+
+            tooltipElement.style.top = `${top}px`;
+            tooltipElement.style.left = `${left}px`;
+            tooltipElement.classList.add('is-visible');
+            isTooltipVisible = true;
+        };
+
+        const hideTooltip = () => {
+            hideTimeout = setTimeout(() => {
+                tooltipElement.classList.remove('is-visible');
+                isTooltipVisible = false;
+                currentTarget = null;
+            }, 200);
+        };
+
+        tableBody.addEventListener('mouseover', (e) => {
+            const target = e.target.closest('.has-tooltip');
+            if (target) {
+                showTooltip(target);
+            }
+        });
+
+        tableBody.addEventListener('mouseout', (e) => {
+            const target = e.target.closest('.has-tooltip');
+            if (target) {
+                hideTooltip();
+            }
+        });
+
+        tooltipElement.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        tooltipElement.addEventListener('mouseleave', hideTooltip);
+    }
+
     function adjustTableHeight() {
         const tableContainer = document.querySelector('.table-responsive');
         if (!tableContainer) return;
-
         const topOffset = tableContainer.getBoundingClientRect().top;
         const bottomPadding = 60;
         const availableHeight = window.innerHeight - topOffset - bottomPadding;
@@ -132,17 +246,13 @@
     function renderSubNav(osKey, categoryData) {
         const subNavContainer = document.getElementById('sub-nav-container');
         if (!subNavContainer) return;
-
         subNavContainer.innerHTML = '';
-
         if (categoryData && categoryData.categories) {
             const span = document.createElement('span');
-            const linksHtml = Object.keys(categoryData.categories).map((key, index) => {
+            span.innerHTML = Object.keys(categoryData.categories).map((key, index) => {
                 const category = categoryData.categories[key];
                 return `<a href="#" class="tab-link ${index === 0 ? 'active' : ''}" data-tab-group="${osKey}" data-tab-target="${key}">${category.name}</a>`;
             }).join(' / ');
-            
-            span.innerHTML = linksHtml;
             subNavContainer.appendChild(span);
             subNavContainer.hidden = false;
         } else {
@@ -156,64 +266,41 @@
             event.preventDefault();
             return;
         }
-
         event.preventDefault();
-
         const group = link.dataset.tabGroup;
         const target = link.dataset.tabTarget;
         const tableContainer = document.querySelector('.table-responsive');
         const subNavContainer = document.getElementById('sub-nav-container');
-
         document.querySelectorAll(`.tab-link[data-tab-group="${group}"]`).forEach(el => el.classList.remove('active'));
         link.classList.add('active');
-
         const osKey = group === 'main' ? target : group;
         const subKey = group === 'main' ? null : target;
-
         const categoryData = await fetchData(osKey);
-        if (!categoryData) {
-            return;
-        }
-
+        if (!categoryData) return;
         tableContainer.classList.remove('fade-in');
         tableContainer.classList.add('fade-out');
-
         if (group === 'main') {
             subNavContainer.classList.add('hide');
         }
-
-        const onTransitionEnd = () => {
-            tableContainer.removeEventListener('transitionend', onTransitionEnd);
-
-            if (group === 'main') {
-                renderSubNav(osKey, categoryData);
-            }
+        tableContainer.addEventListener('transitionend', () => {
+            if (group === 'main') renderSubNav(osKey, categoryData);
             renderTable(osKey, categoryData, subKey);
-
             requestAnimationFrame(() => {
                 tableContainer.classList.remove('fade-out');
                 tableContainer.classList.add('fade-in');
-
-                if (group === 'main') {
-                    subNavContainer.classList.remove('hide');
-                }
+                if (group === 'main') subNavContainer.classList.remove('hide');
                 adjustTableHeight();
             });
-        };
-
-        tableContainer.addEventListener('transitionend', onTransitionEnd, { once: true });
+        }, { once: true });
     }
 
     async function initializePage() {
         document.getElementById('main-nav').addEventListener('click', unifiedClickHandler);
         document.getElementById('sub-nav-container').addEventListener('click', unifiedClickHandler);
-
         const tableContainer = document.querySelector('.table-responsive');
         const subNavContainer = document.getElementById('sub-nav-container');
-
         tableContainer.classList.add('fade-out');
         subNavContainer.classList.add('hide');
-
         const defaultTab = document.querySelector('.tab-link[data-tab-target="ios"]');
         if (defaultTab) {
             const target = defaultTab.dataset.tabTarget;
@@ -228,39 +315,40 @@
             }
         }
         adjustTableHeight();
+        setupCustomTooltips();
     }
 
-        function renderTable(osKey, categoryData, subCategoryKey = null, targetHead = null, targetBody = null) {
-            const tableHead = targetHead || document.getElementById('data-table-head');
-            const tableBody = targetBody || document.getElementById('data-table-body');
-            if (!tableHead || !tableBody || !categoryData) return;
+    function renderTable(osKey, categoryData, subCategoryKey = null) {
+        const tableHead = document.getElementById('data-table-head');
+        const tableBody = document.getElementById('data-table-body');
+        if (!tableHead || !tableBody || !categoryData) return;
 
-            const fragment = document.createDocumentFragment();
-            const headRow = document.createElement('tr');
-            headRow.innerHTML = categoryData.headers.map(h => `<th width="${h.width || ''}">${h.text}</th>`).join('');
-            fragment.appendChild(headRow);
-            tableHead.innerHTML = '';
-            tableHead.appendChild(fragment);
+        const tooltipMessages = categoryData.tooltipMessages || {};
 
-            const bodyFragment = document.createDocumentFragment();
-            let devicesToRender = [];
-            if (categoryData.devices) {
-                devicesToRender = categoryData.devices;
-            } else if (categoryData.categories) {
-                const key = subCategoryKey || Object.keys(categoryData.categories)[0];
-                if (categoryData.categories[key] && categoryData.categories[key].devices) {
-                    devicesToRender = categoryData.categories[key].devices;
-                }
-            }
-            devicesToRender.forEach(device => {
-                if (osKey === 'watchos' || osKey === 'visionos') device.iconClass = 'round';
-                const row = document.createElement('tr');
-                row.innerHTML = createDeviceRow(device, categoryData.osVersions, categoryData.headers, osKey);
-                bodyFragment.appendChild(row);
-            });
-            tableBody.innerHTML = '';
-            tableBody.appendChild(bodyFragment);
-        }
+        const headRow = document.createElement('tr');
+        headRow.innerHTML = categoryData.headers.map(h => `<th width="${h.width || ''}">${h.text}</th>`).join('');
+        tableHead.innerHTML = '';
+        tableHead.appendChild(headRow);
+
+        const bodyFragment = document.createDocumentFragment();
+        let devicesToRender = [];
+        if (categoryData.devices) {
+            devicesToRender = categoryData.devices;
+        } else if (categoryData.categories) {
+            const key = subCategoryKey || Object.keys(categoryData.categories)[0];
+            if (categoryData.categories[key] && categoryData.categories[key].devices) {
+                devicesToRender = categoryData.categories[key].devices;
+            }
+        }
+        devicesToRender.forEach(device => {
+            if (osKey === 'watchos' || osKey === 'visionos') device.iconClass = 'round';
+            const row = document.createElement('tr');
+            row.innerHTML = createDeviceRow(device, categoryData.osVersions, categoryData.headers, osKey, tooltipMessages);
+            bodyFragment.appendChild(row);
+        });
+        tableBody.innerHTML = '';
+        tableBody.appendChild(bodyFragment);
+    }
 
     window.addEventListener('resize', adjustTableHeight);
     initializePage();

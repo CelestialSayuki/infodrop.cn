@@ -25,6 +25,10 @@
         { "key": "identifier", "text": "标识符", "width": "15%" },
         { "key": "os", "text": "系统支持版本" }
     ],
+    "tooltipMessages": {
+        "default": "官方支持此版本。",
+        "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
+    },
     "categories": {
         "macbook": {
             "name": "MacBook",

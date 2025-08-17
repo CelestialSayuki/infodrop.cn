@@ -23,6 +23,10 @@
         { "key": "identifier", "text": "标识符", "width": "11%" },
         { "key": "os", "text": "系统支持版本" }
     ],
+    "tooltipMessages": {
+        "default": "官方支持此版本。",
+        "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
+    },
     "devices": [
         { "model": "iPod touch", "chip": "S5L8900", "date": "2007.09", "identifier": "iPod1,1", "supportedOS": ["ios_1", "ios_2", "ios_3"] },
         { "model": "iPod touch (2nd generation)", "chip": "S5L8720", "date": "2008.09", "identifier": "iPod2,1", "supportedOS": ["ios_2", "ios_3", "ios_4"] },

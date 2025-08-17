@@ -27,6 +27,10 @@
         { "key": "identifier", "text": "标识符", "width": "12%" },
         { "key": "os", "text": "系统支持版本" }
     ],
+    "tooltipMessages": {
+        "default": "官方支持此版本。",
+        "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
+    },
     "devices": [
         { "model": "Apple TV (1st generation)", "chip": "Intel Pentium M", "date": "2006.09", "identifier": "AppleTV1,1", "supportedOS": ["tiger1", "tiger2", "tiger3"] },
         { "model": "Apple TV (2nd generation)", "chip": "A4", "date": "2010.09", "identifier": "AppleTV2,1", "supportedOS": ["ios_4", "ios_5", "ios_6", "ios_7"] },
