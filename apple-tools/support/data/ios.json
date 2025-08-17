@@ -22,7 +22,7 @@
     ],
     "headers": [
         { "key": "model", "text": "机型", "width": "14%" },
-        { "key": "chip", "text": "处理器", "width": "6%" },
+        { "key": "chip", "text": "处理器", "width": "7%" },
         { "key": "date", "text": "发布时间", "width": "6%" },
         { "key": "identifier", "text": "标识符", "width": "11%" },
         { "key": "os", "text": "系统支持版本" }
