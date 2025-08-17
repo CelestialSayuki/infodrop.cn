@@ -125,13 +125,18 @@
 
                         if (type === 'glow') {
                             tooltipText = (tooltipMessages.defaultGlow || '').replace('{os_name}', osName);
-                        } else if (type === 'grayscale' && typeof specialProp === 'object' && specialProp.tooltip) {
-                            tooltipText = specialProp.tooltip;
+                        } else if (type === 'grayscale') {
+                            if (typeof specialProp === 'object' && specialProp.tooltip) {
+                                tooltipText = specialProp.tooltip;
+                            }
+                            else if (tooltipMessages.defaultGray) {
+                                tooltipText = tooltipMessages.defaultGray.replace('{os_name}', osName);
+                            }
                         }
                     }
                     
                     if (!tooltipText && tooltipMessages.default) {
-                        tooltipText = tooltipMessages.default;
+                        tooltipText = tooltipMessages.default.replace('{os_name}', osName);
                     }
 
                     const tooltipAttr = tooltipText ? `data-tooltip="${tooltipText}"` : `title="${osName}"`;

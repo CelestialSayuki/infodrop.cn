@@ -26,7 +26,8 @@
         { "key": "os", "text": "系统支持版本" }
     ],
     "tooltipMessages": {
-        "default": "官方支持此版本。",
+        "default": "官方支持此版本 ({os_name})",
+        "defaultGray": "官方不支持的版本 ({os_name})，更多内容待补充",
         "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
     },
     "categories": {
