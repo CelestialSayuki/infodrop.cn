@@ -58,10 +58,8 @@
                 { "model": "iPad Air (3rd generation)", "chip": "A12 Bionic", "date": "2019.03", "identifier": "iPad11,3/iPad11,4", "supportedOS": ["ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
                 { "model": "iPad Air (4th generation)", "chip": "A14 Bionic", "date": "2020.09", "identifier": "iPad13,1/iPad13,2", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
                 { "model": "iPad Air (5th generation)", "chip": "M1", "date": "2022.03", "identifier": "iPad13,16/iPad13,17", "supportedOS": ["ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
-                { "model": "iPad Air 11-inch (M2)", "chip": "M2", "date": "2024.05", "identifier": "iPad14,8/iPad14,9", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
-                { "model": "iPad Air 13-inch (M2)", "chip": "M2", "date": "2024.05", "identifier": "iPad14,10/iPad14,11", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
-                { "model": "iPad Air 11-inch (M3)", "chip": "M3", "date": "2025.03", "identifier": "iPad15,3/iPad15,4", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
-                { "model": "iPad Air 13-inch (M3)", "chip": "M3", "date": "2025.03", "identifier": "iPad15,5/iPad15,6", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } }
+                { "model": "iPad Air (M2)", "chip": "M2", "date": "2024.05", "identifier": "iPad14,8/iPad14,9/iPad14,10/iPad14,11", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Air (M3)", "chip": "M3", "date": "2025.03", "identifier": "iPad15,3/iPad15,4/iPad15,5/iPad15,6", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } }
             ]
         },
         "standard": {

@@ -53,7 +53,7 @@
 <body>
 <div class="system-support-wrapper">
     <h1>Apple System Support</h1>
-    <p class="lead">本页收集了 Apple 设备支持的操作系统信息，图标底部有渐变光晕效果表示该款设备支持 Apple Intelligence，图标底部有灰色光晕效果表示该款设备支持由第三方（iBoot 漏洞, OS X Patcher, macOS Patcher, Opencore Legacy Patcher）提供。</p>
+    <p class="lead">本页收集了 Apple 设备由官方和第三方提供支持的操作系统信息，仅包含可硬件加速的系统版本。</p>
 
     <h4 id="main-nav">
         <a href="#" class="tab-link" data-tab-group="main" data-tab-target="ios">iPhone</a> /
@@ -121,17 +121,18 @@
 
                     if (specialProp) {
                         const type = typeof specialProp === 'object' ? specialProp.type : specialProp;
-                        if (type) additionalClass += ` ${type}-border`;
 
-                        if (type === 'glow') {
-                            tooltipText = (tooltipMessages.defaultGlow || '').replace('{os_name}', osName);
-                        } else if (type === 'grayscale') {
-                            if (typeof specialProp === 'object' && specialProp.tooltip) {
-                                tooltipText = specialProp.tooltip;
-                            }
-                            else if (tooltipMessages.defaultGray) {
-                                tooltipText = tooltipMessages.defaultGray.replace('{os_name}', osName);
-                            }
+                        if (typeof specialProp === 'object' && specialProp.tooltip) {
+                            tooltipText = specialProp.tooltip;
+                        }
+                        else if (type === 'glow' && tooltipMessages.defaultGlow) {
+                            tooltipText = tooltipMessages.defaultGlow.replace('{os_name}', osName);
+                        } else if (type === 'grayscale' && tooltipMessages.defaultGray) {
+                            tooltipText = tooltipMessages.defaultGray.replace('{os_name}', osName);
+                        }
+                        
+                        if (type) {
+                            additionalClass += ` ${type}-border`;
                         }
                     }
                     
