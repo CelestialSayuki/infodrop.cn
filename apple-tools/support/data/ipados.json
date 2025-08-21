@@ -46,7 +46,7 @@
         "air": {
             "name": "iPad Air",
             "devices": [
-                { "model": "iPad Air", "chip": "A7", "date": "2013.10", "identifier": "iPad4,1/iPad4,2", "supportedOS": ["ios_7", "ios_8", "ios_9", "ios_10", "ios_11", "ios_12"]},
+                { "model": "iPad Air", "chip": "A7", "date": "2013.10", "identifier": "iPad4,1/iPad4,2/iPad4,3", "supportedOS": ["ios_7", "ios_8", "ios_9", "ios_10", "ios_11", "ios_12"]},
                 { "model": "iPad Air 2", "chip": "A8X", "date": "2014.10", "identifier": "iPad5,3/iPad5,4", "supportedOS": ["ios_8", "ios_9", "ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15"]},
                 { "model": "iPad Air (3rd generation)", "chip": "A12 Bionic", "date": "2019.03", "identifier": "iPad11,3/iPad11,4", "supportedOS": ["ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
                 { "model": "iPad Air (4th generation)", "chip": "A14 Bionic", "date": "2020.09", "identifier": "iPad13,1/iPad13,2", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
