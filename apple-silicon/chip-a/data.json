@@ -127,7 +127,7 @@
         "ramSpec": "LPDDR5X-7500",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8GB<br>总位宽 64-bit<br>60GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPhone 16 Pro<br>iPhone 16 Pro Max</div>"
+        "usedIn": "iPhone 16 Pro<br>iPhone 16 Pro Max"
       }
     },
     {
@@ -169,7 +169,7 @@
         "ramSpec": "LPDDR5X-7500",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8GB<br>总位宽 64-bit<br>60GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPhone 16<br>iPhone 16 Plus<br>iPhone 16e</div>"
+        "usedIn": "iPhone 16<br>iPhone 16 Plus<br>iPhone 16e"
       }
     },
     {
@@ -211,7 +211,7 @@
             "ramSpec": "LPDDR5-6400",
             "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8GB<br>总位宽 64-bit<br>51.2GB/s</div>",
             "storageProtocol": "NVMe",
-            "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 15 Pro<br>iPhone 15 Pro Max<br>iPad mini (A17 Pro)</div>"
+            "usedIn": "iPhone 15 Pro<br>iPhone 15 Pro Max<br>iPad mini (A17 Pro)"
         }
     },
     {
@@ -253,7 +253,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">6GB<br>总位宽 64-bit<br>51.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 14 Pro<br>iPhone 14 Pro Max<br>iPhone 15<br>iPhone 15 Plus<br>iPad (A16)</div>"
+        "usedIn": "iPhone 14 Pro<br>iPhone 14 Pro Max<br>iPhone 15<br>iPhone 15 Plus<br>iPad (A16)"
       }
     },
     {
@@ -295,7 +295,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">4/6GB<br>总位宽 64-bit<br>34.13GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPhone 13 mini<br>iPhone 13<br>iPhone 13 Pro<br>iPhone 13 Pro Max<br>iPhone 14<br>iPhone 14 Plus<br>iPhone SE (第 3 代)<br>iPad mini (第 6 代)<br>Apple TV 4K (第 3 代)</div>"
+        "usedIn": "iPhone 13 mini<br>iPhone 13<br>iPhone 13 Pro<br>iPhone 13 Pro Max<br>iPhone 14<br>iPhone 14 Plus<br>iPhone SE (第 3 代)<br>iPad mini (第 6 代)<br>Apple TV 4K (第 3 代)"
       }
     },
     {
@@ -337,7 +337,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">4/6GB<br>总位宽 64-bit<br>34.13GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPhone 12 mini<br>iPhone 12<br>iPhone 12 Pro<br>iPhone 12 Pro Max<br>iPad (第 10 代)<br>iPad Air (第 4 代)</div>"
+        "usedIn": "iPhone 12 mini<br>iPhone 12<br>iPhone 12 Pro<br>iPhone 12 Pro Max<br>iPad (第 10 代)<br>iPad Air (第 4 代)"
       }
     },
     {
@@ -378,7 +378,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">3/4GB<br>总位宽 64-bit<br>34.13GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPhone 11<br>iPhone 11 Pro<br>iPhone 11 Pro Max<br>iPhone SE (第 2 代)<br>iPad (第 9 代)<br>Studio Display</div>"
+        "usedIn": "iPhone 11<br>iPhone 11 Pro<br>iPhone 11 Pro Max<br>iPhone SE (第 2 代)<br>iPad (第 9 代)<br>Studio Display"
       }
     },
     {
@@ -419,7 +419,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">6/16GB<br>总位宽 128-bit<br>68.1GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">    iPad Pro 11 英寸 (第 2 代)<br>iPad Pro 12.9 英寸 (第 4 代)<br>Developer Transition Kit</div>"
+        "usedIn": "iPad Pro 11 英寸 (第 2 代)<br>iPad Pro 12.9 英寸 (第 4 代)<br>Developer Transition Kit"
       }
     },
     {
@@ -460,7 +460,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">4/6GB<br>总位宽 128-bit<br>68.1GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Pro 11 英寸 (第 1 代)<br>iPad Pro 12.9 英寸 (第 3 代)</div>"
+        "usedIn": " Pro 11 英寸 (第 1 代)<br>iPad Pro 12.9 英寸 (第 3 代)"
       }
     },
     {
@@ -501,7 +501,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">3/4GB<br>总位宽 64-bit<br>34.13GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone XR<br>iPhone XS<br>iPhone XS Max<br>iPad (第 8 代)<br>iPad mini (第 5 代)<br>iPad Air (第 3 代)<br>Apple TV 4K (第 2 代)</div>"
+        "usedIn": "iPhone XR<br>iPhone XS<br>iPhone XS Max<br>iPad (第 8 代)<br>iPad mini (第 5 代)<br>iPad Air (第 3 代)<br>Apple TV 4K (第 2 代)"
       }
     },
     {
@@ -541,7 +541,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2/3GB<br>总位宽 64-bit<br>34.13GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 8<br>iPhone 8 Plus<br>iPhone X</div>"
+        "usedIn": "iPhone 8<br>iPhone 8 Plus<br>iPhone X"
       }
     },
     {
@@ -581,7 +581,7 @@
         "ramSpec": "LPDDR4-3200",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">3/4GB<br>总位宽 128-bit<br>51.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Pro 10.5 英寸<br>iPad Pro 12.9 英寸 (第 2 代)<br>Apple TV 4K (第 1 代)</div>"
+        "usedIn": "iPad Pro 10.5 英寸<br>iPad Pro 12.9 英寸 (第 2 代)<br>Apple TV 4K (第 1 代)"
       }
     },
     {
@@ -621,7 +621,7 @@
         "ramSpec": "LPDDR4-3200",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2/3GB<br>总位宽 64-bit<br>25.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 7<br>iPhone 7 Plus<br>iPad (第 6 代)<br>iPad (第 7 代)<br>iPod Touch (第 7 代)</div>"
+        "usedIn": "iPhone 7<br>iPhone 7 Plus<br>iPad (第 6 代)<br>iPad (第 7 代)<br>iPod Touch (第 7 代)"
       }
     },
     {
@@ -661,7 +661,7 @@
         "ramSpec": "LPDDR4-3200",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2/4GB<br>总位宽 128-bit<br>51.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Pro 9.7 英寸<br>iPad Pro 12.9 英寸</div>"
+        "usedIn": "iPad Pro 9.7 英寸<br>iPad Pro 12.9 英寸"
       }
     },
     {
@@ -701,7 +701,7 @@
         "ramSpec": "LPDDR4-3200",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2GB<br>总位宽 64-bit<br>25.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)</div>"
+        "usedIn": "iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)"
       }
     },
     {
@@ -741,7 +741,7 @@
         "ramSpec": "LPDDR4-3200",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2GB<br>总位宽 64-bit<br>25.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)</div>"
+        "usedIn": "iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)"
       }
     },
     {
@@ -781,7 +781,7 @@
         "ramSpec": "LPDDR3-1600",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">2GB<br>总位宽 128-bit<br>25.6GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Air 2</div>"
+        "usedIn": "iPad Air 2"
       }
     },
     {
@@ -821,7 +821,7 @@
         "ramSpec": "LPDDR3-1600",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1/2GB<br>总位宽 64-bit<br>12.8GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod Touch (第 6 代)<br>Apple TV HD<br>HomePod (第 1 代)</div>"
+        "usedIn": "iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod Touch (第 6 代)<br>Apple TV HD<br>HomePod (第 1 代)"
       }
     },
     {
@@ -861,7 +861,7 @@
         "ramSpec": "LPDDR3-1600",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1GB<br>总位宽 64-bit<br>12.8GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Air</div>"
+        "usedIn": "iPad Air"
       }
     },
     {
@@ -901,7 +901,7 @@
         "ramSpec": "LPDDR3-1600",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1GB<br>总位宽 64-bit<br>12.8GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 5s<br>iPad mini 2<br>iPad mini 3</div>"
+        "usedIn": "iPhone 5s<br>iPad mini 2<br>iPad mini 3"
       }
     },
     {
@@ -941,7 +941,7 @@
         "ramSpec": "LPDDR2-1066",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1GB<br>总位宽 64-bit<br>8.53GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad (第 4 代)</div>"
+        "usedIn": "iPad (第 4 代)"
       }
     },
     {
@@ -981,7 +981,7 @@
         "ramSpec": "LPDDR2-1066",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1GB<br>总位宽 32-bit<br>4.26GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 5<br>iPhone 5c</div>"
+        "usedIn": "iPhone 5<br>iPhone 5c"
       }
     },
     {
@@ -1021,7 +1021,7 @@
         "ramSpec": "LPDDR2-800",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">1GB<br>总位宽 64-bit<br>6.4GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad (第 3 代)</div>"
+        "usedIn": "iPad (第 3 代)"
       }
     },
     {
@@ -1061,7 +1061,7 @@
         "ramSpec": "LPDDR2-800",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">512MB<br>总位宽 32-bit<br>3.2GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Apple TV (第 3 代)</div>"
+        "usedIn": "Apple TV (第 3 代)"
       }
     },
     {
@@ -1101,7 +1101,7 @@
         "ramSpec": "LPDDR2-800",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">512MB<br>总位宽 32-bit<br>3.2GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad 2<br>iPad mini<br>iPod Touch (第 5 代)</div>"
+        "usedIn": "iPad 2<br>iPad mini<br>iPod Touch (第 5 代)"
       }
     },
     {
@@ -1141,7 +1141,7 @@
         "ramSpec": "LPDDR2-800",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">512MB<br>总位宽 32-bit<br>3.2GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 4S<br>iPad 2</div>"
+        "usedIn": "iPhone 4S<br>iPad 2"
       }
     },
     {
@@ -1181,7 +1181,7 @@
         "ramSpec": "LPDDR-400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">256/512MB<br>总位宽 32-bit<br>1.6GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 4<br>iPad 1<br>iPod Touch (第 4 代)<br>Apple TV (第 2 代)</div>"
+        "usedIn": "iPhone 4<br>iPad 1<br>iPod Touch (第 4 代)<br>Apple TV (第 2 代)"
       }
     },
     {
@@ -1220,7 +1220,7 @@
         "ramSpec": "LPDDR-400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">256MB<br>总位宽 32-bit<br>1.6GB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPod Touch (第 3 代)</div>"
+        "usedIn": "iPod Touch (第 3 代)"
       }
     },
     {
@@ -1259,7 +1259,7 @@
         "ramSpec": "LPDDR-400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">256MB<br>总位宽 32-bit<br>800MB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 3GS</div>"
+        "usedIn": "iPhone 3GS"
       }
     },
     {
@@ -1298,7 +1298,7 @@
         "ramSpec": "LPDDR-266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">128MB<br>总位宽 16-bit<br>533MB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPod Touch (第 2 代)</div>"
+        "usedIn": "iPod Touch (第 2 代)"
       }
     },
     {
@@ -1337,7 +1337,7 @@
         "ramSpec": "LPDDR-266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">128MB<br>总位宽 16-bit<br>266MB/s</div>",
         "storageProtocol": "eMMC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone<br>iPhone 3G<br>iPod touch</div>"
+        "usedIn": "iPhone<br>iPhone 3G<br>iPod touch"
       }
     }
   ]

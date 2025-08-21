@@ -126,7 +126,7 @@
         "ramSpec": "LPDDR5X-8533",
         "ramCapacity": "<div class=\"li-div-score li-div-score-a\">36GB<br>总位宽 384-bit<br>410GB/s</div><div class=\"li-div-score li-div-score-a\">48/64/128GB<br>总位宽 512-bit<br>546GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14 英寸, 2024)<br>MacBook Pro (16 英寸, 2024)<br>Mac Studio (2025)</span></div>"
+        "usedIn": "MacBook Pro (14 英寸, 2024)<br>MacBook Pro (16 英寸, 2024)<br>Mac Studio (2025)"
       }
     },
     {
@@ -167,7 +167,7 @@
         "ramSpec": "LPDDR5X-8533",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">24/48/64GB<br>总位宽 256-bit<br>273GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Pro (16 英寸, 2024)</span></div>"
+        "usedIn": "Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Pro (16 英寸, 2024)"
       }
     },
     {
@@ -209,7 +209,7 @@
         "ramSpec": "LPDDR5X-7500",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8/16/24/32GB<br>总位宽 128-bit<br>120GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPad Pro 11 英寸 (M4)<br>iPad Pro 13 英寸 (M4)<br>iMac (24 英寸, 2024)<br>Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Air (13 英寸, M4, 2025)<br>MacBook Air (15 英寸, M4, 2025)</span></div>"
+        "usedIn": "iPad Pro 11 英寸 (M4)<br>iPad Pro 13 英寸 (M4)<br>iMac (24 英寸, 2024)<br>Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Air (13 英寸, M4, 2025)<br>MacBook Air (15 英寸, M4, 2025)"
       }
     },
     {
@@ -250,7 +250,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">96/256/512GB<br>总位宽 1024-bit<br>819.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Mac Studio (2025)</span></div>"
+        "usedIn": "Mac Studio (2025)"
       }
     },
     {
@@ -292,7 +292,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-a\">36/96GB<br>总位宽 384-bit<br>307.2GB/s</div><div class=\"li-div-score li-div-score-a\">48/64/128GB<br>总位宽 512-bit<br>409.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14英寸,2023年11月)<br>MacBook Pro (16英寸,2023年11月)</span></div>"
+        "usedIn": "MacBook Pro (14英寸,2023年11月)<br>MacBook Pro (16英寸,2023年11月)"
       }
     },
     {
@@ -334,7 +334,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">18/36GB<br>总位宽 192-bit<br>153.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14英寸,2023年11月)<br>MacBook Pro (16英寸,2023年11月)</span></div>"
+        "usedIn": "MacBook Pro (14英寸,2023年11月)<br>MacBook Pro (16英寸,2023年11月)"
       }
     },
     {
@@ -376,7 +376,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8/16/24GB<br>总位宽 128-bit<br>102.4GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iMac (24 英寸, 2023)<br>MacBook Air (13英寸,M3,2024年)<br>MacBook Air (15英寸,M3,2024年)<br>MacBook Pro (14英寸,M3,2023年11月)<br>iPad Air 11 英寸 (M3)<br>iPad Air 13 英寸 (M3)</span></div>"
+        "usedIn": "iMac (24 英寸, 2023)<br>MacBook Air (13英寸,M3,2024年)<br>MacBook Air (15英寸,M3,2024年)<br>MacBook Pro (14英寸,M3,2023年11月)<br>iPad Air 11 英寸 (M3)<br>iPad Air 13 英寸 (M3)"
       }
     },
     {
@@ -418,7 +418,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">64/128/192GB<br>总位宽 1024-bit<br>819.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Mac Studio (2023 年)<br>Mac Pro (2023 年)</span></div>"
+        "usedIn": "Mac Studio (2023 年)<br>Mac Pro (2023 年)"
       }
     },
     {
@@ -460,7 +460,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">32/64/96GB<br>总位宽 512-bit<br>409.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14 英寸, 2023 年)<br>MacBook Pro (16 英寸, 2023 年)<br>Mac Studio (2023 年)</span></div>"
+        "usedIn": "MacBook Pro (14 英寸, 2023 年)<br>MacBook Pro (16 英寸, 2023 年)<br>Mac Studio (2023 年)"
       }
     },
     {
@@ -502,7 +502,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">16/32GB<br>总位宽 256-bit<br>204.8GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14 英寸, 2023 年)<br>MacBook Pro (16 英寸, 2023 年)<br>Mac mini (2023 年)</span></div>"
+        "usedIn": "MacBook Pro (14 英寸, 2023 年)<br>MacBook Pro (16 英寸, 2023 年)<br>Mac mini (2023 年)"
       }
     },
     {
@@ -544,7 +544,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8/16/24GB<br>总位宽 128-bit<br>102.4GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Air (M2, 2022 年)<br>MacBook Air (15英寸,M2,2023年)<br>Mac mini (2023 年)<br>MacBook Pro (13英寸,M2,2022年)<br>iPad Pro 11 英寸 (第 4 代)<br>iPad Pro 12.9 英寸 (第 6 代)<br>Apple Vision Pro<br>iPad Air 11 英寸 (M2)<br>iPad Air 13 英寸 (M2)</span></div>"
+        "usedIn": "MacBook Air (M2, 2022 年)<br>MacBook Air (15英寸,M2,2023年)<br>Mac mini (2023 年)<br>MacBook Pro (13英寸,M2,2022年)<br>iPad Pro 11 英寸 (第 4 代)<br>iPad Pro 12.9 英寸 (第 6 代)<br>Apple Vision Pro<br>iPad Air 11 英寸 (M2)<br>iPad Air 13 英寸 (M2)"
       }
     },
     {
@@ -586,7 +586,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">64/128GB<br>总位宽 1024-bit<br>819.2GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Mac Studio (2022 年)</span></div>"
+        "usedIn": "Mac Studio (2022 年)"
       }
     },
     {
@@ -628,7 +628,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">32/64GB<br>总位宽 512-bit<br>409.6GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14 英寸,2021 年)<br>MacBook Pro (16 英寸, 2021 年)<br>Mac Studio (2022 年)</span></div>"
+        "usedIn": "MacBook Pro (14 英寸,2021 年)<br>MacBook Pro (16 英寸, 2021 年)<br>Mac Studio (2022 年)"
       }
     },
     {
@@ -670,7 +670,7 @@
         "ramSpec": "LPDDR5-6400",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">16/32GB<br>总位宽 256-bit<br>204.8GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Pro (14 英寸,2021 年)<br>MacBook Pro (16 英寸,2021 年)</span></div>"
+        "usedIn": "MacBook Pro (14 英寸,2021 年)<br>MacBook Pro (16 英寸,2021 年)"
       }
     },
     {
@@ -712,7 +712,7 @@
         "ramSpec": "LPDDR4X-4266",
         "ramCapacity": "<div class=\"li-div-score li-div-score-b\">8/16GB<br>总位宽 128-bit<br>68.26GB/s</div>",
         "storageProtocol": "NVMe",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">MacBook Air (M1, 2020 年)<br>MacBook Pro (13英寸,M1,2020年)<br>Mac mini (M1, 2020 年)<br>iMac (24 英寸, M1, 2021 年)<br>iPad Air (第 5 代)<br>iPad Pro 11 英寸 (第 3 代)<br>iPad Pro 12.9 英寸 (第 5 代)</span></div>"
+        "usedIn": "MacBook Air (M1, 2020 年)<br>MacBook Pro (13英寸,M1,2020年)<br>Mac mini (M1, 2020 年)<br>iMac (24 英寸, M1, 2021 年)<br>iPad Air (第 5 代)<br>iPad Pro 11 英寸 (第 3 代)<br>iPad Pro 12.9 英寸 (第 5 代)<br>Mellanox ConnectX-4 Lx 单端口 25Gb SFP HBA (Apple A2620)"
       }
     }
   ]
