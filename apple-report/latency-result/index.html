@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+    <link rel="stylesheet" type="text/css" href="./public-static/css/new.css" />
     <style type="text/css">
         .main-content {
             padding: 20px;
@@ -286,7 +286,7 @@
             }
         }
         
-        fetch('../apple-report/latency-result/data.json')
+        fetch('./apple-report/latency-result/data.json')
             .then(response => {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 return response.json();

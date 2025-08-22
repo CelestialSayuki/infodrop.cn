@@ -2,7 +2,7 @@
 <html lang="zh-CN" style="height: 100%">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../../../public-static/css/new.css" />
+  <link rel="stylesheet" type="text/css" href="./public-static/css/new.css" />
   <style type="text/css">
     .main-content {
       padding: 20px;
@@ -56,16 +56,6 @@
 
   <div class="main-content">
     <div class="card">
-      <div class="width_float" id="container_GeekBench6_iPhone" style="height:340px;"></div>
-      <div class="retext width_float">iPhone</div>
-
-      <div class="width_float" id="container_GeekBench6_iPad" style="height:400px;"></div>
-      <div class="retext width_float">iPad</div>
-
-      <div class="width_float" id="container_GeekBench6_Mac" style="height:400px;"></div>
-      <div class="retext width_float" style="width: 50%;">Mac</div>
-      <hr style="color: rgba(237, 237, 237, 0.3);" size="1">
-
       <div class="width_float" id="container_3DMark_iPhone" style="height:320px;"></div>
       <div class="retext width_float">iPhone</div>
 
@@ -74,6 +64,17 @@
 
       <div class="width_float" id="container_3DMark_Mac" style="height:380px;"></div>
       <div class="retext width_float">Mac</div>
+      
+      <hr style="color: rgba(237, 237, 237, 0.3);" size="1">
+      
+      <div class="width_float" id="container_GeekBench6_iPhone" style="height:340px;"></div>
+      <div class="retext width_float">iPhone</div>
+
+      <div class="width_float" id="container_GeekBench6_iPad" style="height:400px;"></div>
+      <div class="retext width_float">iPad</div>
+
+      <div class="width_float" id="container_GeekBench6_Mac" style="height:400px;"></div>
+      <div class="retext width_float" style="width: 50%;">Mac</div>
     </div>
   </div>
 
@@ -219,12 +220,12 @@
         var option_3DMark_iPhone;
         option_3DMark_iPhone = {
           backgroundColor: 'transparent',
-          color: ["#FFC000", "#EEB422", '#EEC900'],
+          color: ["#FFC000", "#EEB422", '#EEC900', '#CDAD00'],
           title: { text: '3DMark'},
           tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
           legend: {
             bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
-              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false, 'Solar Bay Extreme': false
             }
           },
           grid: { left: '3%', right: '4%', bottom: '10', containLabel: true },
@@ -258,6 +259,14 @@
               type: 'bar',
               data: [
                 0, 0, 0, 0, 0, 0, 1627, 1863, 1916, 2153,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay Extreme',
+              type: 'bar',
+              data: [
+                '', '', '190', '', '', '', '', '1237', '', '',
               ],
               itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
             }
@@ -303,11 +312,11 @@
         var option_3DMark_iPad;
         option_3DMark_iPad = {
           backgroundColor: 'transparent',
-          color: ["#FFC000", "#EEB422", '#EEC900'],
+          color: ["#FFC000", "#EEB422", '#EEC900', '#CDAD00'],
           tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
           legend: {
             bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
-              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false, 'Solar Bay Extreme': false
             }
           },
           grid: { top: '0%', left: '3%', right: '4%', bottom: '10', containLabel: true },
@@ -341,6 +350,14 @@
               type: 'bar',
               data: [
                 0, 0, 0, 0, 0, 0, 0, 1531, 1993, '', 2662, 3718,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay Extreme',
+              type: 'bar',
+              data: [
+                '', '', '', '', '', '', '', '', '', '', '', '',
               ],
               itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
             }
@@ -386,11 +403,11 @@
         var option_3DMark_Mac;
         option_3DMark_Mac = {
           backgroundColor: 'transparent',
-          color: ["#FFC000", "#EEB422", '#EEC900'],
+          color: ["#FFC000", "#EEB422", '#EEC900', '#CDAD00', '#CD9B1D'],
           tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
           legend: {
             bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: {
-              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false
+              'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false, 'Steel Nomad': false, 'Solar Bay Extreme': false
             }
           },
           grid: { top: '0%', left: '3%', right: '4%', bottom: '10', containLabel: true },
@@ -424,6 +441,22 @@
               type: 'bar',
               data: [
                 2030, 2720, 3450, 4133, 3802, 4979, 6045, 6726, 7818, 7154, 9542, 12500, '', 14330, 14564, 19112,
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Steel Nomad',
+              type: 'bar',
+              data: [
+                '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+              ],
+              itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+            },
+            {
+              name: 'Solar Bay Extreme',
+              type: 'bar',
+              data: [
+                '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
               ],
               itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
             }
