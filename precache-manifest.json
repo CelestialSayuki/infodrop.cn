@@ -9,6 +9,8 @@
   "./sw.js",
   "./apple-other/battery/index.html",
   "./auth/index.html",
+  "./apple-tools/model/index.html",
+  "./apple-tools/model/data.json",
   "./apple-tools/resources/index.html",
   "./apple-tools/support/index.html",
   "./apple-tools/support/img/watchos-26-logo.webp",

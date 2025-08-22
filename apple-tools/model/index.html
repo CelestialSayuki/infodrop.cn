@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>型号查询</title>
+    <style>
+        :root { --accent-color: #007aff; --accent-color-hover: #005ecb; --light-glass-bg: rgba(242, 242, 247, 0.8); --dark-glass-bg: rgba(28, 28, 30, 0.75); --light-text: #000; --dark-text: #fff; --light-text-secondary: #6b7280; --light-border: rgba(0, 0, 0, 0.1); --dark-border: rgba(255, 255, 255, 0.15); --border-radius: 12px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+        .auth-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 30px; font-size: 14px; }
+        .auth-wrapper h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; padding-left: 15px; }
+        .auth-wrapper .lead { padding: 0 15px 15px; margin-bottom: 2rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
+        .form-group { margin-bottom: 1.5rem; padding: 0 15px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+        .form-group input[type="text"] { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box; }
+        .form-group input[type="text"]:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25); }
+        .btn { display: inline-block; padding: 12px 25px; font-size: 1rem; font-weight: 500; text-align: center; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+        .btn-primary { background-color: var(--accent-color); color: white; width: 100%; margin-bottom: 10px; }
+        .btn-secondary { background-color: #e4e6eb; color: #333; width: 100%; }
+        .btn:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
+        .btn-primary:hover:not(:disabled) { background-color: var(--accent-color-hover); }
+        .btn-secondary:hover:not(:disabled) { background-color: #d8dbe0; }
+        .btn:active { transform: scale(0.98); }
+        #result-message { display: none; margin-top: 2rem; margin-left: 15px; margin-right: 15px; padding: 20px; border-radius: 10px; font-size: 1rem; font-weight: 500; text-align: center; line-height: 1.8; white-space: pre-wrap; }
+        .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
+        .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
+        .result-processing { background-color: rgba(0, 122, 255, 0.1); color: var(--accent-color); }
+        #full-list-container { display: none; margin-left: 15px; margin-right: 15px; }
+        #full-list-container pre { white-space: pre-wrap; word-wrap: break-word; background-color: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px; margin-top: 2rem; text-align: left; line-height: 1.6; }
+        .theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); color: var(--dark-text); }
+        .theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border); }
+        .theme-dark .form-group input[type="text"] { border-color: var(--dark-border); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
+        .theme-dark .result-success { background-color: rgba(40, 201, 64, 0.2); }
+        .theme-dark .result-fail { background-color: rgba(255, 95, 87, 0.25); }
+        .theme-dark #full-list-container pre { background-color: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div id="query-section">
+            <h1>🔍 型号查询</h1>
+            <p class="lead">输入设备的型号代码，获取相关信息。</p>
+            <div class="form-group">
+                <label for="model-input">请输入设备型号</label>
+                <input type="text" id="model-input" placeholder="例如: A2894">
+            </div>
+            <div class="form-group">
+                <button id="query-btn" class="btn btn-primary">查询</button>
+                <button id="view-list-btn" class="btn btn-secondary">查看已整理列表</button>
+            </div>
+        </div>
+        <div id="result-message"></div>
+        <div id="full-list-container">
+            <pre id="json-output"></pre>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            const modelInput = document.getElementById('model-input');
+            const queryBtn = document.getElementById('query-btn');
+            const resultMessage = document.getElementById('result-message');
+            const viewListBtn = document.getElementById('view-list-btn');
+            const fullListContainer = document.getElementById('full-list-container');
+            const jsonOutput = document.getElementById('json-output');
+            let database = {};
+
+            queryBtn.disabled = true;
+            queryBtn.textContent = '正在加载数据...';
+            viewListBtn.disabled = true;
+
+            fetch('./apple-tools/model/data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应错误');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    database = data;
+                    queryBtn.disabled = false;
+                    queryBtn.textContent = '查询';
+                    viewListBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('加载数据库失败:', error);
+                    queryBtn.textContent = '数据加载失败';
+                    resultMessage.style.display = 'block';
+                    resultMessage.className = 'result-fail';
+                    resultMessage.innerHTML = '无法加载设备数据库，请刷新页面重试。';
+                });
+
+            const cleanString = (htmlString) => {
+                if (!htmlString) return '';
+                let plainText = htmlString.replace(/<br\s*\/?>/gi, '\n');
+                return plainText;
+            };
+
+            const performQuery = () => {
+                const model = modelInput.value.trim();
+
+                if (!model) {
+                    alert('请输入要查询的型号！');
+                    return;
+                }
+
+                if (fullListContainer.style.display === 'block') {
+                    fullListContainer.style.display = 'none';
+                    viewListBtn.textContent = '查看已整理列表';
+                }
+
+                queryBtn.disabled = true;
+                resultMessage.style.display = 'block';
+                resultMessage.className = 'result-processing';
+                resultMessage.style.textAlign = 'center';
+                
+                const queryKey = model.toUpperCase();
+                const result = database[queryKey];
+
+                if (result) {
+                    resultMessage.className = 'result-success';
+                    resultMessage.textContent = cleanString(result);
+                    resultMessage.style.textAlign = 'left';
+                } else {
+                    resultMessage.className = 'result-fail';
+                    resultMessage.innerHTML = `抱歉，未找到型号 "<strong>${model}</strong>" 的相关信息。<br>请检查您的输入。`;
+                }
+
+                queryBtn.disabled = false;
+            };
+
+            const toggleFullList = () => {
+                const isVisible = fullListContainer.style.display === 'block';
+
+                resultMessage.style.display = 'none';
+
+                if (isVisible) {
+                    fullListContainer.style.display = 'none';
+                    viewListBtn.textContent = '查看已整理列表';
+                } else {
+                    let formattedList = '';
+                    for (const model in database) {
+                        if (database.hasOwnProperty(model)) {
+                            const cleanedValue = cleanString(database[model]);
+                            formattedList += `${model}: ${cleanedValue}\n\n`;
+                        }
+                    }
+                    jsonOutput.textContent = formattedList;
+                    
+                    fullListContainer.style.display = 'block';
+                    viewListBtn.textContent = '隐藏列表';
+                }
+            };
+
+            queryBtn.addEventListener('click', performQuery);
+            viewListBtn.addEventListener('click', toggleFullList);
+            
+            modelInput.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    performQuery();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
