@@ -326,6 +326,7 @@ ul {
     display: grid;
     grid-template-columns: var(--sidebar-width) 1fr;
     grid-template-rows: var(--header-height) 1fr;
+    height: 100vh;
     height: 100dvh;
     width: 100vw;
 }

@@ -157,8 +157,10 @@
         }
 
         chart.setOption(getOption(currentData));
-        const resizeObserver = new ResizeObserver(() => chart.resize());
-        resizeObserver.observe(domElement);
+        if ('ResizeObserver' in window) {
+          const resizeObserver = new ResizeObserver(() => chart.resize());
+          resizeObserver.observe(domElement);
+        }
       }
 
       const geekBenchConfig = {

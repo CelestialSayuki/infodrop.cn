@@ -144,10 +144,10 @@
 
         chart.setOption(getOption(currentData));
 
-        const resizeObserver = new ResizeObserver(() => {
-          chart.resize();
-        });
-        resizeObserver.observe(domElement);
+        if ('ResizeObserver' in window) {
+          const resizeObserver = new ResizeObserver(() => chart.resize());
+          resizeObserver.observe(domElement);
+        }
 
         return chart;
       }
@@ -180,8 +180,10 @@
           }]
         };
         if (option_gb6_ipad && typeof option_gb6_ipad === 'object') { myChart_gb6_ipad.setOption(option_gb6_ipad); }
-        const resizeObserver_gb6_ipad = new ResizeObserver(() => { myChart_gb6_ipad.resize(); });
-        resizeObserver_gb6_ipad.observe(dom_gb6_ipad);
+        if ('ResizeObserver' in window) {
+          const resizeObserver_gb6_ipad = new ResizeObserver(() => { myChart_gb6_ipad.resize(); });
+          resizeObserver_gb6_ipad.observe(dom_gb6_ipad);
+        }
       }
 
       var dom_gb6_mac = document.getElementById('container_GeekBench6_Mac');
@@ -210,8 +212,10 @@
           }]
         };
         if (option_gb6_mac && typeof option_gb6_mac === 'object') { myChart_gb6_mac.setOption(option_gb6_mac); }
-        const resizeObserver_gb6_mac = new ResizeObserver(() => { myChart_gb6_mac.resize(); });
-        resizeObserver_gb6_mac.observe(dom_gb6_mac);
+        if ('ResizeObserver' in window) {
+          const resizeObserver_gb6_mac = new ResizeObserver(() => { myChart_gb6_mac.resize(); });
+          resizeObserver_gb6_mac.observe(dom_gb6_mac);
+        }
       }
 
       var dom_3d_iphone = document.getElementById('container_3DMark_iPhone');
@@ -302,8 +306,10 @@
           const selectedLegend = params.selected;
           updateChart_3DMark_iPhone(selectedLegend);
         });
-        const resizeObserver_3d_iphone = new ResizeObserver(() => { myChart_3DMark_iPhone.resize(); });
-        resizeObserver_3d_iphone.observe(dom_3d_iphone);
+        if ('ResizeObserver' in window) {
+          const resizeObserver_3d_iphone = new ResizeObserver(() => { myChart_3DMark_iPhone.resize(); });
+          resizeObserver_3d_iphone.observe(dom_3d_iphone);
+        }
       }
 
       var dom_3d_ipad = document.getElementById('container_3DMark_iPad');
@@ -393,8 +399,10 @@
           const selectedLegend = params.selected;
           updateChart_3DMark_iPad(selectedLegend);
         });
-        const resizeObserver_3d_ipad = new ResizeObserver(() => { myChart_3DMark_iPad.resize(); });
-        resizeObserver_3d_ipad.observe(dom_3d_ipad);
+        if ('ResizeObserver' in window) {
+          const resizeObserver_3d_ipad = new ResizeObserver(() => { myChart_3DMark_iPad.resize(); });
+          resizeObserver_3d_ipad.observe(dom_3d_ipad);
+        }
       }
 
       var dom_3d_mac = document.getElementById('container_3DMark_Mac');
@@ -492,8 +500,10 @@
           const selectedLegend = params.selected;
           updateChart_3DMark_Mac(selectedLegend);
         });
-        const resizeObserver_3d_mac = new ResizeObserver(() => { myChart_3DMark_Mac.resize(); });
-        resizeObserver_3d_mac.observe(dom_3d_mac);
+        if ('ResizeObserver' in window) {
+          const resizeObserver_3d_mac = new ResizeObserver(() => { myChart_3DMark_Mac.resize(); });
+          resizeObserver_3d_mac.observe(dom_3d_mac);
+        }
       }
     })();
   </script>

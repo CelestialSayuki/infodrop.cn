@@ -7,12 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
 
     <style type="text/css">
-        /* 关键步骤 2: 大幅精简内部样式，只保留此页面特有的样式 */
         .main-content {
             padding: 20px;
         }
 
-        /* 为表格容器添加内外边距 */
         .table-container {
             width: 100%;
             overflow-y: auto;
@@ -21,18 +19,15 @@
             margin-top: 20px;
         }
 
-        /* 表格样式优化 */
         .results-table {
             width: 100%;
-            border-collapse: collapse; /* 移除单元格间距 */
+            border-collapse: collapse;
         }
 
-        /* 粘性表头样式优化 */
         .results-table thead {
             position: sticky;
             top: 0;
             z-index: 1;
-            /* 使用 CSS 变量确保背景色能自适应深/浅色模式 */
             background-color: var(--card-header-bg-color, rgba(255, 255, 255, 0.8));
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -46,14 +41,13 @@
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
-            white-space: nowrap; /* 防止内容换行 */
+            white-space: nowrap;
         }
 
         .results-table tbody tr:hover {
             background-color: var(--hover-bg-color);
         }
 
-        /* 型号列样式，允许换行并设置最小宽度 */
         .results-table .model-cell {
             white-space: normal;
             min-width: 280px;
@@ -66,12 +60,11 @@
             margin-top: 4px;
         }
 
-        /* 搜索框样式优化 */
         #DiskBenchInput {
             width: 100%;
             font-size: 1rem;
             padding: 12px 18px;
-            margin-bottom: 0; /* 移除多余的边距 */
+            margin-bottom: 0;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background-color: var(--input-bg-color);

@@ -69,204 +69,212 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
 
-        <script>
-            setTimeout(() => {
-                const { createClient } = supabase;
-                const SUPABASE_URL = 'https://pdmmtiiwdazcvcbyxkor.supabase.co';
-                const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbW10aWl3ZGF6Y3ZjYnl4a29yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg1MjM3NTMsImV4cCI6MjA2NDA5OTc1M30.FOebKEr65b9mkWH8rCCePYkeNVCWny52T8SqTtX2cjs';
-                const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-                
-                const filterBrowserVersionCheckboxesContainer = document.getElementById('filterBrowserVersionCheckboxes');
-                const selectAllBrowserButton = document.getElementById('selectAllBrowserButton');
-                const deselectAllBrowserButton = document.getElementById('deselectAllBrowserButton');
-                const filterCpuInfoCheckboxesContainer = document.getElementById('filterCpuInfoCheckboxes');
-                const selectAllCpuButton = document.getElementById('selectAllCpuButton');
-                const deselectAllCpuButton = document.getElementById('deselectAllCpuButton');
-                const resetFiltersButton = document.getElementById('resetFiltersButton');
-                const refreshResultsButton = document.getElementById('refreshResultsButton');
-                
-                let benchmarkChartBase, benchmarkChartWebview, benchmarkChartPeak;
-                let allBenchmarkData = [];
-                const TARGET_MANUFACTURERS = ['Intel', 'AMD', 'Apple', 'Google'];
-                
-                function isTargetManufacturer(cpuInfo) {
-                    return cpuInfo && TARGET_MANUFACTURERS.includes(cpuInfo.split(' ')[0]);
-                }
-                
-                function processChartDataForEcharts(dataArray) {
-                    const chartDataProcessed = {};
-                    dataArray.forEach(item => {
-                        const key = item.cpuInfo;
-                        const scoreAsNumber = parseFloat(item.speedometerScore);
-                        if (!chartDataProcessed[key] || scoreAsNumber > chartDataProcessed[key].score) {
-                            chartDataProcessed[key] = { device: key, score: scoreAsNumber, ...item };
-                        }
-                    });
-                    return Object.values(chartDataProcessed).sort((a, b) => b.score - a.score);
-                }
-                
-                function populateFilterOptions(data) {
-                    const uniqueBrowserVersions = [...new Set(data.map(item => item.browserVersion).filter(Boolean))].sort();
-                    const uniqueCpuInfos = [...new Set(data.map(item => item.cpuInfo).filter(Boolean))].sort();
-                    
-                    const createCheckboxes = (container, items, name) => {
-                        container.innerHTML = '';
-                        items.forEach(item => {
-                            const checkboxId = `${name}-${item.replace(/[^a-zA-Z0-9]/g, '-')}`;
-                            container.insertAdjacentHTML('beforeend', `
-                                <label for="${checkboxId}"><input type="checkbox" id="${checkboxId}" value="${item}" name="${name}">${item}</label>
-                            `);
-                        });
-                        container.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.addEventListener('change', applyFiltersAndRender));
-                    };
-                    
-                    createCheckboxes(filterBrowserVersionCheckboxesContainer, uniqueBrowserVersions, 'filterBrowserVersion');
-                    createCheckboxes(filterCpuInfoCheckboxesContainer, uniqueCpuInfos, 'filterCpuInfo');
-                }
-                
-                function applyFiltersAndRender() {
-                    if (!allBenchmarkData.length) return;
-                    
-                    const selectedBrowserVersions = Array.from(filterBrowserVersionCheckboxesContainer.querySelectorAll('input:checked')).map(cb => cb.value);
-                    const selectedCpuInfos = Array.from(filterCpuInfoCheckboxesContainer.querySelectorAll('input:checked')).map(cb => cb.value);
-                    
-                    let filteredData = allBenchmarkData;
-                    if (selectedBrowserVersions.length) filteredData = filteredData.filter(item => selectedBrowserVersions.includes(item.browserVersion));
-                    if (selectedCpuInfos.length) filteredData = filteredData.filter(item => selectedCpuInfos.includes(item.cpuInfo));
-                    
-                    const rawDataForBase = filteredData.filter(item => item.benchmarkType === 'Base');
-                    const rawDataForWebview = filteredData.filter(item => item.benchmarkType === 'Webview');
-                    const rawDataForPeak = filteredData.filter(item => item.benchmarkType === 'Peak');
-                    
-                    const peakScoresMap = new Map();
-                    rawDataForPeak.forEach(item => {
-                        if (!peakScoresMap.has(item.cpuInfo) || item.speedometerScore > peakScoresMap.get(item.cpuInfo).speedometerScore) {
-                            peakScoresMap.set(item.cpuInfo, item);
-                        }
-                    });
-                    
-                    const createHybridData = (rawData, type) => {
-                        const intermediateData = [];
-                        const processedCpuInfos = new Set();
-                        rawData.forEach(item => {
-                            let itemToAdd = { ...item, isPeakData: false };
-                            if (isTargetManufacturer(item.cpuInfo)) {
-                                const peakData = peakScoresMap.get(item.cpuInfo);
-                                if (peakData) {
-                                    itemToAdd = { ...itemToAdd, ...peakData, isPeakData: true };
-                                }
-                            }
-                            intermediateData.push(itemToAdd);
-                            processedCpuInfos.add(item.cpuInfo);
-                        });
-                        peakScoresMap.forEach((peakItem, cpuInfo) => {
-                            if (isTargetManufacturer(cpuInfo) && !processedCpuInfos.has(cpuInfo)) {
-                                intermediateData.push({ ...peakItem, benchmarkType: type, isPeakData: true });
-                            }
-                        });
-                        return intermediateData;
-                    };
-                    
-                    benchmarkChartPeak = renderBenchmarkChart('benchmarkChartContainerPeak', benchmarkChartPeak, processChartDataForEcharts(rawDataForPeak), 'Peak');
-                    benchmarkChartBase = renderBenchmarkChart('benchmarkChartContainerBase', benchmarkChartBase, processChartDataForEcharts(createHybridData(rawDataForBase, 'Base')), 'Base');
-                    benchmarkChartWebview = renderBenchmarkChart('benchmarkChartContainerWebview', benchmarkChartWebview, processChartDataForEcharts(createHybridData(rawDataForWebview, 'Webview')), 'Webview');
-                }
-                
-                async function loadUploadedResults() {
-                    const containers = ['benchmarkChartContainerPeak', 'benchmarkChartContainerBase', 'benchmarkChartContainerWebview'];
-                    containers.forEach(id => document.getElementById(id).querySelector('.chart-message-overlay').innerHTML = '<p>正在加载数据...</p>');
-                    
-                    try {
-                        const { data, error } = await supabaseClient.from('speedometer_results').select('*').order('timestamp', { ascending: false });
-                        if (error) throw error;
-                        allBenchmarkData = data || [];
-                        populateFilterOptions(allBenchmarkData);
-                        applyFiltersAndRender();
-                    } catch (error) {
-                        containers.forEach(id => document.getElementById(id).querySelector('.chart-message-overlay').innerHTML = `<p style="color: red;">数据加载失败: ${error.message}</p>`);
+    <script>
+        setTimeout(() => {
+            const { createClient } = supabase;
+            const SUPABASE_URL = 'https://pdmmtiiwdazcvcbyxkor.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbW10aWl3ZGF6Y3ZjYnl4a29yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg1MjM3NTMsImV4cCI6MjA2NDA5OTc1M30.FOebKEr65b9mkWH8rCCePYkeNVCWny52T8SqTtX2cjs';
+            const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            
+            const filterBrowserVersionCheckboxesContainer = document.getElementById('filterBrowserVersionCheckboxes');
+            const selectAllBrowserButton = document.getElementById('selectAllBrowserButton');
+            const deselectAllBrowserButton = document.getElementById('deselectAllBrowserButton');
+            const filterCpuInfoCheckboxesContainer = document.getElementById('filterCpuInfoCheckboxes');
+            const selectAllCpuButton = document.getElementById('selectAllCpuButton');
+            const deselectAllCpuButton = document.getElementById('deselectAllCpuButton');
+            const resetFiltersButton = document.getElementById('resetFiltersButton');
+            const refreshResultsButton = document.getElementById('refreshResultsButton');
+            
+            let benchmarkChartBase, benchmarkChartWebview, benchmarkChartPeak;
+            let allBenchmarkData = [];
+            const TARGET_MANUFACTURERS = ['Intel', 'AMD', 'Apple', 'Google'];
+            
+            function isTargetManufacturer(cpuInfo) {
+                return cpuInfo && TARGET_MANUFACTURERS.includes(cpuInfo.split(' ')[0]);
+            }
+            
+            function processChartDataForEcharts(dataArray) {
+                const chartDataProcessed = {};
+                dataArray.forEach(item => {
+                    const key = item.cpuInfo;
+                    const scoreAsNumber = parseFloat(item.speedometerScore);
+                    if (!chartDataProcessed[key] || scoreAsNumber > chartDataProcessed[key].score) {
+                        chartDataProcessed[key] = { device: key, score: scoreAsNumber, ...item };
                     }
-                }
+                });
+                return Object.values(chartDataProcessed).sort((a, b) => b.score - a.score);
+            }
+            
+            function populateFilterOptions(data) {
+                const uniqueBrowserVersions = [...new Set(data.map(item => item.browserVersion).filter(Boolean))].sort();
+                const uniqueCpuInfos = [...new Set(data.map(item => item.cpuInfo).filter(Boolean))].sort();
                 
-                function renderBenchmarkChart(containerId, chartInstance, chartData, titlePrefix) {
-                    const container = document.getElementById(containerId);
-                    const messageOverlay = container.querySelector('.chart-message-overlay');
-                    if (chartInstance) chartInstance.dispose();
-                    
-                    if (!chartData || chartData.length === 0) {
-                        messageOverlay.innerHTML = '<p>没有符合筛选条件的数据。</p>';
-                        messageOverlay.classList.add('active');
-                        if (container.querySelector('.echarts-instance')) container.querySelector('.echarts-instance').remove();
-                        return null;
-                    }
-                    
-                    messageOverlay.classList.remove('active');
-                    let chartDiv = container.querySelector('.echarts-instance');
-                    if(!chartDiv) {
-                        chartDiv = document.createElement('div');
-                        chartDiv.className = 'echarts-instance';
-                        container.appendChild(chartDiv);
-                    }
-                    
-                    const itemHeight = 25;
-                    const calculatedHeight = Math.max(200, chartData.length * itemHeight + 120);
-                    chartDiv.style.height = `${calculatedHeight}px`;
-                    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-                    chartInstance = echarts.init(chartDiv, theme);
-                    const option = {
-                        backgroundColor: 'transparent',
-                        title: { text: `Speedometer 3.1 - ${titlePrefix} 类型`, left: 'center', top: '10px' },
-                        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: params => {
-                            const item = chartData.find(d => d.device === params[0].name);
-                            return `<strong>设备: ${item.device}</strong><br/>分数: ${item.score}<br/>浏览器: ${item.browserVersion || 'N/A'}<br/>误差: ${item.speedometerError || 'N/A'}<br/>记录时间: ${new Date(item.timestamp).toLocaleString()}`;
-                        }},
-                        grid: { left: '3%', right: '8%', bottom: '3%', containLabel: true },
-                        xAxis: { type: 'value', name: '分数', nameLocation: 'center', nameGap: 25 },
-                        yAxis: { type: 'category', data: chartData.map(item => item.device), inverse: true, axisLabel: { interval: 0 } },
-                        series: [{
-                            name: '分数', type: 'bar', barMaxWidth: '60%',
-                            data: chartData.map(item => ({
-                                value: item.score,
-                                itemStyle: { color: item.isPeakData ? '#ffa500' : '#007bff' }
-                            })),
-                            itemStyle: { borderRadius: [0, 5, 5, 0] },
-                            label: { show: true, position: 'right', formatter: p => parseFloat(p.value).toFixed(2) }
-                        }]
-                    };
-                    chartInstance.setOption(option, true);
-                    return chartInstance;
-                }
-                
-                const setupFilterButtons = (type) => {
-                    const selectAllBtn = document.getElementById(`selectAll${type}Button`);
-                    const deselectAllBtn = document.getElementById(`deselectAll${type}Button`);
-                    const container = document.getElementById(`filter${type}CheckboxesContainer`);
-                    selectAllBtn.addEventListener('click', () => {
-                        container.querySelectorAll('input').forEach(cb => cb.checked = true);
-                        applyFiltersAndRender();
+                const createCheckboxes = (container, items, name) => {
+                    container.innerHTML = '';
+                    items.forEach(item => {
+                        const checkboxId = `${name}-${item.replace(/[^a-zA-Z0-9]/g, '-')}`;
+                        container.insertAdjacentHTML('beforeend', `
+                            <label for="${checkboxId}"><input type="checkbox" id="${checkboxId}" value="${item}" name="${name}">${item}</label>
+                        `);
                     });
-                    deselectAllBtn.addEventListener('click', () => {
-                        container.querySelectorAll('input').forEach(cb => cb.checked = false);
-                        applyFiltersAndRender();
-                    });
+                    container.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.addEventListener('change', applyFiltersAndRender));
                 };
-                setupFilterButtons('Browser');
-                setupFilterButtons('Cpu');
                 
-                resetFiltersButton.addEventListener('click', () => {
-                    filterBrowserVersionCheckboxesContainer.querySelectorAll('input').forEach(cb => cb.checked = false);
-                    filterCpuInfoCheckboxesContainer.querySelectorAll('input').forEach(cb => cb.checked = false);
+                createCheckboxes(filterBrowserVersionCheckboxesContainer, uniqueBrowserVersions, 'filterBrowserVersion');
+                createCheckboxes(filterCpuInfoCheckboxesContainer, uniqueCpuInfos, 'filterCpuInfo');
+            }
+            
+            function applyFiltersAndRender() {
+                if (!allBenchmarkData.length) return;
+                
+                const selectedBrowserVersions = Array.from(filterBrowserVersionCheckboxesContainer.querySelectorAll('input:checked')).map(cb => cb.value);
+                const selectedCpuInfos = Array.from(filterCpuInfoCheckboxesContainer.querySelectorAll('input:checked')).map(cb => cb.value);
+                
+                let filteredData = allBenchmarkData;
+                if (selectedBrowserVersions.length) filteredData = filteredData.filter(item => selectedBrowserVersions.includes(item.browserVersion));
+                if (selectedCpuInfos.length) filteredData = filteredData.filter(item => selectedCpuInfos.includes(item.cpuInfo));
+                
+                const rawDataForBase = filteredData.filter(item => item.benchmarkType === 'Base');
+                const rawDataForWebview = filteredData.filter(item => item.benchmarkType === 'Webview');
+                const rawDataForPeak = filteredData.filter(item => item.benchmarkType === 'Peak');
+                
+                const peakScoresMap = new Map();
+                rawDataForPeak.forEach(item => {
+                    if (!peakScoresMap.has(item.cpuInfo) || item.speedometerScore > peakScoresMap.get(item.cpuInfo).speedometerScore) {
+                        peakScoresMap.set(item.cpuInfo, item);
+                    }
+                });
+                
+                const createHybridData = (rawData, type) => {
+                    const intermediateData = [];
+                    const processedCpuInfos = new Set();
+                    rawData.forEach(item => {
+                        let itemToAdd = { ...item, isPeakData: false };
+                        if (isTargetManufacturer(item.cpuInfo)) {
+                            const peakData = peakScoresMap.get(item.cpuInfo);
+                            if (peakData) {
+                                itemToAdd = { ...itemToAdd, ...peakData, isPeakData: true };
+                            }
+                        }
+                        intermediateData.push(itemToAdd);
+                        processedCpuInfos.add(item.cpuInfo);
+                    });
+                    peakScoresMap.forEach((peakItem, cpuInfo) => {
+                        if (isTargetManufacturer(cpuInfo) && !processedCpuInfos.has(cpuInfo)) {
+                            intermediateData.push({ ...peakItem, benchmarkType: type, isPeakData: true });
+                        }
+                    });
+                    return intermediateData;
+                };
+                
+                benchmarkChartPeak = renderBenchmarkChart('benchmarkChartContainerPeak', benchmarkChartPeak, processChartDataForEcharts(rawDataForPeak), 'Peak');
+                benchmarkChartBase = renderBenchmarkChart('benchmarkChartContainerBase', benchmarkChartBase, processChartDataForEcharts(createHybridData(rawDataForBase, 'Base')), 'Base');
+                benchmarkChartWebview = renderBenchmarkChart('benchmarkChartContainerWebview', benchmarkChartWebview, processChartDataForEcharts(createHybridData(rawDataForWebview, 'Webview')), 'Webview');
+            }
+            
+            async function loadUploadedResults() {
+                const containers = ['benchmarkChartContainerPeak', 'benchmarkChartContainerBase', 'benchmarkChartContainerWebview'];
+                containers.forEach(id => document.getElementById(id).querySelector('.chart-message-overlay').innerHTML = '<p>正在加载数据...</p>');
+                
+                try {
+                    const { data, error } = await supabaseClient.from('speedometer_results').select('*').order('timestamp', { ascending: false });
+                    if (error) throw error;
+                    allBenchmarkData = data || [];
+                    populateFilterOptions(allBenchmarkData);
+                    applyFiltersAndRender();
+                } catch (error) {
+                    containers.forEach(id => document.getElementById(id).querySelector('.chart-message-overlay').innerHTML = `<p style="color: red;">数据加载失败: ${error.message}</p>`);
+                }
+            }
+            
+            function renderBenchmarkChart(containerId, chartInstance, chartData, titlePrefix) {
+                const container = document.getElementById(containerId);
+                const messageOverlay = container.querySelector('.chart-message-overlay');
+                if (chartInstance) chartInstance.dispose();
+
+                if (!chartData || chartData.length === 0) {
+                    messageOverlay.innerHTML = '<p>没有符合筛选条件的数据。</p>';
+                    messageOverlay.classList.add('active');
+                    const existingChartDiv = container.querySelector('.echarts-instance');
+                    if (existingChartDiv) existingChartDiv.style.height = '0px';
+                    return null;
+                }
+
+                messageOverlay.classList.remove('active');
+                let chartDiv = container.querySelector('.echarts-instance');
+                if(!chartDiv) {
+                    chartDiv = document.createElement('div');
+                    chartDiv.className = 'echarts-instance';
+                    container.appendChild(chartDiv);
+                }
+
+                const itemHeight = 25;
+                const calculatedHeight = Math.max(200, chartData.length * itemHeight + 120);
+                chartDiv.style.height = `${calculatedHeight}px`;
+                const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                chartInstance = echarts.init(chartDiv, theme);
+                const option = {
+                    backgroundColor: 'transparent',
+                    title: { text: `Speedometer 3.1 - ${titlePrefix} 类型`, left: 'center', top: '10px' },
+                    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: params => {
+                        const item = chartData.find(d => d.device === params[0].name);
+                        return `<strong>设备: ${item.device}</strong><br/>分数: ${item.score}<br/>浏览器: ${item.browserVersion || 'N/A'}<br/>误差: ${item.speedometerError || 'N/A'}<br/>记录时间: ${new Date(item.timestamp).toLocaleString()}`;
+                    }},
+                    grid: { left: '3%', right: '8%', bottom: '3%', containLabel: true },
+                    xAxis: { type: 'value', name: '分数', nameLocation: 'center', nameGap: 25 },
+                    yAxis: { type: 'category', data: chartData.map(item => item.device), inverse: true, axisLabel: { interval: 0 } },
+                    series: [{
+                        name: '分数', type: 'bar', barMaxWidth: '60%',
+                        data: chartData.map(item => ({
+                            value: item.score,
+                            itemStyle: { color: item.isPeakData ? '#ffa500' : '#007bff' }
+                        })),
+                        itemStyle: { borderRadius: [0, 5, 5, 0] },
+                        label: { show: true, position: 'right', formatter: p => parseFloat(p.value).toFixed(2) }
+                    }]
+                };
+                chartInstance.setOption(option, true);
+
+                if ('ResizeObserver' in window) {
+                  const resizeObserver = new ResizeObserver(() => {
+                    try {
+                      chartInstance.resize();
+                    } catch (e) {
+                      resizeObserver.disconnect();
+                    }
+                  });
+                  resizeObserver.observe(container);
+                }
+
+                return chartInstance;
+            }
+            
+            const setupFilterButtons = (type) => {
+                const selectAllBtn = document.getElementById(`selectAll${type}Button`);
+                const deselectAllBtn = document.getElementById(`deselectAll${type}Button`);
+                const container = document.getElementById(`filter${type}InfoCheckboxes`) || document.getElementById(`filter${type}VersionCheckboxes`);
+                selectAllBtn.addEventListener('click', () => {
+                    container.querySelectorAll('input').forEach(cb => cb.checked = true);
                     applyFiltersAndRender();
                 });
-                
-                refreshResultsButton.addEventListener('click', loadUploadedResults);
-                window.addEventListener('resize', () => {
-                    if(benchmarkChartBase) benchmarkChartBase.resize();
-                    if(benchmarkChartWebview) benchmarkChartWebview.resize();
-                    if(benchmarkChartPeak) benchmarkChartPeak.resize();
+                deselectAllBtn.addEventListener('click', () => {
+                    container.querySelectorAll('input').forEach(cb => cb.checked = false);
+                    applyFiltersAndRender();
                 });
-                
-                loadUploadedResults();
-            }, 0);
-        </script>
+            };
+            setupFilterButtons('Browser');
+            setupFilterButtons('Cpu');
+            
+            resetFiltersButton.addEventListener('click', () => {
+                filterBrowserVersionCheckboxesContainer.querySelectorAll('input').forEach(cb => cb.checked = false);
+                filterCpuInfoCheckboxesContainer.querySelectorAll('input').forEach(cb => cb.checked = false);
+                applyFiltersAndRender();
+            });
+            
+            refreshResultsButton.addEventListener('click', loadUploadedResults);
+            
+            loadUploadedResults();
+        }, 0);
+    </script>
 </body>
 </html>
