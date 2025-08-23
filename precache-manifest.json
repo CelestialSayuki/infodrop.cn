@@ -1,7 +1,7 @@
 [
-  "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js",
   "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js",
-  "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+  "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css",
   "./",
   "./favicon.ico",
   "./manifest.json",
