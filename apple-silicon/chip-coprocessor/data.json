@@ -40,8 +40,7 @@
         "microArchitecture": "ARMv7-M Cortex M3",
         "processTech": "90nm",
         "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod touch (第 6 代)</div>",
-        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg\" style=\"padding:4px;max-height: 120px;\">"
-      }
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg\" width=\"350\" height=\"393\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"      }
     },
     {
       "name": "Apple M7",
@@ -53,7 +52,7 @@
         "microArchitecture": "ARMv7-M Cortex M3",
         "processTech": "90nm",
         "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 5s<br>iPad Air<br>iPad mini 2<br>iPad mini 3</div>",
-        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg\" style=\"padding:4px;max-height: 120px;\">"
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg\" width=\"350\" height=\"263\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"
       }
     }
   ]

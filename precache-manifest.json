@@ -115,6 +115,8 @@
   "./apple-silicon/chip-m/data.json",
   "./apple-silicon/chip-w/data.json",
   "./apple-silicon/chip-coprocessor/data.json",
+  "./apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg",
+  "./apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg",
   "./apple-silicon/chip-u/data.json",
   "./apple-silicon/chip-r/data.json",
   "./apple-silicon/chip-h/data.json",
