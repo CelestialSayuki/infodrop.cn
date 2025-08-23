@@ -1,4 +1,5 @@
 import { WindowManager } from './lib/WindowManager.js';
+import { loadScriptsSequentially } from './lib/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainContentArea = document.querySelector('.main-content');
@@ -61,33 +62,68 @@ async function loadContentIntoMainArea(url, container) {
   container.innerHTML = '<div class="loading-spinner">加载中...</div>';
   
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`网络请求失败: ${response.status}`);
-    }
-    const htmlText = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlText, 'text/html');
-    
-    const newContent = doc.body.innerHTML;
-    
-    container.innerHTML = newContent;
+    document.querySelectorAll('[data-dynamic-mobile-style]').forEach(el => el.remove());
 
-    const baseUrl = new URL(url, window.location.href);
-    container.querySelectorAll('a[href], img[src]').forEach(el => {
-        if (el.hasAttribute('href')) {
-            let path = el.getAttribute('href');
-            if (path && !path.startsWith('http')) {
-                el.href = new URL(path, baseUrl).href;
-            }
-        }
-        if (el.hasAttribute('src')) {
-            let path = el.getAttribute('src');
-            if (path && !path.startsWith('http')) {
-                el.src = new URL(path, baseUrl).href;
-            }
-        }
-    });
+    const isComparisonPage = url.includes('/apple-device/') || url.includes('/apple-silicon/');
+
+    if (isComparisonPage) {
+      const styleId = 'comparison-ui-style';
+      if (!document.getElementById(styleId)) {
+          const link = document.createElement('link');
+          link.id = styleId;
+          link.rel = 'stylesheet';
+          link.href = './public-static/css/comparison-table-ui.css';
+          document.head.appendChild(link);
+      }
+      const jsonUrl = url + 'data.json';
+      const gridContainer = await renderComparisonTable(jsonUrl, container, url);
+      if (gridContainer) {
+        syncRowHeights(gridContainer);
+      }
+    } else {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`网络请求失败: ${response.status}`);
+      }
+      const htmlText = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, 'text/html');
+      const baseUrl = new URL(url, window.location.href);
+
+      doc.head.querySelectorAll('link[rel="stylesheet"]').forEach(linkNode => {
+          const newLink = document.createElement('link');
+          newLink.rel = 'stylesheet';
+          newLink.href = new URL(linkNode.getAttribute('href'), baseUrl).href;
+          newLink.dataset.dynamicMobileStyle = 'true';
+          document.head.appendChild(newLink);
+      });
+
+      doc.head.querySelectorAll('style').forEach(styleNode => {
+          const newStyle = document.createElement('style');
+          newStyle.textContent = styleNode.textContent;
+          newStyle.dataset.dynamicMobileStyle = 'true';
+          document.head.appendChild(newStyle);
+      });
+      
+      container.innerHTML = doc.body.innerHTML;
+      
+      loadScriptsSequentially(Array.from(doc.querySelectorAll('script')), baseUrl, container);
+
+      container.querySelectorAll('a[href], img[src]').forEach(el => {
+          if (el.hasAttribute('href')) {
+              let path = el.getAttribute('href');
+              if (path && !path.startsWith('http') && !path.startsWith('#') && !path.startsWith('javascript:')) {
+                  el.href = new URL(path, baseUrl).href;
+              }
+          }
+          if (el.hasAttribute('src')) {
+              let path = el.getAttribute('src');
+              if (path && !path.startsWith('http')) {
+                  el.src = new URL(path, baseUrl).href;
+              }
+          }
+      });
+    }
 
   } catch (error) {
     container.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">内容加载失败。<br>${error.message}</div>`;
