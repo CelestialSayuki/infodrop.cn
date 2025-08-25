@@ -6,7 +6,6 @@
   <style type="text/css">
     .main-content {
       padding: 20px;
-      margin: 0 auto;
     }
     .card {
       margin-bottom: 20px;
@@ -27,13 +26,7 @@
       max-width: 1500px;
       margin: 40px auto;
     }
-    .width_float {
-      width: 100%;
-    }
 
-    body {
-      min-width: 650px;
-    }
     #mainLayout {
         margin: 0;
     }
@@ -49,6 +42,14 @@
         box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
       }
     }
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 5px;
+      }
+      .card {
+        margin: 0;
+      }
+    }
   </style>
 </head>
 
@@ -56,13 +57,13 @@
 
   <div class="main-content">
     <div class="card">
-        <div class="width_float" id="P_CPU_Freq_Volt" style="height: 600px;"></div>
+        <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
         <hr>
-        <div class="width_float" id="E_CPU_Freq_Volt" style="height: 600px;"></div>
+        <div id="E_CPU_Freq_Volt" style="height: 500px;"></div>
         <hr>
-        <div class="width_float" id="GPU_Freq_Volt" style="height: 600px;"></div>
+        <div id="GPU_Freq_Volt" style="height: 500px;"></div>
         <hr>
-        <div class="width_float" id="ANE_Freq_Volt" style="height: 600px;"></div>
+        <div id="ANE_Freq_Volt" style="height: 500px;"></div>
     </div>
   </div>
 
@@ -72,25 +73,21 @@
     (async () => {
         const chartInstances = {};
 
-        // --- 新增：颜色生成逻辑 ---
         const colorPalette = [
             '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
             '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
         ];
-        // 根据字符串生成一个固定的颜色
         function getColorForString(str) {
             let hash = 0;
             if (str.length === 0) return colorPalette[0];
             for (let i = 0; i < str.length; i++) {
                 const char = str.charCodeAt(i);
                 hash = ((hash << 5) - hash) + char;
-                hash |= 0; // Convert to 32bit integer
+                hash |= 0;
             }
             const index = Math.abs(hash % colorPalette.length);
             return colorPalette[index];
         }
-        // --- 颜色生成逻辑结束 ---
-
 
         const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax) => {
             const chartDom = document.getElementById(containerId);
@@ -105,7 +102,7 @@
                 chartDom.style.height = '100px';
                 return;
             } else {
-                chartDom.style.height = '600px';
+                chartDom.style.height = '500px';
             }
 
             let myChart = echarts.init(chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
@@ -119,18 +116,15 @@
                 selected[legendData[0]] = true;
             }
             
-            // --- 核心改动：为每个系列分配颜色 ---
             seriesData.forEach(series => {
-                const color = getColorForString(series.devices); // 使用设备名称来决定颜色
+                const color = getColorForString(series.devices);
                 series.name = series.chip;
                 series.type = 'line';
                 series.symbol = 'circle';
                 series.symbolSize = 6;
-                // 将颜色应用到图元和线上
                 series.itemStyle = { color: color };
                 series.lineStyle = { color: color, width: 2 };
             });
-            // --- 颜色分配结束 ---
 
             const option = {
                 backgroundColor: 'transparent',

@@ -8,8 +8,6 @@
     <style type="text/css">
         .main-content {
             padding: 20px;
-            max-width: 1600px;
-            margin: 0 auto;
         }
 
         .chart-card,
@@ -79,6 +77,14 @@
         @media (prefers-color-scheme: dark) {
             .legend-group .sub-legend-title {
                 color: var(--dark-text-secondary);
+            }
+        }
+        @media (max-width: 768px) {
+            .main-content {
+              padding: 5px;
+            }
+            .card {
+                margin: 0;
             }
         }
 

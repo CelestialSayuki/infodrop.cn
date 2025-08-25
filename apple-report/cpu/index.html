@@ -22,21 +22,17 @@
       color: var(--light-text-secondary);
     }
 
-    hr {
-      border: 0;
-      height: 1px;
-      background-color: rgba(237, 237, 237, 0.3);
-      max-width: 1500px;
-      margin: 40px auto;
-    }
-
     @media (prefers-color-scheme: dark) {
       .retext {
         color: var(--dark-text-secondary);
       }
-
-      hr {
-        background-color: rgba(255, 255, 255, 0.15);
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 5px;
+      }
+      .card {
+        margin: 0;
       }
     }
   </style>
@@ -45,7 +41,7 @@
 <body style="margin: 0;">
   <div class="main-content">
     <div class="card">
-      <div id="GeekBench6_A" style="width: 100%; height:380px;"></div>
+      <div id="GeekBench6_A" style="width: 100%; height:360px;"></div>
       <div class="retext">A系列</div>
       <div id="GeekBench6_M" style="width: 100%; height:300px;"></div>
       <div class="retext">M系列</div>
@@ -55,52 +51,42 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
   <script type="text/javascript">
     (() => {
+      let chartInstances = [];
+
       const geekBench6ASeriesData = [
-        { device: "A8", sc: 441, mc: 727 },
-        { device: "A9", sc: 661, mc: 1147 },
-        { device: "A9X", sc: 797, mc: 1359 },
-        { device: "A10 Fusion", sc: 898, mc: 1527 },
-        { device: "A10X Fusion", sc: 983, mc: 2415 },
-        { device: "A11 Bionic", sc: 1167, mc: 2842 },
-        { device: "A12 Bionic", sc: 1371, mc: 3272 },
-        { device: "A12X Bionic", sc: 1394, mc: 4967 },
-        { device: "A12Z Bionic", sc: 1383, mc: 4956 },
-        { device: "A13 Bionic", sc: 1832, mc: 4497 },
-        { device: "A14 Bionic", sc: 2260, mc: 5668 },
-        { device: "A15 Bionic", sc: 2495, mc: 6465 },
-        { device: "A16 Bionic", sc: 2722, mc: 7373 },
-        { device: "A17 Pro", sc: 3051, mc: 8212 },
-        { device: "A18", sc: 3581, mc: 9574 },
-        { device: "A18 Pro", sc: 3701, mc: 9715 },
+        { device: "A8", sc: 441, mc: 727 }, { device: "A9", sc: 661, mc: 1147 }, { device: "A9X", sc: 797, mc: 1359 }, { device: "A10 Fusion", sc: 898, mc: 1527 }, { device: "A10X Fusion", sc: 983, mc: 2415 }, { device: "A11 Bionic", sc: 1167, mc: 2842 }, { device: "A12 Bionic", sc: 1371, mc: 3272 }, { device: "A12X Bionic", sc: 1394, mc: 4967 }, { device: "A12Z Bionic", sc: 1383, mc: 4956 }, { device: "A13 Bionic", sc: 1832, mc: 4497 }, { device: "A14 Bionic", sc: 2260, mc: 5668 }, { device: "A15 Bionic", sc: 2495, mc: 6465 }, { device: "A16 Bionic", sc: 2722, mc: 7373 }, { device: "A17 Pro", sc: 3051, mc: 8212 }, { device: "A18", sc: 3581, mc: 9574 }, { device: "A18 Pro", sc: 3701, mc: 9715 },
       ];
 
       const geekBench6MSeriesData = [
-        { device: "M1", sc: 2486, mc: 8896 },
-        { device: "M1 Pro", sc: 2460, mc: 11047 },
-        { device: "M1 Max", sc: 2482, mc: 13263 },
-        { device: "M1 Ultra", sc: 2460, mc: 19355 },
-        { device: "M2", sc: 2709, mc: 10244 },
-        { device: "M2 Pro", sc: 2724, mc: 14215 },
-        { device: "M2 Max", sc: 2891, mc: 15746 },
-        { device: "M2 Ultra", sc: 2885, mc: 22367 },
-        { device: "M3", sc: 3255, mc: 12184 },
-        { device: "M3 Pro", sc: 3217, mc: 14602 },
-        { device: "M3 Max", sc: 3275, mc: 22081 },
-        { device: "M3 Ultra", sc: 3267, mc: 28826 },
-        { device: "M4", sc: 4024, mc: 15587 },
-        { device: "M4 Pro", sc: 4050, mc: 23727 },
-        { device: "M4 Max", sc: 4132, mc: 27196 },
+        { device: "M1", sc: 2486, mc: 8896 }, { device: "M1 Pro", sc: 2460, mc: 11047 }, { device: "M1 Max", sc: 2482, mc: 13263 }, { device: "M1 Ultra", sc: 2460, mc: 19355 }, { device: "M2", sc: 2709, mc: 10244 }, { device: "M2 Pro", sc: 2724, mc: 14215 }, { device: "M2 Max", sc: 2891, mc: 15746 }, { device: "M2 Ultra", sc: 2885, mc: 22367 }, { device: "M3", sc: 3255, mc: 12184 }, { device: "M3 Pro", sc: 3217, mc: 14602 }, { device: "M3 Max", sc: 3275, mc: 22081 }, { device: "M3 Ultra", sc: 3267, mc: 28826 }, { device: "M4", sc: 4024, mc: 15587 }, { device: "M4 Pro", sc: 4050, mc: 23727 }, { device: "M4 Max", sc: 4132, mc: 27196 },
       ];
 
-      function createBarChart(domId, rawData, config) {
+      const geekBenchConfig = {
+        title: "GeekBench 6 性能跑分",
+        subtext: "只保留满血 SoC 最高分",
+        colors: ["#4fa3bf", "#87c7dc"],
+        seriesInfo: [
+          { name: "CPU 单核", key: "sc", specificOptions: { z: 2 } },
+          { name: "CPU 多核", key: "mc", specificOptions: { z: 1 } },
+        ],
+        yAxisKey: "device",
+        initialSortKey: "mc",
+        ascendingSort: true,
+        commonSeriesOptions: {
+          barGap: "-100%",
+          label: { show: true, color: "#808080", fontSize: 11, fontWeight: "bold", position: "right" },
+          itemStyle: {
+            barBorderRadius: [0, 20, 20, 0],
+          },
+        },
+      };
+
+      function createBarChart(domId, rawData, config, theme) {
         const domElement = document.getElementById(domId);
         if (!domElement) return;
 
-        const chart = echarts.init(
-          domElement,
-          window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
-          { renderer: "svg", useDirtyRect: false }
-        );
+        const chart = echarts.init(domElement, theme, { renderer: "svg", useDirtyRect: false });
+        chartInstances.push(chart);
 
         let currentData = [...rawData];
 
@@ -132,7 +118,7 @@
             title: { text: config.title, subtext: config.subtext, ...config.titleOptions },
             tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
             legend: { bottom: 30, right: 0, type: "scroll", orient: "vertical", textStyle: { fontSize: 11 }, ...config.legendOptions },
-            grid: { left: "3%", right: "4%", bottom: "10", containLabel: true, ...config.gridOptions },
+            grid: { left: "3%", right: "10%", bottom: "10", containLabel: true, ...config.gridOptions },
             xAxis: { type: "value", boundaryGap: [0, 0.01], axisLabel: { textStyle: { fontSize: "11" } } },
             yAxis: { type: "category", data: yAxisData, axisLabel: { textStyle: { fontSize: "11" } } },
             series: series,
@@ -159,32 +145,21 @@
         chart.setOption(getOption(currentData));
         if ('ResizeObserver' in window) {
           const resizeObserver = new ResizeObserver(() => chart.resize());
-          resizeObserver.observe(domElement);
-        }
+          resizeObserver.observe(domElement);
+        }
       }
 
-      const geekBenchConfig = {
-        title: "GeekBench 6 性能跑分",
-        subtext: "只保留满血 SoC 最高分",
-        colors: ["#4fa3bf", "#87c7dc"],
-        seriesInfo: [
-            { name: "CPU 单核", key: "sc", specificOptions: { z: 2 } },
-            { name: "CPU 多核", key: "mc", specificOptions: { z: 1 } },
-        ],
-        yAxisKey: "device",
-        initialSortKey: "mc",
-        ascendingSort: true,
-        commonSeriesOptions: {
-          barGap: "-100%",
-          label: { show: true, color: "#808080", fontSize: 11, fontWeight: "bold", position: "right" },
-          itemStyle: {
-            barBorderRadius: [0, 20, 20, 0],
-          },
-        },
-      };
+      function renderAllCharts() {
+        chartInstances.forEach(chart => chart.dispose());
+        chartInstances = [];
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        createBarChart('GeekBench6_A', geekBench6ASeriesData, geekBenchConfig, theme);
+        createBarChart('GeekBench6_M', geekBench6MSeriesData, { ...geekBenchConfig, title: '', subtext: '', gridOptions: { top: '1%' } }, theme);
+      }
 
-      createBarChart('GeekBench6_A', geekBench6ASeriesData, geekBenchConfig);
-      createBarChart('GeekBench6_M', geekBench6MSeriesData, { ...geekBenchConfig, title: '', subtext: '', gridOptions: { top: '1%' } });
+      renderAllCharts();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAllCharts);
+      
     })();
   </script>
 </body>

@@ -82,6 +82,14 @@
                 background-color: var(--dark-card-header-bg-color, rgba(28, 33, 40, 0.8));
             }
         }
+        @media (max-width: 768px) {
+          .main-content {
+            padding: 5px;
+          }
+          .card {
+            margin: 0;
+          }
+        }
     </style>
 </head>
 
@@ -2197,19 +2205,14 @@
     </div>
 
     <script>
-        /**
-         * 搜索功能：根据输入框内容过滤表格行
-         */
         function filterTable() {
             const input = document.getElementById("DiskBenchInput");
             const filter = input.value.toUpperCase();
             const table = document.getElementById("DiskBench");
             const tr = table.getElementsByTagName("tr");
 
-            // 从 1 开始循环，跳过 thead 中的表头行
             for (let i = 1; i < tr.length; i++) {
                 const row = tr[i];
-                // 获取整行的文本内容进行匹配，这样可以搜索所有列
                 const rowText = row.textContent || row.innerText;
                 
                 if (rowText.toUpperCase().indexOf(filter) > -1) {
@@ -2220,30 +2223,34 @@
             }
         }
 
-        /**
-         * 高度调整功能：动态计算并设置表格容器的最大高度
-         */
         function adjustTableHeight() {
             const tableContainer = document.querySelector('.table-container');
             if (!tableContainer) return;
 
-            // 获取表格容器距离视口顶部的距离
             const topOffset = tableContainer.getBoundingClientRect().top;
             
-            // 在视口底部保留一些空间，避免表格紧贴边缘
             const bottomPadding = 60;
             
-            // 计算可用高度
             const availableHeight = window.innerHeight - topOffset - bottomPadding;
 
-            // 设置一个最小高度（例如 300px）防止窗口过小时表格被过度压缩
+            tableContainer.style.maxHeight = Math.max(100, availableHeight) + 'px';
+        }
+        
+        function adjustTableHeightInit() {
+            const tableContainer = document.querySelector('.table-container');
+            if (!tableContainer) return;
+
+            const topOffset = tableContainer.getBoundingClientRect().top;
+            
+            const isMobile = window.innerWidth <= 768;
+            const bottomPadding = isMobile ? -20 : 10;
+            const availableHeight = window.innerHeight - topOffset - bottomPadding;
+
             tableContainer.style.maxHeight = Math.max(100, availableHeight) + 'px';
         }
 
-        // 页面首次加载时运行高度调整
-        adjustTableHeight();
+        adjustTableHeightInit();
 
-        // 当窗口大小改变时，重新运行高度调整
         window.addEventListener('resize', adjustTableHeight);
     </script>
 </body>

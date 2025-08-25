@@ -18,18 +18,39 @@
         .btn-primary:hover { background-color: var(--accent-color-hover); }
         .btn:active { transform: scale(0.98); }
         #quiz-section { display: none; }
-        .question-block { margin-bottom: 2rem; padding: 20px; border: 1px solid transparent; border-radius: 10px; }
+        .question-block { margin-bottom: 1rem;  padding: 20px 20px 0; border: 1px solid transparent; border-radius: 10px; }
         .question-block p { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
         .options-list { list-style: none; padding: 0; }
-        .options-list li { padding: 10px 15px; margin-bottom: 8px; border-radius: 8px; transition: background-color 0.2s; }
+        /* --- MODIFICATION START --- */
+        .options-list li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border: 1px solid transparent; /* Add transparent border to prevent layout shift */
+            transition: background-color 0.2s, border-color 0.2s;
+            cursor: pointer; /* Make the whole list item clickable */
+        }
         .options-list li:hover { background-color: rgba(0, 122, 255, 0.1); }
-        .options-list input[type="radio"] { margin-right: 10px; accent-color: var(--accent-color); }
-        .options-list label { cursor: pointer; display: inline-block; width: 95%; }
+        /* Add a 'selected' class for visual feedback */
+        .options-list li.selected {
+            background-color: rgba(0, 122, 255, 0.2);
+            border-color: var(--accent-color);
+        }
+        /* Hide the original radio button */
+        .options-list input[type="radio"] { display: none; }
+        /* Inherit cursor from li since the whole area is clickable now */
+        .options-list label { cursor: inherit; }
         .macos-window.theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); }
         .macos-window.theme-dark .auth-wrapper h1, .macos-window.theme-dark .auth-wrapper .lead { color: var(--dark-text); }
         .macos-window.theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
         .macos-window.theme-dark .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
         .macos-window.theme-dark .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
+        /* Add dark theme for selected state */
+        .macos-window.theme-dark .options-list li.selected {
+            background-color: rgba(138, 180, 248, 0.25);
+            border-color: #8ab4f8;
+        }
+        /* --- MODIFICATION END --- */
         #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: center; line-height: 1.8; }
         .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
         .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
@@ -50,13 +71,21 @@
             transition: background-color 0.2s;
         }
         #result-message.result-success strong:hover {
-             background-color: #f0f0f0;
+            background-color: #f0f0f0;
         }
         .macos-window.theme-dark #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
         .macos-window.theme-dark #result-message.result-success strong:hover {
             background-color: rgba(0, 0, 0, 0.4);
         }
         .macos-window.theme-dark .result-success { background-color: rgba(40, 201, 64, 0.2); }
+        @media (max-width: 768px) {
+            .auth-wrapper {
+                padding: 20px;
+                margin: 0;
+            }
+
+            .question-block { margin-bottom: 0; }
+        }
 
     </style>
 </head>
@@ -85,18 +114,24 @@
     </div>
     <script>
     (function() {
-        const windowRoot = document.currentScript.closest('.macos-window');
-        if (!windowRoot) { return; }
+        const componentRoot = document.querySelector('.macos-window-body .auth-wrapper') || document.querySelector('.main-content .auth-wrapper');
+
+        if (!componentRoot) {
+            console.error("Auth component root could not be found! The script cannot proceed.");
+            return;
+        }
+
         let currentQuizId = null;
         let currentUserQQ = null;
-        const qqInput = windowRoot.querySelector('#qq-number');
-        const startBtn = windowRoot.querySelector('#start-quiz-btn');
-        const submitBtn = windowRoot.querySelector('#submit-btn');
-        const quizSection = windowRoot.querySelector('#quiz-section');
-        const qqInputSection = windowRoot.querySelector('#qq-input-section');
-        const resultMessage = windowRoot.querySelector('#result-message');
-        const questionsContainer = windowRoot.querySelector('#questions-container');
-        const quizUserInfo = windowRoot.querySelector('#quiz-user-info');
+        const qqInput = componentRoot.querySelector('#qq-number');
+        const startBtn = componentRoot.querySelector('#start-quiz-btn');
+        const submitBtn = componentRoot.querySelector('#submit-btn');
+        const quizSection = componentRoot.querySelector('#quiz-section');
+        const qqInputSection = componentRoot.querySelector('#qq-input-section');
+        const resultMessage = componentRoot.querySelector('#result-message');
+        const questionsContainer = componentRoot.querySelector('#questions-container');
+        const quizUserInfo = componentRoot.querySelector('#quiz-user-info');
+
         function renderQuestions(questions) {
             questionsContainer.innerHTML = '';
             questions.forEach((q, index) => {
@@ -112,9 +147,13 @@
                 questionsContainer.appendChild(questionBlock);
             });
         }
+
         async function startQuiz() {
             currentUserQQ = qqInput.value;
-            if (currentUserQQ.length < 5) { alert('请输入一个有效的QQ号！'); return; }
+            if (currentUserQQ.length < 5) {
+                alert('请输入一个有效的QQ号！');
+                return;
+            }
             startBtn.disabled = true;
             startBtn.textContent = '正在获取题目...';
             try {
@@ -134,6 +173,7 @@
                 startBtn.textContent = '开始答题';
             }
         }
+
         async function submitQuiz() {
             const formData = new FormData(quizSection);
             const userAnswers = {};
@@ -145,11 +185,17 @@
             resultMessage.style.display = 'block';
             resultMessage.className = 'result-processing';
             resultMessage.textContent = '正在提交，请稍后...';
-            const payload = { quizId: currentQuizId, qq: currentUserQQ, answers: userAnswers };
+            const payload = {
+                quizId: currentQuizId,
+                qq: currentUserQQ,
+                answers: userAnswers
+            };
             try {
                 const response = await fetch(`./auth/api/submit.php`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify(payload),
                 });
                 if (!response.ok) throw new Error('网络错误或服务器问题');
@@ -182,8 +228,31 @@
                 submitBtn.disabled = false;
             }
         }
-        if (startBtn) { startBtn.addEventListener('click', startQuiz); }
-        if (submitBtn) { submitBtn.addEventListener('click', submitQuiz); }
+        if (startBtn) {
+            startBtn.addEventListener('click', startQuiz);
+        }
+        if (submitBtn) {
+            submitBtn.addEventListener('click', submitQuiz);
+        }
+
+        if (questionsContainer) {
+            questionsContainer.addEventListener('click', (e) => {
+                const li = e.target.closest('.options-list li');
+                if (!li) return;
+
+                const radio = li.querySelector('input[type="radio"]');
+                if (!radio) return;
+
+                radio.checked = true;
+
+                const allOptionsInGroup = li.parentElement.querySelectorAll('li');
+                allOptionsInGroup.forEach(item => {
+                    item.classList.remove('selected');
+                });
+
+                li.classList.add('selected');
+            });
+        }
     })();
     </script>
 </body>
