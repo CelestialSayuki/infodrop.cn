@@ -21,10 +21,6 @@ export class Window {
     const windowEl = document.createElement('div');
     windowEl.id = this.id;
     windowEl.className = 'macos-window is-opening';
-    
-    if (this.manager.isDarkMode) {
-      windowEl.classList.add('theme-dark');
-    }
 
     const offset = (this.manager.windowCount % 10) * 30;
     windowEl.style.top = `${this.manager.mainContentArea.scrollTop + offset}px`;

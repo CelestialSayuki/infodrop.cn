@@ -36,15 +36,6 @@
         }
         .options-list input[type="radio"] { display: none; }
         .options-list label { cursor: inherit; }
-        .macos-window.theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); }
-        .macos-window.theme-dark .auth-wrapper h1, .macos-window.theme-dark .auth-wrapper .lead { color: var(--dark-text); }
-        .macos-window.theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
-        .macos-window.theme-dark .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
-        .macos-window.theme-dark .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
-        .macos-window.theme-dark .options-list li.selected {
-            background-color: rgba(138, 180, 248, 0.25);
-            border-color: #8ab4f8;
-        }
         #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: center; line-height: 1.8; }
         .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
         .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
@@ -67,11 +58,22 @@
         #result-message.result-success strong:hover {
             background-color: #f0f0f0;
         }
-        .macos-window.theme-dark #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
-        .macos-window.theme-dark #result-message.result-success strong:hover {
-            background-color: rgba(0, 0, 0, 0.4);
+
+        @media (prefers-color-scheme: dark) {
+            .auth-wrapper { background-color: var(--dark-glass-bg); }
+            .auth-wrapper h1, .auth-wrapper .lead { color: var(--dark-text); }
+            .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+            .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
+            .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
+            .options-list li.selected {
+                background-color: rgba(138, 180, 248, 0.25);
+                border-color: #8ab4f8;
+            }
+            .result-success { background-color: rgba(40, 201, 64, 0.2); }
+            #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
+            #result-message.result-success strong:hover { background-color: rgba(0, 0, 0, 0.4); }
         }
-        .macos-window.theme-dark .result-success { background-color: rgba(40, 201, 64, 0.2); }
+        
         @media (max-width: 768px) {
             .auth-wrapper {
                 padding: 20px;
@@ -106,13 +108,11 @@
     </div>
     <script>
     (function() {
-        const componentRoot = document.querySelector('.macos-window-body .auth-wrapper') || document.querySelector('.main-content .auth-wrapper');
-
+        const componentRoot = document.querySelector('.auth-wrapper');
         if (!componentRoot) {
             console.error("Auth component root could not be found! The script cannot proceed.");
             return;
         }
-
         let currentQuizId = null;
         let currentUserQQ = null;
         const qqInput = componentRoot.querySelector('#qq-number');
@@ -123,7 +123,6 @@
         const resultMessage = componentRoot.querySelector('#result-message');
         const questionsContainer = componentRoot.querySelector('#questions-container');
         const quizUserInfo = componentRoot.querySelector('#quiz-user-info');
-
         function renderQuestions(questions) {
             questionsContainer.innerHTML = '';
             questions.forEach((q, index) => {
@@ -139,7 +138,6 @@
                 questionsContainer.appendChild(questionBlock);
             });
         }
-
         async function startQuiz() {
             currentUserQQ = qqInput.value;
             if (currentUserQQ.length < 5) {
@@ -165,7 +163,6 @@
                 startBtn.textContent = '开始答题';
             }
         }
-
         async function submitQuiz() {
             const formData = new FormData(quizSection);
             const userAnswers = {};
@@ -185,9 +182,7 @@
             try {
                 const response = await fetch(`./auth/api/submit.php`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
                 });
                 if (!response.ok) throw new Error('网络错误或服务器问题');
@@ -226,22 +221,17 @@
         if (submitBtn) {
             submitBtn.addEventListener('click', submitQuiz);
         }
-
         if (questionsContainer) {
             questionsContainer.addEventListener('click', (e) => {
                 const li = e.target.closest('.options-list li');
                 if (!li) return;
-
                 const radio = li.querySelector('input[type="radio"]');
                 if (!radio) return;
-
                 radio.checked = true;
-
                 const allOptionsInGroup = li.parentElement.querySelectorAll('li');
                 allOptionsInGroup.forEach(item => {
                     item.classList.remove('selected');
                 });
-
                 li.classList.add('selected');
             });
         }

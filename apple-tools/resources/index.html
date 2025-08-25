@@ -43,10 +43,6 @@
             backdrop-filter: blur(8px);
         }
         
-        .macos-window.theme-dark .resource-content-wrapper .table > thead {
-            background-color: rgba(29, 29, 29, 0.85);
-        }
-        
         .resource-content-wrapper .table > thead > tr > th {
             padding: 12px 15px;
             text-align: left;
@@ -83,40 +79,44 @@
             border-top: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
 
-        .macos-window.theme-dark .resource-content-wrapper {
-            background-color: var(--dark-glass-bg);
-        }
-        
-        .macos-window.theme-dark .resource-content-wrapper h1,
-        .macos-window.theme-dark .resource-content-wrapper .lead {
-             color: var(--dark-text-secondary);
-        }
-
-        .macos-window.theme-dark .resource-content-wrapper .lead {
-            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        }
-
-        .macos-window.theme-dark .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
-             background-color: rgba(255, 255, 255, 0.08);
-        }
-        .macos-window.theme-dark .resource-content-wrapper .table > thead > tr > th {
-             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
-        }
-         .macos-window.theme-dark .resource-content-wrapper .table tbody td {
-             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        }
-        .macos-window.theme-dark .table-section-header th {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        }
         .table-container {
             overflow-y: auto;
             border-radius: 8px;
             margin-top: 1rem;
         }
-        .macos-window.theme-dark .table-container {
-            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        
+        @media (prefers-color-scheme: dark) {
+            .resource-content-wrapper .table > thead {
+                background-color: rgba(29, 29, 29, 0.85);
+            }
+            .resource-content-wrapper {
+                background-color: var(--dark-glass-bg);
+            }
+            .resource-content-wrapper h1,
+            .resource-content-wrapper .lead {
+                color: var(--dark-text-secondary);
+            }
+            .resource-content-wrapper .lead {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
+            .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+                background-color: rgba(255, 255, 255, 0.08);
+            }
+            .resource-content-wrapper .table > thead > tr > th {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+            }
+            .resource-content-wrapper .table tbody td {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
+            .table-section-header th {
+                background-color: rgba(255, 255, 255, 0.05);
+                border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
+            .table-container {
+                border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
         }
+
         @media (max-width: 768px) {
             .resource-content-wrapper {
                 padding: 20px;

@@ -35,9 +35,6 @@ function load_maps(): array {
     return $maps;
 }
 
-/**
- * 解析通用的DVFS数据，按频率递减分叉。
- */
 function parse_voltage_states_default(string $hex_data, bool $isLegacy): array {
     $all_forks = [];
     $current_fork = [];

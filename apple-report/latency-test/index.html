@@ -6,25 +6,6 @@
     <title>内存延迟测试工具</title>
 
     <style>
-        :root {
-            --light-bg: #f8f9fa;
-            --dark-bg: #0d1117;
-            --light-glass-bg: rgba(255, 255, 255, 0.5);
-            --dark-glass-bg: rgba(22, 27, 34, 0.6);
-            --light-text: #212529;
-            --dark-text: #c9d1d9;
-            --light-text-secondary: #586069;
-            --dark-text-secondary: #8b949e;
-            --light-border: rgba(0, 0, 0, 0.1);
-            --dark-border: rgba(255, 255, 255, 0.15);
-            --accent-color: #007aff;
-            --accent-color-hover: #0056b3;
-            --border-radius: 12px;
-            --transition-speed: 0.3s;
-            --light-glass-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
-            --dark-glass-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         a {
             color: var(--accent-color);
             text-decoration: none;
@@ -102,28 +83,6 @@
             margin-bottom: 20px;
         }
 
-        @media (prefers-color-scheme: dark) {
-            a {
-                color: #8ab4f8;
-            }
-            .title strong {
-                color: var(--dark-text);
-            }
-            .title span {
-                color: var(--dark-text-secondary);
-            }
-            .card {
-                background-color: var(--dark-glass-bg);
-                border: 1px solid var(--dark-border);
-                box-shadow: var(--dark-glass-shadow);
-            }
-            .div {
-                color: var(--dark-text-secondary);
-                background-color: var(--dark-glass-bg);
-                box-shadow: var(--dark-glass-shadow);
-                border: 1px solid var(--dark-border);
-            }
-        }
         .card p.hint {
             font-size: 0.8rem;
             color: var(--light-text-secondary);
@@ -170,7 +129,7 @@
             position: relative;
             display: none;
         }
-              
+                
         #results-card.invalid-data::before {
             content: '数据无效';
             position: absolute;
@@ -252,7 +211,7 @@
             border: none;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 122, 255, 0.25),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                         inset 0 1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.2s ease-out;
         }
 
@@ -275,34 +234,51 @@
         }
         
         @media (prefers-color-scheme: dark) {
+            a {
+                color: #8ab4f8;
+            }
+            .title strong {
+                color: var(--dark-text);
+            }
+            .title span {
+                color: var(--dark-text-secondary);
+            }
+            .card {
+                background-color: var(--dark-glass-bg);
+                border: 1px solid var(--dark-border);
+                box-shadow: var(--dark-glass-shadow);
+            }
+            .div {
+                color: var(--dark-text-secondary);
+                background-color: var(--dark-glass-bg);
+                box-shadow: var(--dark-glass-shadow);
+                border: 1px solid var(--dark-border);
+            }
             .card p.hint {
                 color: var(--dark-text-secondary);
             }
-
             .ua-info {
                 background-color: var(--dark-bg);
                 color: var(--dark-text-secondary);
             }
-            
             input[type="text"],
             select {
                 background-color: var(--dark-bg);
                 border: 1px solid var(--dark-border);
                 color: var(--dark-text);
             }
-
             input[type="text"]::placeholder {
                 color: var(--dark-text-secondary);
             }
-            
             #rawresult {
                 border-color: var(--dark-border);
                 color: var(--dark-text);
             }
         }
+
         @media (max-width: 768px) {
             .main-content {
-              padding: 5px;
+                padding: 5px;
             }
             .card {
                 margin: 0;
@@ -379,40 +355,40 @@
     <script type="text/javascript">
     (() => {
         const workerCode = `
-                    onmessage = function (e) {
-                        var lat = latencyTest(e.data[0], 100000000); 
-                        if (e.data.length > 1) postMessage([lat, e.data[0]]);
-                        else postMessage([lat]);
-                    }
-                    function latencyTest(sizeKb, iterations) {
-                        var listSize = sizeKb * 1024 / 4;
-                        var testArr = [];
+                        onmessage = function (e) {
+                            var lat = latencyTest(e.data[0], 100000000); 
+                            if (e.data.length > 1) postMessage([lat, e.data[0]]);
+                            else postMessage([lat]);
+                        }
+                        function latencyTest(sizeKb, iterations) {
+                            var listSize = sizeKb * 1024 / 4;
+                            var testArr = [];
 
-                        if (sizeKb <= 32) iterations = iterations * 8;
-                        else if (sizeKb <= 512) iterations = iterations * 4;
-                        else if (sizeKb <= 4096) iterations = iterations * 2;
-                        else if (sizeKb > 65536) iterations = iterations / 5;
-                        
-                        for (var i = 0; i < listSize; i++) { testArr[i] = i; }
-                        var iter = listSize;
-                        while (iter > 1) {
-                            iter -= 1;
-                            var j = (iter - 1) == 0 ? 0 : Math.floor(Math.random() * (iter));
-                            var tmp = testArr[iter];
-                            testArr[iter] = testArr[j];
-                            testArr[j] = tmp;
-                        }
-                        var uintTestArr = new Uint32Array(testArr);
-                        var start = performance.now();
-                        var current = uintTestArr[0];
-                        for (var i = 0; i < iterations; i++) {
-                            current = uintTestArr[current];
-                        }
-                        var end = performance.now();
-                        var elapsedTimeMs = end - start;
-                        var latency = 1000000.0 * elapsedTimeMs / iterations;
-                        return [latency, current];
-                    }`;
+                            if (sizeKb <= 32) iterations = iterations * 8;
+                            else if (sizeKb <= 512) iterations = iterations * 4;
+                            else if (sizeKb <= 4096) iterations = iterations * 2;
+                            else if (sizeKb > 65536) iterations = iterations / 5;
+                            
+                            for (var i = 0; i < listSize; i++) { testArr[i] = i; }
+                            var iter = listSize;
+                            while (iter > 1) {
+                                iter -= 1;
+                                var j = (iter - 1) == 0 ? 0 : Math.floor(Math.random() * (iter));
+                                var tmp = testArr[iter];
+                                testArr[iter] = testArr[j];
+                                testArr[j] = tmp;
+                            }
+                            var uintTestArr = new Uint32Array(testArr);
+                            var start = performance.now();
+                            var current = uintTestArr[0];
+                            for (var i = 0; i < iterations; i++) {
+                                current = uintTestArr[current];
+                            }
+                            var end = performance.now();
+                            var elapsedTimeMs = end - start;
+                            var latency = 1000000.0 * elapsedTimeMs / iterations;
+                            return [latency, current];
+                        }`;
 
         let worker;
         const testSizeArray = [1, 2, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 600, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192, 10240, 12288, 16384, 24576, 32768, 49152, 65536, 98304, 131072, 262144];
@@ -487,7 +463,9 @@
         function updateChart() {
             if (!chart) {
                 const chartDom = document.getElementById('results-chart');
-                chart = echarts.init(chartDom, document.body.classList.contains('theme-dark') ? 'dark' : 'light');
+
+                const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                chart = echarts.init(chartDom, isDark ? 'dark' : 'light');
             }
             
             const sortedResults = [...latencyResults].sort((a, b) => a.size - b.size);
@@ -636,9 +614,13 @@
         
         function init() {
             const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-            const setTheme = (isDark) => document.body.classList.toggle('theme-dark', isDark);
-            setTheme(darkModeMatcher.matches);
-            darkModeMatcher.addEventListener('change', e => setTheme(e.matches));
+            darkModeMatcher.addEventListener('change', () => {
+                if (chart) {
+                    chart.dispose();
+                    chart = null;
+                    updateChart();
+                }
+            });
             
             document.getElementById('info-ua').textContent = navigator.userAgent;
             

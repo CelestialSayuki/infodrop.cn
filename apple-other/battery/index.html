@@ -65,28 +65,18 @@
         .resource-content-wrapper .category-switcher a.active {
             color: var(--light-text, #212529);
         }
-
-        .macos-window.theme-dark .resource-content-wrapper .category-switcher a {
-            color: var(--dark-text-secondary, #8b949e);
-        }
-        .macos-window.theme-dark .resource-content-wrapper .category-switcher a.active {
-            color: var(--dark-text, #c9d1d9);
-        }
-        
         .resource-content-wrapper {
             background-color: var(--light-glass-bg);
             border-radius: var(--border-radius);
             margin: 10px;
             padding: 25px;
         }
-
         .resource-content-wrapper h1 {
             font-size: 2rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
             padding-left: 15px;
         }
-
         .resource-content-wrapper .lead {
             padding: 0 15px 15px;
             margin-bottom: 1rem;
@@ -95,14 +85,12 @@
             color: var(--light-text-secondary);
             border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
-
         .resource-content-wrapper .table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 0;
             font-size: 13px;
         }
-
         .resource-content-wrapper .table > thead > tr > th {
             padding: 12px 15px;
             text-align: left;
@@ -110,17 +98,14 @@
             border-bottom: 2px solid var(--light-border, rgba(0, 0, 0, 0.15));
             background-color: transparent;
         }
-
         .resource-content-wrapper .table tbody td {
             padding: 12px 15px;
             vertical-align: middle;
             border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
-
         .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
             background-color: rgba(0, 0, 0, 0.04);
         }
-
         .table-section-header th {
             background-color: rgba(0, 0, 0, 0.03);
             font-weight: bold;
@@ -130,31 +115,36 @@
             border-top: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
 
-        .macos-window.theme-dark .resource-content-wrapper {
-            background-color: var(--dark-glass-bg);
-        }
-        
-        .macos-window.theme-dark .resource-content-wrapper h1,
-        .macos-window.theme-dark .resource-content-wrapper .lead {
-             color: var(--dark-text-secondary);
-        }
-
-        .macos-window.theme-dark .resource-content-wrapper .lead {
-            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        }
-
-        .macos-window.theme-dark .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
-             background-color: rgba(255, 255, 255, 0.08);
-        }
-        .macos-window.theme-dark .resource-content-wrapper .table > thead > tr > th {
-             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
-        }
-         .macos-window.theme-dark .resource-content-wrapper .table tbody td {
-             border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        }
-        .macos-window.theme-dark .table-section-header th {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        @media (prefers-color-scheme: dark) {
+            .resource-content-wrapper .category-switcher a {
+                color: var(--dark-text-secondary, #8b949e);
+            }
+            .resource-content-wrapper .category-switcher a.active {
+                color: var(--dark-text, #c9d1d9);
+            }
+            .resource-content-wrapper {
+                background-color: var(--dark-glass-bg);
+            }
+            .resource-content-wrapper h1,
+            .resource-content-wrapper .lead {
+                color: var(--dark-text-secondary);
+            }
+            .resource-content-wrapper .lead {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
+            .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+                background-color: rgba(255, 255, 255, 0.08);
+            }
+            .resource-content-wrapper .table > thead > tr > th {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+            }
+            .resource-content-wrapper .table tbody td {
+                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
+            .table-section-header th {
+                background-color: rgba(255, 255, 255, 0.05);
+                border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+            }
         }
     </style>
 </head>

@@ -14,30 +14,34 @@
         .btn:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
         .btn-primary:hover:not(:disabled) { background-color: var(--accent-color-hover); }
         .btn:active { transform: scale(0.98); }
-        .macos-window.theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); }
-        .macos-window.theme-dark .auth-wrapper h1, .macos-window.theme-dark .auth-wrapper .lead { color: var(--dark-text); }
-        .macos-window.theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border); }
-        .macos-window.theme-dark .btn:disabled { background-color: #4a4a4a; color: #8a8a8a; }
         #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: left; line-height: 1.8; }
         #result-message ul { padding-left: 20px; margin: 10px 0; }
         #result-message li { margin-bottom: 5px; }
         .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
         .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
         .result-processing { background-color: rgba(0, 122, 255, 0.1); color: var(--accent-color); text-align: center; }
-        .macos-window.theme-dark .result-success { background-color: rgba(40, 201, 64, 0.2); }
-        .macos-window.theme-dark .result-fail { background-color: rgba(255, 95, 87, 0.25); }
-        .macos-window.theme-dark .result-processing { background-color: rgba(0, 122, 255, 0.2); }
         .file-input-wrapper { display: flex; align-items: center; border: 1px solid var(--light-border); border-radius: 8px; padding: 5px; background-color: rgba(255, 255, 255, 0.5); }
-        .macos-window.theme-dark .file-input-wrapper { border-color: var(--dark-border); background-color: rgba(0, 0, 0, 0.2); }
         input[type="file"] { display: none; }
         .file-input-label { padding: 8px 15px; background-color: #f0f0f0; border-radius: 6px; cursor: pointer; margin-right: 10px; color: #333; font-weight: 500; white-space: nowrap; }
-        .macos-window.theme-dark .file-input-label { background-color: #4f4f52; color: var(--dark-text); }
         #file-name-display { font-size: 0.9rem; color: var(--light-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .macos-window.theme-dark #file-name-display { color: #a9a9a9; }
         .sysdiagnose-tips { font-size: 0.9rem; color: var(--light-text-secondary); padding: 0 15px 15px; margin-top: -1rem; line-height: 1.5; }
-        .macos-window.theme-dark .sysdiagnose-tips { color: #a9a9a9; }
         .sysdiagnose-tips strong { color: var(--light-text); }
-        .macos-window.theme-dark .sysdiagnose-tips strong { color: var(--dark-text); }
+        
+        @media (prefers-color-scheme: dark) {
+            .auth-wrapper { background-color: var(--dark-glass-bg); }
+            .auth-wrapper h1, .auth-wrapper .lead { color: var(--dark-text); }
+            .auth-wrapper .lead { border-bottom-color: var(--dark-border); }
+            .btn:disabled { background-color: #4a4a4a; color: #8a8a8a; }
+            .result-success { background-color: rgba(40, 201, 64, 0.2); }
+            .result-fail { background-color: rgba(255, 95, 87, 0.25); }
+            .result-processing { background-color: rgba(0, 122, 255, 0.2); }
+            .file-input-wrapper { border-color: var(--dark-border); background-color: rgba(0, 0, 0, 0.2); }
+            .file-input-label { background-color: #4f4f52; color: var(--dark-text); }
+            #file-name-display { color: #a9a9a9; }
+            .sysdiagnose-tips { color: #a9a9a9; }
+            .sysdiagnose-tips strong { color: var(--dark-text); }
+        }
+
         @media (max-width: 768px) {
             .auth-wrapper {
                 padding: 20px;

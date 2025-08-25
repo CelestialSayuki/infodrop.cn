@@ -780,7 +780,7 @@ ul {
     }
 
     .main-content {
-        background: linear-gradient(to bottom, rgba(13, 17, 23, 0.05), rgba(13, 17, 23, 0));
+        background: transparent;
     }
 }
 

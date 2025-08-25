@@ -2222,35 +2222,19 @@
                 }
             }
         }
-
+    </script>
+    <script>
         function adjustTableHeight() {
             const tableContainer = document.querySelector('.table-container');
             if (!tableContainer) return;
 
             const topOffset = tableContainer.getBoundingClientRect().top;
-            
-            const bottomPadding = 60;
-            
+            const bottomPadding = 80;
             const availableHeight = window.innerHeight - topOffset - bottomPadding;
 
-            tableContainer.style.maxHeight = Math.max(100, availableHeight) + 'px';
+            tableContainer.style.maxHeight = Math.max(150, availableHeight) + 'px';
         }
-        
-        function adjustTableHeightInit() {
-            const tableContainer = document.querySelector('.table-container');
-            if (!tableContainer) return;
-
-            const topOffset = tableContainer.getBoundingClientRect().top;
-            
-            const isMobile = window.innerWidth <= 768;
-            const bottomPadding = isMobile ? -20 : 10;
-            const availableHeight = window.innerHeight - topOffset - bottomPadding;
-
-            tableContainer.style.maxHeight = Math.max(100, availableHeight) + 'px';
-        }
-
-        adjustTableHeightInit();
-
+        adjustTableHeight();
         window.addEventListener('resize', adjustTableHeight);
     </script>
 </body>
