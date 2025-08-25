@@ -3,32 +3,70 @@ import { loadScriptsSequentially } from './lib/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainContentArea = document.querySelector('.main-content');
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const svgContainer = document.getElementById('animation-svg-container');
+  const windowManager = new WindowManager(mainContentArea, svgContainer);
 
-  if (isMobile) {
-    setupMobileNavigation();
-  } else {
-    const svgContainer = document.getElementById('animation-svg-container');
-    const windowManager = new WindowManager(mainContentArea, svgContainer);
-
-    document.querySelectorAll('.sidebar-menu a[href]:not(.no-mac-window)').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('javascript:')) {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          windowManager.createWindow(href, link.textContent.trim());
-        });
-      }
-    });
-  }
+  setupUnifiedNavigation(windowManager);
+  
+  setupMobileInteractions();
   
   setupSidebarMenu();
   setupUpdateHistory();
   setupCountdownTimer();
 });
 
-function setupMobileNavigation() {
+function setupUnifiedNavigation(windowManager) {
+  const mainContentArea = document.querySelector('.main-content');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('overlay');
+
+  document.querySelectorAll('.sidebar-menu a[href]:not(.no-mac-window)').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('javascript:')) {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isCurrentlyMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        if (isCurrentlyMobile) {
+          if (sidebar.classList.contains('is-visible')) {
+            sidebar.classList.remove('is-visible');
+            overlay.classList.remove('is-visible');
+          }
+          
+          const isComparisonPage = href.includes('/apple-device/') || href.includes('/apple-silicon/');
+
+          if (isComparisonPage) {
+            windowManager.createWindow(href, link.textContent.trim());
+          } else {
+            windowManager.closeAll();
+            loadContentIntoMainArea(href, mainContentArea);
+          }
+        } else {
+          windowManager.createWindow(href, link.textContent.trim());
+        }
+      });
+    }
+  });
+}
+
+function setupMobileInteractions() {
+  const sidebar = document.querySelector('.sidebar');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const overlay = document.getElementById('overlay');
+
+  const toggleSidebar = () => {
+    sidebar.classList.toggle('is-visible');
+    overlay.classList.toggle('is-visible');
+  };
+  
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleSidebar);
+  if (overlay) overlay.addEventListener('click', toggleSidebar);
+}
+
+
+function setupMobileNavigation(windowManager) {
   const sidebar = document.querySelector('.sidebar');
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const overlay = document.getElementById('overlay');
@@ -52,7 +90,14 @@ function setupMobileNavigation() {
           toggleSidebar();
         }
         
-        loadContentIntoMainArea(href, mainContentArea);
+        const isComparisonPage = href.includes('/apple-device/') || href.includes('/apple-silicon/');
+
+        if (isComparisonPage) {
+          windowManager.createWindow(href, link.textContent.trim());
+        } else {
+          windowManager.closeAll();
+          loadContentIntoMainArea(href, mainContentArea);
+        }
       });
     }
   });

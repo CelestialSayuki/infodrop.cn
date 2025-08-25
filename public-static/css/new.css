@@ -342,6 +342,12 @@ ul {
     -webkit-backdrop-filter: blur(20px);
     z-index: 10;
     box-shadow: var(--light-glass-shadow);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-menu {

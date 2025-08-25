@@ -16,8 +16,9 @@
 .macos-window-body.comparison-container {
   display: flex;
   align-items: flex-start;
-  padding: 16px;
+  padding: 16px 16px 16px 0;
   box-sizing: border-box;
+  zoom: 0.9;
 }
 
 .macos-window-body.comparison-container::-webkit-scrollbar {
@@ -80,12 +81,12 @@
 
 .products-grid-container {
   display: flex;
-  margin-left: 12px;
+  margin-left: 6px;
   flex-shrink: 0;
 }
 
 .products-grid-container > .product-column:not(:last-child) {
-    margin-right: 12px;
+    margin-right: 6px;
 }
 
 .product-content-wrapper {
@@ -103,11 +104,13 @@
 }
 
 .features-column {
-  flex-basis: 230px;
+  flex-basis: 120px;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 10;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .product-column {

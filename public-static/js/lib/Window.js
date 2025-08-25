@@ -356,7 +356,11 @@ export class Window {
   bringToFront() { this.element.style.zIndex = this.manager.getNextZIndex(); }
   close() { if (this.state === 'closing') return; this.state = 'closing'; this.element.classList.add('is-closing'); this.element.addEventListener('animationend', () => { this.manager.destroyWindow(this.url); }, { once: true }); }
   
-  toggleMaximize() {
+  toggleMaximize(force = false) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile && !force) {
+      return;
+    }
     const isMaximized = this.element.classList.contains('is-maximized');
     const maximizeBtn = this.element.querySelector('.control-maximize');
     
