@@ -65,44 +65,6 @@ function setupMobileInteractions() {
   if (overlay) overlay.addEventListener('click', toggleSidebar);
 }
 
-
-function setupMobileNavigation(windowManager) {
-  const sidebar = document.querySelector('.sidebar');
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const overlay = document.getElementById('overlay');
-  const mainContentArea = document.querySelector('.main-content');
-
-  const toggleSidebar = () => {
-    sidebar.classList.toggle('is-visible');
-    overlay.classList.toggle('is-visible');
-  };
-  
-  hamburgerBtn.addEventListener('click', toggleSidebar);
-  overlay.addEventListener('click', toggleSidebar);
-
-  document.querySelectorAll('.sidebar-menu a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('javascript:')) {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        
-        if (sidebar.classList.contains('is-visible')) {
-          toggleSidebar();
-        }
-        
-        const isComparisonPage = href.includes('/apple-device/') || href.includes('/apple-silicon/');
-
-        if (isComparisonPage) {
-          windowManager.createWindow(href, link.textContent.trim());
-        } else {
-          windowManager.closeAll();
-          loadContentIntoMainArea(href, mainContentArea);
-        }
-      });
-    }
-  });
-}
-
 async function loadContentIntoMainArea(url, container) {
   container.innerHTML = '<div class="loading-spinner">加载中...</div>';
   
