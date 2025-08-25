@@ -21,36 +21,30 @@
         .question-block { margin-bottom: 1rem;  padding: 20px 20px 0; border: 1px solid transparent; border-radius: 10px; }
         .question-block p { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
         .options-list { list-style: none; padding: 0; }
-        /* --- MODIFICATION START --- */
         .options-list li {
             padding: 10px 15px;
             margin-bottom: 8px;
             border-radius: 8px;
-            border: 1px solid transparent; /* Add transparent border to prevent layout shift */
+            border: 1px solid transparent;
             transition: background-color 0.2s, border-color 0.2s;
-            cursor: pointer; /* Make the whole list item clickable */
+            cursor: pointer;
         }
         .options-list li:hover { background-color: rgba(0, 122, 255, 0.1); }
-        /* Add a 'selected' class for visual feedback */
         .options-list li.selected {
             background-color: rgba(0, 122, 255, 0.2);
             border-color: var(--accent-color);
         }
-        /* Hide the original radio button */
         .options-list input[type="radio"] { display: none; }
-        /* Inherit cursor from li since the whole area is clickable now */
         .options-list label { cursor: inherit; }
         .macos-window.theme-dark .auth-wrapper { background-color: var(--dark-glass-bg); }
         .macos-window.theme-dark .auth-wrapper h1, .macos-window.theme-dark .auth-wrapper .lead { color: var(--dark-text); }
         .macos-window.theme-dark .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
         .macos-window.theme-dark .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
         .macos-window.theme-dark .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
-        /* Add dark theme for selected state */
         .macos-window.theme-dark .options-list li.selected {
             background-color: rgba(138, 180, 248, 0.25);
             border-color: #8ab4f8;
         }
-        /* --- MODIFICATION END --- */
         #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: center; line-height: 1.8; }
         .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
         .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
@@ -83,10 +77,8 @@
                 padding: 20px;
                 margin: 0;
             }
-
             .question-block { margin-bottom: 0; }
         }
-
     </style>
 </head>
 <body>

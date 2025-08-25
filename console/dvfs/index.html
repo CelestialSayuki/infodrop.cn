@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DVFS 数据上传</title>
     <style>
-        :root {
-            --light-glass-bg: rgba(242, 242, 247, 0.85);
-            --dark-glass-bg: rgba(28, 28, 30, 0.75);
-            --light-border: rgba(0, 0, 0, 0.1);
-            --dark-border: rgba(255, 255, 255, 0.15);
-            --accent-color: #007aff;
-            --accent-color-hover: #005ecb;
-            --light-text: #1d1d1f;
-            --light-text-secondary: #6e6e73;
-            --dark-text: #f5f5f7;
-            --border-radius: 12px;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-        }
         .auth-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 30px; font-size: 14px; }
         .auth-wrapper h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; padding-left: 15px; }
         .auth-wrapper .lead { padding: 0 15px 15px; margin-bottom: 2rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border); }
@@ -53,6 +38,12 @@
         .macos-window.theme-dark .sysdiagnose-tips { color: #a9a9a9; }
         .sysdiagnose-tips strong { color: var(--light-text); }
         .macos-window.theme-dark .sysdiagnose-tips strong { color: var(--dark-text); }
+        @media (max-width: 768px) {
+            .auth-wrapper {
+                padding: 20px;
+                margin: 0;
+            }
+        }
     </style>
 </head>
 <body>
