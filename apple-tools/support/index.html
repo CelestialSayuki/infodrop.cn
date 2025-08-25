@@ -12,11 +12,11 @@
         .system-support-wrapper .tab-link { color: #6c757d; font-weight: normal; text-decoration: none; cursor: pointer; transition: color 0.2s ease-in-out; }
         .system-support-wrapper .tab-link:hover { color: #000; }
         .system-support-wrapper .tab-link.active { color: #000; font-weight: bold; }
-        .system-support-wrapper #sub-nav-container { margin-bottom: 1rem; font-size: 0.9rem; padding-left: 15px; transition: opacity 0.5s ease-in-out; will-change: opacity; }
-        .system-support-wrapper #sub-nav-container.hide { opacity: 0; transition: opacity 0.5s ease-in-out; will-change: opacity; }
+        .system-support-wrapper #sub-nav-container { margin-bottom: 1rem; font-size: 0.9rem; padding-left: 15px; transition: opacity 0.3s ease-in-out; will-change: opacity; }
+        .system-support-wrapper #sub-nav-container.hide { opacity: 0; transition: opacity 0.3s ease-in-out; will-change: opacity; }
         .system-support-wrapper .table-responsive { width: 100%; overflow-x: auto; overflow-y: auto; transition: opacity 10s ease-in-out; opacity: 1; will-change: opacity; }
-        .system-support-wrapper .table-responsive.fade-out { opacity: 0; transition: opacity 0.5s ease-in-out; }
-        .system-support-wrapper .table-responsive.fade-in { opacity: 1; transition: opacity 0.5s ease-in-out; }
+        .system-support-wrapper .table-responsive.fade-out { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .system-support-wrapper .table-responsive.fade-in { opacity: 1; transition: opacity 0.3s ease-in-out; }
         .system-support-wrapper table { width: 100%; border-collapse: collapse; }
         .system-support-wrapper table th, .system-support-wrapper table td { padding: 0.7rem 0.75rem; vertical-align: middle; text-align: center; border-top: 1px solid #dee2e6; font-size: 13px; }
         .system-support-wrapper table th:first-child, .system-support-wrapper table td:first-child { text-align: left; }
@@ -229,7 +229,7 @@
                 tooltipElement.classList.remove('is-visible');
                 isTooltipVisible = false;
                 currentTarget = null;
-            }, 200);
+            }, 300);
         };
 
         tableBody.addEventListener('mouseover', (e) => {
