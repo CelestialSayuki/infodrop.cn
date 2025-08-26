@@ -9,7 +9,7 @@
         { "name": "发布时间", "id": "releaseDate" },
         { "name": "支持系统", "id": "supportedOS" },
         { "name": "型号标识", "id": "modelIdentifier" },
-        { "name": "增强现实", "id": "augmentedReality" }
+        { "name": "增强现实", "id": "arLink" }
       ]
     },
     {
@@ -86,9 +86,9 @@
         "releaseDate": "2023.06.06",
         "supportedOS": "visionOS 1 ~ 最新",
         "modelIdentifier": "RealityDevice14,1",
-        "augmentedReality": "<a href=\"http://cdn.infodrop.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">查看</a>",
-        "chipInfo": "M2 + R1",
-        "ramRom": "16GB LPDDR5<br>256G、512G、1T",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">查看</a>",
+        "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 + R1</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16GB LPDDR5<br>256G、512G、1T</div>",
         "audioChip": "H2",
         "screenType": "Micro‑OLED",
         "resolution": "2300万像素",
@@ -98,10 +98,10 @@
         "cameraSpecs": "18毫米，ƒ/2.0",
         "spatialAudio": "动态头部追踪的空间音频",
         "unlockMethod": "Optic ID",
-        "sensors": "<div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">高分辨率主摄<br>(两个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">外界追踪摄像头<br>(六个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">眼动追踪摄像头<br>(四个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">原深感相机</div><div class=\"li-div-score li-div-score-a li-div-score-one\">激光雷达扫描仪</div><div class=\"li-div-score li-div-score-a li-div-score-one\" style=\"line-height: 14px;\">惯性测量单元<br>IMU (四个)</div><div class=\"li-div-score li-div-score-a li-div-score-one\">防闪烁传感器</div><div class=\"li-div-score li-div-score-a li-div-score-one\">环境光传感器</div>",
+        "sensors": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267); line-height: 14px;\">高分辨率主摄<br>(两个)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267); line-height: 14px;\">外界追踪摄像头<br>(六个)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267); line-height: 14px;\">眼动追踪摄像头<br>(四个)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">原深感相机</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">激光雷达扫描仪</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267); line-height: 14px;\">惯性测量单元<br>IMU (四个)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">防闪烁传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">环境光传感器</div>",
         "wifi": "Wi‑Fi 6 (802.11ax)",
         "bluetooth": "Bluetooth 5.3",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">一般使用时长<br>2h</div><div class=\"li-div-score li-div-score-a\">视频观看时长<br>2.5h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">一般使用时长<br>2h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频观看时长<br>2.5h</div>",
         "ipd": "51~75mm",
         "weight": "600~650g",
         "specsManual": "<a href=\"https://support.apple.com/zh-cn/117810\" target=\"_blank\">技术规格</a>"

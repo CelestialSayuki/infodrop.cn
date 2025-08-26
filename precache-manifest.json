@@ -95,7 +95,7 @@
   "./apple-device/watch/watch-ultra/data.json",
   "./apple-device/watch/watch-se/data.json",
   "./apple-device/watch/watch-series/data.json",
-  "./apple-device/iphone/cmos.phpdata.json",
+  "./apple-device/iphone/cmos.data.json",
   "./apple-device/iphone/data.json",
   "./apple-device/ipad/ipad-air/data.json",
   "./apple-device/ipad/ipad-mini/data.json",
