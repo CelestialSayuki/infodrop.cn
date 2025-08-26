@@ -128,7 +128,7 @@
   "./public-static/css/comparison-table-ui.css",
   "./public-static/css/new.css",
   "./public-static/js/macui.js",
-  "./public-static/js/table-generator.js",
+  "./public-static/js/lib/table-generator.js",
   "./public-static/js/lib/WindowManager.js",
   "./public-static/js/lib/Window.js",
   "./public-static/js/lib/utils.js",

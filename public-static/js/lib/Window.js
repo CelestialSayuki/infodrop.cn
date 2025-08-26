@@ -1,5 +1,6 @@
 import { webpMachine } from '../macui.js';
 import { rewriteElementPaths, scopeCss, loadScriptsSequentially } from './utils.js';
+import { renderComparisonTable, syncRowHeights } from './table-generator.js';
 
 export class Window {
 

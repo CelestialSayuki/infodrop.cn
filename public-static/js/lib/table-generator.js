@@ -1,6 +1,6 @@
-import { webpMachine } from './macui.js';
+import { webpMachine } from '../macui.js';
 
-async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
+export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   try {
     const response = await fetch(jsonUrl);
     if (!response.ok) throw new Error(`无法加载对比数据: ${response.statusText}`);
@@ -164,7 +164,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             const image = productColumn.querySelector('.product-image');
             if (image && image.src !== newSrc) {
               image.src = newSrc;
-              webpMachine.polyfill(image);
+              webpMachine.polyfillDocument();
             }
           }
         }
@@ -197,7 +197,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   }
 }
 
-function syncRowHeights(gridContainer) {
+export function syncRowHeights(gridContainer) {
   if (!gridContainer) return;
   const featureRows = Array.from(gridContainer.querySelectorAll('.features-column .features-list li'));
   const productColumns = Array.from(gridContainer.querySelectorAll('.products-grid-container .product-column'));
