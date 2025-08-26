@@ -86,7 +86,7 @@
 }
 
 .products-grid-container > .product-column:not(:last-child) {
-    margin-right: 6px;
+  margin-right: 6px;
 }
 
 .product-content-wrapper {
@@ -147,14 +147,14 @@
   box-shadow: 0 0 0 2px var(--sw-accent);
 }
 
-.product-column>.top-info,
-.product-column>.data-list,
-.product-column>.camera-container {
+.product-column > .top-info,
+.product-column > .data-list,
+.product-column > .camera-container {
   position: relative;
   z-index: 2;
 }
 
-.product-column>.data-list {
+.product-column > .data-list {
   background-color: transparent;
 }
 
@@ -285,13 +285,23 @@
 }
 
 .data-list li.multi-div-row {
-  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start; /* FIX: Added for vertical alignment */
+  padding: 8px 6px;
   gap: 5px;
-  padding: 8px;
+}
+
+.data-list li.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start; /* FIX: Added for vertical alignment */
 }
 
 .info-square {
-  flex: 1;
   background-color: rgba(120, 120, 128, 0.12);
   border-radius: 6px;
   padding: 8px 4px;
@@ -303,6 +313,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1; /* FIX: Changed from width: 100% to allow flex sharing */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -356,10 +367,25 @@
   .ar-swatch-link {
     border-color: rgba(255, 255, 255, 0.1);
   }
-
   
+  .data-list li.multi-div-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start; /* FIX: Added for vertical alignment */
+    padding: 8px 6px;
+    gap: 5px;
+  }
+
+  .data-list li.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-items: flex-start;
+    align-content: flex-start; /* FIX: Added for vertical alignment */
+  }
+
   .info-square {
-    flex: 1;
     background-color: rgba(120, 120, 128, 0.12);
     border-radius: 6px;
     padding: 8px 4px;
@@ -371,5 +397,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1; /* FIX: Changed from width: 100% to allow flex sharing */
   }
 }
