@@ -8,7 +8,8 @@
         { "name": "宣传口号", "id": "slogan" },
         { "name": "发布时间", "id": "releaseDate" },
         { "name": "支持系统", "id": "supportedOS" },
-        { "name": "型号标识", "id": "modelIdentifier" }
+        { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "外观颜色", "id": "colors" }
       ]
     },
     {
@@ -87,6 +88,12 @@
         "releaseDate": "2017.06.06",
         "supportedOS": "macOS 10.12 ~ macOS 13",
         "modelIdentifier": "MacBook10,1",
+        "colors": [
+              { "name": "银色", "hex": "#D2D3D4" },
+              { "name": "金色", "hex": "#E9D9C4" },
+              { "name": "深空灰色", "hex": "#59616D" },
+              { "name": "玫瑰金色", "hex": "#ECC5C1" }
+        ],
         "chipProcess": "Intel 14nm (ISA, Kaby Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m3<br>7Y32</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>7Y54</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>7Y75</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 615</div>",
@@ -118,6 +125,12 @@
         "releaseDate": "2016.04.20",
         "supportedOS": "OS X 10.11 ~ macOS 12",
         "modelIdentifier": "MacBook9,1",
+        "colors": [
+              { "name": "银色", "hex": "#D2D3D4" },
+              { "name": "金色", "hex": "#E9D9C4" },
+              { "name": "深空灰色", "hex": "#59616D" },
+              { "name": "玫瑰金色", "hex": "#ECC5C1" }
+        ],
         "chipProcess": "Intel 14nm (Skylake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m3<br>6Y30</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m5<br>6Y54</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m7<br>6Y75</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 515</div>",
@@ -149,6 +162,11 @@
         "releaseDate": "2015.03.10",
         "supportedOS": "OS X 10.10 ~ macOS 11",
         "modelIdentifier": "MacBook8,1",
+        "colors": [
+              { "name": "银色", "hex": "#D2D3D4" },
+              { "name": "金色", "hex": "#E9D9C4" },
+              { "name": "深空灰色", "hex": "#59616D" }
+        ],
         "chipProcess": "Intel 14nm (Broadwell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m<br>5Y31</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m<br>5Y51</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 m<br>5Y71</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 5300</div>",
@@ -180,6 +198,9 @@
         "releaseDate": "2010.05.19",
         "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
         "modelIdentifier": "MacBook7,1",
+        "colors": [
+              { "name": "白色", "hex": "#FFFFFF" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo P8600</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 320M</div>",
@@ -211,6 +232,9 @@
         "releaseDate": "2009.10.21",
         "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
         "modelIdentifier": "MacBook6,1",
+        "colors": [
+              { "name": "白色", "hex": "#FFFFFF" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo P5500</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
@@ -242,6 +266,9 @@
         "releaseDate": "2009.05.28",
         "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
         "modelIdentifier": "MacBook5,2",
+        "colors": [
+              { "name": "白色", "hex": "#FFFFFF" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo P7450</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
@@ -273,6 +300,9 @@
         "releaseDate": "2009.01.22",
         "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
         "modelIdentifier": "MacBook5,2",
+        "colors": [
+              { "name": "白色", "hex": "#FFFFFF" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo P7350</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
@@ -304,6 +334,9 @@
         "releaseDate": "2008.10.15",
         "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
         "modelIdentifier": "MacBook5,1",
+        "colors": [
+              { "name": "银色", "hex": "#D2D3D4" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo P7350</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo P8600</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
@@ -335,6 +368,10 @@
         "releaseDate": "2008.02.27",
         "supportedOS": "Mac OS X 10.5 ~ Mac OS X 10.7",
         "modelIdentifier": "MacBook4,1",
+        "colors": [
+              { "name": "白色", "hex": "#FFFFFF" },
+              { "name": "黑色", "hex": "#000000" }
+        ],
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo T8100</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo T8300</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® X3100</div>",

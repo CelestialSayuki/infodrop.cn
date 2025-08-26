@@ -9,6 +9,7 @@
         { "name": "发布时间", "id": "releaseDate" },
         { "name": "支持系统", "id": "supportedOS" },
         { "name": "型号标识", "id": "modelIdentifier" },
+        { "name": "外观颜色", "id": "colors" },
         { "name": "增强现实", "id": "arLink" }
       ]
     },
@@ -86,7 +87,10 @@
         "releaseDate": "2023.06.06",
         "supportedOS": "visionOS 1 ~ 最新",
         "modelIdentifier": "RealityDevice14,1",
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">查看</a>",
+        "colors": [
+            {"name": "银色", "hex": "#D2D3D4" }
+        ],
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">银色</a>",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 + R1</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16GB LPDDR5<br>256G、512G、1T</div>",
         "audioChip": "H2",

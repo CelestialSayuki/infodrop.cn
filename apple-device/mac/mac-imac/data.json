@@ -500,7 +500,9 @@
         "releaseDate": "2015.10.14",
         "osSupport": "OS X 10.11 ~ macOS 12",
         "modelId": "iMac17,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 14nm (Skylake)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>6500</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>6600</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>6700K</div>",
@@ -531,7 +533,9 @@
         "releaseDate": "2015.10.14",
         "osSupport": "OS X 10.11 ~ macOS 12",
         "modelId": "iMac16,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 14nm (Broadwell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>5675R</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>5775R</div>",
@@ -562,7 +566,9 @@
         "releaseDate": "2015.10.14",
         "osSupport": "OS X 10.11 ~ macOS 12",
         "modelId": "iMac16,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 14nm (Broadwell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5250U</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5575R</div>",
@@ -593,7 +599,9 @@
         "releaseDate": "2015.05.20",
         "osSupport": "OS X 10.10 ~ macOS 11",
         "modelId": "iMac15,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 22nm (Haswell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5 4590</div>",
@@ -624,7 +632,9 @@
         "releaseDate": "2014.10.17",
         "osSupport": "OS X 10.10 ~ macOS 11",
         "modelId": "iMac15,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 22nm (Haswell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4690</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4790K</div>",
@@ -655,7 +665,9 @@
         "releaseDate": "2014.06.19",
         "osSupport": "OS X 10.9 ~ macOS 11",
         "modelId": "iMac14,4",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 22nm (Haswell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5 4260U</div>",
@@ -686,7 +698,9 @@
         "releaseDate": "2013.09.25",
         "osSupport": "OS X 10.8 ~ macOS 10.15",
         "modelId": "iMac14,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 22nm (Haswell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4570</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4670</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4771</div>",
@@ -717,7 +731,9 @@
         "releaseDate": "2013.09.25",
         "osSupport": "OS X 10.8 ~ macOS 10.15",
         "modelId": "iMac14,1 / iMac14,3",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "-",
         "process": "Intel 22nm (Haswell)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4570R</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4570S</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>4770S</div>",

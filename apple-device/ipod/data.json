@@ -8,7 +8,8 @@
         { "id": "slogan", "name": "宣传口号" },
         { "id": "releaseDate", "name": "发布时间" },
         { "id": "osSupport", "name": "支持系统" },
-        { "id": "modelId", "name": "型号标识" }
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" }
       ]
     },
     {
@@ -74,6 +75,14 @@
         "releaseDate": "2019.05.29",
         "osSupport": "iOS 12 ~ iOS 15",
         "modelId": "iPod9,1",
+        "colors": [
+            { "name": "银色", "hex": "#d2d3d4" },
+            { "name": "深空灰色", "hex": "#68686E" },
+            { "name": "金色", "hex": "#E9D9C4" },
+            { "name": "粉色", "hex": "#EB5998" },
+            { "name": "蓝色", "hex": "#5488D9" },
+            { "name": "红色", "hex": "#CC3A34" }
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A10 Fusion<br>(2P+2E+6GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4<br>32G、128G、256G</div>",
         "audioProcessor": "-",
@@ -102,6 +111,13 @@
         "releaseDate": "2015.07.16",
         "osSupport": "iOS 8 ~ iOS 12",
         "modelId": "iPod7,1",
+        "colors": [
+            { "name": "银色", "hex": "#d2d3d4" },
+            { "name": "深空灰色", "hex": "#68686E"},
+            { "name": "金色", "hex": "#E9D9C4"},
+            { "name": "粉色", "hex": "#EB5998"},
+            { "name": "蓝色", "hex": "#5488D9"}
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A8<br>(2P+4GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR3<br>16G、32G、64G、128G</div>",
         "audioProcessor": "Cirrus Logic 338S1116",
@@ -130,6 +146,13 @@
         "releaseDate": "2012.09.13",
         "osSupport": "iOS 6 ~ iOS 9",
         "modelId": "iPod5,1",
+        "colors": [
+            { "name": "银色", "hex": "#d2d3d4" },
+            { "name": "深空灰色", "hex": "#59616D"},
+            { "name": "粉红色", "hex": "#EF898A" },
+            { "name": "黄色", "hex": "#D4D95E"},
+            { "name": "蓝色", "hex": "#5CBCDA"}
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A5<br>(2P+2GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB LPDDR2<br>16G、32G、64G</div>",
         "audioProcessor": "Cirrus Logic 338S1077",
@@ -146,7 +169,7 @@
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "123.4×58.6×6.1mm, 88g",
         "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1421,A1509</div>",
-        "links": "<a href=\"https://support.apple.com/zh-cn/112021\" target="_blank\">技术规格</a>"
+        "links": "<a href=\"https://support.apple.com/zh-cn/112021\" target=\"_blank\">技术规格</a>"
       }
     },
     {
@@ -158,6 +181,10 @@
         "releaseDate": "2010.09.02",
         "osSupport": "iOS 4 ~ iOS 6",
         "modelId": "iPod4,1",
+        "colors": [
+            { "name": "黑色", "hex": "#000000" },
+            { "name": "白色", "hex": "#ffffff" }
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A4<br>(1P+1GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">256MB LPDDR<br>8G、16G、32G、64G</div>",
         "audioProcessor": "Cirrus Logic 338S0589",
@@ -186,6 +213,9 @@
         "releaseDate": "2009.09.10",
         "osSupport": "iPhone OS 3 ~ iOS 5",
         "modelId": "iPod3,1",
+        "colors": [
+            { "name": "灰色", "hex": "#484B51" }
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8922<br>(1P+1GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">256MB LPDDR<br>8G、16G、32G、64G</div>",
         "audioProcessor": "Cirrus Logic 338S0559",
@@ -214,6 +244,9 @@
         "releaseDate": "2008.09.10",
         "osSupport": "iPhone OS 2 ~ iOS 4",
         "modelId": "iPod2,1",
+        "colors": [
+            { "name": "灰色", "hex": "#484B51" }
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8720<br>(1P+1GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">128MB LPDDR<br>8G、16G、32G</div>",
         "audioProcessor": "Cirrus Logic 338S0559",
@@ -242,6 +275,9 @@
         "releaseDate": "2007.09.05",
         "osSupport": "iPhone OS 1 ~ iPhone OS 3",
         "modelId": "iPod1,1",
+        "colors": [
+            { "name": "灰色", "hex": "#484B51" }
+        ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8900<br>(1P+1GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">128MB LPDDR<br>8G、16G、32G</div>",
         "audioProcessor": "WM8758BG",

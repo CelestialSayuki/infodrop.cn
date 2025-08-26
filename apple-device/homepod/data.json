@@ -123,7 +123,10 @@
         "slogan": "家的新声。",
         "releaseDate": "2017.06.06",
         "modelId": "AudioAccessory1,1 / 1,2",
-        "colors": [],
+        "colors": [
+            { "name": "白色", "hex": "#ffffff" },
+            { "name": "午夜色", "hex": "#313232" }
+        ],
         "arLink": "-",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">A8</div>",
         "ramRom": "1GB<br>16GB",

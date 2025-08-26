@@ -270,7 +270,10 @@
         "releaseDate": "2012.10.24",
         "osSupport": "iOS 6 ~ iOS 9",
         "modelId": "iPad2,5 / 2,6 / 2,7",
-        "colors": [],
+        "colors": [
+            { "name": "银白色", "hex": "#e2e3e4" },
+            { "name": "碳黑色", "hex": "#333A43" }
+        ],
         "arLink": "/",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A5<br>(2P+2GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB DDR2<br>16G、32G、64G</div>",

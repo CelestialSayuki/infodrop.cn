@@ -237,7 +237,9 @@
         "releaseDate": "2012.10.24",
         "osSupport": "OS X 10.8 ~ macOS 10.15",
         "modelId": "Macmini6,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 22nm (Ivy Bridge)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3615QM\">四核 i7<br>3615QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3720QM\">四核 i7<br>3720QM</div>",
@@ -264,7 +266,9 @@
         "releaseDate": "2012.10.24",
         "osSupport": "OS X 10.8 ~ macOS 10.15",
         "modelId": "Macmini6,1 / 6,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 22nm (Ivy Bridge)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-3210M\">双核 i5<br>3210M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3615QM\">四核 i7<br>3615QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3720QM\">四核 i7<br>3720QM</div>",
@@ -291,7 +295,9 @@
         "releaseDate": "2011.07.21",
         "osSupport": "Mac OS X 10.7 ~ macOS 10.13",
         "modelId": "Macmini5,3",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 32nm (Sandy Bridge)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-2635QM\">四核 I7-2635QM</div>",
@@ -318,7 +324,9 @@
         "releaseDate": "2011.07.21",
         "osSupport": "Mac OS X 10.7 ~ macOS 10.13",
         "modelId": "Macmini5,1 / 5,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 32nm (Sandy Bridge)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-2415M\">双核 i5<br>2415M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-2520M\">双核 i5<br>2520M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-2620M\">双核 i7<br>2620M</div>",
@@ -345,7 +353,9 @@
         "releaseDate": "2010.06.15",
         "osSupport": "Mac OS X 10.6 ~ macOS 10.13",
         "modelId": "Macmini4,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 45nm (Penryn)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8800\">Intel Core™2 Duo P8800</div>",
@@ -372,7 +382,9 @@
         "releaseDate": "2010.06.15",
         "osSupport": "Mac OS X 10.6 ~ macOS 10.13",
         "modelId": "Macmini4,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 45nm (Penryn)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8600\">Intel Core™2 Duo P8600</div>",
@@ -399,7 +411,9 @@
         "releaseDate": "2009.10.21",
         "osSupport": "Mac OS X 10.6 ~ OS X 10.11",
         "modelId": "Macmini3,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 45nm (Penryn)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P7550\">Intel Core™2<br>Duo P7550</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8700\">Intel Core™2<br>Duo P8700</div>",
@@ -426,7 +440,9 @@
         "releaseDate": "2009.03.04",
         "osSupport": "Mac OS X 10.6 ~ OS X 10.11",
         "modelId": "Macmini3,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
         "arLink": "/",
         "process": "Intel 45nm (Penryn)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P7350\">Intel Core™2 Duo P7350</div>",
@@ -453,7 +469,9 @@
         "releaseDate": "2007.08.08",
         "osSupport": "Mac OS X 10.4 ~ Mac OS X 10.7",
         "modelId": "Macmini2,1",
-        "colors": [],
+        "colors": [
+            { "name": "白色", "hex": "#FFFFFF" }
+        ],
         "arLink": "/",
         "process": "Intel 65nm (Merom)",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo T5600\">Intel Core™2<br>Duo T5600</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo T7200\">Intel Core™2<br>Duo T7200</div>",

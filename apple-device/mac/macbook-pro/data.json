@@ -661,7 +661,10 @@
         "releaseDate": "2019.07.10",
         "supportedOS": "macOS 10.14 ~ macOS 15",
         "modelIdentifier": "MacBookPro15,4",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Coffee Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>8257U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>8557U</div>",
@@ -696,7 +699,10 @@
         "releaseDate": "2018.07.13",
         "supportedOS": "macOS 10.13 ~ macOS 15",
         "modelIdentifier": "MacBookPro15,1 / 15,3",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Coffee Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">六核 i7<br>8750H</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">六核 i7<br>8850H</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">六核 i9<br>8950HK</div>",
@@ -731,7 +737,10 @@
         "releaseDate": "2018.07.13",
         "supportedOS": "macOS 10.13 ~ macOS 15",
         "modelIdentifier": "MacBookPro15,2",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Coffee Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>8259U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>8559U</div>",
@@ -766,7 +775,10 @@
         "releaseDate": "2017.06.06",
         "supportedOS": "macOS 10.12 ~ macOS 13",
         "modelIdentifier": "MacBookPro14,3",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Kaby Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>7700HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>7820HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>7920HQ</div>",
@@ -801,7 +813,10 @@
         "releaseDate": "2017.06.06",
         "supportedOS": "macOS 10.12 ~ macOS 13",
         "modelIdentifier": "MacBookPro14,2",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Kaby Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>7267U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>7287U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>7567U</div>",
@@ -836,7 +851,10 @@
         "releaseDate": "2017.06.06",
         "supportedOS": "macOS 10.12 ~ macOS 13",
         "modelIdentifier": "MacBookPro14,1",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Kaby Lake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>7360U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>7660U</div>",
@@ -871,7 +889,10 @@
         "releaseDate": "2016.11.13",
         "supportedOS": "macOS 10.12 ~ macOS 12",
         "modelIdentifier": "MacBookPro13,3",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Skylake)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>6700HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>6820HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>6920HQ</div>",
@@ -982,7 +1003,9 @@
         "releaseDate": "2015.05.20",
         "supportedOS": "OS X 10.10 ~ macOS 12",
         "modelIdentifier": "MacBookPro11,4 / 11,5",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Crystal Well)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4770HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4870HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4980HQ</div>",
@@ -1017,7 +1040,9 @@
         "releaseDate": "2015.03.10",
         "supportedOS": "OS X 10.10 ~ macOS 12",
         "modelIdentifier": "MacBookPro12,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Broadwell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5257U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5287U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>5557U</div>",
@@ -1052,7 +1077,9 @@
         "releaseDate": "2014.07.30",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookPro11,2 / 11,3",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Crystal Well)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4770HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4870HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4980HQ</div>",
@@ -1087,7 +1114,9 @@
         "releaseDate": "2014.07.30",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookPro11,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4278U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4308U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4578U</div>",
@@ -1122,7 +1151,9 @@
         "releaseDate": "2013.10.23",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookPro11,2 / 11,3",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Crystal Well)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4750HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4850HQ</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>4960HQ</div>",
@@ -1157,7 +1188,9 @@
         "releaseDate": "2013.10.23",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookPro11,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4258U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4288U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4558U</div>",
@@ -1192,7 +1225,9 @@
         "releaseDate": "2013.02.14",
         "supportedOS": "OS X 10.8 ~ macOS 10.15",
         "modelIdentifier": "MacBookPro10,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Ivy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>3635QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>3740QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>3840QM</div>",
@@ -1227,7 +1262,9 @@
         "releaseDate": "2013.02.14",
         "supportedOS": "OS X 10.8 ~ macOS 10.15",
         "modelIdentifier": "MacBookPro10,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Ivy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>3230M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>3540M</div>",
@@ -1262,7 +1299,9 @@
         "releaseDate": "2012.10.24",
         "supportedOS": "OS X 10.8 ~ macOS 10.15",
         "modelIdentifier": "MacBookPro10,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Ivy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>3210M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>3520M</div>",

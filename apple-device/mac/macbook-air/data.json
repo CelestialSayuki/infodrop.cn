@@ -409,7 +409,11 @@
         "releaseDate": "2019.07.10",
         "supportedOS": "macOS 10.14 ~ macOS 14",
         "modelIdentifier": "MacBookAir8,2",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" },
+            { "name": "金色", "hex": "F6DCCA" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Amber Lake Y)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5-8210Y</div>",
@@ -444,7 +448,11 @@
         "releaseDate": "2018.10.31",
         "supportedOS": "macOS 10.14 ~ macOS 14",
         "modelIdentifier": "MacBookAir8,1",
-        "colors": [],
+        "colors": [
+            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "银色", "hex": "rgb(199, 200, 202)" },
+            { "name": "金色", "hex": "F6DCCA" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Amber Lake Y)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5-8210Y</div>",
@@ -516,7 +524,9 @@
         "releaseDate": "2015.03.10",
         "supportedOS": "OS X 10.10 ~ macOS 12",
         "modelIdentifier": "MacBookAir7,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Broadwell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5250U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>5650U</div>",
@@ -551,7 +561,9 @@
         "releaseDate": "2015.03.10",
         "supportedOS": "OS X 10.10 ~ macOS 12",
         "modelIdentifier": "MacBookAir7,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Broadwell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>5250U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>5650U</div>",
@@ -586,7 +598,9 @@
         "releaseDate": "2014.04.30",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookAir6,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4260U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4650U</div>",
@@ -621,7 +635,9 @@
         "releaseDate": "2014.04.30",
         "supportedOS": "OS X 10.9 ~ macOS 11",
         "modelIdentifier": "MacBookAir6,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4260U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4650U</div>",
@@ -656,7 +672,9 @@
         "releaseDate": "2013.06.11",
         "supportedOS": "OS X 10.8 ~ macOS 11",
         "modelIdentifier": "MacBookAir6,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4250U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4650U</div>",
@@ -691,7 +709,9 @@
         "releaseDate": "2013.06.11",
         "supportedOS": "OS X 10.8 ~ macOS 11",
         "modelIdentifier": "MacBookAir6,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Haswell)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>4250U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>4650U</div>",
@@ -726,7 +746,9 @@
         "releaseDate": "2012.06.12",
         "supportedOS": "Mac OS X 10.7 ~ macOS 10.15",
         "modelIdentifier": "MacBookAir5,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Ivy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5-3427U</div>",
@@ -761,7 +783,9 @@
         "releaseDate": "2012.06.12",
         "supportedOS": "Mac OS X 10.7 ~ macOS 10.15",
         "modelIdentifier": "MacBookAir5,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 22nm (Ivy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5-3317U</div>",
@@ -796,7 +820,9 @@
         "releaseDate": "2011.07.21",
         "supportedOS": "Mac OS X 10.7 ~ macOS 10.13",
         "modelIdentifier": "MacBookAir4,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 32nm (Sandy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>2557M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>2677M</div>",
@@ -831,7 +857,9 @@
         "releaseDate": "2011.07.21",
         "supportedOS": "Mac OS X 10.7 ~ macOS 10.13",
         "modelIdentifier": "MacBookAir4,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 32nm (Sandy Bridge)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i5<br>2467M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">双核 i7<br>2677M</div>",
@@ -866,7 +894,9 @@
         "releaseDate": "2010.10.21",
         "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
         "modelIdentifier": "MacBookAir3,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo SL9400</div>",
@@ -901,7 +931,9 @@
         "releaseDate": "2010.10.21",
         "supportedOS": "Mac OS X 10.6 ~ macOS 10.13",
         "modelIdentifier": "MacBookAir3,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2 Duo SU9400</div>",
@@ -936,7 +968,9 @@
         "releaseDate": "2009.06.09",
         "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
         "modelIdentifier": "MacBookAir2,2",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo SL9400</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo SL9600</div>",
@@ -971,7 +1005,9 @@
         "releaseDate": "2008.10.15",
         "supportedOS": "Mac OS X 10.5 ~ OS X 10.11",
         "modelIdentifier": "MacBookAir2,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "Intel 45nm (Penryn)",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo P7500</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo SL9400</div>",
@@ -1006,7 +1042,9 @@
         "releaseDate": "2008.01.16",
         "supportedOS": "Mac OS X 10.5 ~ Mac OS X 10.7",
         "modelIdentifier": "MacBookAir1,1",
-        "colors": [],
+        "colors": [
+            { "name": "银色", "hex": "rgb(199, 200, 202)" }
+        ],
         "arLink": "/",
         "chipProcess": "-",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo P7500</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Intel Core™2<br>Duo P7700</div>",
