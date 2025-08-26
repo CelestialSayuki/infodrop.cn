@@ -275,5 +275,6 @@ function setupCountdownTimer() {
       div2.style.display = 'none';
     }
   }
-  window.setInterval(() => ShowCountDown(2025, 6, 10, 1, 0, 0, 'divdown2'), interval);
+  window.setInterval(() => ShowCountDown(2025, 9, 10, 1, 0, 0, 'divdown2'), interval);
 }
+
