@@ -70,10 +70,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             li.innerHTML = cellHTML;
 
             if (typeof cellHTML === 'string' && (
-                cellHTML.includes('li-div-score') ||
-                cellHTML.includes('li-div-gpu') ||
-                cellHTML.includes('li-div-cpu') ||
-                cellHTML.includes('li-div-npu')
+                cellHTML.includes('info-square')
             )) {
                 li.classList.add('multi-div-row');
             }
@@ -174,50 +171,56 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   }
 }
 
+
 function syncRowHeights(gridContainer) {
   if (!gridContainer) return;
-  const featureRows = gridContainer.querySelectorAll('.features-column .features-list li');
-  const productColumns = gridContainer.querySelectorAll('.products-grid-container .product-column');
-  if (!featureRows.length || !productColumns.length) return;
+  const featureRows = Array.from(gridContainer.querySelectorAll('.features-column .features-list li'));
+  const productColumns = Array.from(gridContainer.querySelectorAll('.products-grid-container .product-column'));
+  if (!featureRows.length) return;
 
   requestAnimationFrame(() => {
-    for (let i = 0; i < featureRows.length; i++) {
-      let maxRowHeight = 0;
-      const currentRowCells = [featureRows[i]];
+    // Process each row independently
+    featureRows.forEach((featureRow, i) => {
+      const currentRowCells = [featureRow];
       productColumns.forEach(column => {
-        const cells = column.querySelectorAll(`.data-list li:nth-child(${i + 1})`);
-        if (cells.length > 0) cells.forEach(cell => currentRowCells.push(cell));
+        const cell = column.querySelector(`.data-list li:nth-child(${i + 1})`);
+        if (cell) currentRowCells.push(cell);
       });
 
+      // --- Step 1: Reset all cell heights to auto to measure their natural height ---
+      currentRowCells.forEach(cell => {
+        cell.style.height = 'auto';
+      });
+
+      // --- Step 2: Sync the height of any .info-square blocks within this row ---
       let maxInnerBlockHeight = 0;
       currentRowCells.forEach(cell => {
-        const innerBlocks = cell.querySelectorAll('.li-div-score, .li-div-gpu, .li-div-cpu, .li-div-npu');
-        if (innerBlocks.length > 0) {
-          innerBlocks.forEach(block => {
-            block.style.height = 'auto';
-            maxInnerBlockHeight = Math.max(maxInnerBlockHeight, block.offsetHeight);
-          });
-        }
+        const innerBlocks = cell.querySelectorAll('.info-square');
+        innerBlocks.forEach(block => {
+          block.style.height = 'auto';
+          maxInnerBlockHeight = Math.max(maxInnerBlockHeight, block.offsetHeight);
+        });
       });
 
       if (maxInnerBlockHeight > 0) {
         currentRowCells.forEach(cell => {
-          const innerBlocks = cell.querySelectorAll('.li-div-score, .li-div-gpu, .li-div-cpu, .li-div-npu');
-          innerBlocks.forEach(block => {
+          cell.querySelectorAll('.info-square').forEach(block => {
             block.style.height = `${maxInnerBlockHeight}px`;
           });
         });
       }
 
+      // --- Step 3: Find the tallest cell in this specific row ---
+      let maxRowHeight = 0;
       currentRowCells.forEach(cell => {
-        cell.style.height = 'auto';
         maxRowHeight = Math.max(maxRowHeight, cell.offsetHeight);
       });
-      maxRowHeight = Math.max(maxRowHeight, 46);
+      maxRowHeight = Math.max(maxRowHeight, 46); // Enforce a minimum height
 
+      // --- Step 4: Apply that single max height to all cells in this row ---
       currentRowCells.forEach(cell => {
         cell.style.height = `${maxRowHeight}px`;
       });
-    }
+    });
   });
 }

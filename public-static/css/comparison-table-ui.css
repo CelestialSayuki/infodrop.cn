@@ -281,21 +281,13 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.data-list li:has(.li-div-score),
-.data-list li:has(.li-div-gpu),
-.data-list li:has(.li-div-cpu),
-.data-list li:has(.li-div-npu) {
+.data-list li.multi-div-row {
   justify-content: space-around;
   gap: 5px;
   padding: 8px;
-  display: flex;
-  align-items: center;
 }
 
-.li-div-score,
-.li-div-gpu,
-.li-div-cpu,
-.li-div-npu {
+.info-square {
   flex: 1;
   background-color: rgba(120, 120, 128, 0.12);
   border-radius: 6px;
@@ -309,7 +301,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 @media (prefers-color-scheme: dark) {
   .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
@@ -362,10 +353,19 @@
     border-color: rgba(255, 255, 255, 0.1);
   }
 
-  .li-div-score,
-  .li-div-gpu,
-  .li-div-cpu,
-  .li-div-npu {
-    background-color: rgba(84, 84, 88, 0.24);
+  
+  .info-square {
+    flex: 1;
+    background-color: rgba(120, 120, 128, 0.12);
+    border-radius: 6px;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

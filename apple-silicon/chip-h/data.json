@@ -5,34 +5,58 @@
     {
       "groupName": "基础",
       "features": [
-        { "id": "displayType", "name": "型号展示" },
-        { "id": "releaseDate", "name": "发布时间" }
+        {
+          "id": "displayType",
+          "name": "型号展示"
+        },
+        {
+          "id": "releaseDate",
+          "name": "发布时间"
+        }
       ]
     },
     {
       "groupName": "概要",
       "features": [
-        { "id": "processTech", "name": "技术工艺" },
-        { "id": "dieSize", "name": "裸片尺寸" }
+        {
+          "id": "processTech",
+          "name": "技术工艺"
+        },
+        {
+          "id": "dieSize",
+          "name": "裸片尺寸"
+        }
       ]
     },
     {
       "groupName": "架构",
       "features": [
-        { "id": "coreArchitecture", "name": "内核架构" }
+        {
+          "id": "coreArchitecture",
+          "name": "内核架构"
+        }
       ]
     },
     {
       "groupName": "连接",
       "features": [
-        { "id": "bluetooth", "name": "蓝牙" },
-        { "id": "5G", "name": "5GHz低延迟通信" }
+        {
+          "id": "bluetooth",
+          "name": "蓝牙"
+        },
+        {
+          "id": "5G",
+          "name": "5GHz低延迟通信"
+        }
       ]
     },
     {
       "groupName": "其他",
       "features": [
-        { "id": "usedIn", "name": "使用设备" }
+        {
+          "id": "usedIn",
+          "name": "使用设备"
+        }
       ]
     }
   ],
@@ -47,14 +71,18 @@
         "Die": "img/die/die_shot_H2_temp.webp"
       },
       "data": {
-        "displayType": ["芯片图", "宣传图", "Die"],
+        "displayType": [
+          "芯片图",
+          "宣传图",
+          "Die"
+        ],
         "releaseDate": "2022.09",
         "processTech": "TSMC N6 RF",
         "dieSize": "-",
         "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.3",
         "5G": "✅",
-        "usedIn": "AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2</div>"
       }
     },
     {
@@ -66,14 +94,17 @@
         "Die": "img/die/die_shot_H1_temp.webp"
       },
       "data": {
-        "displayType": ["芯片图", "Die"],
+        "displayType": [
+          "芯片图",
+          "Die"
+        ],
         "releaseDate": "2019.10",
         "processTech": "16nm",
         "dieSize": "-",
         "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.0",
         "5G": "-",
-        "usedIn": "AirPods (第 3 代)<br>AirPods Pro (第 1 代)<br>Beats Fit Pro"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods (第 3 代)<br>AirPods Pro (第 1 代)<br>Beats Fit Pro</div>"
       }
     },
     {
@@ -87,14 +118,19 @@
         "Die": "img/die/die_shot_H1_temp.webp"
       },
       "data": {
-        "displayType": ["404", "290", "289", "Die"],
+        "displayType": [
+          "404",
+          "290",
+          "289",
+          "Die"
+        ],
         "releaseDate": "2019.03",
         "processTech": "16nm",
         "dieSize": "12mm²",
         "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.0",
         "5G": "-",
-        "usedIn": "AirPods Max<br>AirPods (第 2 代)<br>PowerBeats Pro<br>Beats Solo Pro<br>AirPods (第 2 代)<br>Powerbeats 4 (2020)"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Max<br>AirPods (第 2 代)<br>PowerBeats Pro<br>Beats Solo Pro<br>AirPods (第 2 代)<br>Powerbeats 4 (2020)</div>"
       }
     }
   ]

@@ -77,7 +77,7 @@
         "support2g": "2G GSM/EDGE & CDMA",
         "satelliteComm": "支持卫星通信系统",
         "satelliteNav": "GPS/A-GPS, GLONASS ,Galileo<br>GZSS, Beidou, NavIC",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">iPhone 16e</div>"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 16e</div>"
       }
     }
   ]

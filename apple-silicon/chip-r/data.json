@@ -72,7 +72,7 @@
         "processTech": "TSMC N5",
         "transistorCount": "-",
         "dieSize": "8.18×11.35 (92.84mm²)",
-        "cpuSpec": "<div class=\"li-div-cpu li-div-cpu-one li-div-cpu-b\">LPE-Core ×4</div>",
+        "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">LPE-Core ×4</div>",
         "coreArchitecture": "64-bit ARMv8.4-A",
         "l2Cache": "共享 256KB ×2 组",
         "l3Slc": "20MB System Level Cache",
@@ -80,7 +80,7 @@
         "signalType": "相机、各传感器及麦克风输入",
         "processingSpeed": "12毫秒 (从信号采集到显示)",
         "bandwidth": "256GB/s",
-        "usedIn": "<div class=\"li-div-device li-div-device-b\">Apple Vision Pro</div>"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Vision Pro</div>"
       }
     }
   ]
