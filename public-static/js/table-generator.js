@@ -1,3 +1,5 @@
+import { webpMachine } from './macui.js';
+
 async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   try {
     const response = await fetch(jsonUrl);
@@ -152,7 +154,6 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           overlay.style.clipPath = `circle(250% at ${x}px ${y}px)`;
         }, 16);
 
-      // Image swap link
       } else if (event.target.classList.contains('image-swap-link')) {
         const link = event.target;
         const imgSrc = link.dataset.imgSrc;
@@ -163,6 +164,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             const image = productColumn.querySelector('.product-image');
             if (image && image.src !== newSrc) {
               image.src = newSrc;
+              webpMachine.polyfill(image);
             }
           }
         }
