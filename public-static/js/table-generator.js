@@ -55,17 +55,38 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           dataList.innerHTML += `<li class="feature-group-header"></li>`;
           group.features.forEach(feature => {
             let cellHTML;
-            if (feature.id === 'displayType' && product.images && Array.isArray(product.data.displayType)) {
-              cellHTML = product.data.displayType.map(text =>
+            const value = product.data[feature.id];
+            
+            if (feature.id === 'displayType' && product.images && Array.isArray(value)) {
+              cellHTML = value.map(text =>
                 `<a href="#" class="image-swap-link" data-img-src="${product.images[text] || ''}">${text}</a>`
               ).join(' / ');
+            
+            } else if (feature.id === 'colors' && Array.isArray(value)) {
+              cellHTML = `<div class="color-swatches">${value.map(c =>
+                `<div class="swatch" style="background-color: ${c.hex};" title="${c.name}"></div>`
+              ).join('')}</div>`;
+            
+            } else if (feature.id === 'arLink' && value) {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(value, 'text/html');
+              const links = Array.from(doc.querySelectorAll('a'));
+              const arLinksHTML = links.map(link => {
+                const href = link.href;
+                const name = link.textContent.trim();
+                let colorHex = '#ffffff';
+                if (product.data.colors && product.data.colors.length > 0) {
+                  const matchingColor = product.data.colors.find(c => c.name === name);
+                  colorHex = matchingColor ? matchingColor.hex : product.data.colors[0].hex;
+                }
+                return `<a href="${href}" target="_blank" class="ar-swatch-link swatch" title="${name}" style="background-color: ${colorHex};"></a>`;
+              }).join('');
+              cellHTML = `<div class="ar-links-container color-swatches">${arLinksHTML}</div>`;
+            
             } else {
-              const value = product.data[feature.id];
               cellHTML = (value !== undefined && value !== null) ? value : '—';
-              if (feature.id === 'colors' && Array.isArray(value)) {
-                cellHTML = `<div class="color-swatches">${value.map(c => `<div class="swatch" style="background-color: ${c.hex};" title="${c.name}"></div>`).join('')}</div>`;
-              }
             }
+            
             const li = document.createElement('li');
             li.innerHTML = cellHTML;
 
@@ -104,6 +125,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
     targetElement.addEventListener('mouseover', (event) => {
       if (event.target.classList.contains('swatch')) {
+        if (event.target.classList.contains('ar-swatch-link')) return;
         const swatch = event.target;
         const column = swatch.closest('.product-column');
         if (!column) return;
@@ -130,6 +152,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           overlay.style.clipPath = `circle(250% at ${x}px ${y}px)`;
         }, 16);
 
+      // Image swap link
       } else if (event.target.classList.contains('image-swap-link')) {
         const link = event.target;
         const imgSrc = link.dataset.imgSrc;
@@ -148,6 +171,7 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
     targetElement.addEventListener('mouseout', (event) => {
       if (event.target.classList.contains('swatch')) {
+        if (event.target.classList.contains('ar-swatch-link')) return;
         const swatch = event.target;
         const column = swatch.closest('.product-column');
         if (column) {
@@ -171,7 +195,6 @@ async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   }
 }
 
-
 function syncRowHeights(gridContainer) {
   if (!gridContainer) return;
   const featureRows = Array.from(gridContainer.querySelectorAll('.features-column .features-list li'));
@@ -179,7 +202,6 @@ function syncRowHeights(gridContainer) {
   if (!featureRows.length) return;
 
   requestAnimationFrame(() => {
-    // Process each row independently
     featureRows.forEach((featureRow, i) => {
       const currentRowCells = [featureRow];
       productColumns.forEach(column => {
@@ -187,12 +209,10 @@ function syncRowHeights(gridContainer) {
         if (cell) currentRowCells.push(cell);
       });
 
-      // --- Step 1: Reset all cell heights to auto to measure their natural height ---
       currentRowCells.forEach(cell => {
         cell.style.height = 'auto';
       });
 
-      // --- Step 2: Sync the height of any .info-square blocks within this row ---
       let maxInnerBlockHeight = 0;
       currentRowCells.forEach(cell => {
         const innerBlocks = cell.querySelectorAll('.info-square');
@@ -210,14 +230,12 @@ function syncRowHeights(gridContainer) {
         });
       }
 
-      // --- Step 3: Find the tallest cell in this specific row ---
       let maxRowHeight = 0;
       currentRowCells.forEach(cell => {
         maxRowHeight = Math.max(maxRowHeight, cell.offsetHeight);
       });
-      maxRowHeight = Math.max(maxRowHeight, 46); // Enforce a minimum height
+      maxRowHeight = Math.max(maxRowHeight, 46);
 
-      // --- Step 4: Apply that single max height to all cells in this row ---
       currentRowCells.forEach(cell => {
         cell.style.height = `${maxRowHeight}px`;
       });

@@ -5,63 +5,140 @@
     {
       "groupName": "基础",
       "features": [
-        { "id": "slogan", "name": "宣传口号" },
-        { "id": "releaseDate", "name": "发布时间" },
-        { "id": "modelId", "name": "型号标识" },
-        { "id": "colors", "name": "外观颜色" },
-        { "id": "arLink", "name": "增强现实" }
+        {
+          "id": "slogan",
+          "name": "宣传口号"
+        },
+        {
+          "id": "releaseDate",
+          "name": "发布时间"
+        },
+        {
+          "id": "modelId",
+          "name": "型号标识"
+        },
+        {
+          "id": "colors",
+          "name": "外观颜色"
+        },
+        {
+          "id": "arLink",
+          "name": "增强现实"
+        }
       ]
     },
     {
       "groupName": "连接",
       "features": [
-        { "id": "chip", "name": "芯片" },
-        { "id": "bluetooth", "name": "蓝牙" }
+        {
+          "id": "chip",
+          "name": "芯片"
+        },
+        {
+          "id": "bluetooth",
+          "name": "蓝牙"
+        }
       ]
     },
     {
       "groupName": "操控",
       "features": [
-        { "id": "controlMethod", "name": "操控方式" }
+        {
+          "id": "controlMethod",
+          "name": "操控方式"
+        }
       ]
     },
     {
       "groupName": "模式",
       "features": [
-        { "id": "spatialAudio", "name": "空间音频" },
-        { "id": "anc", "name": "降噪模式" },
-        { "id": "transparency", "name": "通透模式" }
+        {
+          "id": "spatialAudio",
+          "name": "空间音频"
+        },
+        {
+          "id": "anc",
+          "name": "降噪模式"
+        },
+        {
+          "id": "transparency",
+          "name": "通透模式"
+        }
       ]
     },
-    { "groupName": "麦克风", "features": [{ "id": "micCount", "name": "麦克风数量" }] },
+    {
+      "groupName": "麦克风",
+      "features": [
+        {
+          "id": "micCount",
+          "name": "麦克风数量"
+        }
+      ]
+    },
     {
       "groupName": "时长",
       "features": [
-        { "id": "listenTimeSingle", "name": "单耳机聆听" },
-        { "id": "listenTimeTotal", "name": "搭配充电盒" }
+        {
+          "id": "listenTimeSingle",
+          "name": "单耳机聆听"
+        },
+        {
+          "id": "listenTimeTotal",
+          "name": "搭配充电盒"
+        }
       ]
     },
     {
       "groupName": "电源",
       "features": [
-        { "id": "batterySingle", "name": "单耳机电量" },
-        { "id": "batteryCase", "name": "充电盒电量" },
-        { "id": "chargeMethod", "name": "充电方式", "style": "height:45px;" }
+        {
+          "id": "batterySingle",
+          "name": "单耳机电量"
+        },
+        {
+          "id": "batteryCase",
+          "name": "充电盒电量"
+        },
+        {
+          "id": "chargeMethod",
+          "name": "充电方式",
+          "style": "height:45px;"
+        }
       ]
     },
     {
       "groupName": "重量",
       "features": [
-        { "id": "weightSingle", "name": "单耳机" },
-        { "id": "weightCase", "name": "充电盒" }
+        {
+          "id": "weightSingle",
+          "name": "单耳机"
+        },
+        {
+          "id": "weightCase",
+          "name": "充电盒"
+        }
       ]
     },
-    { "groupName": "尺寸", "features": [{ "id": "dimensionsCase", "name": "充电盒" }] },
+    {
+      "groupName": "尺寸",
+      "features": [
+        {
+          "id": "dimensionsCase",
+          "name": "充电盒"
+        }
+      ]
+    },
     {
       "groupName": "其他",
       "features": [
-        { "id": "waterResistance", "name": "抗汗抗水" },
-        { "id": "links", "name": "规格与手册" }
+        {
+          "id": "waterResistance",
+          "name": "抗汗抗水"
+        },
+        {
+          "id": "links",
+          "name": "规格与手册"
+        }
       ]
     }
   ],
@@ -74,9 +151,14 @@
         "slogan": "耳上经典，音质再进化。",
         "releaseDate": "2024.09.10",
         "modelId": "AirPods1,4 / 3,2 / 3,3",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "<a href=\"http://cdn.infodrop.cn.infodrop.cn/AR/airpods/airpods-4-mid.usdz\" target=\"_blank\">查看</a>",
-        "chip": "H2 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2</div>",
         "bluetooth": "Bluetooth 5.3",
         "controlMethod": "按压耳机柄",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -104,14 +186,29 @@
         "releaseDate": "2024.09.10",
         "modelId": "AirPodsMax1,2",
         "colors": [
-          { "name": "午夜色", "hex": "rgb(29,29,31)" },
-          { "name": "星光色", "hex": "#e9e1d4" },
-          { "name": "蓝色", "hex": "rgb(145, 169, 181)" },
-          { "name": "紫色", "hex": "#afa6bb" },
-          { "name": "橙色", "hex": "#e2a48d" }
+          {
+            "name": "午夜色",
+            "hex": "rgb(29,29,31)"
+          },
+          {
+            "name": "星光色",
+            "hex": "#e9e1d4"
+          },
+          {
+            "name": "蓝色",
+            "hex": "rgb(145, 169, 181)"
+          },
+          {
+            "name": "紫色",
+            "hex": "#afa6bb"
+          },
+          {
+            "name": "橙色",
+            "hex": "#e2a48d"
+          }
         ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/airpods/airpods-max-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.infodrop.cn/AR/airpods/airpods-max-starlight.usdz\" target=\"_blank\">星光色</a> <a href=\"http://cdn.infodrop.cn/AR/airpods/airpods-max-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.infodrop.cn/AR/airpods/airpods-max-purple.usdz\" target=\"_blank\">紫色</a> <a href=\"http://cdn.infodrop.cn/AR/airpods/airpods-max-orange.usdz\" target=\"_blank\">橙色</a>",
-        "chip": "H1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
         "bluetooth": "Bluetooth 5.0",
         "controlMethod": "按键",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -138,9 +235,14 @@
         "slogan": "重塑新声",
         "releaseDate": "2022.09.08",
         "modelId": "AirPodsPro1,2",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/airpods/airpods_pro_2_ios15.usdz\" target=\"_blank\">查看</a>",
-        "chip": "H2 ×2 + U1 (MagSafe 充电盒)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2 + U1 (MagSafe 充电盒)</div>",
         "bluetooth": "Bluetooth 5.3",
         "controlMethod": "按压耳机柄、上下轻扫",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -167,9 +269,14 @@
         "slogan": "全新支持空间音频",
         "releaseDate": "2021.10.19",
         "modelId": "AirPods1,3",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/airpods/airpods_magsafe_charging_ios15.usdz\" target=\"_blank\">查看</a>",
-        "chip": "H1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
         "bluetooth": "Bluetooth 5.0",
         "controlMethod": "按压耳机柄",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -197,14 +304,29 @@
         "releaseDate": "2020.12.09",
         "modelId": "iProd8,6",
         "colors": [
-            { "name": "银色", "hex": "#d2d3d4" },
-            { "name": "深空灰色", "hex": "#595759" },
-            { "name": "天蓝色", "hex": "#91a6bb" },
-            { "name": "粉色", "hex": "#d8a097" },
-            { "name": "绿色", "hex": "#afbfab" }
+          {
+            "name": "银色",
+            "hex": "#d2d3d4"
+          },
+          {
+            "name": "深空灰色",
+            "hex": "#595759"
+          },
+          {
+            "name": "天蓝色",
+            "hex": "#91a6bb"
+          },
+          {
+            "name": "粉色",
+            "hex": "#d8a097"
+          },
+          {
+            "name": "绿色",
+            "hex": "#afbfab"
+          }
         ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/airpods/airpods_max_silver_ios14_rev1.usdz\" target=\"_blank\">查看</a>",
-        "chip": "H1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
         "bluetooth": "Bluetooth 5.0",
         "controlMethod": "按键",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -231,9 +353,14 @@
         "slogan": "妙得不同凡响。",
         "releaseDate": "2019.10.29",
         "modelId": "iProd8,1",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/airpods/airpods_pro_ios15.usdz\" target=\"_blank\">查看</a>",
-        "chip": "H1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
         "bluetooth": "Bluetooth 5.0",
         "controlMethod": "按压耳机柄",
         "spatialAudio": "动态头部追踪的空间音频",
@@ -260,9 +387,14 @@
         "slogan": "妙出新境界。",
         "releaseDate": "2019.03.21",
         "modelId": "AirPods2,1",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "-",
-        "chip": "H1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
         "bluetooth": "Bluetooth 5.0",
         "controlMethod": "敲击耳机",
         "anc": "❌",
@@ -289,9 +421,14 @@
         "slogan": "无线，无繁琐，只有妙不可言。",
         "releaseDate": "2016.12.08",
         "modelId": "AirPods1,1",
-        "colors": [{ "name": "白色", "hex": "#ffffff" }],
+        "colors": [
+          {
+            "name": "白色",
+            "hex": "#ffffff"
+          }
+        ],
         "arLink": "-",
-        "chip": "W1 ×2",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">W1 ×2</div>",
         "bluetooth": "Bluetooth 4.2",
         "controlMethod": "敲击耳机",
         "spatialAudio": "❌",

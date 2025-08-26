@@ -66,7 +66,7 @@
           { "name": "午夜色", "hex": "#313232" }
         ],
         "arLink": "<a href=\"http://cdn.infodrop.cn/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">查看</a>",
-        "chip": "S7",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">S7</div>",
         "ramRom": "1.5GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",
         "bluetooth": "Bluetooth 5.0",
@@ -98,8 +98,8 @@
           { "name": "午夜色", "hex": "#222428" },
           { "name": "深空灰色", "hex": "#36373a" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰</a>",
-        "chip": "S5",
+        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"http://cdn.infodrop.cn/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">S5</div>",
         "ramRom": "1GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",
         "bluetooth": "Bluetooth 5.0",
@@ -125,7 +125,7 @@
         "modelId": "AudioAccessory1,1 / 1,2",
         "colors": [],
         "arLink": "-",
-        "chip": "A8",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">A8</div>",
         "ramRom": "1GB<br>16GB",
         "wifi": "802.11ac with MIMO",
         "bluetooth": "Bluetooth 5.0",

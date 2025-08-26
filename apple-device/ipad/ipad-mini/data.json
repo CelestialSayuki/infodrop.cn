@@ -90,9 +90,9 @@
           { "name": "紫色", "hex": "#e3dee9" },
           { "name": "蓝色", "hex": "#d7e5e6" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">查看</a>",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A17 Pro<br>(2P+4E+5GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">8G LPDDR5<br>128G、256G、512GB</div>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">紫色</a>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+5GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512GB</div>",
         "display": "8.3\" Liquid LED",
         "resolution": "2266×1488, 326ppi",
         "refreshRate": "60Hz",
@@ -107,7 +107,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.3Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "195.4×134.8×6.3, 293/297g",
         "links": "<a href=\"https://support.apple.com/zh-cn/121456\" target=\"_blank\">技术规格</a>"
@@ -128,9 +128,9 @@
           { "name": "粉色", "hex": "#e8d1cf" },
           { "name": "紫色", "hex": "#b9b8d1" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6th_Gen_ios15_purple_wifi.usdz\" target=\"_blank\">查看</a>",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A15 Bionic<br>(2P+4E+5GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_space_gray.usdz\" target=\"_blank\">深空灰色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_starlight.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_purple.usdz\" target=\"_blank\">紫色</a>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+3E+5GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4G LPDDR4X<br>64G、256G</div>",
         "display": "8.3\" Liquid LED",
         "resolution": "2266×1488, 326ppi",
         "refreshRate": "60Hz",
@@ -138,17 +138,17 @@
         "colorGamut": "原彩显示, 广色域显示(P3)",
         "rearCamera": "1200W 像素 ƒ/1.8",
         "frontCamera": "1200W 像素 ƒ/2.4",
-        "pencilSupport": "Apple Pencil (第 2 代)<br>Apple Pencil (USB‑C)",
+        "pencilSupport": "Apple Pencil (第 2 代)",
         "wiredInterface": "USB-C (最高可达 5Gb/s)",
-        "cellular": "Qualcomm X60M",
-        "wifi": "802.11ax HT80 2x2 MIMO",
+        "cellular": "-",
+        "wifi": "802.11ax 2x2 MIMO",
         "bluetooth": "Bluetooth 5.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.3Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "195.4×134.8×6.3, 293/297g",
-        "links": "<a href=\"https://support.apple.com/zh-cn/111886\" target=\"_blank\">技术规格</a>"
+        "links": "<a href=\"https://support.apple.com/zh-cn/111904\" target=\"_blank\">技术规格</a>"
       }
     },
     {
@@ -156,7 +156,7 @@
       "generation": "(第 5 代)",
       "image": "img/ipad_mini_5.webp",
       "data": {
-        "slogan": "小身材，更有才。",
+        "slogan": "迷你身材，大有可为",
         "releaseDate": "2019.03.18",
         "osSupport": "iOS 12 ~ 最新",
         "modelId": "iPad11,1 / 11,2",
@@ -166,8 +166,8 @@
           { "name": "金色", "hex": "#f6cdb9" }
         ],
         "arLink": "/",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>64G、256G</div>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3G LPDDR4X<br>64G、256G</div>",
         "display": "7.9\" LED",
         "resolution": "2048×1536, 326ppi",
         "refreshRate": "60Hz",
@@ -182,10 +182,10 @@
         "bluetooth": "Bluetooth 5.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.1Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
-        "dimensionsWeight": "203.2×134.8×6.1,300.5/308.2g",
-        "links": "<a href=\"https://support.apple.com/zh-cn/111904\" target=\"_blank\">技术规格</a>"
+        "dimensionsWeight": "203.2×134.8×6.1, 300.5/308.2g",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111938\" target=\"_blank\">技术规格</a>"
       }
     },
     {
@@ -193,44 +193,7 @@
       "generation": "",
       "image": "img/ipad_mini_4.webp",
       "data": {
-        "slogan": "小身形，大有身手。",
-        "releaseDate": "2015.09.10",
-        "osSupport": "iOS 9 ~ iPadOS 15",
-        "modelId": "iPad5,1 / 5,2",
-        "colors": [
-          { "name": "深空灰色", "hex": "#b1b2b7" },
-          { "name": "银色", "hex": "#e2e3e4" },
-          { "name": "金色", "hex": "#e3ccb4" }
-        ],
-        "arLink": "/",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A8<br>(2P+4GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">2G LPDDR3<br>16G、32G、64G、128G</div>",
-        "display": "7.9\" LED",
-        "resolution": "2048×1536, 326ppi",
-        "refreshRate": "60Hz",
-        "brightness": "400(典型)",
-        "colorGamut": "sRGB",
-        "rearCamera": "800W 像素 ƒ/2.4",
-        "frontCamera": "120W 像素 ƒ/2.2",
-        "pencilSupport": "/",
-        "wiredInterface": "闪电接口",
-        "cellular": "Qualcomm MDM9625",
-        "wifi": "802.11ac HT80 2x2 MIMO",
-        "bluetooth": "Bluetooth 4.2",
-        "unlockMethod": "触控 ID",
-        "batteryCapacity": "19.1Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
-        "audioIO": "麦克风 ×2 + 扬声器 ×2",
-        "dimensionsWeight": "203.2×134.8×6.1, 298.8/304g",
-        "links": "<a href=\"https://support.apple.com/zh-cn/112002\" target=\"_blank\">技术规格</a>"
-      }
-    },
-    {
-      "name": "iPad mini 3",
-      "generation": "",
-      "image": "img/ipad_mini_3.webp",
-      "data": {
-        "slogan": "配备 Touch ID",
+        "slogan": "小身板，大能量，配 Touch ID",
         "releaseDate": "2014.10.17",
         "osSupport": "iOS 8 ~ iOS 12",
         "modelId": "iPad4,7 / 4,8",
@@ -240,8 +203,8 @@
           { "name": "金色", "hex": "#e3ccb4" }
         ],
         "arLink": "/",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A7<br>(2P+4GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1G LPDDR3<br>16G、64G、128G</div>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A7<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1G LPDDR3<br>16G、64G、128G</div>",
         "display": "7.9\" LED",
         "resolution": "2048×1536, 326ppi",
         "refreshRate": "60Hz",
@@ -256,7 +219,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "23.8Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.5, 331/341g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112018\" target=\"_blank\">技术规格</a>"
@@ -276,8 +239,8 @@
           { "name": "银色", "hex": "#e2e3e4" }
         ],
         "arLink": "/",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A7<br>(2P+4GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">1G LPDDR3<br>16G、32G、64G、128G</div>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A7<br>(2P+4GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1G LPDDR3<br>16G、32G、64G、128G</div>",
         "display": "7.9\" LED",
         "resolution": "2048×1536, 326ppi",
         "refreshRate": "60Hz",
@@ -292,7 +255,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "23.8Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.5, 331/341g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112019\" target=\"_blank\">技术规格</a>"
@@ -309,8 +272,8 @@
         "modelId": "iPad2,5 / 2,6 / 2,7",
         "colors": [],
         "arLink": "/",
-        "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A5<br>(2P+2GPU)</div>",
-        "ramRom": "<div class=\"li-div-npu li-div-npu-b\">512MB DDR2<br>16G、32G、64G</div>",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A5<br>(2P+2GPU)</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB DDR2<br>16G、32G、64G</div>",
         "display": "7.9\" LED",
         "resolution": "1024×768, 163ppi",
         "refreshRate": "60Hz",
@@ -325,7 +288,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "16.3Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.2, 308/312g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111978\" target=\"_blank\">技术规格</a>"

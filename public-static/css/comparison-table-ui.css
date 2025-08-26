@@ -274,7 +274,10 @@
   gap: 5px;
 }
 
-.swatch {
+.swatch,
+.ar-swatch-link {
+  display: inline-block;
+  vertical-align: middle;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -349,7 +352,8 @@
     color: var(--sw-text-primary-dark);
   }
 
-  .swatch {
+  .swatch,
+  .ar-swatch-link {
     border-color: rgba(255, 255, 255, 0.1);
   }
 

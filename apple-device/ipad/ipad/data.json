@@ -164,7 +164,7 @@
           { "name": "深空灰色", "hex": "#68696e" },
           { "name": "银色", "hex": "#e2e3e4" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_9th_Gen_ios15_silver_wifi.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_9th_Gen_ios15_silver_wifi.usdz\" target=\"_blank\">银色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>64G、256G</div>",
         "display": "10.2\" LED",
@@ -201,7 +201,7 @@
           { "name": "银色", "hex": "#e2e3e4" },
           { "name": "金色", "hex": "#f6cdb9" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_8th_Gen_ios13.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_8th_Gen_ios13.usdz\" target=\"_blank\">金色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>32G、128G</div>",
         "display": "10.2\" LED",
@@ -238,7 +238,7 @@
           { "name": "银色", "hex": "#e2e3e4" },
           { "name": "金色", "hex": "#f6cdb9" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_7th_Gen_blsh_ios13.usdz\" target=\"_blank\">查看</a>",
+        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_7th_Gen_blsh_ios13.usdz\" target=\"_blank\">金色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10 Fusion<br>(2P+2E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4<br>32G、128G</div>",
         "display": "10.2\" LED",
