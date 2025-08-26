@@ -1,3 +1,4 @@
+import { webpMachine } from '../macui.js';
 import { rewriteElementPaths, scopeCss, loadScriptsSequentially } from './utils.js';
 
 export class Window {
@@ -339,7 +340,7 @@ export class Window {
         requestAnimationFrame(() => {
             this.element.classList.remove('is-opening');
         });
-
+        webpMachine.polyfillDocument();
         windowBody.style.opacity = 0;
         setTimeout(() => {
             windowBody.style.transition = 'opacity 0.2s ease-in';

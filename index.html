@@ -303,6 +303,7 @@
         </header>
         <main class="main-content">
             <div class="hero-banner">
+                <img src="/public-static/img/2025-devices.webp" class="hero-banner-image">
                 <h1>先进的 Apple 产品参数中心</h1>
             </div>
             <div class="title" id="divdown1" style="display: none;">
@@ -343,7 +344,7 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
-                    <li><span>2025.08.26：调整比较界面样式</span></li>
+                    <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
                     <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
                     <li><span>2025.08.23：修复若干bug</span></li>
                     <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
@@ -416,7 +417,8 @@
     
     <script src="./public-static/js/table-generator.js"></script>
     <script type="module" src="public-static/js/macui.js"></script>
-
+    <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/polyfills.js"></script>
+    <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js"></script>
     <script>
         (async function() {
             let updateIsPending = false;

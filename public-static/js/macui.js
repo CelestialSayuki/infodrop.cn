@@ -1,7 +1,13 @@
 import { WindowManager } from './lib/WindowManager.js';
 import { loadScriptsSequentially } from './lib/utils.js';
 
+export const forcePolyfill = location.search.includes('force');
+export const webpMachine = new webpHero.WebpMachine({
+  webpSupport: forcePolyfill ? false : undefined,
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+  webpMachine.polyfillDocument();
   const mainContentArea = document.querySelector('.main-content');
   const svgContainer = document.getElementById('animation-svg-container');
   const windowManager = new WindowManager(mainContentArea, svgContainer);
@@ -131,7 +137,7 @@ async function loadContentIntoMainArea(url, container) {
           }
       });
     }
-
+    webpMachine.polyfillDocument();
   } catch (error) {
     container.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">内容加载失败。<br>${error.message}</div>`;
     console.error('加载内容时出错:', error);
