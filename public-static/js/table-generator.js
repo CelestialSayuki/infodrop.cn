@@ -205,8 +205,10 @@ function syncRowHeights(gridContainer) {
     featureRows.forEach((featureRow, i) => {
       const currentRowCells = [featureRow];
       productColumns.forEach(column => {
-        const cell = column.querySelector(`.data-list li:nth-child(${i + 1})`);
-        if (cell) currentRowCells.push(cell);
+        const cellsInColumn = column.querySelectorAll(`.data-list li:nth-child(${i + 1})`);
+        if (cellsInColumn.length > 0) {
+          cellsInColumn.forEach(cell => currentRowCells.push(cell));
+        }
       });
 
       currentRowCells.forEach(cell => {
