@@ -468,6 +468,9 @@
             };
             
             async function checkForUpdates(registration) {
+                if (new URL(window.location.href).searchParams.has('offline')) {
+                    return false;
+                }
                 const localVersion = localStorage.getItem('sw_installed_version');
                 if (!localVersion) return false;
 
@@ -520,21 +523,29 @@
             document.addEventListener('DOMContentLoaded', () => {
                 if (window.isBrowserSupported === false) return;
 
-                fetch('./public-static/version.json', { cache: 'no-store' })
-                    .then(response => response.json())
-                    .then(data => {
-                        const versionElement = document.getElementById('version-display');
-                        if (versionElement && data.version) {
-                            versionElement.textContent = `前端版本：${data.version}`;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('获取版本信息失败:', error);
-                        const versionElement = document.getElementById('version-display');
-                        if (versionElement) {
+                const isOfflineMode = new URL(window.location.href).searchParams.has('offline');
+                const localVersion = localStorage.getItem('sw_installed_version');
+                const versionElement = document.getElementById('version-display');
+
+                if (versionElement) {
+                    if (localVersion) {
+                        versionElement.textContent = `前端版本：${localVersion}`;
+                    } else if (!isOfflineMode) {
+                        fetch('./public-static/version.json', { cache: 'no-store' })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.version) {
+                                versionElement.textContent = `前端版本：${data.version}`;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('获取版本信息失败:', error);
                             versionElement.style.display = 'none';
-                        }
-                    });
+                        });
+                    } else {
+                        versionElement.style.display = 'none';
+                    }
+                }
                 
                 if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
@@ -590,40 +601,63 @@
                 });
 
                 navigator.serviceWorker.register('./sw.js').then(async (registration) => {
-                    const isPreloaded = document.documentElement.classList.contains('is-preloaded');
-                    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
-                    const requestProgress = () => {
-                        if (registration.active) {
-                            registration.active.postMessage({ type: 'GET_PROGRESS' });
-                        } else if (registration.installing) {
-                            registration.installing.postMessage({ type: 'GET_PROGRESS' });
-                        } else if (registration.waiting) {
-                            registration.waiting.postMessage({ type: 'GET_PROGRESS' });
-                        }
-                    };
-                    
-                    requestProgress();
-
-                    if (isStandalone) {
-                        runLoadingAnimation();
-                        const updateStarted = await checkForUpdates(registration);
-                        if (!updateStarted) {
-                            setTimeout(hideLoadingScreen, 1500);
-                        }
-                    } else if (isPreloaded) {
-                        const updateStarted = await checkForUpdates(registration);
-                        if (!updateStarted) {
-                            hideLoadingScreen();
-                        } else {
-                            runLoadingAnimation();
-                        }
-                    } else {
-                        runLoadingAnimation();
+                  // ======== 新增逻辑开始 ========
+                  // 检查是否有新版本的 Service Worker 正在等待
+                  if (registration.waiting) {
+                    // 如果不是 offline 模式，就通知新SW立即接管
+                    if (!new URL(window.location.href).searchParams.has('offline')) {
+                      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                     }
+                  }
+
+                  // 监听 onupdatefound 事件，当发现新版本时触发
+                  registration.onupdatefound = () => {
+                    const installingWorker = registration.installing;
+                    if (installingWorker) {
+                      installingWorker.onstatechange = () => {
+                        // 当新SW安装完成，进入等待状态时
+                        if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                          // 如果不是 offline 模式，就通知新SW立即接管
+                          if (!new URL(window.location.href).searchParams.has('offline')) {
+                            installingWorker.postMessage({ type: 'SKIP_WAITING' });
+                          }
+                        }
+                      };
+                    }
+                  };
+                  // ======== 新增逻辑结束 ========
+
+                  const isPreloaded = document.documentElement.classList.contains('is-preloaded');
+                  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+                  const requestProgress = () => {
+                    const sw = registration.active || registration.waiting || registration.installing;
+                    if (sw) {
+                      sw.postMessage({ type: 'GET_PROGRESS' });
+                    }
+                  };
+
+                  requestProgress();
+
+                  if (isStandalone) {
+                    runLoadingAnimation();
+                    const updateStarted = await checkForUpdates(registration);
+                    if (!updateStarted) {
+                      setTimeout(hideLoadingScreen, 1500);
+                    }
+                  } else if (isPreloaded) {
+                    const updateStarted = await checkForUpdates(registration);
+                    if (!updateStarted) {
+                      hideLoadingScreen();
+                    } else {
+                      runLoadingAnimation();
+                    }
+                  } else {
+                    runLoadingAnimation();
+                  }
                 }).catch(err => {
-                    console.error('Service Worker 注册失败:', err);
-                    hideLoadingScreen();
+                  console.error('Service Worker 注册失败:', err);
+                  hideLoadingScreen();
                 });
             });
         })();

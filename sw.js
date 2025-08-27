@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A1037w';
+const CACHE_VERSION = '1A1038w';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
@@ -9,64 +9,72 @@ let totalFiles = 0;
 let cachedCount = 0;
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
+  event.waitUntil((async () => {
+    const clients = await self.clients.matchAll({
+      includeUncontrolled: true,
+      type: 'window'
+    });
+    
+    const isAnyClientOffline = clients.some(client =>
+      new URL(client.url).searchParams.has('offline')
+    );
+
+    if (isAnyClientOffline) {
+      console.log('[SW] Offline client detected. Aborting new worker installation.');
+      throw new Error('Installation aborted due to active offline session.');
+    }
+
+    const cache = await caches.open(CACHE_NAME);
+    const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
+    if (!response.ok) throw new Error('Failed to fetch precache manifest.');
+    const filesToCache = await response.json();
+    totalFiles = filesToCache.length;
+    cachedCount = 0;
+    currentProgress = 0;
+    let lastReportedPercent = -1;
+
+    for (const url of filesToCache) {
       try {
-        const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error('Failed to fetch precache manifest.');
-        const filesToCache = await response.json();
-        totalFiles = filesToCache.length;
-        cachedCount = 0;
-        currentProgress = 0;
-        let lastReportedPercent = -1;
+        const request = new Request(url, { cache: 'no-store' });
+        const networkResponse = await fetch(request);
+        if (!networkResponse.ok) {
+          throw new Error(`[SW] Network response was not ok for: ${url}`);
+        }
+        await cache.put(request, networkResponse);
+        cachedCount++;
+        const percent = Math.round((cachedCount / totalFiles) * 100);
+        currentProgress = percent;
 
-        for (const url of filesToCache) {
-          try {
-            const request = new Request(url, { cache: 'no-store' });
-            const networkResponse = await fetch(request);
-            if (!networkResponse.ok) {
-              throw new Error(`[SW] Network response was not ok for: ${url}`);
-            }
-            await cache.put(request, networkResponse);
-            cachedCount++;
-            const percent = Math.round((cachedCount / totalFiles) * 100);
-            currentProgress = percent;
-
-            if (percent > lastReportedPercent) {
-              lastReportedPercent = percent;
-              const clients = await self.clients.matchAll({ includeUncontrolled: true });
-              for (const client of clients) {
-                client.postMessage({
-                  type: 'CACHE_PROGRESS',
-                  payload: {
-                    total: totalFiles,
-                    current: cachedCount,
-                    percent: percent,
-                    currentFile: url
-                  }
-                });
+        if (percent > lastReportedPercent) {
+          lastReportedPercent = percent;
+          const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+          for (const client of allClients) {
+            client.postMessage({
+              type: 'CACHE_PROGRESS',
+              payload: {
+                total: totalFiles,
+                current: cachedCount,
+                percent: percent,
+                currentFile: url
               }
-            }
-          } catch (err) {
-
+            });
           }
         }
-
-        const clients = await self.clients.matchAll({ includeUncontrolled: true });
-        for (const client of clients) {
-          client.postMessage({
-            type: 'CACHE_COMPLETE',
-            payload: {
-              version: CACHE_VERSION
-            }
-          });
-        }
-      } catch (error) {
-        throw error;
+      } catch (err) {
+        console.error(`[SW] Caching failed for: ${url}`, err);
       }
-    })
-  );
+    }
+
+    const finalClients = await self.clients.matchAll({ includeUncontrolled: true });
+    for (const client of finalClients) {
+      client.postMessage({
+        type: 'CACHE_COMPLETE',
+        payload: {
+          version: CACHE_VERSION
+        }
+      });
+    }
+  })());
 });
 
 self.addEventListener('message', (event) => {
@@ -79,6 +87,8 @@ self.addEventListener('message', (event) => {
         percent: currentProgress
       }
     });
+  } else if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
   }
 });
 
@@ -126,6 +136,10 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (url.pathname.endsWith('version.json')) {
+    if (url.searchParams.has('offline')) {
+      event.respondWith(Promise.reject(new Error('Offline mode: version check is disabled.')));
+      return;
+    }
     event.respondWith(fetch(event.request, { cache: 'no-store' }));
     return;
   }
