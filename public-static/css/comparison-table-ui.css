@@ -271,7 +271,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
+  margin-left: -5px;
+  margin-top: -5px;
 }
 
 .swatch,
@@ -290,15 +291,21 @@
   align-items: flex-start;
   align-content: flex-start;
   padding: 8px 6px;
-  gap: 5px;
+  margin-left: -5px;
+  margin-top: -5px;
 }
 
 .data-list li.two-column-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
   align-items: flex-start;
   align-content: flex-start;
+}
+
+.color-swatches > *,
+.data-list li.multi-div-row > .info-square {
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 .info-square {
