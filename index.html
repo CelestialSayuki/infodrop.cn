@@ -423,18 +423,6 @@
         (async function() {
             let updateIsPending = false;
 
-            await (async function() {
-                const localVersion = localStorage.getItem('sw_installed_version');
-                if (localVersion) {
-                    const expectedCacheName = `project-mammoth-cache-${localVersion}`;
-                    if (!(await caches.has(expectedCacheName))) {
-                        localStorage.removeItem('sw_installed_version');
-                        window.location.reload();
-                        return new Promise(() => {});
-                    }
-                }
-            })();
-
             const hideLoadingScreen = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (loadingScreen) {
@@ -597,27 +585,24 @@
                             progressBarFill.style.width = '100%';
                         }
                         localStorage.setItem('sw_installed_version', event.data.payload.version);
+                        setTimeout(() => {
+                            hideLoadingScreen();
+                        }, 500);
                     }
                 });
 
                 navigator.serviceWorker.register('./sw.js').then(async (registration) => {
-                  // ======== 新增逻辑开始 ========
-                  // 检查是否有新版本的 Service Worker 正在等待
                   if (registration.waiting) {
-                    // 如果不是 offline 模式，就通知新SW立即接管
                     if (!new URL(window.location.href).searchParams.has('offline')) {
                       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                     }
                   }
 
-                  // 监听 onupdatefound 事件，当发现新版本时触发
                   registration.onupdatefound = () => {
                     const installingWorker = registration.installing;
                     if (installingWorker) {
                       installingWorker.onstatechange = () => {
-                        // 当新SW安装完成，进入等待状态时
                         if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                          // 如果不是 offline 模式，就通知新SW立即接管
                           if (!new URL(window.location.href).searchParams.has('offline')) {
                             installingWorker.postMessage({ type: 'SKIP_WAITING' });
                           }
@@ -625,7 +610,6 @@
                       };
                     }
                   };
-                  // ======== 新增逻辑结束 ========
 
                   const isPreloaded = document.documentElement.classList.contains('is-preloaded');
                   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
