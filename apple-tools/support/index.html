@@ -364,6 +364,9 @@
         });
         tableBody.innerHTML = '';
         tableBody.appendChild(bodyFragment);
+        if (window.globalWebpMachine) {
+            window.globalWebpMachine.polyfillDocument();
+        }
     }
 
     window.addEventListener('resize', adjustTableHeight);

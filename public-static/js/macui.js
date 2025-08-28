@@ -7,6 +7,8 @@ export const webpMachine = new webpHero.WebpMachine({
   webpSupport: forcePolyfill ? false : undefined,
 });
 
+window.globalWebpMachine = webpMachine;
+
 document.addEventListener('DOMContentLoaded', () => {
   webpMachine.polyfillDocument();
   const mainContentArea = document.querySelector('.main-content');
