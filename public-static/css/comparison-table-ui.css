@@ -105,6 +105,7 @@
 
 .features-column {
   flex-basis: 120px;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
