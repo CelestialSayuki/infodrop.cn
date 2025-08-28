@@ -39,9 +39,9 @@
             let updateTargetWord = '浏览器';
             let mainTitle = '浏览器版本过低';
 
-            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 12) {
+            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
                 isUnsupported = true;
-                requiredVersion = '12.0';
+                requiredVersion = '13.0';
                 browserNameForDisplay = 'Safari';
                 updateTargetWord = '系统浏览器';
                 mainTitle = '系统版本过低';
@@ -343,7 +343,7 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
-                    <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 11 兼容</span></li>
+                    <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
                     <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
                     <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
                     <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
