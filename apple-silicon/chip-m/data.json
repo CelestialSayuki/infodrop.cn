@@ -363,7 +363,7 @@
       "image": "img/M3_Max_product.webp",
       "images": {
         "宣传图": "img/M3_Max_product.webp",
-        "芯片图": "img/M3_Max_temp.png",
+        "芯片图": "img/M3_Max_temp.webp",
         "结构图": "img/M3_Max_structure.webp",
         "Die": "img/die/m3max_temp.webp"
       },
@@ -410,7 +410,7 @@
       "image": "img/M3_Pro_product.webp",
       "images": {
         "宣传图": "img/M3_Pro_product.webp",
-        "芯片图": "img/M3_Pro_temp.png",
+        "芯片图": "img/M3_Pro_temp.webp",
         "结构图": "img/M3_Pro_structure.webp",
         "Die": "img/die/m3pro_temp.webp"
       },
@@ -457,7 +457,7 @@
       "image": "img/M3_product.webp",
       "images": {
         "宣传图": "img/M3_product.webp",
-        "芯片图": "img/M3_temp.png",
+        "芯片图": "img/M3_temp.webp",
         "结构图": "img/M3_structure.webp",
         "Die": "img/die/m3_temp.webp"
       },
@@ -504,7 +504,7 @@
       "image": "img/M2_Ultra_product.webp",
       "images": {
         "宣传图": "img/M2_Ultra_product.webp",
-        "芯片图": "img/M2_Ultra_temp.png",
+        "芯片图": "img/M2_Ultra_temp.webp",
         "结构图": "img/M2_Ultra_structure.webp",
         "Die": "img/die/m2ultra_temp.webp"
       },
@@ -551,7 +551,7 @@
       "image": "img/M2_Max_product.webp",
       "images": {
         "宣传图": "img/M2_Max_product.webp",
-        "芯片图": "img/M2_Max_temp.png",
+        "芯片图": "img/M2_Max_temp.webp",
         "结构图": "img/M2_Max_structure.webp",
         "Die": "img/die/m2max_temp.webp"
       },
@@ -598,7 +598,7 @@
       "image": "img/M2_Pro_product.webp",
       "images": {
         "宣传图": "img/M2_Pro_product.webp",
-        "芯片图": "img/M2_Pro_temp.png",
+        "芯片图": "img/M2_Pro_temp.webp",
         "结构图": "img/M2_Pro_structure.webp",
         "Die": "img/die/m2pro_temp.webp"
       },
@@ -645,7 +645,7 @@
       "image": "img/M2_product.webp",
       "images": {
         "宣传图": "img/M2_product.webp",
-        "芯片图": "img/M2_APL1109_temp.png",
+        "芯片图": "img/M2_APL1109_temp.webp",
         "结构图": "img/M2_structure.webp",
         "Die": "img/die/m2_temp.webp"
       },
@@ -692,7 +692,7 @@
       "image": "img/M1_Ultra_product.webp",
       "images": {
         "宣传图": "img/M1_Ultra_product.webp",
-        "芯片图": "img/M1_Ultra_APL1W06_temp.png",
+        "芯片图": "img/M1_Ultra_APL1W06_temp.webp",
         "结构图": "img/M1_Ultra_structure.webp",
         "Die": "img/die/m1ultra_temp.webp"
       },
@@ -739,7 +739,7 @@
       "image": "img/M1_Max_product.webp",
       "images": {
         "宣传图": "img/M1_Max_product.webp",
-        "芯片图": "img/M1_Max_APL1105_temp.png",
+        "芯片图": "img/M1_Max_APL1105_temp.webp",
         "结构图": "img/M1_Max_structure.webp",
         "Die": "img/die/m1max_temp.webp"
       },
@@ -786,7 +786,7 @@
       "image": "img/M1_Pro_product.webp",
       "images": {
         "宣传图": "img/M1_Pro_product.webp",
-        "芯片图": "img/M1_Pro_APL1103_temp.png",
+        "芯片图": "img/M1_Pro_APL1103_temp.webp",
         "结构图": "img/M1_Pro_structure.webp",
         "Die": "img/die/m1pro_temp.webp"
       },
@@ -833,7 +833,7 @@
       "image": "img/M1_product.webp",
       "images": {
         "宣传图": "img/M1_product.webp",
-        "芯片图": "img/M1_APL1102_temp.png",
+        "芯片图": "img/M1_APL1102_temp.webp",
         "结构图": "img/M1_structure.webp",
         "Die": "img/die/m1_temp.webp"
       },

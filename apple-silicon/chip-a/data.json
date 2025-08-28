@@ -272,9 +272,9 @@
     {
       "name": "A17 Pro",
       "generation": "(Coll, APL1V02-T8130)",
-      "image": "img/A17_Pro_APL1V02_temp.png",
+      "image": "img/A17_Pro_APL1V02_temp.webp",
       "images": {
-        "芯片图": "img/A17_Pro_APL1V02_temp.png",
+        "芯片图": "img/A17_Pro_APL1V02_temp.webp",
         "宣传图": "img/A17_Pro_product.webp",
         "结构图": "img/A17_Pro_structure.webp",
         "Die": "img/die/die_shot_A17_Techinsights_temp.webp"
@@ -319,9 +319,9 @@
     {
       "name": "A16 Bionic",
       "generation": "(Crete, APL1W10-T8120)",
-      "image": "img/A16_Bionic_APL1W10_temp.png",
+      "image": "img/A16_Bionic_APL1W10_temp.webp",
       "images": {
-        "芯片图": "img/A16_Bionic_APL1W10_temp.png",
+        "芯片图": "img/A16_Bionic_APL1W10_temp.webp",
         "宣传图": "img/A16_Bionic_product.webp",
         "结构图": "img/A16_Bionic_structure.webp",
         "Die": "img/die/die_shot_A16_temp.webp"
@@ -366,9 +366,9 @@
     {
       "name": "A15 Bionic",
       "generation": "(Ellis, APL1W07-T8110)",
-      "image": "img/A15_Bionic_APL1W07_temp.png",
+      "image": "img/A15_Bionic_APL1W07_temp.webp",
       "images": {
-        "芯片图": "img/A15_Bionic_APL1W07_temp.png",
+        "芯片图": "img/A15_Bionic_APL1W07_temp.webp",
         "宣传图": "img/A15_Bionic_product.webp",
         "结构图": "img/A15_Bionic_structure.webp",
         "Die": "img/die/die_shot_A15_temp.webp"
@@ -413,9 +413,9 @@
     {
       "name": "A14 Bionic",
       "generation": "(Sicily, APL1W01-T8101)",
-      "image": "img/A14_Bionic_APL1W01_temp.png",
+      "image": "img/A14_Bionic_APL1W01_temp.webp",
       "images": {
-        "芯片图": "img/A14_Bionic_APL1W01_temp.png",
+        "芯片图": "img/A14_Bionic_APL1W01_temp.webp",
         "宣传图": "img/A14_Bionic_product.webp",
         "结构图": "img/A14_Bionic_structure.webp",
         "Die": "img/die/die_shot_A14_temp.webp"
@@ -460,9 +460,9 @@
     {
       "name": "A13 Bionic",
       "generation": "(Cebu, APL1W85-T8030)",
-      "image": "img/A13_Bionic_APL1W85_temp.png",
+      "image": "img/A13_Bionic_APL1W85_temp.webp",
       "images": {
-        "芯片图": "img/A13_Bionic_APL1W85_temp.png",
+        "芯片图": "img/A13_Bionic_APL1W85_temp.webp",
         "结构图": "img/A13_Bionic_structure.webp",
         "Die": "img/die/die_shot_A13_temp.webp"
       },
@@ -505,9 +505,9 @@
     {
       "name": "A12Z Bionic",
       "generation": "(Aruba, APL1083-T8027)",
-      "image": "img/A12Z_Bionic_APL1083_temp.png",
+      "image": "img/A12Z_Bionic_APL1083_temp.webp",
       "images": {
-        "芯片图": "img/A12Z_Bionic_APL1083_temp.png",
+        "芯片图": "img/A12Z_Bionic_APL1083_temp.webp",
         "结构图": "img/A12Z_Bionic_structure.webp",
         "Die": "img/die/die_shot_A12Z_temp.webp"
       },
@@ -550,9 +550,9 @@
     {
       "name": "A12X Bionic",
       "generation": "(Aruba, APL1083-T8027)",
-      "image": "img/A12X_Bionic_APL1083_temp.png",
+      "image": "img/A12X_Bionic_APL1083_temp.webp",
       "images": {
-        "芯片图": "img/A12X_Bionic_APL1083_temp.png",
+        "芯片图": "img/A12X_Bionic_APL1083_temp.webp",
         "结构图": "img/A12X_Bionic_structure.webp",
         "Die": "img/die/die_shot_A12X_temp.webp"
       },
@@ -595,9 +595,9 @@
     {
       "name": "A12 Bionic",
       "generation": "(Cyprus, APL1W81-T8020)",
-      "image": "img/A12_Bionic_APL1W81_temp.png",
+      "image": "img/A12_Bionic_APL1W81_temp.webp",
       "images": {
-        "芯片图": "img/A12_Bionic_APL1W81_temp.png",
+        "芯片图": "img/A12_Bionic_APL1W81_temp.webp",
         "结构图": "img/A12_Bionic_structure.webp",
         "Die": "img/die/die_shot_A12_temp.webp"
       },
@@ -640,9 +640,9 @@
     {
       "name": "A11 Bionic",
       "generation": "(Skye, APL1W72-T8015)",
-      "image": "img/A11_Bionic_APL1W72_temp.png",
+      "image": "img/A11_Bionic_APL1W72_temp.webp",
       "images": {
-        "芯片图": "img/A11_Bionic_APL1W72_temp.png",
+        "芯片图": "img/A11_Bionic_APL1W72_temp.webp",
         "Die": "img/die/die_shot_A11_temp.webp"
       },
       "data": {
@@ -683,9 +683,9 @@
     {
       "name": "A10X Fusion",
       "generation": "(Myst, APL1071-T8011)",
-      "image": "img/A10X_Fusion_APL1071_temp.png",
+      "image": "img/A10X_Fusion_APL1071_temp.webp",
       "images": {
-        "芯片图": "img/A10X_Fusion_APL1071_temp.png",
+        "芯片图": "img/A10X_Fusion_APL1071_temp.webp",
         "Die": "img/die/die_shot_A10X_temp.webp"
       },
       "data": {
@@ -726,9 +726,9 @@
     {
       "name": "A10 Fusion",
       "generation": "( Cayman,APL1W24-T8010)",
-      "image": "img/A10_Fusion_APL1W24_temp.png",
+      "image": "img/A10_Fusion_APL1W24_temp.webp",
       "images": {
-        "芯片图": "img/A10_Fusion_APL1W24_temp.png",
+        "芯片图": "img/A10_Fusion_APL1W24_temp.webp",
         "Die": "img/die/die_shot_A10_temp.webp"
       },
       "data": {
@@ -769,9 +769,9 @@
     {
       "name": "A9X",
       "generation": "(Elba, APL1021-S8001)",
-      "image": "img/A9X_APL1021_temp.png",
+      "image": "img/A9X_APL1021_temp.webp",
       "images": {
-        "芯片图": "img/A9X_APL1021_temp.png",
+        "芯片图": "img/A9X_APL1021_temp.webp",
         "Die": "img/die/die_shot_A9X_temp.webp"
       },
       "data": {
@@ -812,9 +812,9 @@
     {
       "name": "A9",
       "generation": "(Maui, APL1022-S8003)",
-      "image": "img/A9_APL1022_temp.png",
+      "image": "img/A9_APL1022_temp.webp",
       "images": {
-        "芯片图": "img/A9_APL1022_temp.png",
+        "芯片图": "img/A9_APL1022_temp.webp",
         "Die": "img/die/die_shot_A9_APL1022_ChipWorks_temp.webp"
       },
       "data": {
@@ -855,9 +855,9 @@
     {
       "name": "A9",
       "generation": "(Maui, APL0898-S8000)",
-      "image": "img/A9_APL0898_temp.png",
+      "image": "img/A9_APL0898_temp.webp",
       "images": {
-        "芯片图": "img/A9_APL0898_temp.png",
+        "芯片图": "img/A9_APL0898_temp.webp",
         "Die": "img/die/die_shot_A9_APL0898_ChipWorks_temp.webp"
       },
       "data": {
@@ -898,9 +898,9 @@
     {
       "name": "A8X",
       "generation": "(Capri, APL1012-T7001)",
-      "image": "img/A8X_APL1012_temp.png",
+      "image": "img/A8X_APL1012_temp.webp",
       "images": {
-        "芯片图": "img/A8X_APL1012_temp.png",
+        "芯片图": "img/A8X_APL1012_temp.webp",
         "Die": "img/die/die_shot_A8X_temp.webp"
       },
       "data": {
@@ -941,9 +941,9 @@
     {
       "name": "A8",
       "generation": "(Fiji, APL1011-T7000)",
-      "image": "img/A8_APL1011_temp.png",
+      "image": "img/A8_APL1011_temp.webp",
       "images": {
-        "芯片图": "img/A8_APL1011_temp.png",
+        "芯片图": "img/A8_APL1011_temp.webp",
         "Die": "img/die/die_shot_A8_temp.webp"
       },
       "data": {
@@ -984,9 +984,9 @@
     {
       "name": "A7",
       "generation": "(Alcatraz, APL5698-S5L8965)",
-      "image": "img/A7_APL5698_temp.png",
+      "image": "img/A7_APL5698_temp.webp",
       "images": {
-        "芯片图": "img/A7_APL5698_temp.png",
+        "芯片图": "img/A7_APL5698_temp.webp",
         "Die": "img/die/die_shot_A7_temp.webp"
       },
       "data": {
@@ -1027,9 +1027,9 @@
     {
       "name": "A7",
       "generation": "(Alcatraz, APL0698-S5L8960)",
-      "image": "img/A7_APL0698_temp.png",
+      "image": "img/A7_APL0698_temp.webp",
       "images": {
-        "芯片图": "img/A7_APL0698_temp.png",
+        "芯片图": "img/A7_APL0698_temp.webp",
         "Die": "img/die/die_shot_A7_temp.webp"
       },
       "data": {
@@ -1070,9 +1070,9 @@
     {
       "name": "A6X",
       "generation": "(Bali, APL5598-S5L8955)",
-      "image": "img/A6X_APL5598_temp.png",
+      "image": "img/A6X_APL5598_temp.webp",
       "images": {
-        "芯片图": "img/A6X_APL5598_temp.png",
+        "芯片图": "img/A6X_APL5598_temp.webp",
         "Die": "img/die/die_shot_A6X_APL5598_ChipWorks_temp.webp"
       },
       "data": {
@@ -1113,9 +1113,9 @@
     {
       "name": "A6",
       "generation": "(Bali, APL0598-S5L8950)",
-      "image": "img/A6_APL0598_temp.png",
+      "image": "img/A6_APL0598_temp.webp",
       "images": {
-        "芯片图": "img/A6_APL0598_temp.png",
+        "芯片图": "img/A6_APL0598_temp.webp",
         "Die": "img/die/die_shot_A6_temp.webp"
       },
       "data": {
@@ -1156,9 +1156,9 @@
     {
       "name": "A5X",
       "generation": "(APL5498-S5L8945)",
-      "image": "img/A5X_APL5498_temp.png",
+      "image": "img/A5X_APL5498_temp.webp",
       "images": {
-        "芯片图": "img/A5X_APL5498_temp.png",
+        "芯片图": "img/A5X_APL5498_temp.webp",
         "Die": "img/die/die_shot_A5X_APL5498_ChipWorks_temp.webp"
       },
       "data": {
@@ -1199,9 +1199,9 @@
     {
       "name": "A5",
       "generation": "(APL7498-S5L8947)",
-      "image": "img/A5_APL7498_temp.png",
+      "image": "img/A5_APL7498_temp.webp",
       "images": {
-        "芯片图": "img/A5_APL7498_temp.png",
+        "芯片图": "img/A5_APL7498_temp.webp",
         "Die": "img/die/die_shot_A5_APL7498_ChipWorks_temp.webp"
       },
       "data": {
@@ -1242,9 +1242,9 @@
     {
       "name": "A5",
       "generation": "(APL2498-S5L8942)",
-      "image": "img/A5_APL2498_temp.png",
+      "image": "img/A5_APL2498_temp.webp",
       "images": {
-        "芯片图": "img/A5_APL2498_temp.png",
+        "芯片图": "img/A5_APL2498_temp.webp",
         "Die": "img/die/die_shot_A5_APL2498_ChipWorks_temp.webp"
       },
       "data": {
@@ -1285,9 +1285,9 @@
     {
       "name": "A5",
       "generation": "(APL0498-S5L8940)",
-      "image": "img/A5_APL0498_temp.png",
+      "image": "img/A5_APL0498_temp.webp",
       "images": {
-        "芯片图": "img/A5_APL0498_temp.png",
+        "芯片图": "img/A5_APL0498_temp.webp",
         "Die": "img/die/die_shot_A5_APL0498_ChipWorks_temp.webp"
       },
       "data": {
@@ -1328,9 +1328,9 @@
     {
       "name": "A4",
       "generation": "(APL0398-S5L8930)",
-      "image": "img/A4_APL0398_temp.png",
+      "image": "img/A4_APL0398_temp.webp",
       "images": {
-        "芯片图": "img/A4_APL0398_temp.png",
+        "芯片图": "img/A4_APL0398_temp.webp",
         "Die": "img/die/die_shot_A4_APL0398_ChipRebel_temp.webp"
       },
       "data": {

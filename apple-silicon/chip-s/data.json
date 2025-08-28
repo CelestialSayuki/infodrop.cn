@@ -104,9 +104,9 @@
     {
       "name": "Apple S10 SiP",
       "generation": "(T8310)",
-      "image": "img/null.png",
+      "image": "img/null.webp",
       "images": {
-        "SiP": "img/null.png",
+        "SiP": "img/null.webp",
         "SOC Die": "img/S9_die_temp.webp"
       },
       "data": {

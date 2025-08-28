@@ -213,7 +213,7 @@
                                 <li><a href="./apple-device/mac/macbook/">MacBook</a></li>
                                 <li><a href="./apple-device/mac/macbook-air/">MacBook Air</a></li>
                                 <li><a href="./apple-device/mac/macbook-pro/">MacBook Pro</a></li>
-                                <li><a href="./apple-device/mac/mac-imac/">iMac</a></li>
+                                <li><a href="./apple-device/mac/imac/">iMac</a></li>
                                 <li><a href="./apple-device/mac/mac-mini/">Mac mini</a></li>
                                 <li><a href="./apple-device/mac/mac-studio/">Mac Studio</a></li>
                                 <li><a href="./apple-device/mac/mac-pro/">Mac Pro</a></li>
@@ -292,7 +292,7 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <a href="index.html">
-                    <img src="./public-static/img/logo.jpg" height="30px" width="30px">
+                    <img src="./public-static/img/logo.webp" height="30px" width="30px">
                 </a>
                 <div class="top_title" id="top_title">先进的 Apple 产品参数中心 / infodrop.cn</div>
             </div>
@@ -344,16 +344,17 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
+                    <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug</span></li>
                     <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
                     <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
                     <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
                     <li><span>2025.08.23：修复若干bug</span></li>
-                    <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
                     <li class="more-btn-li">
                         <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
                     </li>
                 </ul>
                 <template id="more-updates-template">
+                    <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
                     <li><span>2025.08.21：系统支持页面修正了iMac部分机型的错误数据，M1 芯片设备收录 A2620，修改 CPU 跑分表格</span></li>
                     <li><span>2025.08.18：系统支持页面合并了部分机型</span></li>
                     <li><span>2025.08.17：系统支持页面增加悬停</span></li>
@@ -422,21 +423,21 @@
     <script>
         (async function() {
             let updateIsPending = false;
-
             const hideLoadingScreen = () => {
                 const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
+                if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
                     loadingScreen.addEventListener('transitionend', () => {
-                        loadingScreen.remove();
+                        if (loadingScreen) {
+                            loadingScreen.remove();
+                        }
                     }, { once: true });
                     loadingScreen.classList.add('hidden');
                 }
             };
-
             const runLoadingAnimation = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (!loadingScreen) return;
-                
+                document.documentElement.classList.remove('is-preloaded');
                 loadingScreen.style.display = 'flex';
                 const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
                 const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
@@ -454,49 +455,41 @@
                     loadingText.style.opacity = '1';
                 }
             };
-            
+            const simulateLoadingProgress = () => {
+                const progressBarFill = document.querySelector('.progress-bar-fill');
+                const loadingText = document.querySelector('.loading-text');
+                if (progressBarFill && loadingText) {
+                    loadingText.textContent = '正在启动...';
+                    setTimeout(() => {
+                        progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
+                        progressBarFill.style.width = '100%';
+                    }, 50);
+
+                    setTimeout(hideLoadingScreen, 1500);
+                } else {
+                    hideLoadingScreen();
+                }
+            };
             async function checkForUpdates(registration) {
                 if (new URL(window.location.href).searchParams.has('offline')) {
                     return false;
                 }
                 const localVersion = localStorage.getItem('sw_installed_version');
                 if (!localVersion) return false;
-
                 try {
                     const response = await fetch('./public-static/version.json', { cache: 'no-store' });
                     const serverConfig = await response.json();
                     const serverVersion = serverConfig.version;
-
                     if (localVersion !== serverVersion) {
                         updateIsPending = true;
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
                         if (!isStandalone) {
-                            const loadingScreen = document.getElementById('loading-screen');
-                            if (loadingScreen) {
-                                loadingScreen.classList.remove('hidden');
-                                document.documentElement.classList.remove('is-preloaded');
-                                
-                                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
-                                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
-                                const loadingText = loadingScreen.querySelector('.loading-text');
-                                
-                                if (progressBarFill) {
-                                    progressBarFill.style.transition = 'none';
-                                    progressBarFill.style.width = '0%';
-                                }
-                                if (progressBarContainer) {
-                                    progressBarContainer.style.opacity = '1';
-                                }
-                                if (loadingText) {
-                                    loadingText.textContent = '正在更新...';
-                                    loadingText.style.opacity = '1';
-                                }
-                            }
+                            runLoadingAnimation();
+                            const loadingText = document.querySelector('.loading-text');
+                            if(loadingText) loadingText.textContent = '正在更新...';
                         }
-
                         localStorage.removeItem('sw_installed_version');
-                        
+                            
                         if (registration && registration.update) {
                             await registration.update();
                         }
@@ -507,14 +500,11 @@
                 }
                 return false;
             }
-
             document.addEventListener('DOMContentLoaded', () => {
                 if (window.isBrowserSupported === false) return;
-
                 const isOfflineMode = new URL(window.location.href).searchParams.has('offline');
                 const localVersion = localStorage.getItem('sw_installed_version');
                 const versionElement = document.getElementById('version-display');
-
                 if (versionElement) {
                     if (localVersion) {
                         versionElement.textContent = `前端版本：${localVersion}`;
@@ -534,16 +524,13 @@
                         versionElement.style.display = 'none';
                     }
                 }
-                
                 if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
                     return;
                 }
-                
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
                     const loadingScreen = document.getElementById('loading-screen');
                     if (!loadingScreen) return;
-
                     setTimeout(() => {
                         if (updateIsPending) {
                             loadingScreen.addEventListener('transitionend', () => {
@@ -555,15 +542,12 @@
                         }
                     }, 500);
                 });
-
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
                     const progressBarFill = document.querySelector('.progress-bar-fill');
                     const progressBarContainer = document.querySelector('.progress-bar-container');
                     const loadingText = document.querySelector('.loading-text');
-                    
-                    if (event.data.type === 'CACHE_PROGRESS' ||
-                        event.data.type === 'CURRENT_PROGRESS') {
+                    if (event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS') {
                         const { percent } = event.data.payload;
                         if (progressBarFill) {
                             if (parseInt(progressBarFill.style.width) !== percent) {
@@ -571,10 +555,8 @@
                                 progressBarFill.style.width = `${percent}%`;
                             }
                         }
-                        if (progressBarContainer) {
-                            progressBarContainer.style.opacity = '1';
-                        }
-                        if (loadingText) {
+                        if (progressBarContainer) progressBarContainer.style.opacity = '1';
+                        if (loadingText && loadingText.textContent !== '正在更新...') {
                             loadingText.textContent = `还剩不到1分钟...`;
                             loadingText.style.opacity = '1';
                         }
@@ -586,62 +568,67 @@
                         }
                         localStorage.setItem('sw_installed_version', event.data.payload.version);
                         setTimeout(() => {
-                            hideLoadingScreen();
+                            if (!updateIsPending) {
+                                hideLoadingScreen();
+                            }
                         }, 500);
                     }
                 });
-
                 navigator.serviceWorker.register('./sw.js').then(async (registration) => {
-                  if (registration.waiting) {
-                    if (!new URL(window.location.href).searchParams.has('offline')) {
-                      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                    }
-                  }
-
-                  registration.onupdatefound = () => {
-                    const installingWorker = registration.installing;
-                    if (installingWorker) {
-                      installingWorker.onstatechange = () => {
-                        if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                          if (!new URL(window.location.href).searchParams.has('offline')) {
-                            installingWorker.postMessage({ type: 'SKIP_WAITING' });
-                          }
+                    if (registration.waiting) {
+                        if (!new URL(window.location.href).searchParams.has('offline')) {
+                            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                         }
-                      };
                     }
-                  };
-
-                  const isPreloaded = document.documentElement.classList.contains('is-preloaded');
-                  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
-                  const requestProgress = () => {
-                    const sw = registration.active || registration.waiting || registration.installing;
-                    if (sw) {
-                      sw.postMessage({ type: 'GET_PROGRESS' });
+                    registration.onupdatefound = () => {
+                        const installingWorker = registration.installing;
+                        if (installingWorker) {
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    if (!new URL(window.location.href).searchParams.has('offline')) {
+                                        installingWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    }
+                                }
+                            };
+                        }
+                    };
+                    async function isCacheValid() {
+                        if (!window.caches) return false;
+                        const localVersion = localStorage.getItem('sw_installed_version');
+                        if (!localVersion) return false;
+                        try {
+                            const cacheName = `project-mammoth-cache-${localVersion}`;
+                            const cache = await caches.open(cacheName);
+                            const response = await cache.match('./index.html');
+                            if (response === undefined) {
+                                localStorage.removeItem('sw_installed_version');
+                                return false;
+                            }
+                            return true;
+                        } catch {
+                            localStorage.removeItem('sw_installed_version');
+                            return false;
+                        }
                     }
-                  };
-
-                  requestProgress();
-
-                  if (isStandalone) {
-                    runLoadingAnimation();
+                    const cacheIsValid = await isCacheValid();
+                    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
                     const updateStarted = await checkForUpdates(registration);
-                    if (!updateStarted) {
-                      setTimeout(hideLoadingScreen, 1500);
-                    }
-                  } else if (isPreloaded) {
-                    const updateStarted = await checkForUpdates(registration);
-                    if (!updateStarted) {
-                      hideLoadingScreen();
+                    if (updateStarted) {
+                    } else if (isStandalone) {
+                        runLoadingAnimation();
+                        simulateLoadingProgress();
+                    } else if (cacheIsValid) {
+                        hideLoadingScreen();
                     } else {
-                      runLoadingAnimation();
+                        runLoadingAnimation();
+                        const sw = registration.active || registration.waiting || registration.installing;
+                        if (sw) {
+                            sw.postMessage({ type: 'GET_PROGRESS' });
+                        }
                     }
-                  } else {
-                    runLoadingAnimation();
-                  }
                 }).catch(err => {
-                  console.error('Service Worker 注册失败:', err);
-                  hideLoadingScreen();
+                    console.error('Service Worker 注册失败:', err);
+                    hideLoadingScreen();
                 });
             });
         })();

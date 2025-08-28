@@ -33,26 +33,26 @@
     {
       "name": "Apple M8",
       "generation": "(LPC18B1)",
-      "image": "img/NXP_LPC18B1.png",
+      "image": "img/NXP_LPC18B1.webp",
       "data": {
         "frequency": "150MHz",
         "microcontroller": "NXP LPC18B1",
         "microArchitecture": "ARMv7-M Cortex M3",
         "processTech": "90nm",
         "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod touch (第 6 代)</div>",
-        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg\" width=\"350\" height=\"393\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"      }
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M8.webp\" width=\"350\" height=\"393\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"      }
     },
     {
       "name": "Apple M7",
       "generation": "(LPC18A1)",
-      "image": "img/NXP_LPC18A1.png",
+      "image": "img/NXP_LPC18A1.webp",
       "data": {
         "frequency": "150MHz",
         "microcontroller": "NXP LPC18A1",
         "microArchitecture": "ARMv7-M Cortex M3",
         "processTech": "90nm",
         "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 5s<br>iPad Air<br>iPad mini 2<br>iPad mini 3</div>",
-        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg\" width=\"350\" height=\"263\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"
+        "coprocessorImage": "<img src=\"apple-silicon/chip-coprocessor/img/Board/Board-M7.webp\" width=\"350\" height=\"263\" style=\"padding:4px;max-height: 120px;max-width:100%;width:auto;\">"
       }
     }
   ]

@@ -88,9 +88,9 @@
     {
       "name": "Apple H1 SiP",
       "generation": "",
-      "image": "img/H1_SiP.png",
+      "image": "img/H1_SiP.webp",
       "images": {
-        "芯片图": "img/H1_SiP.png",
+        "芯片图": "img/H1_SiP.webp",
         "Die": "img/die/die_shot_H1_temp.webp"
       },
       "data": {
@@ -110,11 +110,11 @@
     {
       "name": "Apple H1",
       "generation": "(343S00404/290/289)",
-      "image": "img/H1_343S00404.png",
+      "image": "img/H1_343S00404.webp",
       "images": {
-        "404": "img/H1_343S00404.png",
-        "290": "img/H1_343S00290.png",
-        "289": "img/H1_343S00289.png",
+        "404": "img/H1_343S00404.webp",
+        "290": "img/H1_343S00290.webp",
+        "289": "img/H1_343S00289.webp",
         "Die": "img/die/die_shot_H1_temp.webp"
       },
       "data": {

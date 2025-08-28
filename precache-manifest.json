@@ -117,8 +117,8 @@
   "./apple-silicon/chip-m/data.json",
   "./apple-silicon/chip-w/data.json",
   "./apple-silicon/chip-coprocessor/data.json",
-  "./apple-silicon/chip-coprocessor/img/Board/Board-M8-temp.jpg",
-  "./apple-silicon/chip-coprocessor/img/Board/Board-M7-temp.jpg",
+  "./apple-silicon/chip-coprocessor/img/Board/Board-M8.webp",
+  "./apple-silicon/chip-coprocessor/img/Board/Board-M7.webp",
   "./apple-silicon/chip-u/data.json",
   "./apple-silicon/chip-r/data.json",
   "./apple-silicon/chip-h/data.json",
@@ -133,7 +133,7 @@
   "./public-static/js/lib/Window.js",
   "./public-static/js/lib/utils.js",
   "./public-static/img/2025-devices.webp",
-  "./public-static/img/logo.jpg",
+  "./public-static/img/logo.webp",
   "./public-static/img/apple.svg",
   "./console/dvfs/index.html"
 ]
