@@ -584,7 +584,7 @@ ul {
 
 .hero-banner h1 {
     color: white;
-    font-size: max(2.2rem, 3vw)
+    font-size: max(2.2rem, 3vw);
     font-weight: 700;
     z-index: 1;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
