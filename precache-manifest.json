@@ -88,7 +88,7 @@
   "./apple-device/tv/data.json",
   "./apple-device/mac/mac-mini/data.json",
   "./apple-device/mac/macbook-pro/data.json",
-  "./apple-device/mac/mac-imac/data.json",
+  "./apple-device/mac/imac/data.json",
   "./apple-device/mac/macbook-air/data.json",
   "./apple-device/mac/macbook/data.json",
   "./apple-device/mac/mac-studio/data.json",
