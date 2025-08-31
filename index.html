@@ -76,10 +76,33 @@
                                             <h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">${mainTitle}</h1>
                                             <p style="font-size: 1em; line-height: 1.6;">您当前的${updateTargetWord} (${browser.name} ${browser.version}) 不受支持。</p>
                                             <p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请将您的${updateTargetWord}更新至 ${requiredVersion} 或更高版本。</p>
+                                            <p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>
                                         </div>
                                     </div>
                                 `;
-                                loadingScreen.innerHTML = errorMessageHTML;
+                                const layer = document.getElementById('loading-screen-layer');
+                                if (layer) {
+                                    loadingScreen.innerHTML = layer.outerHTML + errorMessageHTML;
+                                } else {
+                                    loadingScreen.innerHTML = errorMessageHTML;
+                                }
+                                const ignoreBtn = document.getElementById('ignore-unsupported-btn');
+                                if (ignoreBtn) {
+                                    ignoreBtn.addEventListener('click', function() {
+                                        const loadingScreen = document.getElementById('loading-screen');
+                                        if (loadingScreen) {
+                                            loadingScreen.addEventListener('transitionend', () => {
+                                                if (loadingScreen) {
+                                                    loadingScreen.remove();
+                                                }
+                                            }, { once: true });
+                                            loadingScreen.classList.add('hidden');
+                                        }
+                                        if (window.initializeApp) {
+                                            window.initializeApp();
+                                        }
+                                    });
+                                }
                                 const prohibitedIcon = document.getElementById('prohibited-icon');
                                 const messageText = document.getElementById('unsupported-message-text');
                                 if (prohibitedIcon && messageText) {
@@ -122,7 +145,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #000000;
+            background-color: transparent;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -131,6 +154,16 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+        #loading-screen-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vmax;
+            height: 200vmax;
+            background-color: #000000;
+            z-index: -1;
         }
         #loading-screen.hidden {
             opacity: 0;
@@ -178,6 +211,7 @@
 
 <body>
     <div id="loading-screen">
+        <div id="loading-screen-layer"></div>
         <img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo">
         <div class="progress-bar-container">
             <div class="progress-bar-fill"></div>
@@ -343,6 +377,7 @@
             </div>
             <div class="card">
                 <ul id="update-history-list">
+                    <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
                     <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
                     <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
                     <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
@@ -486,8 +521,8 @@
                 }
                 return false;
             }
-            document.addEventListener('DOMContentLoaded', () => {
-                if (window.isBrowserSupported === false) return;
+            
+            window.initializeApp = async function() {
                 const isOfflineMode = new URL(window.location.href).searchParams.has('offline');
                 const localVersion = localStorage.getItem('sw_installed_version');
                 const versionElement = document.getElementById('version-display');
@@ -616,6 +651,11 @@
                     console.error('Service Worker 注册失败:', err);
                     hideLoadingScreen();
                 });
+            };
+
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.isBrowserSupported === false) return;
+                window.initializeApp();
             });
         })();
         function applyOrientationClass() {
