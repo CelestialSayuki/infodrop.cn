@@ -292,8 +292,6 @@
   align-items: flex-start;
   align-content: flex-start;
   padding: 8px 6px;
-  margin-left: -5px;
-  margin-top: -5px;
 }
 
 .data-list li.two-column-layout {
@@ -304,7 +302,7 @@
 }
 
 .color-swatches > *,
-.data-list li.multi-div-row > .info-square {
+.data-list li.multi-div-row .info-square {
     margin-left: 5px;
     margin-top: 5px;
 }
@@ -322,6 +320,14 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+}
+
+.multi-div-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + 10px);
+  margin-left: -5px;
+  margin-top: -5px;
 }
 
 @media (prefers-color-scheme: dark) {

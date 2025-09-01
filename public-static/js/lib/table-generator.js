@@ -88,14 +88,15 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             } else {
               cellHTML = (value !== undefined && value !== null) ? value : '—';
             }
-            
             const li = document.createElement('li');
-            li.innerHTML = cellHTML;
-
-            if (typeof cellHTML === 'string' && (
-                cellHTML.includes('info-square')
-            )) {
-                li.classList.add('multi-div-row');
+            if (typeof cellHTML === 'string' && cellHTML.includes('info-square')) {
+              li.classList.add('multi-div-row');
+              const wrapper = document.createElement('div');
+              wrapper.className = 'multi-div-wrapper';
+              wrapper.innerHTML = cellHTML;
+              li.appendChild(wrapper);
+            } else {
+              li.innerHTML = cellHTML;
             }
             dataList.appendChild(li);
           });
