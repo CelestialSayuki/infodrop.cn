@@ -12,7 +12,7 @@ window.globalWebpMachine = webpMachine;
 function fixViewportHeight() {
   if (window.browserInfo &&
       window.browserInfo.name === 'Safari' &&
-      window.browserInfo.version < 15) {
+      window.browserInfo.version < 15.4) {
     const setRealViewportHeight = () => {
       document.documentElement.style.setProperty('--real-vh', `${window.innerHeight}px`);
     };

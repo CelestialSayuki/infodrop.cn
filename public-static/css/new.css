@@ -20,6 +20,11 @@ body.landscape-notch-right {
     position: relative;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    grid-column: 2 / 3;
+    overflow-y: auto;
+    padding: 40px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
 }
 
 .main-content::-webkit-scrollbar {
@@ -201,16 +206,15 @@ body.landscape-notch-right {
 .macos-window-body {
     flex-grow: 1;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 0 5px 5px 5px;
     border-radius: 8px;
+    scrollbar-width: none;
+
 }
 
 .macos-window-body::-webkit-scrollbar {
     display: none;
-}
-
-.macos-window-body {
-    scrollbar-width: none;
 }
 
 .macos-window-body .cd-products-comparison-table {
@@ -505,13 +509,6 @@ ul {
     margin: 0 8px;
     flex-shrink: 0;
     transition: color var(--transition-speed);
-}
-
-.main-content {
-    grid-column: 2 / 3;
-    overflow-y: auto;
-    padding: 40px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
 }
 
 @keyframes fadeIn {
@@ -865,7 +862,6 @@ ul {
     .main-content {
         flex-grow: 1;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
         padding: 25px;
         min-height: 0;
     }
