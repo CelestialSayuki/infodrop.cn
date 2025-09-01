@@ -9,7 +9,19 @@ export const webpMachine = new webpHero.WebpMachine({
 
 window.globalWebpMachine = webpMachine;
 
+function fixViewportHeight() {
+  if (window.CSS && window.CSS.supports && window.CSS.supports('height', '100dvh')) {
+    return;
+  }
+  const setRealViewportHeight = () => {
+    document.documentElement.style.setProperty('--real-vh', `${window.innerHeight}px`);
+  };
+  setRealViewportHeight();
+  window.addEventListener('resize', setRealViewportHeight);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  fixViewportHeight();
   webpMachine.polyfillDocument();
   const mainContentArea = document.querySelector('.main-content');
   const svgContainer = document.getElementById('animation-svg-container');
