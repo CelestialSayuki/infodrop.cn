@@ -31,8 +31,8 @@
                 }
                 return { name: 'unknown', version: 0 };
             }
-
-            const browser = getBrowserInfo();
+            window.browserInfo = getBrowserInfo();
+            const browser = window.browserInfo;
             let isUnsupported = false;
             let requiredVersion = '';
             let browserNameForDisplay = '';

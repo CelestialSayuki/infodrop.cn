@@ -10,14 +10,17 @@ export const webpMachine = new webpHero.WebpMachine({
 window.globalWebpMachine = webpMachine;
 
 function fixViewportHeight() {
-  if (window.CSS && window.CSS.supports && window.CSS.supports('height', '100dvh')) {
+  if (window.browserInfo &&
+      window.browserInfo.name === 'Safari' &&
+      window.browserInfo.version < 15) {
+    const setRealViewportHeight = () => {
+      document.documentElement.style.setProperty('--real-vh', `${window.innerHeight}px`);
+    };
+    setRealViewportHeight();
+    window.addEventListener('resize', setRealViewportHeight);
+  } else {
     return;
   }
-  const setRealViewportHeight = () => {
-    document.documentElement.style.setProperty('--real-vh', `${window.innerHeight}px`);
-  };
-  setRealViewportHeight();
-  window.addEventListener('resize', setRealViewportHeight);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
