@@ -336,106 +336,108 @@
             </div>
         </header>
         <main class="main-content">
-            <div class="main-content-scroller"> <div class="hero-banner">
-                <img src="/public-static/img/2025-devices.webp" class="hero-banner-image">
-                <h1>先进的 Apple 产品参数中心</h1>
+            <div class="main-content-scroller">
+                <div class="hero-banner">
+                    <img src="/public-static/img/2025-devices.webp" class="hero-banner-image">
+                    <h1>先进的 Apple 产品参数中心</h1>
+                </div>
+                <div class="title" id="divdown1" style="display: none;">
+                    <strong>倒计时（ Apple Special Event - Awe dropping. ）🥳</strong>
+                    <br>
+                    <span>北京时间 2025 年 9 月 10 日凌晨 1 点（太平洋时间 2025 年 9 月 9 日上午 10 点）。</span>
+                </div>
+                <div class="div" id="divdown2" style="display: none;">加载中......</div>
+                <div class="title">
+                    <strong>QQ讨论群</strong>
+                    <br>
+                    <span>说明：本网站的讨论群，暂时无需审核即可加入。</span>
+                </div>
+                <div class="card">
+                    <ul id="QQ-Group-number">
+                        <li>
+                            <span>主群：1030970215</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="title">
+                    <strong>未来工作</strong>
+                    <br>
+                    <span>说明：针对 infodrop.cn 的改造，以求更加完美的体验。</span>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li><span>更新成绩</span></li>
+                        <li><span>支持各种测试提交成绩</span></li>
+                        <li><span>整理Beats设备</span></li>
+                    </ul>
+                </div>
+                <div class="title">
+                    <strong>更新记录</strong>
+                    <br>
+                    <span>说明：网站收录的信息不定期更新以保证正确性，该处显示当前网站的更新日志。</span>
+                </div>
+                <div class="card">
+                    <ul id="update-history-list">
+                        <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
+                        <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
+                        <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
+                        <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
+                        <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
+                        <li class="more-btn-li">
+                            <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
+                        </li>
+                    </ul>
+                    <template id="more-updates-template">
+                        <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
+                        <li><span>2025.08.23：修复若干bug</span></li>
+                        <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
+                        <li><span>2025.08.21：系统支持页面修正了iMac部分机型的错误数据，M1 芯片设备收录 A2620，修改 CPU 跑分表格</span></li>
+                        <li><span>2025.08.18：系统支持页面合并了部分机型</span></li>
+                        <li><span>2025.08.17：系统支持页面增加悬停</span></li>
+                        <li><span>2025.08.09：尝试修复系统支持页面</span></li>
+                        <li><span>2025.08.08：补充 Apple Watch SiP 的标识符，更正 Apple Watch Edition，iMac，DTK，Apple H1/H2 信息，增强网站兼容性，为窗口按钮增加鼠标靠近图标</span></li>
+                        <li><span>2025.08.07：苹果资源页新增内容</span></li>
+                        <li><span>2025.08.06：新增 dvfs 上传</span></li>
+                        <li><span>2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span></li>
+                        <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
+                        <li><span>2025.08.01：新增原生缓存测试软件</span></li>
+                        <li><span>2025.07.31：新增启动界面</span></li>
+                        <li><span>2025.07.30：新增 Speedometer 测试</span></li>
+                        <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
+                        <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
+                        <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
+                        <li><span>2025.07.10：删除设备发售价格，官网序列号查询</span></li>
+                        <li><span>2025.07.08：重写了比较页面</span></li>
+                        <li><span>2025.07.07：移除依赖 hubweb.cn 的支持文件</span></li>
+                        <li><span>2025.07.05：支持窗口化显示</span></li>
+                        <li><span>2025.06.27：开始逐步替换UI</span></li>
+                        <li><span>2025.06.23：本网站与 hubweb.cn 分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span></li>
+                    </template>
+                </div>
+                <div class="title">
+                    <strong>媒体账号</strong>
+                    <br>
+                    <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
+                </div>
+                <div class="card">
+                    <b style="font-style:oblique;">维护者Bilibili：</b>
+                    <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
+                    <br>
+                    <b style="font-style:oblique;">维护者Twitter：</b>
+                    <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
+                    <br>
+                    <b style="font-style:oblique;">维护者E-mail：</b>CelestialSayuki@qq.com
+                    <br>
+                    <b style="font-style:oblique;">维护者Telegram：</b>
+                    <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
+                    <br>
+                </div>
+                <div style="text-align: center; margin-top: 50px; padding-bottom: 30px;">
+                    <span class="spen_ab">This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
+                </div>
+                <svg id="animation-svg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></svg>
             </div>
-            <div class="title" id="divdown1" style="display: none;">
-                <strong>倒计时（ Apple Special Event - Awe dropping. ）🥳</strong>
-                <br>
-                <span>北京时间 2025 年 9 月 10 日凌晨 1 点（太平洋时间 2025 年 9 月 9 日上午 10 点）。</span>
-            </div>
-            <div class="div" id="divdown2" style="display: none;">加载中......</div>
-            <div class="title">
-                <strong>QQ讨论群</strong>
-                <br>
-                <span>说明：本网站的讨论群，暂时无需审核即可加入。</span>
-            </div>
-            <div class="card">
-                <ul id="QQ-Group-number">
-                    <li>
-                        <span>主群：1030970215</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="title">
-                <strong>未来工作</strong>
-                <br>
-                <span>说明：针对 infodrop.cn 的改造，以求更加完美的体验。</span>
-            </div>
-            <div class="card">
-                <ul>
-                    <li><span>更新成绩</span></li>
-                    <li><span>支持各种测试提交成绩</span></li>
-                    <li><span>整理Beats设备</span></li>
-                </ul>
-            </div>
-            <div class="title">
-                <strong>更新记录</strong>
-                <br>
-                <span>说明：网站收录的信息不定期更新以保证正确性，该处显示当前网站的更新日志。</span>
-            </div>
-            <div class="card">
-                <ul id="update-history-list">
-                    <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
-                    <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
-                    <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
-                    <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
-                    <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
-                    <li class="more-btn-li">
-                        <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
-                    </li>
-                </ul>
-                <template id="more-updates-template">
-                    <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
-                    <li><span>2025.08.23：修复若干bug</span></li>
-                    <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
-                    <li><span>2025.08.21：系统支持页面修正了iMac部分机型的错误数据，M1 芯片设备收录 A2620，修改 CPU 跑分表格</span></li>
-                    <li><span>2025.08.18：系统支持页面合并了部分机型</span></li>
-                    <li><span>2025.08.17：系统支持页面增加悬停</span></li>
-                    <li><span>2025.08.09：尝试修复系统支持页面</span></li>
-                    <li><span>2025.08.08：补充 Apple Watch SiP 的标识符，更正 Apple Watch Edition，iMac，DTK，Apple H1/H2 信息，增强网站兼容性，为窗口按钮增加鼠标靠近图标</span></li>
-                    <li><span>2025.08.07：苹果资源页新增内容</span></li>
-                    <li><span>2025.08.06：新增 dvfs 上传</span></li>
-                    <li><span>2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span></li>
-                    <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
-                    <li><span>2025.08.01：新增原生缓存测试软件</span></li>
-                    <li><span>2025.07.31：新增启动界面</span></li>
-                    <li><span>2025.07.30：新增 Speedometer 测试</span></li>
-                    <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
-                    <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
-                    <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
-                    <li><span>2025.07.10：删除设备发售价格，官网序列号查询</span></li>
-                    <li><span>2025.07.08：重写了比较页面</span></li>
-                    <li><span>2025.07.07：移除依赖 hubweb.cn 的支持文件</span></li>
-                    <li><span>2025.07.05：支持窗口化显示</span></li>
-                    <li><span>2025.06.27：开始逐步替换UI</span></li>
-                    <li><span>2025.06.23：本网站与 hubweb.cn 分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span></li>
-                </template>
-            </div>
-            <div class="title">
-                <strong>媒体账号</strong>
-                <br>
-                <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
-            </div>
-            <div class="card">
-                <b style="font-style:oblique;">维护者Bilibili：</b>
-                <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
-                <br>
-                <b style="font-style:oblique;">维护者Twitter：</b>
-                <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
-                <br>
-                <b style="font-style:oblique;">维护者E-mail：</b>CelestialSayuki@qq.com
-                <br>
-                <b style="font-style:oblique;">维护者Telegram：</b>
-                <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
-                <br>
-            </div>
-            <div style="text-align: center; margin-top: 50px; padding-bottom: 30px;">
-                <span class="spen_ab">This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
-            </div>
-            <svg id="animation-svg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></svg>
-        </div> </main>
+        </main>
         <div class="overlay" id="overlay"></div>
     </div>
     
