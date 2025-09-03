@@ -935,6 +935,10 @@ ul {
         opacity: 1;
         visibility: visible;
     }
+    
+    .main-content-scroller {
+        padding: 20px;
+    }
 }
 
 .top_left_logo a img {
