@@ -94,26 +94,64 @@ export class Window {
         });
 
         const performInteraction = (e) => {
-            if (e.type === 'touchmove') {
-                e.preventDefault();
+          if (e.type === 'touchmove') {
+            e.preventDefault();
+          }
+          const coords = getEventCoords(e);
+          const container = this.manager.mainContentArea;
+          const containerWidth = container.clientWidth;
+          const containerHeight = container.clientHeight;
+          if (action === 'dragging') {
+            const windowWidth = this.element.offsetWidth;
+            const windowHeight = this.element.offsetHeight;
+            let newLeft = startLeft + coords.x - startX;
+            let newTop = startTop + coords.y - startY;
+            newLeft = Math.max(0, Math.min(newLeft, containerWidth - windowWidth));
+            newTop = Math.max(0, Math.min(newTop, containerHeight - windowHeight));
+            this.element.style.left = `${newLeft}px`;
+            this.element.style.top = `${newTop}px`;
+          } else if (action === 'resizing') {
+            const deltaX = coords.x - startX;
+            const deltaY = coords.y - startY;
+            let newWidth = startWidth, newHeight = startHeight, newLeft = startLeft, newTop = startTop;
+            if (resizeDirection.includes('e')) {
+              newWidth = startWidth + deltaX;
+              if (startLeft + newWidth > containerWidth) {
+                newWidth = containerWidth - startLeft;
+              }
             }
-            const coords = getEventCoords(e);
-            if (action === 'dragging') {
-                this.element.style.left = `${startLeft + coords.x - startX}px`;
-                this.element.style.top = `${startTop + coords.y - startY}px`;
-            } else if (action === 'resizing') {
-                const deltaX = coords.x - startX;
-                const deltaY = coords.y - startY;
-                let newWidth = startWidth, newHeight = startHeight, newLeft = startLeft, newTop = startTop;
-                if (resizeDirection.includes('e')) newWidth = startWidth + deltaX;
-                if (resizeDirection.includes('w')) { newWidth = startWidth - deltaX; newLeft = startLeft + deltaX; }
-                if (resizeDirection.includes('s')) newHeight = startHeight + deltaY;
-                if (resizeDirection.includes('n')) { newHeight = startHeight - deltaY; newTop = startTop + deltaY; }
-                if (newWidth >= Window.MIN_WIDTH) { this.element.style.width = `${newWidth}px`; this.element.style.left = `${newLeft}px`; }
-                if (newHeight >= Window.MIN_HEIGHT) { this.element.style.height = `${newHeight}px`; this.element.style.top = `${newTop}px`; }
+            if (resizeDirection.includes('w')) {
+              newWidth = startWidth - deltaX;
+              newLeft = startLeft + deltaX;
+              if (newLeft < 0) {
+                newWidth += newLeft;
+                newLeft = 0;
+              }
             }
+            if (resizeDirection.includes('s')) {
+              newHeight = startHeight + deltaY;
+              if (startTop + newHeight > containerHeight) {
+                newHeight = containerHeight - startTop;
+              }
+            }
+            if (resizeDirection.includes('n')) {
+              newHeight = startHeight - deltaY;
+              newTop = startTop + deltaY;
+              if (newTop < 0) {
+                newHeight += newTop;
+                newTop = 0;
+              }
+            }
+            if (newWidth >= Window.MIN_WIDTH) {
+              this.element.style.width = `${newWidth}px`;
+              this.element.style.left = `${newLeft}px`;
+            }
+            if (newHeight >= Window.MIN_HEIGHT) {
+              this.element.style.height = `${newHeight}px`;
+              this.element.style.top = `${newTop}px`;
+            }
+          }
         };
-
         const stopInteraction = () => {
             action = '';
             header.style.cursor = 'move';

@@ -20,6 +20,7 @@ body.landscape-notch-right {
     position: relative;
     grid-column: 2 / 3;
     background: linear-gradient(...);
+    z-index: 1;
 }
 
 .main-content-scroller {
