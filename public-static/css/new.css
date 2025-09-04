@@ -67,169 +67,6 @@ body.landscape-notch-right {
     will-change: transform, opacity;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background: linear-gradient(135deg, #1a1a2e, #16213e);
-        color: var(--dark-text);
-    }
-
-    .card {
-        background-color: var(--dark-glass-bg);
-        border: 1px solid var(--dark-border);
-        box-shadow: var(--dark-glass-shadow);
-    }
-
-    .sidebar,
-    .main-header {
-        background: var(--dark-glass-bg);
-        border-color: var(--dark-border);
-        box-shadow: var(--dark-glass-shadow);
-    }
-
-    .sidebar {
-        border-top-left-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
-    }
-
-    .sidebar-menu li a {
-        color: var(--dark-text);
-    }
-
-    .sidebar-menu ul a {
-        color: var(--dark-text-secondary);
-    }
-
-    .main-header .top_title {
-        color: var(--dark-text);
-    }
-
-    .main-header .top_right_menu a {
-        color: var(--dark-text-secondary);
-    }
-
-    .main-header .top_right_menu a:hover,
-    .div a:hover {
-        color: #8ab4f8;
-    }
-
-    a {
-        color: #8ab4f8;
-    }
-
-    .title strong {
-        color: var(--dark-text);
-    }
-
-    .title span {
-        color: var(--dark-text-secondary);
-    }
-
-    .div,
-    .spen_ab,
-    .spen_ab a {
-        color: var(--dark-text-secondary);
-        background-color: var(--dark-glass-bg);
-        box-shadow: var(--dark-glass-shadow);
-        border: 1px solid var(--dark-border);
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #444;
-    }
-
-    .card:hover {
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-banner {
-        box-shadow: var(--dark-glass-shadow);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-banner::after {
-        background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
-    }
-
-    .show-more-btn {
-        box-shadow: 0 4px 8px rgba(0, 122, 255, 0.4);
-    }
-
-    .show-more-btn:hover {
-        box-shadow: 0 6px 12px rgba(0, 122, 255, 0.5);
-    }
-
-    .main-content {
-        background: transparent;
-    }
-    
-    .dynamic-content-overlay {
-        background-color: var(--dark-glass-bg, rgba(22, 27, 34, 0.75));
-        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    }
-    
-    .macos-window {
-        background-color: rgba(40, 40, 40, 0.7);
-        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-    }
-
-    .macos-window-header {
-        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.12));
-    }
-
-    .macos-window-title {
-        color: var(--dark-text-secondary);
-    }
-    
-    .version-popup {
-        background-color: rgba(45, 51, 59, 0.85);
-        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-        box-shadow: var(--dark-glass-shadow, 0 4px 12px rgba(0,0,0,0.3));
-    }
-    .update-switch-container {
-        border-top-color: var(--dark-border, rgba(255,255,255,0.1));
-    }
-    
-    .macos-window-body .category-switcher a {
-        color: var(--dark-text-secondary, #8b949e);
-    }
-    .macos-window-body .category-switcher a.active {
-        color: var(--dark-text, #c9d1d9);
-    }
-
-    .macos-window-body .table {
-        color: var(--dark-text, #c9d1d9);
-    }
-
-    .macos-window-body .table th,
-    .macos-window-body .table td {
-        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-    }
-
-    .macos-window-body .table thead th {
-        background: var(--dark-glass-bg, rgba(30, 30, 30, 0.7));
-        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
-    }
-
-    .macos-window-body .table-hover tbody tr:hover {
-        background-color: rgba(255, 255, 255, 0.08);
-    }
-    
-    #update-notes-container {
-        border-top-color: var(--dark-border, rgba(255,255,255,0.1));
-    }
-    .update-notes-title {
-        color: var(--dark-text);
-    }
-    #update-notes-list li {
-        color: var(--dark-text-secondary);
-    }
-}
-
 .macos-window-header {
     height: 40px;
     display: flex;
@@ -979,6 +816,10 @@ input:checked + .slider:before {
     font-weight: bold;
 }
 
+.top_left_logo a img {
+    border-radius: 25%;
+}
+
 @media (max-width: 768px) {
     .version-popup {
         margin-top: 8px;
@@ -1088,6 +929,165 @@ input:checked + .slider:before {
     }
 }
 
-.top_left_logo a img {
-    border-radius: 25%;
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        color: var(--dark-text);
+    }
+
+    .card {
+        background-color: var(--dark-glass-bg);
+        border: 1px solid var(--dark-border);
+        box-shadow: var(--dark-glass-shadow);
+    }
+
+    .sidebar,
+    .main-header {
+        background: var(--dark-glass-bg);
+        border-color: var(--dark-border);
+        box-shadow: var(--dark-glass-shadow);
+    }
+
+    .sidebar {
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+    }
+
+    .sidebar-menu li a {
+        color: var(--dark-text);
+    }
+
+    .sidebar-menu ul a {
+        color: var(--dark-text-secondary);
+    }
+
+    .main-header .top_title {
+        color: var(--dark-text);
+    }
+
+    .main-header .top_right_menu a {
+        color: var(--dark-text-secondary);
+    }
+
+    .main-header .top_right_menu a:hover,
+    .div a:hover {
+        color: #8ab4f8;
+    }
+
+    a {
+        color: #8ab4f8;
+    }
+
+    .title strong {
+        color: var(--dark-text);
+    }
+
+    .title span {
+        color: var(--dark-text-secondary);
+    }
+
+    .div,
+    .spen_ab,
+    .spen_ab a {
+        color: var(--dark-text-secondary);
+        background-color: var(--dark-glass-bg);
+        box-shadow: var(--dark-glass-shadow);
+        border: 1px solid var(--dark-border);
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #444;
+    }
+
+    .card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-banner {
+        box-shadow: var(--dark-glass-shadow);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-banner::after {
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+    }
+
+    .show-more-btn {
+        box-shadow: 0 4px 8px rgba(0, 122, 255, 0.4);
+    }
+
+    .show-more-btn:hover {
+        box-shadow: 0 6px 12px rgba(0, 122, 255, 0.5);
+    }
+
+    .main-content {
+        background: transparent;
+    }
+    
+    .dynamic-content-overlay {
+        background-color: var(--dark-glass-bg, rgba(22, 27, 34, 0.75));
+        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+    
+    .macos-window {
+        background-color: rgba(40, 40, 40, 0.7);
+        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+    }
+
+    .macos-window-header {
+        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.12));
+    }
+
+    .macos-window-title {
+        color: var(--dark-text-secondary);
+    }
+    
+    .version-popup {
+        background-color: rgba(45, 51, 59, 0.85);
+        border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        box-shadow: var(--dark-glass-shadow, 0 4px 12px rgba(0,0,0,0.3));
+    }
+    .update-switch-container {
+        border-top-color: var(--dark-border, rgba(255,255,255,0.1));
+    }
+    
+    .macos-window-body .category-switcher a {
+        color: var(--dark-text-secondary, #8b949e);
+    }
+    .macos-window-body .category-switcher a.active {
+        color: var(--dark-text, #c9d1d9);
+    }
+
+    .macos-window-body .table {
+        color: var(--dark-text, #c9d1d9);
+    }
+
+    .macos-window-body .table th,
+    .macos-window-body .table td {
+        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+    }
+
+    .macos-window-body .table thead th {
+        background: var(--dark-glass-bg, rgba(30, 30, 30, 0.7));
+        border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+    }
+
+    .macos-window-body .table-hover tbody tr:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+    
+    #update-notes-container {
+        border-top-color: var(--dark-border, rgba(255,255,255,0.1));
+    }
+    .update-notes-title {
+        color: var(--dark-text);
+    }
+    #update-notes-list li {
+        color: var(--dark-text-secondary);
+    }
 }
