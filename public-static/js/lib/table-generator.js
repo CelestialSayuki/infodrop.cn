@@ -217,7 +217,7 @@ export function syncRowHeights(gridContainer) {
       currentRowCells.forEach(cell => {
         cell.style.height = 'auto';
         const infoSquares = cell.querySelectorAll('.info-square');
-        if (infoSquares.length > 3) {
+        if (infoSquares.length > 4) {
           cell.classList.add('two-column-layout');
         } else {
           cell.classList.remove('two-column-layout');
