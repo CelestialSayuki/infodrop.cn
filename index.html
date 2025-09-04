@@ -466,6 +466,19 @@
     <script>
         (async function() {
             let updateIsPending = false;
+            function formatRemainingTime(ms) {
+                if (ms === null || !isFinite(ms) || ms <= 0) {
+                    return '正在计算剩余时间...';
+                }
+                const totalSeconds = Math.round(ms / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                if (minutes > 0) {
+                    return `还剩大约${minutes}分钟`;
+                }
+                return `还剩约${seconds}秒`;
+            }
+            
             const hideLoadingScreen = () => {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
@@ -651,7 +664,7 @@
                     const progressBarContainer = document.querySelector('.progress-bar-container');
                     const loadingText = document.querySelector('.loading-text');
                     if (event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS') {
-                        const { percent } = event.data.payload;
+                        const { percent, estimatedRemainingTime } = event.data.payload;
                         if (progressBarFill) {
                             if (parseInt(progressBarFill.style.width) !== percent) {
                                 progressBarFill.style.transition = 'none';
@@ -659,8 +672,8 @@
                             }
                         }
                         if (progressBarContainer) progressBarContainer.style.opacity = '1';
-                        if (loadingText && loadingText.textContent !== '正在更新...') {
-                            loadingText.textContent = `还剩不到1分钟...`;
+                        if (loadingText) {
+                            loadingText.textContent = formatRemainingTime(estimatedRemainingTime);
                             loadingText.style.opacity = '1';
                         }
                     }

@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A1051b';
+const CACHE_VERSION = '1A1052b';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
@@ -55,6 +55,8 @@ self.addEventListener('install', (event) => {
     cachedCount = 0;
     currentProgress = 0;
     let lastReportedPercent = -1;
+    
+    const cachingStartTime = Date.now();
 
     for (const url of filesToCache) {
       try {
@@ -67,6 +69,14 @@ self.addEventListener('install', (event) => {
         cachedCount++;
         const percent = Math.round((cachedCount / totalFiles) * 100);
         currentProgress = percent;
+        
+        let estimatedRemainingTime = null;
+        if (cachedCount > 0) {
+            const elapsedTime = Date.now() - cachingStartTime;
+            const filesPerMillisecond = cachedCount / elapsedTime;
+            const remainingFiles = totalFiles - cachedCount;
+            estimatedRemainingTime = remainingFiles / filesPerMillisecond;
+        }
 
         if (percent > lastReportedPercent) {
           lastReportedPercent = percent;
@@ -78,7 +88,8 @@ self.addEventListener('install', (event) => {
                 total: totalFiles,
                 current: cachedCount,
                 percent: percent,
-                currentFile: url
+                currentFile: url,
+                estimatedRemainingTime: estimatedRemainingTime
               }
             });
           }
