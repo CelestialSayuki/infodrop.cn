@@ -1,10 +1,8 @@
 import { WindowManager } from './lib/WindowManager.js';
 import { loadScriptsSequentially } from './lib/utils.js';
 import { renderComparisonTable, syncRowHeights } from './lib/table-generator.js';
-
-export const forcePolyfill = location.search.includes('force');
 export const webpMachine = new webpHero.WebpMachine({
-  webpSupport: forcePolyfill ? false : undefined,
+  webpSupport: undefined,
 });
 
 window.globalWebpMachine = webpMachine;

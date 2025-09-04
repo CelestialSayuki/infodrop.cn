@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A1049d';
+const CACHE_VERSION = '1A1050c';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
@@ -8,20 +8,43 @@ let currentProgress = 0;
 let totalFiles = 0;
 let cachedCount = 0;
 
-self.addEventListener('install', (event) => {
-  event.waitUntil((async () => {
+function isUpdatePausedByClient() {
+  return new Promise(async (resolve) => {
+    const timeout = setTimeout(() => resolve(false), 500);
+
     const clients = await self.clients.matchAll({
       includeUncontrolled: true,
       type: 'window'
     });
-    
-    const isAnyClientOffline = clients.some(client =>
-      new URL(client.url).searchParams.has('offline')
-    );
 
-    if (isAnyClientOffline) {
-      console.log('[SW] Offline client detected. Aborting new worker installation.');
-      throw new Error('Installation aborted due to active offline session.');
+    if (!clients || clients.length === 0) {
+      clearTimeout(timeout);
+      return resolve(false);
+    }
+
+    const messageListener = (event) => {
+      if (event.data && event.data.type === 'UPDATE_SETTING_RESPONSE') {
+        if (event.data.isPaused) {
+          self.removeEventListener('message', messageListener);
+          clearTimeout(timeout);
+          resolve(true);
+        }
+      }
+    };
+    
+    self.addEventListener('message', messageListener);
+
+    clients.forEach(client => {
+      client.postMessage({ type: 'GET_UPDATE_SETTING' });
+    });
+  });
+}
+
+self.addEventListener('install', (event) => {
+  event.waitUntil((async () => {
+    if (await isUpdatePausedByClient()) {
+      console.log('[SW] Installation aborted by user setting.');
+      throw new Error('Installation aborted by user setting.');
     }
 
     const cache = await caches.open(CACHE_NAME);
@@ -136,10 +159,6 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (url.pathname.endsWith('version.json')) {
-    if (url.searchParams.has('offline')) {
-      event.respondWith(Promise.reject(new Error('Offline mode: version check is disabled.')));
-      return;
-    }
     event.respondWith(fetch(event.request, { cache: 'no-store' }));
     return;
   }

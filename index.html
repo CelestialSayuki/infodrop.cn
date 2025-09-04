@@ -331,7 +331,20 @@
                 <div class="top_title" id="top_title">先进的 Apple 产品参数中心 / infodrop.cn</div>
             </div>
             <div class="top_right_menu">
-                <a id="version-display"></a>
+                <div id="version-container" style="position: relative;">
+                    <a id="version-display" href="javascript:void(0);" style="cursor: pointer;"></a>
+                    <div id="version-popup" class="version-popup">
+                        <div>本地版本：<span id="local-version-info">未知</span></div>
+                        <div>远程版本：<span id="remote-version-info">查询中...</span></div>
+                        <div class="update-switch-container">
+                            <span>自动更新</span>
+                            <label class="switch">
+                                <input type="checkbox" id="update-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <a href="https://www.github.com/CelestialSayuki/infodrop.cn">源码</a>
             </div>
         </header>
@@ -378,6 +391,7 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
+                        <li><span>2025.09.04：删除 ?force 调试 flag, 因为已经确认 iOS 13 工作的稳定性，增加更新管理器</span></li>
                         <li><span>2025.09.03：微调移动端样式，更正 MacPro4,1 支持信息，增加窗口限位检查</span></li>
                         <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
                         <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
@@ -496,7 +510,7 @@
                 }
             };
             async function checkForUpdates(registration) {
-                if (new URL(window.location.href).searchParams.has('offline')) {
+                if (localStorage.getItem('updates_paused') === 'true') {
                     return false;
                 }
                 const localVersion = localStorage.getItem('sw_installed_version');
@@ -527,28 +541,64 @@
             }
             
             window.initializeApp = async function() {
-                const isOfflineMode = new URL(window.location.href).searchParams.has('offline');
                 const localVersion = localStorage.getItem('sw_installed_version');
                 const versionElement = document.getElementById('version-display');
-                if (versionElement) {
-                    if (localVersion) {
-                        versionElement.textContent = `前端版本：${localVersion}`;
-                    } else if (!isOfflineMode) {
-                        fetch('./public-static/version.json', { cache: 'no-store' })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.version) {
-                                versionElement.textContent = `前端版本：${data.version}`;
-                            }
-                        })
-                        .catch(error => {
-                            console.error('获取版本信息失败:', error);
-                            versionElement.style.display = 'none';
-                        });
-                    } else {
-                        versionElement.style.display = 'none';
-                    }
+                
+                const versionPopup = document.getElementById('version-popup');
+                const localVersionInfo = document.getElementById('local-version-info');
+                const remoteVersionInfo = document.getElementById('remote-version-info');
+                const updateToggle = document.getElementById('update-toggle');
+
+                if (localVersion) {
+                    localVersionInfo.textContent = localVersion;
+                    versionElement.textContent = `前端版本：${localVersion}`;
+                } else {
+                    versionElement.textContent = '查询版本中...';
                 }
+                
+                const updatesPaused = localStorage.getItem('updates_paused') === 'true';
+                updateToggle.checked = !updatesPaused;
+
+                updateToggle.addEventListener('change', () => {
+                    if (updateToggle.checked) {
+                        localStorage.removeItem('updates_paused');
+                        console.log('自动更新已开启。');
+                    } else {
+                        localStorage.setItem('updates_paused', 'true');
+                        console.log('自动更新已暂停。');
+                    }
+                });
+
+                versionElement.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    versionPopup.classList.toggle('show');
+                });
+
+                versionPopup.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
+
+                window.addEventListener('click', () => {
+                    if (versionPopup.classList.contains('show')) {
+                        versionPopup.classList.remove('show');
+                    }
+                });
+
+                fetch('./public-static/version.json', { cache: 'no-store' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.version) {
+                        remoteVersionInfo.textContent = data.version;
+                        if (!localVersion) {
+                            versionElement.textContent = `前端版本：${data.version}`;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('获取远程版本信息失败:', error);
+                    remoteVersionInfo.textContent = '获取失败';
+                });
+
                 if (!('serviceWorker' in navigator)) {
                     hideLoadingScreen();
                     return;
@@ -569,6 +619,16 @@
                 });
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
+                    if (event.data.type === 'GET_UPDATE_SETTING') {
+                        const isPaused = localStorage.getItem('updates_paused') === 'true';
+                        if (event.source) {
+                            event.source.postMessage({
+                                type: 'UPDATE_SETTING_RESPONSE',
+                                isPaused: isPaused
+                            });
+                        }
+                        return;
+                    }
                     const progressBarFill = document.querySelector('.progress-bar-fill');
                     const progressBarContainer = document.querySelector('.progress-bar-container');
                     const loadingText = document.querySelector('.loading-text');
