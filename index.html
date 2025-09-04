@@ -343,6 +343,10 @@
                                 <span class="slider round"></span>
                             </label>
                         </div>
+                        <div id="update-notes-container" style="display: none;">
+                            <div class="update-notes-title">本次更新</div>
+                            <ul id="update-notes-list"></ul>
+                        </div>
                     </div>
                 </div>
                 <a href="https://www.github.com/CelestialSayuki/infodrop.cn">源码</a>
@@ -593,10 +597,24 @@
                             versionElement.textContent = `前端版本：${data.version}`;
                         }
                     }
+                    const updateNotesContainer = document.getElementById('update-notes-container');
+                    const updateNotesList = document.getElementById('update-notes-list');
+                    if (data.notes && Array.isArray(data.notes) && data.notes.length > 0) {
+                        updateNotesList.innerHTML = '';
+                        data.notes.forEach(noteText => {
+                            const li = document.createElement('li');
+                            li.textContent = noteText;
+                            updateNotesList.appendChild(li);
+                        });
+                        updateNotesContainer.style.display = 'block';
+                    } else {
+                        updateNotesContainer.style.display = 'none';
+                    }
                 })
                 .catch(error => {
                     console.error('获取远程版本信息失败:', error);
                     remoteVersionInfo.textContent = '获取失败';
+                    document.getElementById('update-notes-container').style.display = 'none';
                 });
 
                 if (!('serviceWorker' in navigator)) {
