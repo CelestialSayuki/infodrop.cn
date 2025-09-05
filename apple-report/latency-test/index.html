@@ -11,6 +11,10 @@
             text-decoration: none;
             transition: color var(--transition-speed);
         }
+        
+        .main-content {
+            padding: 30px;
+        }
 
         a:hover {
             color: var(--accent-color-hover);
@@ -151,14 +155,7 @@
         
         .results-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        
-        @media (min-width: 768px) {
-            .results-grid {
-                grid-template-columns: 2fr 1fr;
-            }
+            grid-template-columns: 2fr 1fr;
         }
 
         #results-chart {
@@ -283,6 +280,9 @@
             .card {
                 margin: 0;
                 margin-bottom: 5px;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
