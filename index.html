@@ -6,6 +6,7 @@
     <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
     <script>
         (function() {
+            window.isBrowserSupported = true;
             var isUnsupported = false;
             var browserInfo = getBrowserInfo();
             function getBrowserInfo() {
@@ -90,19 +91,7 @@
                             var ignoreBtn = document.getElementById('ignore-unsupported-btn');
                             if (ignoreBtn) {
                                 ignoreBtn.addEventListener('click', function() {
-                                    var screen = document.getElementById('loading-screen');
-                                    if(screen) {
-                                        screen.innerHTML =
-                                            '<div id="loading-screen-layer"></div>' +
-                                            '<img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo" style="opacity: 1;">' +
-                                            '<div class="progress-bar-container" style="opacity: 0;">' +
-                                            '  <div class="progress-bar-fill" style="width: 0%;"></div>' +
-                                            '</div>' +
-                                            '<div class="loading-text" style="opacity: 0;"></div>';
-                                    }
-                                    if (window.initializeApp) {
-                                        window.initializeApp();
-                                    }
+                                    runInstallProcess();
                                 });
                             }
                         }
@@ -117,11 +106,27 @@
                     }, 500);
                 }
             }
+            function runInstallProcess() {
+                var screen = document.getElementById('loading-screen');
+                if(screen) {
+                    screen.innerHTML =
+                        '<div id="loading-screen-layer"></div>' +
+                        '<img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo" style="opacity: 1;">' +
+                        '<div class="progress-bar-container" style="opacity: 0;">' +
+                        '  <div class="progress-bar-fill" style="width: 0%;"></div>' +
+                        '</div>' +
+                        '<div class="loading-text" style="opacity: 0;"></div>';
+                }
+                if (window.initializeApp) {
+                    window.initializeApp();
+                }
+            }
             if ((browserInfo.name === 'Safari' && browserInfo.version > 0 && browserInfo.version < 13) ||
                 (browserInfo.name === 'Chrome' && browserInfo.version > 0 && browserInfo.version < 70) ||
                 (browserInfo.name === 'Firefox' && browserInfo.version > 0 && browserInfo.version < 70) ||
                 (browserInfo.name === 'IE')) {
                 isUnsupported = true;
+                window.isBrowserSupported = false;
             }
             document.addEventListener('DOMContentLoaded', function() {
                 if (isUnsupported) {
