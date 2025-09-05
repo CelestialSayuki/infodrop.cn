@@ -4,109 +4,132 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="manifest" href="/manifest.json">
     <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
-    
     <script>
         (function() {
             window.isBrowserSupported = true;
+
             function getBrowserInfo() {
-                const ua = navigator.userAgent;
-                const isSafari = ua.includes('Safari') && !ua.includes('Chrome') && !ua.includes('Edg');
+                var ua = navigator.userAgent;
+                if (ua.indexOf('Trident/') !== -1) {
+                    var versionMatch = ua.match(/rv:([\d.]+)/);
+                    if (versionMatch && versionMatch[1]) {
+                        return { name: 'IE', version: parseInt(versionMatch[1], 10) };
+                    }
+                    return { name: 'IE', version: 11 };
+                }
+                var isSafari = ua.indexOf('Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Edg') === -1;
                 if (isSafari) {
-                    let versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
+                    var versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'Safari', version: parseInt(versionMatch[1], 10) };
                     }
                 }
-                if (ua.includes('Chrome')) {
-                    let versionMatch = ua.match(/Chrome\/([\d.]+)/);
+                if (ua.indexOf('Chrome') !== -1) {
+                    var versionMatch = ua.match(/Chrome\/([\d.]+)/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'Chrome', version: parseInt(versionMatch[1], 10) };
                     }
                 }
-                if (ua.includes('Firefox')) {
-                    let versionMatch = ua.match(/Firefox\/([\d.]+)/);
+                if (ua.indexOf('Firefox') !== -1) {
+                    var versionMatch = ua.match(/Firefox\/([\d.]+)/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'Firefox', version: parseInt(versionMatch[1], 10) };
                     }
                 }
                 return { name: 'unknown', version: 0 };
             }
+
             window.browserInfo = getBrowserInfo();
-            const browser = window.browserInfo;
-            let isUnsupported = false;
-            let requiredVersion = '';
-            let browserNameForDisplay = '';
-            let updateTargetWord = '浏览器';
-            let mainTitle = '浏览器版本过低';
+            var browser = window.browserInfo;
+            var isUnsupported = false;
+            var requiredVersion = '';
+            var browserNameForDisplay = '';
+            var updateTargetWord = '浏览器';
+            var mainTitle = '浏览器版本过低';
 
             if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
                 isUnsupported = true;
                 requiredVersion = '13.0';
-                browserNameForDisplay = 'Safari';
+                browserNameForDisplay = 'Safari ' + browser.version;
                 updateTargetWord = '系统浏览器';
                 mainTitle = '系统版本过低';
             } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 70) {
                 isUnsupported = true;
                 requiredVersion = '70';
-                browserNameForDisplay = 'Chrome/Chromium';
+                browserNameForDisplay = 'Chrome/Chromium ' + browser.version;
             } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 70) {
                 isUnsupported = true;
                 requiredVersion = '70';
-                browserNameForDisplay = 'Firefox';
+                browserNameForDisplay = 'Firefox ' + browser.version;
+            } else if (browser.name === 'IE') {
+                isUnsupported = true;
+                requiredVersion = 'Edge、Chrome 或 Firefox 等现代浏览器';
+                browserNameForDisplay = 'Internet Explorer ' + browser.version;
+                mainTitle = '您的浏览器不受支持';
+                updateTargetWord = '浏览器';
             }
 
             if (isUnsupported) {
                 window.isBrowserSupported = false;
                 document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
-                        const logo = document.querySelector('#loading-screen .apple-logo');
-                        const loadingScreen = document.getElementById('loading-screen');
+                        var logo = document.querySelector('#loading-screen .apple-logo');
+                        var loadingScreen = document.getElementById('loading-screen');
                         if (logo && loadingScreen) {
                             logo.style.opacity = '0';
                             setTimeout(function() {
-                                const errorMessageHTML = `
-                                    <div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 400px;">
-                                        <div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">
-                                            <svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>
-                                                <path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
-                                            </svg>
-                                        </div>
-                                        <div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">
-                                            <h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">${mainTitle}</h1>
-                                            <p style="font-size: 1em; line-height: 1.6;">您当前的${updateTargetWord} (${browser.name} ${browser.version}) 不受支持。</p>
-                                            <p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请将您的${updateTargetWord}更新至 ${requiredVersion} 或更高版本。</p>
-                                            <p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>
-                                        </div>
-                                    </div>
-                                `;
-                                const layer = document.getElementById('loading-screen-layer');
+                                var buttonHTML = '';
+                                if (browser.name !== 'IE') {
+                                    buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
+                                }
+
+                                var errorMessageHTML =
+                                    '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
+                                    '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
+                                    '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                                    '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>' +
+                                    '<path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>' +
+                                    '</svg>' +
+                                    '</div>' +
+                                    '<div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">' +
+                                    '<h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">' + mainTitle + '</h1>' +
+                                    '<p style="font-size: 1em; line-height: 1.6;">您当前的' + updateTargetWord + ' (' + browserNameForDisplay + ') 不受支持。</p>' +
+                                    '<p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请升级或更换为' + requiredVersion + '。</p>' +
+                                    buttonHTML +
+                                    '</div>' +
+                                    '</div>';
+                                
+                                var layer = document.getElementById('loading-screen-layer');
                                 if (layer) {
                                     loadingScreen.innerHTML = layer.outerHTML + errorMessageHTML;
                                 } else {
                                     loadingScreen.innerHTML = errorMessageHTML;
                                 }
-                                const ignoreBtn = document.getElementById('ignore-unsupported-btn');
-                                if (ignoreBtn) {
-                                    ignoreBtn.addEventListener('click', function() {
-                                        const loadingScreen = document.getElementById('loading-screen');
-                                        if (loadingScreen) {
-                                            loadingScreen.addEventListener('transitionend', () => {
-                                                if (loadingScreen) {
-                                                    loadingScreen.remove();
-                                                }
-                                            }, { once: true });
-                                            loadingScreen.classList.add('hidden');
-                                        }
-                                        if (window.initializeApp) {
-                                            window.initializeApp();
-                                        }
-                                    });
+                                
+                                if (browser.name !== 'IE') {
+                                    var ignoreBtn = document.getElementById('ignore-unsupported-btn');
+                                    if (ignoreBtn) {
+                                        ignoreBtn.addEventListener('click', function() {
+                                            var screen = document.getElementById('loading-screen');
+                                            if (screen) {
+                                                screen.addEventListener('transitionend', function() {
+                                                    if (screen) {
+                                                        screen.remove();
+                                                    }
+                                                }, { once: true });
+                                                screen.classList.add('hidden');
+                                            }
+                                            if (window.initializeApp) {
+                                                window.initializeApp();
+                                            }
+                                        });
+                                    }
                                 }
-                                const prohibitedIcon = document.getElementById('prohibited-icon');
-                                const messageText = document.getElementById('unsupported-message-text');
+
+                                var prohibitedIcon = document.getElementById('prohibited-icon');
+                                var messageText = document.getElementById('unsupported-message-text');
                                 if (prohibitedIcon && messageText) {
-                                    setTimeout(() => {
+                                    setTimeout(function() {
                                         prohibitedIcon.style.opacity = '1';
                                         messageText.style.opacity = '1';
                                     }, 50);
@@ -145,7 +168,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: transparent;
+            background-color: #000000;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -154,16 +177,6 @@
             opacity: 1;
             visibility: visible;
             transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-        }
-        #loading-screen-layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200vmax;
-            height: 200vmax;
-            background-color: #000000;
-            z-index: -1;
         }
         #loading-screen.hidden {
             opacity: 0;
@@ -395,17 +408,18 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
+                        <li><span>2025.09.05：禁止IE进入</span></li>
                         <li><span>2025.09.04：删除 ?force 调试 flag, 因为已经确认 iOS 13 工作的稳定性，增加更新管理器</span></li>
                         <li><span>2025.09.03：微调移动端样式，更正 MacPro4,1 支持信息，增加窗口限位检查</span></li>
                         <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
                         <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
-                        <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
-                        <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
                         <li class="more-btn-li">
                             <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
                         </li>
                     </ul>
                     <template id="more-updates-template">
+                        <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
+                        <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
                         <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
                         <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
                         <li><span>2025.08.23：修复若干bug</span></li>
