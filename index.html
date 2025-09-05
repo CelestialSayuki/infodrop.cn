@@ -6,8 +6,8 @@
     <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
     <script>
         (function() {
-            var isUnsupported = false;
-            var browserInfo = getBrowserInfo();
+            window.isBrowserSupported = true;
+
             function getBrowserInfo() {
                 var ua = navigator.userAgent;
                 if (ua.indexOf('Trident/') !== -1) {
@@ -38,102 +38,110 @@
                 }
                 return { name: 'unknown', version: 0 };
             }
-            function showUnsupportedMessage() {
-                var requiredVersion = '';
-                var browserNameForDisplay = '';
-                var updateTargetWord = '浏览器';
-                var mainTitle = '浏览器版本过低';
-                if (browserInfo.name === 'Safari' && browserInfo.version > 0 && browserInfo.version < 13) {
-                    requiredVersion = '13.0';
-                    browserNameForDisplay = 'Safari ' + browserInfo.version;
-                    updateTargetWord = '系统浏览器';
-                    mainTitle = '系统版本过低';
-                } else if (browserInfo.name === 'Chrome' && browserInfo.version > 0 && browserInfo.version < 70) {
-                    requiredVersion = '70';
-                    browserNameForDisplay = 'Chrome/Chromium ' + browserInfo.version;
-                } else if (browserInfo.name === 'Firefox' && browserInfo.version > 0 && browserInfo.version < 70) {
-                    requiredVersion = '70';
-                    browserNameForDisplay = 'Firefox ' + browserInfo.version;
-                } else if (browserInfo.name === 'IE') {
-                    requiredVersion = 'Edge、Chrome 或 Firefox 等现代浏览器';
-                    browserNameForDisplay = 'Internet Explorer ' + browserInfo.version;
-                    mainTitle = '您的浏览器不受支持';
-                    updateTargetWord = '浏览器';
-                }
-                var logo = document.querySelector('#loading-screen .apple-logo');
-                var loadingScreen = document.getElementById('loading-screen');
-                if (logo && loadingScreen) {
-                    logo.style.opacity = '0';
+
+            window.browserInfo = getBrowserInfo();
+            var browser = window.browserInfo;
+            var isUnsupported = false;
+            var requiredVersion = '';
+            var browserNameForDisplay = '';
+            var updateTargetWord = '浏览器';
+            var mainTitle = '浏览器版本过低';
+
+            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
+                isUnsupported = true;
+                requiredVersion = '13.0';
+                browserNameForDisplay = 'Safari ' + browser.version;
+                updateTargetWord = '系统浏览器';
+                mainTitle = '系统版本过低';
+            } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 70) {
+                isUnsupported = true;
+                requiredVersion = '70';
+                browserNameForDisplay = 'Chrome/Chromium ' + browser.version;
+            } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 70) {
+                isUnsupported = true;
+                requiredVersion = '70';
+                browserNameForDisplay = 'Firefox ' + browser.version;
+            } else if (browser.name === 'IE') {
+                isUnsupported = true;
+                requiredVersion = 'Edge、Chrome 或 Firefox 等现代浏览器';
+                browserNameForDisplay = 'Internet Explorer ' + browser.version;
+                mainTitle = '您的浏览器不受支持';
+                updateTargetWord = '浏览器';
+            }
+
+            if (isUnsupported) {
+                window.isBrowserSupported = false;
+                document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
-                        var buttonHTML = '';
-                        if (browserInfo.name !== 'IE') {
-                            buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
-                        }
-                        var errorMessageHTML =
-                            '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
-                            '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
-                            '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                            '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>' +
-                            '<path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>' +
-                            '</svg>' +
-                            '</div>' +
-                            '<div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">' +
-                            '<h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">' + mainTitle + '</h1>' +
-                            '<p style="font-size: 1em; line-height: 1.6;">您当前的' + updateTargetWord + ' (' + browserNameForDisplay + ') 不受支持。</p>' +
-                            '<p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请升级或更换为' + requiredVersion + '。</p>' +
-                            buttonHTML +
-                            '</div>' +
-                            '</div>';
-                        var layer = document.getElementById('loading-screen-layer');
-                        loadingScreen.innerHTML = (layer ? layer.outerHTML : '') + errorMessageHTML;
-                        if (browserInfo.name !== 'IE') {
-                            var ignoreBtn = document.getElementById('ignore-unsupported-btn');
-                            if (ignoreBtn) {
-                                ignoreBtn.addEventListener('click', function() {
-                                    var screen = document.getElementById('loading-screen');
-                                    if(screen) {
-                                        screen.innerHTML =
-                                            '<div id="loading-screen-layer"></div>' +
-                                            '<img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo" style="opacity: 1;">' +
-                                            '<div class="progress-bar-container" style="opacity: 0;">' +
-                                            '  <div class="progress-bar-fill" style="width: 0%;"></div>' +
-                                            '</div>' +
-                                            '<div class="loading-text" style="opacity: 0;"></div>';
-                                    }
-                                    if (window.initializeApp) {
-                                        window.initializeApp();
-                                    }
-                                });
-                            }
-                        }
-                        var prohibitedIcon = document.getElementById('prohibited-icon');
-                        var messageText = document.getElementById('unsupported-message-text');
-                        if (prohibitedIcon && messageText) {
+                        var logo = document.querySelector('#loading-screen .apple-logo');
+                        var loadingScreen = document.getElementById('loading-screen');
+                        if (logo && loadingScreen) {
+                            logo.style.opacity = '0';
                             setTimeout(function() {
-                                prohibitedIcon.style.opacity = '1';
-                                messageText.style.opacity = '1';
-                            }, 50);
+                                var buttonHTML = '';
+                                if (browser.name !== 'IE') {
+                                    buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
+                                }
+
+                                var errorMessageHTML =
+                                    '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
+                                    '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
+                                    '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                                    '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>' +
+                                    '<path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>' +
+                                    '</svg>' +
+                                    '</div>' +
+                                    '<div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">' +
+                                    '<h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">' + mainTitle + '</h1>' +
+                                    '<p style="font-size: 1em; line-height: 1.6;">您当前的' + updateTargetWord + ' (' + browserNameForDisplay + ') 不受支持。</p>' +
+                                    '<p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请升级或更换为' + requiredVersion + '。</p>' +
+                                    buttonHTML +
+                                    '</div>' +
+                                    '</div>';
+                                
+                                var layer = document.getElementById('loading-screen-layer');
+                                if (layer) {
+                                    loadingScreen.innerHTML = layer.outerHTML + errorMessageHTML;
+                                } else {
+                                    loadingScreen.innerHTML = errorMessageHTML;
+                                }
+                                
+                                if (browser.name !== 'IE') {
+                                    var ignoreBtn = document.getElementById('ignore-unsupported-btn');
+                                    if (ignoreBtn) {
+                                        ignoreBtn.addEventListener('click', function() {
+                                            var screen = document.getElementById('loading-screen');
+                                            if (screen) {
+                                                screen.addEventListener('transitionend', function() {
+                                                    if (screen) {
+                                                        screen.remove();
+                                                    }
+                                                }, { once: true });
+                                                screen.classList.add('hidden');
+                                            }
+                                            if (window.initializeApp) {
+                                                window.initializeApp();
+                                            }
+                                        });
+                                    }
+                                }
+
+                                var prohibitedIcon = document.getElementById('prohibited-icon');
+                                var messageText = document.getElementById('unsupported-message-text');
+                                if (prohibitedIcon && messageText) {
+                                    setTimeout(function() {
+                                        prohibitedIcon.style.opacity = '1';
+                                        messageText.style.opacity = '1';
+                                    }, 50);
+                                }
+                            }, 500);
                         }
                     }, 500);
+                });
+            } else {
+                if (localStorage.getItem('sw_installed_version')) {
+                    document.documentElement.className += ' is-preloaded';
                 }
-            }
-            if ((browserInfo.name === 'Safari' && browserInfo.version > 0 && browserInfo.version < 13) ||
-                (browserInfo.name === 'Chrome' && browserInfo.version > 0 && browserInfo.version < 70) ||
-                (browserInfo.name === 'Firefox' && browserInfo.version > 0 && browserInfo.version < 70) ||
-                (browserInfo.name === 'IE')) {
-                isUnsupported = true;
-            }
-            document.addEventListener('DOMContentLoaded', function() {
-                if (isUnsupported) {
-                    showUnsupportedMessage();
-                } else {
-                    if (window.initializeApp) {
-                        window.initializeApp();
-                    }
-                }
-            });
-            if (!isUnsupported && localStorage.getItem('sw_installed_version')) {
-                document.documentElement.className += ' is-preloaded';
             }
         })();
     </script>
