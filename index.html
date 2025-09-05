@@ -768,11 +768,13 @@
             });
         })();
         function applyOrientationClass() {
-            const orientationType = screen.orientation.type;
-            const body = document.body;
-
+            if (!screen || !screen.orientation) {
+                document.body.classList.add('portrait-mode');
+                return;
+            }
+            var orientationType = screen.orientation.type;
+            var body = document.body;
             body.classList.remove('landscape-notch-left', 'landscape-notch-right', 'portrait-mode');
-
             switch (orientationType) {
                 case 'landscape-primary':
                     body.classList.add('landscape-notch-left');
@@ -786,7 +788,9 @@
             }
         }
         document.addEventListener('DOMContentLoaded', applyOrientationClass);
-        screen.orientation.addEventListener('change', applyOrientationClass);
+        if (screen && screen.orientation) {
+            screen.orientation.addEventListener('change', applyOrientationClass);
+        }
     </script>
 </body>
 </html>
