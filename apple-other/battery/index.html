@@ -75,7 +75,6 @@
             color: var(--light-text-secondary);
             border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
-
         .tabs-content {
             position: relative;
             transition: height 0.3s ease-in-out;
@@ -96,7 +95,6 @@
             opacity: 1;
             pointer-events: auto;
         }
-        
         .resource-content-wrapper .table {
             width: 100%;
             border-collapse: collapse;
@@ -127,37 +125,44 @@
             border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
             border-top: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
         }
-
-        @media (prefers-color-scheme: dark) {
-            .resource-content-wrapper .category-switcher a {
-                color: var(--dark-text-secondary, #8b949e);
-            }
-            .resource-content-wrapper .category-switcher a.active {
-                color: var(--dark-text, #c9d1d9);
-            }
-            .resource-content-wrapper {
-                background-color: var(--dark-glass-bg);
-            }
-            .resource-content-wrapper h1,
-            .resource-content-wrapper .lead {
-                color: var(--dark-text-secondary);
-            }
-            .resource-content-wrapper .lead {
-                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-            }
-            .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
-                background-color: rgba(255, 255, 255, 0.08);
-            }
-            .resource-content-wrapper .table > thead > tr > th {
-                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
-            }
-            .resource-content-wrapper .table tbody td {
-                border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-            }
-            .table-section-header th {
-                background-color: rgba(255, 255, 255, 0.05);
-                border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
-            }
+        .macos-window.dark-mode .resource-content-wrapper .category-switcher a,
+        html.dark-mode .resource-content-wrapper .category-switcher a {
+            color: var(--dark-text-secondary, #8b949e);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .category-switcher a.active,
+        html.dark-mode .resource-content-wrapper .category-switcher a.active {
+            color: var(--dark-text, #c9d1d9);
+        }
+        .macos-window.dark-mode .resource-content-wrapper,
+        html.dark-mode .resource-content-wrapper {
+            background-color: var(--dark-glass-bg);
+        }
+        .macos-window.dark-mode .resource-content-wrapper h1,
+        .macos-window.dark-mode .resource-content-wrapper .lead,
+        html.dark-mode .resource-content-wrapper h1,
+        html.dark-mode .resource-content-wrapper .lead {
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .lead,
+        html.dark-mode .resource-content-wrapper .lead {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover,
+        html.dark-mode .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table > thead > tr > th,
+        html.dark-mode .resource-content-wrapper .table > thead > tr > th {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table tbody td,
+        html.dark-mode .resource-content-wrapper .table tbody td {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .macos-window.dark-mode .table-section-header th,
+        html.dark-mode .table-section-header th {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
         }
         @media (max-width: 768px) {
             .resource-content-wrapper {

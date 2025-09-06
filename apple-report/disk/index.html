@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disk Bench 硬盘性能检测</title>
     <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
-
     <style type="text/css">
         .main-content {
             padding: 20px;
         }
-
         .table-container {
             width: 100%;
             overflow-y: auto;
@@ -18,12 +16,10 @@
             border-radius: 8px;
             margin-top: 20px;
         }
-
         .results-table {
             width: 100%;
             border-collapse: collapse;
         }
-
         .results-table thead {
             position: -webkit-sticky;
             position: sticky;
@@ -44,23 +40,19 @@
             border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
         }
-
         .results-table tbody tr:hover {
             background-color: var(--hover-bg-color);
         }
-
         .results-table .model-cell {
             white-space: normal;
             min-width: 280px;
         }
-
         .model-cell .model-id {
             font-size: 0.8em;
             color: var(--text-secondary);
             display: block;
             margin-top: 4px;
         }
-
         #DiskBenchInput {
             width: 100%;
             font-size: 1rem;
@@ -72,16 +64,14 @@
             color: var(--text-primary);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
-
         #DiskBenchInput:focus {
             outline: none;
             border-color: var(--accent-color);
             box-shadow: 0 0 0 3px var(--accent-color-translucent);
         }
-        @media (prefers-color-scheme: dark) {
-            .results-table thead {
-                background-color: var(--dark-card-header-bg-color, rgba(28, 33, 40, 0.8));
-            }
+        .macos-window.dark-mode .results-table thead,
+        html.dark-mode .results-table thead {
+            background-color: var(--dark-card-header-bg-color, rgba(28, 33, 40, 0.8));
         }
         @media (max-width: 768px) {
           .main-content {

@@ -230,47 +230,57 @@
             transform: none;
         }
         
-        @media (prefers-color-scheme: dark) {
-            a {
-                color: #8ab4f8;
-            }
-            .title strong {
-                color: var(--dark-text);
-            }
-            .title span {
-                color: var(--dark-text-secondary);
-            }
-            .card {
-                background-color: var(--dark-glass-bg);
-                border: 1px solid var(--dark-border);
-                box-shadow: var(--dark-glass-shadow);
-            }
-            .div {
-                color: var(--dark-text-secondary);
-                background-color: var(--dark-glass-bg);
-                box-shadow: var(--dark-glass-shadow);
-                border: 1px solid var(--dark-border);
-            }
-            .card p.hint {
-                color: var(--dark-text-secondary);
-            }
-            .ua-info {
-                background-color: var(--dark-bg);
-                color: var(--dark-text-secondary);
-            }
-            input[type="text"],
-            select {
-                background-color: var(--dark-bg);
-                border: 1px solid var(--dark-border);
-                color: var(--dark-text);
-            }
-            input[type="text"]::placeholder {
-                color: var(--dark-text-secondary);
-            }
-            #rawresult {
-                border-color: var(--dark-border);
-                color: var(--dark-text);
-            }
+        /* --- Dark Mode Styles for both Desktop (Window) and Mobile (Direct Load) --- */
+        .macos-window.dark-mode a,
+        html.dark-mode a {
+            color: #8ab4f8;
+        }
+        .macos-window.dark-mode .title strong,
+        html.dark-mode .title strong {
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode .title span,
+        html.dark-mode .title span {
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode .card,
+        html.dark-mode .card {
+            background-color: var(--dark-glass-bg);
+            border: 1px solid var(--dark-border);
+            box-shadow: var(--dark-glass-shadow);
+        }
+        .macos-window.dark-mode .div,
+        html.dark-mode .div {
+            color: var(--dark-text-secondary);
+            background-color: var(--dark-glass-bg);
+            box-shadow: var(--dark-glass-shadow);
+            border: 1px solid var(--dark-border);
+        }
+        .macos-window.dark-mode .card p.hint,
+        html.dark-mode .card p.hint {
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode .ua-info,
+        html.dark-mode .ua-info {
+            background-color: var(--dark-bg);
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode input[type="text"],
+        .macos-window.dark-mode select,
+        html.dark-mode input[type="text"],
+        html.dark-mode select {
+            background-color: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode input[type="text"]::placeholder,
+        html.dark-mode input[type="text"]::placeholder {
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode #rawresult,
+        html.dark-mode #rawresult {
+            border-color: var(--dark-border);
+            color: var(--dark-text);
         }
 
         @media (max-width: 768px) {
@@ -425,7 +435,7 @@
             }
 
             for (let i = 1; i < sortedResults.length; i++) {
-                if (sortedResults[i].latency < sortedResults[i - 1].latency * 0.95) {
+                if (sortedResults[i].latency < sortedResults[i - 1].latency * 0.9) {
                     return false;
                 }
             }
@@ -463,8 +473,7 @@
         function updateChart() {
             if (!chart) {
                 const chartDom = document.getElementById('results-chart');
-
-                const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isDark = document.documentElement.classList.contains('dark-mode');
                 chart = echarts.init(chartDom, isDark ? 'dark' : 'light');
             }
             
@@ -613,14 +622,14 @@
                 }
         
         function init() {
-            const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-            darkModeMatcher.addEventListener('change', () => {
+            const themeObserver = new MutationObserver(() => {
                 if (chart) {
                     chart.dispose();
                     chart = null;
                     updateChart();
                 }
             });
+            themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
             
             document.getElementById('info-ua').textContent = navigator.userAgent;
             

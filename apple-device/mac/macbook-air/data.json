@@ -410,9 +410,9 @@
         "supportedOS": "macOS 10.14 ~ macOS 14",
         "modelIdentifier": "MacBookAir8,2",
         "colors": [
-            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "深空灰色", "hex": "rgb(171, 174, 179)" },
             { "name": "银色", "hex": "rgb(199, 200, 202)" },
-            { "name": "金色", "hex": "F6DCCA" }
+            { "name": "金色", "hex": "rgb(223, 204, 183)" }
         ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Amber Lake Y)",
@@ -449,9 +449,9 @@
         "supportedOS": "macOS 10.14 ~ macOS 14",
         "modelIdentifier": "MacBookAir8,1",
         "colors": [
-            { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
+            { "name": "深空灰色", "hex": "rgb(171, 174, 179)" },
             { "name": "银色", "hex": "rgb(199, 200, 202)" },
-            { "name": "金色", "hex": "F6DCCA" }
+            { "name": "金色", "hex": "rgb(223, 204, 183)" }
         ],
         "arLink": "/",
         "chipProcess": "Intel 14nm (Amber Lake Y)",

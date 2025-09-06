@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>型号查询</title>
     <style>
@@ -25,14 +25,32 @@
         .result-processing { background-color: rgba(0, 122, 255, 0.1); color: var(--accent-color); }
         #full-list-container { display: none; margin-left: 15px; margin-right: 15px; }
         #full-list-container pre { white-space: pre-wrap; word-wrap: break-word; background-color: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px; margin-top: 2rem; text-align: left; line-height: 1.6; }
-
-        @media (prefers-color-scheme: dark) {
-            .auth-wrapper { background-color: var(--dark-glass-bg); color: var(--dark-text); }
-            .auth-wrapper .lead { border-bottom-color: var(--dark-border); }
-            .form-group input[type="text"] { border-color: var(--dark-border); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
-            .result-success { background-color: rgba(40, 201, 64, 0.2); }
-            .result-fail { background-color: rgba(255, 95, 87, 0.25); }
-            #full-list-container pre { background-color: rgba(255,255,255,0.05); }
+        .macos-window.dark-mode .auth-wrapper,
+        html.dark-mode .auth-wrapper {
+            background-color: var(--dark-glass-bg);
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode .auth-wrapper .lead,
+        html.dark-mode .auth-wrapper .lead {
+            border-bottom-color: var(--dark-border);
+        }
+        .macos-window.dark-mode .form-group input[type="text"],
+        html.dark-mode .form-group input[type="text"] {
+            border-color: var(--dark-border);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode .result-success,
+        html.dark-mode .result-success {
+            background-color: rgba(40, 201, 64, 0.2);
+        }
+        .macos-window.dark-mode .result-fail,
+        html.dark-mode .result-fail {
+            background-color: rgba(255, 95, 87, 0.25);
+        }
+        .macos-window.dark-mode #full-list-container pre,
+        html.dark-mode #full-list-container pre {
+            background-color: rgba(255,255,255,0.05);
         }
 
         @media (max-width: 768px) {

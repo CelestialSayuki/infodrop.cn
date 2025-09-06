@@ -10,12 +10,12 @@
         .auth-wrapper .lead { padding: 0 15px 15px; margin-bottom: 2rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
         .form-group { margin-bottom: 1.5rem; padding: 0 15px; }
         .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
-        .form-group input[type="text"] { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; }
+        .form-group input[type="text"] { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box; }
         .form-group input[type="text"]:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25); }
         .btn { display: inline-block; padding: 12px 25px; font-size: 1rem; font-weight: 500; text-align: center; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
         .btn-primary { background-color: var(--accent-color); color: white; width: 100%; }
         .btn:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
-        .btn-primary:hover { background-color: var(--accent-color-hover); }
+        .btn-primary:hover:not(:disabled) { background-color: var(--accent-color-hover); }
         .btn:active { transform: scale(0.98); }
         #quiz-section { display: none; }
         .question-block { margin-bottom: 1rem;  padding: 20px 20px 0; border: 1px solid transparent; border-radius: 10px; }
@@ -58,22 +58,29 @@
         #result-message.result-success strong:hover {
             background-color: #f0f0f0;
         }
-
-        @media (prefers-color-scheme: dark) {
-            .auth-wrapper { background-color: var(--dark-glass-bg); }
-            .auth-wrapper h1, .auth-wrapper .lead { color: var(--dark-text); }
-            .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
-            .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
-            .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
-            .options-list li.selected {
-                background-color: rgba(138, 180, 248, 0.25);
-                border-color: #8ab4f8;
-            }
-            .result-success { background-color: rgba(40, 201, 64, 0.2); }
-            #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
-            #result-message.result-success strong:hover { background-color: rgba(0, 0, 0, 0.4); }
+        .macos-window.dark-mode .auth-wrapper,
+        html.dark-mode .auth-wrapper { background-color: var(--dark-glass-bg); }
+        .macos-window.dark-mode .auth-wrapper h1,
+        .macos-window.dark-mode .auth-wrapper .lead,
+        html.dark-mode .auth-wrapper h1,
+        html.dark-mode .auth-wrapper .lead { color: var(--dark-text); }
+        .macos-window.dark-mode .auth-wrapper .lead,
+        html.dark-mode .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+        .macos-window.dark-mode .form-group input[type="text"],
+        html.dark-mode .form-group input[type="text"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
+        .macos-window.dark-mode .options-list li:hover,
+        html.dark-mode .options-list li:hover { background-color: rgba(138, 180, 248, 0.15); }
+        .macos-window.dark-mode .options-list li.selected,
+        html.dark-mode .options-list li.selected {
+            background-color: rgba(138, 180, 248, 0.25);
+            border-color: #8ab4f8;
         }
-        
+        .macos-window.dark-mode .result-success,
+        html.dark-mode .result-success { background-color: rgba(40, 201, 64, 0.2); }
+        .macos-window.dark-mode #result-message.result-success strong,
+        html.dark-mode #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
+        .macos-window.dark-mode #result-message.result-success strong:hover,
+        html.dark-mode #result-message.result-success strong:hover { background-color: rgba(0, 0, 0, 0.4); }
         @media (max-width: 768px) {
             .auth-wrapper {
                 padding: 20px;

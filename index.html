@@ -6,8 +6,15 @@
     <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
     <script>
         (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <script>
+        (function() {
             window.isBrowserSupported = true;
-
             function getBrowserInfo() {
                 var ua = navigator.userAgent;
                 if (ua.indexOf('Trident/') !== -1) {
@@ -38,7 +45,6 @@
                 }
                 return { name: 'unknown', version: 0 };
             }
-
             window.browserInfo = getBrowserInfo();
             var browser = window.browserInfo;
             var isUnsupported = false;
@@ -46,7 +52,6 @@
             var browserNameForDisplay = '';
             var updateTargetWord = '浏览器';
             var mainTitle = '浏览器版本过低';
-
             if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
                 isUnsupported = true;
                 requiredVersion = '13.0';
@@ -68,7 +73,6 @@
                 mainTitle = '您的浏览器不受支持';
                 updateTargetWord = '浏览器';
             }
-
             if (isUnsupported) {
                 window.isBrowserSupported = false;
                 document.addEventListener('DOMContentLoaded', function() {
@@ -82,7 +86,6 @@
                                 if (browser.name !== 'IE') {
                                     buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
                                 }
-
                                 var errorMessageHTML =
                                     '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
                                     '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
@@ -105,7 +108,6 @@
                                 } else {
                                     loadingScreen.innerHTML = errorMessageHTML;
                                 }
-                                
                                 if (browser.name !== 'IE') {
                                     var ignoreBtn = document.getElementById('ignore-unsupported-btn');
                                     if (ignoreBtn) {
@@ -125,7 +127,6 @@
                                         });
                                     }
                                 }
-
                                 var prohibitedIcon = document.getElementById('prohibited-icon');
                                 var messageText = document.getElementById('unsupported-message-text');
                                 if (prohibitedIcon && messageText) {
@@ -157,88 +158,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./public-static/css/new.css">
-    <style>
-        .is-preloaded #loading-screen {
-            display: none;
-        }
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #000000;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-        }
-        #loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .apple-logo {
-            width: 15vw;
-            height: auto;
-            fill: #ffffff;
-            transition: opacity 0.5s ease-in-out;
-            margin-bottom: 35px;
-        }
-        .progress-bar-container {
-            width: 240px;
-            height: 5px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 5px;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-        .progress-bar-fill {
-            width: 0%;
-            height: 100%;
-            background-color: #ffffff;
-            border-radius: 5px;
-            transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        .loading-text {
-            color: #ffffff;
-            margin-top: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 0.9em;
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-        .footer-content {
-            text-align: center;
-            margin-top: 30px;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #a8a8b1;
-            font-size: 0.9em;
-        }
-        .sponsor-logo {
-            height: 48px;
-            margin-right: 32px;
-            border-radius: 4px;
-        }
-        .beian-link {
-            color: #a8a8b1;
-            text-decoration: none;
-        }
-        .copyright {
-            margin-top: 15px;
-        }
-        @media (max-width: 768px) {
-            .apple-logo {
-                width: 45vw;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -382,6 +301,11 @@
                     </div>
                 </div>
                 <a href="https://www.github.com/CelestialSayuki/infodrop.cn">源码</a>
+                <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="切换主题">
+                    <i class="bi bi-circle-half" title="跟随系统"></i>
+                    <i class="bi bi-sun-fill" title="浅色模式"></i>
+                    <i class="bi bi-moon-stars-fill" title="深色模式"></i>
+                </button>
             </div>
         </header>
         <main class="main-content">
@@ -826,6 +750,47 @@
         if (screen && screen.orientation) {
             screen.orientation.addEventListener('change', applyOrientationClass);
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            if (!themeToggleBtn) return;
+            const icons = {
+                auto: themeToggleBtn.querySelector('.bi-circle-half'),
+                light: themeToggleBtn.querySelector('.bi-sun-fill'),
+                dark: themeToggleBtn.querySelector('.bi-moon-stars-fill')
+            };
+            const themeStates = ['auto', 'light', 'dark'];
+            let currentTheme = localStorage.getItem('theme') || 'auto';
+            function applyTheme(theme) {
+                if (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-mode');
+                } else {
+                    document.documentElement.classList.remove('dark-mode');
+                }
+                const isDark = document.documentElement.classList.contains('dark-mode');
+                document.querySelectorAll('.macos-window').forEach(win => {
+                    win.classList.toggle('dark-mode', isDark);
+                });
+                Object.values(icons).forEach(icon => icon.style.display = 'none');
+                if (icons[theme]) {
+                    icons[theme].style.display = 'block';
+                }
+                localStorage.setItem('theme', theme);
+                currentTheme = theme;
+            }
+            themeToggleBtn.addEventListener('click', () => {
+                const currentIndex = themeStates.indexOf(currentTheme);
+                const nextIndex = (currentIndex + 1) % themeStates.length;
+                applyTheme(themeStates[nextIndex]);
+            });
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (currentTheme === 'auto') {
+                    applyTheme('auto');
+                }
+            });
+            applyTheme(currentTheme);
+        });
     </script>
 </body>
 </html>

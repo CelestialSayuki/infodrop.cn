@@ -212,7 +212,7 @@
                 const itemHeight = 25;
                 const calculatedHeight = Math.max(200, chartData.length * itemHeight + 120);
                 chartDiv.style.height = `${calculatedHeight}px`;
-                const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                const theme = document.documentElement.classList.contains('dark-mode') ? "dark" : "light";
                 chartInstance = echarts.init(chartDiv, theme);
                 const option = {
                     backgroundColor: 'transparent',
@@ -273,6 +273,11 @@
             });
             
             refreshResultsButton.addEventListener('click', loadUploadedResults);
+
+            const themeObserver = new MutationObserver(() => {
+                applyFiltersAndRender();
+            });
+            themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
             
             loadUploadedResults();
         }, 0);

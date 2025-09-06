@@ -106,11 +106,9 @@
             margin-right: 6px;
             border-radius: 2px;
         }
-        
-        @media (prefers-color-scheme: dark) {
-            .legend-group .sub-legend-title {
-                color: var(--dark-text-secondary);
-            }
+        .macos-window.dark-mode .legend-group .sub-legend-title,
+        html.dark-mode .legend-group .sub-legend-title {
+            color: var(--dark-text-secondary);
         }
         @media (max-width: 768px) {
             .main-content {
@@ -190,11 +188,9 @@
     (() => {
         const dom = document.getElementById('CPU_Full_Random_Latency');
         if (!dom) return;
-
-        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-        const myChart = echarts.init(dom, theme, { renderer: 'canvas', useDirtyRect: false });
-        new ResizeObserver(() => myChart.resize()).observe(dom);
-
+        let myChart;
+        let allSeriesData = [];
+        let allLegendGroups = {};
         const initialOption = {
             backgroundColor: 'transparent',
             title: { text: 'CPU 随机访问延迟', subtext: 'X 坐标: Test Depth (Transfer Size) / Y 坐标: Latency (单位：ns) / 点击下方图例筛选芯片', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 }},
@@ -213,13 +209,17 @@
                 axisLabel: { textStyle: { fontSize: "11" }, formatter: (value) => value + 'ns' }
             }
         };
-
-        let allSeriesData = [];
-        let allLegendGroups = {};
-
         const typeFilters = document.querySelectorAll('.chart-controls input[name="type"]');
-
+        function initChart() {
+            if (myChart) {
+                myChart.dispose();
+            }
+            const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            myChart = echarts.init(dom, theme, { renderer: 'canvas', useDirtyRect: false });
+            new ResizeObserver(() => myChart.resize()).observe(dom);
+        }
         function updateChartAndLegends() {
+            if (!myChart) return;
             const selectedTypes = Array.from(typeFilters)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
@@ -249,10 +249,9 @@
             
             generateLegends(filteredSeriesNames);
         }
-
         function generateLegends(filteredSeriesNames) {
             const legendContainers = document.querySelectorAll('.legend-items-container');
-            legendContainers.forEach(c => c.innerHTML = ''); // Clear existing legends
+            legendContainers.forEach(c => c.innerHTML = '');
 
             const currentSelection = myChart.getOption().legend[0].selected;
             const chartColors = myChart.getOption().color;
@@ -296,7 +295,7 @@
                 }
             }
         }
-        
+        initChart();
         fetch('./apple-report/latency-result/data.json')
             .then(response => {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -316,8 +315,14 @@
                 console.error('Error fetching or processing data:', error);
                 dom.innerHTML = `<div style="text-align:center; padding-top: 50px; color: red;">图表数据加载失败: ${error.message}</div>`;
             });
+        const themeObserver = new MutationObserver(() => {
+            initChart();
+            if (allSeriesData.length > 0) {
+                updateChartAndLegends();
+            }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     })();
     </script>
-
 </body>
 </html>
