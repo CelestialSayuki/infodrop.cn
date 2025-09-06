@@ -81,7 +81,7 @@
     {
       "name": "Apple Vision Pro",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/vision/img/vision-pro.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/vision/img/vision-pro.webp",
       "data": {
         "slogan": "眼前的世界，从此大开眼界。",
         "releaseDate": "2023.06.06",
@@ -90,7 +90,7 @@
         "colors": [
             {"name": "银色", "hex": "#D2D3D4" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/vision/apple_vision_pro_ios16.usdz\" target=\"_blank\">银色</a>",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 + R1</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16GB LPDDR5<br>256G、512G、1T</div>",
         "audioChip": "H2",

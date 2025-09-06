@@ -69,7 +69,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 7 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_7.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_7.webp",
       "data": {
         "slogan": "够快，够快乐。",
         "releaseDate": "2019.05.29",
@@ -105,7 +105,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 6 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_6.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_6.webp",
       "data": {
         "slogan": "新鲜色彩，全系列都出彩。",
         "releaseDate": "2015.07.16",
@@ -140,7 +140,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 5 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_5.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_5.webp",
       "data": {
         "slogan": "精工细作，尽情享乐之作。",
         "releaseDate": "2012.09.13",
@@ -175,7 +175,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 4 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_4.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_4.webp",
       "data": {
         "slogan": "介绍全新 iPod touch",
         "releaseDate": "2010.09.02",
@@ -207,7 +207,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 3 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_3.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_3.webp",
       "data": {
         "slogan": "音乐、视频及应用，尽在指点之间",
         "releaseDate": "2009.09.10",
@@ -238,7 +238,7 @@
     {
       "name": "iPod touch",
       "generation": "(第 2 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_2.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_2.webp",
       "data": {
         "slogan": "/",
         "releaseDate": "2008.09.10",
@@ -269,7 +269,7 @@
     {
       "name": "iPod touch",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/ipod/img/ipod_touch_1.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipod/img/ipod_touch_1.webp",
       "data": {
         "slogan": "/",
         "releaseDate": "2007.09.05",

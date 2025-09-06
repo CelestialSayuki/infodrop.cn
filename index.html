@@ -157,7 +157,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./public-static/css/new.css">
-
     <style>
         .is-preloaded #loading-screen {
             display: none;
@@ -213,6 +212,26 @@
             font-size: 0.9em;
             opacity: 0;
             transition: opacity 0.5s ease-in;
+        }
+        .footer-content {
+            text-align: center;
+            margin-top: 30px;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a8a8b1;
+            font-size: 0.9em;
+        }
+        .sponsor-logo {
+            height: 48px;
+            margin-right: 32px;
+            border-radius: 4px;
+        }
+        .beian-link {
+            color: #a8a8b1;
+            text-decoration: none;
+        }
+        .copyright {
+            margin-top: 15px;
         }
         @media (max-width: 768px) {
             .apple-logo {
@@ -339,7 +358,7 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <a href="index.html">
-                    <img src="./public-static/img/logo.webp" height="30px" width="30px">
+                    <img src="./favicon.ico" height="30px" width="30px">
                 </a>
                 <div class="top_title" id="top_title">先进的 Apple 产品参数中心 / infodrop.cn</div>
             </div>
@@ -378,18 +397,6 @@
                 </div>
                 <div class="div" id="divdown2" style="display: none;">加载中......</div>
                 <div class="title">
-                    <strong>QQ讨论群</strong>
-                    <br>
-                    <span>说明：本网站的讨论群，暂时无需审核即可加入。</span>
-                </div>
-                <div class="card">
-                    <ul id="QQ-Group-number">
-                        <li>
-                            <span>主群：1030970215</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="title">
                     <strong>未来工作</strong>
                     <br>
                     <span>说明：针对 infodrop.cn 的改造，以求更加完美的体验。</span>
@@ -400,6 +407,47 @@
                         <li><span>支持各种测试提交成绩</span></li>
                         <li><span>整理Beats设备</span></li>
                     </ul>
+                </div>
+                <div class="title">
+                    <strong>媒体账号</strong>
+                    <br>
+                    <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
+                </div>
+                <div class="card">
+                    <b style="font-style:oblique;">开发者Bilibili：</b>
+                    <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
+                    <br>
+                    <b style="font-style:oblique;">开发者Twitter：</b>
+                    <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
+                    <br>
+                    <b style="font-style:oblique;">开发者E-mail：</b>CelestialSayuki@qq.com
+                    <br>
+                    <b style="font-style:oblique;">开发者Telegram：</b>
+                    <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
+                    <br>
+                    <b style="font-style:oblique;">运行维护E-mail：</b>wxcznb@qq.com
+                    <br>
+                    <b style="font-style:oblique;">运行维护Bilibili：</b>
+                    <a href="https://space.bilibili.com/504306154">laobamac</a>
+                    <br>
+                </div>
+                <div class="title">
+                    <strong>运行信息</strong>
+                    <br>
+                    <span>说明：没有 SimpleHac 的赞助，本网站几乎无法承担前期运营成本，感谢 SimpleHac 对本项目的支持。</span>
+                </div>
+                <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <b style="font-style:oblique;">云服务赞助：</b>
+                        <a href="https://space.bilibili.com/504306154">SimpleHac团队</a>
+                        <br>
+                        <b style="font-style:oblique;">运行维护：</b>
+                        <a href="https://github.com/laobamac">laobamac</a>
+                        <br>
+                        <b style="font-style:oblique;">爱发电支持：</b>
+                        <a href="https://afdian.com/a/laobamac">SimpleHac 团队</a>
+                    </div>
+                    <img src="./public-static/img/simplehac.webp" alt="SimpleHac" class="sponsor-logo">
                 </div>
                 <div class="title">
                     <strong>更新记录</strong>
@@ -448,26 +496,12 @@
                         <li><span>2025.06.23：本网站与 hubweb.cn 分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span></li>
                     </template>
                 </div>
-                <div class="title">
-                    <strong>媒体账号</strong>
-                    <br>
-                    <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
-                </div>
-                <div class="card">
-                    <b style="font-style:oblique;">维护者Bilibili：</b>
-                    <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
-                    <br>
-                    <b style="font-style:oblique;">维护者Twitter：</b>
-                    <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
-                    <br>
-                    <b style="font-style:oblique;">维护者E-mail：</b>CelestialSayuki@qq.com
-                    <br>
-                    <b style="font-style:oblique;">维护者Telegram：</b>
-                    <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
-                    <br>
-                </div>
-                <div style="text-align: center; margin-top: 50px; padding-bottom: 30px;">
-                    <span class="spen_ab">This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
+                <div class="footer-content">
+                    <div class="copyright">
+                        <a href="https://beian.miit.gov.cn/" class="beian-link" target="_blank">豫ICP备2024082352号-3</a>
+                        <span> | </span>
+                        <span>This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
+                    </div>
                 </div>
                 <svg id="animation-svg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></svg>
             </div>

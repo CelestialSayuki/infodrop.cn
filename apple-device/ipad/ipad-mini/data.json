@@ -78,7 +78,7 @@
     {
       "name": "iPad mini",
       "generation": "(A17 Pro)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_7.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_7.webp",
       "data": {
         "slogan": "单手炫大招",
         "releaseDate": "2024.10.15",
@@ -90,7 +90,7 @@
           { "name": "紫色", "hex": "#e3dee9" },
           { "name": "蓝色", "hex": "#d7e5e6" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">紫色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_a17_pro_purple.usdz\" target=\"_blank\">紫色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+5GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512GB</div>",
         "display": "8.3\" Liquid LED",
@@ -116,7 +116,7 @@
     {
       "name": "iPad mini",
       "generation": "(第 6 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_6.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_6.webp",
       "data": {
         "slogan": "小写的大",
         "releaseDate": "2021.09.15",
@@ -128,7 +128,7 @@
           { "name": "粉色", "hex": "#e8d1cf" },
           { "name": "紫色", "hex": "#b9b8d1" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_space_gray.usdz\" target=\"_blank\">深空灰色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_starlight.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"http://cdn.infodrop.cn/AR/ipad/ipad_mini_6_purple.usdz\" target=\"_blank\">紫色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_space_gray.usdz\" target=\"_blank\">深空灰色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_starlight.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_purple.usdz\" target=\"_blank\">紫色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+3E+5GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4G LPDDR4X<br>64G、256G</div>",
         "display": "8.3\" Liquid LED",
@@ -154,7 +154,7 @@
     {
       "name": "iPad mini",
       "generation": "(第 5 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_5.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_5.webp",
       "data": {
         "slogan": "迷你身材，大有可为",
         "releaseDate": "2019.03.18",
@@ -191,7 +191,7 @@
     {
       "name": "iPad mini 4",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_4.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_4.webp",
       "data": {
         "slogan": "小身板，大能量，配 Touch ID",
         "releaseDate": "2014.10.17",
@@ -228,7 +228,7 @@
     {
       "name": "iPad mini 2",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_2.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_2.webp",
       "data": {
         "slogan": "配备 Retina 显示屏，小有乾坤",
         "releaseDate": "2013.10.23",
@@ -264,7 +264,7 @@
     {
       "name": "iPad mini",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_1.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-mini/img/ipad_mini_1.webp",
       "data": {
         "slogan": "分分寸寸尽 iPad",
         "releaseDate": "2012.10.24",

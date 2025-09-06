@@ -6,6 +6,7 @@
   "https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js",
   "./",
   "./favicon.ico",
+  "./simplehac.webp",
   "./manifest.json",
   "./index.html",
   "./sw.js",
@@ -117,8 +118,6 @@
   "./apple-silicon/chip-m/data.json",
   "./apple-silicon/chip-w/data.json",
   "./apple-silicon/chip-coprocessor/data.json",
-  "./apple-silicon/chip-coprocessor/img/Board/Board-M8.webp",
-  "./apple-silicon/chip-coprocessor/img/Board/Board-M7.webp",
   "./apple-silicon/chip-u/data.json",
   "./apple-silicon/chip-r/data.json",
   "./apple-silicon/chip-h/data.json",
@@ -133,7 +132,7 @@
   "./public-static/js/lib/Window.js",
   "./public-static/js/lib/utils.js",
   "./public-static/img/2025-devices.webp",
-  "./public-static/img/logo.webp",
+  "./public-static/img/simplehac.webp",
   "./public-static/img/apple.svg",
   "./console/dvfs/index.html"
 ]

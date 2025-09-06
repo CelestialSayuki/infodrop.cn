@@ -66,7 +66,7 @@
     {
       "name": "Apple Watch Ultra 2",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-ultra/img/apple_watch_Ultra_2.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-ultra/img/apple_watch_Ultra_2.webp",
       "data": {
         "slogan": "野出新维度",
         "releaseDate": "2023.09.13",
@@ -76,7 +76,7 @@
           { "name": "钛金属原色", "hex": "#ccc4bc" },
           { "name": "钛金属黑色", "hex": "#0f0e0e" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/watch/apple_watch_ultra_2_alpine_loop_blue.usdz\" target=\"_blank\">钛金属原色</a><a href=\"http://cdn.infodrop.cn/AR/watch/apple_watch_ultra_2_black.usdz\" target=\"_blank\">钛金属黑色</a>",
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_2_alpine_loop_blue.usdz\" target=\"_blank\">钛金属原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_2_black.usdz\" target=\"_blank\">钛金属黑色</a>",
         "chipInfo": "S9 SiP",
         "ramRom": "2GB<br>64GB",
         "wirelessChip": "W3",
@@ -100,7 +100,7 @@
     {
       "name": "Apple Watch Ultra",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-ultra/img/apple_watch_Ultra.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-ultra/img/apple_watch_Ultra.webp",
       "data": {
         "slogan": "越野超心驰",
         "releaseDate": "2022.09.08",
@@ -109,7 +109,7 @@
         "colors": [
             { "name": "钛金属原色", "hex": "#ccc4bc" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/watch/apple_watch_ultra_1_alpine_loop_orange_china_ios15.usdz\" target=\"_blank\">钛金属原色</a>",
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_1_alpine_loop_orange_china_ios15.usdz\" target=\"_blank\">钛金属原色</a>",
         "chipInfo": "S8 SiP",
         "ramRom": "1.5GB<br>32GB",
         "wirelessChip": "W3",

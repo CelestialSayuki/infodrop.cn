@@ -134,7 +134,7 @@
     {
       "name": "Apple Watch SE",
       "generation": "(第 2 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-se/img/apple_watch_se_2.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se_2.webp",
       "data": {
         "slogan": "超值超有料",
         "releaseDate": "2022.09.08",
@@ -177,7 +177,7 @@
     {
       "name": "Apple Watch SE",
       "generation": "(第 1 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-se/img/apple_watch_se.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se.webp",
       "data": {
         "slogan": "事事拿手，轻松入手。",
         "releaseDate": "2020.09.16",
@@ -188,7 +188,7 @@
           { "name": "金色", "hex": "#E3CCB4" },
           { "name": "银色", "hex": "#D2D3D4" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/watch/apple_watch_SE_gps_alum_silver_l_sport_band_abyss_blue_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_SE_gps_alum_silver_l_sport_band_abyss_blue_ios15.usdz\" target=\"_blank\">深空灰色</a>",
         "chipInfo": "S5 SiP",
         "ramRom": "1GB<br>32GB",
         "wirelessChip": "W3",

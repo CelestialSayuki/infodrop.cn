@@ -55,7 +55,7 @@
     {
       "name": "Apple TV 4K",
       "generation": "(第 3 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-4k-3rd-gen.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-4k-3rd-gen.webp",
       "data": {
         "slogan": "The Apple experience.<br>Cinematic in every sense.",
         "releaseDate": "2022.10.18",
@@ -64,7 +64,7 @@
         "colors": [
             {"name": "黑色", "hex": "#000000" }
         ],
-        "arLink": "<a href=\"http://cdn.infodrop.cn/AR/tv/apple_tv_4k_3rdgen_wifi_ethernet_siri_remote_3rdgen.usdz\" target=\"_blank\">黑色</a>",
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/tv/apple_tv_4k_3rdgen_wifi_ethernet_siri_remote_3rdgen.usdz\" target=\"_blank\">黑色</a>",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+3E+5GPU)</div>",
         "ramRom": "4GB LPDDR4X<br>64G、128G",
         "remoteType": "Siri Remote (3rd Gen)",
@@ -82,7 +82,7 @@
     {
       "name": "Apple TV 4K",
       "generation": "(第 2 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-4k-2nd-gen.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-4k-2nd-gen.webp",
       "data": {
         "slogan": "A higher<br>definition of TV.",
         "releaseDate": "2021.04.21",
@@ -109,7 +109,7 @@
     {
       "name": "Apple TV 4K",
       "generation": "(第 1 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-4k-1st-gen.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-4k-1st-gen.webp",
       "data": {
         "slogan": "The 4K HDR era.<br>Now playing.",
         "releaseDate": "2017.09.13",
@@ -136,7 +136,7 @@
     {
       "name": "Apple TV HD",
       "generation": "",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-hd.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-hd.webp",
       "data": {
         "slogan": "The future of televion.",
         "releaseDate": "2015.09.10",
@@ -163,7 +163,7 @@
     {
       "name": "Apple TV",
       "generation": "(第 3 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-2-3.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-2-3.webp",
       "data": {
         "slogan": "Great HD content.<br>AirPlay.",
         "releaseDate": "2012.03.08 / 2013.01.29",
@@ -190,7 +190,7 @@
     {
       "name": "Apple TV",
       "generation": "(第 2 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-2-3.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-2-3.webp",
       "data": {
         "slogan": "The all-new tv",
         "releaseDate": "2010.09.02",
@@ -217,7 +217,7 @@
     {
       "name": "Apple TV",
       "generation": "(第 1 代)",
-      "image": "http://cdn.infodrop.cn/apple-device/tv/img/apple-tv-1.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/tv/img/apple-tv-1.webp",
       "data": {
         "slogan": "If it's on iTunes, it's on TV.<br>Introducing Apple TV.",
         "releaseDate": "2006.09.12",

@@ -104,10 +104,10 @@
     {
       "name": "Apple S10 SiP",
       "generation": "(T8310)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/null.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/null.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S9_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "SOC Die"],
@@ -152,10 +152,10 @@
     {
       "name": "Apple S9 SiP",
       "generation": "(T8310)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S9_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S9_temp.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S9_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "SOC Die"],
@@ -200,12 +200,12 @@
     {
       "name": "Apple S8 SiP",
       "generation": "(T8301)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_2_temp.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_2_temp.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面", "SOC Die"],
@@ -250,12 +250,12 @@
     {
       "name": "Apple S7 SiP",
       "generation": "(T8301)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S7_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S7_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S7_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S7_2_temp.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_2_temp.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面", "SOC Die"],
@@ -300,12 +300,12 @@
     {
       "name": "Apple S6 SiP",
       "generation": "(T8301)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S6_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S6_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S6_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S6_2_temp.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S8_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_2_temp.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面", "SOC Die"],
@@ -350,11 +350,11 @@
     {
       "name": "Apple S5 SiP",
       "generation": "(T8006)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S5_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S5_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S5_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S5_2_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_2_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面"],
@@ -399,11 +399,11 @@
     {
       "name": "Apple S4 SiP",
       "generation": "(T8006)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S4_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S4_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S4_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S4_2_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_2_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面"],
@@ -448,11 +448,11 @@
     {
       "name": "Apple S3 SiP",
       "generation": "(T8004)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S3_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S3_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S3_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S3_2_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_2_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面"],
@@ -497,12 +497,12 @@
     {
       "name": "Apple S2",
       "generation": "(T8002)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S2_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S2_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S2_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S2_2_temp.webp",
-        "SOC Die": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S2_die_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_2_temp.webp",
+        "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_die_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面", "SOC Die"],
@@ -547,9 +547,9 @@
     {
       "name": "Apple S1P",
       "generation": "(T8002)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1P_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1P_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1P_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1P_temp.webp"
       },
       "data": {
         "displayType": ["SiP"],
@@ -594,11 +594,11 @@
     {
       "name": "Apple S1",
       "generation": "(S7002)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_temp.webp",
       "images": {
-        "SiP": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1_temp.webp",
-        "正面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1_1_temp.webp",
-        "反面": "http://cdn.infodrop.cn/apple-silicon/chip-s/img/S1_2_temp.webp"
+        "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_temp.webp",
+        "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_1_temp.webp",
+        "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_2_temp.webp"
       },
       "data": {
         "displayType": ["SiP", "正面", "反面"],

@@ -48,11 +48,11 @@
     {
       "name": "Apple T2",
       "generation": "(Gibraltar, APL1027-T8012)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
       "images": {
-        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
-        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/Apple_T2_product.webp",
-        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/die/die_shot_T2_SemiWiki_temp.webp"
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
+        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_product.webp",
+        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/die/die_shot_T2_SemiWiki_temp.webp"
       },
       "data": {
         "displayType": ["芯片图", "宣传图", "Die"],
@@ -71,9 +71,9 @@
     {
       "name": "Apple T1",
       "generation": "(APL1023-T8002)",
-      "image": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp",
       "images": {
-        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp"
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp"
       },
       "data": {
         "displayType": ["芯片图"],
