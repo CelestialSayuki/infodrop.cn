@@ -217,7 +217,7 @@
             { "name": "灰色", "hex": "#484B51" }
         ],
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8922<br>(1P+1GPU)</div>",
-        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">256MB LPDDR<br>8G、16G、32G、64G</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">256MB LPDDR<br>32G、64G</div>",
         "audioProcessor": "Cirrus Logic 338S0559",
         "display": "3.5\"",
         "resolution": "480×320, 163ppi",
