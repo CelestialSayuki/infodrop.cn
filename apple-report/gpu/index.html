@@ -31,17 +31,19 @@
         margin: 0;
     }
     
-    @media (prefers-color-scheme: dark) {
-      .retext {
-        color: var(--dark-text-secondary);
-      }
-      hr {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-      .card {
-        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
-      }
+    .macos-window.dark-mode .retext,
+    html.dark-mode .retext {
+      color: var(--dark-text-secondary);
     }
+    .macos-window.dark-mode hr,
+    html.dark-mode hr {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .macos-window.dark-mode .card,
+    html.dark-mode .card {
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    }
+    
     @media (max-width: 768px) {
         .main-content {
             padding: 5px;
@@ -83,7 +85,7 @@
           chartInstances.forEach(chart => chart.dispose());
           chartInstances = [];
 
-          const currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+          const currentTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
 
           const geekBench6AData = [
               { device: '(6GPU) A10 Fusion', metal: 4645 }, { device: '(4GPU) A12 Bionic', metal: 10142 }, { device: '(4GPU) A13 Bionic', metal: 14621 }, { device: '(4GPU) A14 Bionic', metal: 17454 }, { device: '(7GPU) A12X Bionic', metal: 18003 }, { device: '(4GPU) A15 Bionic', metal: 19088 }, { device: '(8GPU) A12Z Bionic', metal: 19584 }, { device: '(4GPU) A16 Bionic', metal: 20921 }, { device: '(5GPU) A15 Bionic', metal: 22728 }, { device: '(4GPU) A18', metal: 24380 }, { device: '(5GPU) A16 Bionic', metal: 24962 }, { device: '(5GPU) A17 Pro', metal: 26307 }, { device: '(5GPU) A18', metal: 28386 }, { device: '(6GPU) A17 Pro', metal: 29273 }, { device: '(6GPU) A18 Pro', metal: 33688 },

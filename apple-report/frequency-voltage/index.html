@@ -30,18 +30,19 @@
     #mainLayout {
         margin: 0;
     }
-
-    @media (prefers-color-scheme: dark) {
-      .retext {
-        color: var(--dark-text-secondary);
-      }
-      hr {
-        background-color: rgba(255, 255, 255, 0.15);
-      }
-      .card {
-        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
-      }
+    .macos-window.dark-mode .retext,
+    html.dark-mode .retext {
+      color: var(--dark-text-secondary);
     }
+    .macos-window.dark-mode hr,
+    html.dark-mode hr {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    .macos-window.dark-mode .card,
+    html.dark-mode .card {
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    }
+    
     @media (max-width: 768px) {
       .main-content {
         padding: 5px;
@@ -72,7 +73,7 @@
   <script type="text/javascript">
     (async () => {
         const chartInstances = {};
-
+        let chartData = null;
         const colorPalette = [
             '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
             '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
@@ -88,8 +89,7 @@
             const index = Math.abs(hash % colorPalette.length);
             return colorPalette[index];
         }
-
-        const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax) => {
+        const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax, theme) => {
             const chartDom = document.getElementById(containerId);
             if (!chartDom) return;
 
@@ -105,7 +105,7 @@
                 chartDom.style.height = '500px';
             }
 
-            let myChart = echarts.init(chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+            let myChart = echarts.init(chartDom, theme);
             chartInstances[containerId] = myChart;
 
             const legendData = [...new Set(seriesData.map(s => s.chip))];
@@ -187,30 +187,24 @@
 
             const resizeObserver = new ResizeObserver(() => myChart.resize());
             resizeObserver.observe(chartDom);
-
-            if (!chartDom.dataset.themeListenerAttached) {
-                const themeListener = () => {
-                    myChart.dispose();
-                    myChart = echarts.init(chartDom, window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
-                    myChart.setOption(option);
-                    chartInstances[containerId] = myChart;
-                };
-                window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", themeListener);
-                chartDom.dataset.themeListenerAttached = 'true';
-            }
         };
-
+        const renderAllCharts = () => {
+            if (!chartData) return;
+            const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            renderChart('P_CPU_Freq_Volt', chartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250, theme);
+            renderChart('E_CPU_Freq_Volt', chartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100, theme);
+            renderChart('GPU_Freq_Volt', chartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100, theme);
+            renderChart('ANE_Freq_Volt', chartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250, theme);
+        };
         const main = async () => {
             try {
                 const response = await fetch('./console/dvfs/get-dvfs-data.php');
                 if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
-                const allChartData = await response.json();
-                if (allChartData.error) throw new Error(allChartData.error);
-
-                renderChart('P_CPU_Freq_Volt', allChartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250);
-                renderChart('E_CPU_Freq_Volt', allChartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100);
-                renderChart('GPU_Freq_Volt', allChartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100);
-                renderChart('ANE_Freq_Volt', allChartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250);
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+                
+                chartData = data;
+                renderAllCharts();
 
             } catch (error) {
                 console.error("加载或渲染图表失败:", error);
@@ -220,7 +214,15 @@
                 }
             }
         };
-        
+        const themeObserver = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    renderAllCharts();
+                    break;
+                }
+            }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true });
         main();
     })();
   </script>

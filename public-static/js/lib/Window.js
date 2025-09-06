@@ -46,7 +46,9 @@ export class Window {
       </div>
       <div class="macos-window-body">
       </div>`;
-    
+    if (document.documentElement.classList.contains('dark-mode')) {
+      windowEl.classList.add('dark-mode');
+    }
     this.element = windowEl;
     this.manager.mainContentArea.appendChild(this.element);
     this.bringToFront();

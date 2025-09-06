@@ -1,6 +1,6 @@
 {
-  "version": "1A059",
+  "version": "1A061",
   "notes": [
-    "感谢SimpleHac提供的运营服务"
+    "网页加载改为多线程"
   ]
 }

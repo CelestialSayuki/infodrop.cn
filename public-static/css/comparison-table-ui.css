@@ -332,59 +332,60 @@
   grid-template-columns: 1fr 1fr;
 }
 
-@media (prefers-color-scheme: dark) {
-  .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 100, 100, 0.7);
-  }
 
-  .header-btn {
-    background-color: rgba(120, 120, 128, 0.2);
-    color: var(--sw-text-secondary-dark);
-  }
+/* --- Dark Mode Styles --- */
 
-  .header-btn:hover {
-    background-color: rgba(120, 120, 128, 0.3);
-  }
+.macos-window.dark-mode .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.7);
+}
 
-  .features-column,
-  .product-column {
-    background: var(--sw-bg-dark);
-    border-color: rgba(56, 56, 58, 0.65);
-  }
+.macos-window.dark-mode .header-btn {
+  background-color: rgba(120, 120, 128, 0.2);
+  color: var(--sw-text-secondary-dark);
+}
 
-  .features-column .top-info {
-    color: var(--sw-text-primary-dark);
-  }
+.macos-window.dark-mode .header-btn:hover {
+  background-color: rgba(120, 120, 128, 0.3);
+}
 
-  .features-list li {
-    border-top-color: var(--sw-separator-dark);
-    color: var(--sw-text-secondary-dark);
-  }
+.macos-window.dark-mode .features-column,
+.macos-window.dark-mode .product-column {
+  background: var(--sw-bg-dark);
+  border-color: rgba(56, 56, 58, 0.65);
+}
 
-  .feature-group-header {
-    color: var(--sw-text-primary-dark) !important;
-    background-color: rgba(84, 84, 88, 0.24);
-  }
+.macos-window.dark-mode .features-column .top-info {
+  color: var(--sw-text-primary-dark);
+}
 
-  .product-title {
-    color: var(--sw-text-primary-dark);
-  }
+.macos-window.dark-mode .features-list li {
+  border-top-color: var(--sw-separator-dark);
+  color: var(--sw-text-secondary-dark);
+}
 
-  .product-title span {
-    color: var(--sw-text-secondary-dark);
-  }
+.macos-window.dark-mode .feature-group-header {
+  color: var(--sw-text-primary-dark) !important;
+  background-color: rgba(84, 84, 88, 0.24);
+}
 
-  .data-list li {
-    border-top-color: var(--sw-separator-dark);
-    color: var(--sw-text-primary-dark);
-  }
+.macos-window.dark-mode .product-title {
+  color: var(--sw-text-primary-dark);
+}
 
-  .swatch,
-  .ar-swatch-link {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .info-square {
-    background-color: rgba(120, 120, 128, 0.12);
-  }
+.macos-window.dark-mode .product-title span {
+  color: var(--sw-text-secondary-dark);
+}
+
+.macos-window.dark-mode .data-list li {
+  border-top-color: var(--sw-separator-dark);
+  color: var(--sw-text-primary-dark);
+}
+
+.macos-window.dark-mode .swatch,
+.macos-window.dark-mode .ar-swatch-link {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.macos-window.dark-mode .info-square {
+  background-color: rgba(120, 120, 128, 0.12);
 }

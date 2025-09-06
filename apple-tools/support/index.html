@@ -37,21 +37,32 @@
         .custom-tooltip.grayscale-border { box-shadow: 0 0 12px 3px rgb(150 150 150 / 60%); }
         .custom-tooltip.is-visible { opacity: 1; transform: translateY(0); visibility: visible; }
         .custom-tooltip .tooltip-arrow { position: absolute; width: 0; height: 0; border-style: solid; bottom: -6px; left: 50%; transform: translateX(-50%); border-width: 6px 6px 0 6px; border-color: rgba(250, 250, 250, 0.9) transparent transparent transparent; }
-
-        @media (prefers-color-scheme: dark) {
-            .system-support-wrapper { background-color: var(--dark-glass-bg); }
-            .system-support-wrapper h1 { color: var(--dark-text-secondary); }
-            .system-support-wrapper .lead { color: var(--dark-text-secondary); border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
-            .system-support-wrapper .tab-link { color: #888; }
-            .system-support-wrapper .tab-link:hover { color: #ddd; }
-            .system-support-wrapper .tab-link.active { color: #fff; }
-            .system-support-wrapper thead { background-color: rgba(29, 29, 29, 0.95); }
-            .system-support-wrapper table th, .system-support-wrapper table td, .system-support-wrapper tbody { border-color: #3a3a3a; }
-            .system-support-wrapper .img_null_other_g { background-color: rgba(255, 255, 255, 0.15); color: #999; }
-            .custom-tooltip { background-color: rgba(45, 45, 45, 0.9); color: #eee; border-color: rgba(255,255,255,0.2); }
-            .custom-tooltip .tooltip-arrow { border-top-color: rgba(45, 45, 45, 0.9); }
-        }
-
+        .macos-window.dark-mode .system-support-wrapper,
+        html.dark-mode .system-support-wrapper { background-color: var(--dark-glass-bg); }
+        .macos-window.dark-mode .system-support-wrapper h1,
+        html.dark-mode .system-support-wrapper h1 { color: var(--dark-text-secondary); }
+        .macos-window.dark-mode .system-support-wrapper .lead,
+        html.dark-mode .system-support-wrapper .lead { color: var(--dark-text-secondary); border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+        .macos-window.dark-mode .system-support-wrapper .tab-link,
+        html.dark-mode .system-support-wrapper .tab-link { color: #888; }
+        .macos-window.dark-mode .system-support-wrapper .tab-link:hover,
+        html.dark-mode .system-support-wrapper .tab-link:hover { color: #ddd; }
+        .macos-window.dark-mode .system-support-wrapper .tab-link.active,
+        html.dark-mode .system-support-wrapper .tab-link.active { color: #fff; }
+        .macos-window.dark-mode .system-support-wrapper thead,
+        html.dark-mode .system-support-wrapper thead { background-color: rgba(29, 29, 29, 0.95); }
+        .macos-window.dark-mode .system-support-wrapper table th,
+        .macos-window.dark-mode .system-support-wrapper table td,
+        .macos-window.dark-mode .system-support-wrapper tbody,
+        html.dark-mode .system-support-wrapper table th,
+        html.dark-mode .system-support-wrapper table td,
+        html.dark-mode .system-support-wrapper tbody { border-color: #3a3a3a; }
+        .macos-window.dark-mode .system-support-wrapper .img_null_other_g,
+        html.dark-mode .system-support-wrapper .img_null_other_g { background-color: rgba(255, 255, 255, 0.15); color: #999; }
+        .macos-window.dark-mode .custom-tooltip,
+        html.dark-mode .custom-tooltip { background-color: rgba(45, 45, 45, 0.9); color: #eee; border-color: rgba(255,255,255,0.2); }
+        .macos-window.dark-mode .custom-tooltip .tooltip-arrow,
+        html.dark-mode .custom-tooltip .tooltip-arrow { border-top-color: rgba(45, 45, 45, 0.9); }
         @media (max-width: 768px) {
             .system-support-wrapper {
                 padding: 20px;

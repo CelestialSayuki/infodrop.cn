@@ -21,12 +21,11 @@
       margin-bottom: 20px;
       color: var(--light-text-secondary);
     }
-
-    @media (prefers-color-scheme: dark) {
-      .retext {
+    .macos-window.dark-mode .retext,
+    html.dark-mode .retext {
         color: var(--dark-text-secondary);
-      }
     }
+
     @media (max-width: 768px) {
       .main-content {
         padding: 5px;
@@ -152,14 +151,20 @@
       function renderAllCharts() {
         chartInstances.forEach(chart => chart.dispose());
         chartInstances = [];
-        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = document.documentElement.classList.contains('dark-mode') ? "dark" : "light";
         createBarChart('GeekBench6_A', geekBench6ASeriesData, geekBenchConfig, theme);
         createBarChart('GeekBench6_M', geekBench6MSeriesData, { ...geekBenchConfig, title: '', subtext: '', gridOptions: { top: '1%' } }, theme);
       }
-
       renderAllCharts();
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAllCharts);
-      
+      const themeObserver = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            renderAllCharts();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true });      
     })();
   </script>
 </body>
