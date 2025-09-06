@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A062';
+const CACHE_VERSION = '1A063';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';

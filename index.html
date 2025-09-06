@@ -609,18 +609,17 @@
                     return;
                 }
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    const loadingScreen = document.getElementById('loading-screen');
-                    if (!loadingScreen) return;
-                    setTimeout(() => {
-                        if (updateIsPending) {
+                    if (updateIsPending) {
+                        const loadingScreen = document.getElementById('loading-screen');
+                        if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
                             loadingScreen.addEventListener('transitionend', () => {
                                 window.location.reload();
                             }, { once: true });
                             loadingScreen.classList.add('hidden');
                         } else {
-                            hideLoadingScreen();
+                            window.location.reload();
                         }
-                    }, 500);
+                    }
                 });
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
