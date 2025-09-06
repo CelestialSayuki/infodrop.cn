@@ -160,7 +160,7 @@
                 if (data.error) throw new Error(data.error);
                 currentQuizId = data.quizId;
                 renderQuestions(data.questions);
-                quizUserInfo.textContent = `QQ：${currentUserQQ}，请认真作答，题目、进群码与QQ号绑定，发送给其他人不能绕过进群验证。<br>您至少需要答对12道题目。`;
+                quizUserInfo.textContent = `QQ：${currentUserQQ}，请认真作答，题目、进群码与QQ号绑定，发送给其他人不能绕过进群验证。您至少需要答对12道题目。`;
                 qqInputSection.style.display = 'none';
                 quizSection.style.display = 'block';
             } catch (error) {

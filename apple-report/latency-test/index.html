@@ -315,7 +315,7 @@
                     </label>
                     <label>
                         测试最大大小:
-                        <input type="text" id="maxTestSize" placeholder="131072"> KB
+                        <input type="text" id="maxTestSize" placeholder="262144"> KB
                     </label>
                 </div>
             </details>
@@ -401,7 +401,7 @@
                         }`;
 
         let worker;
-        const testSizeArray = [1, 2, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 600, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192, 10240, 12288, 16384, 24576, 32768, 49152, 65536, 98304, 131072];
+        const testSizeArray = [1, 2, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 600, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192, 10240, 12288, 16384, 24576, 32768, 49152, 65536, 98304, 131072, 262144];
         let latencyResults = [];
         let testRunning = false;
         let testIdx = 0;
@@ -429,17 +429,17 @@
 
         function validateResults() {
             const sortedResults = [...latencyResults].sort((a, b) => a.size - b.size);
-
             if (sortedResults.length < 2) {
                 return true;
             }
-
             for (let i = 1; i < sortedResults.length; i++) {
-                if (sortedResults[i].latency < sortedResults[i - 1].latency * 0.9) {
+                if (sortedResults[i - 1].size <= 32) {
+                    continue;
+                }
+                if (sortedResults[i].latency < sortedResults[i - 1].latency * 0.95) {
                     return false;
                 }
             }
-
             return true;
         }
         
