@@ -24,10 +24,21 @@
         #message { padding: 15px; margin-top: 20px; border-radius: 6px; text-align: center; opacity: 0; transition: opacity 0.5s; display: none; }
         #message.success { background-color: #d4edda; color: #155724; }
         #message.error { background-color: #f8d7da; color: #721c24; }
-        @media (prefers-color-scheme: dark) {
-            .card { background-color: var(--dark-card-bg-color, #1e242c); border-color: var(--border-color, #30363d); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-            #message.success { background-color: #2ea0434d; color: #58a6ff; }
-            #message.error { background-color: #f851494d; color: #ff7b72; }
+        .macos-window.dark-mode .card,
+        html.dark-mode .card {
+            background-color: var(--dark-card-bg-color, #1e242c);
+            border-color: var(--border-color, #30363d);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .macos-window.dark-mode #message.success,
+        html.dark-mode #message.success {
+            background-color: #2ea0434d;
+            color: #58a6ff;
+        }
+        .macos-window.dark-mode #message.error,
+        html.dark-mode #message.error {
+            background-color: #f851494d;
+            color: #ff7b72;
         }
     </style>
 </head>

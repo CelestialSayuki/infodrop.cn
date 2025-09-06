@@ -252,6 +252,27 @@ body.landscape-notch-right {
     --dark-glass-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+body,
+.sidebar,
+.main-header,
+.card,
+.div,
+.macos-window,
+.auth-wrapper,
+.system-support-wrapper,
+.resource-content-wrapper,
+.custom-tooltip,
+.filters-container,
+.checkbox-group-container,
+.form-group input,
+.form-group select,
+.btn,
+button,
+a,
+hr {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 *,
 *::before,
 *::after {
@@ -689,7 +710,7 @@ ul {
     top: 100%;
     right: 0;
     margin-top: 20px;
-    background-color: rgba(248, 249, 250, 0.85);
+    background-color: rgba(248, 249, 250, 0.95);
     border: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -1143,7 +1164,7 @@ html.dark-mode .macos-window-title {
 }
 
 html.dark-mode .version-popup {
-    background-color: rgba(45, 51, 59, 0.85);
+    background-color: rgba(45, 51, 59, 0.95);
     border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
     box-shadow: var(--dark-glass-shadow, 0 4px 12px rgba(0,0,0,0.3));
 }
