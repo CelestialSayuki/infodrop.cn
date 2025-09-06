@@ -6,7 +6,6 @@
   "https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js",
   "./",
   "./favicon.ico",
-  "./simplehac.webp",
   "./manifest.json",
   "./index.html",
   "./sw.js",
