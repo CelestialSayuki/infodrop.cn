@@ -66,7 +66,7 @@
     {
       "name": "Apple Watch Ultra 2",
       "generation": "",
-      "image": "img/apple_watch_Ultra_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-ultra/img/apple_watch_Ultra_2.webp",
       "data": {
         "slogan": "野出新维度",
         "releaseDate": "2023.09.13",
@@ -100,7 +100,7 @@
     {
       "name": "Apple Watch Ultra",
       "generation": "",
-      "image": "img/apple_watch_Ultra.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-ultra/img/apple_watch_Ultra.webp",
       "data": {
         "slogan": "越野超心驰",
         "releaseDate": "2022.09.08",

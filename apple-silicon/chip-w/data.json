@@ -38,9 +38,9 @@
     {
       "name": "Apple W3",
       "generation": "(338S00464、338S00638)",
-      "image": "img/Apple_W3_temp.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W3_temp.webp",
       "images": {
-        "芯片图": "img/Apple_W3_temp.webp"
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W3_temp.webp"
       },
       "data": {
         "displayType": ["芯片图"],
@@ -54,9 +54,9 @@
     {
       "name": "Apple W2",
       "generation": "(338S00348)",
-      "image": "img/Apple_W2_temp.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W2_temp.webp",
       "images": {
-        "芯片图": "img/Apple_W2_temp.webp"
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W2_temp.webp"
       },
       "data": {
         "displayType": ["芯片图"],
@@ -70,10 +70,10 @@
     {
       "name": "Apple W1",
       "generation": "(343S00130、343S00131)",
-      "image": "img/Apple_W1_temp.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W1_temp.webp",
       "images": {
-        "芯片图": "img/Apple_W1_temp.webp",
-        "Die": "img/die/die_shot_W1_temp.webp"
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/Apple_W1_temp.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-w/img/die/die_shot_W1_temp.webp"
       },
       "data": {
         "displayType": ["芯片图", "Die"],

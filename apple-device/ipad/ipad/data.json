@@ -78,7 +78,7 @@
     {
       "name": "iPad",
       "generation": "(A16)",
-      "image": "img/ipad-a16.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad-a16.webp",
       "data": {
         "slogan": "可圈可点可画心",
         "releaseDate": "2025.03.04",
@@ -116,7 +116,7 @@
     {
       "name": "iPad",
       "generation": "(第 10 代)",
-      "image": "img/ipad_10.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_10.webp",
       "data": {
         "slogan": "可圈可点可画心",
         "releaseDate": "2022.10.18",
@@ -154,7 +154,7 @@
     {
       "name": "iPad",
       "generation": "(第 9 代)",
-      "image": "img/ipad_9.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_9.webp",
       "data": {
         "slogan": "事事玩得转",
         "releaseDate": "2021.09.15",
@@ -190,7 +190,7 @@
     {
       "name": "iPad",
       "generation": "(第 8 代)",
-      "image": "img/ipad_8.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_8.webp",
       "data": {
         "slogan": "特有本事，特超值。",
         "releaseDate": "2020.09.16",
@@ -227,7 +227,7 @@
     {
       "name": "iPad",
       "generation": "(第 7 代)",
-      "image": "img/ipad_7.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_7.webp",
       "data": {
         "slogan": "这个电脑, 拿掉了电脑的条条框框。",
         "releaseDate": "2019.09.11",
@@ -264,7 +264,7 @@
     {
       "name": "iPad",
       "generation": "(第 6 代)",
-      "image": "img/ipad_6.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_6.webp",
       "data": {
         "slogan": "这个电脑, 拿掉了电脑的条条框框。",
         "releaseDate": "2018.03.27",
@@ -301,7 +301,7 @@
     {
       "name": "iPad",
       "generation": "(第 5 代)",
-      "image": "img/ipad_5.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_5.webp",
       "data": {
         "slogan": "这方寸间，乐趣全开。",
         "releaseDate": "2017.03.21",
@@ -338,7 +338,7 @@
     {
       "name": "iPad",
       "generation": "(第 4 代)",
-      "image": "img/ipad_4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_4.webp",
       "data": {
         "slogan": "绚丽夺目一如既往, 速度提升 2 倍。",
         "releaseDate": "2012.10.24",
@@ -374,7 +374,7 @@
     {
       "name": "iPad",
       "generation": "(第 3 代)",
-      "image": "img/ipad_3.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_3.webp",
       "data": {
         "slogan": "配备绚丽夺目的 Retina 显示屏",
         "releaseDate": "2012.03.08",
@@ -410,7 +410,7 @@
     {
       "name": "iPad 2",
       "generation": "",
-      "image": "img/ipad_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_2.webp",
       "data": {
         "slogan": "薄了，轻了，快了。",
         "releaseDate": "2011.03.03",
@@ -446,7 +446,7 @@
     {
       "name": "iPad",
       "generation": "",
-      "image": "img/ipad_1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad/img/ipad_1.webp",
       "data": {
         "slogan": "奇妙与革命性的产品",
         "releaseDate": "2010.01.28",

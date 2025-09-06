@@ -85,7 +85,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M4, 2025 年)",
-      "image": "img/macbook-air-2025-13inch-15inch.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
       "data": {
         "slogan": "身轻身手快",
         "releaseDate": "2025.03.05",
@@ -125,7 +125,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, M4, 2025 年)",
-      "image": "img/macbook-air-2025-13inch-15inch.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
       "data": {
         "slogan": "身轻身手快",
         "releaseDate": "2025.03.05",
@@ -165,7 +165,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M3, 2024 年)",
-      "image": "img/macbook-air-2024-15inch.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2024-15inch.webp",
       "data": {
         "slogan": "轻装重拳 M3",
         "releaseDate": "2024.03.04",
@@ -205,7 +205,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, M3, 2024 年)",
-      "image": "img/macbook-air-2024-13inch-m3.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2024-13inch-m3.webp",
       "data": {
         "slogan": "轻装重拳 M3",
         "releaseDate": "2024.03.04",
@@ -245,7 +245,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M2, 2023 年)",
-      "image": "img/macbook-air-2023-15-m2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2023-15-m2.webp",
       "data": {
         "slogan": "巨给力、巨纤薄。",
         "releaseDate": "2023.06.06",
@@ -285,7 +285,7 @@
     {
       "name": "MacBook Air",
       "generation": "(M2, 2022 年)",
-      "image": "img/macbook-air-2022-m2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2022-m2.webp",
       "data": {
         "slogan": "超薄进化新形态",
         "releaseDate": "2022.06.07",
@@ -325,7 +325,7 @@
     {
       "name": "MacBook Air",
       "generation": "(M1, 2020 年)",
-      "image": "img/macbook-air-2020-m1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2020-m1.webp",
       "data": {
         "slogan": "实力，来的轻巧。",
         "releaseDate": "2020.11.11",
@@ -364,7 +364,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2020 年)",
-      "image": "img/macbook-air-2020.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2020.webp",
       "data": {
         "slogan": "够轻，够轻快。",
         "releaseDate": "2020.03.19",
@@ -403,7 +403,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2019 年)",
-      "image": "img/macbook-air-2019.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2019.webp",
       "data": {
         "slogan": "轻轻地，再次倾心。",
         "releaseDate": "2019.07.10",
@@ -442,7 +442,7 @@
     {
       "name": "MacBook Air",
       "generation": "(Retina, 13 英寸, 2018 年)",
-      "image": "img/macbook-air-2018.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2018.webp",
       "data": {
         "slogan": "轻轻地，再次倾心。",
         "releaseDate": "2018.10.31",
@@ -481,7 +481,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13.3 英寸, 2017 年)",
-      "image": "img/macbook-air-2017.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2017.webp",
       "data": {
         "slogan": "能力胜任大小事, 电力满足一天所需",
         "releaseDate": "2017.06.06",
@@ -518,7 +518,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2015 年初)",
-      "image": "img/macbook-air-2015-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2015-13.webp",
       "data": {
         "slogan": "满足一天所需的电池使用时间",
         "releaseDate": "2015.03.10",
@@ -555,7 +555,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2015 年初)",
-      "image": "img/macbook-air-2015-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2015-11.webp",
       "data": {
         "slogan": "满足一天所需的电池使用时间",
         "releaseDate": "2015.03.10",
@@ -592,7 +592,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2014 年初)",
-      "image": "img/macbook-air-2014-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2014-13.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2014.04.30",
@@ -629,7 +629,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2014 年初)",
-      "image": "img/macbook-air-2014-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2014-11.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2014.04.30",
@@ -666,7 +666,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13英寸, 2013 年中)",
-      "image": "img/macbook-air-2013-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2013-13.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2013.06.11",
@@ -703,7 +703,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2013 年中)",
-      "image": "img/macbook-air-2013-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2013-11.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2013.06.11",
@@ -740,7 +740,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2012 年中)",
-      "image": "img/macbook-air-2012-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2012-13.webp",
       "data": {
         "slogan": "看起来快，动起来更快。",
         "releaseDate": "2012.06.12",
@@ -777,7 +777,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2012 年中)",
-      "image": "img/macbook-air-2012-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2012-11.webp",
       "data": {
         "slogan": "看起来快，动起来更快。",
         "releaseDate": "2012.06.12",
@@ -814,7 +814,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2011 年中)",
-      "image": "img/macbook-air-2011-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2011-13.webp",
       "data": {
         "slogan": "是人人早该拥有的先进笔记本电脑",
         "releaseDate": "2011.07.21",
@@ -851,7 +851,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2011 年中)",
-      "image": "img/macbook-air-2011-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2011-11.webp",
       "data": {
         "slogan": "是人人早该拥有的先进笔记本电脑",
         "releaseDate": "2011.07.21",
@@ -888,7 +888,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2010 年末)",
-      "image": "img/macbook-air-2010-13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2010-13.webp",
       "data": {
         "slogan": "未来一代 MacBook 诞生",
         "releaseDate": "2010.10.21",
@@ -925,7 +925,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2010 年末)",
-      "image": "img/macbook-air-2010-11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2010-11.webp",
       "data": {
         "slogan": "未来一代 MacBook 诞生",
         "releaseDate": "2010.10.21",
@@ -962,7 +962,7 @@
     {
       "name": "MacBook Air",
       "generation": "(2009 年中)",
-      "image": "img/macbook-air-2009.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2009.webp",
       "data": {
         "slogan": "更大存储空间，更快图形性能",
         "releaseDate": "2009.06.09",
@@ -999,7 +999,7 @@
     {
       "name": "MacBook Air",
       "generation": "(2008 年末)",
-      "image": "img/macbook-air-2008.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air-2008.webp",
       "data": {
         "slogan": "更大存储空间，更快图形性能",
         "releaseDate": "2008.10.15",
@@ -1036,7 +1036,7 @@
     {
       "name": "MacBook Air",
       "generation": "",
-      "image": "img/macbook-air.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook-air/img/macbook-air.webp",
       "data": {
         "slogan": "轻薄极致，超乎想象。",
         "releaseDate": "2008.01.16",

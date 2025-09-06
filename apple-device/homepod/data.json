@@ -56,7 +56,7 @@
     {
       "name": "HomePod",
       "generation": "(第 2 代)",
-      "image": "img/homepod-2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/homepod/img/homepod-2.webp",
       "data": {
         "slogan": "声声有天地",
         "releaseDate": "2023.01.18",
@@ -85,7 +85,7 @@
     {
       "name": "HomePod mini",
       "generation": "",
-      "image": "img/homepod-mini.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/homepod/img/homepod-mini.webp",
       "data": {
         "slogan": "小宇宙爆发。",
         "releaseDate": "2020.10.14",
@@ -118,7 +118,7 @@
     {
       "name": "HomePod",
       "generation": "(第 1 代)",
-      "image": "img/homepod-1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/homepod/img/homepod-1.webp",
       "data": {
         "slogan": "家的新声。",
         "releaseDate": "2017.06.06",

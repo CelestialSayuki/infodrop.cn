@@ -57,7 +57,7 @@
     {
       "name": "Mac Studio",
       "generation": "(2025 年)",
-      "image": "img/mac-studio.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/mac-studio/img/mac-studio.webp",
       "data": {
         "slogan": "硬核加载",
         "releaseDate": "2025.03.05",
@@ -84,7 +84,7 @@
     {
       "name": "Mac Studio",
       "generation": "(2023 年)",
-      "image": "img/mac-studio.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/mac-studio/img/mac-studio.webp",
       "data": {
         "slogan": "动力动真格",
         "releaseDate": "2023.06.06",
@@ -111,7 +111,7 @@
     {
       "name": "Mac Studio",
       "generation": "(2022 年)",
-      "image": "img/mac-studio.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/mac-studio/img/mac-studio.webp",
       "data": {
         "slogan": "造梦引擎",
         "releaseDate": "2022.03.09",

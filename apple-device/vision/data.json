@@ -81,7 +81,7 @@
     {
       "name": "Apple Vision Pro",
       "generation": "",
-      "image": "img/vision-pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/vision/img/vision-pro.webp",
       "data": {
         "slogan": "眼前的世界，从此大开眼界。",
         "releaseDate": "2023.06.06",

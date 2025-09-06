@@ -83,11 +83,11 @@
     {
       "name": "iPhone 16e",
       "generation": "",
-      "image": "img/iPhone_16e.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16e.webp",
       "images": {
-        "宣传图": "img/iPhone_16e.webp",
-        "内部图 1": "img/Board/Board_iPhone_16e_1_temp.webp",
-        "内部图 2": "img/Board/Board_iPhone_16e_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16e.webp",
+        "内部图 1": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16e_1_temp.webp",
+        "内部图 2": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16e_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图 1", "内部图 2"],
@@ -129,11 +129,11 @@
     {
       "name": "iPhone 16 Pro Max",
       "generation": "",
-      "image": "img/iPhone_16_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_16_Pro_Max.webp",
-        "内部图 1": "img/Board/Board_iPhone_16_Pro_Max_1_temp.webp",
-        "内部图 2": "img/Board/Board_iPhone_16_Pro_Max_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
+        "内部图 1": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_1_temp.webp",
+        "内部图 2": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图 1", "内部图 2"],
@@ -177,11 +177,11 @@
     {
       "name": "iPhone 16 Pro",
       "generation": "",
-      "image": "img/iPhone_16_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_16_Pro.webp",
-        "内部图 1": "img/Board/Board_iPhone_16_Pro_1_temp.webp",
-        "内部图 2": "img/Board/Board_iPhone_16_Pro_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Pro.webp",
+        "内部图 1": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Pro_1_temp.webp",
+        "内部图 2": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Pro_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图 1", "内部图 2"],
@@ -225,11 +225,11 @@
     {
       "name": "iPhone 16 Plus",
       "generation": "",
-      "image": "img/iPhone_16_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_16_Plus.webp",
-        "内部图 1": "img/Board/Board_iPhone_16_Plus_1_temp.webp",
-        "内部图 2": "img/Board/Board_iPhone_16_Plus_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16_Plus.webp",
+        "内部图 1": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Plus_1_temp.webp",
+        "内部图 2": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_Plus_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图 1", "内部图 2"],
@@ -274,11 +274,11 @@
     {
       "name": "iPhone 16",
       "generation": "",
-      "image": "img/iPhone_16.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16.webp",
       "images": {
-        "宣传图": "img/iPhone_16.webp",
-        "内部图 1": "img/Board/Board_iPhone_16_1_temp.webp",
-        "内部图 2": "img/Board/Board_iPhone_16_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_16.webp",
+        "内部图 1": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_1_temp.webp",
+        "内部图 2": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_16_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图 1", "内部图 2"],
@@ -323,10 +323,10 @@
     {
       "name": "iPhone 15 Pro Max",
       "generation": "",
-      "image": "img/iPhone_15_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_15_Pro_Max.webp",
-        "内部图": "img/Board/Board_iPhone_15_Pro_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_15_Pro_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -370,10 +370,10 @@
     {
       "name": "iPhone 15 Pro",
       "generation": "",
-      "image": "img/iPhone_15_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_15_Pro.webp",
-        "内部图": "img/Board/Board_iPhone_15_Pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Pro.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_15_Pro_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -417,10 +417,10 @@
     {
       "name": "iPhone 15 Plus",
       "generation": "",
-      "image": "img/iPhone_15_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_15_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_15_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_15_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -465,10 +465,10 @@
     {
       "name": "iPhone 15",
       "generation": "",
-      "image": "img/iPhone_15.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15.webp",
       "images": {
-        "宣传图": "img/iPhone_15.webp",
-        "内部图": "img/Board/Board_iPhone_15_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_15.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_15_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -513,10 +513,10 @@
     {
       "name": "iPhone 14 Pro Max",
       "generation": "",
-      "image": "img/iPhone_14_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_14_Pro_Max.webp",
-        "内部图": "img/Board/Board_iPhone_14_Pro_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_14_Pro_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -560,10 +560,10 @@
     {
       "name": "iPhone 14 Pro",
       "generation": "",
-      "image": "img/iPhone_14_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_14_Pro.webp",
-        "内部图": "img/Board/Board_iPhone_14_Pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Pro.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_14_Pro_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -607,10 +607,10 @@
     {
       "name": "iPhone 14 Plus",
       "generation": "",
-      "image": "img/iPhone_14_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_14_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_14_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_14_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -656,10 +656,10 @@
     {
       "name": "iPhone 14",
       "generation": "",
-      "image": "img/iPhone_14.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14.webp",
       "images": {
-        "宣传图": "img/iPhone_14.webp",
-        "内部图": "img/Board/Board_iPhone_14_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_14.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_14_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -705,10 +705,10 @@
     {
       "name": "iPhone SE",
       "generation": "(第 3 代)",
-      "image": "img/iPhone_SE_3.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE_3.webp",
       "images": {
-        "宣传图": "img/iPhone_SE_3.webp",
-        "内部图": "img/Board/Board_iPhone_SE_3_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE_3.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_SE_3_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -751,10 +751,10 @@
     {
       "name": "iPhone 13 Pro Max",
       "generation": "",
-      "image": "img/iPhone_13_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_13_Pro_Max.webp",
-        "内部图": "img/Board/Board_iPhone_13_Pro_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_13_Pro_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -799,10 +799,10 @@
     {
       "name": "iPhone 13 Pro",
       "generation": "",
-      "image": "img/iPhone_13_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_13_Pro.webp",
-        "内部图": "img/Board/Board_iPhone_13_Pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_Pro.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_13_Pro_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -847,10 +847,10 @@
     {
       "name": "iPhone 13",
       "generation": "",
-      "image": "img/iPhone_13.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13.webp",
       "images": {
-        "宣传图": "img/iPhone_13.webp",
-        "内部图": "img/Board/Board_iPhone_13_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_13_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -896,10 +896,10 @@
     {
       "name": "iPhone 13 mini",
       "generation": "",
-      "image": "img/iPhone_13_mini.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_mini.webp",
       "images": {
-        "宣传图": "img/iPhone_13_mini.webp",
-        "内部图": "img/Board/Board_iPhone_13_mini_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_13_mini.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_13_mini_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -945,10 +945,10 @@
     {
       "name": "iPhone 12 Pro Max",
       "generation": "",
-      "image": "img/iPhone_12_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_12_Pro_Max.webp",
-        "内部图": "img/Board/Board_iPhone_12_Pro_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_12_Pro_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -992,10 +992,10 @@
     {
       "name": "iPhone 12 Pro",
       "generation": "",
-      "image": "img/iPhone_12_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_12_Pro.webp",
-        "内部图": "img/Board/Board_iPhone_12_Pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_Pro.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_12_Pro_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1039,10 +1039,10 @@
     {
       "name": "iPhone 12",
       "generation": "",
-      "image": "img/iPhone_12.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12.webp",
       "images": {
-        "宣传图": "img/iPhone_12.webp",
-        "内部图": "img/Board/Board_iPhone_12_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_12_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1088,10 +1088,10 @@
     {
       "name": "iPhone 12 mini",
       "generation": "",
-      "image": "img/iPhone_12_mini.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_mini.webp",
       "images": {
-        "宣传图": "img/iPhone_12_mini.webp",
-        "内部图": "img/Board/Board_iPhone_12_mini_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_12_mini.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_12_mini_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1137,10 +1137,10 @@
     {
       "name": "iPhone SE",
       "generation": "(第 2 代)",
-      "image": "img/iPhone_SE_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE_2.webp",
       "images": {
-        "宣传图": "img/iPhone_SE_2.webp",
-        "内部图": "img/Board/Board_iPhone_SE_2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE_2.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_SE_2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1183,10 +1183,10 @@
     {
       "name": "iPhone 11 Pro Max",
       "generation": "",
-      "image": "img/iPhone_11_Pro_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_11_Pro_Max.webp",
-        "内部图": "img/Board/Board_iPhone_11_Pro_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_11_Pro_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1230,10 +1230,10 @@
     {
       "name": "iPhone 11 Pro",
       "generation": "",
-      "image": "img/iPhone_11_Pro.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11_Pro.webp",
       "images": {
-        "宣传图": "img/iPhone_11_Pro.webp",
-        "内部图": "img/Board/Board_iPhone_11_Pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11_Pro.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_11_Pro_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1277,10 +1277,10 @@
     {
       "name": "iPhone 11",
       "generation": "",
-      "image": "img/iPhone_11.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11.webp",
       "images": {
-        "宣传图": "img/iPhone_11.webp",
-        "内部图": "img/Board/Board_iPhone_11_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_11.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_11_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1326,10 +1326,10 @@
     {
       "name": "iPhone XS Max",
       "generation": "",
-      "image": "img/iPhone_XS_Max.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XS_Max.webp",
       "images": {
-        "宣传图": "img/iPhone_XS_Max.webp",
-        "内部图": "img/Board/Board_iPhone_XS_Max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XS_Max.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_XS_Max_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1372,10 +1372,10 @@
     {
       "name": "iPhone XS",
       "generation": "",
-      "image": "img/iPhone_XS.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XS.webp",
       "images": {
-        "宣传图": "img/iPhone_XS.webp",
-        "内部图": "img/Board/Board_iPhone_XS_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XS.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_XS_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1418,10 +1418,10 @@
     {
       "name": "iPhone XR",
       "generation": "",
-      "image": "img/iPhone_XR.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XR.webp",
       "images": {
-        "宣传图": "img/iPhone_XR.webp",
-        "内部图": "img/Board/Board_iPhone_XR_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_XR.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_XR_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1467,10 +1467,10 @@
     {
       "name": "iPhone X",
       "generation": "",
-      "image": "img/iPhone_X.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_X.webp",
       "images": {
-        "宣传图": "img/iPhone_X.webp",
-        "内部图": "img/Board/Board_iPhone_X_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_X.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_X_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1512,10 +1512,10 @@
     {
       "name": "iPhone 8 Plus",
       "generation": "",
-      "image": "img/iPhone_8_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_8_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_8_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_8_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_8_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_8_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1559,10 +1559,10 @@
     {
       "name": "iPhone 8",
       "generation": "",
-      "image": "img/iPhone_8.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_8.webp",
       "images": {
-        "宣传图": "img/iPhone_8.webp",
-        "内部图": "img/Board/Board_iPhone_8_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_8.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_8_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1606,10 +1606,10 @@
     {
       "name": "iPhone 7 Plus",
       "generation": "",
-      "image": "img/iPhone_7_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_7_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_7_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_7_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_7_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_7_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1654,10 +1654,10 @@
     {
       "name": "iPhone 7",
       "generation": "",
-      "image": "img/iPhone_7.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_7.webp",
       "images": {
-        "宣传图": "img/iPhone_7.webp",
-        "内部图": "img/Board/Board_iPhone_7_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_7.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_7_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1702,10 +1702,10 @@
     {
       "name": "iPhone SE",
       "generation": "",
-      "image": "img/iPhone_SE.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE.webp",
       "images": {
-        "宣传图": "img/iPhone_SE.webp",
-        "内部图": "img/Board/Board_iPhone_SE_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_SE.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_SE_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1749,10 +1749,10 @@
     {
       "name": "iPhone 6s Plus",
       "generation": "",
-      "image": "img/iPhone_6s_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6s_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_6s_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_6s_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6s_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_6s_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1796,10 +1796,10 @@
     {
       "name": "iPhone 6s",
       "generation": "",
-      "image": "img/iPhone_6s.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6s.webp",
       "images": {
-        "宣传图": "img/iPhone_6s.webp",
-        "内部图": "img/Board/Board_iPhone_6s_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6s.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_6s_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1843,10 +1843,10 @@
     {
       "name": "iPhone 6 Plus",
       "generation": "",
-      "image": "img/iPhone_6_Plus.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6_Plus.webp",
       "images": {
-        "宣传图": "img/iPhone_6_Plus.webp",
-        "内部图": "img/Board/Board_iPhone_6_Plus_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6_Plus.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_6_Plus_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1889,10 +1889,10 @@
     {
       "name": "iPhone 6",
       "generation": "",
-      "image": "img/iPhone_6.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6.webp",
       "images": {
-        "宣传图": "img/iPhone_6.webp",
-        "内部图": "img/Board/Board_iPhone_6_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_6.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_6_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1935,10 +1935,10 @@
     {
       "name": "iPhone 5s",
       "generation": "",
-      "image": "img/iPhone_5s.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5s.webp",
       "images": {
-        "宣传图": "img/iPhone_5s.webp",
-        "内部图": "img/Board/Board_iPhone_5s_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5s.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_5s_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -1981,10 +1981,10 @@
     {
       "name": "iPhone 5c",
       "generation": "",
-      "image": "img/iPhone_5c.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5c.webp",
       "images": {
-        "宣传图": "img/iPhone_5c.webp",
-        "内部图": "img/Board/Board_iPhone_5c_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5c.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_5c_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -2029,10 +2029,10 @@
     {
       "name": "iPhone 5",
       "generation": "",
-      "image": "img/iPhone_5.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5.webp",
       "images": {
-        "宣传图": "img/iPhone_5.webp",
-        "内部图": "img/Board/Board_iPhone_5_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_5.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_5_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -2074,10 +2074,10 @@
     {
       "name": "iPhone 4S",
       "generation": "",
-      "image": "img/iPhone_4s.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_4s.webp",
       "images": {
-        "宣传图": "img/iPhone_4s.webp",
-        "内部图": "img/Board/Board_iPhone_4s_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_4s.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_4s_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -2119,10 +2119,10 @@
     {
       "name": "iPhone 4",
       "generation": "",
-      "image": "img/iPhone_4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_4.webp",
       "images": {
-        "宣传图": "img/iPhone_4.webp",
-        "内部图": "img/Board/Board_iPhone_4_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_4.webp",
+        "内部图": "http://cdn.infodrop.cn/apple-device/iphone/img/Board/Board_iPhone_4_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "内部图"],
@@ -2164,9 +2164,9 @@
     {
       "name": "iPhone 3GS",
       "generation": "",
-      "image": "img/iPhone_3gs.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_3gs.webp",
       "images": {
-        "宣传图": "img/iPhone_3gs.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_3gs.webp"
       },
       "data": {
         "displayType": ["宣传图"],
@@ -2208,9 +2208,9 @@
     {
       "name": "iPhone 3G",
       "generation": "",
-      "image": "img/iPhone_3g.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_3g.webp",
       "images": {
-        "宣传图": "img/iPhone_3g.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone_3g.webp"
       },
       "data": {
         "displayType": ["宣传图"],
@@ -2251,9 +2251,9 @@
     {
       "name": "iPhone",
       "generation": "",
-      "image": "img/iPhone.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone.webp",
       "images": {
-        "宣传图": "img/iPhone.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-device/iphone/img/iPhone.webp"
       },
       "data": {
         "displayType": ["宣传图"],

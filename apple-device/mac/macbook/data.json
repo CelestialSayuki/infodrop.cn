@@ -82,7 +82,7 @@
     {
       "name": "MacBook",
       "generation": "(Retina, 12 英寸, 2017 年)",
-      "image": "img/macbook-2017.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2017.webp",
       "data": {
         "slogan": "轻于时代，先于时代。",
         "releaseDate": "2017.06.06",
@@ -119,7 +119,7 @@
     {
       "name": "MacBook",
       "generation": "(Retina, 12 英寸, 2016 年)",
-      "image": "img/macbook-2016.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2016.webp",
       "data": {
         "slogan": "轻于时代，先于时代。",
         "releaseDate": "2016.04.20",
@@ -156,7 +156,7 @@
     {
       "name": "MacBook",
       "generation": "(Retina, 12 英寸, 2015 年初)",
-      "image": "img/macbook-2015.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2015.webp",
       "data": {
         "slogan": "全新 MacBook",
         "releaseDate": "2015.03.10",
@@ -192,7 +192,7 @@
     {
       "name": "MacBook",
       "generation": "(13 英寸, 2010 年中)",
-      "image": "img/macbook-2010.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2010.webp",
       "data": {
         "slogan": "人人适用的笔记本电脑",
         "releaseDate": "2010.05.19",
@@ -226,7 +226,7 @@
     {
       "name": "MacBook",
       "generation": "(13 英寸, 2009 年末)",
-      "image": "img/macbook-2009-10.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2009-10.webp",
       "data": {
         "slogan": "从头到尾，全新打造",
         "releaseDate": "2009.10.21",
@@ -260,7 +260,7 @@
     {
       "name": "MacBook",
       "generation": "(13 英寸, 2009 年中)",
-      "image": "img/macbook-2009-05.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2009-05.webp",
       "data": {
         "slogan": "更快速的处理器, 更广阔的存储空间",
         "releaseDate": "2009.05.28",
@@ -294,7 +294,7 @@
     {
       "name": "MacBook",
       "generation": "(13 英寸, 2009 年初)",
-      "image": "img/macbook-2009-01.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2009-01.webp",
       "data": {
         "slogan": "奠定笔记本前所未有的全新标准",
         "releaseDate": "2009.01.22",
@@ -328,7 +328,7 @@
     {
       "name": "MacBook",
       "generation": "(13 英寸, 2008 年末)",
-      "image": "img/macbook-2008-10.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2008-10.webp",
       "data": {
         "slogan": "奠定笔记本前所未有的全新标准",
         "releaseDate": "2008.10.15",
@@ -362,7 +362,7 @@
     {
       "name": "MacBook",
       "generation": "(2008 年初)",
-      "image": "img/macbook-2008-02.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/mac/macbook/img/macbook-2008-02.webp",
       "data": {
         "slogan": "全新 MacBook，魅力倍增",
         "releaseDate": "2008.02.27",

@@ -52,10 +52,10 @@
     {
       "name": "Apple C1",
       "generation": "(APL1114)",
-      "image": "img/C1_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-c/img/C1_product.webp",
       "images": {
-        "宣传图": "img/C1_product.webp",
-        "芯片图": "img/C1_APL1114.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-c/img/C1_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-c/img/C1_APL1114.webp"
       },
       "data": {
         "displayType": ["宣传图", "芯片图"],

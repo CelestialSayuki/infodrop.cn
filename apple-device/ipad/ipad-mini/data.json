@@ -78,7 +78,7 @@
     {
       "name": "iPad mini",
       "generation": "(A17 Pro)",
-      "image": "img/ipad_mini_7.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_7.webp",
       "data": {
         "slogan": "单手炫大招",
         "releaseDate": "2024.10.15",
@@ -116,7 +116,7 @@
     {
       "name": "iPad mini",
       "generation": "(第 6 代)",
-      "image": "img/ipad_mini_6.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_6.webp",
       "data": {
         "slogan": "小写的大",
         "releaseDate": "2021.09.15",
@@ -154,7 +154,7 @@
     {
       "name": "iPad mini",
       "generation": "(第 5 代)",
-      "image": "img/ipad_mini_5.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_5.webp",
       "data": {
         "slogan": "迷你身材，大有可为",
         "releaseDate": "2019.03.18",
@@ -191,7 +191,7 @@
     {
       "name": "iPad mini 4",
       "generation": "",
-      "image": "img/ipad_mini_4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_4.webp",
       "data": {
         "slogan": "小身板，大能量，配 Touch ID",
         "releaseDate": "2014.10.17",
@@ -228,7 +228,7 @@
     {
       "name": "iPad mini 2",
       "generation": "",
-      "image": "img/ipad_mini_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_2.webp",
       "data": {
         "slogan": "配备 Retina 显示屏，小有乾坤",
         "releaseDate": "2013.10.23",
@@ -264,7 +264,7 @@
     {
       "name": "iPad mini",
       "generation": "",
-      "image": "img/ipad_mini_1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-mini/img/ipad_mini_1.webp",
       "data": {
         "slogan": "分分寸寸尽 iPad",
         "releaseDate": "2012.10.24",

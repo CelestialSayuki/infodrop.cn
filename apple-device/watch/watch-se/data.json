@@ -134,7 +134,7 @@
     {
       "name": "Apple Watch SE",
       "generation": "(第 2 代)",
-      "image": "img/apple_watch_se_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-se/img/apple_watch_se_2.webp",
       "data": {
         "slogan": "超值超有料",
         "releaseDate": "2022.09.08",
@@ -177,7 +177,7 @@
     {
       "name": "Apple Watch SE",
       "generation": "(第 1 代)",
-      "image": "img/apple_watch_se.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/watch/watch-se/img/apple_watch_se.webp",
       "data": {
         "slogan": "事事拿手，轻松入手。",
         "releaseDate": "2020.09.16",

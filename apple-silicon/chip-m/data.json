@@ -178,11 +178,11 @@
     {
       "name": "M4 Max",
       "generation": "(Brava, T6041)",
-      "image": "img/M4_Max_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Max_product.webp",
       "images": {
-        "宣传图": "img/M4_Max_product.webp",
-        "芯片图": "img/M4_Max_temp.webp",
-        "结构图": "img/M4_Max_structure.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Max_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Max_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Max_structure.webp"
       },
       "data": {
         "displayType": [
@@ -223,11 +223,11 @@
     {
       "name": "M4 Pro",
       "generation": "(Brava Chop, T6040)",
-      "image": "img/M4_Pro_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Pro_product.webp",
       "images": {
-        "宣传图": "img/M4_Pro_product.webp",
-        "芯片图": "img/M4_Pro_temp.webp",
-        "结构图": "img/M4_Pro_structure.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Pro_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Pro_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_Pro_structure.webp"
       },
       "data": {
         "displayType": [
@@ -268,12 +268,12 @@
     {
       "name": "M4",
       "generation": "(Donan, APL1206-T8132)",
-      "image": "img/M4_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_product.webp",
       "images": {
-        "宣传图": "img/M4_product.webp",
-        "芯片图": "img/M4_APL1206_temp.webp",
-        "结构图": "img/M4_structure.webp",
-        "Die": "img/die/m4_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_APL1206_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M4_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m4_temp.webp"
       },
       "data": {
         "displayType": [
@@ -315,11 +315,11 @@
     {
       "name": "M3 Ultra",
       "generation": "(T6032)",
-      "image": "img/M3_Ultra_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Ultra_product.webp",
       "images": {
-        "宣传图": "img/M3_Ultra_product.webp",
-        "结构图": "img/M3_Ultra_structure.webp",
-        "Die": "img/die/m3ultra_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Ultra_product.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Ultra_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m3ultra_temp.webp"
       },
       "data": {
         "displayType": [
@@ -360,12 +360,12 @@
     {
       "name": "M3 Max",
       "generation": "(Palma, APL1204-T6031/T6034)",
-      "image": "img/M3_Max_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Max_product.webp",
       "images": {
-        "宣传图": "img/M3_Max_product.webp",
-        "芯片图": "img/M3_Max_temp.webp",
-        "结构图": "img/M3_Max_structure.webp",
-        "Die": "img/die/m3max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Max_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Max_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Max_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m3max_temp.webp"
       },
       "data": {
         "displayType": [
@@ -407,12 +407,12 @@
     {
       "name": "M3 Pro",
       "generation": "(Lobos, APL1203-T6030)",
-      "image": "img/M3_Pro_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Pro_product.webp",
       "images": {
-        "宣传图": "img/M3_Pro_product.webp",
-        "芯片图": "img/M3_Pro_temp.webp",
-        "结构图": "img/M3_Pro_structure.webp",
-        "Die": "img/die/m3pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Pro_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Pro_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_Pro_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m3pro_temp.webp"
       },
       "data": {
         "displayType": [
@@ -454,12 +454,12 @@
     {
       "name": "M3",
       "generation": "(Ibiza, APL1201-T8122)",
-      "image": "img/M3_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_product.webp",
       "images": {
-        "宣传图": "img/M3_product.webp",
-        "芯片图": "img/M3_temp.webp",
-        "结构图": "img/M3_structure.webp",
-        "Die": "img/die/m3_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M3_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m3_temp.webp"
       },
       "data": {
         "displayType": [
@@ -501,12 +501,12 @@
     {
       "name": "M2 Ultra",
       "generation": "(Rhodes 2C, APL1W12-T6022)",
-      "image": "img/M2_Ultra_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Ultra_product.webp",
       "images": {
-        "宣传图": "img/M2_Ultra_product.webp",
-        "芯片图": "img/M2_Ultra_temp.webp",
-        "结构图": "img/M2_Ultra_structure.webp",
-        "Die": "img/die/m2ultra_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Ultra_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Ultra_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Ultra_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m2ultra_temp.webp"
       },
       "data": {
         "displayType": [
@@ -548,12 +548,12 @@
     {
       "name": "M2 Max",
       "generation": "(Rhodes 1C, APL1111-T6021)",
-      "image": "img/M2_Max_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Max_product.webp",
       "images": {
-        "宣传图": "img/M2_Max_product.webp",
-        "芯片图": "img/M2_Max_temp.webp",
-        "结构图": "img/M2_Max_structure.webp",
-        "Die": "img/die/m2max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Max_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Max_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Max_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m2max_temp.webp"
       },
       "data": {
         "displayType": [
@@ -595,12 +595,12 @@
     {
       "name": "M2 Pro",
       "generation": "(Rhodes Chop, APL1113-T6020)",
-      "image": "img/M2_Pro_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Pro_product.webp",
       "images": {
-        "宣传图": "img/M2_Pro_product.webp",
-        "芯片图": "img/M2_Pro_temp.webp",
-        "结构图": "img/M2_Pro_structure.webp",
-        "Die": "img/die/m2pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Pro_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Pro_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_Pro_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m2pro_temp.webp"
       },
       "data": {
         "displayType": [
@@ -642,12 +642,12 @@
     {
       "name": "M2",
       "generation": "(Staten, APL1109-T8112)",
-      "image": "img/M2_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_product.webp",
       "images": {
-        "宣传图": "img/M2_product.webp",
-        "芯片图": "img/M2_APL1109_temp.webp",
-        "结构图": "img/M2_structure.webp",
-        "Die": "img/die/m2_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_APL1109_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M2_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m2_temp.webp"
       },
       "data": {
         "displayType": [
@@ -689,12 +689,12 @@
     {
       "name": "M1 Ultra",
       "generation": "(Jade 2C, APL1W06-T6002)",
-      "image": "img/M1_Ultra_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Ultra_product.webp",
       "images": {
-        "宣传图": "img/M1_Ultra_product.webp",
-        "芯片图": "img/M1_Ultra_APL1W06_temp.webp",
-        "结构图": "img/M1_Ultra_structure.webp",
-        "Die": "img/die/m1ultra_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Ultra_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Ultra_APL1W06_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Ultra_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m1ultra_temp.webp"
       },
       "data": {
         "displayType": [
@@ -736,12 +736,12 @@
     {
       "name": "M1 Max",
       "generation": "(Jade 1C, APL1105-T6001)",
-      "image": "img/M1_Max_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Max_product.webp",
       "images": {
-        "宣传图": "img/M1_Max_product.webp",
-        "芯片图": "img/M1_Max_APL1105_temp.webp",
-        "结构图": "img/M1_Max_structure.webp",
-        "Die": "img/die/m1max_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Max_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Max_APL1105_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Max_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m1max_temp.webp"
       },
       "data": {
         "displayType": [
@@ -783,12 +783,12 @@
     {
       "name": "M1 Pro",
       "generation": "(Jade Chop, APL1103-T6000)",
-      "image": "img/M1_Pro_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Pro_product.webp",
       "images": {
-        "宣传图": "img/M1_Pro_product.webp",
-        "芯片图": "img/M1_Pro_APL1103_temp.webp",
-        "结构图": "img/M1_Pro_structure.webp",
-        "Die": "img/die/m1pro_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Pro_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Pro_APL1103_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_Pro_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m1pro_temp.webp"
       },
       "data": {
         "displayType": [
@@ -830,12 +830,12 @@
     {
       "name": "M1",
       "generation": "(Tonga, APL1102-T8103)",
-      "image": "img/M1_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_product.webp",
       "images": {
-        "宣传图": "img/M1_product.webp",
-        "芯片图": "img/M1_APL1102_temp.webp",
-        "结构图": "img/M1_structure.webp",
-        "Die": "img/die/m1_temp.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_APL1102_temp.webp",
+        "结构图": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/M1_structure.webp",
+        "Die": "http://cdn.infodrop.cn/apple-silicon/chip-m/img/die/m1_temp.webp"
       },
       "data": {
         "displayType": [

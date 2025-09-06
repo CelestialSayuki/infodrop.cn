@@ -61,10 +61,10 @@
     {
       "name": "R1",
       "generation": "(APL1W08-T6500)",
-      "image": "img/R1_product.webp",
+      "image": "http://cdn.infodrop.cn/apple-silicon/chip-r/img/R1_product.webp",
       "images": {
-        "宣传图": "img/R1_product.webp",
-        "芯片图": "img/R1.webp"
+        "宣传图": "http://cdn.infodrop.cn/apple-silicon/chip-r/img/R1_product.webp",
+        "芯片图": "http://cdn.infodrop.cn/apple-silicon/chip-r/img/R1.webp"
       },
       "data": {
         "displayType": ["宣传图", "芯片图"],

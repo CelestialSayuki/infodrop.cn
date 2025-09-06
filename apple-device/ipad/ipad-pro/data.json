@@ -79,7 +79,7 @@
     {
       "name": "iPad Pro 13 英寸",
       "generation": "(M4)",
-      "image": "img/ipad-pro-11-inch-or-13-inch-m4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
       "data": {
         "slogan": "磅礴的薄",
         "releaseDate": "2024.05.07",
@@ -116,7 +116,7 @@
     {
       "name": "iPad Pro 11 英寸",
       "generation": "(M4)",
-      "image": "img/ipad-pro-11-inch-or-13-inch-m4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
       "data": {
         "slogan": "磅礴的薄",
         "releaseDate": "2024.05.07",
@@ -153,7 +153,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "(第 6 代)",
-      "image": "img/ipad_pro_129_6.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_6.webp",
       "data": {
         "slogan": "由 M2 强势驱动",
         "releaseDate": "2022.10.18",
@@ -190,7 +190,7 @@
     {
       "name": "iPad Pro 11 英寸",
       "generation": "(第 4 代)",
-      "image": "img/ipad_pro_11_4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_11_4.webp",
       "data": {
         "slogan": "由 M2 强势驱动",
         "releaseDate": "2022.10.18",
@@ -227,7 +227,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "(第 5 代)",
-      "image": "img/ipad_pro_129_5.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_5.webp",
       "data": {
         "slogan": "终极 iPad 体验",
         "releaseDate": "2021.04.21",
@@ -264,7 +264,7 @@
     {
       "name": "iPad Pro 11 英寸",
       "generation": "(第 3 代)",
-      "image": "img/ipad_pro_11_3.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_11_3.webp",
       "data": {
         "slogan": "终极 iPad 体验",
         "releaseDate": "2021.04.21",
@@ -301,7 +301,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "(第 4 代)",
-      "image": "img/ipad_pro_129_4.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_4.webp",
       "data": {
         "slogan": "你的下一台电脑，何必是电脑。",
         "releaseDate": "2020.03.18",
@@ -338,7 +338,7 @@
     {
       "name": "iPad Pro 11 英寸",
       "generation": "(第 2 代)",
-      "image": "img/ipad_pro_11_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_11_2.webp",
       "data": {
         "slogan": "你的下一台电脑，何必是电脑。",
         "releaseDate": "2020.03.18",
@@ -375,7 +375,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "(第 3 代)",
-      "image": "img/ipad_pro_129_3.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_3.webp",
       "data": {
         "slogan": "新一代 iPad Pro，全面新生。",
         "releaseDate": "2018.10.31",
@@ -412,7 +412,7 @@
     {
       "name": "iPad Pro 11 英寸",
       "generation": "(第 1 代)",
-      "image": "img/ipad_pro_11_1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_11_1.webp",
       "data": {
         "slogan": "新一代 iPad Pro，全面新生。",
         "releaseDate": "2018.10.31",
@@ -449,7 +449,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "(第 2 代)",
-      "image": "img/ipad_pro_129_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_2.webp",
       "data": {
         "slogan": "不止能做好，还能做到更好。",
         "releaseDate": "2017.06.06",
@@ -487,7 +487,7 @@
     {
       "name": "iPad Pro 10.5 英寸",
       "generation": "",
-      "image": "img/ipad_pro_105_2.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_105_2.webp",
       "data": {
         "slogan": "不止能做好，还能做到更好。",
         "releaseDate": "2017.06.06",
@@ -526,7 +526,7 @@
     {
       "name": "iPad Pro 9.7 英寸",
       "generation": "",
-      "image": "img/ipad_pro_97_1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_97_1.webp",
       "data": {
         "slogan": "你的下一台电脑，现更以两种尺寸呈现",
         "releaseDate": "2016.03.22",
@@ -565,7 +565,7 @@
     {
       "name": "iPad Pro 12.9 英寸",
       "generation": "",
-      "image": "img/ipad_pro_129_1.webp",
+      "image": "http://cdn.infodrop.cn/apple-device/ipad/ipad-pro/img/ipad_pro_129_1.webp",
       "data": {
         "slogan": "轻，薄，磅礴。",
         "releaseDate": "2015.09.10",
