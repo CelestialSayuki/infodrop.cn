@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A060';
+const CACHE_VERSION = '1A061';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const APP_SHELL_URL = './index.html';
@@ -50,15 +50,15 @@ self.addEventListener('install', (event) => {
     const cache = await caches.open(CACHE_NAME);
     const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
     if (!response.ok) throw new Error('Failed to fetch precache manifest.');
+    
     const filesToCache = await response.json();
     totalFiles = filesToCache.length;
     cachedCount = 0;
     currentProgress = 0;
-    let lastReportedPercent = -1;
     
     const cachingStartTime = Date.now();
 
-    for (const url of filesToCache) {
+    const cachePromises = filesToCache.map(async (url) => {
       try {
         const request = new Request(url, { cache: 'no-store' });
         const networkResponse = await fetch(request);
@@ -66,6 +66,7 @@ self.addEventListener('install', (event) => {
           throw new Error(`[SW] Network response was not ok for: ${url}`);
         }
         await cache.put(request, networkResponse);
+        
         cachedCount++;
         const percent = Math.round((cachedCount / totalFiles) * 100);
         currentProgress = percent;
@@ -78,26 +79,25 @@ self.addEventListener('install', (event) => {
             estimatedRemainingTime = remainingFiles / filesPerMillisecond;
         }
 
-        if (percent > lastReportedPercent) {
-          lastReportedPercent = percent;
-          const allClients = await self.clients.matchAll({ includeUncontrolled: true });
-          for (const client of allClients) {
-            client.postMessage({
-              type: 'CACHE_PROGRESS',
-              payload: {
-                total: totalFiles,
-                current: cachedCount,
-                percent: percent,
-                currentFile: url,
-                estimatedRemainingTime: estimatedRemainingTime
-              }
-            });
-          }
+        const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+        for (const client of allClients) {
+          client.postMessage({
+            type: 'CACHE_PROGRESS',
+            payload: {
+              total: totalFiles,
+              current: cachedCount,
+              percent: percent,
+              currentFile: url,
+              estimatedRemainingTime: estimatedRemainingTime
+            }
+          });
         }
       } catch (err) {
         console.error(`[SW] Caching failed for: ${url}`, err);
       }
-    }
+    });
+
+    await Promise.all(cachePromises);
 
     const finalClients = await self.clients.matchAll({ includeUncontrolled: true });
     for (const client of finalClients) {
