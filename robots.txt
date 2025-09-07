@@ -1,0 +1,9 @@
+# Universal robots.txt for infodrop.cn
+# Applies to all web crawlers.
+User-agent: *
+
+# Disallow crawlers from accessing backend, API, configuration, and tool pages.
+Disallow: /config.php
+Disallow: /console/
+Disallow: /auth/
+Disallow: /apple-report/latency-test/
