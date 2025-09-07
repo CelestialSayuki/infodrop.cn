@@ -538,7 +538,7 @@ to {
     padding:10px 25px;
     border-radius:8px;
     cursor:pointer;
-    text-decoration:none;
+    font-size:15px;
     transition:background-color var(--transition-speed),box-shadow var(--transition-speed);
     box-shadow:0 4px 8px rgba(0,122,255,0.3);
 }
