@@ -2,8 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="canonical" href="https://infodrop.cn/">
     <link rel="manifest" href="/manifest.json">
     <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
+    <meta name="description" content="infodrop.cn 是一个先进的 Apple 产品参数中心，提供关于 Apple Silicon (A系列/M系列)、iPhone、iPad、Mac 等设备的详细规格、性能跑分数据和系统兼容性信息。">
     <script>
         (function() {
             const theme = localStorage.getItem('theme');
@@ -277,13 +279,13 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <a href="index.html">
-                    <img src="./favicon.ico" height="30px" width="30px">
+                    <img src="./favicon.ico" height="30px" width="30px" alt="网站 Logo">
                 </a>
                 <div class="top_title" id="top_title">先进的 Apple 产品参数中心 / infodrop.cn</div>
             </div>
             <div class="top_right_menu">
                 <div id="version-container" style="position: relative;">
-                    <a id="version-display" href="javascript:void(0);" style="cursor: pointer;"></a>
+                    <button type="button" id="version-display" style="background:none; border:none; padding:0; color:inherit; font:inherit; cursor:pointer; text-align: left;"></button>
                     <div id="version-popup" class="version-popup">
                         <div>本地版本：<span id="local-version-info">未知</span></div>
                         <div>远程版本：<span id="remote-version-info">查询中...</span></div>
@@ -311,7 +313,7 @@
         <main class="main-content">
             <div class="main-content-scroller">
                 <div class="hero-banner">
-                    <img src="/public-static/img/2025-devices.webp" class="hero-banner-image">
+                    <img src="/public-static/img/2025-devices.webp" class="hero-banner-image" alt="产品横幅图">
                     <h1>先进的 Apple 产品参数中心</h1>
                 </div>
                 <div class="title" id="divdown1" style="display: none;">
@@ -387,7 +389,7 @@
                         <li><span>2025.09.03：微调移动端样式，更正 MacPro4,1 支持信息，增加窗口限位检查</span></li>
                         <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
                         <li class="more-btn-li">
-                            <a href="javascript:void(0);" class="show-more-btn" id="show-more-updates">点击加载更多</a>
+                            <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
                         </li>
                     </ul>
                     <template id="more-updates-template">

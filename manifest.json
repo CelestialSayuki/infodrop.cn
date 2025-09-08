@@ -1,7 +1,7 @@
 {
   "name": "开源的 Apple 产品参数中心",
-  "short_name": "Apple参数",
-  "description": "一个先进的 Apple 产品参数中心和信息整合网站。",
+  "short_name": "Infodrop",
+  "description": "infodrop.cn 是一个先进的 Apple 产品参数中心，提供关于 Apple Silicon (A系列/M系列)、iPhone、iPad、Mac 等设备的详细规格、性能跑分数据和系统兼容性信息。",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
@@ -9,13 +9,8 @@
   "icons": [
     {
       "src": "./favicon.ico",
-      "sizes": "192x192",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "./favicon.ico",
-      "sizes": "512x512",
-      "type": "image/jpeg"
+      "sizes": "128x128",
+      "type": "image/png"
     }
   ]
 }
