@@ -5,6 +5,7 @@ body {
     padding-left:0;
     padding-right:0;
     transition:padding 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    padding-top: env(safe-area-inset-top);
 }
 body.landscape-notch-left {
     padding-left:env(safe-area-inset-left);
@@ -287,6 +288,7 @@ ul {
 }
 .sidebar-menu {
     list-style:none;
+    padding-top: env(safe-area-inset-top);z
 }
 .sidebar-menu li.has-submenu {
     display:block;
