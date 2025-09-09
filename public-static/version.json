@@ -1,6 +1,6 @@
 {
-  "version": "1A065",
+  "version": "1A066",
   "notes": [
-    "修复 PWA 模式错位"
+    "修复 PWA 启动动画"
   ]
 }
