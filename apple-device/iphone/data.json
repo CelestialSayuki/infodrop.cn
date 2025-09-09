@@ -195,19 +195,23 @@
                 "colors": [
                     {
                         "name": "",
-                        "hex": "rgb(149, 144, 134)"
+                        "hex": "#9E9A8F"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(151, 126, 107)"
+                        "hex": "#E4E7E2"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(211, 209, 205)"
+                        "hex": "#B4693B"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(24, 25, 25)"
+                        "hex": "#3A4B58"
+                    },
+                    {
+                        "name": "",
+                        "hex": "#575759"
                     }
                 ],
                 "arLink": "",
@@ -259,19 +263,23 @@
                 "colors": [
                     {
                         "name": "",
-                        "hex": "rgb(149, 144, 134)"
+                        "hex": "#9E9A8F"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(151, 126, 107)"
+                        "hex": "#E4E7E2"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(211, 209, 205)"
+                        "hex": "#B4693B"
                     },
                     {
                         "name": "",
-                        "hex": "rgb(24, 25, 25)"
+                        "hex": "#3A4B58"
+                    },
+                    {
+                        "name": "",
+                        "hex": "#575759"
                     }
                 ],
                 "arLink": "",
@@ -323,23 +331,19 @@
                 "colors": [
                     {
                         "name": "",
-                        "hex": "#6467e6"
+                        "hex": "#C1C1C1"
                     },
                     {
                         "name": "",
-                        "hex": "#85adac"
+                        "hex": "#C6C5B9"
                     },
                     {
                         "name": "",
-                        "hex": "#ee94ca"
+                        "hex": "#9EBFDB"
                     },
                     {
                         "name": "",
-                        "hex": "#e7e7e7"
-                    },
-                    {
-                        "name": "",
-                        "hex": "#202020"
+                        "hex": "#000000"
                     }
                 ],
                 "arLink": "",
@@ -391,23 +395,23 @@
                 "colors": [
                     {
                         "name": "",
-                        "hex": "#6467e6"
+                        "hex": "#A2A7BB"
                     },
                     {
                         "name": "",
-                        "hex": "#85adac"
+                        "hex": "#D9D6CF"
                     },
                     {
                         "name": "",
-                        "hex": "#ee94ca"
+                        "hex": "#A0C38D"
                     },
                     {
                         "name": "",
-                        "hex": "#e7e7e7"
+                        "hex": "#9EBFDB"
                     },
                     {
                         "name": "",
-                        "hex": "#202020"
+                        "hex": "#000000"
                     }
                 ],
                 "arLink": "",
