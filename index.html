@@ -142,7 +142,8 @@
                     }, 500);
                 });
             } else {
-                if (localStorage.getItem('sw_installed_version')) {
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                if (localStorage.getItem('sw_installed_version') && !isStandalone) {
                     document.documentElement.className += ' is-preloaded';
                 }
             }
