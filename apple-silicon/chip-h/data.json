@@ -61,30 +61,6 @@
     }
   ],
   "products": [
-      {
-        "name": "Apple H3",
-        "generation": "",
-        "image": "",
-        "images": {
-          "芯片图": "",
-          "宣传图": "",
-          "Die": ""
-        },
-        "data": {
-          "displayType": [
-            "芯片图",
-            "宣传图",
-            "Die"
-          ],
-          "releaseDate": "2025.09",
-          "processTech": "?",
-          "dieSize": "?",
-          "coreArchitecture": "?",
-          "bluetooth": "?",
-          "5G": "✅",
-          "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Pro (第 3 代)</div>"
-        }
-      },
     {
       "name": "Apple H2",
       "generation": "",
@@ -106,7 +82,7 @@
         "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.3",
         "5G": "✅",
-        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2</div>"
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Pro (第 3 代)<br>AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2</div>"
       }
     },
     {

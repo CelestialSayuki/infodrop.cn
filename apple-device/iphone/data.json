@@ -1,6 +1,6 @@
 {
     "title": "苹果 iPhone 参数对比",
-    "lastUpdated": "2025.06.23",
+    "lastUpdated": "2025.09.10",
     "featureGroups": [
         {
             "groupName": "基础",
@@ -176,11 +176,11 @@
         {
             "name": "iPhone 17 Pro Max",
             "generation": "",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
             "images": {
-                "宣传图": "",
-                "内部图 1": "",
-                "内部图 2": ""
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -188,37 +188,29 @@
                     "内部图 1",
                     "内部图 2"
                 ],
-                "slogan": "",
+                "slogan": "创新设计，打造巅峰性能和超长续航。",
                 "releaseDate": "2025.09.10",
                 "osSupport": "iOS 26 ~ 最新",
                 "modelId": "",
                 "colors": [
                     {
-                        "name": "",
-                        "hex": "#9E9A8F"
+                        "name": "银色",
+                        "hex": "#E7E7E7"
                     },
                     {
-                        "name": "",
-                        "hex": "#E4E7E2"
+                        "name": "星宇橙色",
+                        "hex": "#E68448"
                     },
                     {
-                        "name": "",
-                        "hex": "#B4693B"
-                    },
-                    {
-                        "name": "",
-                        "hex": "#3A4B58"
-                    },
-                    {
-                        "name": "",
-                        "hex": "#575759"
+                        "name": "深蓝色",
+                        "hex": "#444D77"
                     }
                 ],
                 "arLink": "",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+6GPU)</div>",
-                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
-                "display": "?",
-                "resolution": "?",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T、2T</div>",
+                "display": "6.9\" XDR OLED",
+                "resolution": "2868×1320, 460ppi",
                 "refreshRate": "1-120Hz ProMotion",
                 "brightness": "?",
                 "colorGamut": "原彩显示, 广色域显示(P3)",
@@ -227,13 +219,13 @@
                 "lidar": "?",
                 "wiredInterface": "USB-C (最高可达 10Gb/s)",
                 "cellular": "?",
-                "wifi": "802.11be HT160 2x2 MIMO",
-                "bluetooth": "?",
+                "wifi": "Apple N1",
+                "bluetooth": "Bluetooth 6.0",
                 "nfc": "支持读卡器模式 NFC",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "19.772Wh (5088mAh)<br>18.748Wh (4823mAh)",
                 "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
-                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>??小时</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>??小时</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>???小时</div>",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>37小时</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>??小时</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>???小时</div>",
                 "audioIO": "麦克风 ×4 + 扬声器 ×2",
                 "dimensionsWeight": "",
                 "sim": "双卡双待",
@@ -244,11 +236,11 @@
         {
             "name": "iPhone 17 Pro",
             "generation": "",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
             "images": {
-                "宣传图": "",
-                "内部图 1": "",
-                "内部图 2": ""
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -256,37 +248,29 @@
                     "内部图 1",
                     "内部图 2"
                 ],
-                "slogan": "",
+                "slogan": "创新设计，打造巅峰性能和超长续航。",
                 "releaseDate": "2025.09.10",
                 "osSupport": "iOS 26 ~ 最新",
                 "modelId": "",
                 "colors": [
                     {
-                        "name": "",
-                        "hex": "#9E9A8F"
+                        "name": "银色",
+                        "hex": "#E7E7E7"
                     },
                     {
-                        "name": "",
-                        "hex": "#E4E7E2"
+                        "name": "星宇橙色",
+                        "hex": "#E68448"
                     },
                     {
-                        "name": "",
-                        "hex": "#B4693B"
-                    },
-                    {
-                        "name": "",
-                        "hex": "#3A4B58"
-                    },
-                    {
-                        "name": "",
-                        "hex": "#575759"
+                        "name": "深蓝色",
+                        "hex": "#444D77"
                     }
                 ],
-                "arLink": "",
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-pro-p-sim.usdz\" target=\"_blank\">星宇橙色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+6GPU)</div>",
-                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>128G、256G、512G、1T</div>",
-                "display": "?",
-                "resolution": "?",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
+                "display": "6.3\" XDR OLED",
+                "resolution": "2622×1206, 460ppi",
                 "refreshRate": "1-120Hz ProMotion",
                 "brightness": "?",
                 "colorGamut": "原彩显示, 广色域显示(P3)",
@@ -295,8 +279,8 @@
                 "lidar": "?",
                 "wiredInterface": "USB-C (最高可达 10Gb/s)",
                 "cellular": "?",
-                "wifi": "802.11be HT160 2x2 MIMO",
-                "bluetooth": "?",
+                "wifi": "Apple N1",
+                "bluetooth": "Bluetooth 6.0",
                 "nfc": "支持读卡器模式 NFC",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "16.558Wh (4252mAh)<br>15.534Wh (3988mAh)",
@@ -312,11 +296,11 @@
         {
             "name": "iPhone Air",
             "generation": "",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
             "images": {
-                "宣传图": "",
-                "内部图 1": "",
-                "内部图 2": ""
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -324,43 +308,43 @@
                     "内部图 1",
                     "内部图 2"
                 ],
-                "slogan": "",
+                "slogan": "迄今最薄 iPhone，身藏高能内核。",
                 "releaseDate": "2025.09.10",
                 "osSupport": "iOS 26 ~ 最新",
                 "modelId": "",
                 "colors": [
                     {
-                        "name": "",
-                        "hex": "#C1C1C1"
+                        "name": "天蓝色",
+                        "hex": "#E8F2FA"
                     },
                     {
-                        "name": "",
-                        "hex": "#C6C5B9"
+                        "name": "浅金色",
+                        "hex": "#F9F3E6"
                     },
                     {
-                        "name": "",
-                        "hex": "#9EBFDB"
+                        "name": "云白色",
+                        "hex": "#FCFCFC"
                     },
                     {
-                        "name": "",
-                        "hex": "#000000"
+                        "name": "深空黑色",
+                        "hex": "#181818"
                     }
                 ],
-                "arLink": "",
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-air-e-sim.usdz\" target=\"_blank\">云白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+5GPU)</div>",
-                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>128G、256G、512G、1T</div>",
-                "display": "6.9\" XDR OLED",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
+                "display": "6.5\" XDR OLED",
                 "resolution": "?",
-                "refreshRate": "120Hz",
+                "refreshRate": "1-120Hz ProMotion",
                 "brightness": "?",
                 "colorGamut": "原彩显示, 广色域显示(P3)",
                 "rearCamera": "?",
                 "frontCamera": "?",
                 "lidar": "/",
                 "wiredInterface": "USB-C (最高可达 480Mb/s)",
-                "cellular": "Apple C1",
-                "wifi": "802.11be HT160 2x2 MIMO",
-                "bluetooth": "?",
+                "cellular": "Apple C1X",
+                "wifi": "Apple N1",
+                "bluetooth": "Bluetooth 6.0",
                 "nfc": "支持读卡器模式 NFC",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "12.263Wh (3149mAh)<br>11.823Wh (3036mAh)",
@@ -376,11 +360,11 @@
         {
             "name": "iPhone 17",
             "generation": "",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
             "images": {
-                "宣传图": "",
-                "内部图 1": "",
-                "内部图 2": ""
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -394,41 +378,41 @@
                 "modelId": "",
                 "colors": [
                     {
-                        "name": "",
-                        "hex": "#A2A7BB"
+                        "name": "薰衣草紫色",
+                        "hex": "#E5D9F0"
                     },
                     {
-                        "name": "",
-                        "hex": "#D9D6CF"
+                        "name": "鼠尾草绿色",
+                        "hex": "#BCC7A0"
                     },
                     {
-                        "name": "",
-                        "hex": "#A0C38D"
+                        "name": "青雾蓝色",
+                        "hex": "#AEBDDC"
                     },
                     {
-                        "name": "",
-                        "hex": "#9EBFDB"
+                        "name": "白色",
+                        "hex": "#FAFAFA"
                     },
                     {
-                        "name": "",
-                        "hex": "#000000"
+                        "name": "黑色",
+                        "hex": "#4F5255"
                     }
                 ],
-                "arLink": "",
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-p-sim.usdz\" target=\"_blank\">薰衣草紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19<br>(2P+4E+5GPU)</div>",
-                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G</div>",
                 "display": "6.1\" XDR OLED",
                 "resolution": "2556×1179, 460ppi",
-                "refreshRate": "?Hz",
-                "brightness": "?",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 3000(外)",
                 "colorGamut": "原彩显示, 广色域显示(P3)",
-                "rearCamera": "?",
-                "frontCamera": "?",
+                "rearCamera": "融合式：4800W 像素 ƒ/?.?<br>\n\t\t\t\t\t\t\t超广角：4800W 像素 ƒ/2.2",
+                "frontCamera": "???? 像素 ƒ/?.?",
                 "lidar": "/",
                 "wiredInterface": "USB-C (最高可达 480Mb/s)",
                 "cellular": "?",
-                "wifi": "802.11be HT160 2x2 MIMO",
-                "bluetooth": "?",
+                "wifi": "Apple N1",
+                "bluetooth": "Bluetooth 6.0",
                 "nfc": "支持读卡器模式 NFC",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "14.351Wh (3692mAh)",

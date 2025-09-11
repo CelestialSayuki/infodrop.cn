@@ -67,11 +67,15 @@
             ]
         },
         {
-            "groupName": "麦克风",
+            "groupName": "传感器",
             "features": [
                 {
                     "id": "micCount",
                     "name": "麦克风数量"
+                },
+                {
+                    "id": "heartrate",
+                    "name": "心率检测"
                 }
             ]
         },
@@ -146,9 +150,9 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 3 代)",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-pro-3.webp",
             "data": {
-                "slogan": "",
+                "slogan": "主动降噪升至两倍，倍加悦耳。",
                 "releaseDate": "2025.09.10",
                 "modelId": "",
                 "colors": [
@@ -157,24 +161,25 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "",
-                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H3 ×2 + U2 (MagSafe 充电盒)</div>",
-                "bluetooth": "Bluetooth 5.4",
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-pro-3.usdz\" target=\"_blank\">白色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2 + U2 (MagSafe 充电盒)</div>",
+                "bluetooth": "Bluetooth 5.3",
                 "controlMethod": "按压耳机柄、上下轻扫",
                 "spatialAudio": "动态头部追踪的空间音频",
                 "anc": "主动降噪",
                 "transparency": "自适应通透模式",
-                "micCount": "?个",
-                "listenTimeSingle": "? 小时",
-                "listenTimeTotal": "? 小时",
+                "micCount": "两个",
+                "heartrate": "✅",
+                "listenTimeSingle": "8 小时",
+                "listenTimeTotal": "24 小时",
                 "batterySingle": "0.???Wh (??.?mAh)",
                 "batteryCase": "2.???Wh (???mAh)",
                 "chargeMethod": "USB-C<br>QI/MagSafe/Watch充电器",
-                "weightSingle": "?.?g",
-                "weightCase": "??.?g",
-                "dimensionsCase": "??.?×??.?×??.?mm",
-                "waterResistance": "IPX4",
-                "links": ""
+                "weightSingle": "5.55g",
+                "weightCase": "43.99g",
+                "dimensionsCase": "47.2×62.2×21.8mm",
+                "waterResistance": "IP57",
+                "links": "<a href=\"https://www.apple.com.cn/airpods-pro/specs\" target=\"_blank\">技术规格</a>"
             }
         },
         {
@@ -199,6 +204,7 @@
                 "anc": "(仅主动降噪版)",
                 "transparency": "(仅主动降噪版)",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "5 小时 (启用主动降噪为 4 小时)",
                 "listenTimeTotal": "30 小时 (启用主动降噪为 20 小时)",
                 "batterySingle": "0.123Wh (32.1mAh)",
@@ -249,6 +255,7 @@
                 "anc": "主动降噪",
                 "transparency": "通透模式",
                 "micCount": "九个",
+                "heartrate": "-",
                 "listenTimeSingle": "20 小时",
                 "listenTimeTotal": "❌",
                 "batterySingle": "-",
@@ -283,6 +290,7 @@
                 "anc": "主动降噪",
                 "transparency": "自适应通透模式",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "6 小时",
                 "listenTimeTotal": "30 小时",
                 "batterySingle": "0.182Wh (49.7mAh)",
@@ -291,7 +299,7 @@
                 "weightSingle": "5.3g",
                 "weightCase": "50.8g",
                 "dimensionsCase": "60.6×45.2×21.7mm",
-                "waterResistance": "IPX4",
+                "waterResistance": "IP54",
                 "links": "<a href=\"https://support.apple.com/zh-cn/111851\" target=\"_blank\">技术规格</a>"
             }
         },
@@ -317,6 +325,7 @@
                 "anc": "❌",
                 "transparency": "❌",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "6 小时",
                 "listenTimeTotal": "30 小时",
                 "batterySingle": "0.133Wh (36.2mAh)",
@@ -367,6 +376,7 @@
                 "anc": "主动降噪",
                 "transparency": "通透模式",
                 "micCount": "九个",
+                "heartrate": "-",
                 "listenTimeSingle": "20 小时",
                 "listenTimeTotal": "❌",
                 "batterySingle": "2.53Wh (664mAh)",
@@ -401,6 +411,7 @@
                 "anc": "主动降噪",
                 "transparency": "通透模式",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "4.5 小时",
                 "listenTimeTotal": "24 小时",
                 "batterySingle": "0.16Wh",
@@ -435,6 +446,7 @@
                 "spatialAudio": "❌",
                 "transparency": "❌",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "5 小时",
                 "listenTimeTotal": "24 小时",
                 "batterySingle": "93 mWh",
@@ -469,6 +481,7 @@
                 "anc": "❌",
                 "transparency": "❌",
                 "micCount": "两个",
+                "heartrate": "-",
                 "listenTimeSingle": "5 小时",
                 "listenTimeTotal": "24 小时",
                 "batterySingle": "93 mWh",

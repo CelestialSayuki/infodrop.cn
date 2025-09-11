@@ -1,6 +1,6 @@
 {
   "title": "苹果 Mac mini 参数对比",
-  "lastUpdated": "2025.06.18",
+  "lastUpdated": "2025.09.10",
   "featureGroups": [
     {
       "groupName": "基础",
@@ -144,7 +144,7 @@
     {
       "name": "Developer Transition Kit",
       "generation": "Apple Development Platform",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2020.webp",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
       "data": {
         "slogan": "Get your Universal apps ready.",
         "releaseDate": "2020.06.22",

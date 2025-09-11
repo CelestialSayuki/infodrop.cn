@@ -1,6 +1,6 @@
 {
     "title": "苹果 A 系列参数对比",
-    "lastUpdated": "2025.06.16",
+    "lastUpdated": "2025.09.10",
     "featureGroups": [
         {
             "groupName": "基础",
@@ -178,12 +178,12 @@
         {
             "name": "A19 Pro",
             "generation": "(Thera, APL????-T8150)",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_structure.webp",
             "images": {
-                "芯片图": "",
-                "宣传图": "",
-                "结构图": "",
-                "Die": ""
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_structure.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -192,23 +192,23 @@
                     "结构图",
                     "Die"
                 ],
-                "slogan": "",
+                "slogan": "跃上新维度，全面封神。",
                 "releaseDate": "2025.09",
                 "processTech": "TSMC N3P",
                 "transistorCount": "",
                 "dieSize": "",
-                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.2xGHz ×2<br>2.6xGHz ×4</div>",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.26GHz ×2<br>2.60GHz ×4</div>",
                 "coreArchitecture": "64-bit ARMv9.2-A",
-                "microArchitecture": "Everest (V4) + Sawtooth (V4)<br>(10-wide + 5-wide)",
+                "microArchitecture": "Thera-P + Thera-E<br>(10-wide + 5-wide)",
                 "l1iCache": "2×192KB + 4×128KB",
                 "l1dCache": "2×128KB + 4×64KB",
-                "l2Cache": "大核 16MB + 小核 4MB",
+                "l2Cache": "大核 16MB + 小核 6MB",
                 "mlAccelerator": "SME + AMX Version 6",
-                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>64 EUs<br>768 ALUs<br>@16xxMHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@16xxMHz</div>",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@16xxMHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@16xxMHz</div>",
                 "gpuModel": "Apple10 家族, Apple G18P",
-                "gpuFeatures": "硬件光线追踪, 支持 Metal 3 & 4",
-                "gpuL2Cache": "768KB (192KB × 4 组)",
-                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ ?TOPS (FP16 稀疏化)<br>@?MHz</div>",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4, NE加速",
+                "gpuL2Cache": "",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ ?TOPS (FP16 稀疏化)<br>@1???MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
                 "aneSram": "2MB ANE SRAM",
                 "hardwareAccel": "H.264, HEVC, ProRes",
@@ -216,8 +216,8 @@
                 "l3Slc": "32MB System Level Cache",
                 "internalIo": "Camera Serial Interface ×13<br>PCIe ×(2+4) Lines",
                 "packaging": "PoP 叠层封装",
-                "ramSpec": "LPDDR5X-9600",
-                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>总位宽 64-bit<br>76.8GB/s</div>",
+                "ramSpec": "LPDDR5X-8533/9600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>总位宽 64-bit<br>68.3GB/s</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>总位宽 64-bit<br>76.8GB/s</div>",
                 "storageProtocol": "NVMe",
                 "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17 Pro<br>iPhone 17 Pro Max<br>iPhone Air</div>"
             }
@@ -225,12 +225,12 @@
         {
             "name": "A19",
             "generation": "(Tilos, APL????-T8150)",
-            "image": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
             "images": {
-                "芯片图": "",
-                "宣传图": "",
-                "结构图": "",
-                "Die": ""
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
                 "displayType": [
@@ -239,23 +239,23 @@
                     "结构图",
                     "Die"
                 ],
-                "slogan": "",
+                "slogan": "高能玩家，高能量专家。",
                 "releaseDate": "2025.09",
                 "processTech": "TSMC N3P",
                 "transistorCount": "",
                 "dieSize": "",
-                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.2xGHz ×2<br>2.6xGHz ×4</div>",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.26GHz ×2<br>2.60GHz ×4</div>",
                 "coreArchitecture": "64-bit ARMv9.2-A",
-                "microArchitecture": "Everest (V4) + Sawtooth (V4)<br>(10-wide + 5-wide)",
+                "microArchitecture": "Tilos-P + Tilos-E<br>(10-wide + 5-wide)",
                 "l1iCache": "2×192KB + 4×128KB",
                 "l1dCache": "2×128KB + 4×64KB",
                 "l2Cache": "大核 8MB + 小核 4MB",
                 "mlAccelerator": "SME + AMX Version 6",
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@16xxMHz</div>",
                 "gpuModel": "Apple10 家族, Apple G18P",
-                "gpuFeatures": "硬件光线追踪, 支持 Metal 3 & 4",
-                "gpuL2Cache": "768KB (192KB × 4 组)",
-                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ ?TOPS (FP16 稀疏化)<br>@?MHz</div>",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4, NE加速",
+                "gpuL2Cache": "",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ ?TOPS (FP16 稀疏化)<br>@1???MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
                 "aneSram": "2MB ANE SRAM",
                 "hardwareAccel": "H.264, HEVC, ProRes",
@@ -272,7 +272,7 @@
         {
             "name": "A18 Pro",
             "generation": "(Tahiti, APL1V07-T8140)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_APL1V07_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_APL1V07_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_product.webp",
@@ -293,14 +293,14 @@
                 "dieSize": "8.44×13.00 (109.72mm²)",
                 "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.04GHz ×2<br>2.42GHz ×4</div>",
                 "coreArchitecture": "64-bit ARMv9.2-A",
-                "microArchitecture": "Everest (V3) + Sawtooth (V3)<br>(10-wide + 5-wide)",
+                "microArchitecture": "Tahiti-P + Tahiti-E<br>(10-wide + 5-wide)",
                 "l1iCache": "2×192KB + 4×128KB",
                 "l1dCache": "2×128KB + 4×64KB",
                 "l2Cache": "大核 16MB + 小核 4MB",
                 "mlAccelerator": "SME + AMX Version 5",
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1470MHz</div>",
                 "gpuModel": "Apple9 家族, Apple G17P",
-                "gpuFeatures": "硬件光线追踪, 支持 Metal 3 & 4",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
                 "gpuL2Cache": "768KB (192KB × 4 组)",
                 "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17_Theia_D9x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
@@ -319,7 +319,7 @@
         {
             "name": "A18",
             "generation": "(Tupai, APL1V08-T8140)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_APL1V08_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_APL1V08_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_product.webp",
@@ -340,14 +340,14 @@
                 "dieSize": "7.84×11.79 (92.43mm²)",
                 "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.04GHz ×2<br>2.42GHz ×4</div>",
                 "coreArchitecture": "64-bit ARMv9.2-A",
-                "microArchitecture": "Everest (V3) + Sawtooth (V3)<br>(10-wide + 5-wide)",
+                "microArchitecture": "Tupai-P + Tupai-E<br>(10-wide + 5-wide)",
                 "l1iCache": "2×192KB + 4×128KB",
                 "l1dCache": "2×128KB + 4×64KB",
                 "l2Cache": "大核 8MB + 小核 4MB",
                 "mlAccelerator": "SME + AMX Version 5",
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>512 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div>",
                 "gpuModel": "Apple9 家族, Apple G17P",
-                "gpuFeatures": "硬件光线追踪, 支持 Metal 3 & 4",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
                 "gpuL2Cache": "768KB (192KB × 4 组)",
                 "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17_Theia_D9x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
@@ -366,7 +366,7 @@
         {
             "name": "A17 Pro",
             "generation": "(Coll, APL1V02-T8130)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_APL1V02_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_APL1V02_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_product.webp",
@@ -387,14 +387,14 @@
                 "dieSize": "8.58×13.26 (113.77mm²)",
                 "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">3.78GHz ×2<br>2.11GHz ×4</div>",
                 "coreArchitecture": "64-bit ARMv8.6-A",
-                "microArchitecture": "Everest (V2) + Sawtooth (V2)<br>(9-wide + 5-wide)",
+                "microArchitecture": "Coll-P + Coll-E<br>(9-wide + 5-wide)",
                 "l1iCache": "2×192KB + 4×128KB",
                 "l1dCache": "2×128KB + 4×64KB",
                 "l2Cache": "大核 16MB + 小核 4MB",
                 "mlAccelerator": "AMX Version 4",
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1338MHz</div>",
                 "gpuModel": "Apple9 家族, Apple G16P",
-                "gpuFeatures": "硬件光线追踪, 支持 Metal 3 & 4",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
                 "gpuL2Cache": "768KB (192KB × 4 组)",
                 "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H16x_Iaso_D8x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2160MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
@@ -413,7 +413,7 @@
         {
             "name": "A16 Bionic",
             "generation": "(Crete, APL1W10-T8120)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_APL1W10_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_APL1W10_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_product.webp",
@@ -460,7 +460,7 @@
         {
             "name": "A15 Bionic",
             "generation": "(Ellis, APL1W07-T8110)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_APL1W07_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_APL1W07_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_product.webp",
@@ -507,7 +507,7 @@
         {
             "name": "A14 Bionic",
             "generation": "(Sicily, APL1W01-T8101)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_APL1W01_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_APL1W01_temp.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_product.webp",
@@ -554,7 +554,7 @@
         {
             "name": "A13 Bionic",
             "generation": "(Cebu, APL1W85-T8030)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_APL1W85_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_APL1W85_temp.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_structure.webp",
@@ -599,7 +599,7 @@
         {
             "name": "A12Z Bionic",
             "generation": "(Aruba, APL1083-T8027)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_APL1083_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_APL1083_temp.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_structure.webp",
@@ -644,7 +644,7 @@
         {
             "name": "A12X Bionic",
             "generation": "(Aruba, APL1083-T8027)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_APL1083_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_APL1083_temp.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_structure.webp",
@@ -689,7 +689,7 @@
         {
             "name": "A12 Bionic",
             "generation": "(Cyprus, APL1W81-T8020)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_APL1W81_temp.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_structure.webp",
             "images": {
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_APL1W81_temp.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_structure.webp",
