@@ -1072,3 +1072,6 @@ html.wawei #divdown2 {
 html.wawei input:checked + .slider {
   background-color: var(--accent-color);
 }
+html.wawei .hero-banner-image {
+    object-fit: contain;
+}
