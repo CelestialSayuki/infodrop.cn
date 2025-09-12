@@ -262,7 +262,7 @@
         "bluetooth": "Bluetooth 2.1",
         "audioIO": "-",
         "dimensionsWeight": "110×61.8×8.5mm, 115g",
-        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">全球版<br>A1288</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">国内版<br>A1319</div>",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">全球版<br>A1288</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">国内版<br>A1319</div>",
         "links": "<a href=\"https://support.apple.com/zh-cn/112319\" target=\"_blank\">技术规格</a>"
       }
     },

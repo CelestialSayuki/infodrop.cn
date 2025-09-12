@@ -147,7 +147,8 @@
         }
         async function startQuiz() {
             currentUserQQ = qqInput.value;
-            if (currentUserQQ.length < 5) {
+            const qqPattern = /^\d{5,12}$/;
+            if (!qqPattern.test(currentUserQQ)) {
                 alert('请输入一个有效的QQ号！');
                 return;
             }

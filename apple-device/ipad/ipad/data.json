@@ -90,7 +90,7 @@
           { "name": "蓝色", "hex": "#6480a3" },
           { "name": "黄色", "hex": "#f0d95b" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-silver.usdz\" target=\"_blank\">银色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-blue.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-yellow.usdz\" target=\"_blank\">黄色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-silver.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-pink.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-blue.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-yellow.usdz\" target=\"_blank\">黄色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16<br>(2P+3E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6G LPDDR5<br>128G、256G、512G</div>",
         "display": "11\" Liquid LED",
@@ -107,7 +107,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "28.93Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "248.6×179.5×7, 477/481g",
         "links": "<a href=\"https://support.apple.com/zh-cn/122240\" target=\"_blank\">技术规格</a>"
@@ -128,7 +128,7 @@
           { "name": "蓝色", "hex": "#6480a3" },
           { "name": "黄色", "hex": "#f0d95b" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_silver_wifi_ios15.usdz\" target=\"_blank\">银色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_pink_wifi_ios15.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_blue_wifi_ios15.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_yellow_wifi_ios15.usdz\" target=\"_blank\">黄色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_silver_wifi_ios15.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_pink_wifi_ios15.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_blue_wifi_ios15.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_yellow_wifi_ios15.usdz\" target=\"_blank\">黄色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
         "display": "10.9\" Liquid LED",
@@ -145,7 +145,7 @@
         "bluetooth": "Bluetooth 5.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "28.6Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "248.6×179.5×7, 477g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111840\" target=\"_blank\">技术规格</a>"
@@ -181,7 +181,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "250.6×174.1×7.5, 487/498g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111898\" target=\"_blank\">技术规格</a>"
@@ -218,7 +218,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "250.6×174.1×7.5, 490/495g",
         "links": "<a href=\"https://support.apple.com/zh-cn/118451\" target=\"_blank\">技术规格</a>"
@@ -255,7 +255,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "250.6×174.1×7.5, 483/493g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111911\" target=\"_blank\">技术规格</a>"
@@ -292,7 +292,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "240×169.5×7.5, 469/478g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111957\" target=\"_blank\">技术规格</a>"
@@ -329,7 +329,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "240×169.5×7.5, 469/478g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111960\" target=\"_blank\">技术规格</a>"
@@ -365,7 +365,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "42.5Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "241.2×185.7×9.4, 652/662g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111993\" target=\"_blank\">技术规格</a>"
@@ -401,7 +401,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "42.5Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "241.2×185.7×9.4, 652/662g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111992\" target=\"_blank\">技术规格</a>"
@@ -437,7 +437,7 @@
         "bluetooth": "Bluetooth 2.1",
         "unlockMethod": "/",
         "batteryCapacity": "25Wh",
-        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"li-div-score li-div-score-a\">无线局域网<br>浏览网页：10h</div><div class=\"li-div-score li-div-score-a\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "241.2×185.7×8.8, 601/613g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111990\" target=\"_blank\">技术规格</a>"

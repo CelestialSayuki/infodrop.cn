@@ -107,7 +107,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.3Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "195.4×134.8×6.3, 293/297g",
         "links": "<a href=\"https://support.apple.com/zh-cn/121456\" target=\"_blank\">技术规格</a>"
@@ -128,7 +128,7 @@
           { "name": "粉色", "hex": "#e8d1cf" },
           { "name": "紫色", "hex": "#b9b8d1" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_space_gray.usdz\" target=\"_blank\">深空灰色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_starlight.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_pink.usdz\" target=\"_blank\">粉色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_purple.usdz\" target=\"_blank\">紫色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_space_gray.usdz\" target=\"_blank\">深空灰色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_starlight.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_pink.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_mini_6_purple.usdz\" target=\"_blank\">紫色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+3E+5GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4G LPDDR4X<br>64G、256G</div>",
         "display": "8.3\" Liquid LED",
@@ -145,7 +145,7 @@
         "bluetooth": "Bluetooth 5.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.3Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "195.4×134.8×6.3, 293/297g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111904\" target=\"_blank\">技术规格</a>"
@@ -182,7 +182,7 @@
         "bluetooth": "Bluetooth 5.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "19.1Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "203.2×134.8×6.1, 300.5/308.2g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111938\" target=\"_blank\">技术规格</a>"
@@ -219,7 +219,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "23.8Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.5, 331/341g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112018\" target=\"_blank\">技术规格</a>"
@@ -255,7 +255,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "23.8Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.5, 331/341g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112019\" target=\"_blank\">技术规格</a>"
@@ -291,7 +291,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "16.3Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×1 + 扬声器 ×1",
         "dimensionsWeight": "200×134.7×7.2, 308/312g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111978\" target=\"_blank\">技术规格</a>"

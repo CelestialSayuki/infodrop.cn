@@ -90,7 +90,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "13\" Liquid LED",
@@ -107,7 +107,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "36.59Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "280.6×214.9×6.1, 616/617g",
         "links": "<a href=\"https://support.apple.com/zh-cn/122242\" target=\"_blank\">技术规格</a>"
@@ -128,7 +128,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "11\" Liquid LED",
@@ -145,7 +145,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "28.93Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "247.6×178.5×6.1, 458/460g",
         "links": "<a href=\"https://support.apple.com/zh-cn/122241\" target=\"_blank\">技术规格</a>"
@@ -166,7 +166,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "13\" Liquid LED",
@@ -183,7 +183,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "36.59Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "280.6×214.9×6.1, 617/618g",
         "links": "<a href=\"https://support.apple.com/zh-cn/119893\" target=\"_blank\">技术规格</a>"
@@ -204,7 +204,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a>\n\t\t\t\t\t\t\t<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "11\" Liquid LED",
@@ -221,7 +221,7 @@
         "bluetooth": "Bluetooth 5.3",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "28.93Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "247.6×178.5×6.1, 462g",
         "links": "<a href=\"https://support.apple.com/zh-cn/119894\" target=\"_blank\">技术规格</a>"
@@ -258,7 +258,7 @@
         "bluetooth": "Bluetooth 5.0",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "30.2Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "250.6×174.1×6.1, 456/464g",
         "links": "<a href=\"https://support.apple.com/zh-cn/111939\" target=\"_blank\">技术规格</a>"
@@ -295,7 +295,7 @@
         "bluetooth": "Bluetooth 4.2",
         "unlockMethod": "触控 ID",
         "batteryCapacity": "27.3Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×2",
         "dimensionsWeight": "240×169.5×6.1, 437/444g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112017\" target=\"_blank\">技术规格</a>"
@@ -331,7 +331,7 @@
         "bluetooth": "Bluetooth 4.0",
         "unlockMethod": "/",
         "batteryCapacity": "32.4Wh",
-        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div>\n\t\t\t\t\t\t\t<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
+        "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
         "audioIO": "麦克风 ×2 + 扬声器 ×1",
         "dimensionsWeight": "240×169.5×7.5, 469/478g",
         "links": "<a href=\"https://support.apple.com/zh-cn/112020\" target=\"_blank\">技术规格</a>"
