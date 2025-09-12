@@ -181,7 +181,7 @@
         "releaseDate": "2013.06.10",
         "supportedOS": "OS X 10.9 ~ macOS 12",
         "modelIdentifier": "MacPro6,1",
-        "colors": [{ "name": "黑色", "hex": "#303030" }],
+        "colors": [{ "name": "黑色", "hex": "#303030" },{ "name": "红色", "hex": "#CA3E38" }],
         "arLink": "-",
         "chipProcess": "Intel 32nm (Ivy Bridge)",
         "chipInfo": "Intel Xeon E5-1620<br>E5-1650,1680,2697",

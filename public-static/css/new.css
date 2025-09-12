@@ -1013,3 +1013,62 @@ html.dark-mode .update-notes-title {
 html.dark-mode #update-notes-list li {
     color:var(--dark-text-secondary);
 }
+
+html.wawei {
+  --accent-color: #CF0A2C;
+  --accent-color-hover: #A70823;
+}
+
+html.wawei body {
+  background: linear-gradient(135deg, #fdf2f2, #fbebeb);
+}
+html.wawei.dark-mode body {
+  background: linear-gradient(135deg, #2a0909, #1e1010);
+}
+
+html.wawei a {
+  color: var(--accent-color);
+}
+html.wawei a:hover {
+  color: var(--accent-color-hover);
+}
+html.wawei.dark-mode a {
+  color: #ff7a8d;
+}
+html.wawei.dark-mode a:hover {
+  color: #ff526c;
+}
+
+html.wawei .sidebar-menu > li > a.active,
+html.wawei .sidebar-menu > li > a:hover {
+  background-color: var(--accent-color);
+}
+html.wawei .sidebar-menu ul a:hover {
+  background-color: rgba(207, 10, 44, 0.1);
+  color: var(--accent-color);
+}
+
+html.wawei .show-more-btn {
+  background: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(207, 10, 44, 0.3);
+}
+html.wawei .show-more-btn:hover {
+  background: var(--accent-color-hover);
+  box-shadow: 0 6px 12px rgba(207, 10, 44, 0.4);
+}
+html.wawei.dark-mode .show-more-btn {
+  box-shadow: 0 4px 8px rgba(207, 10, 44, 0.4);
+}
+html.wawei.dark-mode .show-more-btn:hover {
+  box-shadow: 0 6px 12px rgba(207, 10, 44, 0.5);
+}
+
+html.wawei .card ul li::before,
+html.wawei #update-notes-list li::before,
+html.wawei #divdown2 {
+  color: var(--accent-color);
+}
+
+html.wawei input:checked + .slider {
+  background-color: var(--accent-color);
+}
