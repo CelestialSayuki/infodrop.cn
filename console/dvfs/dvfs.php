@@ -92,23 +92,52 @@ function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
         }
     }
 
-    $forks = [[], []];
+    if (empty($all_data_points)) {
+        return [];
+    }
+
+    $fork_a = [];
+    $fork_b = [];
+    $pre_split_data = [];
+    $crossover_mode = false;
+    $next_is_a = true;
+
     foreach ($all_data_points as $point) {
-        $assigned = false;
-        for ($j = 0; $j < 2; $j++) {
-            if (empty($forks[$j]) || $point['freq_mhz'] > end($forks[$j])['freq_mhz']) {
-                $forks[$j][] = $point;
-                $assigned = true;
-                break;
+        if (!$crossover_mode) {
+            $last_point = empty($fork_a) ? null : end($fork_a);
+
+            if ($last_point === null ||
+               ($point['freq_mhz'] > $last_point['freq_mhz'] && $point['voltage_mv'] > $last_point['voltage_mv']))
+            {
+                if ($last_point !== null) {
+                    $pre_split_data[] = $last_point;
+                }
+                $fork_a[] = $point;
+            } else {
+                $crossover_mode = true;
+                
+                $fork_b = $pre_split_data;
+                $fork_b[] = $point;
+                
+                $peak_point = end($fork_a);
+                $history_before_pre_peak = empty($pre_split_data) ? [] : array_slice($pre_split_data, 0, -1);
+                $fork_a = array_merge($history_before_pre_peak, [$peak_point]);
+
+                $next_is_a = true;
             }
-        }
-        if (!$assigned) {
-            $forks[0][] = $point;
+        } else {
+            if ($next_is_a) {
+                $fork_a[] = $point;
+            } else {
+                $fork_b[] = $point;
+            }
+            $next_is_a = !$next_is_a;
         }
     }
 
-    return array_filter($forks, fn($fork) => !empty($fork));
+    return array_filter([$fork_a, $fork_b], fn($fork) => !empty($fork));
 }
+
 
 function parse_voltage_states(string $hex_data, bool $isLegacy, string $core_type): array {
     if ($core_type === 'gpu_dvfs') {
@@ -170,8 +199,8 @@ try {
     $core_type_mapping = [
         'voltage-states1-sram' => 'e_core_dvfs',
         'voltage-states5-sram' => 'p_core_dvfs',
-        'voltage-states8' => 'ane_dvfs',
-        'voltage-states9' => 'gpu_dvfs'
+        'voltage-states8'      => 'ane_dvfs',
+        'voltage-states9'      => 'gpu_dvfs'
     ];
     $build_info = $extracted_info['build'] ?? 'N/A';
     
