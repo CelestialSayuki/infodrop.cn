@@ -85,6 +85,11 @@
     "isLegacy": true
   },
   {
+    "chipModel": "T8150",
+    "cpuModel": "A19/A19 Pro",
+    "isLegacy": true
+  },
+  {
     "chipModel": "T8130",
     "cpuModel": "A17 Pro",
     "isLegacy": true
