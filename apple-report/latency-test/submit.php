@@ -23,22 +23,26 @@ if (json_last_error() !== JSON_ERROR_NONE ||
 }
 
 try {
-    $timestamp = (new DateTime("now", new DateTimeZone("Asia/Tokyo")))->format(DateTime::ATOM);
+    $processorModel = $data['processorModel'];
+    $deviceInfo = $data['deviceInfo'];
+    $testResults = $data['testResults'];
+    $timestamp = date('Y-m-d H:i:s');
 
-    $processorModel = htmlspecialchars(trim($data['processorModel']), ENT_QUOTES, 'UTF-8');
-    $deviceInfo = htmlspecialchars(trim($data['deviceInfo']), ENT_QUOTES, 'UTF-8');
-    
-    $testResults = trim($data['testResults']);
-    if (!preg_match('/^\[(\[[\d\.]+,[\d\.]+\],?)*\]$/', $testResults)) {
-         throw new Exception('测试结果数据格式不合法。');
+    function sanitizeForCsv($field) {
+        $field = trim($field);
+        if (in_array(substr($field, 0, 1), ['=', '+', '-', '@'])) {
+            $field = "'" . $field;
+        }
+        return $field;
     }
 
     $newRow = [
         $timestamp,
-        $processorModel,
-        $deviceInfo,
+        sanitizeForCsv($processorModel),
+        sanitizeForCsv($deviceInfo),
         $testResults
     ];
+
 } catch (Exception $e) {
     http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => '数据准备失败: ' . $e->getMessage()]);

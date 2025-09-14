@@ -156,6 +156,10 @@
             startBtn.textContent = '正在获取题目...';
             try {
                 const response = await fetch(`./auth/api/quiz.php?qq=${currentUserQQ}`);
+                if (response.status === 429) {
+                    throw new Error('您今天已经答过题了，请明天再来。');
+                    return;
+                }
                 if (!response.ok) throw new Error('网络错误或服务器问题');
                 const data = await response.json();
                 if (data.error) throw new Error(data.error);
@@ -193,6 +197,12 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
                 });
+                if (response.status === 429) {
+                    const result = await response.json();
+                    resultMessage.innerHTML = result.message;
+                    resultMessage.className = 'result-fail';
+                    return;
+                }
                 if (!response.ok) throw new Error('网络错误或服务器问题');
                 const result = await response.json();
                 if (result.error) throw new Error(result.error);
