@@ -170,6 +170,18 @@ try {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') throw new Exception('无效的请求方法', 405);
     if (!isset($_FILES['dvfs_data_file']) || $_FILES['dvfs_data_file']['error'] !== UPLOAD_ERR_OK) throw new Exception('文件上传失败', 400);
 
+    $file = $_FILES['dvfs_data_file'];
+
+    $max_size = 50 * 1024 * 1024;
+    if ($file['size'] > $max_size) {
+        throw new Exception('文件过大，最大允许 50MB。', 400);
+    }
+
+    $file_extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if ($file_extension !== 'txt') {
+        throw new Exception('文件类型无效，仅允许上传 .txt 文件。', 400);
+    }
+
     $maps = load_maps();
     if (empty($maps['chip_model']) || empty($maps['device_to_chip']) || empty($maps['device_id_to_name'])) throw new Exception('一个或多个映射文件 (JSON) 丢失或格式错误。', 500);
 
@@ -290,7 +302,17 @@ try {
     send_json_response(true, $final_message);
 
 } catch (Exception $e) {
-    send_json_response(false, '处理失败：' . $e->getMessage(), $e->getCode() > 0 ? $e->getCode() : 400);
+    error_log(
+        "DVFS Upload Error: " . $e->getMessage() .
+        " in file " . $e->getFile() .
+        " on line " . $e->getLine()
+    );
+    $httpCode = $e->getCode() >= 400 && $e->getCode() < 500 ? $e->getCode() : 500;
+    $userMessage = '处理失败：服务器遇到错误。如果问题持续存在，请联系管理员。';
+    if ($httpCode === 400) {
+        $userMessage = '处理失败：' . $e->getMessage();
+    }
+    send_json_response(false, $userMessage, $httpCode);
 }
 
 ob_end_flush();
