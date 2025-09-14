@@ -409,6 +409,7 @@
         const warmupPasses = 16;
         let warmupPassesLeft = warmupPasses;
         let chart;
+        let submissionToken = null;
 
         const startStopBtn = document.getElementById('startStopBtn');
         const statusMessageEl = document.getElementById('statusMessage');
@@ -576,7 +577,10 @@
                         alert('当前测试数据无效，无法提交。');
                         return;
                     }
-
+                    if (!submissionToken) {
+                        alert('错误：无法获取提交授权，请刷新页面后重试。');
+                        return;
+                    }
                     const brandSelect = document.getElementById('selectBrand');
                     const modelInput = document.getElementById('modelNameInput');
                     
@@ -601,6 +605,7 @@
                         deviceInfo: `UA: ${document.getElementById('info-ua').textContent}`,
                         processorModel: processorModel,
                         testResults: `[${rawResultEl.textContent.trim().split('\n').map(line => `[${line}]`).join(',')}]`
+                        token: submissionToken
                     };
                     
                     fetch('./apple-report/latency-test/submit.php', {
@@ -632,7 +637,16 @@
             themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
             
             document.getElementById('info-ua').textContent = navigator.userAgent;
-            
+            fetch('./apple-report/latency-test/token.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        submissionToken = data.token;
+                    }
+                })
+                .catch(error => {
+                    console.error('无法获取提交令牌:', error);
+                });
             initializeWorker();
         }
 

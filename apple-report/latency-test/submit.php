@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $dataFile = 'latency_data.csv';
 
@@ -13,7 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $jsonPayload = file_get_contents('php://input');
 $data = json_decode($jsonPayload, true);
 
-if (json_last_error() !== JSON_ERROR_NONE ||
+if (
+    empty($data['token']) ||
+    empty($_SESSION['token']) ||
+    !hash_equals($_SESSION['token'], $data['token'])
+) {
+    http_response_code(403);
+    echo json_encode(['status' => 'error', 'message' => '提交无效或已过期，请刷新页面重试。']);
+    exit;
+}
+
+if (
+    json_last_error() !== JSON_ERROR_NONE ||
     !isset($data['processorModel'], $data['deviceInfo'], $data['testResults']) ||
     empty(trim($data['processorModel']))
 ) {
@@ -22,11 +34,13 @@ if (json_last_error() !== JSON_ERROR_NONE ||
     exit;
 }
 
+unset($_SESSION['token']);
+
 try {
     $processorModel = $data['processorModel'];
     $deviceInfo = $data['deviceInfo'];
     $testResults = $data['testResults'];
-    $timestamp = date('Y-m-d H:i:s');
+    $timestamp = date('c');
 
     function sanitizeForCsv($field) {
         $field = trim($field);
