@@ -815,6 +815,7 @@ html.dark-mode .theme-toggle-btn {
     position:sticky;
     top:0;
     z-index:10;
+    height:44px;
 }
 html,body {
     overflow:hidden;
