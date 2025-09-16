@@ -604,7 +604,7 @@
                     const data = {
                         deviceInfo: `UA: ${document.getElementById('info-ua').textContent}`,
                         processorModel: processorModel,
-                        testResults: `[${rawResultEl.textContent.trim().split('\n').map(line => `[${line}]`).join(',')}]`
+                        testResults: `[${rawResultEl.textContent.trim().split('\n').map(line => `[${line}]`).join(',')}]`,
                         token: submissionToken
                     };
                     
