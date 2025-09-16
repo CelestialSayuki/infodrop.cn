@@ -795,8 +795,16 @@ html.dark-mode .theme-toggle-btn {
     color:var(--dark-text-secondary);
 }
 @media (max-width:768px) {
-    .version-popup {
-    margin-top:8px;
+.version-popup {
+    position: fixed;
+    top: 52px;
+    right: 16px;
+    left: auto;
+    max-width: calc(100vw - 32px);
+    transform: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 .hamburger-btn {
     display:block;
