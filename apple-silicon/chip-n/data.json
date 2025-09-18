@@ -23,10 +23,6 @@
                     "name": "技术工艺"
                 },
                 {
-                    "id": "transistorCount",
-                    "name": "晶体管数"
-                },
-                {
                     "id": "dieSize",
                     "name": "裸片尺寸"
                 }
@@ -62,7 +58,7 @@
     "products": [
         {
             "name": "Apple N1",
-            "generation": "",
+            "generation": "(Proxima/Centauri, T2026)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
@@ -75,7 +71,6 @@
                 ],
                 "releaseDate": "2025.09",
                 "processTech": "-",
-                "transistorCount": "-",
                 "dieSize": "",
                 "wifi": "802.11be 2x2 MIMO",
                 "bt": "Bluetooth 6",

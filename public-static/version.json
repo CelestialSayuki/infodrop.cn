@@ -1,13 +1,28 @@
 {
-  "version": "1A074 (a)",
+  "version": "1A074 (b)",
   "notes": [
-    "降低网站性能开销"
+    "更新数据"
   ],
   "rsr_patches": [
     {
       "base": "1A074",
       "delta": [
-        "./index.html"
+        "./index.html",
+        "./apple-silicon/chip-w/data.json",
+        "./apple-silicon/chip-n/data.json",
+        "./apple-silicon/chip-h/data.json",
+        "./apple-silicon/chip-r/data.json",
+        "./apple-silicon/chip-c/data.json"
+      ]
+    },
+    {
+      "base": "1A074 (a)",
+      "delta": [
+        "./apple-silicon/chip-w/data.json",
+        "./apple-silicon/chip-n/data.json",
+        "./apple-silicon/chip-h/data.json",
+        "./apple-silicon/chip-r/data.json",
+        "./apple-silicon/chip-c/data.json"
       ]
     }
   ]

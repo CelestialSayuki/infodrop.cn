@@ -23,10 +23,6 @@
                     "name": "技术工艺"
                 },
                 {
-                    "id": "transistorCount",
-                    "name": "晶体管数"
-                },
-                {
                     "id": "dieSize",
                     "name": "裸片尺寸"
                 }
@@ -111,7 +107,7 @@
     "products": [
         {
             "name": "Apple C1X",
-            "generation": "",
+            "generation": "(Leda)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
@@ -124,7 +120,6 @@
                 ],
                 "releaseDate": "2025.09",
                 "processTech": "TSMC N4",
-                "transistorCount": "-",
                 "dieSize": "",
                 "nrca": "-",
                 "lte": "-",
@@ -145,7 +140,7 @@
         },
         {
             "name": "Apple C1",
-            "generation": "(APL1114)",
+            "generation": "(Leda, APL1114)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
@@ -158,7 +153,6 @@
                 ],
                 "releaseDate": "2025.02",
                 "processTech": "TSMC N4",
-                "transistorCount": "-",
                 "dieSize": "6.20×6.40 (39.68mm²)",
                 "nrca": "160MHz Mac Combos",
                 "lte": "4CA, 4×4 MIMO<br>16 Layers Max, Cat 19",
