@@ -1,27 +1,20 @@
-const CACHE_VERSION = '1A0720003a';
+const CACHE_VERSION = '1A074';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
-const APP_SHELL_URL = './index.html';
 const MANIFEST_URL = './precache-manifest.json';
 
-let currentProgress = 0;
 let totalFiles = 0;
 let cachedCount = 0;
+let currentProgress = 0;
 
 function isUpdatePausedByClient() {
   return new Promise(async (resolve) => {
     const timeout = setTimeout(() => resolve(false), 500);
-
-    const clients = await self.clients.matchAll({
-      includeUncontrolled: true,
-      type: 'window'
-    });
-
+    const clients = await self.clients.matchAll({ includeUncontrolled: true, type: 'window' });
     if (!clients || clients.length === 0) {
       clearTimeout(timeout);
       return resolve(false);
     }
-
     const messageListener = (event) => {
       if (event.data && event.data.type === 'UPDATE_SETTING_RESPONSE') {
         if (event.data.isPaused) {
@@ -31,9 +24,7 @@ function isUpdatePausedByClient() {
         }
       }
     };
-    
     self.addEventListener('message', messageListener);
-
     clients.forEach(client => {
       client.postMessage({ type: 'GET_UPDATE_SETTING' });
     });
@@ -43,10 +34,71 @@ function isUpdatePausedByClient() {
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     if (await isUpdatePausedByClient()) {
-      console.log('[SW] Installation aborted by user setting.');
       throw new Error('Installation aborted by user setting.');
     }
 
+    const versionResponse = await fetch('./public-static/version.json', { cache: 'no-store' });
+    if (!versionResponse.ok) throw new Error('Failed to fetch version.json.');
+    const versionConfig = await versionResponse.json();
+
+    if (versionConfig.rsr_patches && Array.isArray(versionConfig.rsr_patches)) {
+      for (const patchBranch of versionConfig.rsr_patches) {
+        const baseCacheName = `project-mammoth-cache-${patchBranch.base}`;
+        if (await caches.has(baseCacheName)) {
+          const baseCache = await caches.open(baseCacheName);
+          const newCache = await caches.open(CACHE_NAME);
+
+          const baseRequests = await baseCache.keys();
+          await Promise.all(baseRequests.map(async (request) => {
+            const response = await baseCache.match(request);
+            if (response) {
+              await newCache.put(request, response);
+            }
+          }));
+          
+          const deltaFiles = patchBranch.delta;
+          totalFiles = deltaFiles.length;
+          cachedCount = 0;
+          currentProgress = 0;
+          const cachingStartTime = Date.now();
+          
+          const patchPromises = deltaFiles.map(async (url) => {
+            try {
+              const request = new Request(url, { cache: 'no-store' });
+              const networkResponse = await fetch(request);
+              if (!networkResponse.ok) throw new Error(`RSR: Network response was not ok for: ${url}`);
+              await newCache.put(request, networkResponse.clone());
+              
+              cachedCount++;
+              currentProgress = Math.round((cachedCount / totalFiles) * 100);
+
+              let estimatedRemainingTime = null;
+              if (cachedCount > 0) {
+                  const elapsedTime = Date.now() - cachingStartTime;
+                  const filesPerMillisecond = cachedCount / elapsedTime;
+                  const remainingFiles = totalFiles - cachedCount;
+                  estimatedRemainingTime = remainingFiles / filesPerMillisecond;
+              }
+
+              const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+              for (const client of allClients) {
+                client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: totalFiles, current: cachedCount, percent: currentProgress, currentFile: url, estimatedRemainingTime: estimatedRemainingTime } });
+              }
+            } catch (err) {
+            }
+          });
+
+          await Promise.all(patchPromises);
+
+          const finalClients = await self.clients.matchAll({ includeUncontrolled: true });
+          for (const client of finalClients) {
+            client.postMessage({ type: 'CACHE_COMPLETE', payload: { version: versionConfig.version } });
+          }
+          return;
+        }
+      }
+    }
+    
     const cache = await caches.open(CACHE_NAME);
     const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
     if (!response.ok) throw new Error('Failed to fetch precache manifest.');
@@ -63,13 +115,12 @@ self.addEventListener('install', (event) => {
         const request = new Request(url, { cache: 'no-store' });
         const networkResponse = await fetch(request);
         if (!networkResponse.ok) {
-          throw new Error(`[SW] Network response was not ok for: ${url}`);
+          throw new Error(`Full install: Network response was not ok for: ${url}`);
         }
         await cache.put(request, networkResponse);
         
         cachedCount++;
-        const percent = Math.round((cachedCount / totalFiles) * 100);
-        currentProgress = percent;
+        currentProgress = Math.round((cachedCount / totalFiles) * 100);
         
         let estimatedRemainingTime = null;
         if (cachedCount > 0) {
@@ -81,19 +132,9 @@ self.addEventListener('install', (event) => {
 
         const allClients = await self.clients.matchAll({ includeUncontrolled: true });
         for (const client of allClients) {
-          client.postMessage({
-            type: 'CACHE_PROGRESS',
-            payload: {
-              total: totalFiles,
-              current: cachedCount,
-              percent: percent,
-              currentFile: url,
-              estimatedRemainingTime: estimatedRemainingTime
-            }
-          });
+          client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: totalFiles, current: cachedCount, percent: currentProgress, currentFile: url, estimatedRemainingTime: estimatedRemainingTime } });
         }
       } catch (err) {
-        console.error(`[SW] Caching failed for: ${url}`, err);
       }
     });
 
@@ -101,12 +142,7 @@ self.addEventListener('install', (event) => {
 
     const finalClients = await self.clients.matchAll({ includeUncontrolled: true });
     for (const client of finalClients) {
-      client.postMessage({
-        type: 'CACHE_COMPLETE',
-        payload: {
-          version: CACHE_VERSION
-        }
-      });
+      client.postMessage({ type: 'CACHE_COMPLETE', payload: { version: CACHE_VERSION } });
     }
   })());
 });
@@ -160,14 +196,12 @@ self.addEventListener('fetch', (event) => {
         const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
         try {
           const networkResponse = await fetch(event.request);
-
           if (networkResponse.ok) {
             await runtimeCache.put(event.request, networkResponse.clone());
           }
           return networkResponse;
         } catch (error) {
           const cachedResponse = await runtimeCache.match(event.request);
-          
           return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
         }
       })());

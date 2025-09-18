@@ -1,6 +1,14 @@
 {
-  "version": "1A0720003a",
+  "version": "1A074",
   "notes": [
-    "适用于移动端界面错位的快速响应"
+    "新增 RSR 功能"
+  ],
+  "rsr_patches": [
+    {
+      "base": "",
+      "delta": [
+        ""
+      ]
+    }
   ]
 }

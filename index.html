@@ -18,43 +18,35 @@
                     }
                 });
             }
-        })();
-    </script>
-    <script>
-        (function() {
             const theme = localStorage.getItem('theme');
             if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark-mode');
             }
-        })();
-    </script>
-    <script>
-        (function() {
             window.isBrowserSupported = true;
             function getBrowserInfo() {
-                var ua = navigator.userAgent;
+                const ua = navigator.userAgent;
                 if (ua.indexOf('Trident/') !== -1) {
-                    var versionMatch = ua.match(/rv:([\d.]+)/);
+                    const versionMatch = ua.match(/rv:([\d.]+)/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'IE', version: parseInt(versionMatch[1], 10) };
                     }
                     return { name: 'IE', version: 11 };
                 }
-                var isSafari = ua.indexOf('Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Edg') === -1;
+                const isSafari = ua.indexOf('Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Edg') === -1;
                 if (isSafari) {
-                    var versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
+                    const versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
                     if (versionMatch && versionMatch[1]) {
-                        return { name: 'Safari', version: parseInt(versionMatch[1], 10) };
+                        return { name: 'Safari', version: parseInt(versionMatch[1].replace('_', '.'), 10) };
                     }
                 }
                 if (ua.indexOf('Chrome') !== -1) {
-                    var versionMatch = ua.match(/Chrome\/([\d.]+)/);
+                    const versionMatch = ua.match(/Chrome\/([\d.]+)/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'Chrome', version: parseInt(versionMatch[1], 10) };
                     }
                 }
                 if (ua.indexOf('Firefox') !== -1) {
-                    var versionMatch = ua.match(/Firefox\/([\d.]+)/);
+                    const versionMatch = ua.match(/Firefox\/([\d.]+)/);
                     if (versionMatch && versionMatch[1]) {
                         return { name: 'Firefox', version: parseInt(versionMatch[1], 10) };
                     }
@@ -62,12 +54,12 @@
                 return { name: 'unknown', version: 0 };
             }
             window.browserInfo = getBrowserInfo();
-            var browser = window.browserInfo;
-            var isUnsupported = false;
-            var requiredVersion = '';
-            var browserNameForDisplay = '';
-            var updateTargetWord = '浏览器';
-            var mainTitle = '浏览器版本过低';
+            const browser = window.browserInfo;
+            let isUnsupported = false;
+            let requiredVersion = '';
+            let browserNameForDisplay = '';
+            let updateTargetWord = '浏览器';
+            let mainTitle = '浏览器版本过低';
             if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
                 isUnsupported = true;
                 requiredVersion = '13.0';
@@ -93,16 +85,16 @@
                 window.isBrowserSupported = false;
                 document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
-                        var logo = document.querySelector('#loading-screen .apple-logo');
-                        var loadingScreen = document.getElementById('loading-screen');
+                        const logo = document.querySelector('#loading-screen .apple-logo');
+                        const loadingScreen = document.getElementById('loading-screen');
                         if (logo && loadingScreen) {
                             logo.style.opacity = '0';
                             setTimeout(function() {
-                                var buttonHTML = '';
+                                let buttonHTML = '';
                                 if (browser.name !== 'IE') {
                                     buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
                                 }
-                                var errorMessageHTML =
+                                const errorMessageHTML =
                                     '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
                                     '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
                                     '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -117,18 +109,17 @@
                                     buttonHTML +
                                     '</div>' +
                                     '</div>';
-                                
-                                var layer = document.getElementById('loading-screen-layer');
+                                const layer = document.getElementById('loading-screen-layer');
                                 if (layer) {
                                     loadingScreen.innerHTML = layer.outerHTML + errorMessageHTML;
                                 } else {
                                     loadingScreen.innerHTML = errorMessageHTML;
                                 }
                                 if (browser.name !== 'IE') {
-                                    var ignoreBtn = document.getElementById('ignore-unsupported-btn');
+                                    const ignoreBtn = document.getElementById('ignore-unsupported-btn');
                                     if (ignoreBtn) {
                                         ignoreBtn.addEventListener('click', function() {
-                                            var screen = document.getElementById('loading-screen');
+                                            const screen = document.getElementById('loading-screen');
                                             if (screen) {
                                                 screen.addEventListener('transitionend', function() {
                                                     if (screen) {
@@ -143,8 +134,8 @@
                                         });
                                     }
                                 }
-                                var prohibitedIcon = document.getElementById('prohibited-icon');
-                                var messageText = document.getElementById('unsupported-message-text');
+                                const prohibitedIcon = document.getElementById('prohibited-icon');
+                                const messageText = document.getElementById('unsupported-message-text');
                                 if (prohibitedIcon && messageText) {
                                     setTimeout(function() {
                                         prohibitedIcon.style.opacity = '1';
@@ -398,18 +389,19 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
+                        <li><span>2025.09.18：更新跑分，修复 GPU 跑分页面显示不开的 bug，新增 RSR 更新</span></li>
                         <li><span>2025.09.13：修复了 DVFS 页颜色问题，更新 Accessory-Design-Guidelines</span></li>
                         <li><span>2025.09.12：收录红色 Mac Pro 2013，新增“恩情”彩蛋，修改了进群验证逻辑</span></li>
                         <li><span>2025.09.11：在型号查询里，增加了部分机器</span></li>
                         <li><span>2025.09.10：更新部分新设备信息</span></li>
-                        <li><span>2025.09.09：修正了 PWA 模式下错位的问题，为发布会做准备，修复 DTK 图片错误</span></li>
-                        <li><span>2025.09.07：修正了 iPod touch 3 的参数，缩小了缓存测试有效判定区间，优化了无效算法，修复若干 bug</span></li>
-                        <li><span>2025.09.06：正式上线！修复了进群验证的一处安全漏洞，增加了暗黑模式的开关，修正了 MacBook Air 2018/2019, MacBook 2017 Refresh 的颜色，临时扩大了缓存延迟测试数据有效的判定区间，可能导致更低质量数据的出现，修改了本弹窗的透明度，网页加载改为多线程</span></li>
                         <li class="more-btn-li">
                             <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
                         </li>
                     </ul>
                     <template id="more-updates-template">
+                        <li><span>2025.09.09：修正了 PWA 模式下错位的问题，为发布会做准备，修复 DTK 图片错误</span></li>
+                        <li><span>2025.09.07：修正了 iPod touch 3 的参数，缩小了缓存测试有效判定区间，优化了无效算法，修复若干 bug</span></li>
+                        <li><span>2025.09.06：正式上线！修复了进群验证的一处安全漏洞，增加了暗黑模式的开关，修正了 MacBook Air 2018/2019, MacBook 2017 Refresh 的颜色，临时扩大了缓存延迟测试数据有效的判定区间，可能导致更低质量数据的出现，修改了本弹窗的透明度，网页加载改为多线程</span></li>
                         <li><span>2025.09.05：禁止IE进入</span></li>
                         <li><span>2025.09.04：删除 ?force 调试 flag, 因为已经确认 iOS 13 工作的稳定性，增加更新管理器</span></li>
                         <li><span>2025.09.03：微调移动端样式，更正 MacPro4,1 支持信息，增加窗口限位检查</span></li>
@@ -528,12 +520,11 @@
                     return false;
                 }
                 const localVersion = localStorage.getItem('sw_installed_version');
-                if (!localVersion) return false;
                 try {
                     const response = await fetch('./public-static/version.json', { cache: 'no-store' });
                     const serverConfig = await response.json();
-                    const serverVersion = serverConfig.version;
-                    if (localVersion !== serverVersion) {
+                    const latestVersion = serverConfig.version;
+                    if (localVersion !== latestVersion) {
                         updateIsPending = true;
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
                         if (!isStandalone) {
@@ -541,15 +532,13 @@
                             const loadingText = document.querySelector('.loading-text');
                             if(loadingText) loadingText.textContent = '正在更新...';
                         }
-                        localStorage.removeItem('sw_installed_version');
-                            
+                        
                         if (registration && registration.update) {
                             await registration.update();
                         }
                         return true;
                     }
                 } catch (error) {
-                    console.error('更新检查失败:', error);
                 }
                 return false;
             }
@@ -576,10 +565,8 @@
                 updateToggle.addEventListener('change', () => {
                     if (updateToggle.checked) {
                         localStorage.removeItem('updates_paused');
-                        console.log('自动更新已开启。');
                     } else {
                         localStorage.setItem('updates_paused', 'true');
-                        console.log('自动更新已暂停。');
                     }
                 });
 
@@ -601,12 +588,12 @@
                 fetch('./public-static/version.json', { cache: 'no-store' })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.version) {
-                        remoteVersionInfo.textContent = data.version;
-                        if (!localVersion) {
-                            versionElement.textContent = `前端版本：${data.version}`;
-                        }
+                    const latestVersion = (data.rsr && data.patch) ? data.patch : data.version;
+                    remoteVersionInfo.textContent = latestVersion;
+                    if (!localVersion) {
+                        versionElement.textContent = `前端版本：${latestVersion}`;
                     }
+
                     const updateNotesContainer = document.getElementById('update-notes-container');
                     const updateNotesList = document.getElementById('update-notes-list');
                     if (data.notes && Array.isArray(data.notes) && data.notes.length > 0) {
@@ -640,25 +627,32 @@
                             }, { once: true });
                             loadingScreen.classList.add('hidden');
                         } else {
-                            window.location.reload();
                         }
                     }
                 });
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
-                    if (event.data.type === 'GET_UPDATE_SETTING') {
-                        const isPaused = localStorage.getItem('updates_paused') === 'true';
+                    if (event.data.type === 'IS_RSR_PATCH_APPLIED') {
+                        const patchVersion = event.data.version;
+                        const applied = localStorage.getItem(`rsr-patch-${patchVersion}`) === 'true';
                         if (event.source) {
-                            event.source.postMessage({
-                                type: 'UPDATE_SETTING_RESPONSE',
-                                isPaused: isPaused
-                            });
+                            event.source.postMessage({ type: 'RSR_PATCH_STATUS_RESPONSE', version: patchVersion, applied: applied });
                         }
                         return;
                     }
+
+                    if (event.data.type === 'GET_UPDATE_SETTING') {
+                        const isPaused = localStorage.getItem('updates_paused') === 'true';
+                        if (event.source) {
+                            event.source.postMessage({ type: 'UPDATE_SETTING_RESPONSE', isPaused: isPaused });
+                        }
+                        return;
+                    }
+
                     const progressBarFill = document.querySelector('.progress-bar-fill');
                     const progressBarContainer = document.querySelector('.progress-bar-container');
                     const loadingText = document.querySelector('.loading-text');
+
                     if (event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS') {
                         const { percent, estimatedRemainingTime } = event.data.payload;
                         if (progressBarFill) {
@@ -674,11 +668,18 @@
                         }
                     }
                     if (event.data.type === 'CACHE_COMPLETE') {
+                        const { version, isRsrUpdate } = event.data.payload;
+
+                        if (isRsrUpdate) {
+                           localStorage.setItem(`rsr-patch-${version}`, 'true');
+                        }
+                        localStorage.setItem('sw_installed_version', version);
+
                         if (progressBarFill) {
                             progressBarFill.style.transition = 'width 0.2s ease-out';
                             progressBarFill.style.width = '100%';
                         }
-                        localStorage.setItem('sw_installed_version', event.data.payload.version);
+
                         setTimeout(() => {
                             if (!updateIsPending) {
                                 hideLoadingScreen();
@@ -697,9 +698,7 @@
                         if (installingWorker) {
                             installingWorker.onstatechange = () => {
                                 if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    if (!new URL(window.location.href).searchParams.has('offline')) {
-                                        installingWorker.postMessage({ type: 'SKIP_WAITING' });
-                                    }
+                                    installingWorker.postMessage({ type: 'SKIP_WAITING' });
                                 }
                             };
                         }
@@ -710,9 +709,8 @@
                         if (!localVersion) return false;
                         try {
                             const cacheName = `project-mammoth-cache-${localVersion}`;
-                            const cache = await caches.open(cacheName);
-                            const response = await cache.match('./index.html');
-                            if (response === undefined) {
+                            const hasCache = await caches.has(cacheName);
+                            if (!hasCache) {
                                 localStorage.removeItem('sw_installed_version');
                                 return false;
                             }
