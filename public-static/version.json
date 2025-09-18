@@ -1,13 +1,13 @@
 {
-  "version": "1A074",
+  "version": "1A074 (a)",
   "notes": [
-    "新增 RSR 功能"
+    "降低网站性能开销"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A074",
       "delta": [
-        ""
+        "./index.html"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A074';
+const CACHE_VERSION = '1A074 (a)';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -110,6 +110,31 @@ self.addEventListener('install', (event) => {
     
     const cachingStartTime = Date.now();
 
+    let lastUpdateTime = 0;
+    const UPDATE_INTERVAL = 100;
+
+    async function postProgressUpdate(force = false) {
+      const now = Date.now();
+      if (!force && now - lastUpdateTime < UPDATE_INTERVAL) {
+        return;
+      }
+      lastUpdateTime = now;
+
+      currentProgress = Math.round((cachedCount / totalFiles) * 100);
+      let estimatedRemainingTime = null;
+      if (cachedCount > 0) {
+          const elapsedTime = Date.now() - cachingStartTime;
+          const filesPerMillisecond = cachedCount / elapsedTime;
+          const remainingFiles = totalFiles - cachedCount;
+          estimatedRemainingTime = (filesPerMillisecond > 0) ? (remainingFiles / filesPerMillisecond) : null;
+      }
+
+      const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+      for (const client of allClients) {
+        client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: totalFiles, current: cachedCount, percent: currentProgress, currentFile: null, estimatedRemainingTime: estimatedRemainingTime } });
+      }
+    }
+
     const cachePromises = filesToCache.map(async (url) => {
       try {
         const request = new Request(url, { cache: 'no-store' });
@@ -120,25 +145,14 @@ self.addEventListener('install', (event) => {
         await cache.put(request, networkResponse);
         
         cachedCount++;
-        currentProgress = Math.round((cachedCount / totalFiles) * 100);
-        
-        let estimatedRemainingTime = null;
-        if (cachedCount > 0) {
-            const elapsedTime = Date.now() - cachingStartTime;
-            const filesPerMillisecond = cachedCount / elapsedTime;
-            const remainingFiles = totalFiles - cachedCount;
-            estimatedRemainingTime = remainingFiles / filesPerMillisecond;
-        }
+        await postProgressUpdate();
 
-        const allClients = await self.clients.matchAll({ includeUncontrolled: true });
-        for (const client of allClients) {
-          client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: totalFiles, current: cachedCount, percent: currentProgress, currentFile: url, estimatedRemainingTime: estimatedRemainingTime } });
-        }
       } catch (err) {
       }
     });
 
     await Promise.all(cachePromises);
+    await postProgressUpdate(true);
 
     const finalClients = await self.clients.matchAll({ includeUncontrolled: true });
     for (const client of finalClients) {

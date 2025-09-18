@@ -455,6 +455,25 @@
     <script>
         (async function() {
             let updateIsPending = false;
+            let pendingProgressUpdate = null;
+            let isUpdateScheduled = false;
+            function updateProgressBar() {
+                if (!pendingProgressUpdate) {
+                    isUpdateScheduled = false;
+                    return;
+                }
+                const progressBarFill = document.querySelector('.progress-bar-fill');
+                const loadingText = document.querySelector('.loading-text');
+                const { percent, estimatedRemainingTime } = pendingProgressUpdate;
+                if (progressBarFill) {
+                    progressBarFill.style.width = `${percent}%`;
+                }
+                if (loadingText) {
+                    loadingText.textContent = formatRemainingTime(estimatedRemainingTime);
+                }
+                pendingProgressUpdate = null;
+                isUpdateScheduled = false;
+            }
             function formatRemainingTime(ms) {
                 if (ms === null || !isFinite(ms) || ms <= 0) {
                     return '正在计算剩余时间...';
@@ -640,7 +659,6 @@
                         }
                         return;
                     }
-
                     if (event.data.type === 'GET_UPDATE_SETTING') {
                         const isPaused = localStorage.getItem('updates_paused') === 'true';
                         if (event.source) {
@@ -648,38 +666,28 @@
                         }
                         return;
                     }
-
-                    const progressBarFill = document.querySelector('.progress-bar-fill');
-                    const progressBarContainer = document.querySelector('.progress-bar-container');
-                    const loadingText = document.querySelector('.loading-text');
-
                     if (event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS') {
-                        const { percent, estimatedRemainingTime } = event.data.payload;
-                        if (progressBarFill) {
-                            if (parseInt(progressBarFill.style.width) !== percent) {
-                                progressBarFill.style.transition = 'none';
-                                progressBarFill.style.width = `${percent}%`;
-                            }
-                        }
+                        const progressBarContainer = document.querySelector('.progress-bar-container');
+                        const loadingText = document.querySelector('.loading-text');
                         if (progressBarContainer) progressBarContainer.style.opacity = '1';
-                        if (loadingText) {
-                            loadingText.textContent = formatRemainingTime(estimatedRemainingTime);
-                            loadingText.style.opacity = '1';
+                        if (loadingText) loadingText.style.opacity = '1';
+                        pendingProgressUpdate = event.data.payload;
+                        if (!isUpdateScheduled) {
+                            isUpdateScheduled = true;
+                            requestAnimationFrame(updateProgressBar);
                         }
                     }
                     if (event.data.type === 'CACHE_COMPLETE') {
                         const { version, isRsrUpdate } = event.data.payload;
-
                         if (isRsrUpdate) {
-                           localStorage.setItem(`rsr-patch-${version}`, 'true');
+                            localStorage.setItem(`rsr-patch-${version}`, 'true');
                         }
                         localStorage.setItem('sw_installed_version', version);
-
+                        const progressBarFill = document.querySelector('.progress-bar-fill');
                         if (progressBarFill) {
                             progressBarFill.style.transition = 'width 0.2s ease-out';
                             progressBarFill.style.width = '100%';
                         }
-
                         setTimeout(() => {
                             if (!updateIsPending) {
                                 hideLoadingScreen();
