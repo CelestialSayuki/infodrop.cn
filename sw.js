@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A074 (b)';
+const CACHE_VERSION = '1A074 (c)';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -33,14 +33,23 @@ function isUpdatePausedByClient() {
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
+    const clients = await self.clients.matchAll({ includeUncontrolled: true });
+    for (const client of clients) {
+      client.postMessage({ type: 'INSTALLATION_STARTED' });
+    }
     if (await isUpdatePausedByClient()) {
       throw new Error('Installation aborted by user setting.');
     }
-
     const versionResponse = await fetch('./public-static/version.json', { cache: 'no-store' });
     if (!versionResponse.ok) throw new Error('Failed to fetch version.json.');
     const versionConfig = await versionResponse.json();
-
+    if (versionConfig.version !== CACHE_VERSION) {
+      const clients = await self.clients.matchAll({ includeUncontrolled: true });
+      for (const client of clients) {
+        client.postMessage({ type: 'VERSION_MISMATCH' });
+      }
+      throw new Error(`Version mismatch. SW: ${CACHE_VERSION}, JSON: ${versionConfig.version}. Aborting.`);
+    }
     if (versionConfig.rsr_patches && Array.isArray(versionConfig.rsr_patches)) {
       for (const patchBranch of versionConfig.rsr_patches) {
         const baseCacheName = `project-mammoth-cache-${patchBranch.base}`;

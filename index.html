@@ -457,6 +457,35 @@
             let updateIsPending = false;
             let pendingProgressUpdate = null;
             let isUpdateScheduled = false;
+            let updateStartTimeout;
+            function showMaintenanceMessage() {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen && !loadingScreen.dataset.finalState) {
+                    loadingScreen.dataset.finalState = 'true';
+                    const maintenanceHTML = `
+                        <div style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px; opacity: 0; transition: opacity 0.6s ease-in;" id="maintenance-message">
+                            <div style="margin-bottom: 25px;">
+                                <svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#777" stroke-width="1.5">
+                                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v6h-2zm0 8h2v2h-2z" stroke="none" fill="#777"/>
+                                </svg>
+                            </div>
+                            <h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">维护中</h1>
+                            <p style="font-size: 1em; line-height: 1.6;">网站服务器正在维护，导致更新无法完成。</p>
+                            <p style="font-size: 1em; line-height: 1.6;">请您稍后重试。</p>
+                        </div>
+                    `;
+                    const layer = document.getElementById('loading-screen-layer');
+                    if(layer) {
+                       loadingScreen.innerHTML = layer.outerHTML + maintenanceHTML;
+                    } else {
+                       loadingScreen.innerHTML = maintenanceHTML;
+                    }
+                    setTimeout(() => {
+                        const messageElem = document.getElementById('maintenance-message');
+                        if (messageElem) messageElem.style.opacity = '1';
+                    }, 50);
+                }
+            }
             function updateProgressBar() {
                 if (!pendingProgressUpdate) {
                     isUpdateScheduled = false;
@@ -551,7 +580,8 @@
                             const loadingText = document.querySelector('.loading-text');
                             if(loadingText) loadingText.textContent = '正在更新...';
                         }
-                        
+                        clearTimeout(updateStartTimeout);
+                        updateStartTimeout = setTimeout(showMaintenanceMessage, 1000);
                         if (registration && registration.update) {
                             await registration.update();
                         }
@@ -651,6 +681,16 @@
                 });
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
+                    if (event.data.type === 'INSTALLATION_STARTED' || event.data.type === 'VERSION_MISMATCH' || event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS' || event.data.type === 'CACHE_COMPLETE') {
+                        clearTimeout(updateStartTimeout);
+                    }
+                    if (event.data.type === 'INSTALLATION_STARTED') {
+                        return;
+                    }
+                    if (event.data.type === 'VERSION_MISMATCH') {
+                        showMaintenanceMessage();
+                        return;
+                    }
                     if (event.data.type === 'IS_RSR_PATCH_APPLIED') {
                         const patchVersion = event.data.version;
                         const applied = localStorage.getItem(`rsr-patch-${patchVersion}`) === 'true';
