@@ -825,9 +825,6 @@ html.dark-mode .theme-toggle-btn {
     z-index:10;
     height:44px;
 }
-html,body {
-    overflow:hidden;
-}
 #app-container {
     display:flex;
     flex-direction:column;
@@ -873,12 +870,6 @@ html,body {
 }
 body {
     font-size:90%;
-}
-.hamburger-btn {
-    display:block;
-}
-.main-header .top_left_logo .top_title {
-    display:none;
 }
 .overlay {
     position:fixed;
