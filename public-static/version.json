@@ -8,6 +8,7 @@
       "base": "1A074",
       "delta": [
         "./index.html",
+        "./apple-silicon/chip-a/data.json",
         "./apple-silicon/chip-w/data.json",
         "./apple-silicon/chip-n/data.json",
         "./apple-silicon/chip-h/data.json",
@@ -20,6 +21,7 @@
       "base": "1A074 (a)",
       "delta": [
         "./index.html",
+        "./apple-silicon/chip-a/data.json",
         "./apple-silicon/chip-w/data.json",
         "./apple-silicon/chip-n/data.json",
         "./apple-silicon/chip-h/data.json",
@@ -32,6 +34,7 @@
       "base": "1A074 (b)",
       "delta": [
         "./apple-device/iphone/data.json",
+        "./apple-silicon/chip-a/data.json",
         "./index.html"
       ]
     },
@@ -39,6 +42,7 @@
       "base": "1A074 (c)",
       "delta": [
         "./apple-device/iphone/data.json",
+        "./apple-silicon/chip-a/data.json",
         "./index.html"
       ]
     }
