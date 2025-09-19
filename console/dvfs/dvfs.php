@@ -71,11 +71,11 @@ function parse_voltage_states_default(string $hex_data, bool $isLegacy): array {
     return $all_forks;
 }
 
-function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
+function parse_voltage_states_gpu(string $hex_data): array {
     $all_data_points = [];
     $binary_data = hex2bin($hex_data);
     $data_length = strlen($binary_data);
-    $freq_divisor = $isLegacy ? 1000000 : 1000;
+    $freq_divisor = 1000000;
 
     for ($i = 0; $i < $data_length; $i += 8) {
         if ($i + 8 > $data_length) continue;
@@ -138,10 +138,47 @@ function parse_voltage_states_gpu(string $hex_data, bool $isLegacy): array {
     return array_filter([$fork_a, $fork_b], fn($fork) => !empty($fork));
 }
 
+function parse_voltage_states_ane(string $hex_data): array {
+    $all_forks = [];
+    $current_fork = [];
+    $last_freq = 0.0;
+    
+    $binary_data = hex2bin($hex_data);
+    $data_length = strlen($binary_data);
+    $freq_divisor = 1000000;
+
+    for ($i = 0; $i < $data_length; $i += 8) {
+        if ($i + 8 > $data_length) continue;
+        
+        $chunk = substr($binary_data, $i, 8);
+        $unpacked = unpack('V2', $chunk);
+        if ($unpacked === false) continue;
+        
+        $freq_mhz = round($unpacked[1] / $freq_divisor, 2);
+        
+        if ($freq_mhz > 0 && $freq_mhz < $last_freq) {
+            if (!empty($current_fork)) { $all_forks[] = $current_fork; }
+            $current_fork = [];
+            $last_freq = 0.0;
+        }
+        
+        if ($freq_mhz > 0) {
+            $voltage_mv = ($unpacked[2] === 4294967295) ? 'N/A' : $unpacked[2];
+            $current_fork[] = ['freq_mhz' => $freq_mhz, 'voltage_mv' => $voltage_mv];
+            $last_freq = $freq_mhz;
+        }
+    }
+
+    if (!empty($current_fork)) { $all_forks[] = $current_fork; }
+
+    return $all_forks;
+}
 
 function parse_voltage_states(string $hex_data, bool $isLegacy, string $core_type): array {
     if ($core_type === 'gpu_dvfs') {
-        return parse_voltage_states_gpu($hex_data, $isLegacy);
+        return parse_voltage_states_gpu($hex_data);
+    } elseif ($core_type === 'ane_dvfs') {
+        return parse_voltage_states_ane($hex_data);
     } else {
         return parse_voltage_states_default($hex_data, $isLegacy);
     }
