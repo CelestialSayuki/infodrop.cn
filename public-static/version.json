@@ -1,7 +1,7 @@
 {
-  "version": "1A074 (d)",
+  "version": "1A074 (e)",
   "notes": [
-    "更新 iPhone 基带"
+    "fix typo"
   ],
   "rsr_patches": [
     {
@@ -44,6 +44,12 @@
         "./apple-device/iphone/data.json",
         "./apple-silicon/chip-a/data.json",
         "./index.html"
+      ]
+    },
+    {
+      "base": "1A074 (d)",
+      "delta": [
+        "./apple-silicon/chip-a/data.json",
       ]
     }
   ]
