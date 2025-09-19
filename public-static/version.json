@@ -1,13 +1,14 @@
 {
-  "version": "1A074 (e)",
+  "version": "1A074 (f)",
   "notes": [
-    "fix typo"
+    "update benchmark"
   ],
   "rsr_patches": [
     {
       "base": "1A074",
       "delta": [
         "./index.html",
+        "./apple-report/cpu/index.html",
         "./apple-silicon/chip-a/data.json",
         "./apple-silicon/chip-w/data.json",
         "./apple-silicon/chip-n/data.json",
@@ -21,6 +22,7 @@
       "base": "1A074 (a)",
       "delta": [
         "./index.html",
+        "./apple-report/cpu/index.html",
         "./apple-silicon/chip-a/data.json",
         "./apple-silicon/chip-w/data.json",
         "./apple-silicon/chip-n/data.json",
@@ -34,6 +36,7 @@
       "base": "1A074 (b)",
       "delta": [
         "./apple-device/iphone/data.json",
+        "./apple-report/cpu/index.html",
         "./apple-silicon/chip-a/data.json",
         "./index.html"
       ]
@@ -42,6 +45,7 @@
       "base": "1A074 (c)",
       "delta": [
         "./apple-device/iphone/data.json",
+        "./apple-report/cpu/index.html",
         "./apple-silicon/chip-a/data.json",
         "./index.html"
       ]
@@ -49,7 +53,14 @@
     {
       "base": "1A074 (d)",
       "delta": [
+        "./apple-report/cpu/index.html",
         "./apple-silicon/chip-a/data.json"
+      ]
+    },
+    {
+      "base": "1A074 (e)",
+      "delta": [
+        "./apple-report/cpu/index.html"
       ]
     }
   ]
