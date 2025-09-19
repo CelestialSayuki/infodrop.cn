@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A074 (f)';
+const CACHE_VERSION = '1A075';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -206,12 +206,12 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
   
-  if (url.pathname.endsWith('.php') && !url.pathname.includes('/console/dvfs/get-dvfs-data.php')) {
+  if (url.pathname.endsWith('.php') && !url.pathname.includes('/upload/dvfs/get-dvfs-data.php')) {
       event.respondWith(fetch(event.request, { cache: 'no-store' }));
       return;
   }
 
-    const isPhpApi = url.pathname.includes('/console/dvfs/get-dvfs-data.php');
+    const isPhpApi = url.pathname.includes('/upload/dvfs/get-dvfs-data.php');
     const isSupabaseApi = url.href.includes('supabase.co/rest/v1/speedometer_results');
 
     if (isPhpApi || isSupabaseApi) {

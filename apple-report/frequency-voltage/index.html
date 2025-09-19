@@ -196,7 +196,7 @@
           };
           const main = async () => {
               try {
-                  const response = await fetch('./console/dvfs/get-dvfs-data.php');
+                  const response = await fetch('./upload/dvfs/get-dvfs-data.php');
                   if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
                   const data = await response.json();
                   if (data.error) throw new Error(data.error);

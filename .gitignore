@@ -1,5 +1,5 @@
 config.php
 auth/api/submit.php
 auth/api/quiz.php
-console/dvfs/processed_data.sqlite
+upload/dvfs/processed_data.sqlite
 auth/api/attempts.csv

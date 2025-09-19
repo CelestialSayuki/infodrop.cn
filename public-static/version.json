@@ -1,66 +1,13 @@
 {
-  "version": "1A074 (f)",
+  "version": "1A075",
   "notes": [
-    "update benchmark"
+    "下线 Speedometer 跑分"
   ],
   "rsr_patches": [
     {
-      "base": "1A074",
+      "base": "",
       "delta": [
-        "./index.html",
-        "./apple-report/cpu/index.html",
-        "./apple-silicon/chip-a/data.json",
-        "./apple-silicon/chip-w/data.json",
-        "./apple-silicon/chip-n/data.json",
-        "./apple-silicon/chip-h/data.json",
-        "./apple-silicon/chip-r/data.json",
-        "./apple-device/iphone/data.json",
-        "./apple-silicon/chip-c/data.json"
-      ]
-    },
-    {
-      "base": "1A074 (a)",
-      "delta": [
-        "./index.html",
-        "./apple-report/cpu/index.html",
-        "./apple-silicon/chip-a/data.json",
-        "./apple-silicon/chip-w/data.json",
-        "./apple-silicon/chip-n/data.json",
-        "./apple-silicon/chip-h/data.json",
-        "./apple-silicon/chip-r/data.json",
-        "./apple-device/iphone/data.json",
-        "./apple-silicon/chip-c/data.json"
-      ]
-    },
-    {
-      "base": "1A074 (b)",
-      "delta": [
-        "./apple-device/iphone/data.json",
-        "./apple-report/cpu/index.html",
-        "./apple-silicon/chip-a/data.json",
-        "./index.html"
-      ]
-    },
-    {
-      "base": "1A074 (c)",
-      "delta": [
-        "./apple-device/iphone/data.json",
-        "./apple-report/cpu/index.html",
-        "./apple-silicon/chip-a/data.json",
-        "./index.html"
-      ]
-    },
-    {
-      "base": "1A074 (d)",
-      "delta": [
-        "./apple-report/cpu/index.html",
-        "./apple-silicon/chip-a/data.json"
-      ]
-    },
-    {
-      "base": "1A074 (e)",
-      "delta": [
-        "./apple-report/cpu/index.html"
+        ""
       ]
     }
   ]
