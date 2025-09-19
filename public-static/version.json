@@ -1,7 +1,7 @@
 {
-  "version": "1A074 (c)",
+  "version": "1A074 (d)",
   "notes": [
-    "增加错误处理"
+    "更新 iPhone 基带"
   ],
   "rsr_patches": [
     {
@@ -12,6 +12,7 @@
         "./apple-silicon/chip-n/data.json",
         "./apple-silicon/chip-h/data.json",
         "./apple-silicon/chip-r/data.json",
+        "./apple-device/iphone/data.json",
         "./apple-silicon/chip-c/data.json"
       ]
     },
@@ -23,12 +24,21 @@
         "./apple-silicon/chip-n/data.json",
         "./apple-silicon/chip-h/data.json",
         "./apple-silicon/chip-r/data.json",
+        "./apple-device/iphone/data.json",
         "./apple-silicon/chip-c/data.json"
       ]
     },
     {
       "base": "1A074 (b)",
       "delta": [
+        "./apple-device/iphone/data.json",
+        "./index.html"
+      ]
+    },
+    {
+      "base": "1A074 (c)",
+      "delta": [
+        "./apple-device/iphone/data.json",
         "./index.html"
       ]
     }
