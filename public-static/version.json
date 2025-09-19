@@ -1,13 +1,14 @@
 {
-  "version": "1A075",
+  "version": "1A075 (a)",
   "notes": [
-    "下线 Speedometer 跑分"
+    "新增 Disk 上传"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A075",
       "delta": [
-        ""
+        "./upload/disk/index.html",
+        "./index.html"
       ]
     }
   ]
