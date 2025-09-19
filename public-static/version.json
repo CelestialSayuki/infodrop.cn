@@ -49,7 +49,7 @@
     {
       "base": "1A074 (d)",
       "delta": [
-        "./apple-silicon/chip-a/data.json",
+        "./apple-silicon/chip-a/data.json"
       ]
     }
   ]
