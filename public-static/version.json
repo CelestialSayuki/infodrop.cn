@@ -1,14 +1,21 @@
 {
-  "version": "1A075 (a)",
+  "version": "1A075 (b)",
   "notes": [
-    "新增 Disk 上传"
+    "修正 A19 频率"
   ],
   "rsr_patches": [
     {
       "base": "1A075",
       "delta": [
         "./upload/disk/index.html",
+        "./apple-silicon/chip-a/data.json",
         "./index.html"
+      ]
+    },
+    {
+      "base": "1A075 (a)",
+      "delta": [
+        "./apple-silicon/chip-a/data.json"
       ]
     }
   ]
