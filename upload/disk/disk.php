@@ -97,38 +97,107 @@ function parse_asptool_data(string $content): array {
         }
     }
     
+    $lines = explode("\n", $content);
+    $current_partition = null;
+    $found_sectors_flag = false;
+
     $sector_counts = [
         'USER PARTITION' => 0,
         'INTERMEDIATE PARTITION' => 0,
         'SKINNY PARTITION' => 0
     ];
-    $current_partition = null;
-    $lines = explode("\n", $content);
 
     foreach ($lines as $line) {
-        if (preg_match('/==== (USER|INTERMEDIATE|SKINNY) PARTITION ===/', $line, $matches)) {
+        if (preg_match('/^={0,4}\s*(USER|INTERMEDIATE|SKINNY)\s*PARTITION\s*={0,4}:?$/', trim($line), $matches)) {
             $current_partition = $matches[1] . ' PARTITION';
         }
         if ($current_partition && preg_match('/Total Sectors:\s*(\d+)/', $line, $matches)) {
             $sector_counts[$current_partition] += (int)$matches[1];
+            $found_sectors_flag = true;
         }
     }
-    
-    $total_capacity_bytes = 0;
-    foreach($sector_counts as $partition => $sectors) {
-        $bytes = $sectors * 4096;
-        $data['physical_capacity'][$partition] = [
-            'sectors' => $sectors,
-            'bytes' => $bytes,
-            'human' => format_bytes_human_readable($bytes)
-        ];
-        $total_capacity_bytes += $bytes;
-    }
-    $data['physical_capacity']['Total'] = [
-        'bytes' => $total_capacity_bytes,
-        'human' => format_bytes_human_readable($total_capacity_bytes)
-    ];
 
+    if ($found_sectors_flag) {
+        $total_capacity_bytes = 0;
+        foreach($sector_counts as $partition => $sectors) {
+            $bytes = $sectors * 4096;
+            $data['physical_capacity'][$partition] = [
+                'sectors' => $sectors,
+                'bytes' => $bytes,
+                'human' => format_bytes_human_readable($bytes)
+            ];
+            $total_capacity_bytes += $bytes;
+        }
+        $data['physical_capacity']['Total'] = [
+            'bytes' => $total_capacity_bytes,
+            'human' => format_bytes_human_readable($total_capacity_bytes)
+        ];
+    } else {
+        $bytes_per_page = 0;
+        $pages_per_vblock = 0;
+        $pages_per_vblock_slc = 0;
+
+        if (preg_match('/bytesPerPage:\s*(\d+)/', $content, $matches)) {
+            $bytes_per_page = (int)$matches[1];
+        }
+        if (preg_match('/pagesPerVirtualBlock:\s*(\d+)/', $content, $matches)) {
+            $pages_per_vblock = (int)$matches[1];
+        }
+        if (preg_match('/pagesPerVirtualBlockSlc:\s*(\d+)/', $content, $matches)) {
+            $pages_per_vblock_slc = (int)$matches[1];
+        }
+
+        if ($bytes_per_page > 0 && $pages_per_vblock > 0 && $pages_per_vblock_slc > 0) {
+            
+            $bytes_per_band_default = (float)$bytes_per_page * $pages_per_vblock;
+            $bytes_per_band_slc = (float)$bytes_per_page * $pages_per_vblock_slc;
+            
+            $band_counts = [
+                'USER PARTITION' => ['default' => 0, 'slc' => 0],
+                'INTERMEDIATE PARTITION' => ['default' => 0, 'slc' => 0],
+                'SKINNY PARTITION' => ['default' => 0, 'slc' => 0]
+            ];
+            
+            $current_partition = null;
+            $lines = explode("\n", $content);
+
+            foreach ($lines as $line) {
+                if (preg_match('/^={0,4}\s*(USER|INTERMEDIATE|SKINNY)\s*PARTITION\s*={0,4}:?$/', trim($line), $matches)) {
+                    $current_partition = $matches[1] . ' PARTITION';
+                }
+                
+                if ($current_partition && preg_match('/^\s*band:.*?\s+mode:(\d+)/', $line, $mode_matches)) {
+                    if ($mode_matches[1] == 1) {
+                        $band_counts[$current_partition]['slc']++;
+                    } else {
+                        $band_counts[$current_partition]['default']++;
+                    }
+                }
+            }
+
+            $total_capacity_bytes = 0;
+            foreach($band_counts as $partition => $counts) {
+                $bands_default = $counts['default'];
+                $bands_slc = $counts['slc'];
+                
+                $bytes = ($bands_default * $bytes_per_band_default) + ($bands_slc * $bytes_per_band_slc);
+                
+                if ($bytes > 0) {
+                     $data['physical_capacity'][$partition] = [
+                        'sectors' => ($bytes > 0) ? $bytes / 4096 : 0,
+                        'bytes' => $bytes,
+                        'human' => format_bytes_human_readable($bytes)
+                    ];
+                    $total_capacity_bytes += $bytes;
+                }
+            }
+            
+            $data['physical_capacity']['Total'] = [
+                'bytes' => $total_capacity_bytes,
+                'human' => format_bytes_human_readable($total_capacity_bytes)
+            ];
+        }
+    }
     return $data;
 }
 
