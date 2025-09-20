@@ -1,12 +1,14 @@
 {
   "version": "1A076",
   "notes": [
-    "修正 A19 频率"
+    "cdn文件位置修改"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A076",
       "delta": [
+          "./apple-device/audio/homepod/data.json",
+          "./apple-device/audio/airpods/data.json"
       ]
     }
   ]

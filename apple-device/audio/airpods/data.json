@@ -150,7 +150,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-pro-3.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro-3.webp",
             "data": {
                 "slogan": "主动降噪升至两倍，倍加悦耳。",
                 "releaseDate": "2025.09.10",
@@ -185,7 +185,7 @@
         {
             "name": "AirPods",
             "generation": "(第 4 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-4.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-4.webp",
             "data": {
                 "slogan": "耳上经典，音质再进化。",
                 "releaseDate": "2024.09.10",
@@ -220,7 +220,7 @@
         {
             "name": "AirPods Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-max-new.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-max-new.webp",
             "data": {
                 "slogan": "澎湃贯耳",
                 "releaseDate": "2024.09.10",
@@ -271,7 +271,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-pro-2.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro-2.webp",
             "data": {
                 "slogan": "重塑新声",
                 "releaseDate": "2022.09.08",
@@ -306,7 +306,7 @@
         {
             "name": "AirPods",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-3.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-3.webp",
             "data": {
                 "slogan": "全新支持空间音频",
                 "releaseDate": "2021.10.19",
@@ -341,7 +341,7 @@
         {
             "name": "AirPods Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-max.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-max.webp",
             "data": {
                 "slogan": "AirPods Max 高调登场。",
                 "releaseDate": "2020.12.09",
@@ -392,7 +392,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-pro.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro.webp",
             "data": {
                 "slogan": "妙得不同凡响。",
                 "releaseDate": "2019.10.29",
@@ -427,7 +427,7 @@
         {
             "name": "AirPods",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-2.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-2.webp",
             "data": {
                 "slogan": "妙出新境界。",
                 "releaseDate": "2019.03.21",
@@ -462,7 +462,7 @@
         {
             "name": "AirPods",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/airpods/img/airpods-1.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-1.webp",
             "data": {
                 "slogan": "无线，无繁琐，只有妙不可言。",
                 "releaseDate": "2016.12.08",
