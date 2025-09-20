@@ -1,14 +1,21 @@
 {
-  "version": "1A076 (a)",
+  "version": "1A076 (b)",
   "notes": [
-    "cdn文件位置修改"
+    "更新A10系列小核状态"
   ],
   "rsr_patches": [
     {
       "base": "1A076",
       "delta": [
           "./apple-device/audio/homepod/data.json",
-          "./apple-device/audio/airpods/data.json"
+          "./apple-device/audio/airpods/data.json",
+          "./apple-silicon/chip-a/data.json"
+      ]
+    },
+    {
+      "base": "1A076 (a)",
+      "delta": [
+          "./apple-silicon/chip-a/data.json"
       ]
     }
   ]
