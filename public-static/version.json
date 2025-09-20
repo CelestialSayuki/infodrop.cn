@@ -1,7 +1,7 @@
 {
-  "version": "1A076 (c)",
+  "version": "1A076 (d)",
   "notes": [
-    "更新A10系列小核状态"
+    "更新 A19 Pro GPU"
   ],
   "rsr_patches": [
     {
@@ -20,6 +20,12 @@
     },
     {
       "base": "1A076 (b)",
+      "delta": [
+          "./apple-silicon/chip-a/data.json"
+      ]
+    },
+    {
+      "base": "1A076 (c)",
       "delta": [
           "./apple-silicon/chip-a/data.json"
       ]
