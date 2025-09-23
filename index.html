@@ -161,7 +161,6 @@
     <meta name="apple-mobile-web-app-title" content="苹果产品参数">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
@@ -392,6 +391,7 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
+                        <li><span>2025.09.23：修复移动端断网进入问题</span></li>
                         <li><span>2025.09.20：修正 iPad mini 数据错误</span></li>
                         <li><span>2025.09.19：更新 iPhone 基带，修复了 A19 系列 DVFS 上传的数据不准的问题，下线speedometer测试，请去旧网站测试，“后台”改名为“上传”，新增硬盘信息上传界面，等数据足够后，将会开放显示。</span></li>
                         <li><span>2025.09.18：更新跑分，修复 GPU 跑分页面显示不开的 bug，新增 RSR 更新</span></li>
@@ -568,13 +568,31 @@
                     hideLoadingScreen();
                 }
             };
+            function fetchWithTimeout(url, options = {}, timeout = 3000) {
+              const controller = new AbortController();
+              const { signal } = controller;
+
+              const fetchPromise = fetch(url, { ...options, signal });
+
+              const timeoutPromise = new Promise((_, reject) => {
+                setTimeout(() => {
+                  controller.abort();
+                  reject(new Error('Request timed out'));
+                }, timeout);
+              });
+              return Promise.race([fetchPromise, timeoutPromise]);
+            }
             async function checkForUpdates(registration) {
                 if (localStorage.getItem('updates_paused') === 'true') {
                     return false;
                 }
                 const localVersion = localStorage.getItem('sw_installed_version');
                 try {
-                    const response = await fetch('./public-static/version.json', { cache: 'no-store' });
+                    const response = await fetchWithTimeout(
+                        './public-static/version.json',
+                        { cache: 'no-store' },
+                        3000
+                    );
                     const serverConfig = await response.json();
                     const latestVersion = serverConfig.version;
                     if (localVersion !== latestVersion) {
@@ -586,7 +604,7 @@
                             if(loadingText) loadingText.textContent = '正在更新...';
                         }
                         clearTimeout(updateStartTimeout);
-                        updateStartTimeout = setTimeout(showMaintenanceMessage, 1000);
+                        updateStartTimeout = setTimeout(showMaintenanceMessage, 2000);
                         if (registration && registration.update) {
                             await registration.update();
                         }

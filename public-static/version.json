@@ -1,33 +1,12 @@
 {
-  "version": "1A076 (d)",
+  "version": "1A077",
   "notes": [
-    "更新 A19 Pro GPU"
+    "半修复进网站问题"
   ],
   "rsr_patches": [
     {
-      "base": "1A076",
+      "base": "",
       "delta": [
-          "./apple-device/audio/homepod/data.json",
-          "./apple-device/audio/airpods/data.json",
-          "./apple-silicon/chip-a/data.json"
-      ]
-    },
-    {
-      "base": "1A076 (a)",
-      "delta": [
-          "./apple-silicon/chip-a/data.json"
-      ]
-    },
-    {
-      "base": "1A076 (b)",
-      "delta": [
-          "./apple-silicon/chip-a/data.json"
-      ]
-    },
-    {
-      "base": "1A076 (c)",
-      "delta": [
-          "./apple-silicon/chip-a/data.json"
       ]
     }
   ]
