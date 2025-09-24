@@ -86,7 +86,7 @@ try {
             $series = '';
             $generation = 0;
             $tier_str = '';
-            if (preg_match('/^([AM])(\d+)\s*(Pro|Max|Ultra)?/i', $chip_name, $matches)) {
+            if (preg_match('/^([AM])(\d+)\s*(Pro|Max|Ultra|X|Z)?/i', $chip_name, $matches)) {
                 $series = strtoupper($matches[1]);
                 $generation = (int)$matches[2];
                 $tier_str = isset($matches[3]) ? $matches[3] : '';
@@ -94,9 +94,11 @@ try {
             return [$series, $generation, $tier_str];
         };
         $tier_rank = [
-            'Ultra' => 4,
-            'Max'   => 3,
-            'Pro'   => 2,
+            'Ultra' => 6,
+            'Max'   => 5,
+            'Pro'   => 4,
+            'Z'     => 3,
+            'X'     => 2,
             ''      => 1,
         ];
         usort($series_list, function($a, $b) use ($parse_chip, $tier_rank) {
