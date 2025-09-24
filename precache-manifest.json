@@ -8,7 +8,6 @@
   "./favicon.ico",
   "./manifest.json",
   "./index.html",
-  "./sw.js",
   "./apple-other/battery/index.html",
   "./auth/index.html",
   "./apple-tools/model/index.html",

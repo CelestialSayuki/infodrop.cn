@@ -10,7 +10,8 @@
           "./apple-silicon/chip-a/data.json",
           "./public-static/css/new.css",
           "./apple-device/iphone/data.json",
-
+          "./apple-report/frequency-voltage/index.html",
+          "./index.html"
       ]
     }
   ]
