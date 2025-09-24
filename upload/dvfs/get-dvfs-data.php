@@ -15,7 +15,17 @@ $db_path = __DIR__ . '/processed_data.sqlite';
 
 try {
     if (!file_exists($db_path)) {
-        echo json_encode(['p_core_dvfs' => [], 'e_core_dvfs' => [], 'gpu_dvfs' => [], 'ane_dvfs' => []]);
+        $empty_data = json_encode(['p_core_dvfs' => [], 'e_core_dvfs' => [], 'gpu_dvfs' => [], 'ane_dvfs' => []]);
+        $cipher = 'aes-256-gcm';
+        $iv_length = 12;
+        $iv = openssl_random_pseudo_bytes($iv_length);
+        $tag = "";
+        $encrypted_data = openssl_encrypt($empty_data, $cipher, $key, OPENSSL_RAW_DATA, $iv, $tag);
+        echo json_encode([
+            'ciphertext' => base64_encode($encrypted_data),
+            'iv' => base64_encode($iv),
+            'tag' => base64_encode($tag)
+        ]);
         exit;
     }
 
@@ -72,6 +82,40 @@ try {
                 'data'    => $group['data'],
              ];
         }
+        $parse_chip = function($chip_name) {
+            $series = '';
+            $generation = 0;
+            $tier_str = '';
+            if (preg_match('/^([AM])(\d+)\s*(Pro|Max|Ultra)?/i', $chip_name, $matches)) {
+                $series = strtoupper($matches[1]);
+                $generation = (int)$matches[2];
+                $tier_str = isset($matches[3]) ? $matches[3] : '';
+            }
+            return [$series, $generation, $tier_str];
+        };
+        $tier_rank = [
+            'Ultra' => 4,
+            'Max'   => 3,
+            'Pro'   => 2,
+            ''      => 1,
+        ];
+        usort($series_list, function($a, $b) use ($parse_chip, $tier_rank) {
+            list($a_series, $a_gen, $a_tier) = $parse_chip($a['chip']);
+            list($b_series, $b_gen, $b_tier) = $parse_chip($b['chip']);
+            if ($a_series !== $b_series) {
+                if ($a_series === 'A') return -1;
+                if ($b_series === 'A') return 1;
+            }
+            if ($a_gen !== $b_gen) {
+                return $b_gen <=> $a_gen;
+            }
+            $a_rank = $tier_rank[$a_tier] ?? 0;
+            $b_rank = $tier_rank[$b_tier] ?? 0;
+            if ($a_rank !== $b_rank) {
+                return $b_rank <=> $a_rank;
+            }
+            return $a['chip'] <=> $b['chip'];
+        });
         $final_chart_data[$core_type] = $series_list;
     }
 
