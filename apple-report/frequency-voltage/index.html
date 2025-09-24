@@ -155,27 +155,29 @@
           return bytes.buffer;
       };
 
-      const decryptData = async (keyData, B64ciphertext, B64iv) => {
+      const decryptData = async (keyData, b64Ciphertext, b64Iv, b64Tag) => {
           const cryptoKey = await window.crypto.subtle.importKey(
               "raw",
               keyData,
-              { name: "AES-CBC" },
+              { name: "AES-GCM" },
               false,
               ["decrypt"]
           );
-
-          const ciphertext = base64ToArrayBuffer(B64ciphertext);
-          const iv = base64ToArrayBuffer(B64iv);
-
+          const ciphertext = base64ToArrayBuffer(b64Ciphertext);
+          const iv = base64ToArrayBuffer(b64Iv);
+          const tag = base64ToArrayBuffer(b64Tag);
+          const fullCiphertext = new Uint8Array(ciphertext.byteLength + tag.byteLength);
+          fullCiphertext.set(new Uint8Array(ciphertext), 0);
+          fullCiphertext.set(new Uint8Array(tag), ciphertext.byteLength);
           const decrypted = await window.crypto.subtle.decrypt(
               {
-                  name: "AES-CBC",
-                  iv: iv
+                  name: "AES-GCM",
+                  iv: iv,
+                  tagLength: 128
               },
               cryptoKey,
-              ciphertext
+              fullCiphertext.buffer
           );
-
           return new TextDecoder().decode(decrypted);
       };
 
@@ -193,8 +195,12 @@
               const encryptedPayload = await dataResponse.json();
               if (encryptedPayload.error) throw new Error(encryptedPayload.error);
               
-              const decryptedJson = await decryptData(keyData, encryptedPayload.ciphertext, encryptedPayload.iv);
-
+              const decryptedJson = await decryptData(
+                  keyData,
+                  encryptedPayload.ciphertext,
+                  encryptedPayload.iv,
+                  encryptedPayload.tag
+              );
               const data = JSON.parse(decryptedJson);
               if (data.error) throw new Error(data.error);
               

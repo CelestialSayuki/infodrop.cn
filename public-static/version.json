@@ -1,7 +1,7 @@
 {
-  "version": "1A077 (a)",
+  "version": "1A077 (b)",
   "notes": [
-    "更新部分数据，加密 DVFS 数据"
+    "更换加密算法"
   ],
   "rsr_patches": [
     {
@@ -12,6 +12,12 @@
           "./apple-device/iphone/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./index.html"
+      ]
+    },
+    {
+      "base": "1A077 (a)",
+      "delta": [
+          "./apple-report/frequency-voltage/index.html"
       ]
     }
   ]

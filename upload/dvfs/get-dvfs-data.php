@@ -76,16 +76,15 @@ try {
     }
 
     $plaintext = json_encode($final_chart_data, JSON_UNESCAPED_UNICODE);
-    
-    $cipher = 'aes-256-cbc';
-    $iv_length = openssl_cipher_iv_length($cipher);
+    $cipher = 'aes-256-gcm';
+    $iv_length = 12;
     $iv = openssl_random_pseudo_bytes($iv_length);
-
-    $encrypted_data = openssl_encrypt($plaintext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
-    
+    $tag = "";
+    $encrypted_data = openssl_encrypt($plaintext, $cipher, $key, OPENSSL_RAW_DATA, $iv, $tag);
     $response_payload = [
         'ciphertext' => base64_encode($encrypted_data),
-        'iv' => base64_encode($iv)
+        'iv' => base64_encode($iv),
+        'tag' => base64_encode($tag)
     ];
 
     echo json_encode($response_payload);
