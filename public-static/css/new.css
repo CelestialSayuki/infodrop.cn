@@ -1,6 +1,9 @@
 html,body {
     overflow:hidden;
 }
+html {
+    background-color: #F5F7F9;
+}
 body {
     padding-left:0;
     padding-right:0;
@@ -889,9 +892,13 @@ body {
 .main-content-scroller {
     padding:20px;
 }
-}html.dark-mode body {
-    background:linear-gradient(135deg,#1a1a2e,#16213e);
-    color:var(--dark-text);
+}
+html.dark-mode {
+    background-color: #181C29;
+}
+html.dark-mode body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: var(--dark-text);
 }
 html.dark-mode .card {
     background-color:var(--dark-glass-bg);

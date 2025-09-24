@@ -1,12 +1,16 @@
 {
-  "version": "1A077",
+  "version": "1A077 (a)",
   "notes": [
-    "半修复进网站问题"
+    "更新部分数据，加密 DVFS 数据"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A077",
       "delta": [
+          "./apple-silicon/chip-a/data.json",
+          "./public-static/css/new.css",
+          "./apple-device/iphone/data.json",
+
       ]
     }
   ]

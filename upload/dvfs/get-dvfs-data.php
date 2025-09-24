@@ -1,5 +1,15 @@
 <?php
+session_start();
 header('Content-Type: application/json; charset=utf-8');
+
+if (!isset($_SESSION['encryption_key'])) {
+    http_response_code(400);
+    echo json_encode(['error' => '错误：加密密钥不存在或已过期，请刷新页面重试。']);
+    exit;
+}
+
+$key = $_SESSION['encryption_key'];
+unset($_SESSION['encryption_key']);
 
 $db_path = __DIR__ . '/processed_data.sqlite';
 
@@ -65,7 +75,20 @@ try {
         $final_chart_data[$core_type] = $series_list;
     }
 
-    echo json_encode($final_chart_data, JSON_UNESCAPED_UNICODE);
+    $plaintext = json_encode($final_chart_data, JSON_UNESCAPED_UNICODE);
+    
+    $cipher = 'aes-256-cbc';
+    $iv_length = openssl_cipher_iv_length($cipher);
+    $iv = openssl_random_pseudo_bytes($iv_length);
+
+    $encrypted_data = openssl_encrypt($plaintext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+    
+    $response_payload = [
+        'ciphertext' => base64_encode($encrypted_data),
+        'iv' => base64_encode($iv)
+    ];
+
+    echo json_encode($response_payload);
 
 } catch (Exception $e) {
     http_response_code(500);

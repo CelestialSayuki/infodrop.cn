@@ -4,52 +4,17 @@
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
   <style type="text/css">
-    .main-content {
-      padding: 20px;
-    }
-    .card {
-      margin-bottom: 20px;
-    }
-    .retext {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      color: var(--light-text-secondary);
-      width: 100%;
-    }
-    hr {
-      border: 0;
-      height: 1px;
-      background-color: rgba(237, 237, 237, 0.3);
-      max-width: 1500px;
-      margin: 40px auto;
-    }
-
-    #mainLayout {
-        margin: 0;
-    }
-    .macos-window.dark-mode .retext,
-    html.dark-mode .retext {
-      color: var(--dark-text-secondary);
-    }
-    .macos-window.dark-mode hr,
-    html.dark-mode hr {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-    .macos-window.dark-mode .card,
-    html.dark-mode .card {
-      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
-    }
-    
+    .main-content { padding: 20px; }
+    .card { margin-bottom: 20px; }
+    .retext { text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 20px; margin-bottom: 20px; color: var(--light-text-secondary); width: 100%; }
+    hr { border: 0; height: 1px; background-color: rgba(237, 237, 237, 0.3); max-width: 1500px; margin: 40px auto; }
+    #mainLayout { margin: 0; }
+    .macos-window.dark-mode .retext, html.dark-mode .retext { color: var(--dark-text-secondary); }
+    .macos-window.dark-mode hr, html.dark-mode hr { background-color: rgba(255, 255, 255, 0.15); }
+    .macos-window.dark-mode .card, html.dark-mode .card { box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05); }
     @media (max-width: 768px) {
-      .main-content {
-        padding: 5px;
-      }
-      .card {
-        margin: 0;
-      }
+      .main-content { padding: 5px; }
+      .card { margin: 0; }
     }
   </style>
 </head>
@@ -69,161 +34,194 @@
   </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
-    <script type="text/javascript">
-      (async () => {
-          const chartInstances = {};
-          let chartData = null;
-          const colorPalette = [
-              '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
-              '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
-          ];
-          
-          const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax, theme) => {
-              const chartDom = document.getElementById(containerId);
-              if (!chartDom) return;
+  <script type="text/javascript">
+    (async () => {
+      const chartInstances = {};
+      let chartData = null;
+      const colorPalette = [
+          '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
+          '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
+      ];
+      
+      const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax, theme) => {
+          const chartDom = document.getElementById(containerId);
+          if (!chartDom) return;
 
-              if (chartInstances[containerId]) {
-                  chartInstances[containerId].dispose();
-              }
-              
-              if (!seriesData || seriesData.length === 0) {
-                  chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
-                  chartDom.style.height = '100px';
-                  return;
-              } else {
-                  chartDom.style.height = '500px';
-              }
+          if (chartInstances[containerId]) {
+              chartInstances[containerId].dispose();
+          }
+          
+          if (!seriesData || seriesData.length === 0) {
+              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
+              chartDom.style.height = '100px';
+              return;
+          } else {
+              chartDom.style.height = '500px';
+          }
 
-              let myChart = echarts.init(chartDom, theme);
-              chartInstances[containerId] = myChart;
+          let myChart = echarts.init(chartDom, theme);
+          chartInstances[containerId] = myChart;
 
-              const legendData = [...new Set(seriesData.map(s => s.chip))];
-              const selected = {};
-              
-              if (legendData.length > 0) {
-                  legendData.forEach(name => selected[name] = false);
-                  selected[legendData[0]] = true;
-              }
+          const legendData = [...new Set(seriesData.map(s => s.chip))];
+          const selected = {};
+          
+          if (legendData.length > 0) {
+              legendData.forEach(name => selected[name] = false);
+              selected[legendData[0]] = true;
+          }
 
-              const uniqueGroupKeys = [...new Set(seriesData.map(s => `${s.chip}|${s.devices}|${s.builds}`))];
+          const uniqueGroupKeys = [...new Set(seriesData.map(s => `${s.chip}|${s.devices}|${s.builds}`))];
+          const colorMap = {};
+          uniqueGroupKeys.forEach((key, index) => {
+              colorMap[key] = colorPalette[index % colorPalette.length];
+          });
+          
+          seriesData.forEach(series => {
+              const groupKey = `${series.chip}|${series.devices}|${series.builds}`;
+              const color = colorMap[groupKey];
+              series.name = series.chip;
+              series.type = 'line';
+              series.symbol = 'circle';
+              series.symbolSize = 6;
+              series.itemStyle = { color: color };
+              series.lineStyle = { color: color, width: 2 };
+          });
+
+          const option = {
+              backgroundColor: 'transparent',
+              title: { text: titleText, subtext: '聚合了相同芯片及DVFS配置的数据', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
+              tooltip: {
+                  trigger: 'axis',
+                  axisPointer: { type: 'line' },
+                  formatter: (params) => {
+                      if (!params || params.length === 0) return '';
+                      const grouped = new Map();
+                      params.forEach(p => {
+                          const series = seriesData[p.seriesIndex];
+                          if (!series) return;
+                          const key = `${series.chip}|${series.devices}|${series.builds}`;
+                          if (!grouped.has(key)) {
+                              grouped.set(key, { commonInfo: series, points: [] });
+                          }
+                          grouped.get(key).points.push(p);
+                      });
+                      let tooltipHtml = '';
+                      grouped.forEach((group) => {
+                          tooltipHtml += `<strong>${group.commonInfo.chip}</strong><br/>` +
+                                       `设备型号: ${group.commonInfo.devices}<br/>` +
+                                       `系统版本: ${group.commonInfo.builds}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
+                          const displayedPoints = new Set();
+                          group.points.forEach(point => {
+                              if (point.value?.length === 2) {
+                                  const pointKey = `${point.value[0]}|${point.value[1]}`;
+                                  if (displayedPoints.has(pointKey)) return;
+                                  tooltipHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
+                                  displayedPoints.add(pointKey);
+                              }
+                          });
+                          tooltipHtml += '<br/>';
+                      });
+                      return tooltipHtml.replace(/<br\/>$/, '');
+                  }
+              },
+              grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
+              legend: { data: legendData, selected: selected, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } },
+              xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
+              yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
+              series: seriesData
+          };
+          myChart.setOption(option);
+
+          const resizeObserver = new ResizeObserver(() => myChart.resize());
+          resizeObserver.observe(chartDom);
+      };
+
+      const renderAllCharts = () => {
+          if (!chartData) return;
+          const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+          renderChart('P_CPU_Freq_Volt', chartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250, theme);
+          renderChart('E_CPU_Freq_Volt', chartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100, theme);
+          renderChart('GPU_Freq_Volt', chartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100, theme);
+          renderChart('ANE_Freq_Volt', chartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250, theme);
+      };
+
+      const base64ToArrayBuffer = (base64) => {
+          const binaryString = window.atob(base64);
+          const len = binaryString.length;
+          const bytes = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+          }
+          return bytes.buffer;
+      };
+
+      const decryptData = async (keyData, B64ciphertext, B64iv) => {
+          const cryptoKey = await window.crypto.subtle.importKey(
+              "raw",
+              keyData,
+              { name: "AES-CBC" },
+              false,
+              ["decrypt"]
+          );
+
+          const ciphertext = base64ToArrayBuffer(B64ciphertext);
+          const iv = base64ToArrayBuffer(B64iv);
+
+          const decrypted = await window.crypto.subtle.decrypt(
+              {
+                  name: "AES-CBC",
+                  iv: iv
+              },
+              cryptoKey,
+              ciphertext
+          );
+
+          return new TextDecoder().decode(decrypted);
+      };
+
+      const main = async () => {
+          try {
+              const keyResponse = await fetch('./upload/dvfs/get-encryption-key.php');
+              if (!keyResponse.ok) throw new Error(`获取密钥失败! 状态: ${keyResponse.status}`);
+              const keyPayload = await keyResponse.json();
+              if (keyPayload.error) throw new Error(keyPayload.error);
               
-              const colorMap = {};
-              uniqueGroupKeys.forEach((key, index) => {
-                  colorMap[key] = colorPalette[index % colorPalette.length];
-              });
-              
-              seriesData.forEach(series => {
-                  const groupKey = `${series.chip}|${series.devices}|${series.builds}`;
-                  const color = colorMap[groupKey];
+              const keyData = base64ToArrayBuffer(keyPayload.key);
 
-                  series.name = series.chip;
-                  series.type = 'line';
-                  series.symbol = 'circle';
-                  series.symbolSize = 6;
-                  series.itemStyle = { color: color };
-                  series.lineStyle = { color: color, width: 2 };
-              });
+              const dataResponse = await fetch('./upload/dvfs/get-dvfs-data.php');
+              if (!dataResponse.ok) throw new Error(`获取数据失败! 状态: ${dataResponse.status}`);
+              const encryptedPayload = await dataResponse.json();
+              if (encryptedPayload.error) throw new Error(encryptedPayload.error);
+              
+              const decryptedJson = await decryptData(keyData, encryptedPayload.ciphertext, encryptedPayload.iv);
 
-              const option = {
-                  backgroundColor: 'transparent',
-                  title: {
-                      text: titleText,
-                      subtext: '聚合了相同芯片及DVFS配置的数据',
-                      textStyle: { fontSize: 16 },
-                      subtextStyle: { fontSize: 12 }
-                  },
-                  tooltip: {
-                      trigger: 'axis',
-                      axisPointer: { type: 'line' },
-                      formatter: (params) => {
-                          if (!params || params.length === 0) return '';
-                          const grouped = new Map();
-                          params.forEach(p => {
-                              const series = seriesData[p.seriesIndex];
-                              if (!series) return;
-                              const key = `${series.chip}|${series.devices}|${series.builds}`;
-                              if (!grouped.has(key)) {
-                                  grouped.set(key, { commonInfo: series, points: [] });
-                              }
-                              grouped.get(key).points.push(p);
-                          });
-                          let tooltipHtml = '';
-                          grouped.forEach((group) => {
-                              tooltipHtml += `<strong>${group.commonInfo.chip}</strong><br/>` +
-                                           `设备型号: ${group.commonInfo.devices}<br/>` +
-                                           `系统版本: ${group.commonInfo.builds}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
-                              const displayedPoints = new Set();
-                              group.points.forEach(point => {
-                                  if (point.value?.length === 2) {
-                                      const pointKey = `${point.value[0]}|${point.value[1]}`;
-                                      if (displayedPoints.has(pointKey)) return;
-                                      tooltipHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
-                                      displayedPoints.add(pointKey);
-                                  }
-                              });
-                              tooltipHtml += '<br/>';
-                          });
-                          return tooltipHtml.replace(/<br\/>$/, '');
-                      }
-                  },
-                  grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
-                  legend: {
-                      data: legendData,
-                      selected: selected,
-                      type: 'scroll',
-                      orient: 'vertical',
-                      right: '1%',
-                      top: '20%',
-                      bottom: '5%',
-                      textStyle: { fontSize: 11 }
-                  },
-                  xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
-                  yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
-                  series: seriesData
-              };
-              myChart.setOption(option);
+              const data = JSON.parse(decryptedJson);
+              if (data.error) throw new Error(data.error);
+              
+              chartData = data;
+              renderAllCharts();
 
-              const resizeObserver = new ResizeObserver(() => myChart.resize());
-              resizeObserver.observe(chartDom);
-          };
-          const renderAllCharts = () => {
-              if (!chartData) return;
-              const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
-              renderChart('P_CPU_Freq_Volt', chartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250, theme);
-              renderChart('E_CPU_Freq_Volt', chartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100, theme);
-              renderChart('GPU_Freq_Volt', chartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100, theme);
-              renderChart('ANE_Freq_Volt', chartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250, theme);
-          };
-          const main = async () => {
-              try {
-                  const response = await fetch('./upload/dvfs/get-dvfs-data.php');
-                  if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
-                  const data = await response.json();
-                  if (data.error) throw new Error(data.error);
-                  
-                  chartData = data;
-                  renderAllCharts();
+          } catch (error) {
+              console.error("加载或渲染图表失败:", error);
+              const mainContent = document.querySelector('.main-content');
+              if (mainContent) {
+                  mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
+              }
+          }
+      };
 
-              } catch (error) {
-                  console.error("加载或渲染图表失败:", error);
-                  const mainContent = document.querySelector('.main-content');
-                  if (mainContent) {
-                       mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
-                  }
-              }
-          };
-          const themeObserver = new MutationObserver((mutationsList) => {
-              for (const mutation of mutationsList) {
-                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                      renderAllCharts();
-                      break;
-                  }
-              }
-          });
-          themeObserver.observe(document.documentElement, { attributes: true });
-          main();
-      })();
-    </script>
+      const themeObserver = new MutationObserver((mutationsList) => {
+          for (const mutation of mutationsList) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                  renderAllCharts();
+                  break;
+              }
+          }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true });
+      main();
+    })();
+  </script>
 
 </body>
 </html>

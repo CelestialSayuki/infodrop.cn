@@ -176,11 +176,11 @@
         {
             "name": "iPhone 17 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -236,11 +236,11 @@
         {
             "name": "iPhone 17 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -363,8 +363,8 @@
             "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_2_temp.webp"
             },
             "data": {
                 "displayType": [

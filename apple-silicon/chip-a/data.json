@@ -214,7 +214,7 @@
                 "hardwareAccel": "H.264, HEVC, ProRes",
                 "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br>AV1 Decode ×1</div>",
                 "l3Slc": "32MB System Level Cache",
-                "internalIo": "Camera Serial Interface ×13<br>PCIe ×(2+4) Lines",
+                "internalIo": "",
                 "packaging": "PoP 叠层封装",
                 "ramSpec": "LPDDR5X-8533/9600",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>总位宽 64-bit<br>68.3GB/s</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>总位宽 64-bit<br>76.8GB/s</div>",
@@ -224,13 +224,13 @@
         },
         {
             "name": "A19",
-            "generation": "(Tilos, APL????-T8150)",
+            "generation": "(Tilos, APL1V13-T8150)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
             "images": {
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_chip.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_product.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
-                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A19_chipwise_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -254,14 +254,14 @@
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1470MHz</div>",
                 "gpuModel": "Apple10 家族, Apple G18P",
                 "gpuFeatures": "光线追踪, 支持 Metal 3 & 4, NE加速",
-                "gpuL2Cache": "",
+                "gpuL2Cache": "1024KB (256KB × 4 组)",
                 "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
                 "aneSram": "2MB ANE SRAM",
                 "hardwareAccel": "H.264, HEVC, ProRes",
                 "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>AV1 Decode ×1<br><br></div>",
                 "l3Slc": "12MB System Level Cache",
-                "internalIo": "Camera Serial Interface ×8<br>PCIe ×3 Lines",
+                "internalIo": "Camera Serial Interface ×9<br>PCIe ×3 Lines",
                 "packaging": "PoP 叠层封装",
                 "ramSpec": "LPDDR5X-8533",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>总位宽 64-bit<br>68.3GB/s</div>",
