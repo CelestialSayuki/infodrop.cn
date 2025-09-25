@@ -44,6 +44,17 @@
       ];
       
       const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax, theme) => {
+          const lightTooltipStyle = {
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              borderColor: '#E0E0E0',
+              textStyle: { color: '#333' }
+          };
+
+          const darkTooltipStyle = {
+              backgroundColor: 'rgba(50, 50, 50, 0.5)',
+              borderColor: '#555',
+              textStyle: { color: '#FFFFFF' }
+          };
           const chartDom = document.getElementById(containerId);
           if (!chartDom) return;
 
@@ -58,7 +69,7 @@
           } else {
               chartDom.style.height = '500px';
           }
-
+          const tooltipStyle = theme === 'dark' ? darkTooltipStyle : lightTooltipStyle;
           let myChart = echarts.init(chartDom, theme);
           chartInstances[containerId] = myChart;
 
@@ -70,14 +81,14 @@
               selected[legendData[0]] = true;
           }
 
-          const uniqueGroupKeys = [...new Set(seriesData.map(s => `${s.chip}|${s.devices}|${s.builds}`))];
+          const uniqueGroupKeys = [...new Set(seriesData.map(s => `${s.chip}|${s.devices}`))];
           const colorMap = {};
           uniqueGroupKeys.forEach((key, index) => {
               colorMap[key] = colorPalette[index % colorPalette.length];
           });
           
           seriesData.forEach(series => {
-              const groupKey = `${series.chip}|${series.devices}|${series.builds}`;
+              const groupKey = `${series.chip}|${series.devices}`;
               const color = colorMap[groupKey];
               series.name = series.chip;
               series.type = 'line';
@@ -99,31 +110,60 @@
                       params.forEach(p => {
                           const series = seriesData[p.seriesIndex];
                           if (!series) return;
-                          const key = `${series.chip}|${series.devices}|${series.builds}`;
+                          const key = `${series.chip}|${series.devices}`;
                           if (!grouped.has(key)) {
-                              grouped.set(key, { commonInfo: series, points: [] });
+                              grouped.set(key, {
+                                  chip: series.chip,
+                                  devices: series.devices,
+                                  builds: new Set(),
+                                  points: []
+                              });
                           }
-                          grouped.get(key).points.push(p);
+                          const group = grouped.get(key);
+                          series.builds.split(', ').forEach(build => {
+                              if(build) group.builds.add(build);
+                          });
+                          group.points.push(p);
                       });
-                      let tooltipHtml = '';
-                      grouped.forEach((group) => {
-                          tooltipHtml += `<strong>${group.commonInfo.chip}</strong><br/>` +
-                                       `设备型号: ${group.commonInfo.devices}<br/>` +
-                                       `系统版本: ${group.commonInfo.builds}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
+                      const groupsArray = Array.from(grouped.values());
+                      if (groupsArray.length === 0) return '';
+                      let leftColumnHtml = '';
+                      let rightColumnHtml = '';
+                      const midpoint = Math.ceil(groupsArray.length / 2);
+                      groupsArray.forEach((group, index) => {
+                          const buildsHtml = Array.from(group.builds).sort().join(', ');
+                          let seriesHtml = `<strong>${group.chip}</strong><br/>` +
+                                         `设备型号: ${group.devices}<br/>` +
+                                         `系统版本: ${buildsHtml}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
                           const displayedPoints = new Set();
                           group.points.forEach(point => {
                               if (point.value?.length === 2) {
                                   const pointKey = `${point.value[0]}|${point.value[1]}`;
                                   if (displayedPoints.has(pointKey)) return;
-                                  tooltipHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
+                                  seriesHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
                                   displayedPoints.add(pointKey);
                               }
                           });
-                          tooltipHtml += '<br/>';
+                          const groupContainerHtml = `<div style="margin-bottom: 15px;">${seriesHtml.replace(/<br\/>$/, '')}</div>`;
+                          if (index < midpoint) {
+                              leftColumnHtml += groupContainerHtml;
+                          } else {
+                              rightColumnHtml += groupContainerHtml;
+                          }
                       });
-                      return tooltipHtml.replace(/<br\/>$/, '');
-                  }
+                      let tooltipHtml = `
+                          <div style="display: flex; flex-direction: row; gap: 25px;">
+                              <div style="flex: 1;">${leftColumnHtml}</div>
+                      `;
+                      if (rightColumnHtml) {
+                          tooltipHtml += `<div style="flex: 1;">${rightColumnHtml}</div>`;
+                      }
+                      tooltipHtml += `</div>`;
+                      return tooltipHtml;
+                  },
+                  ...tooltipStyle
               },
+              
               grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
               legend: { data: legendData, selected: selected, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } },
               xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },

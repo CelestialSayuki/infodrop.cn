@@ -1,7 +1,7 @@
 {
-  "version": "1A077 (c)",
+  "version": "1A077 (d)",
   "notes": [
-    "修复错误的显示正在维护的bug"
+    "DVFS数据太多，改两列显示"
   ],
   "rsr_patches": [
     {
@@ -11,6 +11,7 @@
           "./public-static/css/new.css",
           "./apple-device/iphone/data.json",
           "./apple-report/frequency-voltage/index.html",
+          "./apple-silicon/chip-s/data.json",
           "./index.html"
       ]
     },
@@ -18,13 +19,24 @@
       "base": "1A077 (a)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-s/data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
     {
       "base": "1A077 (b)",
       "delta": [
-          "./index.html"
+          "./index.html",
+          "./apple-silicon/chip-s/data.json",
+          "./apple-report/frequency-voltage/index.html"
+      ]
+    },
+    {
+      "base": "1A077 (c)",
+      "delta": [
+          "./index.html",
+          "./apple-silicon/chip-s/data.json",
+          "./apple-report/frequency-voltage/index.html"
       ]
     }
   ]
