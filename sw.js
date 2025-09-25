@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A077 (b)';
+const CACHE_VERSION = '1A077 (c)';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -182,6 +182,15 @@ self.addEventListener('message', (event) => {
     });
   } else if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+  } else if (event.data && event.data.type === 'VALIDATE_VERSION') {
+    const expectedVersion = event.data.payload.expectedVersion;
+    if (CACHE_VERSION !== expectedVersion) {
+      self.clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(clients => {
+        for (const client of clients) {
+          client.postMessage({ type: 'VERSION_MISMATCH' });
+        }
+      });
+    }
   }
 });
 

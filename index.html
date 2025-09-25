@@ -598,6 +598,12 @@
                     const latestVersion = serverConfig.version;
                     if (localVersion !== latestVersion) {
                         updateIsPending = true;
+                        if (navigator.serviceWorker.controller) {
+                            navigator.serviceWorker.controller.postMessage({
+                                type: 'VALIDATE_VERSION',
+                                payload: { expectedVersion: latestVersion }
+                            });
+                        }
                         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
                         if (!isStandalone) {
                             runLoadingAnimation();
@@ -605,7 +611,7 @@
                             if(loadingText) loadingText.textContent = '正在更新...';
                         }
                         clearTimeout(updateStartTimeout);
-                        updateStartTimeout = setTimeout(showMaintenanceMessage, 2000);
+                        updateStartTimeout = setTimeout(showMaintenanceMessage, 15000);
                         if (registration && registration.update) {
                             await registration.update();
                         }

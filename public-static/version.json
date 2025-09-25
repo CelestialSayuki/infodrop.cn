@@ -1,7 +1,7 @@
 {
-  "version": "1A077 (b)",
+  "version": "1A077 (c)",
   "notes": [
-    "更换加密算法"
+    "修复错误的显示正在维护的bug"
   ],
   "rsr_patches": [
     {
@@ -17,7 +17,14 @@
     {
       "base": "1A077 (a)",
       "delta": [
+          "./index.html",
           "./apple-report/frequency-voltage/index.html"
+      ]
+    },
+    {
+      "base": "1A077 (b)",
+      "delta": [
+          "./index.html"
       ]
     }
   ]
