@@ -9,6 +9,7 @@
   "./manifest.json",
   "./index.html",
   "./apple-other/battery/index.html",
+  "./apple-other/disk/index.html",
   "./auth/index.html",
   "./apple-tools/model/index.html",
   "./apple-tools/model/data.json",

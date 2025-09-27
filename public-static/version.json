@@ -1,13 +1,14 @@
 {
-  "version": "1A077 (d)",
+  "version": "1A077 (e)",
   "notes": [
-    "DVFS数据太多，改两列显示"
+    "新增Disk信息显示"
   ],
   "rsr_patches": [
     {
       "base": "1A077",
       "delta": [
           "./apple-silicon/chip-a/data.json",
+          "./apple-other/disk/index.html",
           "./public-static/css/new.css",
           "./apple-device/iphone/data.json",
           "./apple-report/frequency-voltage/index.html",
@@ -19,6 +20,7 @@
       "base": "1A077 (a)",
       "delta": [
           "./index.html",
+          "./apple-other/disk/index.html",
           "./apple-silicon/chip-s/data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
@@ -28,6 +30,7 @@
       "delta": [
           "./index.html",
           "./apple-silicon/chip-s/data.json",
+          "./apple-other/disk/index.html",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -35,9 +38,18 @@
       "base": "1A077 (c)",
       "delta": [
           "./index.html",
+          "./apple-other/disk/index.html",
           "./apple-silicon/chip-s/data.json",
           "./apple-report/frequency-voltage/index.html"
+      ]
+    },
+    {
+      "base": "1A077 (d)",
+      "delta": [
+          "./index.html",
+          "./apple-other/disk/index.html"
       ]
     }
   ]
 }
+

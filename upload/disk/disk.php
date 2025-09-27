@@ -17,33 +17,24 @@ function send_json_response(bool $success, string $message, int $http_code = 200
 
 function parse_ioservice_data(string $content): array {
     $info = [];
-
     if (!preg_match('/[+\-o\s]+AppleANS\w+Controller(?:@\d+)?\s*<class[^>]+>.*?\{(.+?"Controller Characteristics".+)\s*\}\s*/s', $content, $controller_matches)) {
-        throw new Exception('在 IOService 文件中找不到 AppleANS 控制器信息块。请确认文件内容正确。');
+        throw new Exception('在 IOService 文件中找不到 AppleANS 控制器信息块。');
     }
     $controller_block = $controller_matches[1];
-
     $patterns = [
-        'model'           => '/"Model Number"\s*=\s*"([^"]+)"/',
-        'firmware'        => '/"Firmware Revision"\s*=\s*"([^"]+)"/',
-        'serial_number'   => '/"Serial Number"\s*=\s*"([^"]+)"/'
+        'model' => '/"Model Number"\s*=\s*"([^"]+)"/',
+        'firmware' => '/"Firmware Revision"\s*=\s*"([^"]+)"/',
+        'serial_number' => '/"Serial Number"\s*=\s*"([^"]+)"/'
     ];
-
     foreach ($patterns as $key => $pattern) {
         if (preg_match($pattern, $controller_block, $matches)) {
             $info[$key] = trim($matches[1]);
         }
     }
-
     if (preg_match('/"Controller Characteristics"\s*=\s*\{([^}]+)\}/s', $controller_block, $char_matches)) {
         $characteristics_block = $char_matches[1];
-        
         if (preg_match('/"vendor-name"\s*=\s*"([^"]+)"/', $characteristics_block, $matches)) {
             $info['manufacturer'] = trim($matches[1]);
-        }
-        if (preg_match('/"capacity"\s*=\s*(\d+)/', $characteristics_block, $matches)) {
-            $info['capacity_bytes'] = (float)$matches[1];
-            $info['capacity_nominal'] = format_capacity_nominal($info['capacity_bytes']);
         }
         if (preg_match('/"cell-type"\s*=\s*(\d+)/', $characteristics_block, $matches)) {
             $cell_type_map = [1 => 'SLC', 2 => 'MLC', 3 => 'TLC', 4 => 'QLC'];
@@ -51,153 +42,64 @@ function parse_ioservice_data(string $content): array {
             $info['cell_type'] = $cell_type_map[$info['cell_type_id']] ?? '未知 (' . $info['cell_type_id'] . ')';
         }
     }
-    
     return $info;
-}
-
-function format_capacity_nominal(float $bytes): string {
-    $gb = $bytes / 1e9;
-    $sizes_gb = [64, 128, 256, 512, 1000, 2000, 4000, 8000];
-    $closest_size = $sizes_gb[0];
-    foreach ($sizes_gb as $size) {
-        if (abs($gb - $size) < abs($gb - $closest_size)) {
-            $closest_size = $size;
-        }
-    }
-
-    return ($closest_size >= 1000) ? ($closest_size / 1000) . ' TB' : $closest_size . ' GB';
 }
 
 function parse_asptool_data(string $content): array {
     $data = [
-        'bad_blocks' => [],
-        'partition_health' => [],
-        'physical_capacity' => []
+        'bands' => [
+            'total' => 0, 'user' => 0, 'intermediate' => 0, 'skinny' => 0, 'utility' => 0
+        ],
+        'capacity_bytes_new' => 0
     ];
 
-    if (preg_match('/Grown Bad Blocks Count:\s*(\d+)/', $content, $matches)) {
-        $data['bad_blocks']['grown'] = (int)$matches[1];
-    }
-    if (preg_match('/Factory Bad Blocks Count:\s*(\d+)/', $content, $matches)) {
-        $data['bad_blocks']['factory'] = (int)$matches[1];
+    $bytesPerPage = 0; $pagesPerVBlock = 0; $numVBlocks = 0;
+    if (preg_match('/bytesPerPage:\s*(\d+)/', $content, $m)) $bytesPerPage = (float)$m[1];
+    if (preg_match('/pagesPerVirtualBlock:\s*(\d+)/', $content, $m)) $pagesPerVBlock = (float)$m[1];
+    if (preg_match('/numVirtualBlocks:\s*(\d+)/', $content, $m)) $numVBlocks = (float)$m[1];
+
+    if ($bytesPerPage > 0 && $pagesPerVBlock > 0 && $numVBlocks > 0) {
+        $data['capacity_bytes_new'] = $bytesPerPage * $pagesPerVBlock * $numVBlocks;
     }
 
-    $partitions = ['USER PARTITION', 'SKINNY PARTITION', 'INTERMEDIATE PARTITION'];
-    foreach ($partitions as $partition_name) {
-        $pattern = '/' . preg_quote($partition_name, '/') . '\s*:\s*Erase Cycles:\s*.*?Avg\s*\(\s*(\d+).*?\).*?EoL erase cycles:\s*\(\s*(\d+)\s*\)/s';
-        if (preg_match($pattern, $content, $matches)) {
-            $avg_cycles = (float)$matches[1];
-            $eol_cycles = (float)$matches[2];
-            $health_percent = ($eol_cycles > 0) ? (1 - ($avg_cycles / $eol_cycles)) * 100 : 100;
-            $data['partition_health'][$partition_name] = [
-                'avg_cycles' => $avg_cycles,
-                'eol_cycles' => $eol_cycles,
-                'health_percent' => round($health_percent, 3)
-            ];
+    if (preg_match('/numBands:\s*(\d+)/', $content, $m)) {
+        $data['bands']['total'] = (int)$m[1];
+        if (strpos($content, 'band:    0    Utility Band') !== false) {
+            $data['bands']['utility'] = 1;
         }
+        
+        $partition_starts = [];
+        preg_match_all('/(USER|INTERMEDIATE|SKINNY) PARTITION:\s*band:\s*(\d+)/s', $content, $matches, PREG_SET_ORDER);
+        foreach ($matches as $match) {
+            $partition_starts[$match[1]] = (int)$match[2];
+        }
+        
+        $last_band_num = $data['bands']['utility'];
+        if (isset($partition_starts['INTERMEDIATE'])) {
+            $next_start = $partition_starts['USER'] ?? $data['bands']['total'];
+            $data['bands']['intermediate'] = $next_start - $partition_starts['INTERMEDIATE'];
+            $last_band_num += $data['bands']['intermediate'];
+        }
+        if (isset($partition_starts['SKINNY'])) {
+             $next_start = $partition_starts['USER'] ?? $data['bands']['total'];
+             $data['bands']['skinny'] = $next_start - $partition_starts['SKINNY'];
+             $last_band_num += $data['bands']['skinny'];
+        }
+        $data['bands']['user'] = $data['bands']['total'] - $last_band_num;
+
+    } else {
+        $total = 0;
+        $partitions = ['USER', 'SKINNY', 'INTERMEDIATE'];
+        foreach ($partitions as $p) {
+            if (preg_match('/====\s*' . $p . '\s*PARTITION\s*====\s*(\d+)\s*bands/s', $content, $m)) {
+                $count = (int)$m[1];
+                $data['bands'][strtolower($p)] = $count;
+                $total += $count;
+            }
+        }
+        $data['bands']['total'] = $total;
     }
     
-    $lines = explode("\n", $content);
-    $current_partition = null;
-    $found_sectors_flag = false;
-
-    $sector_counts = [
-        'USER PARTITION' => 0,
-        'INTERMEDIATE PARTITION' => 0,
-        'SKINNY PARTITION' => 0
-    ];
-
-    foreach ($lines as $line) {
-        if (preg_match('/^={0,4}\s*(USER|INTERMEDIATE|SKINNY)\s*PARTITION\s*={0,4}:?$/', trim($line), $matches)) {
-            $current_partition = $matches[1] . ' PARTITION';
-        }
-        if ($current_partition && preg_match('/Total Sectors:\s*(\d+)/', $line, $matches)) {
-            $sector_counts[$current_partition] += (int)$matches[1];
-            $found_sectors_flag = true;
-        }
-    }
-
-    if ($found_sectors_flag) {
-        $total_capacity_bytes = 0;
-        foreach($sector_counts as $partition => $sectors) {
-            $bytes = $sectors * 4096;
-            $data['physical_capacity'][$partition] = [
-                'sectors' => $sectors,
-                'bytes' => $bytes,
-                'human' => format_bytes_human_readable($bytes)
-            ];
-            $total_capacity_bytes += $bytes;
-        }
-        $data['physical_capacity']['Total'] = [
-            'bytes' => $total_capacity_bytes,
-            'human' => format_bytes_human_readable($total_capacity_bytes)
-        ];
-    } else {
-        $bytes_per_page = 0;
-        $pages_per_vblock = 0;
-        $pages_per_vblock_slc = 0;
-
-        if (preg_match('/bytesPerPage:\s*(\d+)/', $content, $matches)) {
-            $bytes_per_page = (int)$matches[1];
-        }
-        if (preg_match('/pagesPerVirtualBlock:\s*(\d+)/', $content, $matches)) {
-            $pages_per_vblock = (int)$matches[1];
-        }
-        if (preg_match('/pagesPerVirtualBlockSlc:\s*(\d+)/', $content, $matches)) {
-            $pages_per_vblock_slc = (int)$matches[1];
-        }
-
-        if ($bytes_per_page > 0 && $pages_per_vblock > 0 && $pages_per_vblock_slc > 0) {
-            
-            $bytes_per_band_default = (float)$bytes_per_page * $pages_per_vblock;
-            $bytes_per_band_slc = (float)$bytes_per_page * $pages_per_vblock_slc;
-            
-            $band_counts = [
-                'USER PARTITION' => ['default' => 0, 'slc' => 0],
-                'INTERMEDIATE PARTITION' => ['default' => 0, 'slc' => 0],
-                'SKINNY PARTITION' => ['default' => 0, 'slc' => 0]
-            ];
-            
-            $current_partition = null;
-            $lines = explode("\n", $content);
-
-            foreach ($lines as $line) {
-                if (preg_match('/^={0,4}\s*(USER|INTERMEDIATE|SKINNY)\s*PARTITION\s*={0,4}:?$/', trim($line), $matches)) {
-                    $current_partition = $matches[1] . ' PARTITION';
-                }
-                
-                if ($current_partition && preg_match('/^\s*band:.*?\s+mode:(\d+)/', $line, $mode_matches)) {
-                    if ($mode_matches[1] == 1) {
-                        $band_counts[$current_partition]['slc']++;
-                    } else {
-                        $band_counts[$current_partition]['default']++;
-                    }
-                }
-            }
-
-            $total_capacity_bytes = 0;
-            foreach($band_counts as $partition => $counts) {
-                $bands_default = $counts['default'];
-                $bands_slc = $counts['slc'];
-                
-                $bytes = ($bands_default * $bytes_per_band_default) + ($bands_slc * $bytes_per_band_slc);
-                
-                if ($bytes > 0) {
-                     $data['physical_capacity'][$partition] = [
-                        'sectors' => ($bytes > 0) ? $bytes / 4096 : 0,
-                        'bytes' => $bytes,
-                        'human' => format_bytes_human_readable($bytes)
-                    ];
-                    $total_capacity_bytes += $bytes;
-                }
-            }
-            
-            $data['physical_capacity']['Total'] = [
-                'bytes' => $total_capacity_bytes,
-                'human' => format_bytes_human_readable($total_capacity_bytes)
-            ];
-        }
-    }
     return $data;
 }
 
@@ -213,26 +115,12 @@ try {
     if (!isset($_FILES['asptool_file']) || $_FILES['asptool_file']['error'] !== UPLOAD_ERR_OK) throw new Exception('asptool_snapshot 文件上传失败', 400);
     if (!isset($_FILES['ioservice_file']) || $_FILES['ioservice_file']['error'] !== UPLOAD_ERR_OK) throw new Exception('IOService 文件上传失败', 400);
 
-    $asptool_file = $_FILES['asptool_file'];
-    $ioservice_file = $_FILES['ioservice_file'];
-    
-    $max_size = 10 * 1024 * 1024;
-    if ($asptool_file['size'] > $max_size || $ioservice_file['size'] > $max_size) {
-        throw new Exception('文件过大，最大允许 10MB。', 400);
-    }
-
-    $allowed_extensions = ['txt', 'log'];
-    if (!in_array(strtolower(pathinfo($asptool_file['name'], PATHINFO_EXTENSION)), $allowed_extensions) ||
-        !in_array(strtolower(pathinfo($ioservice_file['name'], PATHINFO_EXTENSION)), $allowed_extensions)) {
-        throw new Exception('文件类型无效，仅允许上传 .txt 或 .log 文件。', 400);
-    }
-    
-    $asptool_content = file_get_contents($asptool_file['tmp_name']);
-    $ioservice_content = file_get_contents($ioservice_file['tmp_name']);
+    $asptool_content = file_get_contents($_FILES['asptool_file']['tmp_name']);
+    $ioservice_content = file_get_contents($_FILES['ioservice_file']['tmp_name']);
 
     $asptool_data = parse_asptool_data($asptool_content);
     $ioservice_data = parse_ioservice_data($ioservice_content);
-
+    
     $db_path = __DIR__ . '/disk_data.sqlite';
     $pdo = new PDO('sqlite:' . $db_path);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -245,35 +133,29 @@ try {
             firmware TEXT,
             manufacturer TEXT,
             cell_type TEXT,
-            capacity_nominal_gb INTEGER,
-            capacity_user_bytes INTEGER,
-            capacity_intermediate_bytes INTEGER,
-            capacity_skinny_bytes INTEGER,
-            total_capacity_bytes INTEGER,
+            bands_total INTEGER,
+            bands_user INTEGER,
+            bands_intermediate INTEGER,
+            bands_skinny INTEGER,
+            bands_utility INTEGER,
+            total_capacity_bytes_new INTEGER,
             data_hash TEXT NOT NULL UNIQUE
         )
     ");
     
-    $data_to_hash = [
+    $data_hash = hash('sha256', implode('|', [
         $ioservice_data['serial_number'] ?? 'N/A',
-        $asptool_data['physical_capacity']['USER PARTITION']['bytes'] ?? 0,
-        $asptool_data['physical_capacity']['SKINNY PARTITION']['bytes'] ?? 0
-    ];
-    $data_hash = hash('sha256', implode('|', $data_to_hash));
+        $asptool_data['capacity_bytes_new'] ?? 0,
+        $asptool_data['bands']['total'] ?? 0
+    ]));
 
     $stmt = $pdo->prepare("
         INSERT OR IGNORE INTO disk_uploads (
             timestamp, device_model, serial_number, firmware, manufacturer, cell_type,
-            capacity_nominal_gb, capacity_user_bytes, capacity_intermediate_bytes,
-            capacity_skinny_bytes, total_capacity_bytes, data_hash
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            bands_total, bands_user, bands_intermediate, bands_skinny, bands_utility,
+            total_capacity_bytes_new, data_hash
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
-    
-    $nominal_cap_str = $ioservice_data['capacity_nominal'] ?? '0 GB';
-    $nominal_cap_gb = (int)filter_var($nominal_cap_str, FILTER_SANITIZE_NUMBER_INT);
-    if (strpos(strtoupper($nominal_cap_str), 'TB') !== false) {
-        $nominal_cap_gb *= 1000;
-    }
 
     $stmt->execute([
         date('Y-m-d H:i:s'),
@@ -282,38 +164,29 @@ try {
         $ioservice_data['firmware'] ?? null,
         $ioservice_data['manufacturer'] ?? null,
         $ioservice_data['cell_type'] ?? null,
-        $nominal_cap_gb,
-        $asptool_data['physical_capacity']['USER PARTITION']['bytes'] ?? 0,
-        $asptool_data['physical_capacity']['INTERMEDIATE PARTITION']['bytes'] ?? 0,
-        $asptool_data['physical_capacity']['SKINNY PARTITION']['bytes'] ?? 0,
-        $asptool_data['physical_capacity']['Total']['bytes'] ?? 0,
+        $asptool_data['bands']['total'] ?? 0,
+        $asptool_data['bands']['user'] ?? 0,
+        $asptool_data['bands']['intermediate'] ?? 0,
+        $asptool_data['bands']['skinny'] ?? 0,
+        $asptool_data['bands']['utility'] ?? 0,
+        $asptool_data['capacity_bytes_new'] ?? 0,
         $data_hash
     ]);
 
-
     $html = "<strong>✅ 数据解析成功！</strong><br><br>";
-
     $html .= "<h3>磁盘信息</h3>";
     $html .= "<strong>型号:</strong> " . htmlspecialchars($ioservice_data['model'] ?? '未知') . "<br>";
-    $html .= "<strong>固件版本:</strong> " . htmlspecialchars($ioservice_data['firmware'] ?? '未知') . "<br>";
     $html .= "<strong>厂商:</strong> " . htmlspecialchars($ioservice_data['manufacturer'] ?? '未知') . "<br>";
-    $html .= "<strong>容量:</strong> " . htmlspecialchars($ioservice_data['capacity_nominal'] ?? '未知') . "<br>";
     $html .= "<strong>颗粒:</strong> " . htmlspecialchars($ioservice_data['cell_type'] ?? '未知') . "<br>";
-    
-    $html .= "<h3>健康与寿命</h3>";
-    $html .= "<strong>出厂坏块数:</strong> " . ($asptool_data['bad_blocks']['factory'] ?? '未找到') . "<br>";
-    $html .= "<strong>增长坏块数:</strong> " . ($asptool_data['bad_blocks']['grown'] ?? '未找到') . "<br>";
-    foreach($asptool_data['partition_health'] as $name => $health) {
-        $html .= "<strong>" . htmlspecialchars(str_replace(' PARTITION', '', $name)) . " 剩余寿命:</strong> " . $health['health_percent'] . "% (" . $health['avg_cycles'] . "/" . $health['eol_cycles'] . ")<br>";
-    }
-    
+    $html .= "<h3>Band 数量</h3>";
+    $html .= "<strong>总计:</strong> " . $asptool_data['bands']['total'] . "<br>";
+    $html .= "<strong>User:</strong> " . $asptool_data['bands']['user'] . "<br>";
+    $html .= "<strong>Intermediate:</strong> " . $asptool_data['bands']['intermediate'] . "<br>";
+    $html .= "<strong>Skinny:</strong> " . $asptool_data['bands']['skinny'] . "<br>";
+    $html .= "<strong>Utility:</strong> " . $asptool_data['bands']['utility'] . "<br>";
     $html .= "<h3>计算出的物理容量</h3>";
-    foreach($asptool_data['physical_capacity'] as $name => $cap) {
-        if ($name === 'Total' || $cap['bytes'] > 0) {
-            $html .= "<strong>" . htmlspecialchars(str_replace(' PARTITION', '', $name)) . ":</strong> " . $cap['human'] . "<br>";
-        }
-    }
-
+    $html .= "<strong>总容量:</strong> " . format_bytes_human_readable($asptool_data['capacity_bytes_new']) . "<br>";
+    
     send_json_response(true, $html);
 
 } catch (Exception $e) {
