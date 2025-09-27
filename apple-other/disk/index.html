@@ -95,11 +95,13 @@
           }
           
           let capDistroHtml = '<h3>物理容量分布</h3>';
+          capDistroHtml += '<div style="column-count: 2; column-gap: 25px;">';
+
           if (summary.capacity_distribution && Object.keys(summary.capacity_distribution).length > 0) {
               for(const [nominal, data] of Object.entries(summary.capacity_distribution)) {
                   const nominalLabel = formatNominalCapacityLabel(nominal);
                   capDistroHtml += `
-                    <div style="margin-top: 8px;">
+                    <div style="margin-top: 8px; break-inside: avoid; padding-bottom: 10px;">
                       <strong>${nominalLabel} 标称 </strong>
                       <span class="capacity-note">(${data.total_samples}个总样本)</span>
                   `;
@@ -115,6 +117,7 @@
           } else {
               capDistroHtml += `<span class="capacity-note">无数据</span>`;
           }
+          capDistroHtml += '</div>';
 
           container.innerHTML = `
               <div class="summary-card"><h3>总提交数</h3><p style="font-size: 1.5em;">${summary.total_submissions || 0}</p></div>
