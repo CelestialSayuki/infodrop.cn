@@ -64,14 +64,14 @@ function parse_asptool_data(string $content): array {
 
     if (preg_match('/numBands:\s*(\d+)/', $content, $m)) {
         $data['bands']['total'] = (int)$m[1];
-        if (strpos($content, 'band:    0    Utility Band') !== false) {
+        if (preg_match('/^band:\s+0\s+Utility Band/m', $content)) {
             $data['bands']['utility'] = 1;
         }
         
         $partition_starts = [];
         preg_match_all('/(USER|INTERMEDIATE|SKINNY) PARTITION:\s*band:\s*(\d+)/s', $content, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
-            $partition_starts[$match[1]] = (int)$match[2];
+            $partition_starts[strtoupper($match[1])] = (int)$match[2];
         }
         
         $last_band_num = $data['bands']['utility'];

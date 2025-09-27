@@ -183,7 +183,7 @@
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_chip.webp",
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_product.webp",
                 "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_structure.webp",
-                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A19Pro_chipwise_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -207,7 +207,7 @@
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1470MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1620MHz</div>",
                 "gpuModel": "Apple10 家族, Apple G18P",
                 "gpuFeatures": "光线追踪, 支持 Metal 3 & 4, NE加速",
-                "gpuL2Cache": "",
+                "gpuL2Cache": "1024KB (256KB × 4 组)",
                 "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
                 "aneSram": "2MB ANE SRAM",
