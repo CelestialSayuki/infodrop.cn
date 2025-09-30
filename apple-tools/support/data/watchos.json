@@ -29,7 +29,8 @@
             "name": "Apple Watch Ultra",
             "devices": [
                 { "model": "Apple Watch Ultra", "date": "2022.09", "identifier": "Watch6,18", "supportedOS": ["watchos_9", "watchos_10", "watchos_11", "watchos_26"] },
-                { "model": "Apple Watch Ultra 2", "date": "2023.09", "identifier": "Watch7,5", "supportedOS": ["watchos_10", "watchos_11", "watchos_26"] }
+                { "model": "Apple Watch Ultra 2", "date": "2023.09", "identifier": "Watch7,5", "supportedOS": ["watchos_10", "watchos_11", "watchos_26"] },
+                { "model": "Apple Watch Ultra 3", "date": "2025.09", "identifier": "Watch7,12", "supportedOS": ["watchos_26"] }
             ]
         },
         "series": {
@@ -45,14 +46,16 @@
                 { "model": "Apple Watch Series 7", "date": "2021.10", "identifier": "Watch6,6/Watch6,7/Watch6,8/Watch6,9", "supportedOS": ["watchos_8", "watchos_9", "watchos_10", "watchos_11", "watchos_26"] },
                 { "model": "Apple Watch Series 8", "date": "2022.09", "identifier": "Watch6,14/Watch6,15/Watch6,16/Watch6,17", "supportedOS": ["watchos_9", "watchos_10", "watchos_11", "watchos_26"] },
                 { "model": "Apple Watch Series 9", "date": "2023.09", "identifier": "Watch7,1/Watch7,2/Watch7,3/Watch7,4", "supportedOS": ["watchos_10", "watchos_11", "watchos_26"] },
-                { "model": "Apple Watch Series 10", "date": "2024.09", "identifier": "Watch7,8/Watch7,9/Watch7,10/Watch7,11", "supportedOS": ["watchos_11", "watchos_26"] }
+                { "model": "Apple Watch Series 10", "date": "2024.09", "identifier": "Watch7,8/Watch7,9/Watch7,10/Watch7,11", "supportedOS": ["watchos_11", "watchos_26"] },
+                { "model": "Apple Watch Series 11", "date": "2025.09", "identifier": "Watch7,17/Watch7,18/Watch7,19/Watch7,20", "supportedOS": ["watchos_26"] }
             ]
         },
         "se": {
             "name": "Apple Watch SE",
             "devices": [
                 { "model": "Apple Watch SE (1st generation)", "date": "2020.09", "identifier": "Watch5,9/Watch5,10/Watch5,11/Watch5,12", "supportedOS": ["watchos_7", "watchos_8", "watchos_9", "watchos_10"] },
-                { "model": "Apple Watch SE (2nd generation)", "date": "2022.09", "identifier": "Watch6,10/Watch6,11/Watch6,12/Watch6,13", "supportedOS": ["watchos_9", "watchos_10", "watchos_11", "watchos_26"] }
+                { "model": "Apple Watch SE (2nd generation)", "date": "2022.09", "identifier": "Watch6,10/Watch6,11/Watch6,12/Watch6,13", "supportedOS": ["watchos_9", "watchos_10", "watchos_11", "watchos_26"] },
+                { "model": "Apple Watch SE (3rd generation)", "date": "2025.09", "identifier": "Watch7,13/Watch7,14/Watch7,15/Watch7,16", "supportedOS": ["watchos_26"] }
             ]
         }
     }

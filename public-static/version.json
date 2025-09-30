@@ -13,8 +13,13 @@
           "./public-static/css/new.css",
           "./apple-device/iphone/data.json",
           "./apple-report/frequency-voltage/index.html",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
           "./apple-device/iphone/cmos.data.json",
           "./apple-silicon/chip-s/data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-tools/support/data/ios.json",
           "./index.html"
       ]
     },
@@ -28,6 +33,11 @@
           "./apple-silicon/chip-s/data.json",
           "./apple-silicon/chip-a/data.json",
           "./apple-device/iphone/cmos.data.json",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-tools/support/data/ios.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -39,8 +49,13 @@
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-s/data.json",
           "./apple-silicon/chip-a/data.json",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
           "./apple-other/disk/index.html",
           "./apple-device/iphone/cmos.data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-tools/support/data/ios.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -53,7 +68,12 @@
           "./apple-other/disk/index.html",
           "./apple-silicon/chip-a/data.json",
           "./apple-device/iphone/cmos.data.json",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
           "./apple-silicon/chip-s/data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-tools/support/data/ios.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -64,6 +84,11 @@
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-a/data.json",
           "./apple-tools/resources/index.html",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/cmos.data.json",
           "./apple-other/disk/index.html"
       ]
@@ -73,6 +98,11 @@
       "delta": [
           "./index.html",
           "./apple-device/iphone/data.json",
+          "./apple-tools/support/data/watchos.json",
+          "./apple-device/watch/watch-ultra/data.json",
+          "./apple-device/watch/watch-se/data.json",
+          "./apple-device/watch/watch-series/data.json",
+          "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/cmos.data.json",
           "./apple-tools/resources/index.html"
       ]
