@@ -1,17 +1,19 @@
 {
-  "version": "1A077 (e)",
+  "version": "1A077 (f)",
   "notes": [
-    "新增Disk信息显示"
+    "修正错误信息"
   ],
   "rsr_patches": [
     {
       "base": "1A077",
       "delta": [
           "./apple-silicon/chip-a/data.json",
+          "./apple-tools/resources/index.html",
           "./apple-other/disk/index.html",
           "./public-static/css/new.css",
           "./apple-device/iphone/data.json",
           "./apple-report/frequency-voltage/index.html",
+          "./apple-device/iphone/cmos.data.json",
           "./apple-silicon/chip-s/data.json",
           "./index.html"
       ]
@@ -21,7 +23,11 @@
       "delta": [
           "./index.html",
           "./apple-other/disk/index.html",
+          "./apple-tools/resources/index.html",
+          "./apple-device/iphone/data.json",
           "./apple-silicon/chip-s/data.json",
+          "./apple-silicon/chip-a/data.json",
+          "./apple-device/iphone/cmos.data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -29,8 +35,12 @@
       "base": "1A077 (b)",
       "delta": [
           "./index.html",
+          "./apple-tools/resources/index.html",
+          "./apple-device/iphone/data.json",
           "./apple-silicon/chip-s/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-other/disk/index.html",
+          "./apple-device/iphone/cmos.data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -38,7 +48,11 @@
       "base": "1A077 (c)",
       "delta": [
           "./index.html",
+          "./apple-device/iphone/data.json",
+          "./apple-tools/resources/index.html",
           "./apple-other/disk/index.html",
+          "./apple-silicon/chip-a/data.json",
+          "./apple-device/iphone/cmos.data.json",
           "./apple-silicon/chip-s/data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
@@ -47,7 +61,20 @@
       "base": "1A077 (d)",
       "delta": [
           "./index.html",
+          "./apple-device/iphone/data.json",
+          "./apple-silicon/chip-a/data.json",
+          "./apple-tools/resources/index.html",
+          "./apple-device/iphone/cmos.data.json",
           "./apple-other/disk/index.html"
+      ]
+    },
+    {
+      "base": "1A077 (e)",
+      "delta": [
+          "./index.html",
+          "./apple-device/iphone/data.json",
+          "./apple-device/iphone/cmos.data.json",
+          "./apple-tools/resources/index.html"
       ]
     }
   ]

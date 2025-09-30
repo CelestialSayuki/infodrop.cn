@@ -88,11 +88,11 @@
         {
             "name": "iPhone 17 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
             "cameras": [
                 {
                     "type": "主摄",
-                    "model": "",
+                    "model": "IMX903",
                     "aperture": "ƒ/1.78",
                     "lensElements": "-",
                     "focalLength": "24/48",
@@ -108,10 +108,10 @@
                 },
                 {
                     "type": "超广角",
-                    "model": "",
+                    "model": "IMX972",
                     "aperture": "ƒ/2.2",
                     "lensElements": "-",
-                    "focalLength": "13/26",
+                    "focalLength": "13",
                     "filterArray": "QBC",
                     "sensorSize": "1/2.55\"",
                     "pixels": "48MP",
@@ -124,7 +124,7 @@
                 },
                 {
                     "type": "长焦",
-                    "model": "",
+                    "model": "IMX973",
                     "aperture": "ƒ/2.8",
                     "lensElements": "",
                     "focalLength": "100/200",
@@ -140,7 +140,7 @@
                 },
                 {
                     "type": "前摄",
-                    "model": "",
+                    "model": "IMX914",
                     "aperture": "ƒ/1.9",
                     "lensElements": "",
                     "focalLength": "",
@@ -159,11 +159,11 @@
         {
             "name": "iPhone 17 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
             "cameras": [
                 {
                     "type": "主摄",
-                    "model": "",
+                    "model": "IMX903",
                     "aperture": "ƒ/1.78",
                     "lensElements": "-",
                     "focalLength": "24/48",
@@ -179,10 +179,10 @@
                 },
                 {
                     "type": "超广角",
-                    "model": "",
+                    "model": "IMX972",
                     "aperture": "ƒ/2.2",
                     "lensElements": "-",
-                    "focalLength": "13/26",
+                    "focalLength": "13",
                     "filterArray": "QBC",
                     "sensorSize": "1/2.55\"",
                     "pixels": "48MP",
@@ -195,7 +195,7 @@
                 },
                 {
                     "type": "长焦",
-                    "model": "",
+                    "model": "IMX973",
                     "aperture": "ƒ/2.8",
                     "lensElements": "",
                     "focalLength": "100/200",
@@ -211,7 +211,7 @@
                 },
                 {
                     "type": "前摄",
-                    "model": "",
+                    "model": "IMX914",
                     "aperture": "ƒ/1.9",
                     "lensElements": "",
                     "focalLength": "",
@@ -250,7 +250,7 @@
                 },
                 {
                     "type": "前摄",
-                    "model": "",
+                    "model": "IMX914",
                     "aperture": "ƒ/1.9",
                     "lensElements": "",
                     "focalLength": "",
@@ -273,7 +273,7 @@
             "cameras": [
                 {
                     "type": "主摄",
-                    "model": "",
+                    "model": "IMX904",
                     "aperture": "ƒ/1.6",
                     "lensElements": "-",
                     "focalLength": "26/52",
@@ -289,10 +289,10 @@
                 },
                 {
                     "type": "超广角",
-                    "model": "",
+                    "model": "IMX972",
                     "aperture": "ƒ/2.2",
                     "lensElements": "-",
-                    "focalLength": "13/26",
+                    "focalLength": "13",
                     "filterArray": "QBC",
                     "sensorSize": "1/2.55\"",
                     "pixels": "48MP",
@@ -305,7 +305,7 @@
                 },
                 {
                     "type": "前摄",
-                    "model": "",
+                    "model": "IMX914",
                     "aperture": "ƒ/1.9",
                     "lensElements": "",
                     "focalLength": "",

@@ -50,7 +50,9 @@ function parse_asptool_data(string $content): array {
         'bands' => [
             'total' => 0, 'user' => 0, 'intermediate' => 0, 'skinny' => 0, 'utility' => 0
         ],
-        'capacity_bytes_new' => 0
+        'capacity_bytes_new' => 0,
+        'bad_blocks' => [],
+        'partition_health' => []
     ];
 
     $bytesPerPage = 0; $pagesPerVBlock = 0; $numVBlocks = 0;
@@ -100,6 +102,28 @@ function parse_asptool_data(string $content): array {
         $data['bands']['total'] = $total;
     }
     
+    if (preg_match('/Grown Bad Blocks Count:\s*(\d+)/', $content, $matches)) {
+        $data['bad_blocks']['grown'] = (int)$matches[1];
+    }
+    if (preg_match('/Factory Bad Blocks Count:\s*(\d+)/', $content, $matches)) {
+        $data['bad_blocks']['factory'] = (int)$matches[1];
+    }
+
+    $partitions_for_health = ['USER PARTITION', 'SKINNY PARTITION', 'INTERMEDIATE PARTITION'];
+    foreach ($partitions_for_health as $partition_name) {
+        $pattern = '/' . preg_quote($partition_name, '/') . '\s*:\s*Erase Cycles:\s*.*?Avg\s*\(\s*(\d+).*?\).*?EoL erase cycles:\s*\(\s*(\d+)\s*\)/s';
+        if (preg_match($pattern, $content, $matches)) {
+            $avg_cycles = (float)$matches[1];
+            $eol_cycles = (float)$matches[2];
+            $health_percent = ($eol_cycles > 0) ? (1 - ($avg_cycles / $eol_cycles)) * 100 : 100;
+            $data['partition_health'][$partition_name] = [
+                'avg_cycles' => $avg_cycles,
+                'eol_cycles' => $eol_cycles,
+                'health_percent' => round($health_percent, 3)
+            ];
+        }
+    }
+
     return $data;
 }
 
@@ -178,6 +202,16 @@ try {
     $html .= "<strong>型号:</strong> " . htmlspecialchars($ioservice_data['model'] ?? '未知') . "<br>";
     $html .= "<strong>厂商:</strong> " . htmlspecialchars($ioservice_data['manufacturer'] ?? '未知') . "<br>";
     $html .= "<strong>颗粒:</strong> " . htmlspecialchars($ioservice_data['cell_type'] ?? '未知') . "<br>";
+    
+    if (!empty($asptool_data['bad_blocks']) || !empty($asptool_data['partition_health'])) {
+        $html .= "<h3>健康与寿命</h3>";
+        $html .= "<strong>出厂坏块数:</strong> " . ($asptool_data['bad_blocks']['factory'] ?? '未找到') . "<br>";
+        $html .= "<strong>增长坏块数:</strong> " . ($asptool_data['bad_blocks']['grown'] ?? '未找到') . "<br>";
+        foreach($asptool_data['partition_health'] as $name => $health) {
+            $html .= "<strong>" . htmlspecialchars(str_replace(' PARTITION', '', $name)) . " 剩余寿命:</strong> " . $health['health_percent'] . "% (" . $health['avg_cycles'] . "/" . $health['eol_cycles'] . ")<br>";
+        }
+    }
+
     $html .= "<h3>Band 数量</h3>";
     $html .= "<strong>总计:</strong> " . $asptool_data['bands']['total'] . "<br>";
     $html .= "<strong>User:</strong> " . $asptool_data['bands']['user'] . "<br>";
