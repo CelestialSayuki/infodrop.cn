@@ -136,10 +136,10 @@
             "generation": "(第 3 代)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se_3.webp",
             "data": {
-                "slogan": "",
+                "slogan": "陪你练，随你聊，帮你记，懂你心。",
                 "releaseDate": "2025.09.10",
                 "supportedOS": "watchOS 26 ~ 最新",
-                "modelIdentifier": "",
+                "modelIdentifier": "Watch7,13 / 7,14 / 7,15 / 7,16",
                 "colors": [
                     {
                         "name": "午夜色",
