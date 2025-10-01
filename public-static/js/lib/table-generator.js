@@ -190,6 +190,63 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
       }
     });
 
+    targetElement.addEventListener('click', (event) => {
+      if (event.target.classList.contains('product-image')) {
+        event.preventDefault();
+
+        const imageSrc = event.target.src;
+        const imageAlt = event.target.alt;
+
+        const viewerOverlay = document.createElement('div');
+        Object.assign(viewerOverlay.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            backdropFilter: 'blur(10px)',
+            webkitBackdropFilter: 'blur(10px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: '10000',
+            cursor: 'zoom-out',
+            opacity: '0',
+            transition: 'opacity 0.3s ease'
+        });
+
+        const imageElement = document.createElement('img');
+        imageElement.src = imageSrc;
+        imageElement.alt = imageAlt;
+        Object.assign(imageElement.style, {
+            maxWidth: '80vw',
+            maxHeight: '80vh',
+            borderRadius: '12px',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transform: 'scale(0.9)',
+            transition: 'transform 0.3s ease',
+            cursor: 'default'
+        });
+
+        viewerOverlay.appendChild(imageElement);
+
+        viewerOverlay.addEventListener('click', (e) => {
+            if (e.target === viewerOverlay) {
+              viewerOverlay.style.opacity = '0';
+              viewerOverlay.addEventListener('transitionend', () => viewerOverlay.remove(), { once: true });
+            }
+        });
+        
+        document.body.appendChild(viewerOverlay);
+
+        requestAnimationFrame(() => {
+            viewerOverlay.style.opacity = '1';
+            imageElement.style.transform = 'scale(1)';
+        });
+      }
+    });
+
     return targetElement;
 
   } catch (error) {
