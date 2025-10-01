@@ -468,6 +468,7 @@
             let pendingProgressUpdate = null;
             let isUpdateScheduled = false;
             let updateStartTimeout;
+            let mismatchTimeout;
             function showMaintenanceMessage() {
                 const loadingScreen = document.getElementById('loading-screen');
                 if (loadingScreen && !loadingScreen.dataset.finalState) {
@@ -715,14 +716,21 @@
                 });
                 navigator.serviceWorker.addEventListener('message', event => {
                     if (!event.data) return;
-                    if (event.data.type === 'INSTALLATION_STARTED' || event.data.type === 'VERSION_MISMATCH' || event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS' || event.data.type === 'CACHE_COMPLETE') {
+                    if (event.data.type === 'INSTALLATION_STARTED' || event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS' || event.data.type === 'CACHE_COMPLETE') {
                         clearTimeout(updateStartTimeout);
+                        clearTimeout(mismatchTimeout);
                     }
                     if (event.data.type === 'INSTALLATION_STARTED') {
                         return;
                     }
                     if (event.data.type === 'VERSION_MISMATCH') {
+                        clearTimeout(updateStartTimeout);
+                        clearTimeout(mismatchTimeout);
                         showMaintenanceMessage();
+                        return;
+                    }
+                    if (event.data.type === 'ACTIVE_WORKER_VERSION_MISMATCH') {
+                        mismatchTimeout = setTimeout(() => { showMaintenanceMessage(); }, 15000);
                         return;
                     }
                     if (event.data.type === 'IS_RSR_PATCH_APPLIED') {

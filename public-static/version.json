@@ -1,13 +1,14 @@
 {
-  "version": "1A077 (f)",
+  "version": "1A077 (g)",
   "notes": [
-    "修正错误信息"
+    "修正错误信息，更新 M5 相关信息"
   ],
   "rsr_patches": [
     {
       "base": "1A077",
       "delta": [
           "./apple-silicon/chip-a/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./apple-tools/resources/index.html",
           "./apple-other/disk/index.html",
           "./public-static/css/new.css",
@@ -19,6 +20,7 @@
           "./apple-device/iphone/cmos.data.json",
           "./apple-silicon/chip-s/data.json",
           "./apple-tools/support/data/watchos.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/support/data/ios.json",
           "./index.html"
       ]
@@ -27,6 +29,7 @@
       "base": "1A077 (a)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
           "./apple-other/disk/index.html",
           "./apple-tools/resources/index.html",
           "./apple-device/iphone/data.json",
@@ -37,6 +40,7 @@
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
           "./apple-tools/support/data/watchos.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-report/frequency-voltage/index.html"
       ]
@@ -45,6 +49,7 @@
       "base": "1A077 (b)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
           "./apple-tools/resources/index.html",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-s/data.json",
@@ -52,6 +57,7 @@
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-other/disk/index.html",
           "./apple-device/iphone/cmos.data.json",
           "./apple-tools/support/data/watchos.json",
@@ -63,6 +69,7 @@
       "base": "1A077 (c)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
           "./apple-device/iphone/data.json",
           "./apple-tools/resources/index.html",
           "./apple-other/disk/index.html",
@@ -71,6 +78,7 @@
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-silicon/chip-s/data.json",
           "./apple-tools/support/data/watchos.json",
           "./apple-tools/support/data/ios.json",
@@ -81,6 +89,7 @@
       "base": "1A077 (d)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-a/data.json",
           "./apple-tools/resources/index.html",
@@ -88,6 +97,7 @@
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
           "./apple-tools/support/data/watchos.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/cmos.data.json",
           "./apple-other/disk/index.html"
@@ -97,6 +107,7 @@
       "base": "1A077 (e)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
           "./apple-device/iphone/data.json",
           "./apple-tools/support/data/watchos.json",
           "./apple-device/watch/watch-ultra/data.json",
@@ -104,7 +115,16 @@
           "./apple-device/watch/watch-series/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/cmos.data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/resources/index.html"
+      ]
+    },
+    {
+      "base": "1A077 (f)",
+      "delta": [
+          "./apple-silicon/chip-m/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
+          "./index.html"
       ]
     }
   ]

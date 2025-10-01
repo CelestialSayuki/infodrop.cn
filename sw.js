@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1A077 (f)';
+const CACHE_VERSION = '1A077 (g)';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -187,7 +187,7 @@ self.addEventListener('message', (event) => {
     if (CACHE_VERSION !== expectedVersion) {
       self.clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(clients => {
         for (const client of clients) {
-          client.postMessage({ type: 'VERSION_MISMATCH' });
+          client.postMessage({ type: 'ACTIVE_WORKER_VERSION_MISMATCH' });
         }
       });
     }
