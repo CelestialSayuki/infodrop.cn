@@ -1,7 +1,7 @@
 {
-  "version": "1A077 (g)",
+  "version": "1A077 (h)",
   "notes": [
-    "修正错误信息，更新 M5 相关信息"
+    "修正 M3 /M3 Pro 小核架构"
   ],
   "rsr_patches": [
     {
@@ -9,19 +9,21 @@
       "delta": [
           "./apple-silicon/chip-a/data.json",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-s/data.json",
           "./apple-tools/resources/index.html",
-          "./apple-other/disk/index.html",
-          "./public-static/css/new.css",
-          "./apple-device/iphone/data.json",
+          "./apple-tools/support/data/ios.json",
+          "./apple-tools/support/data/watchos.json",
           "./apple-report/frequency-voltage/index.html",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
+          "./apple-other/disk/index.html",
+          "./apple-device/iphone/data.json",
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
           "./apple-device/iphone/cmos.data.json",
-          "./apple-silicon/chip-s/data.json",
-          "./apple-tools/support/data/watchos.json",
           "./apple-device/ipad/ipad-pro/data.json",
-          "./apple-tools/support/data/ios.json",
+          "./public-static/css/new.css",
           "./index.html"
       ]
     },
@@ -42,6 +44,8 @@
           "./apple-tools/support/data/watchos.json",
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/support/data/ios.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -57,6 +61,8 @@
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-other/disk/index.html",
           "./apple-device/iphone/cmos.data.json",
@@ -79,6 +85,8 @@
           "./apple-device/watch/watch-se/data.json",
           "./apple-device/watch/watch-series/data.json",
           "./apple-device/ipad/ipad-pro/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./apple-silicon/chip-s/data.json",
           "./apple-tools/support/data/watchos.json",
           "./apple-tools/support/data/ios.json",
@@ -95,6 +103,8 @@
           "./apple-tools/resources/index.html",
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./apple-device/watch/watch-series/data.json",
           "./apple-tools/support/data/watchos.json",
           "./apple-device/ipad/ipad-pro/data.json",
@@ -112,6 +122,8 @@
           "./apple-tools/support/data/watchos.json",
           "./apple-device/watch/watch-ultra/data.json",
           "./apple-device/watch/watch-se/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./apple-device/watch/watch-series/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/cmos.data.json",
@@ -124,6 +136,17 @@
       "delta": [
           "./apple-silicon/chip-m/data.json",
           "./apple-device/ipad/ipad-pro/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
+          "./index.html"
+      ]
+    },
+    {
+      "base": "1A077 (g)",
+      "delta": [
+          "./apple-silicon/chip-m/data.json",
+          "./apple-report/gpu/index.html",
+          "./apple-report/cpu/index.html",
           "./index.html"
       ]
     }
