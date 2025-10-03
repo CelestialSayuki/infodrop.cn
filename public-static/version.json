@@ -1,12 +1,15 @@
 {
-  "version": "1A078",
+  "version": "1A078 (a)",
   "notes": [
-    "新增单击放大图片"
+    "新增 Beats 信息"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A078",
       "delta": [
+          "./apple-tools/model/data.json",
+          "./index.html",
+          "./apple-device/audio/beats/data.json"
       ]
     }
   ]

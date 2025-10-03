@@ -104,6 +104,7 @@
   "./apple-device/ipad/ipad-pro/data.json",
   "./apple-device/ipad/ipad/data.json",
   "./apple-device/audio/airpods/data.json",
+  "./apple-device/audio/beats/data.json",
   "./apple-report/gpu/index.html",
   "./apple-report/speedometer-result/index.html",
   "./apple-report/frequency-voltage/index.html",
