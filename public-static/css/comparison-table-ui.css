@@ -67,6 +67,13 @@
 .header-btn.filter-btn.active:hover {
     background-color:var(--sw-accent-hover);
 }
+.header-btn.submit-btn.active {
+    background-color: var(--sw-accent);
+    color: white;
+}
+.header-btn.submit-btn.active:hover {
+    background-color: var(--sw-accent-hover);
+}
 .products-grid-container {
     display:flex;
     margin-left:6px;
@@ -103,6 +110,12 @@
 }
 .product-column:active {
     transform:scale(0.98);
+}
+.comparison-container.edit-mode .product-column {
+    cursor: default;
+}
+.comparison-container.edit-mode .product-column:active {
+    transform: none;
 }
 .product-color-overlay {
     position:absolute;
@@ -278,8 +291,19 @@
     display:grid;
     grid-template-columns:1fr 1fr;
 }
+/* --- Edit Mode Styles --- */
+.comparison-container.edit-mode .data-list li[contenteditable="true"] {
+    background-color: rgba(0, 122, 255, 0.08);
+    outline: 1px dashed var(--sw-accent, #007aff);
+    cursor: text;
+}
+.comparison-container.edit-mode .info-square[contenteditable="true"] {
+    background-color: rgba(0, 122, 255, 0.12);
+    outline: 1px dashed var(--sw-accent, #007aff);
+    cursor: text;
+    border-color: var(--sw-accent, #007aff);
+}
 /* --- Dark Mode Styles --- */
-
 .macos-window.dark-mode .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
     background-color:rgba(100,100,100,0.7);
 }
@@ -320,4 +344,10 @@
 }
 .macos-window.dark-mode .info-square {
     background-color:rgba(120,120,128,0.12);
+}
+.macos-window.dark-mode .comparison-container.edit-mode .data-list li[contenteditable="true"] {
+    background-color: rgba(10, 132, 255, 0.15);
+}
+.macos-window.dark-mode .comparison-container.edit-mode .info-square[contenteditable="true"] {
+    background-color: rgba(10, 132, 255, 0.2);
 }

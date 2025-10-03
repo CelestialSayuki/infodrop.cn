@@ -88,22 +88,33 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             } else {
               cellHTML = (value !== undefined && value !== null) ? value : '—';
             }
-            const li = document.createElement('li');
-            li.dataset.productId = product.name;
-            li.dataset.featureId = feature.id;
-            li.setAttribute('contenteditable', 'false');
 
-            if (typeof cellHTML === 'string' && (cellHTML.includes('<div') || cellHTML.includes('<a href'))) {
-              li.classList.add('is-complex');
-            }
+            const li = document.createElement('li');
 
             if (typeof cellHTML === 'string' && cellHTML.includes('info-square')) {
               li.classList.add('multi-div-row');
               const wrapper = document.createElement('div');
               wrapper.className = 'multi-div-wrapper';
               wrapper.innerHTML = cellHTML;
+
+              const allSquares = wrapper.querySelectorAll('.info-square');
+              allSquares.forEach((square, index) => {
+                square.setAttribute('contenteditable', 'false');
+                square.dataset.productId = product.name;
+                square.dataset.featureId = feature.id;
+                square.dataset.squareIndex = index;
+              });
+              
               li.appendChild(wrapper);
+
             } else {
+              li.dataset.productId = product.name;
+              li.dataset.featureId = feature.id;
+              li.setAttribute('contenteditable', 'false');
+
+              if (typeof cellHTML === 'string' && (cellHTML.includes('<div') || cellHTML.includes('<a href'))) {
+                li.classList.add('is-complex');
+              }
               li.innerHTML = cellHTML;
             }
             dataList.appendChild(li);

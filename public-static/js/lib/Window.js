@@ -277,11 +277,20 @@ export class Window {
 
                 const enterEditMode = () => {
                     gridContainer.classList.add('edit-mode');
-                    gridContainer.querySelectorAll('.data-list li[data-product-id]').forEach(cell => {
+                    const editableElements = gridContainer.querySelectorAll(
+                        '.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]'
+                    );
+                    
+                    editableElements.forEach(cell => {
                         if (!cell.classList.contains('is-complex')) {
                             cell.setAttribute('contenteditable', true);
-                            const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
-                            originalValues.set(key, cell.innerText.trim());
+                            let key;
+                            if (cell.dataset.squareIndex !== undefined) {
+                                key = `${cell.dataset.productId}---${cell.dataset.featureId}---${cell.dataset.squareIndex}`;
+                            } else {
+                                key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                            }
+                            originalValues.set(key, cell.innerHTML.trim());
                         }
                     });
                 };
@@ -308,14 +317,20 @@ export class Window {
                     if (!confirm(`您确定要提交 ${changes.length} 项修改吗？`)) {
                         return;
                     }
+
+                    const sanitizedChanges = changes.map(change => ({
+                        ...change,
+                        newValue: change.newValue.replace(/\u200b/g, '')
+                    }));
+
                     try {
-                        const response = await fetch('/upload/submit-changes', {
+                        const response = await fetch('/submit_changes.php', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
                                 source: jsonUrl,
                                 timestamp: new Date().toISOString(),
-                                changes: changes
+                                changes: sanitizedChanges
                             }),
                         });
                         if (response.ok) {
@@ -329,20 +344,83 @@ export class Window {
                         alert(`提交失败: ${error.message}`);
                     }
                 });
+                
+                gridContainer.addEventListener('keydown', (e) => {
+                    if (!isEditing) return;
+                    const target = e.target;
+
+                    if (e.key === 'Enter' && target.getAttribute('contenteditable') === 'true') {
+                        e.preventDefault();
+                        document.execCommand('insertHTML', false, '<br>\u200b');
+                    }
+                    
+                    if (e.key === 'Backspace' && target.getAttribute('contenteditable') === 'true') {
+                        const selection = window.getSelection();
+                        if (!selection || !selection.isCollapsed) return;
+
+                        const range = selection.getRangeAt(0);
+                        const node = range.startContainer;
+                        const offset = range.startOffset;
+
+                        if (node.nodeType === Node.TEXT_NODE && offset === 1 && node.textContent.startsWith('\u200b')) {
+                            const prevSibling = node.previousSibling;
+                            if (prevSibling && prevSibling.nodeName === 'BR') {
+                                e.preventDefault();
+
+                                const textBeforeBr = prevSibling.previousSibling;
+                                let cursorNode = textBeforeBr;
+                                let cursorOffset = 0;
+
+                                if(cursorNode && cursorNode.nodeType === Node.TEXT_NODE) {
+                                    cursorOffset = cursorNode.textContent.length;
+                                } else {
+                                    cursorNode = node.parentElement;
+                                }
+                                
+                                const remainingText = node.textContent.substring(1);
+                                if (textBeforeBr && textBeforeBr.nodeType === Node.TEXT_NODE) {
+                                    textBeforeBr.textContent += remainingText;
+                                }
+
+                                prevSibling.remove();
+                                node.remove();
+
+                                const newRange = document.createRange();
+                                newRange.setStart(cursorNode, cursorOffset);
+                                newRange.collapse(true);
+                                selection.removeAllRanges();
+                                selection.addRange(newRange);
+                            }
+                        }
+                    }
+                });
 
                 gridContainer.addEventListener('blur', (e) => {
-                    if (isEditing && e.target.getAttribute('contenteditable') === 'true') {
-                        const cell = e.target;
-                        const productId = cell.dataset.productId;
-                        const featureId = cell.dataset.featureId;
-                        const newValue = cell.innerText.trim();
-                        const key = `${productId}---${featureId}`;
-                        const originalValue = originalValues.get(key);
+                    const cell = e.target;
+                    if (isEditing && cell.getAttribute('contenteditable') === 'true') {
+                        const { productId, featureId, squareIndex } = cell.dataset;
+                        const newValue = cell.innerHTML.trim();
                         
-                        const changeIndex = changes.findIndex(c => c.productId === productId && c.featureId === featureId);
+                        let key;
+                        if (squareIndex !== undefined) {
+                            key = `${productId}---${featureId}---${squareIndex}`;
+                        } else {
+                            key = `${productId}---${featureId}`;
+                        }
+                        
+                        const originalValue = originalValues.get(key);
+                        const changeIndex = changes.findIndex(c =>
+                            c.productId === productId &&
+                            c.featureId === featureId &&
+                            c.squareIndex === (squareIndex ? parseInt(squareIndex) : undefined)
+                        );
 
                         if (newValue !== originalValue) {
                             const changePayload = { productId, featureId, originalValue, newValue };
+                            if (squareIndex !== undefined) {
+                                changePayload.squareIndex = parseInt(squareIndex);
+                            }
+
                             if (changeIndex > -1) {
                                 changes[changeIndex] = changePayload;
                             } else {
