@@ -284,6 +284,13 @@ export class Window {
                         btn.textContent = '+';
                         row.appendChild(btn);
                     });
+
+                    gridContainer.querySelectorAll('.info-square').forEach(square => {
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-square-btn';
+                        deleteBtn.innerHTML = '&times;';
+                        square.appendChild(deleteBtn);
+                    });
                     
                     const editableElements = gridContainer.querySelectorAll(
                         '.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]'
@@ -292,13 +299,15 @@ export class Window {
                     editableElements.forEach(cell => {
                         if (!cell.classList.contains('is-complex')) {
                             cell.setAttribute('contenteditable', true);
-                            let key;
-                            if (cell.dataset.squareIndex !== undefined) {
-                                key = `${cell.dataset.productId}---${cell.dataset.featureId}---${cell.dataset.squareIndex}`;
+                            const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                            
+                            if (cell.classList.contains('multi-div-row')) {
+                                const cleanCopy = cell.cloneNode(true);
+                                cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                                originalValues.set(key, cleanCopy.innerHTML.trim());
                             } else {
-                                key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                                originalValues.set(key, cell.innerHTML.trim());
                             }
-                            originalValues.set(key, cell.innerHTML.trim());
                         }
                     });
                 };
@@ -318,6 +327,32 @@ export class Window {
 
                 submitButton.addEventListener('click', async (e) => {
                     e.preventDefault();
+
+                    gridContainer.querySelectorAll('.multi-div-row[contenteditable="true"]').forEach(cell => {
+                        const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                        const originalValue = originalValues.get(key);
+
+                        const cleanCopy = cell.cloneNode(true);
+                        cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                        const newValue = cleanCopy.innerHTML.trim();
+                        
+                        if (newValue !== originalValue) {
+                            const changePayload = {
+                                productId: cell.dataset.productId,
+                                featureId: cell.dataset.featureId,
+                                originalValue,
+                                newValue
+                            };
+                            
+                            const existingIndex = changes.findIndex(c => c.productId === changePayload.productId && c.featureId === changePayload.featureId);
+                            if (existingIndex > -1) {
+                                changes[existingIndex] = changePayload;
+                            } else {
+                                changes.push(changePayload);
+                            }
+                        }
+                    });
+
                     if (changes.length === 0) {
                         alert('没有检测到任何修改。');
                         return;
@@ -332,7 +367,7 @@ export class Window {
                     }));
 
                     try {
-                        const response = await fetch('/submit_changes.php', {
+                        const response = await fetch('/upload/submit_changes.php', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -405,30 +440,17 @@ export class Window {
 
                 gridContainer.addEventListener('blur', (e) => {
                     const cell = e.target;
-                    if (isEditing && cell.getAttribute('contenteditable') === 'true') {
-                        const { productId, featureId, squareIndex } = cell.dataset;
+                    if (isEditing && cell.getAttribute('contenteditable') === 'true' && !cell.classList.contains('multi-div-row')) {
+                        const { productId, featureId } = cell.dataset;
                         const newValue = cell.innerHTML.trim();
 
-                        let key;
-                        if (squareIndex !== undefined) {
-                            key = `${productId}---${featureId}---${squareIndex}`;
-                        } else {
-                            key = `${productId}---${featureId}`;
-                        }
-                        
+                        const key = `${productId}---${featureId}`;
                         const originalValue = originalValues.get(key);
-                        const changeIndex = changes.findIndex(c =>
-                            c.productId === productId &&
-                            c.featureId === featureId &&
-                            c.squareIndex === (squareIndex ? parseInt(squareIndex) : undefined)
-                        );
+                        
+                        const changeIndex = changes.findIndex(c => c.productId === productId && c.featureId === featureId);
 
                         if (newValue !== originalValue) {
                             const changePayload = { productId, featureId, originalValue, newValue };
-                            if (squareIndex !== undefined) {
-                                changePayload.squareIndex = parseInt(squareIndex);
-                            }
-
                             if (changeIndex > -1) {
                                 changes[changeIndex] = changePayload;
                             } else {
@@ -448,7 +470,7 @@ export class Window {
                         e.preventDefault();
                         const wrapper = e.target.closest('.multi-div-row').querySelector('.multi-div-wrapper');
                         const siblingSquare = wrapper.querySelector('.info-square');
-                        if (!siblingSquare || !wrapper) return;
+                        if (!wrapper) return;
 
                         const allCurrentSquares = wrapper.querySelectorAll('.info-square');
                         const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
@@ -457,17 +479,34 @@ export class Window {
                         const newSquare = document.createElement('div');
                         newSquare.className = 'info-square';
                         newSquare.setAttribute('contenteditable', 'true');
-                        newSquare.dataset.productId = siblingSquare.dataset.productId;
-                        newSquare.dataset.featureId = siblingSquare.dataset.featureId;
-                        newSquare.dataset.squareIndex = wrapper.children.length;
+                        
+                        if (siblingSquare) {
+                            newSquare.dataset.productId = siblingSquare.dataset.productId;
+                            newSquare.dataset.featureId = siblingSquare.dataset.featureId;
+                        }
                         newSquare.innerHTML = '新内容';
                         
                         if (lastColorRgb) {
                             newSquare.style.backgroundColor = lastColorRgb;
                         }
                         
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-square-btn';
+                        deleteBtn.innerHTML = '&times;';
+                        newSquare.appendChild(deleteBtn);
+                        
                         wrapper.appendChild(newSquare);
                         newSquare.focus();
+                    }
+
+                    if (e.target.classList.contains('delete-square-btn')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const squareToDelete = e.target.closest('.info-square');
+                        if (squareToDelete) {
+                            squareToDelete.blur();
+                            squareToDelete.remove();
+                        }
                     }
                 });
 
@@ -508,8 +547,9 @@ export class Window {
                 };
 
                 gridContainer.addEventListener('click', (e) => {
+                    if(isEditing) return;
                     const product = e.target.closest('.product-column');
-                    if (!product || e.target.closest('a') || e.target.closest('.add-square-btn') || isEditing) return;
+                    if (!product || e.target.closest('a') ) return;
                     e.preventDefault();
                     product.classList.toggle('selected');
                     

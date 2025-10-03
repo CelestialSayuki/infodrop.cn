@@ -298,17 +298,18 @@
     outline: 1px dashed var(--sw-accent, #007aff);
     cursor: text;
 }
+.comparison-container.edit-mode .info-square {
+    outline: 1px dashed transparent;
+}
 .comparison-container.edit-mode .info-square[contenteditable="true"] {
     background-color: rgba(0, 122, 255, 0.12);
-    outline: 1px dashed var(--sw-accent, #007aff);
+    outline-color: var(--sw-accent, #007aff);
     cursor: text;
     border-color: var(--sw-accent, #007aff);
 }
-.add-square-btn {
+.add-square-btn, .delete-square-btn {
     display: none;
     position: absolute;
-    top: 2px;
-    right: 2px;
     width: 20px;
     height: 20px;
     background-color: rgba(0,0,0,0.4);
@@ -321,12 +322,29 @@
     text-align: center;
     z-index: 10;
     opacity: 0.7;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, background-color 0.2s;
 }
-.add-square-btn:hover {
+.add-square-btn:hover, .delete-square-btn:hover {
     opacity: 1;
 }
+.add-square-btn {
+    top: 2px;
+    right: 2px;
+}
+.delete-square-btn {
+    top: 2px;
+    left: 2px;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 18px;
+}
+.delete-square-btn:hover {
+    background-color: #ed6a5e;
+}
 .comparison-container.edit-mode .multi-div-row:hover .add-square-btn {
+    display: block;
+}
+.comparison-container.edit-mode .info-square:hover .delete-square-btn {
     display: block;
 }
 .macos-window.dark-mode .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
@@ -376,7 +394,11 @@
 .macos-window.dark-mode .comparison-container.edit-mode .info-square[contenteditable="true"] {
     background-color: rgba(10, 132, 255, 0.2);
 }
-.macos-window.dark-mode .add-square-btn {
+.macos-window.dark-mode .add-square-btn, .macos-window.dark-mode .delete-square-btn {
     background-color: rgba(255,255,255,0.4);
     color: black;
+}
+.macos-window.dark-mode .delete-square-btn:hover {
+    background-color: #c9473a;
+    color: white;
 }
