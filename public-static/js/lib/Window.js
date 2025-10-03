@@ -252,11 +252,111 @@ export class Window {
             filterButton.href = '#';
             filterButton.className = 'header-btn filter-btn';
             filterButton.textContent = '比较';
+            const editButton = document.createElement('a');
+            editButton.href = '#';
+            editButton.className = 'header-btn edit-btn';
+            editButton.textContent = '编辑';
+            const submitButton = document.createElement('a');
+            submitButton.href = '#';
+            submitButton.className = 'header-btn submit-btn';
+            submitButton.textContent = '提交';
+            submitButton.style.display = 'none';
+
             headerActions.appendChild(resetButton);
             headerActions.appendChild(filterButton);
+            headerActions.appendChild(editButton);
+            headerActions.appendChild(submitButton);
+
             const jsonUrl = this.url + 'data.json';
             const gridContainer = await renderComparisonTable(jsonUrl, windowBody, this.url);
+
             if (gridContainer) {
+                let isEditing = false;
+                let changes = [];
+                const originalValues = new Map();
+
+                const enterEditMode = () => {
+                    gridContainer.classList.add('edit-mode');
+                    gridContainer.querySelectorAll('.data-list li[data-product-id]').forEach(cell => {
+                        if (!cell.classList.contains('is-complex')) {
+                            cell.setAttribute('contenteditable', true);
+                            const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                            originalValues.set(key, cell.innerText.trim());
+                        }
+                    });
+                };
+
+                editButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    isEditing = !isEditing;
+
+                    if (isEditing) {
+                        editButton.textContent = '取消';
+                        submitButton.style.display = 'inline-block';
+                        enterEditMode();
+                    } else {
+                        this.loadContent();
+                    }
+                });
+
+                submitButton.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    if (changes.length === 0) {
+                        alert('没有检测到任何修改。');
+                        return;
+                    }
+                    if (!confirm(`您确定要提交 ${changes.length} 项修改吗？`)) {
+                        return;
+                    }
+                    try {
+                        const response = await fetch('/upload/submit-changes', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                source: jsonUrl,
+                                timestamp: new Date().toISOString(),
+                                changes: changes
+                            }),
+                        });
+                        if (response.ok) {
+                            alert('修改已成功提交，感谢您的贡献！');
+                            this.loadContent();
+                        } else {
+                            throw new Error(`服务器响应: ${response.status}`);
+                        }
+                    } catch (error) {
+                        console.error('提交修改时出错:', error);
+                        alert(`提交失败: ${error.message}`);
+                    }
+                });
+
+                gridContainer.addEventListener('blur', (e) => {
+                    if (isEditing && e.target.getAttribute('contenteditable') === 'true') {
+                        const cell = e.target;
+                        const productId = cell.dataset.productId;
+                        const featureId = cell.dataset.featureId;
+                        const newValue = cell.innerText.trim();
+                        const key = `${productId}---${featureId}`;
+                        const originalValue = originalValues.get(key);
+                        
+                        const changeIndex = changes.findIndex(c => c.productId === productId && c.featureId === featureId);
+
+                        if (newValue !== originalValue) {
+                            const changePayload = { productId, featureId, originalValue, newValue };
+                            if (changeIndex > -1) {
+                                changes[changeIndex] = changePayload;
+                            } else {
+                                changes.push(changePayload);
+                            }
+                        } else {
+                            if (changeIndex > -1) {
+                                changes.splice(changeIndex, 1);
+                            }
+                        }
+                        submitButton.classList.toggle('active', changes.length > 0);
+                    }
+                }, true);
+                
                 const syncUiToState = (shouldResetScroll) => {
                     const selectedColumns = gridContainer.querySelectorAll('.product-column.selected');
                     filterButton.classList.toggle('active', selectedColumns.length > 0);
@@ -295,7 +395,7 @@ export class Window {
 
                 gridContainer.addEventListener('click', (e) => {
                     const product = e.target.closest('.product-column');
-                    if (!product || e.target.closest('a')) return;
+                    if (!product || e.target.closest('a') || isEditing) return;
                     e.preventDefault();
                     product.classList.toggle('selected');
                     

@@ -89,6 +89,14 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
               cellHTML = (value !== undefined && value !== null) ? value : '—';
             }
             const li = document.createElement('li');
+            li.dataset.productId = product.name;
+            li.dataset.featureId = feature.id;
+            li.setAttribute('contenteditable', 'false');
+
+            if (typeof cellHTML === 'string' && (cellHTML.includes('<div') || cellHTML.includes('<a href'))) {
+              li.classList.add('is-complex');
+            }
+
             if (typeof cellHTML === 'string' && cellHTML.includes('info-square')) {
               li.classList.add('multi-div-row');
               const wrapper = document.createElement('div');
