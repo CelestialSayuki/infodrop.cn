@@ -277,6 +277,14 @@ export class Window {
 
                 const enterEditMode = () => {
                     gridContainer.classList.add('edit-mode');
+                    
+                    gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
+                        const btn = document.createElement('button');
+                        btn.className = 'add-square-btn';
+                        btn.textContent = '+';
+                        row.appendChild(btn);
+                    });
+                    
                     const editableElements = gridContainer.querySelectorAll(
                         '.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]'
                     );
@@ -400,7 +408,7 @@ export class Window {
                     if (isEditing && cell.getAttribute('contenteditable') === 'true') {
                         const { productId, featureId, squareIndex } = cell.dataset;
                         const newValue = cell.innerHTML.trim();
-                        
+
                         let key;
                         if (squareIndex !== undefined) {
                             key = `${productId}---${featureId}---${squareIndex}`;
@@ -435,6 +443,34 @@ export class Window {
                     }
                 }, true);
                 
+                gridContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('add-square-btn')) {
+                        e.preventDefault();
+                        const wrapper = e.target.closest('.multi-div-row').querySelector('.multi-div-wrapper');
+                        const siblingSquare = wrapper.querySelector('.info-square');
+                        if (!siblingSquare || !wrapper) return;
+
+                        const allCurrentSquares = wrapper.querySelectorAll('.info-square');
+                        const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
+                        const lastColorRgb = lastSquare ? lastSquare.style.backgroundColor : '';
+
+                        const newSquare = document.createElement('div');
+                        newSquare.className = 'info-square';
+                        newSquare.setAttribute('contenteditable', 'true');
+                        newSquare.dataset.productId = siblingSquare.dataset.productId;
+                        newSquare.dataset.featureId = siblingSquare.dataset.featureId;
+                        newSquare.dataset.squareIndex = wrapper.children.length;
+                        newSquare.innerHTML = '新内容';
+                        
+                        if (lastColorRgb) {
+                            newSquare.style.backgroundColor = lastColorRgb;
+                        }
+                        
+                        wrapper.appendChild(newSquare);
+                        newSquare.focus();
+                    }
+                });
+
                 const syncUiToState = (shouldResetScroll) => {
                     const selectedColumns = gridContainer.querySelectorAll('.product-column.selected');
                     filterButton.classList.toggle('active', selectedColumns.length > 0);
@@ -473,7 +509,7 @@ export class Window {
 
                 gridContainer.addEventListener('click', (e) => {
                     const product = e.target.closest('.product-column');
-                    if (!product || e.target.closest('a') || isEditing) return;
+                    if (!product || e.target.closest('a') || e.target.closest('.add-square-btn') || isEditing) return;
                     e.preventDefault();
                     product.classList.toggle('selected');
                     

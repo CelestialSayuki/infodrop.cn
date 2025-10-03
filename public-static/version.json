@@ -1,7 +1,7 @@
 {
-  "version": "1A078 (b)",
+  "version": "1A078 (c)",
   "notes": [
-    "新增编辑模式，您可以对页面的内容进行编辑，提交到后台审核"
+    "新增编辑模式v2 (Beta)"
   ],
   "rsr_patches": [
     {
@@ -11,14 +11,26 @@
           "./index.html",
           "./apple-device/audio/beats/data.json",
           "./public-static/js/lib/table-generator.js",
+          "./public-static/css/comparison-table-ui.css",
           "./public-static/js/lib/Window.js"
       ]
     },
     {
       "base": "1A078 (a)",
       "delta": [
+          "./index.html",
           "./apple-device/audio/beats/data.json",
           "./public-static/js/lib/table-generator.js",
+          "./public-static/css/comparison-table-ui.css",
+          "./public-static/js/lib/Window.js"
+      ]
+    },
+    {
+      "base": "1A078 (b)",
+      "delta": [
+          "./index.html",
+          "./public-static/js/lib/table-generator.js",
+          "./public-static/css/comparison-table-ui.css",
           "./public-static/js/lib/Window.js"
       ]
     }

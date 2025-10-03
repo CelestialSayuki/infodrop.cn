@@ -218,6 +218,7 @@
     background-color:rgba(120,120,128,0.12);
 }
 .data-list li {
+    position: relative;
     justify-content:center;
     text-align:center;
     font-size:0.75rem;
@@ -275,6 +276,7 @@
     justify-content:center;
     align-items:center;
     flex:1;
+    position: relative;
 }
 .multi-div-wrapper {
     display:flex;
@@ -291,7 +293,6 @@
     display:grid;
     grid-template-columns:1fr 1fr;
 }
-/* --- Edit Mode Styles --- */
 .comparison-container.edit-mode .data-list li[contenteditable="true"] {
     background-color: rgba(0, 122, 255, 0.08);
     outline: 1px dashed var(--sw-accent, #007aff);
@@ -303,7 +304,31 @@
     cursor: text;
     border-color: var(--sw-accent, #007aff);
 }
-/* --- Dark Mode Styles --- */
+.add-square-btn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.add-square-btn:hover {
+    opacity: 1;
+}
+.comparison-container.edit-mode .multi-div-row:hover .add-square-btn {
+    display: block;
+}
 .macos-window.dark-mode .macos-window-body.comparison-container::-webkit-scrollbar-thumb {
     background-color:rgba(100,100,100,0.7);
 }
@@ -350,4 +375,8 @@
 }
 .macos-window.dark-mode .comparison-container.edit-mode .info-square[contenteditable="true"] {
     background-color: rgba(10, 132, 255, 0.2);
+}
+.macos-window.dark-mode .add-square-btn {
+    background-color: rgba(255,255,255,0.4);
+    color: black;
 }
