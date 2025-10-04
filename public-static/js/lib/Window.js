@@ -248,14 +248,18 @@ export class Window {
             resetButton.href = '#';
             resetButton.className = 'header-btn reset-btn';
             resetButton.textContent = '重置';
+            resetButton.style.display = 'none';
+
             const filterButton = document.createElement('a');
             filterButton.href = '#';
             filterButton.className = 'header-btn filter-btn';
             filterButton.textContent = '比较';
+
             const editButton = document.createElement('a');
             editButton.href = '#';
             editButton.className = 'header-btn edit-btn';
             editButton.textContent = '编辑';
+
             const submitButton = document.createElement('a');
             submitButton.href = '#';
             submitButton.className = 'header-btn submit-btn';
@@ -275,67 +279,96 @@ export class Window {
                 let changes = [];
                 const originalValues = new Map();
 
-                const enterEditMode = () => {
-                    gridContainer.classList.add('edit-mode');
+                const updateUI = (options = {}) => {
+                    const { shouldResetScroll = false } = options;
                     
-                    gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
-                        const btn = document.createElement('button');
-                        btn.className = 'add-square-btn';
-                        btn.textContent = '+';
-                        row.appendChild(btn);
-                    });
+                    const isFiltering = gridContainer.classList.contains('is-filtering');
+                    const hasSelection = gridContainer.querySelectorAll('.product-column.selected').length > 0;
+                    
+                    const showEditControls = isEditing;
+                    const showStandardControls = !isEditing;
 
-                    gridContainer.querySelectorAll('.info-square').forEach(square => {
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.className = 'delete-square-btn';
-                        deleteBtn.innerHTML = '&times;';
-                        square.appendChild(deleteBtn);
-                    });
+                    editButton.textContent = showEditControls ? '取消' : '编辑';
+                    submitButton.style.display = showEditControls ? 'inline-block' : 'none';
                     
-                    const editableElements = gridContainer.querySelectorAll(
-                        '.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]'
-                    );
-                    
-                    editableElements.forEach(cell => {
-                        if (!cell.classList.contains('is-complex')) {
-                            cell.setAttribute('contenteditable', true);
-                            const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
-                            
-                            if (cell.classList.contains('multi-div-row')) {
-                                const cleanCopy = cell.cloneNode(true);
-                                cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
-                                originalValues.set(key, cleanCopy.innerHTML.trim());
-                            } else {
-                                originalValues.set(key, cell.innerHTML.trim());
-                            }
+                    filterButton.style.display = showStandardControls && !isFiltering ? 'inline-block' : 'none';
+                    resetButton.style.display = showStandardControls && isFiltering ? 'inline-block' : 'none';
+
+                    if (showStandardControls) {
+                        editButton.style.display = 'inline-block';
+                        filterButton.classList.toggle('active', hasSelection);
+                    } else {
+                        editButton.style.display = 'inline-block';
+                    }
+
+                    const targetElement = gridContainer.querySelector('.products-grid-container');
+                    if (targetElement) {
+                        if (isFiltering) {
+                            const clone = gridContainer.cloneNode(true);
+                            Object.assign(clone.style, {
+                                position: 'absolute', left: '-9999px', top: '-9999px',
+                                visibility: 'hidden', width: 'fit-content'
+                            });
+                            document.body.appendChild(clone);
+                            clone.querySelectorAll('.product-column:not(.selected)').forEach(col => col.style.display = 'none');
+                            targetElement.style.width = `${clone.scrollWidth}px`;
+                            document.body.removeChild(clone);
+                        } else {
+                            targetElement.style.width = '';
                         }
-                    });
+                    }
+                    if (shouldResetScroll) {
+                        windowBody.scrollTo({ left: 0, behavior: 'smooth' });
+                    }
                 };
-
+                
                 editButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     isEditing = !isEditing;
-
+                    gridContainer.classList.toggle('edit-mode', isEditing);
+                    
                     if (isEditing) {
-                        editButton.textContent = '取消';
-                        submitButton.style.display = 'inline-block';
-                        enterEditMode();
+                        gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
+                            const btn = document.createElement('button');
+                            btn.className = 'add-square-btn';
+                            btn.textContent = '+';
+                            row.appendChild(btn);
+                        });
+                        gridContainer.querySelectorAll('.info-square').forEach(square => {
+                            const deleteBtn = document.createElement('button');
+                            deleteBtn.className = 'delete-square-btn';
+                            deleteBtn.innerHTML = '&times;';
+                            square.appendChild(deleteBtn);
+                        });
+                        const editableElements = gridContainer.querySelectorAll('.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]');
+                        editableElements.forEach(cell => {
+                            if (!cell.classList.contains('is-complex')) {
+                                cell.setAttribute('contenteditable', true);
+                                const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
+                                if (cell.classList.contains('multi-div-row')) {
+                                    const cleanCopy = cell.cloneNode(true);
+                                    cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                                    originalValues.set(key, cleanCopy.innerHTML.trim());
+                                } else {
+                                    originalValues.set(key, cell.innerHTML.trim());
+                                }
+                            }
+                        });
                     } else {
                         this.loadContent();
+                        return;
                     }
+                    updateUI();
                 });
 
                 submitButton.addEventListener('click', async (e) => {
                     e.preventDefault();
-
-                    gridContainer.querySelectorAll('.multi-div-row[contenteditable="true"]').forEach(cell => {
+                    gridContainer.querySelectorAll('.multi-div-row').forEach(cell => {
                         const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
                         const originalValue = originalValues.get(key);
-
                         const cleanCopy = cell.cloneNode(true);
                         cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
                         const newValue = cleanCopy.innerHTML.trim();
-                        
                         if (newValue !== originalValue) {
                             const changePayload = {
                                 productId: cell.dataset.productId,
@@ -343,7 +376,6 @@ export class Window {
                                 originalValue,
                                 newValue
                             };
-                            
                             const existingIndex = changes.findIndex(c => c.productId === changePayload.productId && c.featureId === changePayload.featureId);
                             if (existingIndex > -1) {
                                 changes[existingIndex] = changePayload;
@@ -367,7 +399,7 @@ export class Window {
                     }));
 
                     try {
-                        const response = await fetch('/upload/submit_changes.php', {
+                        const response = await fetch('/submit_changes.php', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -400,7 +432,6 @@ export class Window {
                     if (e.key === 'Backspace' && target.getAttribute('contenteditable') === 'true') {
                         const selection = window.getSelection();
                         if (!selection || !selection.isCollapsed) return;
-
                         const range = selection.getRangeAt(0);
                         const node = range.startContainer;
                         const offset = range.startOffset;
@@ -409,25 +440,20 @@ export class Window {
                             const prevSibling = node.previousSibling;
                             if (prevSibling && prevSibling.nodeName === 'BR') {
                                 e.preventDefault();
-
                                 const textBeforeBr = prevSibling.previousSibling;
                                 let cursorNode = textBeforeBr;
                                 let cursorOffset = 0;
-
                                 if(cursorNode && cursorNode.nodeType === Node.TEXT_NODE) {
                                     cursorOffset = cursorNode.textContent.length;
                                 } else {
                                     cursorNode = node.parentElement;
                                 }
-                                
                                 const remainingText = node.textContent.substring(1);
                                 if (textBeforeBr && textBeforeBr.nodeType === Node.TEXT_NODE) {
                                     textBeforeBr.textContent += remainingText;
                                 }
-
                                 prevSibling.remove();
                                 node.remove();
-
                                 const newRange = document.createRange();
                                 newRange.setStart(cursorNode, cursorOffset);
                                 newRange.collapse(true);
@@ -443,10 +469,8 @@ export class Window {
                     if (isEditing && cell.getAttribute('contenteditable') === 'true' && !cell.classList.contains('multi-div-row')) {
                         const { productId, featureId } = cell.dataset;
                         const newValue = cell.innerHTML.trim();
-
                         const key = `${productId}---${featureId}`;
                         const originalValue = originalValues.get(key);
-                        
                         const changeIndex = changes.findIndex(c => c.productId === productId && c.featureId === featureId);
 
                         if (newValue !== originalValue) {
@@ -475,26 +499,21 @@ export class Window {
                         const allCurrentSquares = wrapper.querySelectorAll('.info-square');
                         const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
                         const lastColorRgb = lastSquare ? lastSquare.style.backgroundColor : '';
-
                         const newSquare = document.createElement('div');
                         newSquare.className = 'info-square';
                         newSquare.setAttribute('contenteditable', 'true');
-                        
                         if (siblingSquare) {
                             newSquare.dataset.productId = siblingSquare.dataset.productId;
                             newSquare.dataset.featureId = siblingSquare.dataset.featureId;
                         }
                         newSquare.innerHTML = '新内容';
-                        
                         if (lastColorRgb) {
                             newSquare.style.backgroundColor = lastColorRgb;
                         }
-                        
                         const deleteBtn = document.createElement('button');
                         deleteBtn.className = 'delete-square-btn';
                         deleteBtn.innerHTML = '&times;';
                         newSquare.appendChild(deleteBtn);
-                        
                         wrapper.appendChild(newSquare);
                         newSquare.focus();
                     }
@@ -509,65 +528,21 @@ export class Window {
                         }
                     }
                 });
-
-                const syncUiToState = (shouldResetScroll) => {
-                    const selectedColumns = gridContainer.querySelectorAll('.product-column.selected');
-                    filterButton.classList.toggle('active', selectedColumns.length > 0);
-                    
-                    const targetElement = gridContainer.querySelector('.products-grid-container');
-
-                    if (targetElement) {
-                        if (gridContainer.classList.contains('is-filtering')) {
-                            const clone = gridContainer.cloneNode(true);
-                            Object.assign(clone.style, {
-                                position: 'absolute',
-                                left: '-9999px',
-                                top: '-9999px',
-                                visibility: 'hidden',
-                                width: 'fit-content'
-                            });
-                            document.body.appendChild(clone);
-                            
-                            const unselectedInClone = clone.querySelectorAll('.product-column:not(.selected)');
-                            unselectedInClone.forEach(col => col.style.display = 'none');
-                            
-                            const newWidth = clone.scrollWidth;
-                            
-                            document.body.removeChild(clone);
-
-                            targetElement.style.width = `${newWidth}px`;
-                        } else {
-                            targetElement.style.width = '';
-                        }
-                    }
-                    
-                    if (shouldResetScroll) {
-                        windowBody.scrollTo({ left: 0, behavior: 'smooth' });
-                    }
-                };
-
+                
                 gridContainer.addEventListener('click', (e) => {
                     if(isEditing) return;
                     const product = e.target.closest('.product-column');
                     if (!product || e.target.closest('a') ) return;
                     e.preventDefault();
                     product.classList.toggle('selected');
-                    
-                    let shouldResetScroll = false;
-                    if (gridContainer.classList.contains('is-filtering')) {
-                        shouldResetScroll = true;
-                        if (gridContainer.querySelectorAll('.product-column.selected').length === 0) {
-                            gridContainer.classList.remove('is-filtering');
-                        }
-                    }
-                    syncUiToState(shouldResetScroll);
+                    updateUI();
                 });
 
                 filterButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (filterButton.classList.contains('active')) {
                         gridContainer.classList.add('is-filtering');
-                        syncUiToState(true);
+                        updateUI({ shouldResetScroll: true });
                     }
                 });
 
@@ -577,10 +552,10 @@ export class Window {
                         col.classList.remove('selected');
                     });
                     gridContainer.classList.remove('is-filtering');
-                    syncUiToState(true);
+                    updateUI({ shouldResetScroll: true });
                 });
 
-                syncUiToState(false);
+                updateUI();
                 syncRowHeights(gridContainer);
             }
         } else {

@@ -33,12 +33,12 @@
     border-radius:4px;
 }
 .macos-window-header .header-actions {
-    display:flex;
-    position:absolute;
-    right:12px;
+    display: flex;
+    position: absolute;
+    right: 12px;
 }
-.macos-window-header .header-actions > *:not(:last-child) {
-    margin-right:8px;
+.header-btn + .header-btn {
+    margin-left: 8px;
 }
 .header-btn {
     font-size:12px;
