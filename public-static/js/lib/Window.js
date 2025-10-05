@@ -399,7 +399,7 @@ export class Window {
                     }));
 
                     try {
-                        const response = await fetch('/submit_changes.php', {
+                        const response = await fetch('./upload/submit_changes.php', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
