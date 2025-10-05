@@ -90,6 +90,8 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             }
 
             const li = document.createElement('li');
+            li.dataset.productId = product.name;
+            li.dataset.featureId = feature.id;
 
             if (typeof cellHTML === 'string' && cellHTML.includes('info-square')) {
               li.classList.add('multi-div-row');
@@ -104,14 +106,9 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                 square.dataset.featureId = feature.id;
                 square.dataset.squareIndex = index;
               });
-              
               li.appendChild(wrapper);
-
             } else {
-              li.dataset.productId = product.name;
-              li.dataset.featureId = feature.id;
               li.setAttribute('contenteditable', 'false');
-
               if (typeof cellHTML === 'string' && (cellHTML.includes('<div') || cellHTML.includes('<a href'))) {
                 li.classList.add('is-complex');
               }

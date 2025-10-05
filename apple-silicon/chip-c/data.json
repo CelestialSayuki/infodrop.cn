@@ -144,12 +144,14 @@
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_APL1114.webp"
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_APL1114.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp"
             },
             "data": {
                 "displayType": [
                     "宣传图",
-                    "芯片图"
+                    "芯片图",
+                    "Die"
                 ],
                 "releaseDate": "2025.02",
                 "processTech": "TSMC N4",

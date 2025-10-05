@@ -275,10 +275,57 @@ export class Window {
             const gridContainer = await renderComparisonTable(jsonUrl, windowBody, this.url);
 
             if (gridContainer) {
-                let isEditing = false;
-                let changes = [];
-                const originalValues = new Map();
+                this.element.querySelector('.edit-diff-popover')?.remove();
 
+                let isEditing = false;
+                const originalValues = new Map();
+                const modifiedKeys = new Set();
+                
+                let history = [];
+                let historyIndex = -1;
+                let debounceTimer;
+
+                const diffPopover = document.createElement('div');
+                diffPopover.className = 'edit-diff-popover';
+                diffPopover.innerHTML = `
+                  <div class="popover-section">
+                    <strong>原始值:</strong>
+                    <div class="popover-content" id="popover-original-value"></div>
+                  </div>
+                `;
+                this.element.appendChild(diffPopover);
+                
+                const applyState = (state) => {
+                    if (!state || !state.element) return;
+                    console.log('%c[DEBUG] Applying State:', 'color: blue', state);
+                    state.element.innerHTML = state.html;
+                    // This part is safe; it only runs if .info-square elements exist in the restored HTML
+                    state.element.querySelectorAll('.info-square').forEach(square => {
+                        square.setAttribute('contenteditable', true);
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-square-btn';
+                        deleteBtn.innerHTML = '&times;';
+                        if (!square.querySelector('.delete-square-btn')) {
+                            square.appendChild(deleteBtn);
+                        }
+                    });
+                    state.element.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
+                };
+
+                const saveState = (element) => {
+                    const currentState = element.innerHTML;
+                    if (history.length > 0 && history[historyIndex]?.html === currentState) {
+                        console.log('%c[DEBUG] State is a duplicate, not saving.', 'color: grey');
+                        return;
+                    }
+                    if (historyIndex < history.length - 1) {
+                        history = history.slice(0, historyIndex + 1);
+                    }
+                    history.push({ element: element, html: currentState });
+                    historyIndex++;
+                    console.log(`%c[DEBUG] State Saved. Index: ${historyIndex}, Length: ${history.length}`, 'color: green');
+                };
+                
                 const updateUI = (options = {}) => {
                     const { shouldResetScroll = false } = options;
                     
@@ -326,35 +373,46 @@ export class Window {
                     e.preventDefault();
                     isEditing = !isEditing;
                     gridContainer.classList.toggle('edit-mode', isEditing);
-                    
                     if (isEditing) {
+                        console.log('%c[DEBUG] Entering Edit Mode.', 'font-weight: bold; color: purple;');
+                        history = [];
+                        historyIndex = -1;
+                        originalValues.clear();
+                        modifiedKeys.clear();
+                        
+                        gridContainer.querySelectorAll('.data-list li').forEach(row => {
+                            const productId = row.dataset.productId;
+                            const featureId = row.dataset.featureId;
+                            if (!productId || !featureId) return;
+                            const rowKey = `${productId}---${featureId}`;
+                            if (row.classList.contains('multi-div-row')) {
+                                const wrapper = row.querySelector('.multi-div-wrapper');
+                                if (wrapper) {
+                                    originalValues.set(rowKey, wrapper.innerHTML.trim());
+                                }
+                            } else if (!row.classList.contains('is-complex')) {
+                                originalValues.set(rowKey, row.innerHTML.trim());
+                            }
+                        });
                         gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
                             const btn = document.createElement('button');
                             btn.className = 'add-square-btn';
                             btn.textContent = '+';
                             row.appendChild(btn);
+
+                            row.querySelectorAll('.info-square').forEach(square => {
+                                square.setAttribute('contenteditable', true);
+                                const deleteBtn = document.createElement('button');
+                                deleteBtn.className = 'delete-square-btn';
+                                deleteBtn.innerHTML = '&times;';
+                                square.appendChild(deleteBtn);
+                            });
                         });
-                        gridContainer.querySelectorAll('.info-square').forEach(square => {
-                            const deleteBtn = document.createElement('button');
-                            deleteBtn.className = 'delete-square-btn';
-                            deleteBtn.innerHTML = '&times;';
-                            square.appendChild(deleteBtn);
-                        });
-                        const editableElements = gridContainer.querySelectorAll('.data-list li[contenteditable="false"], .data-list .info-square[contenteditable="false"]');
-                        editableElements.forEach(cell => {
-                            if (!cell.classList.contains('is-complex')) {
-                                cell.setAttribute('contenteditable', true);
-                                const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
-                                if (cell.classList.contains('multi-div-row')) {
-                                    const cleanCopy = cell.cloneNode(true);
-                                    cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
-                                    originalValues.set(key, cleanCopy.innerHTML.trim());
-                                } else {
-                                    originalValues.set(key, cell.innerHTML.trim());
-                                }
-                            }
+                        gridContainer.querySelectorAll('.data-list li:not(.multi-div-row):not(.is-complex)').forEach(row => {
+                            row.setAttribute('contenteditable', true);
                         });
                     } else {
+                        console.log('%c[DEBUG] Exiting Edit Mode.', 'font-weight: bold; color: purple;');
                         this.loadContent();
                         return;
                     }
@@ -363,41 +421,36 @@ export class Window {
 
                 submitButton.addEventListener('click', async (e) => {
                     e.preventDefault();
-                    gridContainer.querySelectorAll('.multi-div-row').forEach(cell => {
-                        const key = `${cell.dataset.productId}---${cell.dataset.featureId}`;
-                        const originalValue = originalValues.get(key);
-                        const cleanCopy = cell.cloneNode(true);
-                        cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
-                        const newValue = cleanCopy.innerHTML.trim();
-                        if (newValue !== originalValue) {
-                            const changePayload = {
-                                productId: cell.dataset.productId,
-                                featureId: cell.dataset.featureId,
-                                originalValue,
-                                newValue
-                            };
-                            const existingIndex = changes.findIndex(c => c.productId === changePayload.productId && c.featureId === changePayload.featureId);
-                            if (existingIndex > -1) {
-                                changes[existingIndex] = changePayload;
-                            } else {
-                                changes.push(changePayload);
-                            }
-                        }
-                    });
-
-                    if (changes.length === 0) {
+                    if (modifiedKeys.size === 0) {
                         alert('没有检测到任何修改。');
                         return;
                     }
-                    if (!confirm(`您确定要提交 ${changes.length} 项修改吗？`)) {
+                    if (!confirm(`您确定要提交 ${modifiedKeys.size} 项修改吗？`)) {
                         return;
                     }
-
-                    const sanitizedChanges = changes.map(change => ({
-                        ...change,
-                        newValue: change.newValue.replace(/\u200b/g, '')
-                    }));
-
+                    const changesToSubmit = [];
+                    modifiedKeys.forEach(key => {
+                        const [productId, featureId] = key.split('---');
+                        const cell = gridContainer.querySelector(`li[data-product-id="${productId}"][data-feature-id="${featureId}"]`);
+                        
+                        if (cell) {
+                            const originalValue = originalValues.get(key);
+                            let newValue = '';
+                            if (cell.classList.contains('multi-div-row')) {
+                                const cleanCopy = cell.cloneNode(true);
+                                cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                                newValue = cleanCopy.innerHTML.trim();
+                            } else {
+                                newValue = cell.innerHTML.trim();
+                            }
+                            changesToSubmit.push({
+                                productId: productId,
+                                featureId: featureId,
+                                originalValue: originalValue,
+                                newValue: newValue.replace(/\u200b/g, '')
+                            });
+                        }
+                    });
                     try {
                         const response = await fetch('./upload/submit_changes.php', {
                             method: 'POST',
@@ -405,7 +458,7 @@ export class Window {
                             body: JSON.stringify({
                                 source: jsonUrl,
                                 timestamp: new Date().toISOString(),
-                                changes: sanitizedChanges
+                                changes: changesToSubmit
                             }),
                         });
                         if (response.ok) {
@@ -419,8 +472,67 @@ export class Window {
                         alert(`提交失败: ${error.message}`);
                     }
                 });
-                
+
+                gridContainer.addEventListener('focusin', (e) => {
+                    if (!isEditing || !e.target.hasAttribute('contenteditable')) return;
+                    const target = e.target;
+                    const row = target.closest('li');
+                    if (!row || !row.dataset.productId) return;
+                    
+                    const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+                    const originalHTML = originalValues.get(rowKey) || '';
+                    
+                    diffPopover.querySelector('#popover-original-value').innerHTML = originalHTML;
+                    
+                    const cellRect = target.getBoundingClientRect();
+                    const windowRect = this.element.getBoundingClientRect();
+                    diffPopover.style.left = `${cellRect.left - windowRect.left}px`;
+                    diffPopover.style.top = `${cellRect.bottom - windowRect.top + 5}px`;
+                    diffPopover.style.display = 'block';
+                });
+
+                gridContainer.addEventListener('focusout', (e) => {
+                    if (!isEditing) return;
+                    diffPopover.style.display = 'none';
+                });
+
                 gridContainer.addEventListener('keydown', (e) => {
+                    const isUndo = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey;
+                    const isRedo = (e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'y' || (e.shiftKey && e.key.toLowerCase() === 'z'));
+
+                    if (isEditing && (isUndo || isRedo)) {
+                        e.preventDefault();
+                        console.log(`%c[DEBUG] ACTION: ${isUndo ? 'Undo' : 'Redo'}. History Index: ${historyIndex}`, 'color: red; font-weight: bold;');
+                        if (isUndo) {
+                            if (historyIndex === 0) {
+                                console.log('%c[DEBUG] Undoing to ORIGINAL state.', 'color: orange');
+                                const state = history[historyIndex];
+                                const row = state.element.closest('li');
+                                const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+                                const originalHTML = originalValues.get(rowKey);
+                                applyState({ element: state.element, html: originalHTML });
+                                historyIndex--;
+                            } else if (historyIndex > 0) {
+                                historyIndex--;
+                                const stateToApply = history[historyIndex];
+                                console.log('%c[DEBUG] Undoing to state index:', 'color: blue', historyIndex, stateToApply);
+                                applyState(stateToApply);
+                            } else {
+                                console.log('%c[DEBUG] Cannot undo further.', 'color: red;');
+                            }
+                        } else if (isRedo) {
+                            if (historyIndex < history.length - 1) {
+                                historyIndex++;
+                                const stateToApply = history[historyIndex];
+                                console.log('%c[DEBUG] Redoing to state index:', 'color: blue', historyIndex, stateToApply);
+                                applyState(stateToApply);
+                            } else {
+                                console.log('%c[DEBUG] Cannot redo further.', 'color: red;');
+                            }
+                        }
+                        return;
+                    }
+                    
                     if (!isEditing) return;
                     const target = e.target;
 
@@ -463,39 +575,15 @@ export class Window {
                         }
                     }
                 });
-
-                gridContainer.addEventListener('blur', (e) => {
-                    const cell = e.target;
-                    if (isEditing && cell.getAttribute('contenteditable') === 'true' && !cell.classList.contains('multi-div-row')) {
-                        const { productId, featureId } = cell.dataset;
-                        const newValue = cell.innerHTML.trim();
-                        const key = `${productId}---${featureId}`;
-                        const originalValue = originalValues.get(key);
-                        const changeIndex = changes.findIndex(c => c.productId === productId && c.featureId === featureId);
-
-                        if (newValue !== originalValue) {
-                            const changePayload = { productId, featureId, originalValue, newValue };
-                            if (changeIndex > -1) {
-                                changes[changeIndex] = changePayload;
-                            } else {
-                                changes.push(changePayload);
-                            }
-                        } else {
-                            if (changeIndex > -1) {
-                                changes.splice(changeIndex, 1);
-                            }
-                        }
-                        submitButton.classList.toggle('active', changes.length > 0);
-                    }
-                }, true);
                 
                 gridContainer.addEventListener('click', (e) => {
                     if (e.target.classList.contains('add-square-btn')) {
                         e.preventDefault();
                         const wrapper = e.target.closest('.multi-div-row').querySelector('.multi-div-wrapper');
-                        const siblingSquare = wrapper.querySelector('.info-square');
                         if (!wrapper) return;
 
+                        console.log('%c[DEBUG] Add button clicked.', 'color: brown;');
+                        const siblingSquare = wrapper.querySelector('.info-square');
                         const allCurrentSquares = wrapper.querySelectorAll('.info-square');
                         const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
                         const lastColorRgb = lastSquare ? lastSquare.style.backgroundColor : '';
@@ -516,15 +604,22 @@ export class Window {
                         newSquare.appendChild(deleteBtn);
                         wrapper.appendChild(newSquare);
                         newSquare.focus();
+                        
+                        saveState(wrapper);
+                        wrapper.dispatchEvent(new Event('input', { bubbles: true }));
                     }
 
                     if (e.target.classList.contains('delete-square-btn')) {
                         e.preventDefault();
                         e.stopPropagation();
                         const squareToDelete = e.target.closest('.info-square');
-                        if (squareToDelete) {
+                        const wrapper = squareToDelete?.closest('.multi-div-wrapper');
+                        if (squareToDelete && wrapper) {
+                            console.log('%c[DEBUG] Delete button clicked.', 'color: brown;');
                             squareToDelete.blur();
                             squareToDelete.remove();
+                            saveState(wrapper);
+                            wrapper.dispatchEvent(new Event('input', { bubbles: true }));
                         }
                     }
                 });
@@ -555,6 +650,47 @@ export class Window {
                     updateUI({ shouldResetScroll: true });
                 });
 
+                gridContainer.addEventListener('input', (e) => {
+                    if (!isEditing) return;
+                    const target = e.target;
+                    const row = target.closest('.data-list li');
+                    if (!row) return;
+
+                    let elementToSaveForHistory = null;
+                    if (row.classList.contains('multi-div-row')) {
+                        elementToSaveForHistory = row.querySelector('.multi-div-wrapper');
+                    } else if (!row.classList.contains('is-complex')) {
+                        elementToSaveForHistory = row;
+                    }
+
+                    if (elementToSaveForHistory) {
+                        clearTimeout(debounceTimer);
+                        debounceTimer = setTimeout(() => {
+                           console.log('%c[DEBUG] Debounced input saved for element:', 'color: purple;', elementToSaveForHistory);
+                           saveState(elementToSaveForHistory);
+                        }, 300);
+                    }
+
+                    const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+                    let currentCellValue = '';
+                    if (row.classList.contains('multi-div-row')) {
+                       const wrapper = row.querySelector('.multi-div-wrapper');
+                       if(wrapper){
+                           const cleanCopy = wrapper.cloneNode(true);
+                           cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                           currentCellValue = cleanCopy.innerHTML.trim();
+                       }
+                    } else {
+                        currentCellValue = row.innerHTML.trim();
+                    }
+
+                    if (currentCellValue !== originalValues.get(rowKey)) {
+                         modifiedKeys.add(rowKey);
+                    } else {
+                        modifiedKeys.delete(rowKey);
+                    }
+                    submitButton.classList.toggle('active', modifiedKeys.size > 0);
+                });
                 updateUI();
                 syncRowHeights(gridContainer);
             }
