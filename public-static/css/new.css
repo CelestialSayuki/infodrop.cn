@@ -41,6 +41,25 @@ body.landscape-notch-right {
 .main-content.main-content-locked {
     overflow-y:hidden;
 }
+.snap-preview {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 122, 255, 0.25);
+    border: 1.5px dashed rgba(0, 122, 255, 0.8);
+    border-radius: 12px;
+    box-sizing: border-box;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.15s ease-out, transform 0.15s ease-out,
+                top 0.1s ease-out, left 0.1s ease-out,
+                width 0.1s ease-out, height 0.1s ease-out;
+}
+
+.snap-preview.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
 .macos-window {
     position:absolute;
     width:800px;

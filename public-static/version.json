@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (a)",
+  "version": "1A079 (b)",
   "notes": [
-    "修复系统兼容页面无法打开的bug"
+    "窗口支持智能吸附"
   ],
   "rsr_patches": [
     {
@@ -9,7 +9,19 @@
       "delta": [
           "./index.html",
           "./apple-tools/support/data/ios.json",
+          "./public-static/css/new.css",
+          "./public-static/js/lib/WindowManager.js",
+          "./public-static/js/lib/Window.js",
           "./apple-tools/model/data.json"
+      ]
+    },
+    {
+      "base": "1A079 (a)",
+      "delta": [
+          "./index.html",
+          "./public-static/css/new.css",
+          "./public-static/js/lib/WindowManager.js",
+          "./public-static/js/lib/Window.js"
       ]
     }
   ]

@@ -7,7 +7,29 @@ export class WindowManager {
     this.openWindows = new Map();
     this.zIndexCounter = 100;
     this.isMobileLayout = window.matchMedia('(max-width: 768px)').matches;
+    this.snapPreviewEl = null;
+    this._createSnapPreview();
     this._setupEventListeners();
+  }
+
+  _createSnapPreview() {
+    this.snapPreviewEl = document.createElement('div');
+    this.snapPreviewEl.className = 'snap-preview';
+    this.mainContentArea.appendChild(this.snapPreviewEl);
+  }
+
+  showSnapPreview(rect) {
+    if (!this.snapPreviewEl || this.isMobileLayout) return;
+    this.snapPreviewEl.style.top = rect.top;
+    this.snapPreviewEl.style.left = rect.left;
+    this.snapPreviewEl.style.width = rect.width;
+    this.snapPreviewEl.style.height = rect.height;
+    this.snapPreviewEl.classList.add('is-visible');
+  }
+
+  hideSnapPreview() {
+    if (!this.snapPreviewEl) return;
+    this.snapPreviewEl.classList.remove('is-visible');
   }
 
   _setupEventListeners() {
@@ -21,7 +43,7 @@ export class WindowManager {
             if (!wasMobile && isNowMobile) {
                 this._maximizeTopWindowOnMobileTransition();
             }
-
+            this.hideSnapPreview();
             this.isMobileLayout = isNowMobile;
         }, 150);
     });
