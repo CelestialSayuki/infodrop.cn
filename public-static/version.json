@@ -1,12 +1,15 @@
 {
-  "version": "1A079",
+  "version": "1A079 (a)",
   "notes": [
-    "编辑模式v2，图片高清化"
+    "修复系统兼容页面无法打开的bug"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A079",
       "delta": [
+          "./index.html",
+          "./apple-tools/support/data/ios.json",
+          "./apple-tools/model/data.json"
       ]
     }
   ]

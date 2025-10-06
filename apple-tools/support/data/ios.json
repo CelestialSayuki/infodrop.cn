@@ -62,7 +62,6 @@
         { "model": "iPhone 16e", "chip": "A18", "date": "2025.02", "identifier": "iPhone17,5", "supportedOS": ["ios_18", "ios_26"], "special": { "ios_18": "glow", "ios_26": "glow" } },
         { "model": "iPhone 17", "chip": "A19", "date": "2025.09", "identifier": "iPhone18,3", "supportedOS": ["ios_26"], "special": { "ios_26": "glow" } },
         { "model": "iPhone Air", "chip": "A19 Pro", "date": "2025.09", "identifier": "iPhone18,4", "supportedOS": ["ios_26"], "special": { "ios_26": "glow" } },
-        { "model": "iPhone 17 Pro<br>iPhone 17 Pro Max", "chip": "A19 Pro", "date": "2025.09", "identifier": "iPhone17,1<br>iPhone17,2", "supportedOS": ["ios_26"], "special": { "ios_26": "glow" } },
-
+        { "model": "iPhone 17 Pro<br>iPhone 17 Pro Max", "chip": "A19 Pro", "date": "2025.09", "identifier": "iPhone17,1<br>iPhone17,2", "supportedOS": ["ios_26"], "special": { "ios_26": "glow" } }
     ]
 }
