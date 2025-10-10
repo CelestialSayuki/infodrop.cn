@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (b)",
+  "version": "1A079 (c)",
   "notes": [
-    "窗口支持智能吸附"
+    "更新C1 RF图片"
   ],
   "rsr_patches": [
     {
@@ -12,6 +12,7 @@
           "./public-static/css/new.css",
           "./public-static/js/lib/WindowManager.js",
           "./public-static/js/lib/Window.js",
+          "./apple-silicon/chip-c/data.json",
           "./apple-tools/model/data.json"
       ]
     },
@@ -21,7 +22,15 @@
           "./index.html",
           "./public-static/css/new.css",
           "./public-static/js/lib/WindowManager.js",
+          "./apple-silicon/chip-c/data.json",
           "./public-static/js/lib/Window.js"
+      ]
+    },
+    {
+      "base": "1A079 (b)",
+      "delta": [
+          "./index.html",
+          "./apple-silicon/chip-c/data.json"
       ]
     }
   ]

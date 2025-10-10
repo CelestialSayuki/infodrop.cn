@@ -107,28 +107,30 @@
     "products": [
         {
             "name": "Apple C1X",
-            "generation": "(Leda)",
+            "generation": "(Leda, APL1114)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_APL1114.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp"
             },
             "data": {
                 "displayType": [
                     "宣传图",
-                    "芯片图"
+                    "芯片图",
+                    "Die"
                 ],
                 "releaseDate": "2025.09",
                 "processTech": "TSMC N4",
-                "dieSize": "",
-                "nrca": "-",
-                "lte": "-",
-                "endc": "-",
-                "downlinkCa": "-",
-                "uplinkCa": "-",
-                "uplinkMimo": "-",
-                "switchedUplink": "-",
-                "mmWave": "-",
+                "dieSize": "6.20×6.40 (39.68mm²)",
+                "nrca": "160MHz Mac Combos",
+                "lte": "4CA, 4×4 MIMO<br>16 Layers Max, Cat 19",
+                "endc": "LTE 3CA+1FR1 (NR 100MHz Max)<br>LTE 2CA+2FR1 (NR 120MHz Max)",
+                "downlinkCa": "3×",
+                "uplinkCa": "❌",
+                "uplinkMimo": "❌",
+                "switchedUplink": "❌",
+                "mmWave": "❌",
                 "support5g": "5G NR 3GPP Rel.15<br>Band 载波聚合",
                 "support4g": "4G LTE-FDD/TDD Band<br>载波聚合 & VoLTE",
                 "support3g": "3G DC-HSPA/HSPA+/HDSPA<br>HSUPA/UMTS & 3G TD-SCDMA",
@@ -145,13 +147,15 @@
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_APL1114.webp",
-                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp"
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp",
+                "RF": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_RF.webp"
             },
             "data": {
                 "displayType": [
                     "宣传图",
                     "芯片图",
-                    "Die"
+                    "Die",
+                    "RF"
                 ],
                 "releaseDate": "2025.02",
                 "processTech": "TSMC N4",
