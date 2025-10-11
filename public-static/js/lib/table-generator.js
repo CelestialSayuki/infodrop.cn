@@ -220,10 +220,21 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           const svgFilter = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
           svgFilter.style.display = 'none';
           svgFilter.innerHTML = `
-              <filter id="${filterId}" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="1" seed="2" result="turbulence"/>
-                  <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="G"/>
-              </filter>
+            <filter id="${filterId}" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05 0.07" numOctaves="1" seed="2" result="turbulence"/>
+
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="R"/>
+                <feDisplacementMap in="R" in2="turbulence" scale="60" xChannelSelector="R" yChannelSelector="G" result="R_displaced"/>
+
+                <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="G"/>
+                <feDisplacementMap in="G" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="G_displaced"/>
+
+                <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="B"/>
+                <feDisplacementMap in="B" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G" result="B_displaced"/>
+
+                <feComposite in="R_displaced" in2="G_displaced" operator="lighter" result="RG_combined"/>
+                <feComposite in="RG_combined" in2="B_displaced" operator="lighter"/>
+            </filter>
             `;
           document.body.appendChild(svgFilter);
 
@@ -241,6 +252,21 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                   transition: opacity 0.3s ease-in-out;
               }
               .glass-button:hover::before {
+                  opacity: 1;
+              }
+              .glass-button::after {
+                  content: '';
+                  position: absolute;
+                  z-index: 3;
+                  inset: 0;
+                  border-radius: inherit;
+                  background: radial-gradient(circle 70px at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 1) 0%, transparent 85%);
+                  opacity: 0;
+                  transform: scale(0);
+                  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-out;
+              }
+              .glass-button.mouse-down::after {
+                  transform: scale(1);
                   opacity: 1;
               }
             `;
@@ -273,47 +299,42 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
         const controlsContainer = document.createElement('div');
         Object.assign(controlsContainer.style, {
-          position: 'absolute', bottom: '30px', left: '50%',
-          transform: 'translateX(-50%)',
+          position: 'absolute', bottom: '60px',
           display: 'flex', gap: '15px', zIndex: '10001'
         });
 
         const createGlassButton = (svgIcon, title) => {
           const btn = document.createElement('button');
           btn.title = title;
-          const originalShadow = '0 8px 32px 0 rgba(169, 206, 236, 0.2)';
-          const hoverShadow = '0 10px 32px 0 rgba(169, 206, 236, 0.4)';
-          const activeShadow = '0 4px 16px 0 rgba(169, 206, 236, 0.2)';
 
           Object.assign(btn.style, {
             position: 'relative', width: '60px', height: '60px',
             border: '1px solid rgba(255, 255, 255, 0.2)',
             borderRadius: '50%', cursor: 'pointer',
-            boxShadow: originalShadow,
             background: 'transparent',
             padding: '0',
             overflow: 'hidden',
-            transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
           });
 
           const effect = document.createElement('div');
           Object.assign(effect.style, {
             position: 'absolute', inset: '0', zIndex: '0',
-            backdropFilter: 'blur(5px)',
+            backdropFilter: 'blur(1px)',
             filter: `url(#${filterId})`
           });
 
           const tint = document.createElement('div');
           Object.assign(tint.style, {
             position: 'absolute', inset: '0', zIndex: '1',
-            background: 'rgba(252, 253, 254, 0.15)',
+            background: 'rgba(252, 253, 254, 0.05)',
             borderRadius: '50%'
           });
 
           const shine = document.createElement('div');
           Object.assign(shine.style, {
             position: 'absolute', inset: '0', zIndex: '2',
-            boxShadow: 'inset 1px 1px 1px 0 rgba(255, 255, 255, 0.4)',
+            boxShadow: 'inset 1px 1px 1px 0 rgba(255, 255, 255, 0.3)',
             borderRadius: '50%'
           });
 
@@ -337,19 +358,18 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
           btn.onmouseenter = () => {
             btn.style.transform = 'scale(1.01)';
-            btn.style.boxShadow = hoverShadow;
           };
           btn.onmouseleave = () => {
             btn.style.transform = 'scale(1)';
-            btn.style.boxShadow = originalShadow;
+            btn.classList.remove('mouse-down');
           };
           btn.onmousedown = () => {
             btn.style.transform = 'scale(0.96)';
-            btn.style.boxShadow = activeShadow;
+            btn.classList.add('mouse-down');
           };
           btn.onmouseup = () => {
             btn.style.transform = 'scale(1.01)';
-            btn.style.boxShadow = hoverShadow;
+            btn.classList.remove('mouse-down');
           };
 
           btn.classList.add('glass-button');
