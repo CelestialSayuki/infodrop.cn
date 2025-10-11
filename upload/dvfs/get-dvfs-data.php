@@ -59,7 +59,7 @@ try {
             $device = (!empty($row['device']) && $row['device'] !== 'N/A') ? $row['device'] : '未知设备';
             $build = (!empty($row['build']) && $row['build'] !== 'N/A') ? $row['build'] : '未知版本';
 
-            $grouping_key = $chip . '|' . json_encode($echarts_data);
+            $grouping_key = $chip . '|' . $device . '|' . json_encode($echarts_data);
 
             if (!isset($grouped_data[$grouping_key])) {
                 $grouped_data[$grouping_key] = [
