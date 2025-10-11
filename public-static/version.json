@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (d)",
+  "version": "1A079 (e)",
   "notes": [
-    "图片查看器"
+    "修改玻璃实现"
   ],
   "rsr_patches": [
     {
@@ -40,6 +40,12 @@
       "base": "1A079 (c)",
       "delta": [
           "./index.html",
+          "./public-static/js/lib/table-generator.js"
+      ]
+    },
+    {
+      "base": "1A079 (d)",
+      "delta": [
           "./public-static/js/lib/table-generator.js"
       ]
     }
