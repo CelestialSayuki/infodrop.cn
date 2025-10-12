@@ -136,6 +136,12 @@
                                          `设备型号: ${group.devices}<br/>` +
                                          `系统版本: ${buildsHtml}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
                           const displayedPoints = new Set();
+                          group.points.sort((a, b) => {
+                              if (a.value?.length === 2 && b.value?.length === 2) {
+                                  return b.value[1] - a.value[1];
+                              }
+                              return 0;
+                          });
                           group.points.forEach(point => {
                               if (point.value?.length === 2) {
                                   const pointKey = `${point.value[0]}|${point.value[1]}`;
