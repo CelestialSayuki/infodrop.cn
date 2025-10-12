@@ -350,7 +350,7 @@
                 "batteryCapacity": "12.263Wh (3149mAh)<br>11.823Wh (3036mAh)",
                 "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
                 "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>27小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>22小时</div>",
-                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "audioIO": "麦克风 ×4 + 扬声器 ×1",
                 "dimensionsWeight": "74.7×156.2×5.64mm, 165g",
                 "sim": "双卡eSIM",
                 "waterResistance": "IP68",
