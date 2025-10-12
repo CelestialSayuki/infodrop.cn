@@ -75,12 +75,12 @@ try {
         
         $series_list = [];
         foreach($grouped_data as $group) {
-             $series_list[] = [
+            $series_list[] = [
                 'chip'    => $group['chip'],
                 'devices' => implode(', ', array_keys($group['devices'])),
                 'builds'  => implode(', ', array_keys($group['builds'])),
                 'data'    => $group['data'],
-             ];
+            ];
         }
         $parse_chip = function($chip_name) {
             $series = '';
@@ -115,6 +115,25 @@ try {
             $b_rank = $tier_rank[$b_tier] ?? 0;
             if ($a_rank !== $b_rank) {
                 return $b_rank <=> $a_rank;
+            }
+            $get_voltage_at_max_freq = function($data) {
+                if (empty($data)) return 0;
+                $max_freq = -1;
+                $voltage_at_max_freq = 0;
+                foreach ($data as $point) {
+                    if ($point[0] > $max_freq) {
+                        $max_freq = $point[0];
+                        $voltage_at_max_freq = $point[1];
+                    }
+                }
+                return $voltage_at_max_freq;
+            };
+
+            $a_voltage = $get_voltage_at_max_freq($a['data']);
+            $b_voltage = $get_voltage_at_max_freq($b['data']);
+
+            if ($a_voltage !== $b_voltage) {
+                return $b_voltage <=> $a_voltage;
             }
             return $a['chip'] <=> $b['chip'];
         });
