@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (e)",
+  "version": "1A079 (f)",
   "notes": [
-    "修改玻璃实现"
+    "修复了双击意外放大的 bug"
   ],
   "rsr_patches": [
     {
@@ -32,6 +32,7 @@
       "base": "1A079 (b)",
       "delta": [
           "./index.html",
+          "./public-static/css/new.css",
           "./public-static/js/lib/table-generator.js",
           "./apple-silicon/chip-c/data.json"
       ]
@@ -40,12 +41,23 @@
       "base": "1A079 (c)",
       "delta": [
           "./index.html",
+          "./public-static/css/new.css",
           "./public-static/js/lib/table-generator.js"
       ]
     },
     {
       "base": "1A079 (d)",
       "delta": [
+          "./index.html",
+          "./public-static/css/new.css",
+          "./public-static/js/lib/table-generator.js"
+      ]
+    },
+    {
+      "base": "1A079 (e)",
+      "delta": [
+          "./index.html",
+          "./public-static/css/new.css",
           "./public-static/js/lib/table-generator.js"
       ]
     }

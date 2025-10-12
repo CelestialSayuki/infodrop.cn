@@ -256,6 +256,7 @@ body {
     transition:background-color var(--transition-speed) ease,color var(--transition-speed) ease;
     overflow-x:hidden;
     font-size:14px;
+    touch-action: manipulation;
 }
 a {
     color:var(--accent-color);

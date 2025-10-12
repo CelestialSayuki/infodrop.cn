@@ -222,16 +222,12 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           svgFilter.innerHTML = `
             <filter id="${filterId}" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
                 <feTurbulence type="fractalNoise" baseFrequency="0.05 0.07" numOctaves="1" seed="2" result="turbulence"/>
-
                 <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="R"/>
                 <feDisplacementMap in="R" in2="turbulence" scale="60" xChannelSelector="R" yChannelSelector="G" result="R_displaced"/>
-
                 <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="G"/>
                 <feDisplacementMap in="G" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="G_displaced"/>
-
                 <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="B"/>
                 <feDisplacementMap in="B" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G" result="B_displaced"/>
-
                 <feComposite in="R_displaced" in2="G_displaced" operator="lighter" result="RG_combined"/>
                 <feComposite in="RG_combined" in2="B_displaced" operator="lighter"/>
             </filter>
@@ -260,9 +256,9 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                   z-index: 3;
                   inset: 0;
                   border-radius: inherit;
-                  background: radial-gradient(circle 70px at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 1) 0%, transparent 85%);
+                  background-color: rgba(255, 255, 255, 0.7);
                   opacity: 0;
-                  transform: scale(0);
+                  transform: scale(0.95);
                   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-out;
               }
               .glass-button.mouse-down::after {
@@ -280,16 +276,15 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           backdropFilter: 'blur(10px)', webkitBackdropFilter: 'blur(10px)',
           display: 'flex', justifyContent: 'center', alignItems: 'center',
           zIndex: '10000', cursor: 'grab', opacity: '0',
-          transition: 'opacity 0.3s ease'
+          transition: 'opacity 0.3s ease',
+          touchAction: 'none'
         });
 
         const imageElement = document.createElement('img');
         imageElement.src = imageSrc;
         imageElement.alt = imageAlt;
-
         Object.assign(imageElement.style, {
-          maxWidth: '90vw',
-          maxHeight: '90vh',
+          maxWidth: '90vw', maxHeight: '90vh',
           borderRadius: '12px',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
           cursor: 'grab',
@@ -306,7 +301,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         const createGlassButton = (svgIcon, title) => {
           const btn = document.createElement('button');
           btn.title = title;
-
           Object.assign(btn.style, {
             position: 'relative', width: '60px', height: '60px',
             border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -316,28 +310,24 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             overflow: 'hidden',
             transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
           });
-
           const effect = document.createElement('div');
           Object.assign(effect.style, {
             position: 'absolute', inset: '0', zIndex: '0',
             backdropFilter: 'blur(1px)',
             filter: `url(#${filterId})`
           });
-
           const tint = document.createElement('div');
           Object.assign(tint.style, {
             position: 'absolute', inset: '0', zIndex: '1',
             background: 'rgba(252, 253, 254, 0.05)',
             borderRadius: '50%'
           });
-
           const shine = document.createElement('div');
           Object.assign(shine.style, {
             position: 'absolute', inset: '0', zIndex: '2',
             boxShadow: 'inset 1px 1px 1px 0 rgba(255, 255, 255, 0.3)',
             borderRadius: '50%'
           });
-
           const iconContainer = document.createElement('div');
           iconContainer.innerHTML = svgIcon;
           Object.assign(iconContainer.style, {
@@ -345,9 +335,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             width: '100%', height: '100%',
             display: 'flex', alignItems: 'center', justifyContent: 'center'
           });
-
           btn.append(effect, tint, shine, iconContainer);
-
           btn.addEventListener('mousemove', e => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -355,10 +343,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             btn.style.setProperty('--mouse-x', `${x}px`);
             btn.style.setProperty('--mouse-y', `${y}px`);
           });
-
-          btn.onmouseenter = () => {
-            btn.style.transform = 'scale(1.01)';
-          };
+          btn.onmouseenter = () => btn.style.transform = 'scale(1.01)';
           btn.onmouseleave = () => {
             btn.style.transform = 'scale(1)';
             btn.classList.remove('mouse-down');
@@ -371,7 +356,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             btn.style.transform = 'scale(1.01)';
             btn.classList.remove('mouse-down');
           };
-
           btn.classList.add('glass-button');
           return btn;
         };
@@ -395,6 +379,20 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         let isDragging = false, startPos = { x: 0, y: 0 };
         let animationFrameId = null;
 
+        const activePointers = new Map();
+        let prevPinchDistance = null;
+
+        const getDistance = (p1, p2) => {
+          return Math.hypot(p1.clientX - p2.clientX, p1.clientY - p2.clientY);
+        };
+        
+        const getMidpoint = (p1, p2) => {
+          return {
+            x: (p1.clientX + p2.clientX) / 2,
+            y: (p1.clientY + p2.clientY) / 2,
+          };
+        };
+
         function tick() {
           const lerpFactor = 0.2;
           offsetX += (targetOffsetX - offsetX) * lerpFactor;
@@ -408,82 +406,107 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                                   Math.abs(targetScale - scale) < 0.001;
 
           if (isAnimationDone) {
-            offsetX = targetOffsetX;
-            offsetY = targetOffsetY;
-            scale = targetScale;
-            imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
-
             cancelAnimationFrame(animationFrameId);
             animationFrameId = null;
           } else {
             animationFrameId = requestAnimationFrame(tick);
           }
         }
-
-        function updateZoom(delta, anchorX, anchorY) {
-          const oldTargetScale = targetScale;
-          targetScale = Math.max(1, Math.min(targetScale * delta, 10));
-          if (targetScale === oldTargetScale) return;
-
-          const scaleRatio = targetScale / oldTargetScale;
-
-          targetOffsetX = anchorX - (anchorX - targetOffsetX) * scaleRatio;
-          targetOffsetY = anchorY - (anchorY - targetOffsetY) * scaleRatio;
-
-          if (!animationFrameId) {
-            tick();
-          }
+        
+        function updateTransform() {
+            offsetX = targetOffsetX;
+            offsetY = targetOffsetY;
+            scale = targetScale;
+            imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
         }
+        
+        function applyZoom(delta, anchorX, anchorY) {
+            const oldTargetScale = targetScale;
+            targetScale = Math.max(1, Math.min(targetScale * delta, 10));
+            if (targetScale === oldTargetScale) return;
 
-        const onPointerMove = (e) => {
-          if (isDragging) {
-            doPan(e);
-          }
-        };
+            const scaleRatio = targetScale / oldTargetScale;
+
+            targetOffsetX = anchorX - (anchorX - targetOffsetX) * scaleRatio;
+            targetOffsetY = anchorY - (anchorY - targetOffsetY) * scaleRatio;
+        }
 
         viewerOverlay.addEventListener('wheel', (e) => {
           e.preventDefault();
           const rect = viewerOverlay.getBoundingClientRect();
           const anchorX = e.clientX - rect.left - (rect.width / 2);
           const anchorY = e.clientY - rect.top - (rect.height / 2);
-          updateZoom(e.deltaY < 0 ? 1.1 : 1 / 1.1, anchorX, anchorY);
+          applyZoom(e.deltaY < 0 ? 1.1 : 1 / 1.1, anchorX, anchorY);
+          if (!animationFrameId) tick();
         });
 
-        const startPan = (e) => {
-          if (e.target.closest('button')) return;
-          e.preventDefault();
-          isDragging = true;
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = null;
-          startPos = { x: e.clientX - targetOffsetX, y: e.clientY - targetOffsetY };
-          viewerOverlay.style.cursor = 'grabbing';
+        const onPointerDown = (e) => {
+            if (e.target.closest('button')) return;
+            e.preventDefault();
+            activePointers.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+            
+            if (activePointers.size === 1) {
+                isDragging = true;
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+                startPos = { x: e.clientX - targetOffsetX, y: e.clientY - targetOffsetY };
+                viewerOverlay.style.cursor = 'grabbing';
+            } else if (activePointers.size === 2) {
+                isDragging = false;
+                const pointers = Array.from(activePointers.values());
+                prevPinchDistance = getDistance(pointers[0], pointers[1]);
+            }
         };
 
-        const doPan = (e) => {
-          e.preventDefault();
-          targetOffsetX = e.clientX - startPos.x;
-          targetOffsetY = e.clientY - startPos.y;
-          offsetX = targetOffsetX;
-          offsetY = targetOffsetY;
-          scale = targetScale;
-          imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+        const onPointerMove = (e) => {
+            if (!activePointers.has(e.pointerId)) return;
+            activePointers.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+
+            if (activePointers.size === 1 && isDragging) {
+                targetOffsetX = e.clientX - startPos.x;
+                targetOffsetY = e.clientY - startPos.y;
+                updateTransform();
+            } else if (activePointers.size === 2 && prevPinchDistance) {
+                const pointers = Array.from(activePointers.values());
+                const currentDist = getDistance(pointers[0], pointers[1]);
+                const zoomDelta = currentDist / prevPinchDistance;
+                
+                const midpoint = getMidpoint(pointers[0], pointers[1]);
+                const rect = viewerOverlay.getBoundingClientRect();
+                const anchorX = midpoint.x - rect.left - (rect.width / 2);
+                const anchorY = midpoint.y - rect.top - (rect.height / 2);
+                
+                applyZoom(zoomDelta, anchorX, anchorY);
+                updateTransform();
+
+                prevPinchDistance = currentDist;
+            }
         };
 
-        const endPan = () => {
-          if (!isDragging) return;
-          isDragging = false;
-          viewerOverlay.style.cursor = 'grab';
+        const onPointerUp = (e) => {
+            activePointers.delete(e.pointerId);
+            
+            if (activePointers.size < 2) {
+                prevPinchDistance = null;
+                isDragging = false;
+                viewerOverlay.style.cursor = 'grab';
+            }
+            if (activePointers.size === 1) {
+                const remainingPointer = Array.from(activePointers.values())[0];
+                isDragging = true;
+                startPos = { x: remainingPointer.clientX - targetOffsetX, y: remainingPointer.clientY - targetOffsetY };
+            }
         };
 
-        viewerOverlay.addEventListener('pointerdown', startPan);
+        viewerOverlay.addEventListener('pointerdown', onPointerDown);
         viewerOverlay.addEventListener('pointermove', onPointerMove);
-        viewerOverlay.addEventListener('pointerup', endPan);
-        viewerOverlay.addEventListener('pointerleave', endPan);
-
+        viewerOverlay.addEventListener('pointerup', onPointerUp);
+        viewerOverlay.addEventListener('pointercancel', onPointerUp);
+        viewerOverlay.addEventListener('pointerleave', onPointerUp);
+        
         const closeViewer = () => {
           viewerOverlay.style.opacity = '0';
           cancelAnimationFrame(animationFrameId);
-          viewerOverlay.removeEventListener('pointermove', onPointerMove);
           viewerOverlay.addEventListener('transitionend', () => {
             const style = document.getElementById(styleId);
             const filter = document.getElementById(filterId)?.parentElement;
@@ -500,18 +523,8 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         });
 
         const applyButtonZoom = (delta) => {
-          const oldTargetScale = targetScale;
-          targetScale = Math.max(1, Math.min(targetScale * delta, 10));
-          if(targetScale === oldTargetScale) return;
-
-          const scaleRatio = targetScale / oldTargetScale;
-
-          targetOffsetX *= scaleRatio;
-          targetOffsetY *= scaleRatio;
-
-          if (!animationFrameId) {
-            tick();
-          }
+          applyZoom(delta, 0, 0);
+          if (!animationFrameId) tick();
         };
 
         btnZoomIn.addEventListener('click', (e) => { e.stopPropagation(); applyButtonZoom(1.4); });
