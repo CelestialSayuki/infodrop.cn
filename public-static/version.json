@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (g)",
+  "version": "1A079 (f)",
   "notes": [
-    "修正iPhone Air数据"
+    "修正iPad Pro M5芯片"
   ],
   "rsr_patches": [
     {
@@ -13,8 +13,10 @@
           "./public-static/js/lib/WindowManager.js",
           "./public-static/js/lib/table-generator.js",
           "./apple-device/iphone/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./public-static/js/lib/Window.js",
           "./apple-silicon/chip-c/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-tools/model/data.json"
       ]
@@ -25,9 +27,11 @@
           "./index.html",
           "./public-static/css/new.css",
           "./public-static/js/lib/table-generator.js",
+          "./apple-silicon/chip-m/data.json",
           "./public-static/js/lib/WindowManager.js",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-c/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./public-static/js/lib/Window.js"
       ]
@@ -39,6 +43,8 @@
           "./public-static/css/new.css",
           "./public-static/js/lib/table-generator.js",
           "./apple-device/iphone/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-silicon/chip-c/data.json"
       ]
@@ -48,8 +54,10 @@
       "delta": [
           "./index.html",
           "./public-static/css/new.css",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-device/iphone/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./public-static/js/lib/table-generator.js"
       ]
     },
@@ -58,8 +66,10 @@
       "delta": [
           "./index.html",
           "./public-static/css/new.css",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-device/iphone/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./public-static/js/lib/table-generator.js"
       ]
     },
@@ -67,8 +77,10 @@
       "base": "1A079 (e)",
       "delta": [
           "./index.html",
+          "./apple-device/ipad/ipad-pro/data.json",
           "./apple-device/iphone/data.json",
           "./public-static/css/new.css",
+          "./apple-silicon/chip-m/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./public-static/js/lib/table-generator.js"
       ]
@@ -78,7 +90,17 @@
       "delta": [
           "./index.html",
           "./apple-device/iphone/data.json",
+          "./apple-device/ipad/ipad-pro/data.json",
+          "./apple-silicon/chip-m/data.json",
           "./apple-report/frequency-voltage/index.html"
+      ]
+    },
+    {
+      "base": "1A079 (g)",
+      "delta": [
+          "./index.html",
+          "./apple-silicon/chip-m/data.json",
+          "./apple-device/ipad/ipad-pro/data.json"
       ]
     }
   ]
