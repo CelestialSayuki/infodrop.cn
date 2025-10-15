@@ -1,6 +1,6 @@
 {
     "title": "苹果 iPad Pro 参数对比",
-    "lastUpdated": "2025.04.14",
+    "lastUpdated": "2025.10.15",
     "featureGroups": [
         {
             "groupName": "基础",
@@ -162,8 +162,8 @@
             "generation": "(M5)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
-                "slogan": "",
-                "releaseDate": "未发布",
+                "slogan": "高能猛进",
+                "releaseDate": "2025.10.15",
                 "osSupport": "iPadOS 26 ~ 最新",
                 "modelId": "iPad17,5 / iPad17,6",
                 "colors": [
@@ -189,8 +189,8 @@
                 "lidar": "IMX591 dToF 距离感应",
                 "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
                 "wiredInterface": "USB-C (最高可达 40Gb/s)",
-                "cellular": "Qualcomm X80M",
-                "wifi": "802.11be HT160 2x2 MIMO",
+                "cellular": "Apple C1X",
+                "wifi": "Apple N1<br>802.11be HT160 2x2 MIMO",
                 "bluetooth": "Bluetooth 6.0",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "38.99Wh",
@@ -205,8 +205,8 @@
             "generation": "(M5)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
-                "slogan": "",
-                "releaseDate": "未发布",
+                "slogan": "高能猛进",
+                "releaseDate": "2025.10.15",
                 "osSupport": "iPadOS 26 ~ 最新",
                 "modelId": "iPad17,3 / iPad17,4",
                 "colors": [
@@ -232,9 +232,9 @@
                 "lidar": "IMX591 dToF 距离感应",
                 "pencilSupport": "Apple Pencil Pro<br>Apple Pencil (USB‑C)",
                 "wiredInterface": "USB-C (最高可达 40Gb/s)",
-                "cellular": "Qualcomm X80M",
-                "wifi": "802.11be HT160 2x2 MIMO",
-                "bluetooth": "Bluetooth 5.3",
+                "cellular": "Apple C1X",
+                "wifi": "Apple N1<br>802.11be HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 6.0",
                 "unlockMethod": "面容 ID",
                 "batteryCapacity": "31.29Wh",
                 "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线局域网<br>浏览网页：10h</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">蜂窝网络<br>浏览网页：9h</div>",
