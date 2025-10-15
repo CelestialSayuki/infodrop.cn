@@ -1,7 +1,7 @@
 {
-  "version": "1A079 (i)",
+  "version": "1A079 (j)",
   "notes": [
-    "修正系统支持页面 iPhone 17 系列标识符信息"
+    "删除 GPU L2 Cache 相关信息"
   ],
   "rsr_patches": [
     {
@@ -17,6 +17,7 @@
           "./apple-silicon/chip-m/data.json",
           "./public-static/js/lib/Window.js",
           "./apple-silicon/chip-c/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-tools/model/data.json"
@@ -33,6 +34,7 @@
           "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-c/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./public-static/js/lib/Window.js"
@@ -48,6 +50,7 @@
           "./apple-tools/support/data/ios.json",
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./apple-silicon/chip-c/data.json"
       ]
@@ -62,6 +65,7 @@
           "./apple-tools/support/data/ios.json",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./public-static/js/lib/table-generator.js"
       ]
     },
@@ -75,6 +79,7 @@
           "./apple-report/frequency-voltage/index.html",
           "./apple-device/iphone/data.json",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./public-static/js/lib/table-generator.js"
       ]
     },
@@ -87,6 +92,7 @@
           "./apple-device/iphone/data.json",
           "./public-static/css/new.css",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-report/frequency-voltage/index.html",
           "./public-static/js/lib/table-generator.js"
       ]
@@ -99,6 +105,7 @@
           "./apple-device/ipad/ipad-pro/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-report/frequency-voltage/index.html"
       ]
     },
@@ -107,6 +114,7 @@
       "delta": [
           "./index.html",
           "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-tools/support/data/ios.json",
           "./apple-device/ipad/ipad-pro/data.json"
       ]
@@ -115,7 +123,17 @@
       "base": "1A079 (h)",
       "delta": [
           "./index.html",
+          "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json",
           "./apple-tools/support/data/ios.json"
+      ]
+    },
+    {
+      "base": "1A079 (h)",
+      "delta": [
+          "./index.html",
+          "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-a/data.json"
       ]
     }
   ]
