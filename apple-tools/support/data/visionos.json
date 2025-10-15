@@ -17,6 +17,7 @@
         "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
     },
     "devices": [
-        { "model": "Apple Vision Pro", "chip": "M2 + R1", "date": "2024.02", "identifier": "RealityDevice14,1", "supportedOS": ["visionos_1", "visionos_2", "visionos_26"], "special": { "visionos_2": "glow", "visionos_26": "glow" } }
+        { "model": "Apple Vision Pro", "chip": "M2 + R1", "date": "2024.02", "identifier": "RealityDevice14,1", "supportedOS": ["visionos_1", "visionos_2", "visionos_26"], "special": { "visionos_2": "glow", "visionos_26": "glow" } },
+        { "model": "Apple Vision Pro (M5)", "chip": "M5 + R1", "date": "2025.10", "identifier": "RealityDevice17,1", "supportedOS": ["visionos_26"], "special": { "visionos_26": "glow" } }
     ]
 }

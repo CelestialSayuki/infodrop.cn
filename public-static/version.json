@@ -1,12 +1,16 @@
 {
-  "version": "1A080",
+  "version": "1A080 (a)",
   "notes": [
-    "更新 M5 系列设备信息，暂时不保证正确"
+    "更新 M5 系列设备信息"
   ],
   "rsr_patches": [
     {
-      "base": "",
+      "base": "1A080",
       "delta": [
+          "./apple-tools/support/data/visionos.json",
+          "./apple-tools/support/data/ipados.json",
+          "./apple-tools/support/data/macos.json",
+          "./apple-silicon/chip-m/data.json"
       ]
     }
   ]

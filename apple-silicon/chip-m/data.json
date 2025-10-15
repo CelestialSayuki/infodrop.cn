@@ -174,11 +174,11 @@
         {
             "name": "M5",
             "generation": "(Hidra, APL1xxx-T8142)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-m/img/M5_product.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-m/img/M5_product.webp",
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-m/img/M5_structure.webp",
                 "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp"
             },
             "data": {
@@ -193,17 +193,17 @@
                 "processTech": "TSMC N3P",
                 "transistorCount": "",
                 "dieSize": "",
-                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.5?G ×3<br>3.??G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.5?G ×4<br>3.??G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.5?G ×4<br>3.??G ×6</div>",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.5?G ×3<br>3.??G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.5?G ×4<br>3.??G ×6</div>",
                 "coreArchitecture": "64-bit ARMv9.2-A",
                 "microArchitecture": "Hidra-P + Hidra-E<br>(10-wide + 6-wide)",
                 "l1iCache": "3/4×192KB + 4/6×128KB",
                 "l1dCache": "3/4×128KB + 4/6×64KB",
                 "l2Cache": "大核 16MB + 小核 6MB",
                 "mlAccelerator": "SME + AMX Version 6",
-                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8<br>128 EUs<br>1024 ALUs<br>@????MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10<br>160 EUs<br>1280 ALUs<br>@????MHz</div>",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10<br>160 EUs<br>1280 ALUs<br>@????MHz</div>",
                 "gpuModel": "Apple10 家族, Apple G17G",
                 "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
-                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17<br>16 核 @ 38TOPS (FP16 稀疏化)<br>@????MHz</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17<br>16 核 @ ??TOPS (FP16 稀疏化)<br>@????MHz</div>",
                 "aneCoreCache": "64KB ×16 核",
                 "aneSram": "2MB ANE SRAM",
                 "hardwareAccel": "H.264, HEVC, ProRes/RAW",
@@ -214,7 +214,7 @@
                 "ramSpec": "LPDDR5X-9600",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12/16/24/32GB<br>总位宽 128-bit<br>153.6GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>Apple Vision Pro (M5))<br>MacBook Pro (14-inch, M5, 2025)</div>"
             }
         },
         {
