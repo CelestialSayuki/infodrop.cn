@@ -1,16 +1,31 @@
 {
-  "version": "1A080 (a)",
+  "version": "1A080 (b)",
   "notes": [
-    "更新 M5 系列设备信息"
+    "更新部分图片"
   ],
   "rsr_patches": [
     {
       "base": "1A080",
       "delta": [
+          "./apple-device/audio/airpods/data.json",
+          "./apple-device/iphone/data.json",
           "./apple-tools/support/data/visionos.json",
           "./apple-tools/support/data/ipados.json",
           "./apple-tools/support/data/macos.json",
-          "./apple-silicon/chip-m/data.json"
+          "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-n/data.json"
+      ]
+    }，
+    {
+      "base": "1A080 (a)",
+      "delta": [
+          "./apple-device/audio/airpods/data.json",
+          "./apple-device/iphone/data.json",
+          "./apple-tools/support/data/visionos.json",
+          "./apple-tools/support/data/ipados.json",
+          "./apple-tools/support/data/macos.json",
+          "./apple-silicon/chip-m/data.json",
+          "./apple-silicon/chip-n/data.json"
       ]
     }
   ]
