@@ -1,70 +1,12 @@
 {
-    "version": "1A080 (f)",
+    "version": "1A081",
     "notes": [
-        "更新 M5 参数"
+        "更新缓存描述"
     ],
     "rsr_patches": [
         {
-            "base": "1A080",
+            "base": "",
             "delta": [
-                "./index.html",
-                "./apple-device/audio/airpods/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./apple-device/iphone/data.json",
-                "./apple-tools/support/data/visionos.json",
-                "./apple-tools/support/data/ipados.json",
-                "./apple-tools/support/data/macos.json",
-                "./apple-device/vision/data.json",
-                "./apple-silicon/chip-m/data.json",
-                "./apple-silicon/chip-n/data.json"
-            ]
-        },
-        {
-            "base": "1A080 (a)",
-            "delta": [
-                "./index.html",
-                "./apple-device/audio/airpods/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./apple-device/iphone/data.json",
-                "./apple-tools/support/data/visionos.json",
-                "./apple-tools/support/data/ipados.json",
-                "./apple-tools/support/data/macos.json",
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/vision/data.json",
-                "./apple-silicon/chip-n/data.json"
-            ]
-        },
-        {
-            "base": "1A080 (b)",
-            "delta": [
-                "./index.html",
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./apple-device/audio/airpods/data.json"
-            ]
-        },
-        {
-            "base": "1A080 (c)",
-            "delta": [
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A080 (d)",
-            "delta": [
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A080 (e)",
-            "delta": [
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/mac/macbook-pro/data.json",
-                "./index.html"
             ]
         }
     ]
