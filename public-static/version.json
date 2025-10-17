@@ -1,12 +1,13 @@
 {
-    "version": "1A080 (b)",
+    "version": "1A080 (d)",
     "notes": [
-        "更新部分图片"
+        "增加有关hubweb事件的临时声明。"
     ],
     "rsr_patches": [
         {
             "base": "1A080",
             "delta": [
+                "./index.html",
                 "./apple-device/audio/airpods/data.json",
                 "./apple-device/iphone/data.json",
                 "./apple-tools/support/data/visionos.json",
@@ -20,6 +21,7 @@
         {
             "base": "1A080 (a)",
             "delta": [
+                "./index.html",
                 "./apple-device/audio/airpods/data.json",
                 "./apple-device/iphone/data.json",
                 "./apple-tools/support/data/visionos.json",
@@ -28,6 +30,19 @@
                 "./apple-silicon/chip-m/data.json",
                 "./apple-device/vision/data.json",
                 "./apple-silicon/chip-n/data.json"
+            ]
+        },
+        {
+            "base": "1A080 (b)",
+            "delta": [
+                "./index.html",
+                "./apple-device/audio/airpods/data.json"
+            ]
+        },
+        {
+            "base": "1A080 (c)",
+            "delta": [
+                "./index.html"
             ]
         }
     ]
