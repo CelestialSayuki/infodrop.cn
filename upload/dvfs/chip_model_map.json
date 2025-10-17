@@ -1,5 +1,10 @@
 [
   {
+    "chipModel": "T8142",
+    "cpuModel": "M5",
+    "isLegacy": false
+  },
+  {
     "chipModel": "T8103",
     "cpuModel": "M1",
     "isLegacy": true

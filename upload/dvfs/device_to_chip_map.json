@@ -121,6 +121,10 @@
     "iPad16,6": "M4",
     "iPad16,3": "M4",
     "iPad16,4": "M4",
+    "iPad17,5": "M5",
+    "iPad17,6": "M5",
+    "iPad17,3": "M5",
+    "iPad17,4": "M5",
     "iPad14,5": "M2",
     "iPad14,6": "M2",
     "iPad14,3": "M2",
@@ -207,5 +211,7 @@
     "Mac15,14": "M3 Ultra",
     "Mac16,13": "M4",
     "Mac16,12": "M4",
-    "Mac16,9": "M4 Max"
+    "Mac16,9": "M4 Max",
+    "RealityDevice14,1": "M2",
+    "RealityDevice17,1": "M5"
 }

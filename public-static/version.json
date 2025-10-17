@@ -1,7 +1,7 @@
 {
-    "version": "1A080 (e)",
+    "version": "1A080 (f)",
     "notes": [
-        "更新 M5 口号"
+        "更新 M5 参数"
     ],
     "rsr_patches": [
         {
@@ -9,6 +9,7 @@
             "delta": [
                 "./index.html",
                 "./apple-device/audio/airpods/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
                 "./apple-device/iphone/data.json",
                 "./apple-tools/support/data/visionos.json",
                 "./apple-tools/support/data/ipados.json",
@@ -23,6 +24,7 @@
             "delta": [
                 "./index.html",
                 "./apple-device/audio/airpods/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
                 "./apple-device/iphone/data.json",
                 "./apple-tools/support/data/visionos.json",
                 "./apple-tools/support/data/ipados.json",
@@ -37,6 +39,7 @@
             "delta": [
                 "./index.html",
                 "./apple-silicon/chip-m/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
                 "./apple-device/audio/airpods/data.json"
             ]
         },
@@ -44,6 +47,7 @@
             "base": "1A080 (c)",
             "delta": [
                 "./apple-silicon/chip-m/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
                 "./index.html"
             ]
         },
@@ -51,6 +55,15 @@
             "base": "1A080 (d)",
             "delta": [
                 "./apple-silicon/chip-m/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "1A080 (e)",
+            "delta": [
+                "./apple-silicon/chip-m/data.json",
+                "./apple-device/mac/macbook-pro/data.json",
                 "./index.html"
             ]
         }

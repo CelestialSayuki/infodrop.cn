@@ -121,6 +121,10 @@
     "iPad16,6": "iPad Pro 13 英寸 (M4)",
     "iPad16,3": "iPad Pro 11 英寸 (M4)",
     "iPad16,4": "iPad Pro 11 英寸 (M4)",
+    "iPad17,5": "iPad Pro 13 英寸 (M5)",
+    "iPad17,6": "iPad Pro 13 英寸 (M5)",
+    "iPad17,3": "iPad Pro 11 英寸 (M5)",
+    "iPad17,4": "iPad Pro 11 英寸 (M5)",
     "iPad14,5": "iPad Pro 12.9 英寸 (第 6 代)",
     "iPad14,6": "iPad Pro 12.9 英寸 (第 6 代)",
     "iPad14,3": "iPad Pro 11 英寸 (第 4 代)",
@@ -207,5 +211,8 @@
     "Mac15,14": "Mac Studio (2025)",
     "Mac16,13": "MacBook Air (15-inch, M4, 2025)",
     "Mac16,12": "MacBook Air (13-inch, M4, 2025)",
-    "Mac16,9": "Mac Studio (2025)"
+    "Mac16,9": "Mac Studio (2025)",
+    "Mac17,2": "MacBook Pro (14-inch, M5, 2025)",
+    "RealityDevice14,1": "Apple Vision Pro (M2)",
+    "RealityDevice17,1": "Apple Vision Pro (M5)"
 }
