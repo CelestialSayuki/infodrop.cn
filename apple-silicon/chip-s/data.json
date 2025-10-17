@@ -1,6 +1,5 @@
 {
     "title": "苹果 S 系列参数对比",
-    "lastUpdated": "2025.09.10",
     "featureGroups": [
         {
             "groupName": "基础",
@@ -218,12 +217,15 @@
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
             "images": {
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                }
             },
             "data": {
                 "displayType": [
                     "SiP",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2024.09",
                 "chipCodename": "-",
@@ -269,12 +271,15 @@
             "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
             "images": {
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                }
             },
             "data": {
                 "displayType": [
                     "SiP",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2023.09",
                 "chipCodename": "-",
@@ -322,14 +327,17 @@
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_temp.webp",
                 "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_1_temp.webp",
                 "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_2_temp.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
             },
             "data": {
                 "displayType": [
                     "SiP",
                     "正面",
                     "反面",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2022.09",
                 "chipCodename": "Turks",
@@ -377,14 +385,17 @@
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_temp.webp",
                 "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_1_temp.webp",
                 "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_2_temp.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
             },
             "data": {
                 "displayType": [
                     "SiP",
                     "正面",
                     "反面",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2021.09",
                 "chipCodename": "Turks",
@@ -432,14 +443,17 @@
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_temp.webp",
                 "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_1_temp.webp",
                 "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_2_temp.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
             },
             "data": {
                 "displayType": [
                     "SiP",
                     "正面",
                     "反面",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2020.09",
                 "chipCodename": "Turks",
@@ -646,14 +660,14 @@
                 "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_temp.webp",
                 "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_1_temp.webp",
                 "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_2_temp.webp",
-                "SOC Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_die_temp.webp"
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2.webp"
             },
             "data": {
                 "displayType": [
                     "SiP",
                     "正面",
                     "反面",
-                    "SOC Die"
+                    "Die"
                 ],
                 "releaseDate": "2016.09",
                 "chipCodename": "-",

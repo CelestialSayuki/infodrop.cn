@@ -1,6 +1,5 @@
 {
     "title": "苹果 C 系列参数对比",
-    "lastUpdated": "2025.03.13",
     "featureGroups": [
         {
             "groupName": "基础",
@@ -112,7 +111,10 @@
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_APL1114.webp",
-                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp"
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1.webp"
+                }
             },
             "data": {
                 "displayType": [
@@ -147,7 +149,10 @@
             "images": {
                 "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
                 "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_APL1114.webp",
-                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_Die.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1.webp"
+                },
                 "RF": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_RF.webp"
             },
             "data": {

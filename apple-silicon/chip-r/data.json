@@ -1,6 +1,5 @@
 {
   "title": "苹果 R 系列参数对比",
-  "lastUpdated": "2025.06.12",
   "featureGroups": [
     {
       "groupName": "基础",
@@ -64,10 +63,14 @@
       "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_product.webp",
       "images": {
         "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_product.webp",
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1.webp"
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1.webp",
+        "Die": {
+            "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_Layout.webp",
+            "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_Die.webp"
+        }
       },
       "data": {
-        "displayType": ["宣传图", "芯片图"],
+        "displayType": ["宣传图", "芯片图","Die"],
         "releaseDate": "2023.06",
         "processTech": "TSMC N5",
         "transistorCount": "-",

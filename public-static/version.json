@@ -1,16 +1,12 @@
 {
-    "version": "1A081 (a)",
+    "version": "1A082",
     "notes": [
-        "修正 iPad Pro 设备标识符"
+        "新增 Dieshot Layout 线开关，仅部分图片可用。"
     ],
     "rsr_patches": [
         {
-            "base": "1A081",
+            "base": "",
             "delta": [
-                "./apple-silicon/chip-a/data.json",
-                "./apple-silicon/chip-m/data.json",
-                "./apple-device/ipad/ipad-pro/data.json",
-                "./apple-tools/support/data/ipados.json"
             ]
         }
     ]
