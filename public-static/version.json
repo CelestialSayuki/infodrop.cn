@@ -1,7 +1,7 @@
 {
-    "version": "1A080 (d)",
+    "version": "1A080 (e)",
     "notes": [
-        "增加有关hubweb事件的临时声明。"
+        "更新 M5 口号"
     ],
     "rsr_patches": [
         {
@@ -36,12 +36,21 @@
             "base": "1A080 (b)",
             "delta": [
                 "./index.html",
+                "./apple-silicon/chip-m/data.json",
                 "./apple-device/audio/airpods/data.json"
             ]
         },
         {
             "base": "1A080 (c)",
             "delta": [
+                "./apple-silicon/chip-m/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "1A080 (d)",
+            "delta": [
+                "./apple-silicon/chip-m/data.json",
                 "./index.html"
             ]
         }
