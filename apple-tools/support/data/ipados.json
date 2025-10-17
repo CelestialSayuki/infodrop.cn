@@ -41,7 +41,7 @@
                 { "model": "iPad Pro 11-inch (3rd generation)<br>iPad Pro 12.9-inch (5th generation)", "chip": "M1", "date": "2021.04", "identifier": "iPad13,4/iPad13,5/iPad13,6/iPad13,7<br>iPad13,8/iPad13,9/iPad13,10/iPad13,11", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
                 { "model": "iPad Pro 11-inch (4th generation)<br>iPad Pro 12.9-inch (6th generation)", "chip": "M2", "date": "2022.10", "identifier": "iPad14,3/iPad14,4<br>iPad14,5/iPad14,6", "supportedOS": ["ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
                 { "model": "iPad Pro 11‑inch (M4)<br>iPad Pro 13‑inch (M4)", "chip": "M4", "date": "2024.05", "identifier": "iPad16,3/iPad16,4<br>iPad16,5/iPad16,6", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
-                { "model": "iPad Pro 11‑inch (M5)<br>iPad Pro 13‑inch (M5)", "chip": "M5", "date": "2025.10", "identifier": "iPad17,3/iPad17,4<br>iPad17,5/iPad17,6", "supportedOS": ["ipados_26"], "special": { "ipados_26": "glow" } }
+                { "model": "iPad Pro 11‑inch (M5)<br>iPad Pro 13‑inch (M5)", "chip": "M5", "date": "2025.10", "identifier": "iPad17,3/iPad17,4<br>iPad17,1/iPad17,2", "supportedOS": ["ipados_26"], "special": { "ipados_26": "glow" } }
 
             ]
         },

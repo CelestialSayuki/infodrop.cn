@@ -1,12 +1,16 @@
 {
-    "version": "1A081",
+    "version": "1A081 (a)",
     "notes": [
-        "更新缓存描述"
+        "修正 iPad Pro 设备标识符"
     ],
     "rsr_patches": [
         {
-            "base": "",
+            "base": "1A081",
             "delta": [
+                "./apple-silicon/chip-a/data.json",
+                "./apple-silicon/chip-m/data.json",
+                "./apple-device/ipad/ipad-pro/data.json",
+                "./apple-tools/support/data/ipados.json"
             ]
         }
     ]
