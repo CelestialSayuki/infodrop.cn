@@ -1,13 +1,12 @@
 {
-    "version": "1A082 (a)",
+    "version": "1A082",
     "notes": [
         "新增 Dieshot Layout 线开关，仅部分图片可用。"
     ],
     "rsr_patches": [
         {
-            "base": "1A082",
+            "base": "",
             "delta": [
-                "./public-static/js/lib/table-generator.js"
             ]
         }
     ]

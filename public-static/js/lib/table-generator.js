@@ -211,24 +211,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
       }
     });
     targetElement.addEventListener('click', async (event) => {
-      if (event.target.classList.contains('image-swap-link')) {
-        event.preventDefault();
-        const link = event.target;
-        const imgSrc = link.dataset.imgSrc;
-        if (imgSrc) {
-          const newSrc = new URL(imgSrc, new URL(baseUrl, window.location.origin)).href;
-          const productColumn = link.closest('.product-column');
-          if (productColumn) {
-            const image = productColumn.querySelector('.product-image');
-            if (image && image.src !== newSrc) {
-              image.src = newSrc;
-              const imageType = link.dataset.imageType;
-              image.dataset.currentImageType = imageType;
-              webpMachine.polyfillDocument();
-            }
-          }
-        }
-      }
       if (event.target.classList.contains('product-image')) {
         event.preventDefault();
 
