@@ -106,10 +106,12 @@
 .product-column {
     flex-basis:230px;
     transition:flex-basis 0.35s ease-in-out,opacity 0.3s ease-in-out,margin 0.35s ease-in-out,transform 0.15s ease-out;
-    cursor:pointer;
 }
 .product-column:active {
     transform:scale(0.98);
+}
+.product-column:has(.product-image:active) {
+    transform: none;
 }
 .comparison-container.edit-mode .product-column {
     cursor: default;
@@ -175,6 +177,7 @@
     max-height:100%;
     max-width:100%;
     transition:transform 0.2s ease;
+    cursor: pointer;
 }
 .product-column:hover .product-image {
     transform:scale(1.05);

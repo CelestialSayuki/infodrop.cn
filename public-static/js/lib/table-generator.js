@@ -186,6 +186,8 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             const image = productColumn.querySelector('.product-image');
             if (image && image.src !== newSrc) {
               image.src = newSrc;
+              const imageType = link.dataset.imageType;
+              image.dataset.currentImageType = imageType;
               webpMachine.polyfillDocument();
             }
           }
@@ -210,7 +212,9 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         }
       }
     });
+
     targetElement.addEventListener('click', async (event) => {
+
       if (event.target.classList.contains('product-image')) {
         event.preventDefault();
 
@@ -383,145 +387,175 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         } else {
           controlsContainer.append(btnZoomIn, btnZoomOut, btnReset, btnClose);
         }
-
+        const closeViewer = () => {
+          viewerOverlay.style.opacity = '0';
+          cancelAnimationFrame(animationFrameId);
+          window.removeEventListener('keydown', handleEscKey);
+          viewerOverlay.addEventListener('transitionend', () => {
+            const style = document.getElementById(styleId);
+            const filter = document.getElementById(filterId)?.parentElement;
+            if(style) style.remove();
+            if(filter) filter.remove();
+            viewerOverlay.remove();
+          }, { once: true });
+        };
+        const handleEscKey = (e) => {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeViewer();
+          }
+        };
         viewerOverlay.append(imageElement, controlsContainer);
         document.body.appendChild(viewerOverlay);
-
-        let scale = 1,
-          offsetX = 0,
-          offsetY = 0;
-        let targetScale = 1,
-          targetOffsetX = 0,
-          targetOffsetY = 0;
-        let isDragging = false,
-          startPos = {
-            x: 0,
-            y: 0
-          };
+        window.addEventListener('keydown', handleEscKey);
+        let scale = 1, offsetX = 0, offsetY = 0;
+        let targetScale = 1, targetOffsetX = 0, targetOffsetY = 0;
+        let isDragging = false, startPos = { x: 0, y: 0 };
         let animationFrameId = null;
+
         const activePointers = new Map();
         let prevPinchDistance = null;
 
-        function updateTransform() {
-          imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
-        }
+        const getDistance = (p1, p2) => {
+          return Math.hypot(p1.clientX - p2.clientX, p1.clientY - p2.clientY);
+        };
+        
+        const getMidpoint = (p1, p2) => {
+          return {
+            x: (p1.clientX + p2.clientX) / 2,
+            y: (p1.clientY + p2.clientY) / 2,
+          };
+        };
 
         function tick() {
-          const l = 0.2;
-          offsetX += (targetOffsetX - offsetX) * l;
-          offsetY += (targetOffsetY - offsetY) * l;
-          scale += (targetScale - scale) * l;
-          updateTransform();
-          if (Math.abs(targetOffsetX - offsetX) < 0.1 && Math.abs(targetOffsetY - offsetY) < 0.1 && Math.abs(targetScale - scale) < 0.001) {
-            cancelAnimationFrame(animationFrameId);
-            animationFrameId = null
-          } else {
-            animationFrameId = requestAnimationFrame(tick)
-          }
-        }
+          const lerpFactor = 0.2;
+          offsetX += (targetOffsetX - offsetX) * lerpFactor;
+          offsetY += (targetOffsetY - offsetY) * lerpFactor;
+          scale += (targetScale - scale) * lerpFactor;
 
-        function applyZoom(delta, ax, ay) {
-          const o = targetScale;
-          targetScale = Math.max(1, Math.min(targetScale * delta, 10));
-          if (targetScale === o) return;
-          const r = targetScale / o;
-          targetOffsetX = ax - (ax - targetOffsetX) * r;
-          targetOffsetY = ay - (ay - targetOffsetY) * r
-        }
-        viewerOverlay.addEventListener('wheel', e => {
-          e.preventDefault();
-          const rect = viewerOverlay.getBoundingClientRect();
-          const ax = e.clientX - rect.left - rect.width / 2;
-          const ay = e.clientY - rect.top - rect.height / 2;
-          applyZoom(e.deltaY < 0 ? 1.1 : 1 / 1.1, ax, ay);
-          if (!animationFrameId) tick()
-        });
-        const onPointerDown = e => {
-          if (e.target.closest('button')) return;
-          e.preventDefault();
-          activePointers.set(e.pointerId, {
-            clientX: e.clientX,
-            clientY: e.clientY
-          });
-          if (activePointers.size === 1) {
-            isDragging = true;
+          imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+
+          const isAnimationDone = Math.abs(targetOffsetX - offsetX) < 0.1 &&
+                                  Math.abs(targetOffsetY - offsetY) < 0.1 &&
+                                  Math.abs(targetScale - scale) < 0.001;
+
+          if (isAnimationDone) {
             cancelAnimationFrame(animationFrameId);
             animationFrameId = null;
-            startPos = {
-              x: e.clientX - targetOffsetX,
-              y: e.clientY - targetOffsetY
-            };
-            viewerOverlay.style.cursor = 'grabbing'
+          } else {
+            animationFrameId = requestAnimationFrame(tick);
           }
-        };
-        const onPointerMove = e => {
-          if (!activePointers.has(e.pointerId)) return;
-          activePointers.set(e.pointerId, {
-            clientX: e.clientX,
-            clientY: e.clientY
-          });
-          if (activePointers.size === 1 && isDragging) {
-            offsetX = targetOffsetX = e.clientX - startPos.x;
-            offsetY = targetOffsetY = e.clientY - startPos.y;
-            updateTransform()
-          }
-        };
-        const onPointerUp = e => {
-          activePointers.delete(e.pointerId);
-          if (activePointers.size < 2) {
-            isDragging = false;
-            viewerOverlay.style.cursor = 'grab'
-          }
-          if (activePointers.size === 1) {
-            const p = Array.from(activePointers.values())[0];
-            isDragging = true;
-            startPos = {
-              x: p.clientX - targetOffsetX,
-              y: p.clientY - targetOffsetY
+        }
+        
+        function updateTransform() {
+            offsetX = targetOffsetX;
+            offsetY = targetOffsetY;
+            scale = targetScale;
+            imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+        }
+        
+        function applyZoom(delta, anchorX, anchorY) {
+            const oldTargetScale = targetScale;
+            targetScale = Math.max(1, Math.min(targetScale * delta, 10));
+            if (targetScale === oldTargetScale) return;
+
+            const scaleRatio = targetScale / oldTargetScale;
+
+            targetOffsetX = anchorX - (anchorX - targetOffsetX) * scaleRatio;
+            targetOffsetY = anchorY - (anchorY - targetOffsetY) * scaleRatio;
+        }
+
+        viewerOverlay.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const rect = viewerOverlay.getBoundingClientRect();
+          const anchorX = e.clientX - rect.left - (rect.width / 2);
+          const anchorY = e.clientY - rect.top - (rect.height / 2);
+          applyZoom(e.deltaY < 0 ? 1.1 : 1 / 1.1, anchorX, anchorY);
+          if (!animationFrameId) tick();
+        });
+
+        const onPointerDown = (e) => {
+            if (e.target.closest('button')) return;
+            e.preventDefault();
+            activePointers.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+            
+            if (activePointers.size === 1) {
+                isDragging = true;
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+                startPos = { x: e.clientX - targetOffsetX, y: e.clientY - targetOffsetY };
+                viewerOverlay.style.cursor = 'grabbing';
+            } else if (activePointers.size === 2) {
+                isDragging = false;
+                const pointers = Array.from(activePointers.values());
+                prevPinchDistance = getDistance(pointers[0], pointers[1]);
             }
-          }
+        };
+
+        const onPointerMove = (e) => {
+            if (!activePointers.has(e.pointerId)) return;
+            activePointers.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+
+            if (activePointers.size === 1 && isDragging) {
+                targetOffsetX = e.clientX - startPos.x;
+                targetOffsetY = e.clientY - startPos.y;
+                updateTransform();
+            } else if (activePointers.size === 2 && prevPinchDistance) {
+                const pointers = Array.from(activePointers.values());
+                const currentDist = getDistance(pointers[0], pointers[1]);
+                const zoomDelta = currentDist / prevPinchDistance;
+                
+                const midpoint = getMidpoint(pointers[0], pointers[1]);
+                const rect = viewerOverlay.getBoundingClientRect();
+                const anchorX = midpoint.x - rect.left - (rect.width / 2);
+                const anchorY = midpoint.y - rect.top - (rect.height / 2);
+                
+                applyZoom(zoomDelta, anchorX, anchorY);
+                updateTransform();
+
+                prevPinchDistance = currentDist;
+            }
+        };
+
+        const onPointerUp = (e) => {
+            activePointers.delete(e.pointerId);
+            
+            if (activePointers.size < 2) {
+                prevPinchDistance = null;
+                isDragging = false;
+                viewerOverlay.style.cursor = 'grab';
+            }
+            if (activePointers.size === 1) {
+                const remainingPointer = Array.from(activePointers.values())[0];
+                isDragging = true;
+                startPos = { x: remainingPointer.clientX - targetOffsetX, y: remainingPointer.clientY - targetOffsetY };
+            }
         };
         viewerOverlay.addEventListener('pointerdown', onPointerDown);
         viewerOverlay.addEventListener('pointermove', onPointerMove);
         viewerOverlay.addEventListener('pointerup', onPointerUp);
         viewerOverlay.addEventListener('pointercancel', onPointerUp);
         viewerOverlay.addEventListener('pointerleave', onPointerUp);
-        const closeViewer = () => {
-          viewerOverlay.style.opacity = '0';
-          cancelAnimationFrame(animationFrameId);
-          viewerOverlay.addEventListener('transitionend', () => {
-            document.getElementById(styleId)?.remove();
-            document.getElementById(filterId)?.parentElement.remove();
-            viewerOverlay.remove()
-          }, {
-            once: true
-          })
-        };
-        viewerOverlay.addEventListener('click', e => {
-          if (e.target === viewerOverlay) closeViewer()
-        });
-        btnZoomIn.addEventListener('click', e => {
-          e.stopPropagation();
-          applyZoom(1.4, 0, 0);
-          if (!animationFrameId) tick()
-        });
-        btnZoomOut.addEventListener('click', e => {
-          e.stopPropagation();
-          applyZoom(1 / 1.4, 0, 0);
-          if (!animationFrameId) tick()
-        });
-        btnReset.addEventListener('click', e => {
-          e.stopPropagation();
-          targetScale = 1;
-          targetOffsetX = 0;
-          targetOffsetY = 0;
-          if (!animationFrameId) tick()
-        });
-        btnClose.addEventListener('click', e => {
-          e.stopPropagation();
-          closeViewer()
+        viewerOverlay.addEventListener('click', (e) => {
+          if (e.target === viewerOverlay) {
+             closeViewer();
+          }
         });
 
+        const applyButtonZoom = (delta) => {
+          applyZoom(delta, 0, 0);
+          if (!animationFrameId) tick();
+        };
+
+        btnZoomIn.addEventListener('click', (e) => { e.stopPropagation(); applyButtonZoom(1.4); });
+        btnZoomOut.addEventListener('click', (e) => { e.stopPropagation(); applyButtonZoom(1 / 1.4); });
+        btnReset.addEventListener('click', (e) => {
+          e.stopPropagation();
+          targetScale = 1; targetOffsetX = 0; targetOffsetY = 0;
+          if (!animationFrameId) tick();
+        });
+        btnClose.addEventListener('click', (e) => { e.stopPropagation(); closeViewer(); });
+ 
         if (btnToggleDie) {
           let dieViewData = null;
           let currentViewIndex = -1;
@@ -558,57 +592,53 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
             btnToggleDie.addEventListener('click', e => {
               e.stopPropagation();
-
+              
               if (viewerOverlay.dataset.isFading) return;
               viewerOverlay.dataset.isFading = 'true';
 
               const oldView = dieViewData[currentViewIndex];
               currentViewIndex = (currentViewIndex + 1) % dieViewData.length;
               const newView = dieViewData[currentViewIndex];
-
+              
               const oldImageElement = imageElement;
-
+              
               const newImageElement = oldImageElement.cloneNode(false);
-
+              
               const currentRelativeTransform = oldImageElement.style.transform;
               const baseAbsoluteTransform = 'translate(-50%, -50%) ';
 
               Object.assign(oldImageElement.style, {
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: baseAbsoluteTransform + currentRelativeTransform,
-                transition: 'opacity 0.4s ease-in-out'
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: baseAbsoluteTransform + currentRelativeTransform,
+                  transition: 'opacity 0.4s ease-in-out'
               });
-
+              
               Object.assign(newImageElement.style, {
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: baseAbsoluteTransform + currentRelativeTransform,
-                opacity: '0',
-                transition: 'opacity 0.4s ease-in-out'
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: baseAbsoluteTransform + currentRelativeTransform,
+                  opacity: '0',
+                  transition: 'opacity 0.4s ease-in-out'
               });
 
               newImageElement.onload = () => {
                 newImageElement.onload = null;
                 newImageElement.onerror = null;
-
+                
                 requestAnimationFrame(() => {
-                  newImageElement.style.opacity = 1;
-                  oldImageElement.style.opacity = 0;
+                    newImageElement.style.opacity = 1;
+                    oldImageElement.style.opacity = 0;
                 });
               };
-
+              
               newImageElement.onerror = () => {
                 console.error(`Failed to load image: ${newView.url}`);
                 newImageElement.onerror = null;
                 Object.assign(oldImageElement.style, {
-                  position: '',
-                  top: '',
-                  left: '',
-                  transition: '',
-                  opacity: 1
+                    position: '', top: '', left: '', transition: '', opacity: 1
                 });
                 oldImageElement.style.transform = currentRelativeTransform;
                 newImageElement.remove();
@@ -617,30 +647,28 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
               oldImageElement.addEventListener('transitionend', function onFadeEnd(e) {
                 if (e.propertyName !== 'opacity' || oldImageElement.style.opacity !== '0') return;
-
+                
                 oldImageElement.removeEventListener('transitionend', onFadeEnd);
-
+                
                 oldImageElement.remove();
-
+                
                 imageElement = newImageElement;
-
+                
                 Object.assign(imageElement.style, {
-                  position: '',
-                  top: '',
-                  left: '',
-                  transition: '',
-                  opacity: '1'
+                    position: '',
+                    top: '',
+                    left: '',
+                    transition: '',
+                    opacity: '1'
                 });
                 imageElement.style.transform = currentRelativeTransform;
 
                 delete viewerOverlay.dataset.isFading;
-              }, {
-                once: true
-              });
+              }, { once: true });
 
               viewerOverlay.prepend(newImageElement);
               newImageElement.src = newView.url;
-
+              
               updateToggleButton();
             });
             updateToggleButton();

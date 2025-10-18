@@ -104,7 +104,9 @@ export class Window {
             const windowHeight = this.element.offsetHeight;
             let newLeft = startLeft + coords.x - startX;
             let newTop = startTop + coords.y - startY;
-            this._checkForSnap(newLeft, newTop, windowWidth, windowHeight);
+            if (this.state !== 'maximized') {
+              this._checkForSnap(newLeft, newTop, windowWidth, windowHeight);
+            }
             newLeft = Math.max(0, Math.min(newLeft, container.clientWidth - windowWidth));
             newTop = Math.max(0, Math.min(newTop, container.clientHeight - windowHeight));
             this.element.style.left = `${newLeft}px`;

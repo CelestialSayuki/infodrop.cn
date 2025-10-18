@@ -1,12 +1,18 @@
 {
-    "version": "1A082",
+    "version": "1A082 (a)",
     "notes": [
-        "新增 Dieshot Layout 线开关，仅部分图片可用。"
+        "修复了点击图片整个列会有疑似选中的动画的bug",
+        "修复了指针错误显示Pointer的bug",
+        "修复了全屏模式下仍然检测智能吸附的bug"
     ],
     "rsr_patches": [
         {
-            "base": "",
+            "base": "1A082",
             "delta": [
+                "./index.html",
+                "./public-static/css/comparison-table-ui.css",
+                "./public-static/js/lib/table-generator.js",
+                "./public-static/js/lib/Window.js"
             ]
         }
     ]
