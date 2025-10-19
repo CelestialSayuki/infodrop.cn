@@ -1,9 +1,7 @@
 {
-    "version": "1A082 (a)",
+    "version": "1A082 (b)",
     "notes": [
-        "修复了点击图片整个列会有疑似选中的动画的bug",
-        "修复了指针错误显示Pointer的bug",
-        "修复了全屏模式下仍然检测智能吸附的bug"
+        "增加了M系列部分芯片的图片 Layout 线开关"
     ],
     "rsr_patches": [
         {
@@ -13,6 +11,13 @@
                 "./public-static/css/comparison-table-ui.css",
                 "./public-static/js/lib/table-generator.js",
                 "./public-static/js/lib/Window.js"
+            ]
+        },
+        {
+            "base": "1A082 (a)",
+            "delta": [
+                "./index.html",
+
             ]
         }
     ]
