@@ -1,7 +1,7 @@
 {
-    "version": "1A082 (c)",
+    "version": "1A082 (d)",
     "notes": [
-        "修正了芯片的使用机型。"
+        "更新 Apple Watch 的基带型号，信息获取极度不易，请勿提交到 hubweb 上"
     ],
     "rsr_patches": [
         {
@@ -13,6 +13,9 @@
                 "./apple-silicon/chip-m/data.json",
                 "./apple-silicon/chip-c/data.json",
                 "./apple-silicon/chip-n/data.json",
+                "./apple-device/watch/watch-ultra/data.json",
+                "./apple-device/watch/watch-se/data.json",
+                "./apple-device/watch/watch-series/data.json",
                 "./public-static/js/lib/Window.js"
             ]
         },
@@ -22,6 +25,9 @@
                 "./apple-silicon/chip-m/data.json",
                 "./apple-silicon/chip-c/data.json",
                 "./apple-silicon/chip-n/data.json",
+                "./apple-device/watch/watch-ultra/data.json",
+                "./apple-device/watch/watch-se/data.json",
+                "./apple-device/watch/watch-series/data.json",
                 "./index.html"
             ]
         },
@@ -31,6 +37,18 @@
                 "./apple-silicon/chip-m/data.json",
                 "./apple-silicon/chip-c/data.json",
                 "./apple-silicon/chip-n/data.json",
+                "./apple-device/watch/watch-ultra/data.json",
+                "./apple-device/watch/watch-se/data.json",
+                "./apple-device/watch/watch-series/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "1A082 (c)",
+            "delta": [
+                "./apple-device/watch/watch-ultra/data.json",
+                "./apple-device/watch/watch-se/data.json",
+                "./apple-device/watch/watch-series/data.json",
                 "./index.html"
             ]
         }
