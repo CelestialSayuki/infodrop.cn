@@ -1,7 +1,7 @@
 {
-    "version": "1A082 (b)",
+    "version": "1A082 (c)",
     "notes": [
-        "增加了M系列部分芯片的图片 Layout 线开关"
+        "修正了芯片的使用机型。"
     ],
     "rsr_patches": [
         {
@@ -11,6 +11,8 @@
                 "./public-static/css/comparison-table-ui.css",
                 "./public-static/js/lib/table-generator.js",
                 "./apple-silicon/chip-m/data.json",
+                "./apple-silicon/chip-c/data.json",
+                "./apple-silicon/chip-n/data.json",
                 "./public-static/js/lib/Window.js"
             ]
         },
@@ -18,6 +20,17 @@
             "base": "1A082 (a)",
             "delta": [
                 "./apple-silicon/chip-m/data.json",
+                "./apple-silicon/chip-c/data.json",
+                "./apple-silicon/chip-n/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "1A082 (b)",
+            "delta": [
+                "./apple-silicon/chip-m/data.json",
+                "./apple-silicon/chip-c/data.json",
+                "./apple-silicon/chip-n/data.json",
                 "./index.html"
             ]
         }
