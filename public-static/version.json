@@ -1,7 +1,7 @@
 {
-    "version": "1A082 (d)",
+    "version": "1A082 (e)",
     "notes": [
-        "更新 Apple Watch 的基带型号，信息获取极度不易，请勿提交到 hubweb 上"
+        "更新 Apple Watch 的基带型号，信息由固件获取，请勿提交到其他网站上"
     ],
     "rsr_patches": [
         {
@@ -45,6 +45,15 @@
         },
         {
             "base": "1A082 (c)",
+            "delta": [
+                "./apple-device/watch/watch-ultra/data.json",
+                "./apple-device/watch/watch-se/data.json",
+                "./apple-device/watch/watch-series/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "1A082 (d)",
             "delta": [
                 "./apple-device/watch/watch-ultra/data.json",
                 "./apple-device/watch/watch-se/data.json",

@@ -179,7 +179,7 @@
                 "brightness": "最高 2000 尼特",
                 "crystalMaterial": "Ion-X 玻璃 (铝)<br>蓝宝石玻璃 (钛)",
                 "caseBackMaterial": "蓝宝石玻璃",
-                "cellularBaseband": "MediaTek MT6378",
+                "cellularBaseband": "MediaTek MT6815",
                 "wifi": "802.11n 2.4&5GHz",
                 "bluetooth": "Bluetooth 5.3",
                 "batteryCapacity": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">330mAh<br>(42mm)</div><div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">363mAh<br>(46mm)</div>",
