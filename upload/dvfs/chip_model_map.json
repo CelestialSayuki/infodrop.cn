@@ -168,5 +168,35 @@
     "chipModel": "T7000",
     "cpuModel": "A8",
     "isLegacy": true
+  },
+  {
+    "chipModel": "T8310",
+    "cpuModel": "S10/S9",
+    "isLegacy": true
+  },
+  {
+    "chipModel": "T8301",
+    "cpuModel": "S8/S7/S6",
+    "isLegacy": true
+  },
+  {
+    "chipModel": "T8006",
+    "cpuModel": "S5/S4",
+    "isLegacy": true
+  },
+  {
+    "chipModel": "T8004",
+    "cpuModel": "S3",
+    "isLegacy": true
+  },
+  {
+    "chipModel": "T8002",
+    "cpuModel": "S2/S1P",
+    "isLegacy": true
+  },
+  {
+    "chipModel": "S7002",
+    "cpuModel": "S1",
+    "isLegacy": true
   }
 ]
