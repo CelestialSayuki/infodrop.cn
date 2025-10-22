@@ -86,7 +86,7 @@ try {
             $series = '';
             $generation = 0;
             $tier_str = '';
-            if (preg_match('/^([AM])(\d+)\s*(Pro|Max|Ultra|X|Z)?/i', $chip_name, $matches)) {
+            if (preg_match('/^([AMS])(\d+)\s*(Pro|Max|Ultra|X|Z)?/i', $chip_name, $matches)) {
                 $series = strtoupper($matches[1]);
                 $generation = (int)$matches[2];
                 $tier_str = isset($matches[3]) ? $matches[3] : '';
@@ -104,10 +104,15 @@ try {
         usort($series_list, function($a, $b) use ($parse_chip, $tier_rank) {
             list($a_series, $a_gen, $a_tier) = $parse_chip($a['chip']);
             list($b_series, $b_gen, $b_tier) = $parse_chip($b['chip']);
-            if ($a_series !== $b_series) {
-                if ($a_series === 'A') return -1;
-                if ($b_series === 'A') return 1;
+
+            $series_priority = ['A' => 3, 'M' => 2, 'S' => 1];
+            $a_prio = $series_priority[$a_series] ?? 0;
+            $b_prio = $series_priority[$b_series] ?? 0;
+
+            if ($a_prio !== $b_prio) {
+                return $b_prio <=> $a_prio;
             }
+            
             if ($a_gen !== $b_gen) {
                 return $b_gen <=> $a_gen;
             }
