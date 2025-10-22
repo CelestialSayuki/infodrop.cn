@@ -1,81 +1,12 @@
 {
-    "version": "1A082 (f)",
+    "version": "temp-rev1",
     "notes": [
-        "更新 DVFS 上传页，以支持 Apple Watch 等设备的上传，修复了 Chrome 上液态玻璃扭曲过重的 bug"
+        "更新缓存特征，网站即将进行较大规模数据的纠正和重构，最近更新将均为全量，并降低主站更新频率，如想获得最新更新，请前往beta通道"
     ],
     "rsr_patches": [
         {
-            "base": "1A082",
+            "base": "",
             "delta": [
-                "./index.html",
-                "./public-static/css/comparison-table-ui.css",
-                "./public-static/js/lib/table-generator.js",
-                "./apple-silicon/chip-m/data.json",
-                "./apple-silicon/chip-c/data.json",
-                "./apple-silicon/chip-n/data.json",
-                "./apple-device/watch/watch-ultra/data.json",
-                "./apple-device/watch/watch-se/data.json",
-                "./apple-device/watch/watch-series/data.json",
-                "./upload/dvfs/index.html",
-                "./public-static/js/lib/Window.js"
-            ]
-        },
-        {
-            "base": "1A082 (a)",
-            "delta": [
-                "./apple-silicon/chip-m/data.json",
-                "./apple-silicon/chip-c/data.json",
-                "./apple-silicon/chip-n/data.json",
-                "./apple-device/watch/watch-ultra/data.json",
-                "./apple-device/watch/watch-se/data.json",
-                "./apple-device/watch/watch-series/data.json",
-                "./public-static/js/lib/table-generator.js",
-                "./upload/dvfs/index.html",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A082 (b)",
-            "delta": [
-                "./apple-silicon/chip-m/data.json",
-                "./apple-silicon/chip-c/data.json",
-                "./apple-silicon/chip-n/data.json",
-                "./apple-device/watch/watch-ultra/data.json",
-                "./apple-device/watch/watch-se/data.json",
-                "./apple-device/watch/watch-series/data.json",
-                "./public-static/js/lib/table-generator.js",
-                "./upload/dvfs/index.html",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A082 (c)",
-            "delta": [
-                "./apple-device/watch/watch-ultra/data.json",
-                "./apple-device/watch/watch-se/data.json",
-                "./apple-device/watch/watch-series/data.json",
-                "./upload/dvfs/index.html",
-                "./public-static/js/lib/table-generator.js",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A082 (d)",
-            "delta": [
-                "./apple-device/watch/watch-ultra/data.json",
-                "./apple-device/watch/watch-se/data.json",
-                "./public-static/js/lib/table-generator.js",
-                "./apple-device/watch/watch-series/data.json",
-                "./upload/dvfs/index.html",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "1A082 (e)",
-            "delta": [
-                "./upload/dvfs/index.html",
-                "./public-static/js/lib/table-generator.js",
-                "./index.html"
             ]
         }
     ]
