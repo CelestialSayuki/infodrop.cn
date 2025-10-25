@@ -117,7 +117,7 @@
   "./apple-silicon/chip-c/data.json",
   "./apple-silicon/chip-m/data.json",
   "./apple-silicon/chip-w/data.json",
-  "./apple-silicon/chip-coprocessor/data.json",
+  "./apple-silicon/chip-aop/data.json",
   "./apple-silicon/chip-u/data.json",
   "./apple-silicon/chip-r/data.json",
   "./apple-silicon/chip-h/data.json",

@@ -5,12 +5,7 @@
       "groupName": "基础",
       "features": [
         { "id": "displayType", "name": "型号展示" },
-        { "id": "releaseDate", "name": "发布时间" }
-      ]
-    },
-    {
-      "groupName": "概要",
-      "features": [
+        { "id": "releaseDate", "name": "发布时间" },
         { "id": "processTech", "name": "技术工艺" },
         { "id": "dieSize", "name": "裸片尺寸" }
       ]
@@ -19,7 +14,6 @@
       "groupName": "CPU",
       "features": [
         { "id": "cpuSpec", "name": "CPU规格" },
-        { "id": "coreArchitecture", "name": "内核架构" },
         { "id": "microArchitecture", "name": "微架构<br>(解码发射)" }
       ]
     },
@@ -59,7 +53,6 @@
         "processTech": "TSMC N16",
         "dieSize": "104mm²",
         "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.34GHz ×2<br>1.09GHz ×2</div>",
-        "coreArchitecture": "64-bit ARMv8.0-A",
         "microArchitecture": "Hurricane + Zephyr<br>(6-wide + 3-wide)",
         "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">3 核 GPU</div>",
         "ramSpec": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1G LPDDR4<br>(512G及以下)</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2G LPDDR4<br>(1TB及以上)</div>",
@@ -80,7 +73,6 @@
         "processTech": "-",
         "dieSize": "-",
         "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">520MHz ×2</div>",
-        "coreArchitecture": "32-bit ARMv7",
         "microArchitecture": "Cortex-A7<br>(2-wide)",
         "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">IT PowerVR Series 6 Rogue</div>",
         "ramSpec": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB LPDDR4</div>",

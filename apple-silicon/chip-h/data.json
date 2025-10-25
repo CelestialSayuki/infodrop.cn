@@ -11,12 +11,7 @@
         {
           "id": "releaseDate",
           "name": "发布时间"
-        }
-      ]
-    },
-    {
-      "groupName": "概要",
-      "features": [
+        },
         {
           "id": "processTech",
           "name": "技术工艺"
@@ -24,15 +19,6 @@
         {
           "id": "dieSize",
           "name": "裸片尺寸"
-        }
-      ]
-    },
-    {
-      "groupName": "架构",
-      "features": [
-        {
-          "id": "coreArchitecture",
-          "name": "内核架构"
         }
       ]
     },
@@ -78,7 +64,6 @@
         "releaseDate": "2022.09",
         "processTech": "TSMC N6 RF",
         "dieSize": "-",
-        "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.3",
         "5G": "✅",
         "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Pro (第 3 代)<br>AirPods Pro (第 2 代)<br>AirPods (第 4 代)<br>Apple Vision Pro<br>PowerBeats Pro 2</div>"
@@ -100,7 +85,6 @@
         "releaseDate": "2019.10",
         "processTech": "16nm",
         "dieSize": "-",
-        "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.0",
         "5G": "-",
         "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods (第 3 代)<br>AirPods Pro (第 1 代)<br>Beats Fit Pro</div>"
@@ -126,7 +110,6 @@
         "releaseDate": "2019.03",
         "processTech": "16nm",
         "dieSize": "12mm²",
-        "coreArchitecture": "ARM 兼容架构",
         "bluetooth": "Bluetooth 5.0",
         "5G": "-",
         "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">AirPods Max<br>AirPods (第 2 代)<br>PowerBeats Pro<br>Beats Solo Pro<br>AirPods (第 2 代)<br>Powerbeats 4 (2020)</div>"

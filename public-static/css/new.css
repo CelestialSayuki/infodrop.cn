@@ -618,7 +618,11 @@ to {
     -webkit-backdrop-filter:blur(15px);
     border-radius:8px;
     padding:12px 15px;
+    width: 400px;
     max-width:calc(100vw - 32px);
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
     z-index:100;
     box-shadow:var(--light-glass-shadow,0 4px 12px rgba(0,0,0,0.1));
     font-size:13px;

@@ -11,12 +11,7 @@
                 {
                     "id": "releaseDate",
                     "name": "发布时间"
-                }
-            ]
-        },
-        {
-            "groupName": "概要",
-            "features": [
+                },
                 {
                     "id": "processTech",
                     "name": "技术工艺"
