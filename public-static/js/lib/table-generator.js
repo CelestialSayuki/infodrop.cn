@@ -262,9 +262,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           backgroundColor: 'rgba(0, 0, 0, 0.85)',
           backdropFilter: 'blur(10px)',
           webkitBackdropFilter: 'blur(10px)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           zIndex: '10000',
           cursor: 'grab',
           opacity: '0',
@@ -283,7 +280,11 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           cursor: 'grab',
           willChange: 'transform',
           backfaceVisibility: 'hidden',
-          transformOrigin: 'center center'
+          transformOrigin: 'center center',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)'
         });
 
         const controlsContainer = document.createElement('div');
@@ -292,7 +293,9 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           bottom: '60px',
           display: 'flex',
           gap: '15px',
-          zIndex: '10001'
+          zIndex: '10001',
+          left: '50%',
+          transform: 'translateX(-50%)'
         });
         const createGlassButton = (svgIcon, title) => {
           const btn = document.createElement('button');
@@ -412,7 +415,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         let targetScale = 1, targetOffsetX = 0, targetOffsetY = 0;
         let isDragging = false, startPos = { x: 0, y: 0 };
         let animationFrameId = null;
-
+        imageElement.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
         const activePointers = new Map();
         let prevPinchDistance = null;
 
@@ -432,9 +435,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           offsetX += (targetOffsetX - offsetX) * lerpFactor;
           offsetY += (targetOffsetY - offsetY) * lerpFactor;
           scale += (targetScale - scale) * lerpFactor;
-
-          imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
-
+          imageElement.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
           const isAnimationDone = Math.abs(targetOffsetX - offsetX) < 0.1 &&
                                   Math.abs(targetOffsetY - offsetY) < 0.1 &&
                                   Math.abs(targetScale - scale) < 0.001;
@@ -451,7 +452,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             offsetX = targetOffsetX;
             offsetY = targetOffsetY;
             scale = targetScale;
-            imageElement.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+            imageElement.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
         }
         
         function applyZoom(delta, anchorX, anchorY) {
@@ -601,12 +602,10 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
               const newView = dieViewData[currentViewIndex];
               
               const oldImageElement = imageElement;
-              
               const newImageElement = oldImageElement.cloneNode(false);
-              
-              const currentRelativeTransform = oldImageElement.style.transform;
               const baseAbsoluteTransform = 'translate(-50%, -50%) ';
-
+              const currentRelativeTransform = `translate(${targetOffsetX}px, ${targetOffsetY}px) scale(${targetScale})`;
+              
               Object.assign(oldImageElement.style, {
                   position: 'absolute',
                   top: '50%',
@@ -619,7 +618,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
-                  transform: baseAbsoluteTransform + currentRelativeTransform,
                   opacity: '0',
                   transition: 'opacity 0.4s ease-in-out'
               });
@@ -628,6 +626,14 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                 newImageElement.onload = null;
                 newImageElement.onerror = null;
                 
+                const oldRect = oldImageElement.getBoundingClientRect();
+                const oldBaseWidth = oldRect.width / targetScale;
+                const oldBaseHeight = oldRect.height / targetScale;
+                
+                newImageElement.style.width = `${oldBaseWidth}px`;
+                newImageElement.style.height = `${oldBaseHeight}px`;
+                newImageElement.style.transform = baseAbsoluteTransform + currentRelativeTransform;
+
                 requestAnimationFrame(() => {
                     newImageElement.style.opacity = 1;
                     oldImageElement.style.opacity = 0;
@@ -640,11 +646,10 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                 Object.assign(oldImageElement.style, {
                     position: '', top: '', left: '', transition: '', opacity: 1
                 });
-                oldImageElement.style.transform = currentRelativeTransform;
+                oldImageElement.style.transform = baseAbsoluteTransform + currentRelativeTransform;
                 newImageElement.remove();
                 delete viewerOverlay.dataset.isFading;
               };
-
               oldImageElement.addEventListener('transitionend', function onFadeEnd(e) {
                 if (e.propertyName !== 'opacity' || oldImageElement.style.opacity !== '0') return;
                 
@@ -653,16 +658,6 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
                 oldImageElement.remove();
                 
                 imageElement = newImageElement;
-                
-                Object.assign(imageElement.style, {
-                    position: '',
-                    top: '',
-                    left: '',
-                    transition: '',
-                    opacity: '1'
-                });
-                imageElement.style.transform = currentRelativeTransform;
-
                 delete viewerOverlay.dataset.isFading;
               }, { once: true });
 
