@@ -26,6 +26,30 @@
         #file-name-display { font-size: 0.9rem; color: var(--light-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .sysdiagnose-tips { font-size: 0.9rem; color: var(--light-text-secondary); padding: 0 15px 15px; margin-top: -1rem; line-height: 1.5; }
         .sysdiagnose-tips strong { color: var(--light-text); }
+        .result-success .copyable-hash {
+            display: block;
+            list-style-type: none;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-color, #007aff);
+            letter-spacing: 0.5px;
+            padding: 8px 12px;
+            margin: 8px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            user-select: all;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            word-break: break-all;
+        }
+        .result-success .copyable-hash:hover {
+            background-color: #f0f0f0;
+        }
+        #result-message ul.hash-list {
+             padding-left: 0;
+             margin-top: 0;
+        }
         .macos-window.dark-mode .auth-wrapper,
         html.dark-mode .auth-wrapper { background-color: var(--dark-glass-bg); }
         .macos-window.dark-mode .auth-wrapper h1,
@@ -52,6 +76,13 @@
         html.dark-mode .sysdiagnose-tips { color: #a9a9a9; }
         .macos-window.dark-mode .sysdiagnose-tips strong,
         html.dark-mode .sysdiagnose-tips strong { color: var(--dark-text); }
+        html.dark-mode .result-success .copyable-hash {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #8ab4f8;
+        }
+        html.dark-mode .result-success .copyable-hash:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
         @media (max-width: 768px) {
             .auth-wrapper {
                 padding: 20px;
@@ -64,7 +95,7 @@
     <div class="auth-wrapper">
         <div id="upload-section">
             <h1>📊 DVFS 数据上传</h1>
-            <p class="lead">请上传从设备 Sysdiagnose 中获取的 `IOService.txt` 或 `IODeviceTree.txt` 文件以进行数据分析。系统将解析文件内容并返回结果。</p>
+            <p class="lead">请上传从设备 Sysdiagnose 中获取的 `IOService.txt` 或 `IODeviceTree.txt` 文件以进行数据分析。系统将解析文件内容并返回数据码，方便您在 DVFS 页面查看您自己的数据。</p>
             <div class="sysdiagnose-tips">
                 <p><strong>如何触发 Sysdiagnose：</strong></p>
                 <ul>
@@ -129,7 +160,15 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error(`服务器错误 (状态码: ${response.status})`);
+                    let errorMsg = `服务器错误 (状态码: ${response.status})`;
+                    try {
+                        const errorResult = await response.json();
+                        if (errorResult && errorResult.message) {
+                            errorMsg = errorResult.message;
+                        }
+                    } catch (e) {
+                    }
+                    throw new Error(errorMsg);
                 }
 
                 const result = await response.json();
@@ -137,9 +176,40 @@
                 if (result.error) {
                     throw new Error(result.error);
                 }
-                
-                resultMessage.innerHTML = result.message;
+                                
+                let html = result.message;
+                if (result.success && result.hashes && result.hashes.length > 0) {
+                    html += "<br><p style='margin-top: 15px; margin-bottom: 5px;'><strong>存入数据库的数据行 Hashes:</strong></p>";
+                    html += "<ul class='hash-list'>";
+                    
+                    result.hashes.forEach(hash => {
+                        html += `<li class="copyable-hash" data-original-text="${hash}">${hash}</li>`;
+                    });
+                    
+                    html += "</ul>";
+                }
+
+                resultMessage.innerHTML = html;
                 resultMessage.className = result.success ? 'result-success' : 'result-fail';
+
+                if (result.success && result.hashes && result.hashes.length > 0) {
+                    const hashElements = resultMessage.querySelectorAll('.copyable-hash');
+                    hashElements.forEach(el => {
+                        el.addEventListener('click', () => {
+                            const textToCopy = el.dataset.originalText;
+                            navigator.clipboard.writeText(textToCopy).then(() => {
+                                const originalText = el.dataset.originalText;
+                                el.textContent = '已复制!';
+                                setTimeout(() => {
+                                    el.textContent = originalText;
+                                }, 1500);
+                            }).catch(err => {
+                                console.error('复制失败: ', err);
+                                alert('复制失败，请手动复制。');
+                            });
+                        });
+                    });
+                }
 
             } catch (error) {
                 console.error("上传或处理失败:", error);

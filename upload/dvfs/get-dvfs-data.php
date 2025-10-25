@@ -32,7 +32,7 @@ try {
     $pdo = new PDO('sqlite:' . $db_path);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->query("SELECT chip, device, build, e_core_dvfs, p_core_dvfs, ane_dvfs, gpu_dvfs FROM dvfs_uploads ORDER BY timestamp DESC");
+    $stmt = $pdo->query("SELECT chip, device, e_core_dvfs, p_core_dvfs, ane_dvfs, gpu_dvfs, data_hash FROM dvfs_uploads ORDER BY timestamp DESC");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $final_chart_data = [];
@@ -57,7 +57,6 @@ try {
 
             $chip = (!empty($row['chip']) && $row['chip'] !== 'N/A') ? $row['chip'] : '未知芯片';
             $device = (!empty($row['device']) && $row['device'] !== 'N/A') ? $row['device'] : '未知设备';
-            $build = (!empty($row['build']) && $row['build'] !== 'N/A') ? $row['build'] : '未知版本';
 
             $grouping_key = $chip . '|' . $device . '|' . json_encode($echarts_data);
 
@@ -65,12 +64,14 @@ try {
                 $grouped_data[$grouping_key] = [
                     'chip'    => $chip,
                     'devices' => [],
-                    'builds'  => [],
-                    'data'    => $echarts_data
+                    'data'    => $echarts_data,
+                    'hashes'  => []
                 ];
             }
             $grouped_data[$grouping_key]['devices'][$device] = true;
-            $grouped_data[$grouping_key]['builds'][$build] = true;
+            if (!empty($row['data_hash'])) {
+                $grouped_data[$grouping_key]['hashes'][$row['data_hash']] = true;
+            }
         }
         
         $series_list = [];
@@ -78,10 +79,11 @@ try {
             $series_list[] = [
                 'chip'    => $group['chip'],
                 'devices' => implode(', ', array_keys($group['devices'])),
-                'builds'  => implode(', ', array_keys($group['builds'])),
                 'data'    => $group['data'],
+                'hashes'  => array_keys($group['hashes'])
             ];
         }
+        
         $parse_chip = function($chip_name) {
             $series = '';
             $generation = 0;
@@ -146,6 +148,7 @@ try {
     }
 
     $plaintext = json_encode($final_chart_data, JSON_UNESCAPED_UNICODE);
+    
     $cipher = 'aes-256-gcm';
     $iv_length = 12;
     $iv = openssl_random_pseudo_bytes($iv_length);

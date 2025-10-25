@@ -3,3 +3,4 @@ auth/api/submit.php
 auth/api/quiz.php
 upload/dvfs/processed_data.sqlite
 auth/api/attempts.csv
+upload/dvfs/dvfs.php

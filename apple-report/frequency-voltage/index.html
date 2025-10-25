@@ -9,9 +9,41 @@
     .retext { text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 20px; margin-bottom: 20px; color: var(--light-text-secondary); width: 100%; }
     hr { border: 0; height: 1px; background-color: rgba(237, 237, 237, 0.3); max-width: 1500px; margin: 40px auto; }
     #mainLayout { margin: 0; }
+    .search-bar {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .search-bar label {
+        font-weight: 500;
+        font-size: 1rem;
+        color: var(--light-text);
+    }
+    .search-bar input[type="text"] {
+        flex-grow: 1;
+        min-width: 250px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        border: 1px solid var(--light-border, #ddd);
+        border-radius: 6px;
+        background-color: var(--light-bg, #fff);
+        color: var(--light-text, #333);
+        transition: border-color 0.3s;
+    }
     .macos-window.dark-mode .retext, html.dark-mode .retext { color: var(--dark-text-secondary); }
     .macos-window.dark-mode hr, html.dark-mode hr { background-color: rgba(255, 255, 255, 0.15); }
     .macos-window.dark-mode .card, html.dark-mode .card { box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05); }
+    .macos-window.dark-mode .search-bar label,
+    html.dark-mode .search-bar label {
+        color: var(--dark-text, #eee);
+    }
+    html.dark-mode .search-bar input[type="text"] {
+        background-color: var(--dark-bg-secondary, rgba(0, 0, 0, 0.2));
+        border-color: var(--dark-border, #555);
+        color: var(--dark-text);
+    }
     @media (max-width: 768px) {
       .main-content { padding: 5px; }
       .card { margin: 0; }
@@ -22,6 +54,11 @@
 <body style="margin: 0;" id="mainLayout">
 
   <div class="main-content">
+    <div class="card search-bar">
+      <label for="hash-search-input">数据码:</label>
+      <input type="text" id="hash-search-input" placeholder="输入后自动高亮...">
+    </div>
+
     <div class="card">
         <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
         <hr>
@@ -38,12 +75,19 @@
     (async () => {
       const chartInstances = {};
       let chartData = null;
+      let currentSearchHash = '';
+      
+      let userLegendState = {};
+      
+      const hashSearchInput = document.getElementById('hash-search-input');
+      let debounceTimer;
+
       const colorPalette = [
           '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
           '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
       ];
       
-      const renderChart = (containerId, seriesData, titleText, yAxisMin, yAxisMax, theme) => {
+      const renderChart = (containerId, originalSeriesData, titleText, yAxisMin, yAxisMax, theme) => {
           const lightTooltipStyle = {
               backgroundColor: 'rgba(255, 255, 255, 0.5)',
               borderColor: '#E0E0E0',
@@ -62,7 +106,7 @@
               chartInstances[containerId].dispose();
           }
           
-          if (!seriesData || seriesData.length === 0) {
+          if (!originalSeriesData || originalSeriesData.length === 0) {
               chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
               chartDom.style.height = '100px';
               return;
@@ -73,31 +117,75 @@
           let myChart = echarts.init(chartDom, theme);
           chartInstances[containerId] = myChart;
 
-          const legendData = [...new Set(seriesData.map(s => s.chip))];
+          const legendData = [...new Set(originalSeriesData.map(s => s.chip))];
           const selected = {};
+          let hashFoundInThisChart = false;
           
-          if (legendData.length > 0) {
-              legendData.forEach(name => selected[name] = false);
-              selected[legendData[0]] = true;
+          const chipsWithHash = new Set();
+          if (currentSearchHash) {
+              originalSeriesData.forEach(s => {
+                  if (s.hashes && s.hashes.includes(currentSearchHash)) {
+                      chipsWithHash.add(s.chip);
+                      hashFoundInThisChart = true;
+                  }
+              });
           }
 
-          const uniqueGroupKeys = [...new Set(seriesData.map(s => `${s.chip}|${s.devices}`))];
+          if (legendData.length > 0) {
+              if (currentSearchHash && hashFoundInThisChart) {
+                  legendData.forEach(chipName => {
+                      selected[chipName] = chipsWithHash.has(chipName);
+                  });
+              } else if (userLegendState[containerId]) {
+                  Object.assign(selected, userLegendState[containerId]);
+              } else {
+                  legendData.forEach((chipName, index) => {
+                      selected[chipName] = (index === 0);
+                  });
+                  userLegendState[containerId] = { ...selected };
+              }
+          }
+          
+          const uniqueGroupKeys = [...new Set(originalSeriesData.map(s => `${s.chip}|${s.devices}`))];
           const colorMap = {};
           uniqueGroupKeys.forEach((key, index) => {
               colorMap[key] = colorPalette[index % colorPalette.length];
           });
           
-          seriesData.forEach(series => {
+          const processedSeriesData = originalSeriesData.map(series => {
               const groupKey = `${series.chip}|${series.devices}`;
               const color = colorMap[groupKey];
-              series.name = series.chip;
-              series.type = 'line';
-              series.symbol = 'circle';
-              series.symbolSize = 6;
-              series.itemStyle = { color: color };
-              series.lineStyle = { color: color, width: 2 };
-          });
+              let seriesStyle = {};
 
+              if (currentSearchHash && hashFoundInThisChart) {
+                  const hasHash = series.hashes && series.hashes.includes(currentSearchHash);
+                  if (hasHash) {
+                      seriesStyle = {
+                          symbolSize: 12,
+                          lineStyle: { width: 4 },
+                          z: 100
+                      };
+                  } else {
+                      seriesStyle = {
+                          itemStyle: { opacity: 0.2 },
+                          lineStyle: { opacity: 0.2, width: 2 },
+                          z: 1
+                      };
+                  }
+              }
+
+              return {
+                  ...series,
+                  ...seriesStyle,
+                  name: series.chip,
+                  type: 'line',
+                  symbol: 'circle',
+                  symbolSize: seriesStyle.symbolSize || 6,
+                  itemStyle: { color: color, ...seriesStyle.itemStyle },
+                  lineStyle: { color: color, width: 2, ...seriesStyle.lineStyle }
+              };
+          });
+          
           const option = {
               backgroundColor: 'transparent',
               title: { text: titleText, subtext: '聚合了相同芯片及DVFS配置的数据', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
@@ -108,21 +196,17 @@
                       if (!params || params.length === 0) return '';
                       const grouped = new Map();
                       params.forEach(p => {
-                          const series = seriesData[p.seriesIndex];
+                          const series = processedSeriesData[p.seriesIndex];
                           if (!series) return;
                           const key = `${series.chip}|${series.devices}`;
                           if (!grouped.has(key)) {
                               grouped.set(key, {
                                   chip: series.chip,
                                   devices: series.devices,
-                                  builds: new Set(),
                                   points: []
                               });
                           }
                           const group = grouped.get(key);
-                          series.builds.split(', ').forEach(build => {
-                              if(build) group.builds.add(build);
-                          });
                           group.points.push(p);
                       });
                       const groupsArray = Array.from(grouped.values());
@@ -131,14 +215,14 @@
                       let rightColumnHtml = '';
                       const midpoint = Math.ceil(groupsArray.length / 2);
                       groupsArray.forEach((group, index) => {
-                          const buildsHtml = Array.from(group.builds).sort().join(', ');
+                          
                           let seriesHtml = `<strong>${group.chip}</strong><br/>` +
-                                         `设备型号: ${group.devices}<br/>` +
-                                         `系统版本: ${buildsHtml}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
+                                         `设备型号: ${group.devices}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
+
                           const displayedPoints = new Set();
                           group.points.sort((a, b) => {
                               if (a.value?.length === 2 && b.value?.length === 2) {
-                                  return b.value[1] - a.value[1];
+                                  return b.value[1] - b.value[1];
                               }
                               return 0;
                           });
@@ -174,9 +258,15 @@
               legend: { data: legendData, selected: selected, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } },
               xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
               yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
-              series: seriesData
+              series: processedSeriesData
           };
           myChart.setOption(option);
+
+          myChart.on('legendselectchanged', (params) => {
+              if (!currentSearchHash) {
+                  userLegendState[containerId] = params.selected;
+              }
+          });
 
           const resizeObserver = new ResizeObserver(() => myChart.resize());
           resizeObserver.observe(chartDom);
@@ -185,12 +275,13 @@
       const renderAllCharts = () => {
           if (!chartData) return;
           const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+          
           renderChart('P_CPU_Freq_Volt', chartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250, theme);
           renderChart('E_CPU_Freq_Volt', chartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100, theme);
           renderChart('GPU_Freq_Volt', chartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100, theme);
           renderChart('ANE_Freq_Volt', chartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250, theme);
       };
-
+      
       const base64ToArrayBuffer = (base64) => {
           const binaryString = window.atob(base64);
           const len = binaryString.length;
@@ -237,7 +328,7 @@
               const keyData = base64ToArrayBuffer(keyPayload.key);
 
               const dataResponse = await fetch('./upload/dvfs/get-dvfs-data.php');
-              if (!dataResponse.ok) throw new Error(`获取数据失败! 状态: ${dataResponse.status}`);
+              if (!dataResponse.ok) throw new Error(`获取数据失败! Z状态: ${dataResponse.status}`);
               const encryptedPayload = await dataResponse.json();
               if (encryptedPayload.error) throw new Error(encryptedPayload.error);
               
@@ -262,6 +353,44 @@
           }
       };
 
+      const debounce = (func, delay) => {
+          return (...args) => {
+              clearTimeout(debounceTimer);
+              debounceTimer = setTimeout(() => {
+                  func.apply(this, args);
+              }, delay);
+          };
+      };
+
+      const handleSearchInput = () => {
+          const hashToSearch = hashSearchInput.value.trim();
+          
+          currentSearchHash = hashToSearch;
+          renderAllCharts();
+
+          if (hashToSearch) {
+              let hashFoundAnywhere = false;
+              if (chartData) {
+                  const allData = [chartData.p_core_dvfs, chartData.e_core_dvfs, chartData.gpu_dvfs, chartData.ane_dvfs];
+                  for (let data of allData) {
+                      if (data && data.some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
+                          hashFoundAnywhere = true;
+                          break;
+                      }
+                  }
+              }
+              if (hashFoundAnywhere) {
+                  hashSearchInput.style.borderColor = 'var(--success-color, #28C940)';
+              } else {
+                  hashSearchInput.style.borderColor = 'var(--fail-color, #FF5F57)';
+              }
+          } else {
+              hashSearchInput.style.borderColor = '';
+          }
+      };
+
+      hashSearchInput.addEventListener('input', debounce(handleSearchInput, 300));
+      
       const themeObserver = new MutationObserver((mutationsList) => {
           for (const mutation of mutationsList) {
               if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
@@ -271,6 +400,7 @@
           }
       });
       themeObserver.observe(document.documentElement, { attributes: true });
+      
       main();
     })();
   </script>

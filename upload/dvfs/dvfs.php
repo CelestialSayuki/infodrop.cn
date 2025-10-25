@@ -8,10 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 
 ob_start();
 
-function send_json_response(bool $success, string $message, int $http_code = 200) {
+function send_json_response(bool $success, string $message, ?array $data = null) {
     ob_clean();
-    http_response_code($http_code);
-    echo json_encode(['success' => $success, 'message' => $message], JSON_UNESCAPED_UNICODE);
+    http_response_code(200);
+    
+    $response = ['success' => $success, 'message' => $message];
+    if ($data !== null) {
+        $response = array_merge($response, $data);
+    }
+    
+    echo json_encode($response, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -107,7 +113,7 @@ function parse_voltage_states_gpu(string $hex_data): array {
             $last_point = empty($fork_a) ? null : end($fork_a);
 
             if ($last_point === null ||
-               ($point['freq_mhz'] > $last_point['freq_mhz'] && $point['voltage_mv'] > $last_point['voltage_mv']))
+                ($point['freq_mhz'] > $last_point['freq_mhz'] && $point['voltage_mv'] > $last_point['voltage_mv']))
             {
                 if ($last_point !== null) {
                     $pre_split_data[] = $last_point;
@@ -189,7 +195,6 @@ function extract_data_from_ioservice(string $content): array {
     $patterns = [
         'chip_identifier' => '/\"compatible\"\s*=\s*<\"pmgr\d+,([^"]+)\">/',
         'device'          => '/\"compatible\"\s*=\s*<\"([a-zA-Z0-9,]+AP)\",\"([^\"]+)\",\"AppleARM\">/',
-        'build'           => '/\"OS Build Version\"\s*=\s*\"([^"]+)\"/',
         'voltage-states1-sram' => '/\"voltage-states1-sram\"\s*=\s*<([a-fA-F0-9]+)>/',
         'voltage-states5-sram' => '/\"voltage-states5-sram\"\s*=\s*<([a-fA-F0-9]+)>/',
         'voltage-states8'      => '/\"voltage-states8\"\s*=\s*<([a-fA-F0-9]+)>/',
@@ -251,7 +256,6 @@ try {
         'voltage-states8'      => 'ane_dvfs',
         'voltage-states9'      => 'gpu_dvfs'
     ];
-    $build_info = $extracted_info['build'] ?? 'N/A';
     
     $all_parsed_forks = [];
     $max_forks = 0;
@@ -275,10 +279,11 @@ try {
     $db_path = __DIR__ . '/processed_data.sqlite';
     $pdo = new PDO('sqlite:' . $db_path);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->exec("CREATE TABLE IF NOT EXISTS dvfs_uploads (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT NOT NULL, chip TEXT, device TEXT, build TEXT, e_core_dvfs TEXT, p_core_dvfs TEXT, ane_dvfs TEXT, gpu_dvfs TEXT, data_hash TEXT NOT NULL UNIQUE)");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS dvfs_uploads (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TEXT NOT NULL, chip TEXT, device TEXT, e_core_dvfs TEXT, p_core_dvfs TEXT, ane_dvfs TEXT, gpu_dvfs TEXT, data_hash TEXT NOT NULL UNIQUE)");
+    $stmt = $pdo->prepare("INSERT OR IGNORE INTO dvfs_uploads (timestamp, chip, device, e_core_dvfs, p_core_dvfs, ane_dvfs, gpu_dvfs, data_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
-    $stmt = $pdo->prepare("INSERT OR IGNORE INTO dvfs_uploads (timestamp, chip, device, build, e_core_dvfs, p_core_dvfs, ane_dvfs, gpu_dvfs, data_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    
+    $inserted_hashes = [];
+
     for ($i = 0; $i < $max_forks; $i++) {
         $dvfs_data_for_this_row = [];
 
@@ -289,7 +294,7 @@ try {
 
         if (count(array_filter($dvfs_data_for_this_row)) == 0) continue;
 
-        $data_signature_parts = ["chip:{$chip_name}", "device:{$device_name}", "build:{$build_info}"];
+        $data_signature_parts = ["chip:{$chip_name}", "device:{$device_name}"];
         foreach($dvfs_data_for_this_row as $db_column => $json_data) {
             if ($json_data !== null) {
                 $data_signature_parts[] = "{$db_column}:{$json_data}";
@@ -298,45 +303,18 @@ try {
         $data_hash = hash('sha256', implode('|', $data_signature_parts));
 
         $stmt->execute([
-            date('Y-m-d H:i:s'), $chip_name, $device_name, $build_info,
+            date('Y-m-d H:i:s'), $chip_name, $device_name,
             $dvfs_data_for_this_row['e_core_dvfs'], $dvfs_data_for_this_row['p_core_dvfs'],
             $dvfs_data_for_this_row['ane_dvfs'], $dvfs_data_for_this_row['gpu_dvfs'],
             $data_hash
         ]);
+
+        $inserted_hashes[] = $data_hash;
     }
     
     $final_message = "<strong>✅ 数据解析成功！</strong><br>设备型号: ".htmlspecialchars($device_name)."<br>芯片型号: " . htmlspecialchars($chip_name);
     
-    $html_tables = '';
-    $core_name_map = [
-        'e_core_dvfs' => '效能核心 (E-Core) DVFS',
-        'p_core_dvfs' => '性能核心 (P-Core) DVFS',
-        'gpu_dvfs'    => '图形处理器 (GPU) DVFS',
-        'ane_dvfs'    => '神经网络引擎 (ANE) DVFS'
-    ];
-
-    foreach ($core_type_mapping as $db_column) {
-        if (isset($all_parsed_forks[$db_column])) {
-            $forks = $all_parsed_forks[$db_column];
-            $flat_data = array_merge(...$forks);
-            usort($flat_data, fn($a, $b) => $a['freq_mhz'] <=> $b['freq_mhz']);
-            
-            $title = $core_name_map[$db_column] ?? $db_column;
-            
-            $html_tables .= "<h3>" . htmlspecialchars($title) . "</h3>";
-            $html_tables .= "<table border='1' style='width:100%; border-collapse: collapse;'><thead><tr><th style='padding:5px;'>频率 (MHz)</th><th style='padding:5px;'>电压 (mV)</th></tr></thead><tbody>";
-            
-            foreach ($flat_data as $point) {
-                $html_tables .= "<tr><td style='padding:5px;'>" . htmlspecialchars($point['freq_mhz']) . "</td><td style='padding:5px;'>" . htmlspecialchars($point['voltage_mv']) . "</td></tr>";
-            }
-            
-            $html_tables .= "</tbody></table>";
-        }
-    }
-
-    $final_message .= $html_tables;
-
-    send_json_response(true, $final_message);
+    send_json_response(true, $final_message, ['hashes' => $inserted_hashes]);
 
 } catch (Exception $e) {
     error_log(
@@ -344,12 +322,14 @@ try {
         " in file " . $e->getFile() .
         " on line " . $e->getLine()
     );
-    $httpCode = $e->getCode() >= 400 && $e->getCode() < 500 ? $e->getCode() : 500;
+    
+    $httpCode = $e->getCode() >= 400 && $e->getCode() < 600 ? $e->getCode() : 500;
     $userMessage = '处理失败：服务器遇到错误。如果问题持续存在，请联系管理员。';
-    if ($httpCode === 400) {
+    if ($httpCode >= 400 && $httpCode < 500) {
         $userMessage = '处理失败：' . $e->getMessage();
     }
-    send_json_response(false, $userMessage, $httpCode);
+    
+    send_json_response(false, $userMessage, null);
 }
 
 ob_end_flush();
