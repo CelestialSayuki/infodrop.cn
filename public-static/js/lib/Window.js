@@ -606,10 +606,77 @@ export class Window {
                         }
                     }
                 });
+                let productPressTarget = null;
+                let isTextSelectionDrag = false;
+                let pressTimer = null;
+                const PRESS_DELAY = 100;
+                gridContainer.addEventListener('mousedown', (e) => {
+                    if (isEditing) return;
+                    const product = e.target.closest('.product-column');
+                    if (product && !e.target.closest('a')) {
+                        productPressTarget = product;
+                        isTextSelectionDrag = false;
+                        clearTimeout(pressTimer);
+                        pressTimer = setTimeout(() => {
+                            if (productPressTarget) {
+                                product.classList.add('is-pressing');
+                            }
+                            pressTimer = null;
+                        }, PRESS_DELAY);
+                    } else {
+                        productPressTarget = null;
+                        isTextSelectionDrag = false;
+                        clearTimeout(pressTimer);
+                        pressTimer = null;
+                    }
+                });
+                gridContainer.addEventListener('mousemove', (e) => {
+                    if (productPressTarget) {
+                        isTextSelectionDrag = true;
+                        if (pressTimer) {
+                            clearTimeout(pressTimer);
+                            pressTimer = null;
+                        }
+                        productPressTarget.classList.remove('is-pressing');
+                        productPressTarget = null;
+                    }
+                });
+                gridContainer.addEventListener('mouseup', (e) => {
+                    const wasPressAndHold = !pressTimer && productPressTarget && productPressTarget.classList.contains('is-pressing');
+                    if (pressTimer) {
+                        clearTimeout(pressTimer);
+                        pressTimer = null;
+                    }
+                    if (productPressTarget && !isTextSelectionDrag) {
+                        const target = productPressTarget;
+                        if (!wasPressAndHold) {
+                            target.classList.add('is-pressing');
+                            setTimeout(() => {
+                                target.classList.remove('is-pressing');
+                            }, 150);
+                        } else {
+                            target.classList.remove('is-pressing');
+                        }
+                    } else if (productPressTarget) {
+                        productPressTarget.classList.remove('is-pressing');
+                    }
+                    productPressTarget = null;
+                });
+                gridContainer.addEventListener('dblclick', (e) => {
+                    if (isEditing) return;
+                    const product = e.target.closest('.product-column');
+                    if (product && !e.target.closest('a')) {
+                        e.preventDefault();
+                    }
+                });
                 gridContainer.addEventListener('click', (e) => {
                     if(isEditing) return;
                     const product = e.target.closest('.product-column');
                     if (!product || e.target.closest('a') ) return;
+                    if (isTextSelectionDrag) {
+                        isTextSelectionDrag = false;
+                        return;
+                    }
                     e.preventDefault();
                     product.classList.toggle('selected');
                     updateUI();
