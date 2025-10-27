@@ -815,7 +815,7 @@ input:checked + .slider:before {
     display:inline-flex;
     align-items:center;
 }
-.theme-toggle-btn i {
+#theme-toggle-btn i {
     display:none;
 }
 html.dark-mode .theme-toggle-btn {

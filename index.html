@@ -316,7 +316,12 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://www.github.com/CelestialSayuki/infodrop.cn">源码</a>
+                <a href="https://www.github.com/CelestialSayuki/infodrop.cn" class="theme-toggle-btn" aria-label="查看源码" title="查看源码" target="_blank">
+                    <i class="bi bi-github"></i>
+                </a>
+                <button id="share-url-btn" class="theme-toggle-btn" aria-label="分享当前视图" title="分享当前视图">
+                    <i class="bi bi-share-fill"></i>
+                </button>
                 <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="切换主题">
                     <i class="bi bi-circle-half" title="跟随系统"></i>
                     <i class="bi bi-sun-fill" title="浅色模式"></i>
@@ -394,15 +399,16 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
-                        <li><span>2025.10.25：因为 DVFS 上传 API 被盗用，重构 DVFS 功能，您将不能直接看到您提交数据的结果，取而代之的是一个唯一的码，您可凭这个码在 DVFS 显示页面查看您提交的数据，相比现在的版本，更方便找到您自己的数据了。修复了若干 bug。</span></li>
-                        <li><span>2025.10.22：更新 DVFS 上传页，以支持 Apple Watch 等设备的上传，修复了 Chrome 上液态玻璃扭曲过重的 bug</span></li>
-                        <li><span>2025.10.21：修正了芯片的使用机型。更新 Apple Watch 的基带型号。</span></li>
-                        <li><span>2025.10.19：增加了M系列部分芯片的图片 Layout 线开关</span></li>
+                        <li><span>2025.10.27：新增分享功能，可以直接分享直链，让他人看到和您一样的窗口</span></li>
                         <li class="more-btn-li">
                             <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
                         </li>
                     </ul>
                     <template id="more-updates-template">
+                        <li><span>2025.10.25：因为 DVFS 上传 API 被盗用，重构 DVFS 功能，您将不能直接看到您提交数据的结果，取而代之的是一个唯一的码，您可凭这个码在 DVFS 显示页面查看您提交的数据，相比现在的版本，更方便找到您自己的数据了。修复了若干 bug。</span></li>
+                        <li><span>2025.10.22：更新 DVFS 上传页，以支持 Apple Watch 等设备的上传，修复了 Chrome 上液态玻璃扭曲过重的 bug</span></li>
+                        <li><span>2025.10.21：修正了芯片的使用机型。更新 Apple Watch 的基带型号。</span></li>
+                        <li><span>2025.10.19：增加了M系列部分芯片的图片 Layout 线开关</span></li>
                         <li><span>2025.10.18：新增 Dieshot Layout 线开关，仅部分图片可用。（感谢<a href="https://space.bilibili.com/381535123">@Littertree66</a>, <a href="https://space.bilibili.com/427356495">@Kurnal</a>, <a href="https://space.bilibili.com/374034429">@万扯淡</a>）</span></li>
                         <li><span>2025.10.17：更新 M5 部分信息，更新缓存描述，删除来自 Hubweb.cn 的错误的 AirPods Pro 3 电池信息</span></li>
                         <li><span>2025.10.15：因原始数据包含诸多错误，删除 GPU L2 Cache 相关信息、更新 M5 系列设备信息。</span></li>

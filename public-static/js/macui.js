@@ -7,10 +7,140 @@ export const webpMachine = new webpHero.WebpMachine({
 
 window.globalWebpMachine = webpMachine;
 
+function handleUrlParameters(windowManager) {
+  let paramString = window.location.search.substring(1);
+  if (!paramString && window.location.hash.length > 1) {
+    paramString = window.location.hash.substring(1);
+  }
+
+  const urlParams = new URLSearchParams(paramString);
+  const windowsToOpen = urlParams.getAll('open');
+
+  if (windowsToOpen.length === 0) {
+    return;
+  }
+
+  function openWindowsFromParams() {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+      setTimeout(openWindowsFromParams, 100);
+      return;
+    }
+
+    const windowsToCreate = [];
+
+    windowsToOpen.forEach(hrefToOpen => {
+      if (!hrefToOpen) return;
+
+      let link = null;
+      let actualHref = hrefToOpen;
+      let title = hrefToOpen;
+
+      const possibleHrefs = [
+        hrefToOpen,
+        hrefToOpen + '/',
+        './' + hrefToOpen,
+        './' + hrefToOpen + '/',
+        '/' + hrefToOpen
+      ];
+
+      for (const href of possibleHrefs) {
+        link = document.querySelector(`.sidebar-menu a[href="${href}"]`);
+        if (link) {
+          break;
+        }
+      }
+
+      if (link) {
+        actualHref = link.getAttribute('href');
+        title = link.textContent.trim();
+
+        if (link.classList.contains('no-mac-window') || actualHref === '#' || actualHref.startsWith('http') || actualHref.startsWith('javascript:')) {
+          return;
+        }
+      } else {
+        actualHref = hrefToOpen;
+        title = hrefToOpen.split('/').filter(Boolean).pop() || hrefToOpen;
+      }
+
+      if (actualHref && !windowManager.openWindows.has(actualHref)) {
+        windowsToCreate.push({ href: actualHref, title: title });
+      }
+    });
+
+    if (windowsToCreate.length > 0) {
+      windowManager.createWindowsFromParams(windowsToCreate);
+    }
+  }
+
+  openWindowsFromParams();
+}
+
+function setupShareButton(windowManager) {
+  const shareBtn = document.getElementById('share-url-btn');
+  if (!shareBtn) {
+    return;
+  }
+  
+  const originalTitle = shareBtn.title;
+  const originalIcon = shareBtn.innerHTML;
+  const successIcon = '<i class="bi bi-check-lg"></i>';
+
+  function showFeedback(icon, title, color = '') {
+    shareBtn.innerHTML = icon;
+    shareBtn.title = title;
+    shareBtn.style.color = color;
+
+    setTimeout(() => {
+      shareBtn.innerHTML = originalIcon;
+      shareBtn.title = originalTitle;
+      shareBtn.style.color = '';
+    }, 2000);
+  }
+
+  shareBtn.addEventListener('click', async () => {
+    const openWindows = Array.from(windowManager.openWindows.keys());
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    let finalUrl = baseUrl;
+
+    if (openWindows.length > 0) {
+      const params = new URLSearchParams();
+      new Set(openWindows).forEach(url => {
+        const cleanUrl = url.startsWith('./') ? url.substring(2) : url;
+        params.append('open', cleanUrl);
+      });
+      finalUrl = `${baseUrl}?${params.toString()}`;
+    }
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'infodrop.cn - Apple 产品参数中心',
+          url: finalUrl
+        });
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          showFeedback(originalIcon, '分享失败!', '#E53935');
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(finalUrl);
+        showFeedback(successIcon, '已复制!', '#28a745');
+      } catch (err) {
+        showFeedback(originalIcon, '复制失败!', '#E53935');
+      }
+    }
+  });
+}
+
+
 function fixViewportHeight() {
   if (window.browserInfo &&
-      window.browserInfo.name === 'Safari' &&
-      window.browserInfo.version < 15.4) {
+    window.browserInfo.name === 'Safari' &&
+    window.browserInfo.version < 15.4) {
     const setRealViewportHeight = () => {
       document.documentElement.style.setProperty('--real-vh', `${window.innerHeight}px`);
     };
@@ -27,6 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainContentArea = document.querySelector('.main-content');
   const svgContainer = document.getElementById('animation-svg-container');
   const windowManager = new WindowManager(mainContentArea, svgContainer);
+
+  handleUrlParameters(windowManager);
+  
+  setupShareButton(windowManager);
 
   setupUnifiedNavigation(windowManager);
   
@@ -156,7 +290,6 @@ async function loadContentIntoMainArea(url, container) {
     webpMachine.polyfillDocument();
   } catch (error) {
     container.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">内容加载失败。<br>${error.message}</div>`;
-    console.error('加载内容时出错:', error);
   }
 }
 
@@ -292,4 +425,3 @@ function setupCountdownTimer() {
   }
   window.setInterval(() => ShowCountDown(2025, 9, 10, 1, 0, 0, 'divdown2'), interval);
 }
-

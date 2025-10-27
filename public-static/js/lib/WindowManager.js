@@ -70,7 +70,30 @@ export class WindowManager {
     return ++this.zIndexCounter;
   }
 
-  createWindow(url, title) {
+  createWindowsFromParams(windowsToCreate) {
+    const numToOpen = windowsToCreate.length;
+    if (numToOpen === 0) return;
+    if (this.isMobileLayout) {
+        this.createWindow(windowsToCreate[0].href, windowsToCreate[0].title);
+        return;
+    }
+    if (numToOpen === 1) {
+      this.createWindow(windowsToCreate[0].href, windowsToCreate[0].title);
+    }
+    else if (numToOpen === 2) {
+      const win1 = this.createWindow(windowsToCreate[0].href, windowsToCreate[0].title, { suppressMaximize: true });
+      const win2 = this.createWindow(windowsToCreate[1].href, windowsToCreate[1].title, { suppressMaximize: true });
+      if (win1) win1._applySnap('left');
+      if (win2) win2._applySnap('right');
+    }
+    else {
+      for (const winData of windowsToCreate) {
+        this.createWindow(winData.href, winData.title, { suppressMaximize: true });
+      }
+    }
+  }
+
+  createWindow(url, title, options = {}) {
     if (this.openWindows.has(url)) {
       const existingWindow = this.openWindows.get(url);
       if (parseInt(existingWindow.element.style.zIndex) === this.zIndexCounter) {
@@ -78,23 +101,28 @@ export class WindowManager {
       } else {
         existingWindow.bringToFront();
       }
-      return;
+      return existingWindow;
     }
+    
     const maximizedWindow = this._findMaximizedWindow();
-    if (maximizedWindow) {
+    if (maximizedWindow && !options.suppressMaximize) {
       this.openWindows.delete(maximizedWindow.url);
       this.openWindows.set(url, maximizedWindow);
       maximizedWindow.updateTitle(title);
       maximizedWindow.loadContent(url);
-      return;
+      return maximizedWindow;
     }
+    
     const newWindow = new Window(url, title, this);
     this.openWindows.set(url, newWindow);
-    if (window.matchMedia('(max-width: 768px)').matches) {
+
+    if (!options.suppressMaximize && this.isMobileLayout) {
       setTimeout(() => newWindow.toggleMaximize(true), 50);
-    } else if (this.windowCount === 1) {
+    } else if (!options.suppressMaximize && this.windowCount === 1) {
       setTimeout(() => newWindow.toggleMaximize(true), 50);
     }
+
+    return newWindow;
   }
   
   maximizeWindow(maximizingWindow) {
