@@ -1,0 +1,3346 @@
+{
+    "title": "苹果 iPhone 参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "id": "displayType",
+                    "name": "型号展示"
+                },
+                {
+                    "id": "slogan",
+                    "name": "宣传口号"
+                },
+                {
+                    "id": "releaseDate",
+                    "name": "发布时间"
+                },
+                {
+                    "id": "osSupport",
+                    "name": "支持系统"
+                },
+                {
+                    "id": "modelId",
+                    "name": "型号标识"
+                },
+                {
+                    "id": "colors",
+                    "name": "外观颜色"
+                },
+                {
+                    "id": "arLink",
+                    "name": "增强现实"
+                }
+            ]
+        },
+        {
+            "groupName": "性能",
+            "features": [
+                {
+                    "id": "chip",
+                    "name": "芯片"
+                },
+                {
+                    "id": "ramRom",
+                    "name": "RAM/ROM"
+                }
+            ]
+        },
+        {
+            "groupName": "显示屏",
+            "features": [
+                {
+                    "id": "display",
+                    "name": "屏幕参数"
+                },
+                {
+                    "id": "resolution",
+                    "name": "分辨率"
+                },
+                {
+                    "id": "refreshRate",
+                    "name": "刷新率"
+                },
+                {
+                    "id": "brightness",
+                    "name": "亮度(nits)"
+                },
+                {
+                    "id": "colorGamut",
+                    "name": "色彩"
+                }
+            ]
+        },
+        {
+            "groupName": "摄像头",
+            "features": [
+                {
+                    "id": "rearCamera",
+                    "name": "后置摄像头"
+                },
+                {
+                    "id": "frontCamera",
+                    "name": "前置摄像头"
+                },
+                {
+                    "id": "lidar",
+                    "name": "激光雷达"
+                }
+            ]
+        },
+        {
+            "groupName": "连接",
+            "features": [
+                {
+                    "id": "wiredInterface",
+                    "name": "有线接口"
+                },
+                {
+                    "id": "cellular",
+                    "name": "基带Modem"
+                },
+                {
+                    "id": "wifi",
+                    "name": "无线局域网"
+                },
+                {
+                    "id": "bluetooth",
+                    "name": "蓝牙"
+                },
+                {
+                    "id": "nfc",
+                    "name": "NFC"
+                }
+            ]
+        },
+        {
+            "groupName": "感应器",
+            "features": [
+                {
+                    "id": "unlockMethod",
+                    "name": "解锁方式"
+                }
+            ]
+        },
+        {
+            "groupName": "电源",
+            "features": [
+                {
+                    "id": "batteryCapacity",
+                    "name": "电池容量"
+                },
+                {
+                    "id": "chargeMethod",
+                    "name": "充电方式"
+                },
+                {
+                    "id": "batteryLife",
+                    "name": "续航时长"
+                }
+            ]
+        },
+        {
+            "groupName": "音频",
+            "features": [
+                {
+                    "id": "audioIO",
+                    "name": "输入输出"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "id": "dimensionsWeight",
+                    "name": "尺寸重量"
+                },
+                {
+                    "id": "sim",
+                    "name": "国行SIM卡"
+                },
+                {
+                    "id": "waterResistance",
+                    "name": "防尘防水"
+                },
+                {
+                    "id": "links",
+                    "name": "规格与手册"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "iPhone 17 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "创新设计，打造巅峰性能和超长续航。",
+                "releaseDate": "2025.09.10",
+                "osSupport": "iOS 26 ~ 最新",
+                "modelId": "iPhone18,2",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#E7E7E7"
+                    },
+                    {
+                        "name": "星宇橙色",
+                        "hex": "#E68448"
+                    },
+                    {
+                        "name": "深蓝色",
+                        "hex": "#444D77"
+                    }
+                ],
+                "arLink": "",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T、2T</div>",
+                "display": "6.9\" XDR OLED",
+                "resolution": "2868×1320, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 3000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：4800W 像素 ƒ/2.2<br>长焦：4800W 像素 ƒ/2.8",
+                "frontCamera": "1800W 像素 ƒ/1.9",
+                "lidar": "dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X80M",
+                "wifi": "Apple N1<br>802.11be 2x2 MIMO",
+                "bluetooth": "Bluetooth 6.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "19.772Wh (5088mAh)<br>18.748Wh (4823mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>37小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>33小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "78.0×163.4×8.75mm, 231g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/125091\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/124278\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 17 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "创新设计，打造巅峰性能和超长续航。",
+                "releaseDate": "2025.09.10",
+                "osSupport": "iOS 26 ~ 最新",
+                "modelId": "iPhone18,1",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#E7E7E7"
+                    },
+                    {
+                        "name": "星宇橙色",
+                        "hex": "#E68448"
+                    },
+                    {
+                        "name": "深蓝色",
+                        "hex": "#444D77"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-pro-p-sim.usdz\" target=\"_blank\">星宇橙色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
+                "display": "6.3\" XDR OLED",
+                "resolution": "2622×1206, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 3000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：4800W 像素 ƒ/2.2<br>长焦：4800W 像素 ƒ/2.8",
+                "frontCamera": "1800W 像素 ƒ/1.9",
+                "lidar": "dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X80M",
+                "wifi": "Apple N1<br>802.11be 2x2 MIMO",
+                "bluetooth": "Bluetooth 6.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "16.558Wh (4252mAh)<br>15.534Wh (3988mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>31小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>28小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.9×150.0×8.75mm, 204g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/125090\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/124262\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone Air",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_Air_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_Air_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "迄今最薄 iPhone，身藏高能内核。",
+                "releaseDate": "2025.09.10",
+                "osSupport": "iOS 26 ~ 最新",
+                "modelId": "iPhone18,4",
+                "colors": [
+                    {
+                        "name": "天蓝色",
+                        "hex": "#E8F2FA"
+                    },
+                    {
+                        "name": "浅金色",
+                        "hex": "#F9F3E6"
+                    },
+                    {
+                        "name": "云白色",
+                        "hex": "#FCFCFC"
+                    },
+                    {
+                        "name": "深空黑色",
+                        "hex": "#181818"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-air-e-sim.usdz\" target=\"_blank\">云白色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
+                "display": "6.5\" XDR OLED",
+                "resolution": "2736×1260, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 3000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.6",
+                "frontCamera": "1800W 像素 ƒ/1.9",
+                "lidar": "dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Apple C1X",
+                "wifi": "Apple N1<br>802.11be 2x2 MIMO",
+                "bluetooth": "Bluetooth 6.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.263Wh (3149mAh)<br>11.823Wh (3036mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>27小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>22小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×1",
+                "dimensionsWeight": "74.7×156.2×5.64mm, 165g",
+                "sim": "双卡eSIM",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/125092\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/123052\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 17",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "神通妙彩",
+                "releaseDate": "2025.09.10",
+                "osSupport": "iOS 26 ~ 最新",
+                "modelId": "iPhone18,3",
+                "colors": [
+                    {
+                        "name": "薰衣草紫色",
+                        "hex": "#E5D9F0"
+                    },
+                    {
+                        "name": "鼠尾草绿色",
+                        "hex": "#BCC7A0"
+                    },
+                    {
+                        "name": "青雾蓝色",
+                        "hex": "#AEBDDC"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#FAFAFA"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#4F5255"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-p-sim.usdz\" target=\"_blank\">薰衣草紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G</div>",
+                "display": "6.3\" XDR OLED",
+                "resolution": "2622×1206, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 3000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.6<br>超广角：4800W 像素 ƒ/2.2</li>",
+                "frontCamera": "1800W 像素 ƒ/1.9",
+                "lidar": "dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Qualcomm X80M",
+                "wifi": "Apple N1<br>802.11be 2x2 MIMO",
+                "bluetooth": "Bluetooth 6.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "14.351Wh (3692mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>30小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>27小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×149.6×7.95mm, 177g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/125089\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/123029\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 16e",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16e.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16e.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16e_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16e_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "iPhone 上新，超值刷新。",
+                "releaseDate": "2025.02.20",
+                "osSupport": "iOS 18 ~ 最新",
+                "modelId": "iPhone17,5",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "rgb(60, 64, 66)"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "rgb(250, 250, 250)"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_16_e_Sim_Black_ios18.usdz\" target=\"_blank\">黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_16_e_Sim_White_ios18.usdz\" target=\"_blank\">白色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典), 1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "融合式：4800W 像素 ƒ/1.6",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Apple C1",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "15.556Wh (4005mAh)",
+                "chargeMethod": "USB-C/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>26小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>21小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>90小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.8mm, 167g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/122208\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/121720\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 16 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "Hello, Apple Intelligence.",
+                "releaseDate": "2024.09.10",
+                "osSupport": "iOS 18 ~ 最新",
+                "modelId": "iPhone17,2",
+                "colors": [
+                    {
+                        "name": "原色钛金属",
+                        "hex": "rgb(149, 144, 134)"
+                    },
+                    {
+                        "name": "沙漠色钛金属",
+                        "hex": "rgb(151, 126, 107)"
+                    },
+                    {
+                        "name": "白色钛金属",
+                        "hex": "rgb(211, 209, 205)"
+                    },
+                    {
+                        "name": "黑色钛金属",
+                        "hex": "rgb(24, 25, 25)"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G、1T</div>",
+                "display": "6.9\" XDR OLED",
+                "resolution": "2868×1320, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "融合式：4800W 像素 ƒ/1.78<br>超广角：4800W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX591 dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X71M",
+                "wifi": "802.11be HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3 (支持 5GHz)",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "18.169Wh (4685mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>33小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>29小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>105小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.6×163×8.25mm, 227g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/121032\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/120819\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 16 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "Hello, Apple Intelligence.",
+                "releaseDate": "2024.09.10",
+                "osSupport": "iOS 18 ~ 最新",
+                "modelId": "iPhone17,1",
+                "colors": [
+                    {
+                        "name": "原色钛金属",
+                        "hex": "rgb(149, 144, 134)"
+                    },
+                    {
+                        "name": "沙漠色钛金属",
+                        "hex": "rgb(151, 126, 107)"
+                    },
+                    {
+                        "name": "白色钛金属",
+                        "hex": "rgb(211, 209, 205)"
+                    },
+                    {
+                        "name": "黑色钛金属",
+                        "hex": "rgb(24, 25, 25)"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G、1T</div>",
+                "display": "6.3\" XDR OLED",
+                "resolution": "2622×1206, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "融合式：4800W 像素 ƒ/1.78<br>超广角：4800W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX591 dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X71M",
+                "wifi": "802.11be HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3 (支持 5GHz)",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "13.942Wh (3582mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>27小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>22小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>85小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×149.6×8.25mm, 199g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/121031\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/120803\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 16 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Plus.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Plus_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Plus_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "Hello, Apple Intelligence.",
+                "releaseDate": "2024.09.10",
+                "osSupport": "iOS 18 ~ 最新",
+                "modelId": "iPhone17,4",
+                "colors": [
+                    {
+                        "name": "群青色",
+                        "hex": "#6467e6"
+                    },
+                    {
+                        "name": "深青色",
+                        "hex": "#85adac"
+                    },
+                    {
+                        "name": "粉色",
+                        "hex": "#ee94ca"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#e7e7e7"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#202020"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-black-sim.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2796×1290, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "融合式：4800W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.2",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Qualcomm X71M",
+                "wifi": "802.11be HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3 (支持 5GHz)",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "18.112Wh (4674mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>27小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>24小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>100小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.8×160.9×7.8mm, 199g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/121030\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/120662\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 16",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16.webp",
+                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_1_temp.webp",
+                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图 1",
+                    "内部图 2"
+                ],
+                "slogan": "Hello, Apple Intelligence.",
+                "releaseDate": "2024.09.10",
+                "osSupport": "iOS 18 ~ 最新",
+                "modelId": "iPhone17,3",
+                "colors": [
+                    {
+                        "name": "群青色",
+                        "hex": "#6467e6"
+                    },
+                    {
+                        "name": "深青色",
+                        "hex": "#85adac"
+                    },
+                    {
+                        "name": "粉色",
+                        "hex": "#ee94ca"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#e7e7e7"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#202020"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-black-sim.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2556×1179, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "融合式：4800W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.2",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Qualcomm X71M",
+                "wifi": "802.11be HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3 (支持 5GHz)",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "13.839Wh (3561mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>22小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>18小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.6×147.6×7.8mm, 170g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/121029\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/120652\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 15 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Pro_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "钛金属, 坚固轻盈, Pro 得真材实料",
+                "releaseDate": "2023.09.13",
+                "osSupport": "iOS 17 ~ 最新",
+                "modelId": "iPhone16,2",
+                "colors": [
+                    {
+                        "name": "原色钛金属",
+                        "hex": "#837f7d"
+                    },
+                    {
+                        "name": "蓝色钛金属",
+                        "hex": "#2f4452"
+                    },
+                    {
+                        "name": "白色钛金属",
+                        "hex": "#dddddd"
+                    },
+                    {
+                        "name": "黑色钛金属",
+                        "hex": "#1b1b1b"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5<br>256G、512G、1T</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2796×1290, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：1200W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX591 dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X70M",
+                "wifi": "802.11ax HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "17.109Wh (4422mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>29小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>25小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>95小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "76.7×159.9×8.25mm, 221g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111828\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/104917\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 15 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Pro_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "钛金属, 坚固轻盈, Pro 得真材实料",
+                "releaseDate": "2023.09.13",
+                "osSupport": "iOS 17 ~ 最新",
+                "modelId": "iPhone16,1",
+                "colors": [
+                    {
+                        "name": "原色钛金属",
+                        "hex": "#837f7d"
+                    },
+                    {
+                        "name": "蓝色钛金属",
+                        "hex": "#2f4452"
+                    },
+                    {
+                        "name": "白色钛金属",
+                        "hex": "#dddddd"
+                    },
+                    {
+                        "name": "黑色钛金属",
+                        "hex": "#1b1b1b"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5<br>128G、256G、512G、1T</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2556×1179, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：1200W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX591 dToF 距离感应",
+                "wiredInterface": "USB-C (最高可达 10Gb/s)",
+                "cellular": "Qualcomm X70M",
+                "wifi": "802.11ax HT160 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.70Wh (3274mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>23小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>75小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "70.6×146.6×8.25mm, 187g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111829\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/104872\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 15 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "新主摄，新设计，开新超开心。",
+                "releaseDate": "2023.09.13",
+                "osSupport": "iOS 17 ~ 最新",
+                "modelId": "iPhone15,5",
+                "colors": [
+                    {
+                        "name": "粉色",
+                        "hex": "#E3C8CA"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#E6E0C1"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#CAD4C5"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#CED5D9"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#35393B"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2796×1290, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Qualcomm X70M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "16.95Wh (4383mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>26小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>100小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.8×160.9×7.8mm, 201g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111830\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/104858\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 15",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "新主摄，新设计，开新超开心。",
+                "releaseDate": "2023.09.13",
+                "osSupport": "iOS 17 ~ 最新",
+                "modelId": "iPhone15,4",
+                "colors": [
+                    {
+                        "name": "粉色",
+                        "hex": "#E3C8CA"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#E6E0C1"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#CAD4C5"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#CED5D9"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#35393B"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2556×1179, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Qualcomm X70M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.981Wh (3349mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>16小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.6×147.6×7.8mm, 171g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111831\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/104900\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 14 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Pro_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "强力出圈",
+                "releaseDate": "2022.09.08",
+                "osSupport": "iOS 16 ~ 最新",
+                "modelId": "iPhone15,3",
+                "colors": [
+                    {
+                        "name": "暗紫色",
+                        "hex": "#594f63"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#f4e8ce"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#f0f2f2"
+                    },
+                    {
+                        "name": "深空黑色",
+                        "hex": "#403e3d"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_pro_max_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2796×1290, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：1200W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X65M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "16.68Wh (4323mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>29小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>25小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>95小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.6×160.7×7.85mm, 240g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111846\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100357\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 14 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Pro_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "强力出圈",
+                "releaseDate": "2022.09.08",
+                "osSupport": "iOS 16 ~ 最新",
+                "modelId": "iPhone15,2",
+                "colors": [
+                    {
+                        "name": "暗紫色",
+                        "hex": "#594f63"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#f4e8ce"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#f0f2f2"
+                    },
+                    {
+                        "name": "深空黑色",
+                        "hex": "#403e3d"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_pro_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2556×1179, 460ppi",
+                "refreshRate": "1-120Hz ProMotion",
+                "brightness": "1000(典), 1600(HDR), 2000(外)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.78<br>超广角：1200W 像素 ƒ/2.2<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X65M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.38Wh (3200mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>23小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>75小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×147.5×7.85mm, 206g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111849\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100370\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 14 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "玩大玩超大",
+                "releaseDate": "2022.09.08<br>黄：2023.03.07",
+                "osSupport": "iOS 16 ~ 最新",
+                "modelId": "iPhone14,8",
+                "colors": [
+                    {
+                        "name": "蓝色",
+                        "hex": "#a0b4c7"
+                    },
+                    {
+                        "name": "紫色",
+                        "hex": "#e6ddeb"
+                    },
+                    {
+                        "name": "午夜色",
+                        "hex": "#222930"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#faf6f2"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#fc0324"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#f5e488"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_plus_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2778×1284, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.5<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X65M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "16.68Wh (4325mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>26小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>100小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "78.1×160.8×7.8mm, 203g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111854\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100322\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 14",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "玩大玩超大",
+                "releaseDate": "2022.09.08<br>黄：2023.03.07",
+                "osSupport": "iOS 16 ~ 最新",
+                "modelId": "iPhone14,7",
+                "colors": [
+                    {
+                        "name": "蓝色",
+                        "hex": "#a0b4c7"
+                    },
+                    {
+                        "name": "紫色",
+                        "hex": "#e6ddeb"
+                    },
+                    {
+                        "name": "午夜色",
+                        "hex": "#222930"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#faf6f2"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#fc0324"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#f5e488"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.5<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X65M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.68Wh (3279mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>16小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.8mm, 172g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111850\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100308\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone SE",
+            "generation": "(第 3 代)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_3.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_3.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_3_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "重磅实力，轻松入手。",
+                "releaseDate": "2022.03.09",
+                "osSupport": "iOS 15 ~ 最新",
+                "modelId": "iPhone14,6",
+                "colors": [
+                    {
+                        "name": "午夜色",
+                        "hex": "#232a31"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#faf6f2"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#bf0013"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_se_3rd_Gen_midnight.usdz\" target=\"_blank\">午夜色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "4.7\" LCD",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X57M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "7.82Wh (2018mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>15小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>50小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "67.3×138.4×7.3mm, 144g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111866\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/101527\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 13 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_Pro_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "强得很",
+                "releaseDate": "2021.09.15<br>苍岭绿：2022.03.09",
+                "osSupport": "iOS 15 ~ 最新",
+                "modelId": "iPhone14,3",
+                "colors": [
+                    {
+                        "name": "苍岭绿色",
+                        "hex": "#576856"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#f1f2ed"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fae7cf"
+                    },
+                    {
+                        "name": "石墨色",
+                        "hex": "#54524f"
+                    },
+                    {
+                        "name": "远峰蓝色",
+                        "hex": "#a7c1d9"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2778×1284, 458ppi",
+                "refreshRate": "10-120Hz ProMotion",
+                "brightness": "1000(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.5<br>超广角：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X60M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "16.75Wh (4352mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>28小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>25小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>95小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "78.1×160.8×7.65mm, 238g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111870\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100430\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 13 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_Pro_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "强得很",
+                "releaseDate": "2021.09.15<br>苍岭绿：2022.03.09",
+                "osSupport": "iOS 15 ~ 最新",
+                "modelId": "iPhone14,2",
+                "colors": [
+                    {
+                        "name": "苍岭绿色",
+                        "hex": "#576856"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#f1f2ed"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fae7cf"
+                    },
+                    {
+                        "name": "石墨色",
+                        "hex": "#54524f"
+                    },
+                    {
+                        "name": "远峰蓝色",
+                        "hex": "#a7c1d9"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "10-120Hz ProMotion",
+                "brightness": "1000(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.5<br>超广角：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X60M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "11.97Wh (3095mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>22小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>75小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.65mm, 203g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111871\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100416\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 13",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "解锁超能力",
+                "releaseDate": "2021.09.15<br>绿色：2022.03.09",
+                "osSupport": "iOS 15 ~ 最新",
+                "modelId": "iPhone14,5",
+                "colors": [
+                    {
+                        "name": "绿色",
+                        "hex": "#394c38"
+                    },
+                    {
+                        "name": "粉色",
+                        "hex": "#faddd7"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#276787"
+                    },
+                    {
+                        "name": "午夜色",
+                        "hex": "#232a31"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#faf6f2"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#bf0013"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X60M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.41Wh (3227mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>19小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>15小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>75小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.65mm, 173g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111872\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100402\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 13 mini",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_mini.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_mini.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_mini_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "解锁超能力",
+                "releaseDate": "2021.09.15<br>绿色：2022.03.09",
+                "osSupport": "iOS 15 ~ 最新",
+                "modelId": "iPhone14,4",
+                "colors": [
+                    {
+                        "name": "绿色",
+                        "hex": "#394c38"
+                    },
+                    {
+                        "name": "粉色",
+                        "hex": "#faddd7"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#276787"
+                    },
+                    {
+                        "name": "午夜色",
+                        "hex": "#232a31"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#faf6f2"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#bf0013"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "5.4\" XDR OLED",
+                "resolution": "2340×1080, 476ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X60M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "9.34Wh (2406mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>17小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>55小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "64.2×131.5×7.65mm, 140g",
+                "sim": "单卡",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111873\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100384\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 12 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_Pro_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "自我再飞跃。",
+                "releaseDate": "2020.10.14",
+                "osSupport": "iOS 14 ~ 最新",
+                "modelId": "iPhone13,4",
+                "colors": [
+                    {
+                        "name": "海蓝色",
+                        "hex": "#2d4e5c"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fcebd3"
+                    },
+                    {
+                        "name": "石墨色",
+                        "hex": "#52514d"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#e3e4df"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "6.7\" XDR OLED",
+                "resolution": "2778×1284, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4<br>长焦：1200W 像素 ƒ/2.2",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X55M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "14.13Wh (3687mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "78.1×160.8×7.4mm, 226g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111874\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/101538\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 12 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_Pro_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "自我再飞跃。",
+                "releaseDate": "2020.10.14",
+                "osSupport": "iOS 14 ~ 最新",
+                "modelId": "iPhone13,3",
+                "colors": [
+                    {
+                        "name": "海蓝色",
+                        "hex": "#2d4e5c"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fcebd3"
+                    },
+                    {
+                        "name": "石墨色",
+                        "hex": "#52514d"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#e3e4df"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_pro_pacific_blue_no_5G_ios14.usdz\" target=\"_blank\">海蓝色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4<br>长焦：1200W 像素 ƒ/2.0",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "IMX590 dToF 距离感应",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X55M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "10.78Wh (2815mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>17小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>11小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.4mm, 187g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111875\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100476\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 12",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "升维大提速。",
+                "releaseDate": "2020.10.14<br>紫色：2021.04.21",
+                "osSupport": "iOS 14 ~ 最新",
+                "modelId": "iPhone13,2",
+                "colors": [
+                    {
+                        "name": "紫色",
+                        "hex": "#b7afe6"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#023b63"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#d8efd5"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#d82e2e"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#f6f2ef"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#25212b"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X55M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "10.78Wh (2815mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>17小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>11小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.4mm, 162g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111876\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100464\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone 12 mini",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_mini.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_mini.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_mini_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "升维大提速。",
+                "releaseDate": "2020.10.14<br>紫色：2021.04.21",
+                "osSupport": "iOS 14 ~ 最新",
+                "modelId": "iPhone13,1",
+                "colors": [
+                    {
+                        "name": "紫色",
+                        "hex": "#b7afe6"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#023b63"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#d8efd5"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#d82e2e"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#f6f2ef"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#25212b"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "5.4\" XDR OLED",
+                "resolution": "2340×1080, 476ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.6<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm X55M",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "8.57Wh (2227mAh)",
+                "chargeMethod": "闪电接口/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>15小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>50小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "64.2×131.5×7.4mm, 133g",
+                "sim": "单卡",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111877\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/zh-cn/100452\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "iPhone SE",
+            "generation": "(第 2 代)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_2.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_2.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "称心称手，超值入手。",
+                "releaseDate": "2020.04.15",
+                "osSupport": "iOS 13 ~ 最新",
+                "modelId": "iPhone12,8",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#262529"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#f3f3f3"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_se_2nd_Gen_black_ios13.usdz\" target=\"_blank\">黑色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "4.7\" LCD",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7660",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "6.96Wh (1821mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>8小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "67.3×138.4×7.3mm, 148g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111882\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 11 Pro Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_Pro_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "Pro 如其名。",
+                "releaseDate": "2019.09.11",
+                "osSupport": "iOS 13 ~ 最新",
+                "modelId": "iPhone12,5",
+                "colors": [
+                    {
+                        "name": "暗夜绿色",
+                        "hex": "#4e5851"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#ebebe3"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#535150"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fad7bd"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、256G、512G</div>",
+                "display": "6.5\" XDR OLED",
+                "resolution": "2688×1242, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>超广角：1200W 像素 ƒ/2.4<br>长焦：1200W 像素 ƒ/2.0",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7660",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "15.04Wh (3969mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>20小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.8×158×8.1mm, 226g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111878\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 11 Pro",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_Pro_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "Pro 如其名。",
+                "releaseDate": "2019.09.11",
+                "osSupport": "iOS 13 ~ 最新",
+                "modelId": "iPhone12,3",
+                "colors": [
+                    {
+                        "name": "暗夜绿色",
+                        "hex": "#4e5851"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#ebebe3"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#535150"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fad7bd"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_11_pro.usdz\" target=\"_blank\">暗夜绿色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、256G、512G</div>",
+                "display": "5.8\" XDR OLED",
+                "resolution": "2436×1125, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典型)，1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>超广角：1200W 像素 ƒ/2.4<br>长焦：1200W 像素 ƒ/2.0",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7660",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "11.67Wh (3046mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>18小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>11小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.4×144×8.1mm, 188g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111879\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 11",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "一切都刚刚好。",
+                "releaseDate": "2019.09.11",
+                "osSupport": "iOS 13 ~ 最新",
+                "modelId": "iPhone12,1",
+                "colors": [
+                    {
+                        "name": "紫色",
+                        "hex": "#d1cdda"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#ffe681"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#aee1cd"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#1f2020"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#f9f6ef"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#ba0c2e"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_11.usdz\" target=\"_blank\">紫色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "6.1\" Liquid LCD",
+                "resolution": "1792×828, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>超广角：1200W 像素 ƒ/2.4",
+                "frontCamera": "1200W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7660",
+                "wifi": "802.11ax HT80 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "11.91Wh (3110mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>17小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "75.7×150.9×8.3mm, 194g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111865\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone XS Max",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS_Max.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS_Max.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XS_Max_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "大屏幕上见。",
+                "releaseDate": "2018.09.13",
+                "osSupport": "iOS 12 ~ iOS 18",
+                "modelId": "iPhone11,4 / 11,6",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e4e4e2"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#262529"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fadcc2"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、256G、512G</div>",
+                "display": "6.5\" HDR OLED 3D-Touch",
+                "resolution": "2688×1242, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.4",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7560",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "12.08Wh (3174mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>15小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.4×157.5×7.7mm, 208g",
+                "sim": "双卡双待",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111880\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone XS",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XS_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "大屏幕上见。",
+                "releaseDate": "2018.09.13",
+                "osSupport": "iOS 12 ~ iOS 18",
+                "modelId": "iPhone11,2",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e4e4e2"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#262529"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fadcc2"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、256G、512G</div>",
+                "display": "5.8\" HDR OLED 3D-Touch",
+                "resolution": "2436×1125, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.4",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7560",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "10.13Wh (2658mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>14小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>60小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "70.9×143.6×7.7mm, 177g",
+                "sim": "单卡",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111881\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone XR",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XR.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XR.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XR_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "哪一面都是亮点。",
+                "releaseDate": "2018.09.13",
+                "osSupport": "iOS 12 ~ iOS 18",
+                "modelId": "iPhone11,8",
+                "colors": [
+                    {
+                        "name": "蓝色",
+                        "hex": "#48aee6"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#f3f3f3"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#2e3034"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#f9d045"
+                    },
+                    {
+                        "name": "珊瑚色",
+                        "hex": "#ff6e5a"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A12 Bionic<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "6.1\" Liquid LCD",
+                "resolution": "1792×828, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Intel XMM7560",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "11.16Wh (2942mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>16小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>15小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>65小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "75.7×150.9×8.3mm, 194g",
+                "sim": "双卡双待",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111868\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone X",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_X.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_X.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_X_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "hello，未来。",
+                "releaseDate": "2017.09.13",
+                "osSupport": "iOS 11 ~ iOS 16",
+                "modelId": "iPhone10,3 / 10,6",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e4e4e2"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#262529"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A11 Bionic<br>(2P+4E+3GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4X<br>64G、256G</div>",
+                "display": "5.8\" HDR OLED 3D-Touch",
+                "resolution": "2436×1125, 458ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.4",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "MDM9655、Intel XMM7480",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "10.35Wh (2716mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>60小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×2",
+                "dimensionsWeight": "70.9×143.6×7.7mm, 174g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111864\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 8 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_8_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "新一代iPhone。",
+                "releaseDate": "2017.09.13",
+                "osSupport": "iOS 11 ~ iOS 16",
+                "modelId": "iPhone10,2 / 10,5",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#272729"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#f7e8dd"
+                    },
+                    {
+                        "name": "红色特别版",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A11 Bionic<br>(2P+4E+3GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "5.5\" LCD 3D-Touch",
+                "resolution": "1920×1080, 401ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "MDM9655、Intel XMM7480",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "10.28Wh (2691mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>14小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>60小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "78.1×158.4×7.5mm, 202g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111950\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 8",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_8_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "美在智慧。",
+                "releaseDate": "2017.09.13",
+                "osSupport": "iOS 11 ~ iOS 16",
+                "modelId": "iPhone10,1 / 10,4",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#272729"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#f7e8dd"
+                    },
+                    {
+                        "name": "红色特别版",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A11 Bionic<br>(2P+4E+3GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4X<br>64G、128G、256G</div>",
+                "display": "4.7\" LCD 3D-Touch",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "MDM9655、Intel XMM7480",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.0",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "6.96Wh (1821mAh)",
+                "chargeMethod": "闪电接口/Qi",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "67.3×138.4×7.3mm, 148g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111976\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 7 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_7_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "7，在此。",
+                "releaseDate": "2016.09.08",
+                "osSupport": "iOS 10 ~ iOS 15",
+                "modelId": "iPhone9,2 / 9,4",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#2e3034"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    },
+                    {
+                        "name": "玫瑰金色",
+                        "hex": "#ecc6c1"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A10 Fusion<br>(2P+2E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4<br>32G、128G、256G</div>",
+                "display": "5.5\" LCD 3D-Touch",
+                "resolution": "1920×1080, 401ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8<br>长焦：1200W 像素 ƒ/2.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "MDM9645、Intel XMM7360",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "11.10Wh (2900mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>14小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>60小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "77.9×158.2×7.3mm, 188g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111953\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 7",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_7_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "7，在此。",
+                "releaseDate": "2016.09.08",
+                "osSupport": "iOS 10 ~ iOS 15",
+                "modelId": "iPhone9,1 / 9,3",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "黑色",
+                        "hex": "#2e3034"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    },
+                    {
+                        "name": "玫瑰金色",
+                        "hex": "#ecc6c1"
+                    },
+                    {
+                        "name": "红色",
+                        "hex": "#b41325"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A10 Fusion<br>(2P+2E+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4<br>32G、128G、256G</div>",
+                "display": "4.7\" LCD 3D-Touch",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "625(典型)",
+                "colorGamut": "广色域显示(P3)",
+                "rearCamera": "主摄：1200W 像素 ƒ/1.8",
+                "frontCamera": "700W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "MDM9645、Intel XMM7360",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "7.45Wh (1960mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "67.1×138.3×7.1mm, 138g",
+                "sim": "单卡",
+                "waterResistance": "IP67",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111943\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone SE",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "一小部的一大步",
+                "releaseDate": "2016.03.22",
+                "osSupport": "iOS 9 ~ iOS 15",
+                "modelId": "iPhone8,4",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e4e4e2"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#262529"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#fadcc2"
+                    },
+                    {
+                        "name": "玫瑰金色",
+                        "hex": "#ecc6c1"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A9<br>(2P+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4<br>16G、32G、64G、128G</div>",
+                "display": "4\" LCD",
+                "resolution": "1136×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "全 sRGB 标准",
+                "rearCamera": "主摄：1200W 像素 ƒ/2.2",
+                "frontCamera": "120W 像素 ƒ/2.4",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9625M",
+                "wifi": "802.11ac",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "6.21Wh (1624mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>13小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>50小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "58.6×123.8×7.6mm, 113g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/112005\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 6s Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6s_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "唯一的不同，是处处都不同。",
+                "releaseDate": "2015.09.10",
+                "osSupport": "iOS 9 ~ iOS 15",
+                "modelId": "iPhone8,2",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#b1b2b7"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    },
+                    {
+                        "name": "玫瑰金色",
+                        "hex": "#ecc6c1"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A9<br>(2P+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4<br>16G、32G、64G、128G</div>",
+                "display": "5.5\" LCD 3D-Touch",
+                "resolution": "1920×1080, 401ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "全 sRGB 标准",
+                "rearCamera": "主摄：1200W 像素 ƒ/2.2",
+                "frontCamera": "500W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9635M",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "10.45Wh (2750mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>14小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×1",
+                "dimensionsWeight": "77.9×158.2×7.3mm, 192g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111996\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 6s",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6s_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "唯一的不同，是处处都不同。",
+                "releaseDate": "2015.09.10",
+                "osSupport": "iOS 9 ~ iOS 15",
+                "modelId": "iPhone8,1",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#b1b2b7"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    },
+                    {
+                        "name": "玫瑰金色",
+                        "hex": "#ecc6c1"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A9<br>(2P+6GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2GB LPDDR4<br>16G、32G、64G、128G</div>",
+                "display": "4.7\" LCD 3D-Touch",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "全 sRGB 标准",
+                "rearCamera": "主摄：1200W 像素 ƒ/2.2",
+                "frontCamera": "500W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9635M",
+                "wifi": "802.11ac 2x2 MIMO",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "6.55Wh (1715mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>11小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>50小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×1",
+                "dimensionsWeight": "67.1×138.3×7.1mm, 143g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111952\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 6 Plus",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6_Plus.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6_Plus.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6_Plus_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "岂止于大",
+                "releaseDate": "2014.09.10",
+                "osSupport": "iOS 8 ~ iOS 12",
+                "modelId": "iPhone7,1",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#b1b2b7"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A8<br>(2P+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR3<br>16G、64G、128G</div>",
+                "display": "5.5\" LCD",
+                "resolution": "1920×1080, 401ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "全 sRGB 标准",
+                "rearCamera": "主摄：800W 像素 ƒ/2.2",
+                "frontCamera": "120W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9625M",
+                "wifi": "802.11a/b/g/n/ac",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "11.13Wh (2915mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>14小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>12小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>80小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "77.8×158.1×7.1mm, 172g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111940\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 6",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "岂止于大",
+                "releaseDate": "2014.09.10",
+                "osSupport": "iOS 8 ~ iOS 12",
+                "modelId": "iPhone7,2",
+                "colors": [
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "深空灰色",
+                        "hex": "#b1b2b7"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A8<br>(2P+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR3<br>16G、32G、64G、128G</div>",
+                "display": "4.7\" LCD",
+                "resolution": "1334×750, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "全 sRGB 标准",
+                "rearCamera": "主摄：800W 像素 ƒ/2.2",
+                "frontCamera": "120W 像素 ƒ/2.2",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9625M",
+                "wifi": "802.11a/b/g/n/ac",
+                "bluetooth": "Bluetooth 4.2",
+                "nfc": "支持",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "6.91Wh (1810mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "视频<br>11小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>50小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "67×138.1×6.9mm, 129g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111954\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 5s",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5s.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5s.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5s_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "超前，空前。",
+                "releaseDate": "2013.09.10",
+                "osSupport": "iOS 7 ~ iOS 12",
+                "modelId": "iPhone6,1 / 6,2",
+                "colors": [
+                    {
+                        "name": "深空灰色",
+                        "hex": "#b1b2b7"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#e2e3e4"
+                    },
+                    {
+                        "name": "金色",
+                        "hex": "#e3ccb4"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A7<br>(2P+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR3<br>16G、32G、64G</div>",
+                "display": "4\" LCD",
+                "resolution": "1136×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "-",
+                "rearCamera": "主摄：800W 像素 ƒ/2.2",
+                "frontCamera": "120W 像素 ƒ/2.4",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9615",
+                "wifi": "802.11a/b/g/n",
+                "bluetooth": "Bluetooth 4.0",
+                "nfc": "/",
+                "unlockMethod": "触控 ID",
+                "batteryCapacity": "5.93Wh (1560mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>8小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "58.6×123.8×7.6mm, 112g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111973\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 5c",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5c.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5c.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5c_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "生来多彩",
+                "releaseDate": "2013.09.10",
+                "osSupport": "iOS 7 ~ iOS 10",
+                "modelId": "iPhone5,3 / 5,4",
+                "colors": [
+                    {
+                        "name": "粉色",
+                        "hex": "#ED7873"
+                    },
+                    {
+                        "name": "绿色",
+                        "hex": "#B5EE82"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#63B1E7"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#e7e7e7"
+                    },
+                    {
+                        "name": "黄色",
+                        "hex": "#FAEE80"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A6<br>(2P+3GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR2<br>8G、16G、32G</div>",
+                "display": "4\" LCD",
+                "resolution": "1136×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "-",
+                "rearCamera": "主摄：800W 像素 ƒ/2.4",
+                "frontCamera": "120W 像素",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9615",
+                "wifi": "802.11a/b/g/n",
+                "bluetooth": "Bluetooth 4.0",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "5.74Wh (1510mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>8小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "59.2×124.4×8.97mm, 132g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/111917\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 5",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "有史以来改变最大的 iPhone",
+                "releaseDate": "2012.09.13",
+                "osSupport": "iOS 6 ~ iOS 10",
+                "modelId": "iPhone5,1 / 5,2",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#2B3238"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#DBDDDC"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A6<br>(2P+3GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1GB LPDDR2<br>16G、32G、64G</div>",
+                "display": "4\" LCD",
+                "resolution": "1136×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "-",
+                "rearCamera": "主摄：800W 像素",
+                "frontCamera": "120W 像素",
+                "lidar": "/",
+                "wiredInterface": "闪电接口",
+                "cellular": "Qualcomm MDM9615",
+                "wifi": "802.11a/b/g/n",
+                "bluetooth": "Bluetooth 4.0",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "5.47Wh (1440mAh)",
+                "chargeMethod": "闪电接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>8小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "58.6×123.8×7.6mm, 112g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/112016\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 4S",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4s.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4s.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_4s_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "出色的iPhone，如今更出色。",
+                "releaseDate": "2011.10.05",
+                "osSupport": "iOS 5 ~ iOS 9",
+                "modelId": "iPhone4,1",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#000000"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#ffffff"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A5<br>(2P+2GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB LPDDR2<br>8G、16G、32G、64G</div>",
+                "display": "3.5\" LCD",
+                "resolution": "960×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "-",
+                "rearCamera": "主摄：800W 像素",
+                "frontCamera": "30W 像素",
+                "lidar": "/",
+                "wiredInterface": "30 针接口",
+                "cellular": "Qualcomm MDM6610",
+                "wifi": "802.11b/g/n",
+                "bluetooth": "Bluetooth 4.0",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "5.29Wh (1430mAh)",
+                "chargeMethod": "30 针接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>6小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×2 + 扬声器 ×1",
+                "dimensionsWeight": "58.6×115.2×9.3mm, 140g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/112004\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 4",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4.webp",
+                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_4_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "内部图"
+                ],
+                "slogan": "再一次，改变一切。",
+                "releaseDate": "2010.06.08",
+                "osSupport": "iOS 4 ~ iOS 7",
+                "modelId": "iPhone3,1 / 3,3",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#000000"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#ffffff"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A4<br>(1P+1GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB LPDDR<br>8G、16G、32G</div>",
+                "display": "3.5\" LCD",
+                "resolution": "960×640, 326ppi",
+                "refreshRate": "60Hz",
+                "brightness": "500(典型)",
+                "colorGamut": "-",
+                "rearCamera": "主摄：500W 像素",
+                "frontCamera": "30W 像素",
+                "lidar": "/",
+                "wiredInterface": "30 针接口",
+                "cellular": "Qualcomm MDM6600",
+                "wifi": "802.11b/g/n",
+                "bluetooth": "Bluetooth 2.1 + EDR",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "1420mAh",
+                "chargeMethod": "30 针接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>6小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>40小时</div>",
+                "audioIO": "麦克风 ×2 + 扬声器 ×1",
+                "dimensionsWeight": "58.6×115.2×9.3mm, 137g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/112562\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 3GS",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3gs.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3gs.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图"
+                ],
+                "slogan": "迄今为止最快、最强的iPhone。",
+                "releaseDate": "2009.06.09",
+                "osSupport": "iOS 3 ~ iOS 6",
+                "modelId": "iPhone2,1",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#000000"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#ffffff"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8920<br>(1P+1GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">256MB LPDDR<br>8G、16G、32G</div>",
+                "display": "3.5\" LCD",
+                "resolution": "480×320, 163ppi",
+                "refreshRate": "60Hz",
+                "brightness": "-",
+                "colorGamut": "-",
+                "rearCamera": "主摄：300W 像素",
+                "frontCamera": "/",
+                "lidar": "/",
+                "wiredInterface": "30 针接口",
+                "cellular": "Infineon PM8878",
+                "wifi": "802.11b/g",
+                "bluetooth": "Bluetooth 2.1 + EDR",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "1219mAh",
+                "chargeMethod": "30 针接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>10小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>5小时</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>30小时</div>",
+                "audioIO": "-",
+                "dimensionsWeight": "62.1×115.5×12.3mm, 135g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/zh-cn/112307\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone 3G",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3g.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3g.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图"
+                ],
+                "slogan": "这就是你一直等待的 iPhone",
+                "releaseDate": "2008.06.10",
+                "osSupport": "iOS 2 ~ iOS 4",
+                "modelId": "iPhone1,2",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#000000"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8900<br>(1P+1GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">128MB LPDDR<br>8G、16G</div>",
+                "display": "3.5\" LCD",
+                "resolution": "480×320, 163ppi",
+                "refreshRate": "60Hz",
+                "brightness": "-",
+                "colorGamut": "-",
+                "rearCamera": "主摄：200W 像素",
+                "frontCamera": "/",
+                "lidar": "/",
+                "wiredInterface": "30 针接口",
+                "cellular": "Infineon PM8878",
+                "wifi": "802.11b/g",
+                "bluetooth": "Bluetooth 2.0 + EDR",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "1150mAh",
+                "chargeMethod": "30 针接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>-<br></div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>-<br></div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>-<br></div>",
+                "audioIO": "-",
+                "dimensionsWeight": "62.1×115.5×12.3mm, 133g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/en-us/112496\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "iPhone",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图"
+                ],
+                "slogan": "重新定义了手机、这仅仅是个开始",
+                "releaseDate": "2007.01.10",
+                "osSupport": "iOS 1 ~ iOS 3",
+                "modelId": "iPhone1,1",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#000000"
+                    }
+                ],
+                "arLink": "/",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">Samsung S5L8900<br>(1P+1GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">128MB LPDDR<br>4G、8G、16G</div>",
+                "display": "3.5\" LCD",
+                "resolution": "480×320, 163ppi",
+                "refreshRate": "60Hz",
+                "brightness": "-",
+                "colorGamut": "-",
+                "rearCamera": "主摄：200W 像素",
+                "frontCamera": "/",
+                "lidar": "/",
+                "wiredInterface": "30 针接口",
+                "cellular": "Infineon PM8876",
+                "wifi": "802.11b/g",
+                "bluetooth": "Bluetooth 2.0 + EDR",
+                "nfc": "/",
+                "unlockMethod": "/",
+                "batteryCapacity": "-",
+                "chargeMethod": "30 针接口",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>-<br></div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">互联网<br>-<br></div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">音频<br>-<br></div>",
+                "audioIO": "麦克风 ×3 + 扬声器 ×1",
+                "dimensionsWeight": "61×115×11.6mm, 135g",
+                "sim": "单卡",
+                "waterResistance": "/",
+                "links": "<a href=\"https://support.apple.com/en-us/112445\" target=\"_blank\">技术规格</a>"
+            }
+        }
+    ]
+}

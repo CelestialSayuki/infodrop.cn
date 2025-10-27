@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CelestialSayuki 的自我介绍卡片</title>
+<style>
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+        background-color: #fcfdfe;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .background-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .background-shapes::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 15% 20%, #d8e6f1, transparent 40%); } .shape { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.7; } @keyframes move1 { 0% { transform: translate(0, 0); } 50% { transform: translate(60px, -40px); } 100% { transform: translate(0, 0); } } @keyframes move2 { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-50px, 30px) scale(1.1); } 100% { transform: translate(0, 0) scale(1); } } .shape1 { width: 450px; height: 450px; background: #a9ceec; top: -10%; left: -10%; animation: move1 25s infinite alternate ease-in-out; } .shape2 { width: 350px; height: 350px; background: #73a7d1; bottom: -5%; right: -5%; animation: move2 30s infinite alternate ease-in-out; }
+
+    #card-slider-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+    }
+
+    .slide-center { transform: translateX(0); z-index: 2; }
+    .slide-left { transform: translateX(-100%); z-index: 1; }
+    .slide-right { transform: translateX(100%); z-index: 1; }
+
+    .liquidGlass-wrapper {
+        width: 100%;
+        max-width: 1250px;
+        min-height: 600px;
+        max-height: 85vh;
+        box-sizing: border-box;
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(169, 206, 236, 0.3),
+                    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7);
+        display: flex;
+        gap: 35px;
+        z-index: 1;
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                    box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .liquidGlass-wrapper:hover {
+        transform: translateY(-10px) scale(1.01);
+        box-shadow: 0 12px 40px 0 rgba(169, 206, 236, 0.45),
+                    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7);
+    }
+    
+    .liquidGlass-effect { position: absolute; z-index: 0; inset: 0; backdrop-filter: blur(22px); filter: url(#glass-distortion); overflow: hidden; isolation: isolate; } .liquidGlass-tint { z-index: 1; position: absolute; inset: 0; background: rgba(252, 253, 254, 0.2); } .liquidGlass-shine { position: absolute; inset: 0; z-index: 2; overflow: hidden; box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5); border-radius: inherit; } .liquidGlass-text { z-index: 3; display: flex; gap: 35px; width: 100%; } .left-column { flex: 0 0 250px; display: flex; flex-direction: column; } .profile-header { text-align: left; margin-bottom: 30px; } .profile-image { width: 100px; height: 100px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.7); object-fit: cover; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); } .card-name { font-size: 2em; font-weight: 600; color: #73a7d1; } .card-title { font-size: 1em; font-weight: 400; color: #8cb4d3; margin: 5px 0 0 0; } .contact-info { display: grid; gap: 12px; font-size: 0.9em; padding-top: 20px; border-top: 1px solid rgba(115, 167, 209, 0.2); } .contact-item { display: flex; align-items: center; color: #536a7e; } .contact-item i { font-size: 1.2em; color: #a9ceec; margin-right: 12px; width: 20px; text-align: center; } .button-group { margin-top: auto; display: flex; flex-direction: column; gap: 10px; } .nav-btn { display: block; text-align: center; text-decoration: none; font-weight: 500; color: #73a7d1; background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(115, 167, 209, 0.2); padding: 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); } .nav-btn:hover { background-color: rgba(255, 255, 255, 0.5); border-color: rgba(115, 167, 209, 0.4); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(169, 206, 236, 0.3); color: #5d8ab0; } .right-column { flex: 1; min-width: 0; position: relative; } .slide:nth-child(1) .right-column { display: flex; flex-wrap: wrap; gap: 35px; align-content: flex-start; } .details-card { position: relative; overflow: hidden; padding: 25px; border-radius: 20px; z-index: 1; flex-basis: 300px; flex-grow: 1; display: flex; flex-direction: row; align-items: center; gap: 20px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 4px 16px 0 rgba(169, 206, 236, 0.25); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); } .details-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 10px 32px 0 rgba(169, 206, 236, 0.4); } .card-icon, .card-content { position: relative; z-index: 3; } .details-card::before { content: ''; position: absolute; z-index: 2; inset: 0; border-radius: inherit; background: radial-gradient( circle 250px at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4) 0%, transparent 70% ); opacity: 0; transition: opacity 0.4s ease-in-out; } .details-card:hover::before { opacity: 1; } .card-icon { flex-shrink: 0; font-size: 2.8em; color: #a9ceec; width: 45px; text-align: center; } .card-content { flex-grow: 1; } .card-content h2 { font-size: 1.2em; font-weight: 600; color: #73a7d1; margin-top: 0; margin-bottom: 10px; border-bottom: 1px solid rgba(115, 167, 209, 0.2); padding-bottom: 8px; } .card-content h2:only-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; } .card-content ul { list-style: none; padding-left: 5px; margin: 0; } .card-content li { color: #536a7e; margin-bottom: 8px; line-height: 1.6; display: flex; align-items: baseline; text-align: left; font-size: 0.95em; } .card-content li:last-child { margin-bottom: 0; } .card-content li b { margin-right: 8px; flex-shrink: 0; } .slide:nth-child(2) .right-column, .slide:nth-child(3) .right-column { border-left: 1px solid rgba(115, 167, 209, 0.2); padding-left: 35px; } .details-section h2 { font-size: 1.2em; font-weight: 600; color: #73a7d1; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid rgba(115, 167, 209, 0.2); padding-bottom: 8px; } .details-section:first-child h2 { margin-top: 0; } .details-section ul { list-style: none; padding-left: 5px; margin: 0; } .details-section li { color: #536a7e; margin-bottom: 8px; line-height: 1.6; display: flex; align-items: baseline; text-align: left; } .details-section li b { margin-right: 8px; flex-shrink: 0; }
+    
+    @media (min-width: 1101px) {
+        .right-column-content { column-count: 2; column-gap: 35px; }
+        .details-section { break-inside: avoid; }
+    }
+
+    @media (max-width: 900px) {
+        .slide {
+            overflow-y: auto;
+            align-items: flex-start;
+            padding: 15px;
+        }
+        .liquidGlass-wrapper {
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            min-height: 0;
+            max-height: none;
+            margin: 10px 0;
+        }
+        .liquidGlass-text {
+            flex-direction: column;
+        }
+        .left-column, .right-column {
+            flex: none;
+            width: 100%;
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .slide:nth-child(2) .right-column,
+        .slide:nth-child(3) .right-column {
+            border-left: none;
+            padding-left: 0;
+            border-top: 1px solid rgba(115, 167, 209, 0.2);
+            padding-top: 20px;
+        }
+        .right-column-content {
+            column-count: 1;
+        }
+        .slide:nth-child(1) .right-column {
+            gap: 20px;
+        }
+        .details-card {
+            flex-basis: 100%;
+        }
+        .card-name { font-size: 1.7em; }
+        .card-title { font-size: 0.95em; }
+    }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+    </div>
+
+    <div id="card-slider-container">
+        <div class="slide">
+            <div class="liquidGlass-wrapper" id="card-brief">
+                 <div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="liquidGlass-text"><div class="left-column"><div class="profile-header"><img src="sayuki.jpg" alt="个人头像" class="profile-image"><h1 class="card-name">CelestialSayuki</h1><p class="card-title">更新于2025.10.03</p><p class="card-title"><br>为了更快的了解我，我将本人的使用说明排版了一下，方便食用</p></div><div class="contact-info"><div class="contact-item"><i class="bi bi-tencent-qq"></i><span>QQ: 46773007</span></div><div class="contact-item"><i class="bi bi-people-fill"></i><span>QQ Group: 858780288</span></div><div class="contact-item"><i class="bi bi-telegram"></i><span>Telegram: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-twitter-x"></i><span>X: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-envelope-fill"></i><span>E-mail: CelestialSayuki@qq.com</span></div><div class="contact-item"><i class="bi bi-tv-fill"></i><span>Bilibili: Celestial紗雪</span></div></div><div class="button-group"><a href="#" class="nav-btn" data-target-index="1">查看更多信息 &rarr;</a></div></div><div class="right-column"><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-calendar-heart"></i></div><div class="card-content"><h2>生日</h2><ul><li>2006.03.15</li></ul></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-speedometer2"></i></div><div class="card-content"><ul><li>174cm / 66.7Kg (在减肥喵, 好胖)</li></ul></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-gender-male"></i></div><div class="card-content"><h2>🏳️‍⚧️，不含🍥</h2></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-mortarboard"></i></div><div class="card-content"><ul><li>UESTC，大二，电子摆烂人😭</li></ul></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-controller"></i></div><div class="card-content"><h2>日常</h2><ul><li><b>喜欢玩🥰:</b><span>Arcaea (ptt 12.63)<br>舞萌DX (rating w16)</span></li><li><b>周末:</b> 睡大觉💤</li><li><b>爱好:</b> 摄影📹，轨道交通🚃，折腾📱</li></ul></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-clipboard2-pulse"></i></div><div class="card-content"><h2>其他</h2><ul><li>中度焦虑</li><li>小腿激光脱毛中 (2/12)</li><li>infodrop.cn 开发者</li></ul></div></div><div class="details-card"><div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="card-icon"><i class="bi bi-cup-hot"></i></div><div class="card-content"><h2>关于投喂</h2><ul><li>暂时还没想好投喂我能得到什么好处 >_<</li><li>infodrop.cn 运营处于完全亏损状态...</li></ul></div></div></div></div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="liquidGlass-wrapper" id="card-full">
+                <div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="liquidGlass-text"><div class="left-column"><div class="profile-header"><img src="sayuki.jpg" alt="个人头像" class="profile-image"><h1 class="card-name">CelestialSayuki</h1><p class="card-title">更新于2025.10.03</p></div><div class="contact-info"><div class="contact-item"><i class="bi bi-tencent-qq"></i><span>QQ: 46773007</span></div><div class="contact-item"><i class="bi bi-people-fill"></i><span>QQ Group: 858780288</span></div><div class="contact-item"><i class="bi bi-telegram"></i><span>Telegram: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-twitter-x"></i><span>X: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-envelope-fill"></i><span>E-mail: CelestialSayuki@qq.com</span></div><div class="contact-item"><i class="bi bi-tv-fill"></i><span>Bilibili: Celestial紗雪</span></div></div><div class="button-group"><a href="#" class="nav-btn" data-target-index="0">&larr; 返回简介页面</a><a href="#" class="nav-btn" data-target-index="2">查看下一页 (负能量警告) &rarr;</a></div></div><div class="right-column"><div class="right-column-content"><div class="details-section"><h2>1. 碎碎念</h2><ul><li>一理财就亏钱🥹</li><li>最喜欢的曲师是 Laur</li><li>玩妹相随的时候w会把自己代入妹妹w</li><li>不知道吃什么时会吃麦当劳, 每个月生活费都不够用</li><li>听到喜欢歌的会单曲循环，睡觉的时候脑子里都在放🎧</li></ul></div><div class="details-section"><h2>2. 雷点</h2><ul><li>极度反感讨论政治</li><li>其他请阅读：<span style="color: red;">下一页</span></li></ul></div><div class="details-section"><h2>3. 人际关系</h2><ul><li><b>线下:</b> 不算社恐, 但有些人不读空气......那别怪我孤立你了</li><li><b>线上:</b> 尽量显得可爱的贴贴怪w，扩列请见：<span style="color: red;">下一页</span></li><li><b>面基:</b> 请阅读：<span style="color: red;">下一页</span></li></ul></div><div class="details-section"><h2>4. 个人缺陷</h2><ul><li>会因为小事生闷气</li><li>抓到槽点会一直不放过你的 >_<</li><li>思考问题以正确出发, 较少考虑别人感受</li><li>每个月会有几天暴饮食，根本瘦不下来😢</li><li>比较重视别人看法, 明明很努力却得不到认可会精神崩溃</li></ul></div><div class="details-section"><h2>5. 关于投喂</h2><ul><li>暂时还没想好投喂我能得到什么，大概率没有好处 >_< </li><li>本人的网站 infodrop.cn 运营处于完全亏损状态，如果有人能给咱打钱就太好了QuQ</li></ul></div><div class="details-section"><h2>6. 写在最后</h2><ul><li>想和大家做朋友哇qwq, 希望大家一直开心🥰</li></ul></div></div></div></div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="liquidGlass-wrapper" id="card-appendix">
+                 <div class="liquidGlass-effect"></div><div class="liquidGlass-tint"></div><div class="liquidGlass-shine"></div><div class="liquidGlass-text"><div class="left-column"><div class="profile-header"><img src="sayuki.jpg" alt="个人头像" class="profile-image"><h1 class="card-name">CelestialSayuki</h1><p class="card-title">更新于2025.10.03</p></div><div class="contact-info"><div class="contact-item"><i class="bi bi-tencent-qq"></i><span>QQ: 46773007</span></div><div class="contact-item"><i class="bi bi-people-fill"></i><span>QQ Group: 858780288</span></div><div class="contact-item"><i class="bi bi-telegram"></i><span>Telegram: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-twitter-x"></i><span>X: @CelestialSayuki</span></div><div class="contact-item"><i class="bi bi-envelope-fill"></i><span>E-mail: CelestialSayuki@qq.com</span></div><div class="contact-item"><i class="bi bi-tv-fill"></i><span>Bilibili: Celestial紗雪</span></div></div><div class="button-group"><a href="#" class="nav-btn" data-target-index="1">&larr; 返回上一页</a></div></div><div class="right-column"><div class="right-column-content"><div class="details-section"><h2>Appendix 1. 丑化说在后面</h2></div><div class="details-section"><h2>1. 关于私信/扩列</h2><ul><li><b>a.</b>机器人是瞬间拉黑的</li><li><b>b.</b>QQ 只加两种人：<span>(a). 同类（指同好/校友等）<br>(b). 数码圈/机圈找我有事的</span></li><li>&ensp;&ensp;&ensp;其他人看情况通过</li><li>&ensp;&ensp;&ensp;不论哪种，请事先私信告知，并说明来自哪个平台！</li><li>&ensp;&ensp;&ensp;如果我拒绝你还要加我，🚪149（一根苹果充电线）</li><li><b>c.</b>我的私信不是用来倒垃圾的，除非你提供了对等的情绪价值，否则不要单方面倒垃圾</li></ul></div><div class="details-section"><h2>2. 关于公开渠道的言论</h2><ul><li><b>a.</b>若想让我尊重你，前提是你需要满足能让我尊重你的条件，包括但不限于：</li><li>&ensp;&ensp;&ensp;<span>(a). 行为上的尊重<br>(b). 言语上对他人的尊重<br>(c). 经济实力的互相尊重<br>(d). 受教育程度/认知的互相尊重</span></li><li>&ensp;&ensp;&ensp;注：本人平时指的“没钱了”，一般情况下指个人手里<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;可支配的钱，与家里无关</li><li><b>b.</b>本人与极客湾现在没有任何实质性的联系了，如果你反驳我极客湾做得对，你就是对的</li><li><b>c.</b>infodrop.cn完全由本人开发，这里的开发指前端与后端的实现，如果你有证据证明抄袭（指infodrop.cn，涉及代码纠纷的OpenHubweb已删除），请拿出diff，否则不要造谣网站抄袭</li></ul></div><div class="details-section"><h2>3. 关于面基</h2><ul><li><b>a.</b>请仔细阅读，以确认您是否满足面基的条件：</li><li>&ensp;&ensp;&ensp;<span>(a). 能够提供充足的情绪价值<br>(b). 您能确保在面基过程中不会出现精神问题<br>(c). 面基有目的性，不能见面打个招呼就各自刷手机<br>(d). 您在距离成电清水河校区交通2.5小时辐射圈范围内</span></li><li><b>b.</b>LGBTQ+友好，但不可劝人od</li><li><b>c.</b>抱歉，暂不太想面改花刀的人，咱只能给您线上安慰，线下我实在不忍心看，对不起</li><li><b>d.</b>如果您面基只是为了看漂亮男娘涩涩，那不要来找我了，我不仅不好看，也不接受涩涩</li></ul></div><div class="details-section"><h2>4. 其他雷点</h2><ul><li><b>a.</b>关于机圈，如要证明我错，您需准备以下材料：</li><li>&ensp;&ensp;&ensp;<span>(a). 您在相关行业头部公司从事的工作证明<br>(b). 能够证明您在相关领域经验丰富的各种材料<br>(c). 您在相关方向的研究成果（Paper/高赞Blog文章）<br>(d). 世界排名前100学校 Bachelor 或更高学历的证明</span></li><li>&ensp;&ensp;&ensp;本人不在不懂的方向暴论，如有，我可以发道歉声明</li><li><b>b.</b>如果您是校友，请不要在学校里疯狂宣传我，我发的基本上都是日常，这个账号不是运营赚钱用的。</li><li><b>c.</b>待补充......</li></ul></div></div></div></div>
+            </div>
+        </div>
+    </div>
+    
+    <svg style="display: none">
+        <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox"> <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" seed="5" result="turbulence"/> <feComponentTransfer in="turbulence" result="mapped"><feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" /><feFuncG type="gamma" amplitude="0" exponent="1" offset="0" /><feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" /></feComponentTransfer> <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" /> <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight"><fePointLight x="-200" y="-200" z="300" /></feSpecularLighting> <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/> <feDisplacementMap in="SourceGraphic" in2="softMap" scale="150" xChannelSelector="R" yChannelSelector="G"/> </filter>
+    </svg>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.slide');
+        const navLinks = document.querySelectorAll('.nav-btn[data-target-index]');
+        let currentIndex = 0;
+        let isAnimating = false;
+        const animationDuration = 700;
+
+        function initializeSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('slide-center', 'slide-left', 'slide-right');
+                if (index === currentIndex) {
+                    slide.classList.add('slide-center');
+                } else {
+                    slide.classList.add('slide-right');
+                }
+            });
+        }
+
+        function goToSlide(targetIndex) {
+            if (isAnimating || targetIndex === currentIndex) {
+                return;
+            }
+            isAnimating = true;
+
+            const isForward = targetIndex > currentIndex;
+            const currentSlide = slides[currentIndex];
+            const targetSlide = slides[targetIndex];
+
+            currentSlide.classList.remove('slide-center');
+            currentSlide.classList.add(isForward ? 'slide-left' : 'slide-right');
+
+            targetSlide.classList.remove('slide-left', 'slide-right');
+            targetSlide.classList.add('slide-center');
+
+            currentIndex = targetIndex;
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, animationDuration);
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetIndex = parseInt(link.dataset.targetIndex, 10);
+                goToSlide(targetIndex);
+            });
+        });
+
+        document.querySelectorAll('.details-card').forEach(item => {
+            item.addEventListener('mousemove', function(e) {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                item.style.setProperty('--mouse-x', `${x}px`);
+                item.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+        
+        initializeSlides();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+{
+    "title": "苹果 Apple Watch Ultra 参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "name": "宣传口号",
+                    "id": "slogan"
+                },
+                {
+                    "name": "发布时间",
+                    "id": "releaseDate"
+                },
+                {
+                    "name": "支持系统",
+                    "id": "supportedOS"
+                },
+                {
+                    "name": "型号标识",
+                    "id": "modelIdentifier"
+                },
+                {
+                    "name": "外观颜色",
+                    "id": "colors"
+                },
+                {
+                    "name": "增强现实",
+                    "id": "arLink"
+                }
+            ]
+        },
+        {
+            "groupName": "性能",
+            "features": [
+                {
+                    "name": "芯片",
+                    "id": "chipInfo"
+                },
+                {
+                    "name": "RAM<br>ROM",
+                    "id": "ramRom"
+                },
+                {
+                    "name": "无线芯片",
+                    "id": "wirelessChip"
+                },
+                {
+                    "name": "超宽频芯片",
+                    "id": "ultraWidebandChip"
+                }
+            ]
+        },
+        {
+            "groupName": "显示屏",
+            "features": [
+                {
+                    "name": "屏幕参数",
+                    "id": "screenResolution"
+                },
+                {
+                    "name": "屏幕材质",
+                    "id": "screenMaterial"
+                },
+                {
+                    "name": "亮度",
+                    "id": "brightness"
+                },
+                {
+                    "name": "表镜材质",
+                    "id": "crystalMaterial"
+                }
+            ]
+        },
+        {
+            "groupName": "表背",
+            "features": [
+                {
+                    "name": "表背材质",
+                    "id": "caseBackMaterial"
+                }
+            ]
+        },
+        {
+            "groupName": "连接",
+            "features": [
+                {
+                    "name": "基带(蜂窝版)",
+                    "id": "cellularBaseband"
+                },
+                {
+                    "name": "无线局域网",
+                    "id": "wifi"
+                },
+                {
+                    "name": "蓝牙",
+                    "id": "bluetooth"
+                }
+            ]
+        },
+        {
+            "groupName": "电源",
+            "features": [
+                {
+                    "name": "电池容量",
+                    "id": "batteryCapacity"
+                },
+                {
+                    "name": "续航时间",
+                    "id": "batteryLife"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "name": "定位导航",
+                    "id": "positioning"
+                },
+                {
+                    "name": "防尘防水",
+                    "id": "durability"
+                },
+                {
+                    "name": "传感器",
+                    "id": "sensors"
+                },
+                {
+                    "name": "规格与手册",
+                    "id": "specsManual"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "Apple Watch Ultra 3",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-ultra/img/apple_watch_Ultra_3.webp",
+            "data": {
+                "slogan": "无限你的野",
+                "releaseDate": "2025.09.10",
+                "supportedOS": "watchOS 26 ~ 最新",
+                "modelIdentifier": "Watch7,12",
+                "colors": [
+                    {
+                        "name": "钛金属原色",
+                        "hex": "#ccc4bc"
+                    },
+                    {
+                        "name": "钛金属黑色",
+                        "hex": "#0f0e0e"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/watch-ultra-3.usdz\" target=\"_blank\">钛金属原色</a>",
+                "chipInfo": "S10 SiP",
+                "ramRom": "2GB<br>64GB",
+                "wirelessChip": "W3",
+                "ultraWidebandChip": "U2",
+                "screenResolution": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">422x514<br>(49mm)</div>",
+                "screenMaterial": "全天候 LTPO3 OLED",
+                "brightness": "最高 3000 尼特",
+                "crystalMaterial": "蓝宝石玻璃",
+                "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+                "cellularBaseband": "MediaTek MT6815",
+                "wifi": "802.11n 2.4&5GHz",
+                "bluetooth": "Bluetooth 5.3",
+                "batteryCapacity": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">599mAh<br>(49mm)</div>",
+                "batteryLife": "42 小时",
+                "positioning": "双频 GPS (L1 + L5)",
+                "durability": "IP6X + 10ATM",
+                "sensors": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">加速度计<br>(256 g-force)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">高动态范围<br>陀螺仪</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">环境光传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(光学, 第三代)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(电极式)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">气压高度计<br>(全天候)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">磁力计</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">血氧传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">体温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">水温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">深度计</div>",
+                "specsManual": ""
+            }
+        },
+        {
+            "name": "Apple Watch Ultra 2",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-ultra/img/apple_watch_Ultra_2.webp",
+            "data": {
+                "slogan": "野出新维度",
+                "releaseDate": "2023.09.13",
+                "supportedOS": "watchOS 10 ~ 最新",
+                "modelIdentifier": "Watch7,5",
+                "colors": [
+                    {
+                        "name": "钛金属原色",
+                        "hex": "#ccc4bc"
+                    },
+                    {
+                        "name": "钛金属黑色",
+                        "hex": "#0f0e0e"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_2_alpine_loop_blue.usdz\" target=\"_blank\">钛金属原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_2_black.usdz\" target=\"_blank\">钛金属黑色</a>",
+                "chipInfo": "S9 SiP",
+                "ramRom": "2GB<br>64GB",
+                "wirelessChip": "W3",
+                "ultraWidebandChip": "U2",
+                "screenResolution": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">410x502<br>(49mm)</div>",
+                "screenMaterial": "全天候 LTPO2 OLED",
+                "brightness": "最高 3000 尼特",
+                "crystalMaterial": "蓝宝石玻璃",
+                "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+                "cellularBaseband": "Intel XMM7560",
+                "wifi": "802.11n 2.4&5GHz",
+                "bluetooth": "Bluetooth 5.3",
+                "batteryCapacity": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">564mAh<br>(49mm)</div>",
+                "batteryLife": "36 小时",
+                "positioning": "双频 GPS (L1 + L5)",
+                "durability": "IP6X + 10ATM",
+                "sensors": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">加速度计<br>(256 g-force)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">高动态范围<br>陀螺仪</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">环境光传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(光学, 第三代)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(电极式)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">气压高度计<br>(全天候)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">磁力计</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">血氧传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">体温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">水温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">深度计</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/111832\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "Apple Watch Ultra",
+            "generation": "",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-ultra/img/apple_watch_Ultra.webp",
+            "data": {
+                "slogan": "越野超心驰",
+                "releaseDate": "2022.09.08",
+                "supportedOS": "watchOS 9 ~ 最新",
+                "modelIdentifier": "Watch6,18",
+                "colors": [
+                    {
+                        "name": "钛金属原色",
+                        "hex": "#ccc4bc"
+                    }
+                ],
+                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_ultra_1_alpine_loop_orange_china_ios15.usdz\" target=\"_blank\">钛金属原色</a>",
+                "chipInfo": "S8 SiP",
+                "ramRom": "1.5GB<br>32GB",
+                "wirelessChip": "W3",
+                "ultraWidebandChip": "U1",
+                "screenResolution": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">410x502<br>(49mm)</div>",
+                "screenMaterial": "全天候 LTPO2 OLED",
+                "brightness": "最高 2000 尼特",
+                "crystalMaterial": "蓝宝石玻璃",
+                "caseBackMaterial": "精密陶瓷 + 蓝宝石玻璃",
+                "cellularBaseband": "Intel XMM7560",
+                "wifi": "802.11b/g/n 2.4&5GHz",
+                "bluetooth": "Bluetooth 5.3",
+                "batteryCapacity": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">542mAh 3.86V<br>(49mm)</div>",
+                "batteryLife": "36 小时",
+                "positioning": "双频 GPS (L1 + L5)",
+                "durability": "IP6X + 10ATM",
+                "sensors": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">加速度计<br>(256 g-force)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">高动态范围<br>陀螺仪</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">环境光传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(光学, 第三代)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">心率传感器<br>(电极式)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">气压高度计<br>(全天候)</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">磁力计</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">血氧传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">体温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">水温传感器</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">深度计</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/111852\" target=\"_blank\">技术规格</a>"
+            }
+        }
+    ]
+}

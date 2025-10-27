@@ -1,0 +1,68 @@
+Celestia-no-mad-world License
+Effective Date: July 10, 2025
+
+Owner: CelestialSayuki
+
+This Celestia-no-mad-world License (hereinafter "this License") sets forth the terms and conditions governing the use, reproduction, distribution, and modification of all content within this repository (hereinafter "the Repository"). This includes, but is not limited to, all source code, object code, compiled binaries, executable files, generated output, databases, documentation, text files, images, multimedia, and any data contributed to or extracted from discussion forums, issue trackers, wikis, or other communication channels associated with the Repository (collectively, "Repository Content").
+
+By accessing, viewing, downloading, installing, compiling, executing, transmitting, or otherwise interacting with any portion of the Repository Content, you (hereinafter "the User") acknowledge that you have read, understood, and irrevocably agree to be bound by all the terms and conditions of this License. If you do not agree with any term of this License, you must immediately cease all interaction with the Repository Content.
+
+1. Owner's Exclusive Rights and Permitted Uses
+
+1.1. Exclusive Ownership: All Repository Content, in its entirety and any part thereof, along with all intellectual property rights, including but not limited to copyrights, trademarks, patents, trade secrets, and database rights, are and shall remain the exclusive and sole property of the Owner. The Owner reserves all rights not expressly and unambiguously granted to the User in this License.
+
+1.2. Permitted Academic Research: Notwithstanding Section 1.3, the User is permitted to use the source code and compiled files from the Repository Content solely for non-commercial academic research purposes within an accredited educational or research institution. This permission does not extend to using, reproducing, or distributing any data from the Repository Content (including discussion forum data) without explicit written authorization from the Owner as per Section 3.1. Any publications or presentations resulting from such academic research must acknowledge the Owner and the Repository by including a clear citation and a link to the Repository.
+
+1.3. Permitted Project Promotion: The User is permitted to inform others about the existence of this project and the Repository, provided that such communication exclusively serves to promote awareness of the project and includes a clear, functional link back to the official Repository. This permission does not allow for the distribution, reproduction, or use of any Repository Content itself, beyond linking to the Repository.
+
+1.4. Strict Prohibition on Unauthorized Use: Unless explicitly, personally, and separately authorized by the Owner in a written agreement, signed by the Owner (beyond the specific permissions granted in Sections 1.2 and 1.3), the User is strictly and absolutely prohibited from engaging in any form of use, reproduction, distribution, public display, public performance, modification, adaptation, translation, reverse engineering, decompilation, disassembly, creation of derivative works, sublicensing, leasing, selling, renting, lending, or any other exploitation of the Repository Content for any purpose whatsoever, whether commercial or non-commercial. This prohibition extends to, but is not limited to:
+* (a) Direct or indirect commercial exploitation of any kind.
+* (b) Incorporation into any commercial or non-commercial product, service, or project.
+* (c) Any form of redistribution, whether modified or unmodified, in source or compiled form.
+* (d) Any form of network-based provision or hosting where the Repository Content or its output is accessible to third parties.
+
+2. Presumption of Infringement
+
+2.1. Evidentiary Presumption: Any use, reproduction, distribution, or creation of results, outputs, functionalities, compiled files, or derived works that are identical or substantially similar in form, function, or appearance to those generated from the Owner's source code or provided within the Repository Content, shall be conclusively presumed to be an infringement of the Owner's intellectual property rights.
+
+2.2. Rebuttal Requirement: This presumption of infringement can only be rebutted if the User can conclusively demonstrate, with clear, convincing, and verifiable evidence (including, but not limited to, independent audit trails, detailed development logs, and expert testimony), that their implementation, results, or derived works were:
+* (a) Developed entirely independently of the Repository Content, without any access to, reference to, or knowledge of the Repository Content; AND
+* (b) Fundamentally different in their underlying creation, architecture, algorithms, or internal logic, and not merely a superficial alteration, re-styling, or re-implementation of the Owner's original concepts or designs.
+
+3. Data Ownership and Strict Data Usage
+
+3.1. Discussion Forum and Interaction Data Ownership: All data, information, ideas, suggestions, contributions, comments, and any other content shared, uploaded, posted, or transmitted by any User within the discussion forums, issue trackers, wikis, pull requests, or any other communication channels directly associated with the Repository, shall be deemed to be part of the Repository Content and shall become the sole and exclusive property of the Owner upon submission.
+
+3.2. Strict Prohibition on Unauthorized Data Use: The User is strictly prohibited from collecting, extracting, copying, distributing, analyzing, or otherwise using any data from the Repository Content, including discussion forum data, for any purpose whatsoever, unless explicit, written, and separate authorization is obtained from the Owner. This prohibition applies even if the use is for academic research or non-commercial purposes. Viewing data within the Repository's intended interface for personal information gathering is permitted, but any processing, reproduction, or distribution requires specific consent.
+
+4. Required Authorization and Enforcement
+
+4.1. Authorization Procedure: Any desired use of the Repository Content that falls outside the explicit permissions granted in Sections 1.2 and 1.3 must be preceded by a formal request for authorization submitted to the Owner via email at CelestialSayuki@qq.com. The request must clearly specify the exact nature and scope of the proposed use.
+
+4.2. Owner's Discretion: The Owner retains sole and absolute discretion to grant or deny any such authorization, with or without providing any reason. No implied licenses or rights are granted under this License. Any authorization granted by the Owner shall be specific, limited, and subject to additional terms and conditions as determined by the Owner.
+
+4.3. Enforcement and Remedies: In the event of any actual or suspected violation of this License, the Owner reserves the right to pursue any and all available legal and equitable remedies, including but not limited to injunctive relief, specific performance, and damages, without prejudice to any other rights or remedies the Owner may have. The User agrees to indemnify and hold harmless the Owner from any claims, damages, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from the User's breach of this License.
+
+5. Disclaimer of Warranty
+
+5.1. "AS IS" Basis: The Repository Content is provided "AS IS," "WITH ALL FAULTS," and "AS AVAILABLE," without warranty of any kind, express or implied. The Owner expressly disclaims all warranties, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, non-infringement, accuracy, completeness, reliability, security, or error-free operation. The entire risk as to the quality and performance of the Repository Content is with the User.
+
+6. Limitation of Liability
+
+6.1. No Liability for Damages: In no event shall the Owner be liable for any direct, indirect, incidental, special, exemplary, punitive, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use or inability to use the Repository Content, even if advised of the possibility of such damage.
+
+7. Governing Law and Jurisdiction
+
+7.1. Governing Law: This License shall be governed by and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law principles.
+
+7.2. Jurisdiction: Any dispute, controversy, or claim arising out of or relating to this License, or the breach, termination, or invalidity thereof, shall be submitted to the exclusive jurisdiction of the competent courts located in the People's Republic of China.
+
+8. Miscellaneous
+
+8.1. Severability: If any provision of this License is found to be invalid or unenforceable under applicable law, such invalidity or unenforceability shall not affect the validity or enforceability of the remaining provisions, which shall remain in full force and effect.
+
+8.2. Entire Agreement: This License constitutes the entire agreement between the Owner and the User concerning the subject matter hereof and supersedes all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral.
+
+8.3. No Waiver: No waiver of any breach of any provision of this License shall constitute a waiver of any prior, concurrent, or subsequent breach of the same or any other provisions hereof, and no waiver shall be effective unless made in writing and signed by an authorized representative of the Owner.
+
+BY USING THIS REPOSITORY, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREED TO ALL TERMS AND CONDITIONS OF THIS CELESTIA-NO-MAD-WORLD LICENSE.

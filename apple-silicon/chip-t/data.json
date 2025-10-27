@@ -1,0 +1,84 @@
+{
+  "title": "苹果 T 系列参数对比",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "CPU",
+      "features": [
+        { "id": "cpuSpec", "name": "CPU规格" },
+        { "id": "microArchitecture", "name": "微架构<br>(解码发射)" }
+      ]
+    },
+    {
+      "groupName": "GPU",
+      "features": [
+        { "id": "gpuSpec", "name": "GPU规格" }
+      ]
+    },
+    {
+      "groupName": "RAM",
+      "features": [
+        { "id": "ramSpec", "name": "内存规格" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" },
+        { "id": "securityOverview", "name": "安全概述" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple T2",
+      "generation": "(Gibraltar, APL1027-T8012)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
+      "images": {
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_APL1027_temp.webp",
+        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T2_product.webp",
+        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/die/die_shot_T2_SemiWiki_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图", "宣传图", "Die"],
+        "releaseDate": "2017.06",
+        "processTech": "TSMC N16",
+        "dieSize": "104mm²",
+        "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.34GHz ×2<br>1.09GHz ×2</div>",
+        "microArchitecture": "Hurricane + Zephyr<br>(6-wide + 3-wide)",
+        "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">3 核 GPU</div>",
+        "ramSpec": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1G LPDDR4<br>(512G及以下)</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2G LPDDR4<br>(1TB及以上)</div>",
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">MacBook Pro (13 英寸, 2018 年)<br>MacBook Pro (15 英寸, 2018 年)<br>MacBook Pro (13 英寸, 2019 年)<br>MacBook Pro (15 英寸, 2019 年)<br>MacBook Pro (16 英寸, 2019 年)<br>MacBook Pro (13 英寸, 2020 年)<br>MacBook Air (13 英寸, 2018 年)<br>MacBook Air (13 英寸, 2019 年)<br>MacBook Air (13 英寸, 2020 年)<br>iMac Pro (2017 年)<br>iMac (27 英寸, 2020 年)<br>Mac mini (2018 年)<br>Mac Pro (2019 年)<br>Mac Pro (机架式, 2019 年)<br>Mellanox ConnectX-4 Lx 单端口 25Gb SFP HBA (Apple A2336)</div>",
+        "securityOverview": "<a href=\"https://www.apple.com/mideast/mac/docs/Apple_T2_Security_Chip_Overview.pdf\" target=\"_blank\">点击查看</a>"
+      }
+    },
+    {
+      "name": "Apple T1",
+      "generation": "(APL1023-T8002)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp",
+      "images": {
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-t/img/Apple_T1_APL1023_temp.webp"
+      },
+      "data": {
+        "displayType": ["芯片图"],
+        "releaseDate": "2016.10",
+        "processTech": "-",
+        "dieSize": "-",
+        "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">520MHz ×2</div>",
+        "microArchitecture": "Cortex-A7<br>(2-wide)",
+        "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">IT PowerVR Series 6 Rogue</div>",
+        "ramSpec": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">512MB LPDDR4</div>",
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">MacBook Pro (13 英寸, 2016 年)<br>MacBook Pro (15 英寸, 2016 年)<br>MacBook Pro (13 英寸, 2017 年)<br>MacBook Pro (15 英寸, 2017 年)</div>",
+        "securityOverview": "-"
+      }
+    }
+  ]
+}

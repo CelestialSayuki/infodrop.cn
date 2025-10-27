@@ -1,0 +1,492 @@
+{
+  "title": "苹果 Mac mini 参数对比",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "slogan", "name": "宣传口号" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "osSupport", "name": "支持系统" },
+        { "id": "modelId", "name": "型号标识" },
+        { "id": "colors", "name": "外观颜色" },
+        { "id": "arLink", "name": "增强现实" }
+      ]
+    },
+    {
+      "groupName": "性能",
+      "features": [
+        { "id": "process", "name": "芯片工艺" },
+        { "id": "chip", "name": "芯片信息" },
+        { "id": "gpu", "name": "显卡信息" },
+        { "id": "npu", "name": "神经引擎" }
+      ]
+    },
+    {
+      "groupName": "容量",
+      "features": [
+        { "id": "ramRom", "name": "内存/存储容量" }
+      ]
+    },
+    {
+      "groupName": "电源",
+      "features": [
+        { "id": "power", "name": "最大功率" }
+      ]
+    },
+    {
+      "groupName": "连接",
+      "features": [
+        { "id": "thunderbolt", "name": "雷雳/DP" },
+        { "id": "ports", "name": "机身接口" },
+        { "id": "wifi", "name": "Wi-Fi" },
+        { "id": "bluetooth", "name": "蓝牙" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "dimensionsWeight", "name": "尺寸重量" },
+        { "id": "securityChip", "name": "安全芯片" },
+        { "id": "moldModel", "name": "模具型号" },
+        { "id": "links", "name": "规格与手册" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Mac mini",
+      "generation": "(2024 年)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2024.webp",
+      "data": {
+        "slogan": "尺寸暴减，实力却暴涨。",
+        "releaseDate": "2024.10.29",
+        "osSupport": "macOS 15 ~ 最新",
+        "modelId": "Mac16,10 / 16,11",
+        "colors": [
+          { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2024_silver.usdz\" target=\"_blank\">银色</a>",
+        "process": "TSMC N3E",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(4P+6E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Pro<br>(8/10P+4E)</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/20</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16 核 38 TOPS</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16、24、32、48、64GB 统一内存<br>256GB、512GB、1TB、2TB、4TB、8TB</div>",
+        "power": "155 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">M4 机型: 雷雳4 (最高 40Gb/s) ×3<br>M4 Pro 机型: 雷雳5 (最高 120Gb/s) ×3</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-C (最高 10Gb/s) ×2<br>千兆以太网 (可选配 10Gb)<br>3.5 毫米耳机插孔<br>HDMI 2.1 ×1<br><br></div>",
+        "wifi": "802.11ax Wi-Fi 6E",
+        "bluetooth": "Bluetooth 5.3",
+        "dimensionsWeight": "4.97×12.70×12.70cm,0.67/0.73kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3238<br>(M4)</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3239<br>(M4 Pro)</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/121555\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/121508\" target=\"_blank\">维修手册</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2023 年)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2023.webp",
+      "data": {
+        "slogan": "涨内力，添迅猛。",
+        "releaseDate": "2023.01.18",
+        "osSupport": "macOS 13 ~ 最新",
+        "modelId": "Mac14,3 / 14,12",
+        "colors": [
+          { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2023_m2_pro_chip_silver_ios15.usdz\" target=\"_blank\">银色</a>",
+        "process": "TSMC N5P",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"M2\">M2<br>(4P+4E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"M2 Pro\">M2 Pro<br>(6/8P+4E)</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/19</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16 核 15.8 TOPS</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8、16、24、32GB 统一内存<br>256GB、512GB、1TB、2TB、4TB、8TB</div>",
+        "power": "185 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">M2 机型: 雷雳4 (最高 40Gb/s) ×2<br>M2 Pro 机型: 雷雳4 (最高 40Gb/s) ×4</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×2<br>千兆以太网 (可选配 10Gb)<br>3.5 毫米耳机插孔<br>HDMI 2.1 ×1<br><br></div>",
+        "wifi": "802.11ax Wi-Fi 6E",
+        "bluetooth": "Bluetooth 5.3",
+        "dimensionsWeight": "3.58×19.7×19.7cm,1.18/1.28kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A2686<br>(M2)</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A2816<br>(M2 Pro)</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111837\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/102940\" target=\"_blank\">维修手册</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(M1, 2020 年)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2020.webp",
+      "data": {
+        "slogan": "平添内力，更霸气。",
+        "releaseDate": "2020.11.11",
+        "osSupport": "macOS 11 ~ 最新",
+        "modelId": "Macmini9,1",
+        "colors": [
+          { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2020_m1_silver_ios12.usdz\" target=\"_blank\">银色</a>",
+        "process": "TSMC N5",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"八核 M1\">M1<br>(4P+4E Core)</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\" title=\"八核 M1\">Apple ×8</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\" title=\"M1\">16 核 11 TOPS</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8、16GB 统一内存<br>256GB、512GB、1TB、2TB</div>",
+        "power": "150 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳3 (最高 40Gb/s) ×2</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×2<br>千兆以太网 (可选配 10Gb)<br>3.5 毫米耳机插孔<br>HDMI 2.0 ×1<br><br></div>",
+        "wifi": "802.11ax Wi-Fi 6",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.2kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A2348</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111894\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/100333\" target=\"_blank\">维修手册</a>"
+      }
+    },
+    {
+      "name": "Developer Transition Kit",
+      "generation": "Apple Development Platform",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
+      "data": {
+        "slogan": "Get your Universal apps ready.",
+        "releaseDate": "2020.06.22",
+        "osSupport": "macOS 11 ~ macOS 11",
+        "modelId": "ADP3,2",
+        "colors": [
+            { "name": "深空灰色", "hex": "#7a7b80" }
+        ],
+        "arLink": "/",
+        "process": "TSMC N7",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"八核 A12Z\">A12Z<br>(4P+4E Core)</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\" title=\"八核 A12Z\">Apple ×8</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\" title=\"A12Z\">8 核 5 TOPS</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16GB 统一内存<br>512GB</div>",
+        "power": "150 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">/</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×2<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI 2.0 ×1<br>USB-C (最高 10Gb/s) ×2<br></div>",
+        "wifi": "802.11ac Wi-Fi 5",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.2kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A2330</div>",
+        "links": "/"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2018 年)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
+      "data": {
+        "slogan": "全身大改造。",
+        "releaseDate": "2018.10.31",
+        "osSupport": "macOS 10.14 ~ macOS 15",
+        "modelId": "Macmini8,1",
+        "colors": [
+          { "name": "深空灰色", "hex": "#7a7b80" }
+        ],
+        "arLink": "/",
+        "process": "Intel 14nm (Coffee Lake)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i3-8100B\">四核 i3<br>8100B</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-8500B\">六核 i5<br>8500B</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-8700B\">六核 i7<br>8700B</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® UHD Graphics 630</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8、16、32、64GB<br>128GB、256GB、512GB、1TB、2TB</div>",
+        "power": "150 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳3 (最高 40Gb/s) ×4</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×2<br>千兆以太网 (可选配 10Gb)<br>3.5 毫米耳机插孔<br>HDMI 2.0 ×1<br><br></div>",
+        "wifi": "802.11ac Wi-Fi 5",
+        "bluetooth": "Bluetooth 5.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.2kg",
+        "securityChip": "Apple T2 安全芯片",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1993</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111912\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2014 年末)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2014.webp",
+      "data": {
+        "slogan": "小身材，大作为。",
+        "releaseDate": "2014.10.17",
+        "osSupport": "OS X 10.10 ~ macOS 12",
+        "modelId": "Macmini7,1",
+        "colors": [
+          { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 22nm (Haswell)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-4260U\">双核i5<br>4260U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-4278U\">双核i5<br>4278U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-4308U\">双核i5<br>4308U</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-4578U\">双核i7<br>4578U</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\" title=\"i5-4260U\">HD 5000</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\" title=\"i5-4278U、i5-4308U、i7-4578U\">Iris 5100</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4、8、16GB<br>256GB、500GB、512GB、1TB、2TB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳2 (最高 20Gb/s) ×2</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI 1.4 ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11ac Wi-Fi 5",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.19/1.22kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111931\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini Server",
+      "generation": "(2012 年末)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2012-server.webp",
+      "data": {
+        "slogan": "操作 DIY，台面随便摆。",
+        "releaseDate": "2012.10.24",
+        "osSupport": "OS X 10.8 ~ macOS 10.15",
+        "modelId": "Macmini6,2",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 22nm (Ivy Bridge)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3615QM\">四核 i7<br>3615QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3720QM\">四核 i7<br>3720QM</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 4000</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4、8、16GB<br>256GB、512GB、2TB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳 (最高 10 Gbps) ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.3kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112012\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2012 年末)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2012.webp",
+      "data": {
+        "slogan": "不变强，只变强。",
+        "releaseDate": "2012.10.24",
+        "osSupport": "OS X 10.8 ~ macOS 10.15",
+        "modelId": "Macmini6,1 / 6,2",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 22nm (Ivy Bridge)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-3210M\">双核 i5<br>3210M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3615QM\">四核 i7<br>3615QM</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-3720QM\">四核 i7<br>3720QM</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 4000</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4、8GB<br>256GB、512GB、1TB、1.5TB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳 (最高 10 Gbps) ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 5Gb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.22kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111926\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini Server",
+      "generation": "(2011 年中)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2011-server.webp",
+      "data": {
+        "slogan": "小小服务器，四核威力重拳出击。",
+        "releaseDate": "2011.07.21",
+        "osSupport": "Mac OS X 10.7 ~ macOS 10.13",
+        "modelId": "Macmini5,3",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 32nm (Sandy Bridge)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-2635QM\">四核 I7-2635QM</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 3000</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4、8GB<br>256GB、512GB、1TB、1.5TB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳 (最高 10 Gbps) ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.37kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112006\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2011 年中)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2011.webp",
+      "data": {
+        "slogan": "小的仅是身材而已。",
+        "releaseDate": "2011.07.21",
+        "osSupport": "Mac OS X 10.7 ~ macOS 10.13",
+        "modelId": "Macmini5,1 / 5,2",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 32nm (Sandy Bridge)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-2415M\">双核 i5<br>2415M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i5-2520M\">双核 i5<br>2520M</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"i7-2620M\">双核 i7<br>2620M</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® HD 3000 或<br>AMD Radeon HD 6630M</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2、4、8GB<br>256GB、500GB、750GB、1TB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">雷雳 (最高 10 Gbps) ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 4.0",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.22kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112007\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini Server",
+      "generation": "(2010 年中)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2010-server.webp",
+      "data": {
+        "slogan": "服务器虽小，本事却大。",
+        "releaseDate": "2010.06.15",
+        "osSupport": "Mac OS X 10.6 ~ macOS 10.13",
+        "modelId": "Macmini4,1",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 45nm (Penryn)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8800\">Intel Core™2 Duo P8800</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 320M<br></div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4、8GB<br>Dual 500GB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">Mini DP ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.29kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112589\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2010 年中)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2010.webp",
+      "data": {
+        "slogan": "小个子，大改变。",
+        "releaseDate": "2010.06.15",
+        "osSupport": "Mac OS X 10.6 ~ macOS 10.13",
+        "modelId": "Macmini4,1",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 45nm (Penryn)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8600\">Intel Core™2 Duo P8600</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 320M</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2、4、8GB<br>320GB</div>",
+        "power": "85 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">Mini DP ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×4<br>千兆以太网<br>3.5 毫米耳机插孔<br>HDMI ×1<br>SDXC 卡插槽 ×1</div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "dimensionsWeight": "3.6×19.7×19.7cm,1.37kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1347</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112588\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2009 年末)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2009-10.webp",
+      "data": {
+        "slogan": "更大内存，更快处理器。",
+        "releaseDate": "2009.10.21",
+        "osSupport": "Mac OS X 10.6 ~ OS X 10.11",
+        "modelId": "Macmini3,1",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 45nm (Penryn)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P7550\">Intel Core™2<br>Duo P7550</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P8700\">Intel Core™2<br>Duo P8700</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">2、4GB<br>160GB、320GB</div>",
+        "power": "110 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">Mini DP ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×5<br>千兆以太网<br><br><br><br></div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "dimensionsWeight": "5.08×16.51×16.51cm,1.31kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1283</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112482\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2009 年初)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2009-03.webp",
+      "data": {
+        "slogan": "能效最高的苹果桌面式电脑。",
+        "releaseDate": "2009.03.04",
+        "osSupport": "Mac OS X 10.6 ~ OS X 10.11",
+        "modelId": "Macmini3,1",
+        "colors": [
+            { "name": "银色", "hex": "#c7c8ca" }
+        ],
+        "arLink": "/",
+        "process": "Intel 45nm (Penryn)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo P7350\">Intel Core™2 Duo P7350</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">NVIDIA GeForce 9400M</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1、2、4GB<br>120GB、320GB</div>",
+        "power": "110 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">Mini DP ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×5<br>千兆以太网<br><br><br><br></div>",
+        "wifi": "802.11a/b/g/n",
+        "bluetooth": "Bluetooth 2.1",
+        "dimensionsWeight": "5.08×16.51×16.51cm,1.31kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1283</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/111345\" target=\"_blank\">技术规格</a>"
+      }
+    },
+    {
+      "name": "Mac mini",
+      "generation": "(2007 年中)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2007.webp",
+      "data": {
+        "slogan": "小即是美",
+        "releaseDate": "2007.08.08",
+        "osSupport": "Mac OS X 10.4 ~ Mac OS X 10.7",
+        "modelId": "Macmini2,1",
+        "colors": [
+            { "name": "白色", "hex": "#FFFFFF" }
+        ],
+        "arLink": "/",
+        "process": "Intel 65nm (Merom)",
+        "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo T5600\">Intel Core™2<br>Duo T5600</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"Core™2 Duo T7200\">Intel Core™2<br>Duo T7200</div>",
+        "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® GMA950</div>",
+        "npu": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+        "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">1、2GB<br>80GB、120GB、160GB</div>",
+        "power": "110 瓦",
+        "thunderbolt": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">Mini DP ×1</div>",
+        "ports": "<div class=\"info-square\" style=\"background-color: rgba(120, 120, 128, 0.12);\">USB-A (最高 480Mb/s) ×4<br>千兆以太网<br><br><br><br></div>",
+        "wifi": "802.11a/b/g",
+        "bluetooth": "Bluetooth 2.0",
+        "dimensionsWeight": "5.08×16.51×16.51cm,1.31kg",
+        "securityChip": "/",
+        "moldModel": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1176</div>",
+        "links": "<a href=\"https://support.apple.com/zh-cn/112504\" target=\"_blank\">技术规格</a>"
+      }
+    }
+  ]
+}

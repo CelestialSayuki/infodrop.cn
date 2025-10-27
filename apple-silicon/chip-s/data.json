@@ -1,0 +1,798 @@
+{
+    "title": "苹果 S 系列参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "id": "displayType",
+                    "name": "型号展示"
+                },
+                {
+                    "id": "releaseDate",
+                    "name": "发布时间"
+                }
+            ]
+        },
+        {
+            "groupName": "SOC",
+            "features": [
+                {
+                    "id": "chipCodename",
+                    "name": "芯片代号"
+                },
+                {
+                    "id": "processTech",
+                    "name": "技术工艺"
+                },
+                {
+                    "id": "dieSize",
+                    "name": "裸片尺寸"
+                },
+                {
+                    "id": "cpuSpec",
+                    "name": "CPU规格"
+                },
+                {
+                    "id": "microArchitecture",
+                    "name": "微架构"
+                },
+                {
+                    "id": "l1iCache",
+                    "name": "L1指令缓存"
+                },
+                {
+                    "id": "l1dCache",
+                    "name": "L1数据缓存"
+                },
+                {
+                    "id": "LCache",
+                    "name": "次级缓存"
+                },
+                {
+                    "id": "mlAccelerator",
+                    "name": "加速器"
+                },
+                {
+                    "id": "gpuInfo",
+                    "name": "GPU信息"
+                },
+                {
+                    "id": "aneInfo",
+                    "name": "ANE信息"
+                },
+                {
+                    "id": "memorycache",
+                    "name": "Memory Cache"
+                }
+            ]
+        },
+        {
+            "groupName": "内存",
+            "features": [
+                {
+                    "id": "ramSpec",
+                    "name": "内存规格"
+                }
+            ]
+        },
+        {
+            "groupName": "存储",
+            "features": [
+                {
+                    "id": "storageCapacity",
+                    "name": "存储容量"
+                }
+            ]
+        },
+        {
+            "groupName": "LCU",
+            "features": [
+                {
+                    "id": "customChip",
+                    "name": "自定义芯片"
+                }
+            ]
+        },
+        {
+            "groupName": "电源",
+            "features": [
+                {
+                    "id": "pmic1",
+                    "name": "PMIC 1"
+                },
+                {
+                    "id": "pmic2",
+                    "name": "PMIC 2"
+                },
+                {
+                    "id": "wirelessChargingIc",
+                    "name": "无线充电IC"
+                }
+            ]
+        },
+        {
+            "groupName": "连接",
+            "features": [
+                {
+                    "id": "ultraWidebandChip",
+                    "name": "超宽频"
+                },
+                {
+                    "id": "wifi",
+                    "name": "无线局域网"
+                },
+                {
+                    "id": "bluetooth",
+                    "name": "蓝牙"
+                }
+            ]
+        },
+        {
+            "groupName": "通讯",
+            "features": [
+                {
+                    "id": "gps",
+                    "name": "GPS"
+                },
+                {
+                    "id": "audioCodec",
+                    "name": "音频编解码"
+                }
+            ]
+        },
+        {
+            "groupName": "射频",
+            "features": [
+                {
+                    "id": "basebandChip",
+                    "name": "基带芯片"
+                },
+                {
+                    "id": "esimController",
+                    "name": "eSIM控制器"
+                },
+                {
+                    "id": "rfFrontendModule",
+                    "name": "RF前端模块"
+                },
+                {
+                    "id": "rfChip",
+                    "name": "RF射频芯片"
+                },
+                {
+                    "id": "rfPowerAmp",
+                    "name": "RF功放模块"
+                }
+            ]
+        },
+        {
+            "groupName": "NFC",
+            "features": [
+                {
+                    "id": "nfcFrontend",
+                    "name": "前端芯片"
+                },
+                {
+                    "id": "nfcController",
+                    "name": "近场通讯"
+                }
+            ]
+        },
+        {
+            "groupName": "传感器",
+            "features": [
+                {
+                    "id": "gyroAccel",
+                    "name": "陀螺仪/加速度计"
+                },
+                {
+                    "id": "barometer",
+                    "name": "大气压力"
+                },
+                {
+                    "id": "compass",
+                    "name": "三轴指南针"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "id": "usedIn",
+                    "name": "使用设备"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "Apple S10 SiP",
+            "generation": "(T8310)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/null.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "Die"
+                ],
+                "releaseDate": "2024.09",
+                "chipCodename": "-",
+                "processTech": "TSMC N4",
+                "dieSize": "5.70×7.27 (41.44 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL1W15-T8310<br>1.58GHz ×2</div>",
+                "microArchitecture": "Sawtooth",
+                "l1iCache": "2×128KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">4MB</div>",
+                "mlAccelerator": "AMX",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G15M Core 1<br>0.3GHz</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Apple H15<br>4 核@0.5GHz</div>",
+                "memorycache": "4MB",
+                "ramSpec": "2GB LPDDR5",
+                "storageCapacity": "64GB Flash",
+                "customChip": "-",
+                "pmic1": "-",
+                "pmic2": "/",
+                "wirelessChargingIc": "-",
+                "ultraWidebandChip": "Apple U2",
+                "wifi": "Apple W3",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "-",
+                "audioCodec": "-",
+                "basebandChip": "-",
+                "esimController": "-",
+                "rfFrontendModule": "-",
+                "rfChip": "-",
+                "rfPowerAmp": "-",
+                "nfcFrontend": "-",
+                "nfcController": "-",
+                "gyroAccel": "-",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 10<br>Apple Watch Series 11<br>Apple Watch Ultra 3<br>Apple Watch SE3</div>"
+            }
+        },
+        {
+            "name": "Apple S9 SiP",
+            "generation": "(T8310)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S9.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "Die"
+                ],
+                "releaseDate": "2023.09",
+                "chipCodename": "-",
+                "processTech": "TSMC N4",
+                "dieSize": "5.70×7.27 (41.44 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL1W15-T8310<br>1.58GHz ×2</div>",
+                "microArchitecture": "Sawtooth",
+                "l1iCache": "2×128KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">4MB</div>",
+                "mlAccelerator": "AMX",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G15M Core 1<br>0.3GHz</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Apple H15<br>4 核@0.5GHz</div>",
+                "memorycache": "4MB",
+                "ramSpec": "2GB LPDDR5",
+                "storageCapacity": "64GB Flash (3D-V7 176 层)",
+                "customChip": "-",
+                "pmic1": "-",
+                "pmic2": "/",
+                "wirelessChargingIc": "-",
+                "ultraWidebandChip": "Apple U2",
+                "wifi": "Apple W3",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "-",
+                "audioCodec": "-",
+                "basebandChip": "-",
+                "esimController": "-",
+                "rfFrontendModule": "-",
+                "rfChip": "-",
+                "rfPowerAmp": "-",
+                "nfcFrontend": "-",
+                "nfcController": "-",
+                "gyroAccel": "-",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 9<br>Apple Watch Ultra 2</div>"
+            }
+        },
+        {
+            "name": "Apple S8 SiP",
+            "generation": "(T8301)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_2_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面",
+                    "Die"
+                ],
+                "releaseDate": "2022.09",
+                "chipCodename": "Turks",
+                "processTech": "TSMC N7P",
+                "dieSize": "5.40×7.37 (39.8 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">T8301<br>?.??GHz ×2</div>",
+                "microArchitecture": "Thunder",
+                "l1iCache": "2×96KB",
+                "l1dCache": "2×48KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">4MB</div>",
+                "mlAccelerator": "AMX",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G11M Core 1</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Mercury<br>2 核</div>",
+                "memorycache": "1MB",
+                "ramSpec": "1.5GB LPDDR4X",
+                "storageCapacity": "32GB Flash",
+                "customChip": "Broadcom BCM15924",
+                "pmic1": "Dialog Semiconductor",
+                "pmic2": "/",
+                "wirelessChargingIc": "BCM59366EA1IUBG",
+                "ultraWidebandChip": "Apple U1",
+                "wifi": "Apple W3",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "-",
+                "audioCodec": "Cirrus Logic CS35L92",
+                "basebandChip": "Intel XG742",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO",
+                "rfChip": "QORVO",
+                "rfPowerAmp": "Skyworks",
+                "nfcFrontend": "-",
+                "nfcController": "NXP",
+                "gyroAccel": "-",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 8<br>Apple Watch SE (第 2 代)<br>Apple Watch Ultra </div>"
+            }
+        },
+        {
+            "name": "Apple S7 SiP",
+            "generation": "(T8301)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S7_2_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面",
+                    "Die"
+                ],
+                "releaseDate": "2021.09",
+                "chipCodename": "Turks",
+                "processTech": "TSMC N7P",
+                "dieSize": "5.40×7.37 (39.8 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL1W86-T8301<br>1.73GHz ×2</div>",
+                "microArchitecture": "Thunder",
+                "l1iCache": "2×96KB",
+                "l1dCache": "2×48KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">4MB</div>",
+                "mlAccelerator": "AMX",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G11M Core 1</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Mercury<br>2 核</div>",
+                "memorycache": "1MB",
+                "ramSpec": "1.5GB LPDDR4X",
+                "storageCapacity": "32GB Flash",
+                "customChip": "Broadcom BCM15924",
+                "pmic1": "Dialog Semiconductor",
+                "pmic2": "/",
+                "wirelessChargingIc": "BCM59366EA1IUBG",
+                "ultraWidebandChip": "Apple U1(338S00642)",
+                "wifi": "Apple W3",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "BCM47764KUBG",
+                "audioCodec": "Cirrus Logic CS35L92",
+                "basebandChip": "Intel XG742",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO",
+                "rfChip": "QORVO",
+                "rfPowerAmp": "Skyworks",
+                "nfcFrontend": "-",
+                "nfcController": "NXP",
+                "gyroAccel": "Bosch",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 7<br>HomePod (第 2 代) (仅使用CPU)</span></div>"
+            }
+        },
+        {
+            "name": "Apple S6 SiP",
+            "generation": "(T8301)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S6_2_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S8.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面",
+                    "Die"
+                ],
+                "releaseDate": "2020.09",
+                "chipCodename": "Turks",
+                "processTech": "TSMC N7P",
+                "dieSize": "5.40×7.37 (39.8 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">TMLI30-T8301<br>1.73GHz ×2</div>",
+                "microArchitecture": "Thunder",
+                "l1iCache": "2×96KB",
+                "l1dCache": "2×48KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">4MB</div>",
+                "mlAccelerator": "AMX",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G11M Core 1</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Mercury<br>2 核</div>",
+                "memorycache": "1MB",
+                "ramSpec": "1.5GB LPDDR4X",
+                "storageCapacity": "32GB Flash",
+                "customChip": "Broadcom BCM15924",
+                "pmic1": "Dialog D2720A",
+                "pmic2": "/",
+                "wirelessChargingIc": "BCM59356",
+                "ultraWidebandChip": "Apple U1(338S00641)",
+                "wifi": "Apple W3(338S00464)",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "BCM4775X",
+                "audioCodec": "Cirrus Logic CS35L92",
+                "basebandChip": "Intel XG742",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO",
+                "rfChip": "QORVO",
+                "rfPowerAmp": "Skyworks",
+                "nfcFrontend": "-",
+                "nfcController": "NXP PN200V",
+                "gyroAccel": "Bosch BMI282",
+                "barometer": "-",
+                "compass": "STMicroelectronics",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 6</div>"
+            }
+        },
+        {
+            "name": "Apple S5 SiP",
+            "generation": "(T8006)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S5_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面"
+                ],
+                "releaseDate": "2019.09",
+                "chipCodename": "-",
+                "processTech": "TSMC N7",
+                "dieSize": "-",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL1W82/TMJA65-T8006<br>1.59GHz ×2</div>",
+                "microArchitecture": "Tempest",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">2MB</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G11M Core 1</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Mercury<br>2 核</div>",
+                "memorycache": "1MB",
+                "ramSpec": "1GB LPDDR4X",
+                "storageCapacity": "32GB Flash",
+                "customChip": "Broadcom BCM15922",
+                "pmic1": "Dialog Semiconductor",
+                "pmic2": "Dialog Semiconductor",
+                "wirelessChargingIc": "BCM59356",
+                "ultraWidebandChip": "❌",
+                "wifi": "Apple W3(338S00464)",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "BCM47755",
+                "audioCodec": "-",
+                "basebandChip": "Intel XG742",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO AFEM 8088",
+                "rfChip": "Sony A4487A",
+                "rfPowerAmp": "Skyworks",
+                "nfcFrontend": "-",
+                "nfcController": "NXP",
+                "gyroAccel": "Bosch BMI282",
+                "barometer": "-",
+                "compass": "ALPS",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 5<br>Apple Watch SE (第 1 代)<br>HomePod mini (仅使用CPU)</span></div>"
+            }
+        },
+        {
+            "name": "Apple S4 SiP",
+            "generation": "(T8006)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S4_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面"
+                ],
+                "releaseDate": "2018.09",
+                "chipCodename": "-",
+                "processTech": "TSMC N7",
+                "dieSize": "-",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">TMJR65-T8006<br>1.59GHz ×2</div>",
+                "microArchitecture": "Tempest",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">2MB</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple G11M Core 1</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Mercury<br>2 核</div>",
+                "memorycache": "1MB",
+                "ramSpec": "1GB LPDDR4X",
+                "storageCapacity": "16GB Flash",
+                "customChip": "Broadcom BCM15924",
+                "pmic1": "Dialog Semiconductor",
+                "pmic2": "-",
+                "wirelessChargingIc": "BCM59356",
+                "ultraWidebandChip": "❌",
+                "wifi": "Apple W3(338S00464)",
+                "bluetooth": "集成于 Apple W3",
+                "gps": "-",
+                "audioCodec": "-",
+                "basebandChip": "Intel XG742",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO AFEM 8087",
+                "rfChip": "-",
+                "rfPowerAmp": "Skyworks",
+                "nfcFrontend": "-",
+                "nfcController": "NXP",
+                "gyroAccel": "Bosch",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 4</div>"
+            }
+        },
+        {
+            "name": "Apple S3 SiP",
+            "generation": "(T8004)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S3_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面"
+                ],
+                "releaseDate": "2017.09",
+                "chipCodename": "-",
+                "processTech": "-",
+                "dieSize": "-",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">TMHU50-T8004<br>780MHz ×2</div>",
+                "microArchitecture": "-",
+                "l1iCache": "-",
+                "l1dCache": "-",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">-</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR Series</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+                "memorycache": "-",
+                "ramSpec": "768MB LPDDR4",
+                "storageCapacity": "8GB/16GB Flash",
+                "customChip": "Broadcom BCM15920",
+                "pmic1": "Dialog",
+                "pmic2": "Qualcomm PMD9645",
+                "wirelessChargingIc": "BCM59356",
+                "ultraWidebandChip": "❌",
+                "wifi": "Apple W2(338S00348)",
+                "bluetooth": "集成于 Apple W2",
+                "gps": "-",
+                "audioCodec": "-",
+                "basebandChip": "MDM9635M",
+                "esimController": "ST33G1M2",
+                "rfFrontendModule": "AVAGO AFEM 8069",
+                "rfChip": "Qualcomm WTR3925",
+                "rfPowerAmp": "Skyworks SKY78108",
+                "nfcFrontend": "-",
+                "nfcController": "NXP PN80V",
+                "gyroAccel": "Bosch FY LEE C7P",
+                "barometer": "-",
+                "compass": "-",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 3</div>"
+            }
+        },
+        {
+            "name": "Apple S2",
+            "generation": "(T8002)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2_2_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S2.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面",
+                    "Die"
+                ],
+                "releaseDate": "2016.09",
+                "chipCodename": "-",
+                "processTech": "-",
+                "dieSize": "6.26×7.31 (45.76 mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">TMGK97-T8002<br>520MHz ×2</div>",
+                "microArchitecture": "Cortex-A7",
+                "l1iCache": "-",
+                "l1dCache": "-",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">-</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR Series 6</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+                "memorycache": "-",
+                "ramSpec": "512MB LPDDR4",
+                "storageCapacity": "8GB Flash",
+                "customChip": "-",
+                "pmic1": "-",
+                "pmic2": "-",
+                "wirelessChargingIc": "-",
+                "ultraWidebandChip": "❌",
+                "wifi": "BCM43430",
+                "bluetooth": "集成于 BCM43430",
+                "gps": "BCM47734",
+                "audioCodec": "-",
+                "basebandChip": "-",
+                "esimController": "-",
+                "rfFrontendModule": "-",
+                "rfChip": "-",
+                "rfPowerAmp": "-",
+                "nfcFrontend": "-",
+                "nfcController": "-",
+                "gyroAccel": "Bosch BMP280",
+                "barometer": "-",
+                "compass": "STMicroelectronics C451",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 2</div>"
+            }
+        },
+        {
+            "name": "Apple S1P",
+            "generation": "(T8002)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1P_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1P_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP"
+                ],
+                "releaseDate": "2016.09",
+                "chipCodename": "-",
+                "processTech": "-",
+                "dieSize": "-",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">T8002<br>520MHz ×2</div>",
+                "microArchitecture": "Cortex-A7",
+                "l1iCache": "-",
+                "l1dCache": "-",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">-</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR Series 6</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+                "memorycache": "-",
+                "ramSpec": "512MB LPDDR4",
+                "storageCapacity": "8GB Flash",
+                "customChip": "-",
+                "pmic1": "-",
+                "pmic2": "-",
+                "wirelessChargingIc": "-",
+                "ultraWidebandChip": "❌",
+                "wifi": "BCM43430",
+                "bluetooth": "集成于 BCM43430",
+                "gps": "BCM47734",
+                "audioCodec": "-",
+                "basebandChip": "-",
+                "esimController": "-",
+                "rfFrontendModule": "-",
+                "rfChip": "-",
+                "rfPowerAmp": "-",
+                "nfcFrontend": "-",
+                "nfcController": "-",
+                "gyroAccel": "-",
+                "barometer": "-",
+                "compass": "STMicroelectronics C451",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch Series 1</div>"
+            }
+        },
+        {
+            "name": "Apple S1",
+            "generation": "(S7002)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_temp.webp",
+            "images": {
+                "SiP": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_temp.webp",
+                "正面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_1_temp.webp",
+                "反面": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-s/img/S1_2_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "SiP",
+                    "正面",
+                    "反面"
+                ],
+                "releaseDate": "2014.09",
+                "chipCodename": "-",
+                "processTech": "Samsung S.LSI 28nm HKMG",
+                "dieSize": "-",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL0778-S7002<br>520MHz ×1</div>",
+                "microArchitecture": "Cortex-A7",
+                "l1iCache": "-",
+                "l1dCache": "32 KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">256 KB</div>",
+                "mlAccelerator": "/",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR Series 5</div>",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/</div>",
+                "memorycache": "-",
+                "ramSpec": "512MB LPDDR3",
+                "storageCapacity": "8GB Flash",
+                "customChip": "-",
+                "pmic1": "Dialog PMU D2238A",
+                "pmic2": "-",
+                "wirelessChargingIc": "IDT P9022",
+                "ultraWidebandChip": "❌",
+                "wifi": "BCM43342MKWBG",
+                "bluetooth": "集成于 BCM43342MKWBG",
+                "gps": "-",
+                "audioCodec": "Maxim",
+                "basebandChip": "-",
+                "esimController": "-",
+                "rfFrontendModule": "-",
+                "rfChip": "Skyworks",
+                "rfPowerAmp": "AMS AS3923",
+                "nfcFrontend": "-",
+                "nfcController": "NXP PN548",
+                "gyroAccel": "-",
+                "barometer": "-",
+                "compass": "STMicroelectronics C451",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Watch (第 1 代)</div>"
+            }
+        }
+    ]
+}

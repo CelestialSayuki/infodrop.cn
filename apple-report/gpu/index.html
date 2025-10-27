@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+  <style type="text/css">
+    .main-content {
+      padding: 20px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .retext {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 0;
+      color: var(--light-text-secondary);
+      width: 100%;
+    }
+    hr {
+      border: 0;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0.1);
+      max-width: 1500px;
+      margin: 25px auto;
+      }
+
+    #mainLayout {
+        margin: 0;
+    }
+    
+    .macos-window.dark-mode .retext,
+    html.dark-mode .retext {
+      color: var(--dark-text-secondary);
+    }
+    .macos-window.dark-mode hr,
+    html.dark-mode hr {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .macos-window.dark-mode .card,
+    html.dark-mode .card {
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+        .main-content {
+            padding: 5px;
+        }
+        .card {
+            margin: 0;
+        }
+    }
+  </style>
+</head>
+
+<body style="margin: 0;" id="mainLayout">
+
+  <div class="main-content">
+    <div class="card">
+      <div id="container_3DMark_A" style="width: 100%; height:320px;"></div>
+      <div class="retext width_float">A系列</div>
+
+      <div id="container_3DMark_M" style="width: 100%; height:600px;"></div>
+      <div class="retext width_float">M系列</div>
+      
+      <hr>
+      
+      <div id="container_GeekBench6_A" style="width: 100%; height:400px;"></div>
+      <div class="retext width_float">A系列</div>
+
+      <div id="container_GeekBench6_M" style="width: 100%; height:400px;"></div>
+      <div class="retext width_float">M系列</div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+
+  <script type="text/javascript">
+  (() => {
+      let chartInstances = [];
+
+      const renderAllCharts = () => {
+          chartInstances.forEach(chart => chart.dispose());
+          chartInstances = [];
+
+          const currentTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+
+          const geekBench6AData = [
+              { device: '(6GPU) A10 Fusion', metal: 4645 }, { device: '(4GPU) A12 Bionic', metal: 10142 }, { device: '(4GPU) A13 Bionic', metal: 14621 }, { device: '(4GPU) A14 Bionic', metal: 17454 }, { device: '(7GPU) A12X Bionic', metal: 18003 }, { device: '(4GPU) A15 Bionic', metal: 19088 }, { device: '(8GPU) A12Z Bionic', metal: 19584 }, { device: '(4GPU) A16 Bionic', metal: 20921 }, { device: '(5GPU) A15 Bionic', metal: 22728 }, { device: '(4GPU) A18', metal: 24380 }, { device: '(5GPU) A16 Bionic', metal: 24962 }, { device: '(5GPU) A17 Pro', metal: 26307 }, { device: '(5GPU) A18', metal: 28386 }, { device: '(6GPU) A17 Pro', metal: 29273 }, { device: '(6GPU) A18 Pro', metal: 34157 }, { device: '(5GPU) A19', metal: 37635 }, { device: '(5GPU) A19 Pro', metal: 38455 }, { device: '(6GPU) A19 Pro', metal: 46501 },
+          ];
+          const geekBench6MData = [
+              { device: '(8GPU) M1', metal: 35484 }, { device: '(Vision Pro, 10GPU) M2', metal: 40715 }, { device: '(9GPU) M2', metal: 44033 }, { device: '(9GPU) M3', metal: 47873 }, { device: '(10GPU) M2', metal: 49352 }, { device: '(10GPU) M3', metal: 50125 }, { device: '(10GPU) M4', metal: 59277 }, { device: '(16GPU) M1 Pro', metal: 72645 }, { device: '(18GPU) M3 Pro', metal: 83987 }, { device: '(19GPU) M2 Pro', metal: 88810 }, { device: '(20GPU) M4 Pro', metal: 117271 }, { device: '(32GPU) M1 Max', metal: 126546 }, { device: '(38GPU) M2 Max', metal: 152879 }, { device: '(40GPU) M3 Max', metal: 167806 }, { device: '(64GPU) M1 Ultra', metal: 188166 }, { device: '(40GPU) M4 Max', metal: 209731 }, { device: '(76GPU) M2 Ultra', metal: 237936 }, { device: '(80GPU) M3 Ultra', metal: 272936 }, { device: '(10GPU) M5', metal: 75273 },
+          ];
+
+          function processGeekBench6Data(rawData) {
+              const yAxisData = rawData.map(item => item.device);
+              return {
+                  yAxisData,
+                  seriesData: { metal: rawData.map(item => item.metal) }
+              };
+          }
+
+          function createGeekBench6Chart(domElement, chartData, title, subtext, overrides = {}) {
+              const chart = echarts.init(domElement, currentTheme);
+              chartInstances.push(chart);
+
+              let currentData = [...chartData];
+              const getOption = (data) => {
+                  const { yAxisData, seriesData } = processGeekBench6Data(data);
+                  return {
+                      backgroundColor: 'transparent', color: ["#FFB6C1"],
+                      title: { text: title, subtext: subtext },
+                      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                      legend: { show: false },
+                      grid: { left: '3%', right: '8%', bottom: '10', containLabel: true, ...overrides.grid },
+                      xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+                      yAxis: { type: 'category', data: yAxisData, axisLabel: { textStyle: { fontSize: "11" } } },
+                      series: [{
+                          name: 'Metal', type: 'bar',
+                          data: seriesData.metal,
+                          itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } }
+                      }]
+                  };
+              };
+
+              currentData.sort((a, b) => (Number(a.metal) || 0) - (Number(b.metal) || 0));
+              chart.setOption(getOption(currentData));
+
+              if ('ResizeObserver' in window) {
+                  const resizeObserver = new ResizeObserver(() => chart.resize());
+                  resizeObserver.observe(domElement);
+              }
+              return chart;
+          }
+
+          createGeekBench6Chart(document.getElementById('container_GeekBench6_A'), geekBench6AData, 'GeekBench 6 性能跑分');
+          createGeekBench6Chart(document.getElementById('container_GeekBench6_M'), geekBench6MData, '', null, { grid: { top: '5%' } });
+
+          var dom_3d_a = document.getElementById('container_3DMark_A');
+          if (dom_3d_a) {
+              var myChart_3DMark_A = echarts.init(dom_3d_a, currentTheme, { renderer: 'svg', useDirtyRect: false });
+              chartInstances.push(myChart_3DMark_A);
+
+              var option_3DMark_A;
+              option_3DMark_A = {
+                  backgroundColor: 'transparent',
+                  color: ["#FFC000", "#EEB422", '#EEC900', '#CDAD00'],
+                  title: { text: '3DMark'},
+                  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                  legend: { bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: { 'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false, 'Solar Bay Extreme': false } },
+                  grid: { left: '3%', right: '8%', bottom: '10', containLabel: true },
+                  xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+                  yAxis: { type: 'category', data: ['(4GPU) A12 Bionic', '(4GPU) A13 Bionic', '(4GPU) A14 Bionic', '(4GPU) A15 Bionic', '(7GPU) A12X Bionic', '(5GPU) A15 Bionic', '(8GPU) A12Z Bionic', '(5GPU) A16 Bionic', '(5GPU) A17 Pro', '(4GPU) A18', '(6GPU) A17 Pro', '(5GPU) A18', '(6GPU) A18 Pro'], axisLabel: { textStyle: { fontSize: "11" } } },
+                  series: [{ name: 'Wild Life Extreme', type: 'bar', data: [1825, 2175, 2575, 2775, 3325, 3275, 3675, 3675, 3719, 3862, 4425, 4588, 5148], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Solar Bay', type: 'bar', data: ['', 2775, 3075, 3525, '', 4175, '', 4375, 6475, 6625, 7475, 7725, 8775], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Steel Nomad Light', type: 'bar', data: ['', '', '', '', '', '', '', '', 1531, 1627, 1863, 1916, 2153], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Solar Bay Extreme', type: 'bar', data: ['', '', '190', '', '', '', '', '269', '', '', '1237', '1342', '1433'], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }]
+              };
+              myChart_3DMark_A.setOption(option_3DMark_A);
+              updateChart_3DMark_A(option_3DMark_A.legend.selected);
+              function getSortedData_3DMark_A(selectedLegend) { const { yAxis, series } = option_3DMark_A; let selectedSeries = series.filter(s => selectedLegend[s.name]); let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data; let sortedIndices = sortData.map((value, index) => ({ value: +value || 0, index })).sort((a, b) => a.value - b.value).map(item => item.index); return { yAxis: sortedIndices.map(index => yAxis.data[index]), series: series.map(s => ({ ...s, data: sortedIndices.map(index => s.data[index]) })) }; }
+              function updateChart_3DMark_A(selectedLegend) { const sortedData = getSortedData_3DMark_A(selectedLegend); myChart_3DMark_A.setOption({ yAxis: { data: sortedData.yAxis }, series: sortedData.series }); }
+              myChart_3DMark_A.on('legendselectchanged', function (params) { const selectedLegend = params.selected; updateChart_3DMark_A(selectedLegend); });
+              if ('ResizeObserver' in window) { const resizeObserver_3d_a = new ResizeObserver(() => { myChart_3DMark_A.resize(); }); resizeObserver_3d_a.observe(dom_3d_a); }
+          }
+
+          var dom_3d_m = document.getElementById('container_3DMark_M');
+          if (dom_3d_m) {
+              var myChart_3DMark_M = echarts.init(dom_3d_m, currentTheme, { renderer: 'svg', useDirtyRect: false });
+              chartInstances.push(myChart_3DMark_M);
+
+              var option_3DMark_M;
+              option_3DMark_M = {
+                  backgroundColor: 'transparent',
+                  color: ["#FFC000", "#EEB422", '#EEC900', '#CDAD00', '#CD9B1D'],
+                  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                  legend: { bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }, selected: { 'Wild Life Extreme': true, 'Solar Bay': false, 'Steel Nomad Light': false, 'Steel Nomad': false, 'Solar Bay Extreme': false } },
+                  grid: { left: '3%', right: '8%', bottom: '10', containLabel: true, top: '5%' },
+                  xAxis: { type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } },
+                  yAxis: { type: 'category', data: ['(7GPU) M1', '(8GPU) M1', '(8GPU) M2', '(9GPU) M2', '(10GPU) M2', '(8GPU) M3', '(9GPU) M3', '(10GPU) M3', '(8GPU) M4', '(10GPU) M4', '(14GPU) M1 Pro', '(16GPU) M1 Pro', '(16GPU) M2 Pro', '(19GPU) M2 Pro', '(14GPU) M3 Pro', '(18GPU) M3 Pro', '(16GPU) M4 Pro', '(20GPU) M4 Pro', '(24GPU) M1 Max', '(32GPU) M1 Max', '(30GPU) M2 Max', '(38GPU) M2 Max', '(30GPU) M3 Max', '(40GPU) M3 Max', '(32GPU) M4 Max', '(40GPU) M4 Max', '(48GPU) M1 Ultra', '(64GPU) M1 Ultra', '(60GPU) M2 Ultra', '(76GPU) M2 Ultra', '(60GPU) M3 Ultra', '(80GPU) M3 Ultra'], axisLabel: { textStyle: { fontSize: "11" } } },
+                  series: [{ name: 'Wild Life Extreme', type: 'bar', data: [4522, 5031, 5699, '', 6894, 7138, '', 8315, 7997, 9981, 9178, 10309, 11302, 12940, 12157, 14393, 16606, 19799, 15568, 20537, 20856, 25249, 24221, 31893, 30906, 38981, 29399, 37982, 37544, 46065, 47197, 57148], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Solar Bay', type: 'bar', data: [5742, 6383, 7329, 8175, 8780, 11852, 12875, 13765, 14059, 17019, 11598, 12919, 14360, 16451, 20092, 23337, 29379, 33856, 19137, 21711, 25407, 29816, 51136, 49446, 51749, 60187, 30586, 40577, 44682, 49455, 73971, 87522], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Steel Nomad Light', type: 'bar', data: [1833, 1988, 2321, 2625, 2782, 3005, 3125, 3478, 3462, 4243, 3626, 4058, 4545, 5224, 5282, 6285, 7123, 8219, 5967, 7432, 8032, 9655, 10000, 13078, 12834, 15352, 9917, 12084, 13347, '', 16890, 20555], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Steel Nomad', type: 'bar', data: [387, 427, 519, '', 608, 657, '', 749, 763, 924, 830, 908, 1013, 1171, 1145, 1365, 1625, 1905, 1392, 1770, 1878, 2286, 2311, 3037, 2972, 3757, 2522, 3156, 3438, 4078, 4608, 5586], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }, { name: 'Solar Bay Extreme', type: 'bar', data: [366, 411, 457, '', 564, '', '', 2371, 2446, 3086, 708, 806, 868, 1027, 3508, 4293, 5114, 6094, 1184, 1531, 1562, 1881, 7099, 9306, 9598, 12094, '', 2625, 2717, '', 12357, 17084], itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }]
+              };
+              myChart_3DMark_M.setOption(option_3DMark_M);
+              updateChart_3DMark_M(option_3DMark_M.legend.selected);
+              function getSortedData_3DMark_M(selectedLegend) { const { yAxis, series } = option_3DMark_M; let selectedSeries = series.filter(s => selectedLegend[s.name]); let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data; let sortedIndices = sortData.map((value, index) => ({ value: +value || 0, index })).sort((a, b) => a.value - b.value).map(item => item.index); return { yAxis: sortedIndices.map(index => yAxis.data[index]), series: series.map(s => ({ ...s, data: sortedIndices.map(index => s.data[index]) })) }; }
+              function updateChart_3DMark_M(selectedLegend) { const sortedData = getSortedData_3DMark_M(selectedLegend); myChart_3DMark_M.setOption({ yAxis: { data: sortedData.yAxis }, series: sortedData.series }); }
+              myChart_3DMark_M.on('legendselectchanged', function (params) { const selectedLegend = params.selected; updateChart_3DMark_M(selectedLegend); });
+              if ('ResizeObserver' in window) { const resizeObserver_3d_m = new ResizeObserver(() => { myChart_3DMark_M.resize(); }); resizeObserver_3d_m.observe(dom_3d_m); }
+          }
+      };
+
+      renderAllCharts();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAllCharts);
+
+  })();
+  </script>
+</body>
+</html>

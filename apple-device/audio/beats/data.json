@@ -1,0 +1,405 @@
+{
+    "title": "Beats 参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                { "id": "slogan", "name": "宣传口号" },
+                { "id": "releaseDate", "name": "发布时间" },
+                { "id": "modelId", "name": "型号标识" },
+                { "id": "chip", "name": "芯片" }
+            ]
+        },
+        {
+            "groupName": "连接与操控",
+            "features": [
+                { "id": "bluetooth", "name": "蓝牙" },
+                { "id": "controlMethod", "name": "操控方式" }
+            ]
+        },
+        {
+            "groupName": "模式",
+            "features": [
+                { "id": "spatialAudio", "name": "空间音频" },
+                { "id": "anc", "name": "降噪模式" },
+                { "id": "transparency", "name": "通透模式" }
+            ]
+        },
+        {
+            "groupName": "时长",
+            "features": [
+                { "id": "listenTimeSingle", "name": "单次聆听" },
+                { "id": "listenTimeTotal", "name": "搭配充电盒" }
+            ]
+        },
+        {
+            "groupName": "电源与其他",
+            "features": [
+                { "id": "chargeMethod", "name": "充电方式" },
+                { "id": "waterResistance", "name": "抗汗抗水" }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "Powerbeats Pro 2",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "力挺卓越表现",
+                "releaseDate": "2025.02.28",
+                "modelId": "A3158",
+                "chip": "Apple H2 芯片",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "耳挂式按键",
+                "spatialAudio": "支持动态头部追踪的个性化空间音频",
+                "anc": "主动降噪",
+                "transparency": "自适应通透模式",
+                "listenTimeSingle": "最长可达 7 小时 (开启降噪)",
+                "listenTimeTotal": "最长可达 30 小时",
+                "chargeMethod": "USB-C, MagSafe 无线充电",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Solo 4",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "型出色 稳到位",
+                "releaseDate": "2024.04.30",
+                "modelId": "A3140",
+                "chip": "Beats 定制芯片",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持动态头部追踪的个性化空间音频",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 50 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "USB-C",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Beats Solo Buds",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "小小身，大大声",
+                "releaseDate": "2024.06.18",
+                "modelId": "A3153",
+                "chip": "Beats 定制芯片",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 18 小时",
+                "listenTimeTotal": "18 小时 (充电盒不含电池)",
+                "chargeMethod": "USB-C",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Studio Pro",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "标志性音质",
+                "releaseDate": "2023.07.19",
+                "modelId": "A2924",
+                "chip": "Beats 定制芯片",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持动态头部追踪的个性化空间音频",
+                "anc": "完全自适应主动降噪",
+                "transparency": "支持",
+                "listenTimeSingle": "最长可达 24 小时 (开启降噪)",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "USB-C",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Beats Studio Buds +",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "音效强劲，贴合无间",
+                "releaseDate": "2023.05.17",
+                "modelId": "A2952",
+                "chip": "Beats 定制芯片",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持",
+                "anc": "主动降噪",
+                "transparency": "支持",
+                "listenTimeSingle": "最长可达 9 小时",
+                "listenTimeTotal": "最长可达 36 小时",
+                "chargeMethod": "USB-C",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Fit Pro",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2021.11.01",
+                "modelId": "A2577",
+                "chip": "Apple H1 芯片",
+                "bluetooth": "Bluetooth 5.0",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持动态头部追踪的空间音频",
+                "anc": "主动降噪",
+                "transparency": "支持",
+                "listenTimeSingle": "最长可达 6 小时 (开启降噪)",
+                "listenTimeTotal": "最长可达 24 小时",
+                "chargeMethod": "USB-C",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Studio Buds",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2021.06.14",
+                "modelId": "A2514",
+                "chip": "Beats 定制芯片",
+                "bluetooth": "Bluetooth 5.2",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "支持",
+                "anc": "主动降噪",
+                "transparency": "支持",
+                "listenTimeSingle": "最长可达 8 小时",
+                "listenTimeTotal": "最长可达 24 小时",
+                "chargeMethod": "USB-C",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Flex",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2020.09.21",
+                "modelId": "A2295",
+                "chip": "Apple W1 芯片",
+                "bluetooth": "蓝牙 4.2 (Class 1)",
+                "controlMethod": "线控",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 12 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "USB-C",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Powerbeats",
+            "generation": "第 4 代",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2020.03.16",
+                "modelId": "A2015",
+                "chip": "Apple H1 芯片",
+                "bluetooth": "蓝牙 5.0 (Class 1)",
+                "controlMethod": "耳挂式按键",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 15 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "闪电接口",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Solo Pro",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2019.10.15",
+                "modelId": "A1881",
+                "chip": "Apple H1 芯片",
+                "bluetooth": "Bluetooth 5.0",
+                "controlMethod": "多功能按键",
+                "spatialAudio": "❌",
+                "anc": "主动降噪",
+                "transparency": "支持",
+                "listenTimeSingle": "最长可达 22 小时 (开启降噪)",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "闪电接口",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Powerbeats Pro",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2019.05.10",
+                "modelId": "A2048",
+                "chip": "Apple H1 芯片",
+                "bluetooth": "Bluetooth 5.0",
+                "controlMethod": "耳挂式按键",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 9 小时",
+                "listenTimeTotal": "最长可达 24 小时",
+                "chargeMethod": "闪电接口",
+                "waterResistance": "IPX4"
+            }
+        },
+        {
+            "name": "Beats Studio 3",
+            "generation": "Wireless",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2017.09.04",
+                "modelId": "A1914",
+                "chip": "Apple W1 芯片",
+                "bluetooth": "蓝牙 4.0 (Class 1)",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "❌",
+                "anc": "Pure ANC",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 22 小时 (开启降噪)",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "Micro-USB",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "BeatsX",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2017.02.10",
+                "modelId": "A1763",
+                "chip": "Apple W1 芯片",
+                "bluetooth": "蓝牙 4.2 (Class 1)",
+                "controlMethod": "RemoteTalk 线控",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 8 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "闪电接口",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "urBeats3 ",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2017.09.12",
+                "modelId": "A1750",
+                "chip": "❌",
+                "bluetooth": "有线",
+                "controlMethod": "RemoteTalk 线控",
+                "spatialAudio": "❌",
+                "anc": "噪音隔离",
+                "transparency": "❌",
+                "listenTimeSingle": "有线",
+                "listenTimeTotal": "有线",
+                "chargeMethod": "❌",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Beats Solo 3",
+            "generation": "Wireless",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2016.09.07",
+                "modelId": "A1796",
+                "chip": "Apple W1 芯片",
+                "bluetooth": "蓝牙 4.0 (Class 1)",
+                "controlMethod": "多功能“b”键",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 40 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "Micro-USB",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Powerbeats 3",
+            "generation": "Wireless",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2016.09.07",
+                "modelId": "A1747",
+                "chip": "Apple W1 芯片",
+                "bluetooth": "蓝牙 4.2 (Class 1)",
+                "controlMethod": "RemoteTalk 线控",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 12 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "Micro-USB",
+                "waterResistance": "抗汗抗水"
+            }
+        },
+        {
+            "name": "Beats EP",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2016.09.07",
+                "modelId": "A1746",
+                "chip": "❌",
+                "bluetooth": "有线",
+                "controlMethod": "RemoteTalk 线控",
+                "spatialAudio": "❌",
+                "anc": "噪音隔离",
+                "transparency": "❌",
+                "listenTimeSingle": "有线",
+                "listenTimeTotal": "有线",
+                "chargeMethod": "❌",
+                "waterResistance": "❌"
+            }
+        },
+        {
+            "name": "Beats Pill+",
+            "generation": "",
+            "image": "",
+            "data": {
+                "slogan": "",
+                "releaseDate": "2015.10.29",
+                "modelId": "A1680",
+                "chip": "❌",
+                "bluetooth": "蓝牙 4.0 (Class 1)",
+                "controlMethod": "机身按键",
+                "spatialAudio": "❌",
+                "anc": "❌",
+                "transparency": "❌",
+                "listenTimeSingle": "最长可达 12 小时",
+                "listenTimeTotal": "❌",
+                "chargeMethod": "闪电接口",
+                "waterResistance": "❌"
+            }
+        }
+    ]
+}

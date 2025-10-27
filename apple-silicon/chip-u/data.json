@@ -1,0 +1,65 @@
+{
+  "title": "苹果 U 系列参数对比",
+  "featureGroups": [
+    {
+      "groupName": "基础",
+      "features": [
+        { "id": "displayType", "name": "型号展示" },
+        { "id": "releaseDate", "name": "发布时间" },
+        { "id": "processTech", "name": "技术工艺" },
+        { "id": "dieSize", "name": "裸片尺寸" }
+      ]
+    },
+    {
+      "groupName": "传输",
+      "features": [
+        { "id": "frequency", "name": "传输频率" }
+      ]
+    },
+    {
+      "groupName": "其他",
+      "features": [
+        { "id": "usedIn", "name": "使用设备" }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Apple U2",
+      "generation": "(339M00298)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_product.webp",
+      "images": {
+        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_product.webp",
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_temp.webp",
+        "内部图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/U2_temp.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图", "内部图"],
+        "releaseDate": "2023.09",
+        "processTech": "-",
+        "dieSize": "-",
+        "frequency": "-",
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17 全系列<br>iPhone Air<br>AirPods Pro 3<br>iPhone 15 全系列<br>iPhone 16 全系列 (16e 除外)<br>Apple Watch Series 9<br>Apple Watch Series 10<br>Apple Watch Ultra 2</div>"
+      }
+    },
+    {
+      "name": "Apple U1",
+      "generation": "(TMKA75)",
+      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_product.webp",
+      "images": {
+        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_product.webp",
+        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_temp.webp",
+        "内部图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/U1_TMKA75_temp.webp",
+        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/die_shot_U1_TMKA75_temp.webp"
+      },
+      "data": {
+        "displayType": ["宣传图", "芯片图", "内部图", "Die"],
+        "releaseDate": "2019.09",
+        "processTech": "TSMC N16 FF",
+        "dieSize": "-",
+        "frequency": "6.24GHz & 8.2368GHz",
+        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 11 全系列<br>iPhone 12 全系列<br>iPhone 13 全系列<br>iPhone 14 全系列<br>Apple Watch Series 6<br>Apple Watch Series 7<br>Apple Watch Series 8<br>Apple Watch Ultra<br>AirPods Pro (第 2 代)<br>HomePod mini<br>HomePod (第 2 代)<br>AirTag</div>"
+      }
+    }
+  ]
+}

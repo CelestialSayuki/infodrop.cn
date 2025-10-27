@@ -1,0 +1,1617 @@
+{
+    "title": "苹果 A 系列参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "id": "displayType",
+                    "name": "型号展示"
+                },
+                {
+                    "id": "slogan",
+                    "name": "宣传口号"
+                },
+                {
+                    "id": "releaseDate",
+                    "name": "发布时间"
+                },
+                {
+                    "id": "processTech",
+                    "name": "技术工艺"
+                },
+                {
+                    "id": "transistorCount",
+                    "name": "晶体管数（官方）"
+                },
+                {
+                    "id": "dieSize",
+                    "name": "裸片尺寸"
+                }
+            ]
+        },
+        {
+            "groupName": "CPU",
+            "features": [
+                {
+                    "id": "cpuSpec",
+                    "name": "CPU规格"
+                },
+                {
+                    "id": "microArchitecture",
+                    "name": "微架构<br>(解码发射)"
+                },
+                {
+                    "id": "l1iCache",
+                    "name": "L1指令缓存"
+                },
+                {
+                    "id": "l1dCache",
+                    "name": "L1数据缓存"
+                },
+                {
+                    "id": "LCache",
+                    "name": "次级缓存"
+                },
+                {
+                    "id": "mlAccelerator",
+                    "name": "ML加速器"
+                }
+            ]
+        },
+        {
+            "groupName": "GPU",
+            "features": [
+                {
+                    "id": "gpuSpec",
+                    "name": "GPU规格"
+                },
+                {
+                    "id": "gpuModel",
+                    "name": "GPU型号"
+                },
+                {
+                    "id": "gpuFeatures",
+                    "name": "GPU特性"
+                }
+            ]
+        },
+        {
+            "groupName": "ANE",
+            "features": [
+                {
+                    "id": "aneInfo",
+                    "name": "神经引擎"
+                },
+                {
+                    "id": "aneCoreCache",
+                    "name": "核心缓存"
+                },
+                {
+                    "id": "aneSram",
+                    "name": "SRAM"
+                }
+            ]
+        },
+        {
+            "groupName": "引擎",
+            "features": [
+                {
+                    "id": "hardwareAccel",
+                    "name": "硬件加速"
+                },
+                {
+                    "id": "mediaEngine",
+                    "name": "媒体引擎"
+                }
+            ]
+        },
+        {
+            "groupName": "缓存",
+            "features": [
+                {
+                    "id": "memorycache",
+                    "name": "Memory Cache"
+                }
+            ]
+        },
+        {
+            "groupName": "接口",
+            "features": [
+                {
+                    "id": "internalIo",
+                    "name": "内置I/O"
+                }
+            ]
+        },
+        {
+            "groupName": "RAM",
+            "features": [
+                {
+                    "id": "packaging",
+                    "name": "封装方式"
+                },
+                {
+                    "id": "ramSpec",
+                    "name": "内存规格"
+                },
+                {
+                    "id": "ramCapacity",
+                    "name": "RAM容量<br>(通道/带宽)"
+                }
+            ]
+        },
+        {
+            "groupName": "ROM",
+            "features": [
+                {
+                    "id": "storageProtocol",
+                    "name": "传输协议"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "id": "usedIn",
+                    "name": "使用设备"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "A19 Pro",
+            "generation": "(Thera, APL1V12-T8150)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_chip.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_Pro_structure.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A19Pro_chipwise_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "跃上新维度，全面封神。",
+                "releaseDate": "2025.09",
+                "processTech": "TSMC N3P",
+                "transistorCount": "",
+                "dieSize": "≈8.03×12.24 (98.29mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.26GHz ×2<br>2.60GHz ×4</div>",
+                "microArchitecture": "Thera-P + Thera-E<br>(10-wide + 6-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享6M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1470MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1620MHz</div>",
+                "gpuModel": "Apple10 家族, Apple G18P",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4<br>Tensor Core",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br>AV1 Decode ×1</div>",
+                "memorycache": "32MB",
+                "internalIo": "",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5X-8533/9600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>64-bit<br>68.3GB/s</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>64-bit<br>76.8GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17 Pro<br>iPhone 17 Pro Max<br>iPhone Air</div>"
+            }
+        },
+        {
+            "name": "A19",
+            "generation": "(Tilos, APL1V13-T8150)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_chip.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A19_structure.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A19_chipwise_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "高能玩家，高能量专家。",
+                "releaseDate": "2025.09",
+                "processTech": "TSMC N3P",
+                "transistorCount": "",
+                "dieSize": "≈7.41×11.33 (84.01mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.26GHz ×2<br>2.60GHz ×4</div>",
+                "microArchitecture": "Tilos-P + Tilos-E<br>(10-wide + 6-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1470MHz</div>",
+                "gpuModel": "Apple10 家族, Apple G18P",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4<br>Tensor Core",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H18<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>AV1 Decode ×1<br><br></div>",
+                "memorycache": "12MB",
+                "internalIo": "Camera Serial Interface ×9<br>PCIe ×3 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5X-8533",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>68.3GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17</div>"
+            }
+        },
+        {
+            "name": "A18 Pro",
+            "generation": "(Tahiti, APL1V07-T8140)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_APL1V07_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_Pro_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A18_Pro_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A18_Pro.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "性能和能效双双逆天。",
+                "releaseDate": "2024.09",
+                "processTech": "TSMC N3E",
+                "transistorCount": "",
+                "dieSize": "8.44×13.00 (109.72mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.04GHz ×2<br>2.42GHz ×4</div>",
+                "microArchitecture": "Tahiti-P + Tahiti-E<br>(10-wide + 5-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1470MHz</div>",
+                "gpuModel": "Apple9 家族, Apple G17P",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17_Theia_D9x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br>AV1 Decode ×1</div>",
+                "memorycache": "24MB",
+                "internalIo": "Camera Serial Interface ×13<br>PCIe ×(2+4) Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5X-7500",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>60GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 16 Pro<br>iPhone 16 Pro Max</div>"
+            }
+        },
+        {
+            "name": "A18",
+            "generation": "(Tupai, APL1V08-T8140)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_APL1V08_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A18_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A18_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A18.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "畅行未来的快。",
+                "releaseDate": "2024.09",
+                "processTech": "TSMC N3E",
+                "transistorCount": "",
+                "dieSize": "7.84×11.79 (92.43mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.04GHz ×2<br>2.42GHz ×4</div>",
+                "microArchitecture": "Tupai-P + Tupai-E<br>(10-wide + 5-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>512 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div>",
+                "gpuModel": "Apple9 家族, Apple G17P",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17_Theia_D9x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>AV1 Decode ×1<br><br></div>",
+                "memorycache": "12MB",
+                "internalIo": "Camera Serial Interface ×8<br>PCIe ×3 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5X-7500",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>60GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 16<br>iPhone 16 Plus<br>iPhone 16e</div>"
+            }
+        },
+        {
+            "name": "A17 Pro",
+            "generation": "(Coll, APL1V02-T8130)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_APL1V02_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A17_Pro_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A17_Pro_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A17_Pro.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "性能直接逆天。",
+                "releaseDate": "2023.09",
+                "processTech": "TSMC N3B",
+                "transistorCount": "19.0 billion",
+                "dieSize": "8.58×13.26 (113.77mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">3.78GHz ×2<br>2.11GHz ×4</div>",
+                "microArchitecture": "Coll-P + Coll-E<br>(9-wide + 5-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×6<br>96 EUs<br>768 ALUs<br>@1338MHz</div>",
+                "gpuModel": "Apple9 家族, Apple G16P",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H16x_Iaso_D8x<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2160MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br>AV1 Decode ×1</div>",
+                "memorycache": "24MB",
+                "internalIo": "Camera Serial Interface ×12<br>PCIe ×(2+4) Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5-6400",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>51.2GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 15 Pro<br>iPhone 15 Pro Max<br>iPad mini (A17 Pro)</div>"
+            }
+        },
+        {
+            "name": "A16 Bionic",
+            "generation": "(Crete, APL1W10-T8120)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_APL1W10_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A16_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A16_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A16.webp"
+                },
+                "上盖": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A16_RAM.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die",
+                    "上盖"
+                ],
+                "slogan": "一切的原动力，在这里。",
+                "releaseDate": "2022.09",
+                "processTech": "TSMC N4",
+                "transistorCount": "16.0 billion",
+                "dieSize": "8.47×13.62 (115.36mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">3.46GHz ×2<br>2.02GHz ×3</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">3.46GHz ×2<br>2.02GHz ×4</div>",
+                "microArchitecture": "Everest + Sawtooth<br>(8-wide + 5-wide)",
+                "l1iCache": "2×192KB + 3/4×128KB",
+                "l1dCache": "2×128KB + 3/4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>512 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div>",
+                "gpuModel": "Apple8 家族, Apple G15P",
+                "gpuFeatures": "支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H15_Themis_D7x<br>16 核 @ 17TOPS (FP16)<br>@2064MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br><br></div>",
+                "memorycache": "24MB",
+                "internalIo": "Camera Serial Interface ×12<br>PCIe ×4 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR5-6400",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">6GB<br>64-bit<br>51.2GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 14 Pro<br>iPhone 14 Pro Max<br>iPhone 15<br>iPhone 15 Plus<br>iPad (A16)</div>"
+            }
+        },
+        {
+            "name": "A15 Bionic",
+            "generation": "(Ellis, APL1W07-T8110)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_APL1W07_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A15_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A15_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A15.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "A15 仿生芯片快如闪电。",
+                "releaseDate": "2021.09",
+                "processTech": "TSMC N5P",
+                "transistorCount": "15.0 billion",
+                "dieSize": "8.62×12.77 (110.08mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.92G ×2<br>2.02G ×3</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.92G ×2<br>2.02G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">3.23G ×2<br>2.02G ×4</div>",
+                "microArchitecture": "Avalanche + Blizzard<br>(8-wide + 5-wide)",
+                "l1iCache": "2×192KB + 3/4×128KB",
+                "l1dCache": "2×128KB + 3/4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享12M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>512 ALUs<br>@1338MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×5<br>80 EUs<br>640 ALUs<br>@1338MHz</div>",
+                "gpuModel": "Apple8 家族, Apple G14P",
+                "gpuFeatures": "支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H14_Bia_D6x<br>16 核 @ 15.8TOPS (FP16)<br>@1938MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br><br></div>",
+                "memorycache": "32MB",
+                "internalIo": "Camera Serial Interface ×12<br>PCIe ×4 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">4/6GB<br>64-bit<br>34.13GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 13 mini<br>iPhone 13<br>iPhone 13 Pro<br>iPhone 13 Pro Max<br>iPhone 14<br>iPhone 14 Plus<br>iPhone SE (第 3 代)<br>iPad mini (第 6 代)<br>Apple TV 4K (第 3 代)</div>"
+            }
+        },
+        {
+            "name": "A14 Bionic",
+            "generation": "(Sicily, APL1W01-T8101)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_APL1W01_temp.webp",
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_product.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A14_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A14_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A14.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "宣传图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "唯一的对手，是上一个自己。",
+                "releaseDate": "2020.09",
+                "processTech": "TSMC N5",
+                "transistorCount": "11.8 billion",
+                "dieSize": "8.63×10.40 (89.75mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.99GHz ×2<br>1.82GHz ×4</div>",
+                "microArchitecture": "Firestorm + Icestorm<br>(8-wide + 4-wide)",
+                "l1iCache": "2×192KB + 4×128KB",
+                "l1dCache": "2×128KB + 4×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>256 ALUs<br>@1278MHz</div>",
+                "gpuModel": "Apple7 家族, Apple G13P",
+                "gpuFeatures": "支持 Metal 3 & 4",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H13_Styx_D5x<br>16 核 @ 11TOPS (FP16)<br>@1428MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br><br><br></div>",
+                "memorycache": "16MB",
+                "internalIo": "Camera Serial Interface ×12<br>PCIe ×4 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">4/6GB<br>64-bit<br>34.13GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 12 mini<br>iPhone 12<br>iPhone 12 Pro<br>iPhone 12 Pro Max<br>iPad (第 10 代)<br>iPad Air (第 4 代)</div>"
+            }
+        },
+        {
+            "name": "A13 Bionic",
+            "generation": "(Cebu, APL1W85-T8030)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_APL1W85_temp.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A13_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A13_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A13.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "这个芯片 Pro 得很。",
+                "releaseDate": "2019.09",
+                "processTech": "TSMC N7P",
+                "transistorCount": "8.5 billion",
+                "dieSize": "9.23×10.67 (98.48mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.67GHz ×2<br>1.73GHz ×4</div>",
+                "microArchitecture": "Lightning + Thunder<br>(8-wide + 3-wide)",
+                "l1iCache": "2×128KB + 4×96KB",
+                "l1dCache": "2×128KB + 4×48KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
+                "mlAccelerator": "AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>256 ALUs<br>@1230MHz</div>",
+                "gpuModel": "Apple6 家族, Apple G12P",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H12_Metis<br>8 核 @ 6TOPS (FP16)<br>@≈1320MHz</div>",
+                "aneCoreCache": "64KB ×8 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br><br><br></div>",
+                "memorycache": "16MB",
+                "internalIo": "Camera Serial Interface ×12<br>PCIe ×5 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">3/4GB<br>64-bit<br>34.13GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 11<br>iPhone 11 Pro<br>iPhone 11 Pro Max<br>iPhone SE (第 2 代)<br>iPad (第 9 代)<br>Studio Display</div>"
+            }
+        },
+        {
+            "name": "A12Z Bionic",
+            "generation": "(Aruba, APL1083-T8027)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_APL1083_temp.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12Z_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12X_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12X.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "快到让很多笔电都羡慕。",
+                "releaseDate": "2020.03",
+                "processTech": "TSMC N7",
+                "transistorCount": "10 billion",
+                "dieSize": "10.27×12.70 (130.43mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.50GHz ×4<br>1.59GHz ×4</div>",
+                "microArchitecture": "Vortex + Tempest<br>(7-wide + 3-wide)",
+                "l1iCache": "4×128KB + 4×48KB",
+                "l1dCache": "4×128KB + 4×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享2M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8<br>128 EUs<br>512 ALUs<br>@1098MHz</div>",
+                "gpuModel": "Apple5 家族, Apple G11G",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Pontus<br>8 核 @ 5TOPS (FP16)<br>@1260MHz</div>",
+                "aneCoreCache": "64KB ×8 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "8MB",
+                "internalIo": "Camera Serial Interface ×8<br>PCIe ×6 Lines",
+                "packaging": "晶片基板 (统一内存)",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">6/16GB<br>128-bit<br>68.1GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (第 2 代)<br>iPad Pro 12.9 英寸 (第 4 代)<br>Developer Transition Kit</div>"
+            }
+        },
+        {
+            "name": "A12X Bionic",
+            "generation": "(Aruba, APL1083-T8027)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_APL1083_temp.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12X_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12X_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12X.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "迄今最智能、最强大的芯片。",
+                "releaseDate": "2018.10",
+                "processTech": "TSMC N7",
+                "transistorCount": "10 billion",
+                "dieSize": "10.27×12.70 (130.43mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.50GHz ×4<br>1.59GHz ×4</div>",
+                "microArchitecture": "Vortex + Tempest<br>(7-wide + 3-wide)",
+                "l1iCache": "4×128KB + 4×48KB",
+                "l1dCache": "4×128KB + 4×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享2M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×7<br>112 EUs<br>448 ALUs<br>@1098MHz</div>",
+                "gpuModel": "Apple5 家族, Apple G11G",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Pontus<br>8 核 @ 5TOPS (FP16)<br>@1260MHz</div>",
+                "aneCoreCache": "64KB ×8 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "8MB",
+                "internalIo": "Camera Serial Interface ×8<br>PCIe ×6 Lines",
+                "packaging": "晶片基板 (统一内存)",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">4/6GB<br>128-bit<br>68.1GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\"> Pro 11 英寸 (第 1 代)<br>iPad Pro 12.9 英寸 (第 3 代)</div>"
+            }
+        },
+        {
+            "name": "A12 Bionic",
+            "generation": "(Cyprus, APL1W81-T8020)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_structure.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_APL1W81_temp.webp",
+                "结构图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A12_Bionic_structure.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A12.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "智能，新的制高点。",
+                "releaseDate": "2018.09",
+                "processTech": "TSMC N7",
+                "transistorCount": "6.9 billion",
+                "dieSize": "8.42×9.89 (83.27mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.50GHz ×2<br>1.59GHz ×4</div>",
+                "microArchitecture": "Vortex + Tempest<br>(7-wide + 3-wide)",
+                "l1iCache": "2×128KB + 4×48KB",
+                "l1dCache": "2×128KB + 4×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享2M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×4<br>64 EUs<br>256 ALUs<br>@1098MHz</div>",
+                "gpuModel": "Apple5 家族, Apple G11P",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H11_Quin<br>8 核 @ 5TOPS (FP16)<br>@1260MHz</div>",
+                "aneCoreCache": "64KB ×8 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "8MB",
+                "internalIo": "Camera Serial Interface ×8<br>PCIe ×5 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">3/4GB<br>64-bit<br>34.13GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone XR<br>iPhone XS<br>iPhone XS Max<br>iPad (第 8 代)<br>iPad mini (第 5 代)<br>iPad Air (第 3 代)<br>Apple TV 4K (第 2 代)</div>"
+            }
+        },
+        {
+            "name": "A11 Bionic",
+            "generation": "(Skye, APL1W72-T8015)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A11_Bionic_APL1W72_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A11_Bionic_APL1W72_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A11_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A11.webp"
+                }            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "超乎想象的强劲动力。",
+                "releaseDate": "2017.09",
+                "processTech": "TSMC N10",
+                "transistorCount": "4.3 billion",
+                "dieSize": "8.33×10.76 (89.63mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.38GHz ×2<br>1.68GHz ×4</div>",
+                "microArchitecture": "Monsoon + Mistral<br>(7-wide + 3-wide)",
+                "l1iCache": "2×64KB + 4×32KB",
+                "l1dCache": "2×64KB + 4×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享1M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×3<br>48 EUs<br>192 ALUs<br>@1140MHz</div>",
+                "gpuModel": "Apple4 家族, Apple G10P",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>2 核 @  0.6TOPS (FP16)<br><br></div>",
+                "aneCoreCache": "4KB ×2 核",
+                "aneSram": "256KB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "4MB",
+                "internalIo": "Camera Serial Interface ×6<br>PCIe ×4 Lines",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4X-4266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2/3GB<br>64-bit<br>34.13GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 8<br>iPhone 8 Plus<br>iPhone X</div>"
+            }
+        },
+        {
+            "name": "A10X Fusion",
+            "generation": "(Myst, APL1071-T8011)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A10X_Fusion_APL1071_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A10X_Fusion_APL1071_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A10X_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "强劲表现，让许多笔记本电脑都羡慕。",
+                "releaseDate": "2017.06",
+                "processTech": "TSMC N10",
+                "transistorCount": "",
+                "dieSize": "96.4mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.40GHz ×3<br>1.30GHz ×3<br>(iOS 11+屏蔽)</div>",
+                "microArchitecture": "Hurricane + Zephyr<br>(6-wide + 3-wide)",
+                "l1iCache": "3×64KB + 3×32KB",
+                "l1dCache": "3×64KB + 3×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享8M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享1M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GT7600 Plus MP12<br>48 EUs<br>384 ALUs<br>@1086MHz</div>",
+                "gpuModel": "Apple3 家族, GT7600 Plus",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "4MB",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR4-3200",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">3/4GB<br>128-bit<br>51.2GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 10.5 英寸<br>iPad Pro 12.9 英寸 (第 2 代)<br>Apple TV 4K (第 1 代)</div>"
+            }
+        },
+        {
+            "name": "A10 Fusion",
+            "generation": "( Cayman,APL1W24-T8010)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A10_Fusion_APL1W24_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A10_Fusion_APL1W24_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A10_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A10.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "高速，高能效。",
+                "releaseDate": "2016.09",
+                "processTech": "TSMC N16+",
+                "transistorCount": "3.3 billion",
+                "dieSize": "10.93×11.58 (126.57mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.64GHz ×2<br>1.09GHz ×2<br>(iOS 11+屏蔽)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.34GHz ×2<br>1.09GHz ×2<br>(iOS 11+屏蔽)</div>",
+                "microArchitecture": "Hurricane + Zephyr<br>(6-wide + 3-wide)",
+                "l1iCache": "2×64KB + 2×32KB",
+                "l1dCache": "2×64KB + 2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享3M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享1M LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GT7600 Plus MP6<br>24 EUs<br>192 ALUs<br>@1008MHz</div>",
+                "gpuModel": "Apple3 家族, GT7600 Plus",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264, HEVC",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">HEVC Decode ×1<br>HEVC Encode ×1<br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4-3200",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2/3GB<br>64-bit<br>25.6GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 7<br>iPhone 7 Plus<br>iPad (第 6 代)<br>iPad (第 7 代)<br>iPod Touch (第 7 代)</div>"
+            }
+        },
+        {
+            "name": "A9X",
+            "generation": "(Elba, APL1021-S8001)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9X_APL1021_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9X_APL1021_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A9X_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A9X.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "性能超群的强劲芯片。",
+                "releaseDate": "2015.09",
+                "processTech": "TSMC N16",
+                "transistorCount": "",
+                "dieSize": "143.9mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.16GHz ×2</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.26GHz ×2</div>",
+                "microArchitecture": "Twister<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">3MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GT7600 MP12<br>48 EUs<br>384 ALUs<br>@650MHz</div>",
+                "gpuModel": "Apple3 家族, GT7600",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR4-3200",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2/4GB<br>128-bit<br>51.2GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 9.7 英寸<br>iPad Pro 12.9 英寸</div>"
+            }
+        },
+        {
+            "name": "A9",
+            "generation": "(Maui, APL1022-S8003)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9_APL1022_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9_APL1022_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A9T-Layout.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "超前的智能手机芯片。",
+                "releaseDate": "2015.09",
+                "processTech": "TSMC N16",
+                "transistorCount": "",
+                "dieSize": "9.28×11.28 (104.68mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.85GHz ×2</div>",
+                "microArchitecture": "Twister<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">3MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GT7600 MP6<br>24 EUs<br>192 ALUs<br>@650MHz</div>",
+                "gpuModel": "Apple3 家族, GT7600",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4-3200",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2GB<br>64-bit<br>25.6GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)</div>"
+            }
+        },
+        {
+            "name": "A9",
+            "generation": "(Maui, APL0898-S8000)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9_APL0898_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A9_APL0898_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A9T_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A9T.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "超前的智能手机芯片。",
+                "releaseDate": "2015.09",
+                "processTech": "Samsung S.LSI 14LPE",
+                "transistorCount": "",
+                "dieSize": "8.93×10.8 (96.44mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.85GHz ×2</div>",
+                "microArchitecture": "Twister<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">3MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GT7600 MP6<br>24 EUs<br>192 ALUs<br>@650MHz</div>",
+                "gpuModel": "Apple3 家族, GT7600",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR4-3200",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2GB<br>64-bit<br>25.6GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 6s<br>iPhone 6s Plus<br>iPhone SE<br>iPad (第 5 代)</div>"
+            }
+        },
+        {
+            "name": "A8X",
+            "generation": "(Capri, APL1012-T7001)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A8X_APL1012_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A8X_APL1012_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A8X_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A8X.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "力量极强大。",
+                "releaseDate": "2014.10",
+                "processTech": "TSMC 20nm",
+                "transistorCount": "",
+                "dieSize": "128mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.50GHz ×3</div>",
+                "microArchitecture": "Typhoon<br>(6-wide)",
+                "l1iCache": "3×64KB",
+                "l1dCache": "3×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">2MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR GXA6850 MP8<br>32 EUs<br>256 ALUs<br>@475MHz</div>",
+                "gpuModel": "Apple2 家族, GXA6850",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR3-1600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">2GB<br>128-bit<br>25.6GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Air 2</div>"
+            }
+        },
+        {
+            "name": "A8",
+            "generation": "(Fiji, APL1011-T7000)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A8_APL1011_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A8_APL1011_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A8_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A8.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "大有动力，大有能效。",
+                "releaseDate": "2014.09",
+                "processTech": "TSMC 20nm",
+                "transistorCount": "",
+                "dieSize": "8.51×10.51 (89.44mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.10G ×2</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.40G ×2</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.50G ×2</div>",
+                "microArchitecture": "Typhoon<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">GXA6450 MP4<br>16 EUs<br>128 ALUs<br>@430MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">GXA6450 MP4<br>16 EUs<br>128 ALUs<br>@475MHz</div>",
+                "gpuModel": "Apple2 家族, GXA6450",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR3-1600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1/2GB<br>64-bit<br>12.8GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 6<br>iPhone 6 Plus<br>iPad mini 4<br>iPod Touch (第 6 代)<br>Apple TV HD<br>HomePod (第 1 代)</div>"
+            }
+        },
+        {
+            "name": "A7",
+            "generation": "(Alcatraz, APL5698-S5L8965)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A7_APL5698_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A7_APL5698_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A7_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A7.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "-",
+                "releaseDate": "2013.10",
+                "processTech": "Samsung S.LSI 28nm HKMG",
+                "transistorCount": "",
+                "dieSize": "9.83×10.45 (102.72mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.40GHz ×2</div>",
+                "microArchitecture": "Cyclone<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">G6430 MP4<br>16 EUs<br>128 ALUs<br>@375MHz</div>",
+                "gpuModel": "Apple1 家族, G6430",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR3-1600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1GB<br>64-bit<br>12.8GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Air</div>"
+            }
+        },
+        {
+            "name": "A7",
+            "generation": "(Alcatraz, APL0698-S5L8960)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A7_APL0698_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A7_APL0698_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A7_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A7.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "首开 64 位智能手机先河。",
+                "releaseDate": "2013.09",
+                "processTech": "Samsung S.LSI 28nm HKMG",
+                "transistorCount": "",
+                "dieSize": "9.83×10.45 (102.72mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.30GHz ×2</div>",
+                "microArchitecture": "Cyclone<br>(6-wide)",
+                "l1iCache": "2×64KB",
+                "l1dCache": "2×64KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">G6430 MP4<br>16 EUs<br>128 ALUs<br>@375MHz</div>",
+                "gpuModel": "Apple1 家族, G6430",
+                "gpuFeatures": "支持 Metal 2",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "4MB L3 Cache",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR3-1600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1GB<br>64-bit<br>12.8GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 5s<br>iPad mini 2<br>iPad mini 3</div>"
+            }
+        },
+        {
+            "name": "A6X",
+            "generation": "(Bali, APL5598-S5L8955)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A6X_APL5598_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A6X_APL5598_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A6X_APL5598_ChipWorks_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "-",
+                "releaseDate": "2012.10",
+                "processTech": "Samsung S.LSI 32nm HKMG",
+                "transistorCount": "",
+                "dieSize": "10.4×11.9 (123mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.40GHz ×2</div>",
+                "microArchitecture": "Swift<br>(3-wide)",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX554 MP4<br>16 EUs<br>128 ALUs<br>@300MHz</div>",
+                "gpuModel": "SGX554",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR2-1066",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1GB<br>64-bit<br>8.53GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad (第 4 代)</div>"
+            }
+        },
+        {
+            "name": "A6",
+            "generation": "(Bali, APL0598-S5L8950)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A6_APL0598_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A6_APL0598_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A6_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A6.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "高达 2 倍速度的性能与图形性能。",
+                "releaseDate": "2012.09",
+                "processTech": "Samsung S.LSI 32nm HKMG",
+                "transistorCount": "",
+                "dieSize": "9.70×9.97 (96.71mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.30GHz ×2</div>",
+                "microArchitecture": "Swift<br>(3-wide)",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX543 MP3<br>6 EUs<br>48 ALUs<br>@430MHz</div>",
+                "gpuModel": "SGX543",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR2-1066",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1GB<br>32-bit<br>4.26GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 5<br>iPhone 5c</div>"
+            }
+        },
+        {
+            "name": "A5X",
+            "generation": "(APL5498-S5L8945)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5X_APL5498_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5X_APL5498_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A5X_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A5X.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "极致性能表现。",
+                "releaseDate": "2012.03",
+                "processTech": "Samsung S.LSI 45nm",
+                "transistorCount": "",
+                "dieSize": "12.90×12.79 (165mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.00GHz ×2</div>",
+                "microArchitecture": "Cortex-A9<br>(2-wide)",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX543 MP4<br>8 EUs<br>64 ALUs<br>@333MHz</div>",
+                "gpuModel": "SGX543",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "分离式",
+                "ramSpec": "LPDDR2-800",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">1GB<br>64-bit<br>6.4GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad (第 3 代)</div>"
+            }
+        },
+        {
+            "name": "A5",
+            "generation": "(APL7498-S5L8947)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL7498_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL7498_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A5_APL7498_ChipWorks_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "全都更快了。",
+                "releaseDate": "2012.03",
+                "processTech": "Samsung S.LSI 32nm HKMG",
+                "transistorCount": "",
+                "dieSize": "6.1×6.2 (37.8mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.00GHz ×1</div>",
+                "microArchitecture": "Cortex-A9<br>(2-wide)",
+                "l1iCache": "32KB",
+                "l1dCache": "32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">512KB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX543<br>2 EUs<br>16 ALUs<br>@266MHz</div>",
+                "gpuModel": "SGX543",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR2-800",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">512MB<br>32-bit<br>3.2GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple TV (第 3 代)</div>"
+            }
+        },
+        {
+            "name": "A5",
+            "generation": "(APL2498-S5L8942)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL2498_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL2498_temp.webp",
+                "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/die_shot_A5_APL2498_ChipWorks_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "快，双倍的快。",
+                "releaseDate": "2012.03",
+                "processTech": "Samsung S.LSI 32nm HKMG",
+                "transistorCount": "",
+                "dieSize": "8.19×8.68 (71.1mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">800MHz ×2</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.00GHz ×2</div>",
+                "microArchitecture": "Cortex-A9<br>(2-wide)",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">SGX543 MP2<br>4 EUs<br>32 ALUs<br>@266MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">SGX543 MP2<br>4 EUs<br>32 ALUs<br>@333MHz</div>",
+                "gpuModel": "SGX543",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR2-800",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">512MB<br>32-bit<br>3.2GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad 2<br>iPad mini<br>iPod Touch (第 5 代)</div>"
+            }
+        },
+        {
+            "name": "A5",
+            "generation": "(APL0498-S5L8940)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL0498_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A5_APL0498_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A5-45_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A5-45.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "快，双倍的快。",
+                "releaseDate": "2011.03",
+                "processTech": "Samsung S.LSI 45nm",
+                "transistorCount": "",
+                "dieSize": "10.09×12.15 (122.6mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">800MHz ×2</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.00GHz ×2</div>",
+                "microArchitecture": "Cortex-A9<br>(2-wide)",
+                "l1iCache": "2×32KB",
+                "l1dCache": "2×32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">1MB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">SGX543 MP2<br>4 EUs<br>32 ALUs<br>@266MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">SGX543 MP2<br>4 EUs<br>32 ALUs<br>@333MHz</div>",
+                "gpuModel": "SGX543",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR2-800",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">512MB<br>32-bit<br>3.2GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 4S<br>iPad 2</div>"
+            }
+        },
+        {
+            "name": "A4",
+            "generation": "(APL0398-S5L8930)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A4_APL0398_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/A4_APL0398_temp.webp",
+                "Die": {
+                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A4_Layout.webp",
+                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/die/A4.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "芯片图",
+                    "Die"
+                ],
+                "slogan": "-",
+                "releaseDate": "2010.01",
+                "processTech": "Samsung 45nm",
+                "transistorCount": "",
+                "dieSize": "7.3×7.3 (53.3mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">800MHz ×1</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">1.00GHz ×1</div>",
+                "microArchitecture": "Cortex-A8<br>(2发射顺序架构)",
+                "l1iCache": "32KB",
+                "l1dCache": "32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">576KB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX535<br>2 EUs<br>16 ALUs<br>@266MHz</div>",
+                "gpuModel": "SGX535",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR-400",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">256/512MB<br>32-bit<br>1.6GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 4<br>iPad 1<br>iPod Touch (第 4 代)<br>Apple TV (第 2 代)</div>"
+            }
+        },
+        {
+            "name": "APL2298",
+            "generation": "(APL2298-S5L8922)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL2298_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL2298_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图"
+                ],
+                "slogan": "-",
+                "releaseDate": "2009.09",
+                "processTech": "Samsung 45nm",
+                "transistorCount": "",
+                "dieSize": "41.6mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">600MHz ×1</div>",
+                "microArchitecture": "Cortex-A8<br>(2发射顺序架构)",
+                "l1iCache": "32KB",
+                "l1dCache": "32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">256KB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX535<br>2 EUs<br>16 ALUs<br>@200MHz</div>",
+                "gpuModel": "SGX535",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR-400",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">256MB<br>32-bit<br>1.6GB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPod Touch (第 3 代)</div>"
+            }
+        },
+        {
+            "name": "APL0298",
+            "generation": "(APL0298-S5L8920)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0298_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0298_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图"
+                ],
+                "slogan": "-",
+                "releaseDate": "2009.06",
+                "processTech": "Samsung 65nm",
+                "transistorCount": "",
+                "dieSize": "71.8mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">600MHz ×1</div>",
+                "microArchitecture": "Cortex-A8<br>(2发射顺序架构)",
+                "l1iCache": "32KB",
+                "l1dCache": "32KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">256KB LLC</div>",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR SGX535<br>2 EUs<br>16 ALUs<br>@200MHz</div>",
+                "gpuModel": "SGX535",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR-400",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">256MB<br>32-bit<br>800MB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 3GS</div>"
+            }
+        },
+        {
+            "name": "APL0278",
+            "generation": "(APL0278-S5L8720)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0278_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0278_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图"
+                ],
+                "slogan": "-",
+                "releaseDate": "2008.09",
+                "processTech": "Samsung 65nm",
+                "transistorCount": "",
+                "dieSize": "36mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">533MHz ×1</div>",
+                "microArchitecture": "ARM11<br>(2发射顺序架构)",
+                "l1iCache": "16KB",
+                "l1dCache": "16KB",
+                "LCache": "-",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR MBX Lite<br>1 EUs<br>8 ALUs<br>@133MHz</div>",
+                "gpuModel": "PowerVR MBX Lite",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR-266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">128MB<br>16-bit<br>533MB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPod Touch (第 2 代)</div>"
+            }
+        },
+        {
+            "name": "APL0098",
+            "generation": "(APL0098-S5L8900)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0098_temp.webp",
+            "images": {
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-a/img/APL0098_temp.webp"
+            },
+            "data": {
+                "displayType": [
+                    "芯片图"
+                ],
+                "slogan": "-",
+                "releaseDate": "2007.01",
+                "processTech": "Samsung 90nm",
+                "transistorCount": "",
+                "dieSize": "72mm²",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">412MHz ×1</div>",
+                "microArchitecture": "ARM11<br>(2发射顺序架构)",
+                "l1iCache": "16KB",
+                "l1dCache": "16KB",
+                "LCache": "-",
+                "mlAccelerator": "/",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">PowerVR MBX Lite<br>1 EUs<br>8 ALUs<br>@133MHz</div>",
+                "gpuModel": "PowerVR MBX Lite",
+                "gpuFeatures": "/",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\"><br>/<br><br></div>",
+                "aneCoreCache": "/",
+                "aneSram": "/",
+                "hardwareAccel": "H.264",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">/<br><br><br><br></div>",
+                "memorycache": "/",
+                "internalIo": "-<br><br>",
+                "packaging": "PoP 叠层封装",
+                "ramSpec": "LPDDR-266",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">128MB<br>16-bit<br>266MB/s</div>",
+                "storageProtocol": "eMMC",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone<br>iPhone 3G<br>iPod touch</div>"
+            }
+        }
+    ]
+}

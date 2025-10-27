@@ -1,0 +1,89 @@
+{
+    "osVersions": [
+        { "id": "ios_3", "name": "iOS 3", "icon": "./apple-tools/support/img/ios_3.webp" },
+        { "id": "ios_4", "name": "iOS 4", "icon": "./apple-tools/support/img/ios_4.webp" },
+        { "id": "ios_5", "name": "iOS 5", "icon": "./apple-tools/support/img/ios_5.webp" },
+        { "id": "ios_6", "name": "iOS 6", "icon": "./apple-tools/support/img/ios_6.webp" },
+        { "id": "ios_7", "name": "iOS 7", "icon": "./apple-tools/support/img/ios_7.webp" },
+        { "id": "ios_8", "name": "iOS 8", "icon": "./apple-tools/support/img/ios_8.webp" },
+        { "id": "ios_9", "name": "iOS 9", "icon": "./apple-tools/support/img/ios_9.webp" },
+        { "id": "ios_10", "name": "iOS 10", "icon": "./apple-tools/support/img/ios_10.webp" },
+        { "id": "ios_11", "name": "iOS 11", "icon": "./apple-tools/support/img/ios_11.webp" },
+        { "id": "ios_12", "name": "iOS 12", "icon": "./apple-tools/support/img/ios_12.webp" },
+        { "id": "ipados_13", "name": "iPadOS 13", "icon": "./apple-tools/support/img/ios_13.webp" },
+        { "id": "ipados_14", "name": "iPadOS 14", "icon": "./apple-tools/support/img/ipados_14.webp" },
+        { "id": "ipados_15", "name": "iPadOS 15", "icon": "./apple-tools/support/img/ipados_15.webp" },
+        { "id": "ipados_16", "name": "iPadOS 16", "icon": "./apple-tools/support/img/ipados-16-logo.webp" },
+        { "id": "ipados_17", "name": "iPadOS 17", "icon": "./apple-tools/support/img/ipados-17-logo.webp" },
+        { "id": "ipados_18", "name": "iPadOS 18", "icon": "./apple-tools/support/img/ipados-18-logo.webp" },
+        { "id": "ipados_26", "name": "iPadOS 26", "icon": "./apple-tools/support/img/ios-ipados-26-logo.webp" }
+    ],
+    "headers": [
+        { "key": "model", "text": "机型", "width": "18%" },
+        { "key": "chip", "text": "处理器", "width": "7%" },
+        { "key": "date", "text": "发布时间", "width": "6%" },
+        { "key": "identifier", "text": "标识符", "width": "18%" },
+        { "key": "os", "text": "系统支持版本" }
+    ],
+    "tooltipMessages": {
+        "default": "官方支持此版本 ({os_name})",
+        "defaultGray": "官方不支持的版本 ({os_name})，更多内容待补充",
+        "defaultGlow": "此设备支持 {os_name} 及其包含的 Apple Intelligence 功能。"
+    },
+    "categories": {
+        "pro": {
+            "name": "iPad Pro",
+            "devices": [
+                { "model": "iPad Pro (12.9-inch)<br>iPad Pro (9.7-inch)", "chip": "A9X", "date": "2015.09<br>2016.03", "identifier": "iPad6,7/iPad6,8<br>iPad6,3/iPad6,4", "supportedOS": ["ios_9", "ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16"] },
+                { "model": "iPad Pro (10.5-inch)<br>iPad Pro (12.9-inch) (2nd generation)", "chip": "A10X Fusion", "date": "2017.06", "identifier": "iPad7,3/iPad7,4<br>iPad7,1/iPad7,2", "supportedOS": ["ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17"] },
+                { "model": "iPad Pro 11-inch (1st generation)<br>iPad Pro 12.9-inch (3rd generation)", "chip": "A12X Bionic", "date": "2018.10", "identifier": "iPad8,1/iPad8,2/iPad8,3/iPad8,4<br>iPad8,5/iPad8,6/iPad8,7/iPad8,8", "supportedOS": ["ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad Pro 11-inch (2nd generation)<br>iPad Pro 12.9-inch (4th generation)", "chip": "A12Z Bionic", "date": "2020.03", "identifier": "iPad8,9/iPad8,10<br>iPad8,11/iPad8,12", "supportedOS": ["ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad Pro 11-inch (3rd generation)<br>iPad Pro 12.9-inch (5th generation)", "chip": "M1", "date": "2021.04", "identifier": "iPad13,4/iPad13,5/iPad13,6/iPad13,7<br>iPad13,8/iPad13,9/iPad13,10/iPad13,11", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Pro 11-inch (4th generation)<br>iPad Pro 12.9-inch (6th generation)", "chip": "M2", "date": "2022.10", "identifier": "iPad14,3/iPad14,4<br>iPad14,5/iPad14,6", "supportedOS": ["ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Pro 11‑inch (M4)<br>iPad Pro 13‑inch (M4)", "chip": "M4", "date": "2024.05", "identifier": "iPad16,3/iPad16,4<br>iPad16,5/iPad16,6", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Pro 11‑inch (M5)<br>iPad Pro 13‑inch (M5)", "chip": "M5", "date": "2025.10", "identifier": "iPad17,3/iPad17,4<br>iPad17,1/iPad17,2", "supportedOS": ["ipados_26"], "special": { "ipados_26": "glow" } }
+
+            ]
+        },
+        "air": {
+            "name": "iPad Air",
+            "devices": [
+                { "model": "iPad Air", "chip": "A7", "date": "2013.10", "identifier": "iPad4,1/iPad4,2/iPad4,3", "supportedOS": ["ios_7", "ios_8", "ios_9", "ios_10", "ios_11", "ios_12"]},
+                { "model": "iPad Air 2", "chip": "A8X", "date": "2014.10", "identifier": "iPad5,3/iPad5,4", "supportedOS": ["ios_8", "ios_9", "ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15"]},
+                { "model": "iPad Air (3rd generation)", "chip": "A12 Bionic", "date": "2019.03", "identifier": "iPad11,3/iPad11,4", "supportedOS": ["ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad Air (4th generation)", "chip": "A14 Bionic", "date": "2020.09", "identifier": "iPad13,1/iPad13,2", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad Air (5th generation)", "chip": "M1", "date": "2022.03", "identifier": "iPad13,16/iPad13,17", "supportedOS": ["ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Air 11-inch (M2)<br>iPad Air 13-inch (M2)", "chip": "M2", "date": "2024.05", "identifier": "iPad14,8/iPad14,9<br>iPad14,10/iPad14,11", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } },
+                { "model": "iPad Air 11-inch (M3)<br>iPad Air 13-inch (M3)", "chip": "M3", "date": "2025.03", "identifier": "iPad15,3/iPad15,4<br>iPad15,5/iPad15,6", "supportedOS": ["ipados_17", "ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } }
+            ]
+        },
+        "standard": {
+            "name": "iPad",
+            "devices": [
+                { "model": "iPad", "chip": "A4", "date": "2010.01", "identifier": "iPad1,1", "supportedOS": ["ios_3", "ios_4", "ios_5"] },
+                { "model": "iPad 2", "chip": "A5", "date": "2011.03", "identifier": "iPad2,1/iPad2,2/iPad2,3/iPad2,4", "supportedOS": ["ios_4", "ios_5", "ios_6", "ios_7", "ios_8", "ios_9"] },
+                { "model": "iPad (3rd generation)", "chip": "A5X", "date": "2012.03", "identifier": "iPad3,1/iPad3,2", "supportedOS": ["ios_5", "ios_6", "ios_7", "ios_8", "ios_9"] },
+                { "model": "iPad (4th generation)", "chip": "A6X", "date": "2012.10", "identifier": "iPad3,4/iPad3,5/iPad3,6", "supportedOS": ["ios_6", "ios_7", "ios_8", "ios_9", "ios_10"] },
+                { "model": "iPad (5th generation)", "chip": "A9", "date": "2017.3", "identifier": "iPad6,11/iPad6,12", "supportedOS": ["ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16"] },
+                { "model": "iPad (6th generation)", "chip": "A10 Fusion", "date": "2018.03", "identifier": "iPad7,5/iPad7,6", "supportedOS": ["ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18"], "special": { "ipados_18": { "type": "grayscale", "tooltip": "<b>非官方支持 (iPadOS 18)</b><br><a href='https://github.com/asdfugil/ipad6-ipados18' target='_blank'>详情参考 GitHub 项目链接</a><br><br><b>已知 Bug:</b><ul><li>需要引导启动 (Tethered Boot)</li><li>Lightning AV/VGA 转接器无法工作</li><li>未修补 SSV，因而占用更多存储空间</li><li>系统相机无法录制视频</li><li>“抹掉所有内容和设置”会导致无限重启</li><li>基带无法工作</li></ul>" } } },
+                { "model": "iPad (7th generation)", "chip": "A10 Fusion", "date": "2019.09", "identifier": "iPad7,11/iPad7,12", "supportedOS": ["ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18"]},
+                { "model": "iPad (8th generation)", "chip": "A12 Bionic", "date": "2020.09", "identifier": "iPad11,6/iPad11,7", "supportedOS": ["ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad (9th generation)", "chip": "A13 Bionic", "date": "2021.09", "identifier": "iPad12,1/iPad12,2", "supportedOS": ["ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad (10th generation)", "chip": "A14 Bionic", "date": "2022.10", "identifier": "iPad13,18/iPad13,19", "supportedOS": ["ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad (A16)", "chip": "A16 Bionic", "date": "2025.03", "identifier": "iPad15,7/iPad15,8", "supportedOS": ["ipados_18", "ipados_26"] }
+            ]
+        },
+        "mini": {
+            "name": "iPad mini",
+            "devices": [
+                { "model": "iPad mini", "chip": "A5", "date": "2012.10", "identifier": "iPad2,5/iPad2,6/iPad2,7", "supportedOS": ["ios_6", "ios_7", "ios_8", "ios_9"] },
+                { "model": "iPad mini 2", "chip": "A7", "date": "2013.10", "identifier": "iPad4,4/iPad4,5", "supportedOS": ["ios_7", "ios_8", "ios_9", "ios_10", "ios_11", "ios_12"] },
+                { "model": "iPad mini 3", "chip": "A7", "date": "2014.10", "identifier": "iPad4,7/iPad4,8", "supportedOS": ["ios_8", "ios_9", "ios_10", "ios_11", "ios_12"] },
+                { "model": "iPad mini 4", "chip": "A8", "date": "2015.09", "identifier": "iPad5,1/iPad5,2", "supportedOS": ["ios_9", "ios_10", "ios_11", "ios_12", "ipados_13", "ipados_14", "ipados_15"] },
+                { "model": "iPad mini (5th generation)", "chip": "A12 Bionic", "date": "2019.03", "identifier": "iPad11,1/iPad11,2", "supportedOS": ["ios_12", "ipados_13", "ipados_14", "ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad mini (6th generation)", "chip": "A15 Bionic", "date": "2021.09", "identifier": "iPad14,1/iPad14,2", "supportedOS": ["ipados_15", "ipados_16", "ipados_17", "ipados_18", "ipados_26"] },
+                { "model": "iPad mini (A17 Pro)", "chip": "A17 Pro", "date": "2024.10", "identifier": "iPad16,1/iPad16,2", "supportedOS": ["ipados_18", "ipados_26"], "special": { "ipados_18": "glow", "ipados_26": "glow" } }
+            ]
+        }
+    }
+}

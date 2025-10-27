@@ -1,0 +1,76 @@
+{
+    "title": "苹果 N 系列参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "id": "displayType",
+                    "name": "型号展示"
+                },
+                {
+                    "id": "releaseDate",
+                    "name": "发布时间"
+                },
+                {
+                    "id": "processTech",
+                    "name": "技术工艺"
+                },
+                {
+                    "id": "dieSize",
+                    "name": "裸片尺寸"
+                }
+            ]
+        },
+        {
+            "groupName": "支持",
+            "features": [
+                {
+                    "id": "wifi",
+                    "name": "Wi-Fi"
+                },
+                {
+                    "id": "bt",
+                    "name": "蓝牙"
+                },
+                {
+                    "id": "thread",
+                    "name": "Thread"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "id": "usedIn",
+                    "name": "使用设备"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "name": "Apple N1",
+            "generation": "(Proxima/Centauri, T2026)",
+            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
+            "images": {
+                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
+                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_chip.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "芯片图"
+                ],
+                "releaseDate": "2025.09",
+                "processTech": "-",
+                "dieSize": "",
+                "wifi": "802.11be 2x2 MIMO",
+                "bt": "Bluetooth 6",
+                "thread": "✅",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>iPhone Air<br>iPhone 17<br>iPhone 17 Pro<br>iPhone 17 Pro Max</div>"
+            }
+        }
+    ]
+}

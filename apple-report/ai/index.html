@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+  <style type="text/css">
+    .main-content {
+      padding: 20px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .retext {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 0;
+      color: var(--light-text-secondary);
+      width: 100%;
+    }
+    hr {
+      border: 0;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0.1);
+      max-width: 1500px;
+      margin: 25px auto;
+    }
+    .macos-window.dark-mode .retext,
+    html.dark-mode .retext {
+      color: var(--dark-text-secondary);
+    }
+    .macos-window.dark-mode hr,
+    html.dark-mode hr {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 5px;
+      }
+      .card {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div class="main-content">
+    <div class="card">
+      <div id="ne_gb_ai_iphone" style="width: 100%; height:490px;"></div>
+      <div class="retext">iPhone</div>
+      <div id="ne_gb_ai_ipad" style="width: 100%; height:540px;"></div>
+      <div class="retext">iPad</div>
+      <div id="ne_gb_ai_mac" style="width: 100%; height:650px;"></div>
+      <div class="retext">Mac</div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+  
+  <script type="text/javascript">
+      (() => {
+      let chartInstances = [];
+      const iphoneChartData = [
+        { device: 'A12 Bionic', cpu_sp: '664', gpu_sp: '656', cpu_hp: '1107', gpu_hp: '790', ane_hp: '2111', cpu_q: '981', gpu_q: '295', ane_q: '369' }, { device: 'A13 Bionic', cpu_sp: '1708', gpu_sp: '948', cpu_hp: '3138', gpu_hp: '1169', ane_hp: '3706', cpu_q: '2595', gpu_q: '534', ane_q: '760' }, { device: 'A14 Bionic', cpu_sp: '2821', gpu_sp: '1985', cpu_hp: '4739', gpu_hp: '2247', ane_hp: '14090', cpu_q: '3915', gpu_q: '2121', ane_q: '14266' }, { device: 'A15 Bionic (4GPU)', cpu_sp: '3312', gpu_sp: '3082', cpu_hp: '5787', gpu_hp: '3477', ane_hp: '21067', cpu_q: '4688', gpu_q: '3194', ane_q: '24036' }, { device: 'A15 Bionic (5GPU)', cpu_sp: '3329', gpu_sp: '4118', cpu_hp: '5825', gpu_hp: '4701', ane_hp: '20961', cpu_q: '4711', gpu_q: '4378', ane_q: '24033' }, { device: 'A16 Bionic', cpu_sp: '3566', gpu_sp: '4266', cpu_hp: '6275', gpu_hp: '4677', ane_hp: '24348', cpu_q: '5072', gpu_q: '4399', ane_q: '28070' }, { device: 'A17 Pro', cpu_sp: '4069', gpu_sp: '5243', cpu_hp: '7171', gpu_hp: '6138', ane_hp: '26131', cpu_q: '5801', gpu_q: '5652', ane_q: '36310' }, { device: 'A18 (4GPU)', cpu_sp: '4479', gpu_sp: '4626', cpu_hp: '7604', gpu_hp: '5062', ane_hp: '33491', cpu_q: '6088', gpu_q: '4954', ane_q: '46682' }, { device: 'A18 (5GPU)', cpu_sp: '4479', gpu_sp: '4626', cpu_hp: '7604', gpu_hp: '5062', ane_hp: '33491', cpu_q: '6088', gpu_q: '4954', ane_q: '46682' }, { device: 'A18 Pro', cpu_sp: '4817', gpu_sp: '6244', cpu_hp: '8003', gpu_hp: '7249', ane_hp: '33699', cpu_q: '6356', gpu_q: '6956', ane_q: '47861' }, { device: 'A19', cpu_sp: '4690', gpu_sp: '', cpu_hp: '7834', gpu_hp: '', ane_hp: '', cpu_q: '6219', gpu_q: '', ane_q: '' }, { device: 'A19 Pro (5GPU)', cpu_sp: '5128', gpu_sp: '7990', cpu_hp: '8367', gpu_hp: '15042', ane_hp: '34764', cpu_q: '6618', gpu_q: '14931', ane_q: '47694' }, { device: 'A19 Pro (6GPU)', cpu_sp: '5143', gpu_sp: '9066', cpu_hp: '8324', gpu_hp: '16398', ane_hp: '36365', cpu_q: '6504', gpu_q: '16934', ane_q: '49592' }
+      ];
+      const ipadChartData = [
+        { device: 'A12 Bionic', cpu_sp: '704', gpu_sp: '661', cpu_hp: '1150', gpu_hp: '796', ane_hp: '2142', cpu_q: '1034', gpu_q: '291', ane_q: '387' }, { device: 'A12X Bionic', cpu_sp: '1024', gpu_sp: '1267', cpu_hp: '1573', gpu_hp: '1561', ane_hp: '2541', cpu_q: '1366', gpu_q: '445', ane_q: '455' }, { device: 'A12Z Bionic', cpu_sp: '1025', gpu_sp: '1363', cpu_hp: '1589', gpu_hp: '1694', ane_hp: '2519', cpu_q: '1369', gpu_q: '447', ane_q: '453' }, { device: 'A13 Bionic', cpu_sp: '1700', gpu_sp: '937', cpu_hp: '3130', gpu_hp: '1167', ane_hp: '3721', cpu_q: '2591', gpu_q: '522', ane_q: '756' }, { device: 'A14 Bionic', cpu_sp: '2761', gpu_sp: '2650', cpu_hp: '4667', gpu_hp: '3065', ane_hp: '13893', cpu_q: '3881', gpu_q: '2848', ane_q: '13875' }, { device: 'A15 Bionic', cpu_sp: '3167', gpu_sp: '3063', cpu_hp: '5540', gpu_hp: '3361', ane_hp: '20063', cpu_q: '4481', gpu_q: '3230', ane_q: '22415' }, { device: 'A16 Bionic', cpu_sp: '3628', gpu_sp: '3838', cpu_hp: '6302', gpu_hp: '3391', ane_hp: '24186', cpu_q: '5080', gpu_q: '3433', ane_q: '27900' }, { device: 'A17 Pro', cpu_sp: '4053', gpu_sp: '4466', cpu_hp: '7059', gpu_hp: '4952', ane_hp: '25665', cpu_q: '5775', gpu_q: '4781', ane_q: '36523' }, { device: 'M1', cpu_sp: '3251', gpu_sp: '5756', cpu_hp: '5867', gpu_hp: '6354', ane_hp: '16062', cpu_q: '4791', gpu_q: '5970', ane_q: '15649' }, { device: 'M2 (9GPU)', cpu_sp: '3473', gpu_sp: '7619', cpu_hp: '6062', gpu_hp: '8342', ane_hp: '26533', cpu_q: '4915', gpu_q: '7850', ane_q: '29395' }, { device: 'M2 (10GPU)', cpu_sp: '3473', gpu_sp: '7619', cpu_hp: '6062', gpu_hp: '8342', ane_hp: '26533', cpu_q: '4915', gpu_q: '7850', ane_q: '29395' }, { device: 'M3', cpu_sp: '4157', gpu_sp: '8384', cpu_hp: '7151', gpu_hp: '9610', ane_hp: '31263', cpu_q: '5784', gpu_q: '8848', ane_q: '35161' }, { device: 'M4', cpu_sp: '4943', gpu_sp: '9978', cpu_hp: '8051', gpu_hp: '11722', ane_hp: '38420', cpu_q: '6414', gpu_q: '10803', ane_q: '54927' }
+      ];
+      const macChartData = [
+        { device: 'M1', cpu_sp: '3231', gpu_sp: '5707', cpu_hp: '5447', gpu_hp: '6652', ane_hp: '16382', cpu_q: '4449', gpu_q: '6239', ane_q: '16240' }, { device: 'M1 Pro', cpu_sp: '3783', gpu_sp: '9026', cpu_hp: '6077', gpu_hp: '10083', ane_hp: '16731', cpu_q: '4833', gpu_q: '9392', ane_q: '16723' }, { device: 'M1 Max', cpu_sp: '3803', gpu_sp: '12827', cpu_hp: '6060', gpu_hp: '14213', ane_hp: '16782', cpu_q: '4835', gpu_q: '13313', ane_q: '16661' }, { device: 'M1 Ultra', cpu_sp: '3774', gpu_sp: '13393', cpu_hp: '5876', gpu_hp: '14367', ane_hp: '16283', cpu_q: '4732', gpu_q: '13481', ane_q: '16331' }, { device: 'M2', cpu_sp: '3475', gpu_sp: '7654', cpu_hp: '6074', gpu_hp: '8715', ane_hp: '27174', cpu_q: '4958', gpu_q: '8030', ane_q: '30251' }, { device: 'M2 Pro', cpu_sp: '4146', gpu_sp: '11988', cpu_hp: '6730', gpu_hp: '13053', ane_hp: '27798', cpu_q: '5355', gpu_q: '12205', ane_q: '31227' }, { device: 'M2 Max', cpu_sp: '4274', gpu_sp: '16484', cpu_hp: '6854', gpu_hp: '18444', ane_hp: '27703', cpu_q: '5477', gpu_q: '17323', ane_q: '30974' }, { device: 'M2 Ultra', cpu_sp: '4559', gpu_sp: '19060', cpu_hp: '7114', gpu_hp: '20832', ane_hp: '26843', cpu_q: '5642', gpu_q: '19643', ane_q: '30223' }, { device: 'M3', cpu_sp: '4139', gpu_sp: '8994', cpu_hp: '7114', gpu_hp: '10484', ane_hp: '31607', cpu_q: '5790', gpu_q: '9970', ane_q: '35862' }, { device: 'M3 Pro', cpu_sp: '4181', gpu_sp: '13840', cpu_hp: '7105', gpu_hp: '16221', ane_hp: '31657', cpu_q: '5740', gpu_q: '14867', ane_q: '35596' }, { device: 'M3 Max', cpu_sp: '4977', gpu_sp: '20212', cpu_hp: '7796', gpu_hp: '22771', ane_hp: '33174', cpu_q: '6240', gpu_q: '21336', ane_q: '35951' }, { device: 'M3 Ultra', cpu_sp: '5541', gpu_sp: '23776', cpu_hp: '8590', gpu_hp: '26242', ane_hp: '31359', cpu_q: '6700', gpu_q: '24355', ane_q: '34304' }, { device: 'M4', cpu_sp: '4890', gpu_sp: '10709', cpu_hp: '8016', gpu_hp: '12629', ane_hp: '38750', cpu_q: '6514', gpu_q: '11759', ane_q: '55165' }, { device: 'M4 Pro', cpu_sp: '5429', gpu_sp: '17259', cpu_hp: '9110', gpu_hp: '19363', ane_hp: '39022', cpu_q: '7085', gpu_q: '18017', ane_q: '53353' }, { device: 'M4 Max', cpu_sp: '5684', gpu_sp: '24590', cpu_hp: '9516', gpu_hp: '27033', ane_hp: '39077', cpu_q: '7310', gpu_q: '25204', ane_q: '54010' }
+      ];
+      function processGBAIData(rawData) {
+        const yAxisData = rawData.map(item => item.device);
+        return {
+          yAxisData,
+          seriesData: {
+            cpu_sp: rawData.map(item => item.cpu_sp), gpu_sp: rawData.map(item => item.gpu_sp),
+            cpu_hp: rawData.map(item => item.cpu_hp), gpu_hp: rawData.map(item => item.gpu_hp), ane_hp: rawData.map(item => item.ane_hp),
+            cpu_q: rawData.map(item => item.cpu_q), gpu_q: rawData.map(item => item.gpu_q), ane_q: rawData.map(item => item.ane_q),
+          }
+        };
+      }
+      function createChart(domElement, chartData, title, subtext, theme, overrides = {}) {
+        const chart = echarts.init(domElement, theme);
+        chartInstances.push(chart);
+        let currentData = [...chartData];
+        const legendMap = { 'CPU 单精度': 'cpu_sp', 'GPU 单精度': 'gpu_sp', 'CPU 半精度': 'cpu_hp', 'GPU 半精度': 'gpu_hp', 'ANE 半精度': 'ane_hp', 'CPU 量化精度': 'cpu_q', 'GPU 量化精度': 'gpu_q', 'ANE 量化精度': 'ane_q' };
+        const sortPriority = ['ANE 量化精度', 'GPU 量化精度', 'CPU 量化精度', 'ANE 半精度', 'GPU 半精度', 'CPU 半精度', 'GPU 单精度', 'CPU 单精度'];
+        const stackOrder = {
+            'Single Precision': ['CPU 单精度', 'GPU 单精度'],
+            'Half Precision': ['CPU 半精度', 'GPU 半精度', 'ANE 半精度'],
+            'Quantized': ['CPU 量化精度', 'GPU 量化精度', 'ANE 量化精度']
+        };
+        const getOption = (data, isInitial, selectedItems) => {
+        const { yAxisData, seriesData } = processGBAIData(data);
+        const legendConfig = {
+            bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 }
+        };
+        if (isInitial) {
+            legendConfig.selected = { 'CPU 单精度': false, 'GPU 单精度': false, 'CPU 半精度': true, 'GPU 半精度': true, 'ANE 半精度': true, 'CPU 量化精度': true, 'GPU 量化精度': true, 'ANE 量化精度': true };
+        }
+        let series = [
+            { name: 'CPU 单精度', type: 'bar', stack: 'Single Precision', emphasis: { focus: 'series' }, data: seriesData.cpu_sp, itemStyle: { normal: { label: { show: true, color: '#DDDDDD', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'GPU 单精度', type: 'bar', stack: 'Single Precision', emphasis: { focus: 'series' }, data: seriesData.gpu_sp, itemStyle: { normal: { label: { show: true, color: '#666666', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'CPU 半精度', type: 'bar', stack: 'Half Precision', emphasis: { focus: 'series' }, data: seriesData.cpu_hp, itemStyle: { normal: { label: { show: true, color: '#DDDDDD', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'GPU 半精度', type: 'bar', stack: 'Half Precision', emphasis: { focus: 'series' }, data: seriesData.gpu_hp, itemStyle: { normal: { label: { show: true, color: '#666666', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'ANE 半精度', type: 'bar', stack: 'Half Precision', emphasis: { focus: 'series' }, data: seriesData.ane_hp, itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'CPU 量化精度', type: 'bar', stack: 'Quantized', emphasis: { focus: 'series' }, data: seriesData.cpu_q, itemStyle: { normal: { label: { show: true, color: '#DDDDDD', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'GPU 量化精度', type: 'bar', stack: 'Quantized', emphasis: { focus: 'series' }, data: seriesData.gpu_q, itemStyle: { normal: { label: { show: true, color: '#666666', fontSize: 10, fontWeight: 'bold' } } } },
+            { name: 'ANE 量化精度', type: 'bar', stack: 'Quantized', emphasis: { focus: 'series' }, data: seriesData.ane_q, itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 10, fontWeight: 'bold' } } } }
+        ];
+        if (selectedItems) {
+            const seriesMap = new Map(series.map(s => [s.name, s]));
+            series.forEach(s => s.itemStyle.normal.barBorderRadius = 0);
+            for (const stackName in stackOrder) {
+                for (let i = stackOrder[stackName].length - 1; i >= 0; i--) {
+                    const seriesName = stackOrder[stackName][i];
+                    if (selectedItems[seriesName]) {
+                        const targetSeries = seriesMap.get(seriesName);
+                        if (targetSeries) {
+                            targetSeries.itemStyle.normal.barBorderRadius = [0, 20, 20, 0];
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+        return {
+            backgroundColor: 'transparent',
+            color: ["#4fa3bf", "#FFB6C1", "#EEDC82", "#4fa3bf", "#FFB6C1", "#EEDC82", "#4fa3bf", "#FFB6C1", "#EEDC82"],
+            title: { text: title, subtext: subtext },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: legendConfig,
+            grid: { left: '3%', right: '8%', bottom: '10', containLabel: true, ...overrides.grid },
+            xAxis: [{ type: 'value', boundaryGap: [0, 0], axisLabel: { textStyle: { fontSize: "11" } } }],
+            yAxis: { type: 'category', data: yAxisData, axisLabel: { textStyle: { fontSize: "11" } } },
+            series: series
+          };
+        };
+        function sortAndRender(selectedItems, isInitial = false) {
+            let sortKey = null;
+            for (const name of sortPriority) {
+                if (selectedItems[name]) {
+                    sortKey = legendMap[name];
+                    break;
+                }
+            }
+            sortKey = sortKey || 'ane_q';
+            currentData.sort((a, b) => (Number(a[sortKey]) || 0) - (Number(b[sortKey]) || 0));
+            chart.setOption(getOption(currentData, isInitial, selectedItems));
+        }
+        chart.on('legendselectchanged', function(params) {
+          sortAndRender(params.selected, false);
+        });
+        const initialSelected = { 'CPU 单精度': false, 'GPU 单精度': false, 'CPU 半精度': true, 'GPU 半精度': true, 'ANE 半精度': true, 'CPU 量化精度': true, 'GPU 量化精度': true, 'ANE 量化精度': true };
+        sortAndRender(initialSelected, true);
+        if ('ResizeObserver' in window) {
+          const resizeObserver = new ResizeObserver(() => chart.resize());
+          resizeObserver.observe(domElement);
+        }
+        return chart;
+      }
+      function renderAllCharts() {
+        chartInstances.forEach(chart => chart.dispose());
+        chartInstances = [];
+        const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+        createChart(document.getElementById('ne_gb_ai_iphone'), iphoneChartData, 'GeekBench AI 性能跑分', 'ANE 不支持单精度 (FP32)', theme);
+        createChart(document.getElementById('ne_gb_ai_ipad'), ipadChartData, '', '', theme, { grid: { top: '5%' } });
+        createChart(document.getElementById('ne_gb_ai_mac'), macChartData, '', '', theme, { grid: { top: '5%' } });
+      }
+      renderAllCharts();
+      const themeObserver = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            renderAllCharts();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true });
+    })();
+  </script>
+</body>
+</html>

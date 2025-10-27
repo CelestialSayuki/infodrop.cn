@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+    <style type="text/css">
+        .main-content {
+            padding: 20px;
+        }
+
+        .chart-card,
+        .legend-card {
+            margin-bottom: 20px;
+        }
+        
+        .chart-controls {
+            padding: 0.5rem 1.5rem 1rem;
+        }
+        
+        .chart-controls fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .chart-controls legend {
+            font-weight: 500;
+            padding-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .chart-controls label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        #CPU_Full_Random_Latency {
+            width: 100%;
+            height: 750px;
+        }
+
+        .legend-container {
+            padding: 1.5rem;
+        }
+
+        .legend-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .legend-group h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .legend-group .sub-legend-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: var(--light-text-secondary);
+            margin: 0.8rem 0 0.4rem 0;
+        }
+        
+        .legend-items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            font-size: 0.8rem;
+        }
+        
+        .legend-item:hover {
+             background-color: rgba(128, 128, 128, 0.1);
+        }
+
+        .legend-item.selected {
+            background-color: rgba(128, 128, 128, 0.25);
+            font-weight: 500;
+        }
+
+        .legend-item .marker {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 6px;
+            border-radius: 2px;
+        }
+        .macos-window.dark-mode .legend-group .sub-legend-title,
+        html.dark-mode .legend-group .sub-legend-title {
+            color: var(--dark-text-secondary);
+        }
+        @media (max-width: 768px) {
+            .main-content {
+              padding: 5px;
+            }
+            .card {
+                margin: 0;
+                margin-bottom: 15px;
+            }
+            #CPU_Full_Random_Latency {
+                width: 100%;
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0;">
+
+    <div class="main-content">
+        <div class="card chart-card">
+            <div id="CPU_Full_Random_Latency"></div>
+            <div class="chart-controls">
+                <fieldset>
+                    <legend>测试环境:</legend>
+                    <label>
+                        <input type="checkbox" name="type" value="native" checked>
+                        <span>原生</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="type" value="js">
+                        <span>浏览器</span>
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="card legend-card">
+            <div class="legend-container">
+                <div class="legend-group">
+                    <h4>Apple 芯片</h4>
+                    <div class="sub-legend-title">M 系列</div>
+                    <div id="legend-apple-m" class="legend-items-container"></div>
+                    <div class="sub-legend-title">A 系列</div>
+                    <div id="legend-apple-a" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>Intel 芯片</h4>
+                    <div id="legend-intel" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>AMD 芯片</h4>
+                    <div id="legend-amd" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>Qualcomm 芯片</h4>
+                    <div id="legend-qualcomm" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>MediaTek 芯片</h4>
+                    <div id="legend-mtk" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>HiSilicon 芯片</h4>
+                    <div id="legend-huawei" class="legend-items-container"></div>
+                </div>
+                <div class="legend-group">
+                    <h4>其他芯片</h4>
+                    <div id="legend-other" class="legend-items-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+    <script type="text/javascript">
+    (() => {
+        const dom = document.getElementById('CPU_Full_Random_Latency');
+        if (!dom) return;
+        let myChart;
+        let allSeriesData = [];
+        let allLegendGroups = {};
+        const initialOption = {
+            backgroundColor: 'transparent',
+            title: { text: 'CPU 随机访问延迟', subtext: 'X 坐标: Test Depth (Transfer Size) / Y 坐标: Latency (单位：ns) / 点击下方图例筛选芯片', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 }},
+            tooltip: { trigger: 'axis' },
+            grid: { left: '3%', right: '4%', bottom: '5%', containLabel: true },
+            toolbox: { feature: { saveAsImage: {} } },
+            xAxis: {
+                type: 'category',
+                data: ['1KB', '2KB', '4KB', '6KB', '8KB', '12KB', '16KB', '24KB', '32KB', '48KB', '64KB', '96KB', '128KB', '192KB', '256KB', '384KB', '512KB', '600KB', '768KB', '1MB', '1.5MB', '2MB', '3MB', '4MB', '6MB', '8MB', '10MB', '12MB', '16MB', '24MB', '32MB', '48MB', '64MB', '96MB', '128MB', '256MB', '384MB', '512MB', '768MB'],
+                axisTick: { alignWithLabel: true },
+                axisLabel: { textStyle: { fontSize: "11" }, interval: 0, rotate: 45, margin: 10, width: 50, overflow: 'break' }
+            },
+            yAxis: {
+                splitNumber: 20,
+                type: 'value',
+                axisLabel: { textStyle: { fontSize: "11" }, formatter: (value) => value + 'ns' }
+            }
+        };
+        const typeFilters = document.querySelectorAll('.chart-controls input[name="type"]');
+        function initChart() {
+            if (myChart) {
+                myChart.dispose();
+            }
+            const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            myChart = echarts.init(dom, theme, { renderer: 'canvas', useDirtyRect: false });
+            new ResizeObserver(() => myChart.resize()).observe(dom);
+        }
+        function updateChartAndLegends() {
+            if (!myChart) return;
+            const selectedTypes = Array.from(typeFilters)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            const filteredSeries = allSeriesData.filter(series => selectedTypes.includes(series.type));
+            const filteredSeriesNames = new Set(filteredSeries.map(s => s.name));
+
+            myChart.setOption({
+                ...initialOption,
+                series: filteredSeries.map(s => ({
+                    symbol: 'none',
+                    smooth: true,
+                    name: s.name,
+                    type: 'line',
+                    data: s.data.map(item => item[1]),
+                    symbolSize: 6
+                })),
+                legend: {
+                    show: false,
+                    data: filteredSeries.map(s => s.name),
+                    selected: filteredSeries.reduce((acc, s) => {
+                        acc[s.name] = false;
+                        return acc;
+                    }, {})
+                }
+            }, true);
+            
+            generateLegends(filteredSeriesNames);
+        }
+        function generateLegends(filteredSeriesNames) {
+            const legendContainers = document.querySelectorAll('.legend-items-container');
+            legendContainers.forEach(c => c.innerHTML = '');
+
+            const currentSelection = myChart.getOption().legend[0].selected;
+            const chartColors = myChart.getOption().color;
+            const seriesInChart = myChart.getOption().series;
+
+            for (const groupId in allLegendGroups) {
+                const container = document.getElementById(groupId);
+                if (container) {
+                    const names = allLegendGroups[groupId];
+                    names.forEach((name) => {
+                        if (!filteredSeriesNames.has(name)) return;
+
+                        const seriesIndex = seriesInChart.findIndex(s => s.name === name);
+                        if (seriesIndex === -1) return;
+
+                        const color = chartColors[seriesIndex % chartColors.length];
+                        const item = document.createElement('span');
+                        item.className = 'legend-item';
+                        
+                        const marker = document.createElement('span');
+                        marker.className = 'marker';
+                        marker.style.backgroundColor = color;
+                        
+                        item.appendChild(marker);
+                        item.appendChild(document.createTextNode(name));
+                        
+                        item.addEventListener('click', function() {
+                            const isSelected = !currentSelection[name];
+                            currentSelection[name] = isSelected;
+                            
+                            myChart.dispatchAction({
+                                type: isSelected ? 'legendSelect' : 'legendUnSelect',
+                                name: name
+                            });
+                            
+                            this.classList.toggle('selected', isSelected);
+                        });
+                        
+                        container.appendChild(item);
+                    });
+                }
+            }
+        }
+        initChart();
+        fetch('./apple-report/latency-result/data.json')
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                allSeriesData = data.seriesData;
+                allLegendGroups = data.legendGroups;
+
+                typeFilters.forEach(checkbox => {
+                    checkbox.addEventListener('change', updateChartAndLegends);
+                });
+
+                updateChartAndLegends();
+            })
+            .catch(error => {
+                console.error('Error fetching or processing data:', error);
+                dom.innerHTML = `<div style="text-align:center; padding-top: 50px; color: red;">图表数据加载失败: ${error.message}</div>`;
+            });
+        const themeObserver = new MutationObserver(() => {
+            initChart();
+            if (allSeriesData.length > 0) {
+                updateChartAndLegends();
+            }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    })();
+    </script>
+</body>
+</html>

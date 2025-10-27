@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Battery</title>
+    
+    <script>
+        function showTab(categoryName) {
+            const categories = ['iphone', 'ipad', 'watch', 'vision'];
+            const wrapper = document.querySelector('.tabs-content');
+
+            categories.forEach(cat => {
+                const link = document.querySelector('#a_' + cat);
+                const content = document.querySelector('#' + cat);
+
+                if (link && content) {
+                    if (cat === categoryName) {
+                        link.classList.add('active');
+                        content.classList.add('show');
+                        if (wrapper) {
+                            wrapper.style.height = content.scrollHeight + 'px';
+                        }
+                    } else {
+                        link.classList.remove('active');
+                        content.classList.remove('show');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('load', () => {
+            const initialContent = document.querySelector('.table-responsive-container.show');
+            const wrapper = document.querySelector('.tabs-content');
+            if (initialContent && wrapper) {
+                wrapper.style.height = initialContent.scrollHeight + 'px';
+            }
+        });
+    </script>
+    <style type="text/css">
+        .resource-content-wrapper .category-switcher {
+            margin-bottom: 1rem;
+            padding-left: 15px;
+        }
+        .resource-content-wrapper .category-switcher a {
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            color: var(--light-text-secondary, #586069);
+            transition: color 0.2s ease-in-out;
+            padding: 4px 8px;
+            margin-left: -8px;
+        }
+        .resource-content-wrapper .category-switcher a.active {
+            color: var(--light-text, #212529);
+        }
+        .resource-content-wrapper {
+            background-color: var(--light-glass-bg);
+            border-radius: var(--border-radius);
+            margin: 10px;
+            padding: 25px;
+        }
+        .resource-content-wrapper h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            padding-left: 15px;
+        }
+        .resource-content-wrapper .lead {
+            padding: 0 15px 15px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--light-text-secondary);
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+        .tabs-content {
+            position: relative;
+            transition: height 0.3s ease-in-out;
+        }
+        .table-responsive-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .table-responsive-container.show {
+            position: relative;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .resource-content-wrapper .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0;
+            font-size: 13px;
+        }
+        .resource-content-wrapper .table span {
+            font-size: 9px;
+            color: #8f8f8f;
+        }
+        .resource-content-wrapper .table > thead > tr > th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-border, rgba(0, 0, 0, 0.15));
+            background-color: transparent;
+            white-space: nowrap;
+        }
+        .resource-content-wrapper .table tbody td {
+            padding: 12px 15px;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+        .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+        .table-section-header th {
+            background-color: rgba(0, 0, 0, 0.03);
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+            border-top: 1px solid var(--light-border, rgba(0, 0, 0, 0.1));
+        }
+        .macos-window.dark-mode .resource-content-wrapper .category-switcher a,
+        html.dark-mode .resource-content-wrapper .category-switcher a {
+            color: var(--dark-text-secondary, #8b949e);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .category-switcher a.active,
+        html.dark-mode .resource-content-wrapper .category-switcher a.active {
+            color: var(--dark-text, #c9d1d9);
+        }
+        .macos-window.dark-mode .resource-content-wrapper,
+        html.dark-mode .resource-content-wrapper {
+            background-color: var(--dark-glass-bg);
+        }
+        .macos-window.dark-mode .resource-content-wrapper h1,
+        .macos-window.dark-mode .resource-content-wrapper .lead,
+        html.dark-mode .resource-content-wrapper h1,
+        html.dark-mode .resource-content-wrapper .lead {
+            color: var(--dark-text-secondary);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .lead,
+        html.dark-mode .resource-content-wrapper .lead {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover,
+        html.dark-mode .resource-content-wrapper .table-hover > tbody > tr:not(.table-section-header):hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table > thead > tr > th,
+        html.dark-mode .resource-content-wrapper .table > thead > tr > th {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+        }
+        .macos-window.dark-mode .resource-content-wrapper .table tbody td,
+        html.dark-mode .resource-content-wrapper .table tbody td {
+            border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        .macos-window.dark-mode .table-section-header th,
+        html.dark-mode .table-section-header th {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.15));
+        }
+        @media (max-width: 768px) {
+            .resource-content-wrapper {
+                padding: 20px;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="resource-content-wrapper">
+    <h1>🔋 Battery</h1>
+    <p class="lead">
+        本页收集了 Apple 各设备电池详细信息，点击对应的“电池型号”可查看电池详情。
+    </p>
+    
+    <h4 class="category-switcher">
+        <a id="a_iphone" class="a_dashang active" data-category="iphone" onclick="showTab('iphone')">iPhone</a> /
+        <a id="a_ipad" class="a_dashang" data-category="ipad" onclick="showTab('ipad')">iPad</a> /
+        <a id="a_watch" class="a_dashang" data-category="watch" onclick="showTab('watch')">Watch</a> /
+        <a id="a_vision" class="a_dashang" data-category="vision" onclick="showTab('vision')">Vision</a>
+    </h4>
+
+    <div class="tabs-content">
+        <div id="iphone" class="table-responsive-container show">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="18%">机型</th>
+                        <th>电芯能量</th>
+                        <th>电池能量</th>
+                        <th>标称电压</th>
+                        <th>额定容量</th>
+                        <th>充电限制电压</th>
+                        <th>电芯规格</th>
+                        <th width="20%">电池型号 / 制造商</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>iPhone 17 Pro Max</td><td>-</td><td>19.772Wh <span>(无SIM卡托)</span><br>18.748Wh <span>(带SIM卡托)</span></td><td>3.886V <span>(无SIM卡托)</span><br>3.887V <span>(带SIM卡托)</span></td><td>5088mAh <span>(无SIM卡托)</span><br>4823mAh <span>(带SIM卡托)</span></td><td>4.50V</td><td>-</td><td>PSMY9、PSMU8 / 东莞新能德科技有限公司<br>NA293、NA295 / 华普电子(常熟)有限公司</td></tr>
+                    <tr><td>iPhone 17 Pro</td><td>-</td><td>16.558Wh <span>(无SIM卡托)</span><br>15.534Wh <span>(带SIM卡托)</span></td><td>3.894V <span>(无SIM卡托)</span><br>3.895V <span>(带SIM卡托)</span></td><td>4252mAh <span>(无SIM卡托)</span><br>3988mAh <span>(带SIM卡托)</span></td><td>4.50V</td><td>-</td><td>2226A / 惠州市德赛电池有限公司<br>S2225 / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone Air</td><td>-</td><td>12.263Wh<br>11.823Wh</td><td>3.894V<br></td><td>3149mAh<br>3036mAh</td><td>4.50V</td><td>-</td><td>108CS、0108S / 欣旺达电子股份有限公司<br>2228A、S2228 / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 17</td><td>-</td><td>14.351Wh</td><td>3.887V</td><td>3692mAh</td><td>4.50V</td><td>-</td><td>PSMT4 / 东莞新能德科技有限公司</td></tr>
+                    <tr><td>iPhone 16e</td><td>15.738Wh</td><td>15.556Wh</td><td>3.884V</td><td>4005mAh</td><td>4.50V</td><td>484598</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/PSKE2.webp">PSKE2</a> / 东莞新能德科技有限公司</td></tr>
+                    <tr><td>iPhone 16 Pro Max</td><td>18.413Wh</td><td>18.169Wh</td><td>3.878V</td><td>4685mAh</td><td>4.50V</td><td>519664</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/S2218.webp">S2218</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 16 Pro</td><td>14.065Wh</td><td>13.942Wh</td><td>3.892V</td><td>3582mAh</td><td>4.50V</td><td>508252</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/2203B-1.webp">2203B</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/2203B-2.webp">2203B</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 16 Plus</td><td>-</td><td>18.112Wh</td><td>3.875V</td><td>4674mAh</td><td>4.50V</td><td>-</td><td>NA247 / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 16</td><td>-</td><td>13.839Wh</td><td>3.886V</td><td>3561mAh</td><td>4.50V</td><td>-</td><td>NA264 / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 15 Pro Max</td><td>17.32Wh</td><td>17.109Wh</td><td>3.869V</td><td>4422mAh</td><td>4.48V</td><td>529064</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3121-1.webp">A3121</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3121-2.webp">A3121</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 15 Pro</td><td>12.831Wh</td><td>12.70Wh</td><td>3.879V</td><td>3274mAh</td><td>4.48V</td><td>527853</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3011-1.webp">A3011</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3011-2.webp">A3011</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 15 Plus</td><td>17.188Wh</td><td>16.95Wh</td><td>3.87V</td><td>4383mAh</td><td>4.48V</td><td>465193</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3039.webp">A3039</a> / 东莞新能德科技有限公司</td></tr>
+                    <tr><td>iPhone 15</td><td>13.132Wh</td><td>12.981Wh</td><td>3.88V</td><td>3349mAh</td><td>4.48V</td><td>474483</td><td>A3018</td></tr>
+                    <tr><td>iPhone 14 Pro Max</td><td>16.93Wh</td><td>16.68Wh</td><td>3.86V</td><td>4323mAh</td><td>4.47V</td><td>509266</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2830-1.webp">A2830</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2830-2.webp">A2830</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 14 Pro</td><td>12.51Wh</td><td>12.38Wh</td><td>3.87V</td><td>3200mAh</td><td>4.47V</td><td>507861</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2866-1.webp">A2866</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2866-2.webp">A2866</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 14 Plus</td><td>16.93Wh</td><td>16.68Wh</td><td>3.86V</td><td>4325mAh</td><td>4.47V</td><td>475396</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2850-1.webp">A2850</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2850-2.webp">A2850</a> / 东莞新能德科技有限公司</td></tr>
+                    <tr><td>iPhone 14</td><td>12.84Wh</td><td>12.68Wh</td><td>3.87V</td><td>3279mAh</td><td>4.47V</td><td>474488</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2863-1.webp">A2863</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2863-2.webp">A2863</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone SE (第 3 代)</td><td>7.89Wh</td><td>7.82Wh</td><td>3.88V</td><td>2018mAh</td><td>4.47V</td><td>313994</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2819.webp">A2819</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 13 Pro Max</td><td>17.02Wh</td><td>16.75Wh</td><td>3.85V</td><td>4352mAh</td><td>4.47V</td><td>489265</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2653-1.webp">A2653</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2653-2.webp">A2653</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 13 Pro</td><td>12.11Wh</td><td>11.97Wh</td><td>3.87V</td><td>3095mAh</td><td>4.47V</td><td>488062</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2656-1.webp">A2656</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2656-2.webp">A2656</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 13</td><td>12.54Wh</td><td>12.41Wh</td><td>3.84V</td><td>3227mAh</td><td>4.47V</td><td>484485</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2655-1.webp">A2655</a> / 新普科技股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2655-2.webp">A2655</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 13 mini</td><td>9.43Wh</td><td>9.34Wh</td><td>3.88V</td><td>2406mAh</td><td>4.47V</td><td>523674</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2660.webp">A2660</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 12 Pro Max</td><td>14.35Wh</td><td>14.13Wh</td><td>3.83V</td><td>3687mAh</td><td>4.45V</td><td>438966</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2466-1.webp">A2466</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2466-2.webp">A2466</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 12 Pro</td><td>10.90Wh</td><td>10.78Wh</td><td>3.83V</td><td>2815mAh</td><td>4.45V</td><td>434484<br>434585</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2479-1.webp">A2479</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2479-2.webp">A2479</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 12</td><td>10.90Wh</td><td>10.78Wh</td><td>3.83V</td><td>2815mAh</td><td>4.45V</td><td>434484<br>434585</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2479-1.webp">A2479</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2479-2.webp">A2479</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 12 mini</td><td>8.65Wh</td><td>8.57Wh</td><td>3.85V</td><td>2227mAh</td><td>4.45V</td><td>443685</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2471-1.webp">A2471</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2471-2.webp">A2471</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone SE (第 2 代)</td><td>7.03Wh</td><td>6.96Wh</td><td>3.82V</td><td>1821mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2312.webp">A2312</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 11 Pro Max</td><td>15.26Wh</td><td>15.04Wh</td><td>3.79V</td><td>3969mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00653.webp">616-00653</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 11 Pro</td><td>11.79Wh</td><td>11.67Wh</td><td>3.83V</td><td>3046mAh</td><td>4.40V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00659.webp">616-00659</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00630.webp">616-00630</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 11</td><td>12.02Wh</td><td>11.91Wh</td><td>3.83V</td><td>3110mAh</td><td>4.45V</td><td>4145A1</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00643.webp">616-00643</a> / 新普科技股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00640.webp">616-00640</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone XS MAX</td><td>12.22Wh</td><td>12.08Wh</td><td>3.80V</td><td>3174mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00506.webp">616-00506</a> / 欣旺达电子股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00507.webp">616-00507</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone XS</td><td>10.23Wh</td><td>10.13Wh</td><td>3.81V</td><td>2658mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00512.webp">616-00512</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone XR</td><td>11.28Wh</td><td>11.16Wh</td><td>3.79V</td><td>2942mAh</td><td>4.35V</td><td>4045A3</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00471.webp">616-00471</a><br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00524.webp">616-00524</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone X</td><td>10.45Wh</td><td>10.35Wh</td><td>3.81V</td><td>2716mAh</td><td>4.35V</td><td>403458+403958</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00351.webp">616-00351</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 8 Plus</td><td>10.38Wh</td><td>10.28Wh</td><td>3.82V</td><td>2691mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00367.webp">616-00367</a><br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00364.webp">616-00364</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 8</td><td>7.03Wh</td><td>6.96Wh</td><td>3.82V</td><td>1821mAh</td><td>4.35V</td><td>303994</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00361.webp">616-00361</a> / 新普科技股份有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00357.webp">616-00357</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 7 Plus</td><td>11.22Wh</td><td>11.10Wh</td><td>3.82V</td><td>2900mAh</td><td>4.35V</td><td>3249A9</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00249.webp">616-00249</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 7</td><td>7.55Wh</td><td>7.45Wh</td><td>3.80V</td><td>1960mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00259.webp">616-00259</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone SE</td><td>6.28Wh</td><td>6.21Wh</td><td>3.82V</td><td>1624mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00107.webp">616-00107</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 6s Plus</td><td>10.61Wh</td><td>10.45Wh</td><td>3.80V</td><td>2750mAh</td><td>4.35V</td><td>2949B9</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00045.webp">616-00045</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 6s</td><td>6.61Wh</td><td>6.55Wh</td><td>3.82V</td><td>1715mAh</td><td>4.35V</td><td>293996</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-00036.webp">616-00036</a> / 新普科技股份有限公司</td></tr>
+                    <tr><td>iPhone 6 Plus</td><td>11.28Wh</td><td>11.13Wh</td><td>3.82V</td><td>2915mAh</td><td>4.35V</td><td>-</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/3349C1D.webp">3349C1D</a> / 欣旺达电子股份有限公司</td></tr>
+                    <tr><td>iPhone 6</td><td>7.01Wh</td><td>6.91Wh</td><td>3.82V</td><td>1810mAh</td><td>4.35V</td><td>333996</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/616-0804.webp">616-0804</a> / 惠州市德赛电池有限公司</td></tr>
+                    <tr><td>iPhone 5s</td><td>6.03Wh</td><td>5.93Wh</td><td>3.80V</td><td>1560mAh</td><td>4.30V</td><td>363491</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/18S2001-AL.webp">18S2001-AL</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A69TA006H.webp">A69TA006H</a> / 新世电子（常熟）有限公司</td></tr>
+                    <tr><td>iPhone 5c</td><td>5.84Wh</td><td>5.74Wh</td><td>3.80V</td><td>1510mAh</td><td>4.30V</td><td>363391</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A69TA007H.webp">A69TA007H</a> / 新世电子（常熟）有限公司</td></tr>
+                    <tr><td>iPhone 5</td><td>-</td><td>5.47Wh</td><td>3.80V</td><td>1440mAh</td><td>4.30V</td><td>373291</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/LIS491APPCS.webp">LIS491APPCS</a> / 索尼电子（无锡）有限公司</td></tr>
+                    <tr><td>iPhone 4S</td><td>-</td><td>5.29Wh</td><td>3.70V</td><td>1430mAh</td><td>4.20V</td><td>423282</td><td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/LIS1474APPC.webp">LIS1474APPC</a> / 索尼电子（无锡）有限公司</td></tr>
+                    <tr><td>iPhone 4</td><td>-</td><td>-</td><td>3.70V</td><td>1420mAh</td><td>-</td><td>-</td><td>-</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="ipad" class="table-responsive-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="18%">机型</th>
+                        <th>电芯能量</th>
+                        <th>电池能量</th>
+                        <th>标称电压</th>
+                        <th>额定容量</th>
+                        <th>充电限制电压</th>
+                        <th>电芯规格</th>
+                        <th width="20%">电池型号 / 制造商</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>iPad mini (A17 Pro)</td><td>19.56Wh</td><td>19.19Wh</td><td>3.81V</td><td>5034mAh</td><td>4.40V</td><td>-</td><td>A2522</td></tr>
+                    <tr><td>iPad mini (第 6 代)</td><td>19.56Wh</td><td>19.19Wh</td><td>3.81V</td><td>5034mAh</td><td>4.40V</td><td>-</td><td>A2522</td></tr>
+                    <tr><td>iPad mini (第 5 代)</td><td>-</td><td>19.32Wh</td><td>3.82V</td><td>5124mAh</td><td>4.35V</td><td>-</td><td>A2114</td></tr>
+                    <tr><td>iPad mini 4</td><td>-</td><td>19.32Wh</td><td>3.82V</td><td>5124mAh</td><td>4.35V</td><td>-</td><td>A1546</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="watch" class="table-responsive-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="18%">机型</th>
+                        <th>尺寸</th>
+                        <th>电芯能量</th>
+                        <th>电池能量</th>
+                        <th>标称电压</th>
+                        <th>额定容量</th>
+                        <th>充电限制电压</th>
+                        <th>电芯规格</th>
+                        <th width="20%">电池型号 / 制造商</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple Watch SE (第 3 代)</td>
+                        <td>-</td>
+                        <td>-<br>-</td>
+                        <td>1.334Wh<br>1.017Wh</td>
+                        <td>3.87V<br>3.866V</td>
+                        <td>344.53mAh<br>263mAh</td>
+                        <td>4.45V</td>
+                        <td>-<br>-</td>
+                        <td>S2107 / 惠州市德赛电池有限公司<br>S2323 / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 11</td>
+                        <td>-</td>
+                        <td>-<br>-</td>
+                        <td>1.403Wh<br>1.276Wh</td>
+                        <td>3.865V<br>3.864V</td>
+                        <td>363mAh<br>330mAh</td>
+                        <td>4.45V</td>
+                        <td>-<br>-</td>
+                        <td>S2328 / 惠州市德赛电池有限公司<br>S2325 / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Ultra 3</td>
+                        <td>49mm</td>
+                        <td>-</td>
+                        <td>2.313Wh</td>
+                        <td>3.861V</td>
+                        <td>599mAh</td>
+                        <td>4.45V</td>
+                        <td>-</td>
+                        <td><a>S2329</a> / 惠州市德赛电池有限公司</td>
+                    <tr>
+                        <td>Apple Watch Series 10</td>
+                        <td>46mm<br>42mm</td>
+                        <td>-<br>-</td>
+                        <td>1.266Wh<br>-</td>
+                        <td>3.87V<br>-</td>
+                        <td>327mAh<br>-</td>
+                        <td>4.45V<br>-</td>
+                        <td>-<br>-</td>
+                        <td>(46mm) <a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/PWK83.webp">PWK83</a> / 东莞新能德科技有限公司<br>(46mm) <a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/S2319.webp">S2319</a> / 惠州市德赛电池有限公司<br>-</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Ultra 2</td>
+                        <td>49mm</td>
+                        <td>-</td>
+                        <td>2.178Wh</td>
+                        <td>3.862V</td>
+                        <td>564mAh</td>
+                        <td>4.45V</td>
+                        <td>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2956.webp">A2956</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 9</td>
+                        <td>45mm<br>41mm</td>
+                        <td>-<br>-</td>
+                        <td>1.19Wh<br>1.091Wh</td>
+                        <td>3.864V<br>3.869V</td>
+                        <td>308mAh<br>282mAh</td>
+                        <td>4.45V<br>4.45V</td>
+                        <td>-<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A3009.webp">A3009</a> / 东莞新能德科技有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2954.webp">A2954</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Ultra</td>
+                        <td>49mm</td>
+                        <td>-</td>
+                        <td>2.094Wh</td>
+                        <td>3.85V</td>
+                        <td>542mAh</td>
+                        <td>4.47V</td>
+                        <td>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2749.webp">A2749</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 8</td>
+                        <td>45mm<br>41mm</td>
+                        <td>1.195Wh<br>-</td>
+                        <td>1.19Wh<br>-</td>
+                        <td>3.86V<br>-</td>
+                        <td>308mAh<br>-</td>
+                        <td>4.47V<br>-</td>
+                        <td>402127<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2815.webp">A2815</a> / 惠州市德赛电池有限公司<br>-</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series SE (第 2 代)</td>
+                        <td>44mm<br>40mm</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                        <td>-<br>-</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 7</td>
+                        <td>45mm<br>41mm</td>
+                        <td>1.192Wh<br>-</td>
+                        <td>1.189Wh<br>1.094Wh</td>
+                        <td>3.85V<br>3.85V</td>
+                        <td>309mAh<br>284mAh</td>
+                        <td>4.45V<br>4.45V</td>
+                        <td>442127<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2552.webp">A2552</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2663.webp">A2663</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 6</td>
+                        <td>44mm<br>40mm</td>
+                        <td>-<br>-</td>
+                        <td>1.17Wh<br>1.024Wh</td>
+                        <td>3.85V<br>3.85V</td>
+                        <td>303.8mAh<br>265.9mAh</td>
+                        <td>4.45V<br>4.45V</td>
+                        <td>-<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2327.webp">A2327</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2345.webp">A2345</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series SE (第 1 代)</td>
+                        <td>44mm<br>40mm</td>
+                        <td>1.13Wh<br>-</td>
+                        <td>1.129Wh<br>0.944Wh</td>
+                        <td>3.81V<br>3.85V</td>
+                        <td>296mAh<br>245mAh</td>
+                        <td>4.35V<br>4.45V</td>
+                        <td>452127<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2181-1.webp">A2181</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2277-1.webp">A2277</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 5</td>
+                        <td>44mm<br>40mm</td>
+                        <td>-<br>-</td>
+                        <td>1.129Wh<br>0.944Wh</td>
+                        <td>3.81V<br>3.85V</td>
+                        <td>296mAh<br>245mAh</td>
+                        <td>4.35V<br>4.45V</td>
+                        <td>-<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2181-2.webp">A2181</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2277-2.webp">A2277</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 4</td>
+                        <td>44mm<br>40mm</td>
+                        <td>1.12Wh<br>-</td>
+                        <td>1.113Wh<br>-</td>
+                        <td>3.81V<br>-</td>
+                        <td>291.8mAh<br>-</td>
+                        <td>4.35V<br>-</td>
+                        <td>442125<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2059.webp">A2059</a> / 惠州市德赛电池有限公司<br>-</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 3</td>
+                        <td>42mm<br>38mm</td>
+                        <td>-<br>1.07Wh</td>
+                        <td>1.31Wh<br>1.07Wh</td>
+                        <td>3.82V<br>3.82V</td>
+                        <td>342mAh<br>279mAh</td>
+                        <td>4.35V<br>4.35V</td>
+                        <td>-<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1875.webp">A1875</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1848.webp">A1848</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 2</td>
+                        <td>42mm<br>38mm</td>
+                        <td>-<br>1.04Wh</td>
+                        <td>1.27Wh<br>1.03Wh</td>
+                        <td>3.8V<br>3.77V</td>
+                        <td>334mAh<br>273mAh</td>
+                        <td>4.35V<br>4.35V</td>
+                        <td>-<br>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1761.webp">A1761</a> / 惠州市德赛电池有限公司<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1760.webp">A1760</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 1</td>
+                        <td>42mm<br>38mm</td>
+                        <td>-<br>0.78Wh</td>
+                        <td>-<br>0.78Wh</td>
+                        <td>-<br>3.8V</td>
+                        <td>-<br>205mAh</td>
+                        <td>-<br>-</td>
+                        <td>-<br>491825</td>
+                        <td>-<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1578-2.webp">A1578</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch (第 1 代)</td>
+                        <td>42mm<br>38mm</td>
+                        <td>-<br>0.78Wh</td>
+                        <td>-<br>0.78Wh</td>
+                        <td>-<br>3.8V</td>
+                        <td>-<br>205mAh</td>
+                        <td>-<br>-</td>
+                        <td>-<br>491825</td>
+                        <td>-<br><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A1578-1.webp">A1578</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="vision" class="table-responsive-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="18%">机型</th>
+                        <th>电芯能量</th>
+                        <th>电池能量</th>
+                        <th>标称电压</th>
+                        <th>额定容量</th>
+                        <th>充电限制电压</th>
+                        <th>电芯规格</th>
+                        <th width="20%">电池型号 / 制造商</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple Vision Pro</td>
+                        <td>15.36Wh ×3</td>
+                        <td>35.9Wh</td>
+                        <td>11.34V</td>
+                        <td>3166mAh</td>
+                        <td>12.675V</td>
+                        <td>-</td>
+                        <td><a target="_blank" href="./https://asia.oss.simplehac.top/infodrop/apple-other/battery/img/A2733.webp">A2733</a> / 惠州市德赛电池有限公司</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
