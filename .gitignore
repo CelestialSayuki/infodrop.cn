@@ -17,3 +17,5 @@ apple-report/latency-test/submit.php
 apple-report/latency-test/token.php
 upload/screen/screen.php
 upload/screen/screen_data.sqlite
+upload/screen/get-encryption-key.php
+upload/screen/get_screen_data.php

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'temp-rev3';
+const CACHE_VERSION = 'temp-rev4';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -214,30 +214,34 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
+
+  const allowedPhpPaths = [
+    '/upload/dvfs/get-dvfs-data.php',
+    '/upload/disk/get-disk-data.php'
+  ];
   
-  if (url.pathname.endsWith('.php') && !url.pathname.includes('/upload/dvfs/get-dvfs-data.php')) {
+  const isAllowedPhp = allowedPhpPaths.some(path => url.pathname.includes(path));
+  if (url.pathname.endsWith('.php') && !isAllowedPhp) {
       event.respondWith(fetch(event.request, { cache: 'no-store' }));
       return;
   }
+  const isSupabaseApi = url.href.includes('supabase.co/rest/v1/speedometer_results');
 
-    const isPhpApi = url.pathname.includes('/upload/dvfs/get-dvfs-data.php');
-    const isSupabaseApi = url.href.includes('supabase.co/rest/v1/speedometer_results');
-
-    if (isPhpApi || isSupabaseApi) {
-      event.respondWith((async () => {
-        const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
-        try {
-          const networkResponse = await fetch(event.request);
-          if (networkResponse.ok) {
-            await runtimeCache.put(event.request, networkResponse.clone());
-          }
-          return networkResponse;
-        } catch (error) {
-          const cachedResponse = await runtimeCache.match(event.request);
-          return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
+  if (isAllowedPhp || isSupabaseApi) {
+    event.respondWith((async () => {
+      const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
+      try {
+        const networkResponse = await fetch(event.request);
+        if (networkResponse.ok) {
+          await runtimeCache.put(event.request, networkResponse.clone());
         }
-      })());
-      return;
+        return networkResponse;
+      } catch (error) {
+        const cachedResponse = await runtimeCache.match(event.request);
+        return cachedResponse || Promise.reject(new Error("Network error and no cache available."));
+      }
+    })());
+    return;
   }
 
   if (url.pathname.endsWith('version.json')) {
