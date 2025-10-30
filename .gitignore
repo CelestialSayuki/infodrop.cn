@@ -15,3 +15,5 @@ upload/dvfs/get-encryption-key.php
 upload/submit_changes.php
 apple-report/latency-test/submit.php
 apple-report/latency-test/token.php
+upload/screen/screen.php
+upload/screen/screen_data.sqlite

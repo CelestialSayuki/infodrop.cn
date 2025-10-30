@@ -135,6 +135,5 @@
   "./public-static/img/wawei.webp",
   "./public-static/img/simplehac.webp",
   "./public-static/img/apple.svg",
-  "./upload/dvfs/index.html",
-  "./upload/disk/index.html"
+  "./upload/index.html"
 ]
