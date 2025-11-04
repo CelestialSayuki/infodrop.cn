@@ -108,7 +108,7 @@
                 { "model": "MacBook Pro (14-inch, M3, Nov 2023)<br>MacBook Pro (14-inch, M3 Pro or M3 Max, Nov 2023)<br>MacBook Pro (16-inch, Nov 2023)", "identifier": "Mac15,3<br>Mac15,6/Mac15,8/Mac15,10<br>Mac15,7/Mac15,9/Mac15,11", "date": "2023.11", "supportedOS": ["ventura", "sonoma", "sequoia", "tahoe"], "special": { "sequoia": "glow", "tahoe": "glow" } },
                 { "model": "MacBook Pro (14-inch, M4, 2024)<br>MacBook Pro (14-inch, M4 Pro or M4 Max, 2024)", "identifier": "Mac16,1<br>Mac16,8/Mac16,6", "date": "2024.11", "supportedOS": ["sequoia", "tahoe"], "special": { "sequoia": "glow", "tahoe": "glow" } },
                 { "model": "MacBook Pro (14-inch, M4 Pro or M4 Max, 2024)<br>MacBook Pro (16-inch, 2024)", "identifier": "Mac16,8/Mac16,6<br>Mac16,5/Mac16,7", "date": "2024.11", "supportedOS": ["sequoia", "tahoe"], "special": { "sequoia": "glow", "tahoe": "glow" } },
-                { "model": "MacBook Pro (14-inch, M5, 2025)", "identifier": "Mac17,?", "date": "2024.11", "supportedOS": ["tahoe"], "special": { "tahoe": "glow" } }
+                { "model": "MacBook Pro (14-inch, M5)", "identifier": "Mac17,?", "date": "2024.11", "supportedOS": ["tahoe"], "special": { "tahoe": "glow" } }
             ]
         },
         "imac": {

@@ -167,7 +167,7 @@
     "products": [
         {
             "name": "MacBook Pro",
-            "generation": "(14 英寸, M5, 2025 年)",
+            "generation": "(14 英寸, M5)",
             "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
             "data": {
                 "slogan": "强势动力来自 M5",

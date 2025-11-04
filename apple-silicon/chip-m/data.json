@@ -203,7 +203,7 @@
                 "ramSpec": "LPDDR5X-9600",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12/16/24/32GB<br>128-bit<br>153.6GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>Apple Vision Pro (M5))<br>MacBook Pro (14-inch, M5, 2025)</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>Apple Vision Pro (M5))<br>MacBook Pro (14-inch, M5)</div>"
             }
         },
         {

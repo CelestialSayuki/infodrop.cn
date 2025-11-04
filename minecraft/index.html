@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infodrop Minecraft 服务器注册</title>
+    <style>
+        .auth-wrapper { background-color: var(--light-glass-bg); border-radius: var(--border-radius); margin: 10px; padding: 30px; font-size: 14px; }
+        .auth-wrapper h1 { font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; padding-left: 15px; }
+        .auth-wrapper .lead { padding: 0 15px 15px; margin-bottom: 2rem; font-size: 1rem; font-weight: 400; color: var(--light-text-secondary); border-bottom: 1px solid var(--light-border, rgba(0, 0, 0, 0.1)); }
+        .form-group { margin-bottom: 1.5rem; padding: 0 15px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+        .form-group input[type="text"],
+        .form-group input[type="password"] { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box; }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25); }
+        .btn { display: inline-block; padding: 12px 25px; font-size: 1rem; font-weight: 500; text-align: center; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+        .btn-primary { background-color: var(--accent-color); color: white; width: 100%; }
+        .btn:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
+        .btn-primary:hover:not(:disabled) { background-color: var(--accent-color-hover); }
+        .btn:active { transform: scale(0.98); }
+        #quiz-section { display: none; }
+        #result-message { display: none; margin-top: 2rem; padding: 20px; border-radius: 10px; font-size: 1.1rem; font-weight: 500; text-align: center; line-height: 1.8; }
+        .result-success { background-color: rgba(40, 201, 64, 0.15); color: #28C940; }
+        .result-fail { background-color: rgba(255, 95, 87, 0.2); color: #FF5F57; }
+        .result-processing { background-color: rgba(0, 122, 255, 0.1); color: var(--accent-color); }
+        #result-message.result-success strong {
+            display: inline-block;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            letter-spacing: 3px;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            user-select: all;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #result-message.result-success strong:hover {
+            background-color: #f0f0f0;
+        }
+        .input-with-button {
+            position: relative;
+            width: 100%;
+        }
+        .input-with-button input[type="password"],
+        .input-with-button input[type="text"] {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--light-border, rgba(0, 0, 0, 0.15)); background-color: rgba(255, 255, 255, 0.5); font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box;
+            padding-right: 65px;
+        }
+        .input-with-button input[type="password"]:focus,
+        .input-with-button input[type="text"]:focus {
+            outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+        }
+        .password-toggle-btn {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .password-toggle-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .password-toggle-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        .macos-window.dark-mode .auth-wrapper,
+        html.dark-mode .auth-wrapper { background-color: var(--dark-glass-bg); }
+        .macos-window.dark-mode .auth-wrapper h1,
+        .macos-window.dark-mode .auth-wrapper .lead,
+        html.dark-mode .auth-wrapper h1,
+        html.dark-mode .auth-wrapper .lead { color: var(--dark-text); }
+        .macos-window.dark-mode .auth-wrapper .lead,
+        html.dark-mode .auth-wrapper .lead { border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.15)); }
+        .macos-window.dark-mode .form-group input[type="text"],
+        .macos-window.dark-mode .form-group input[type="password"],
+        html.dark-mode .form-group input[type="text"],
+        html.dark-mode .form-group input[type="password"] { border-color: var(--dark-border, rgba(255, 255, 255, 0.2)); background-color: rgba(0, 0, 0, 0.2); color: var(--dark-text); }
+        .macos-window.dark-mode .result-success,
+        html.dark-mode .result-success { background-color: rgba(40, 201, 64, 0.2); }
+        .macos-window.dark-mode #result-message.result-success strong,
+        html.dark-mode #result-message.result-success strong { background-color: rgba(0, 0, 0, 0.25); color: #8ab4f8; }
+        .macos-window.dark-mode #result-message.result-success strong:hover,
+        html.dark-mode #result-message.result-success strong:hover { background-color: rgba(0, 0, 0, 0.4); }
+        .macos-window.dark-mode .input-with-button input[type="password"],
+        .macos-window.dark-mode .input-with-button input[type="text"],
+        html.dark-mode .input-with-button input[type="password"],
+        html.dark-mode .input-with-button input[type="text"] {
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode .password-toggle-btn,
+        html.dark-mode .password-toggle-btn {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-color: var(--dark-border, rgba(255, 255, 255, 0.2));
+            color: var(--dark-text);
+        }
+        .macos-window.dark-mode .password-toggle-btn.active,
+        html.dark-mode .password-toggle-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .auth-wrapper {
+                padding: 20px;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <form id="register-form">
+            <h1>🎮 Minecraft 服务器注册</h1>
+            <p class="lead">欢迎来到 infodrop 的 Minecraft 服务器。每个QQ号仅限注册一个账户。</p>
+
+            <div class="form-group">
+                <label for="qq-number">请输入您的QQ号</label>
+                <input type="text" inputmode="numeric" id="qq-number" name="qq"
+                       placeholder="用于验证，每个QQ号限注册一次"
+                       oninput="this.value=this.value.replace(/[^\d]/g,'')" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mc-username">Minecraft 用户名</label>
+                <input type="text" id="mc-username" name="username"
+                       placeholder="游戏内昵称 (3-16位, 字母/数字/下划线)"
+                       pattern="[a-zA-Z0-9_]{3,16}"
+                       title="必须为3-16位的字母、数字或下划线" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mc-password">设置密码</label>
+                <div class="input-with-button">
+                    <input type="password" id="mc-password" name="password"
+                           placeholder="用于游戏内 /login (至少4位)"
+                           minlength="4"
+                           title="至少需要4个字符" required>
+                    <button type="button" class="password-toggle-btn" id="toggle-password">显示</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="mc-password-confirm">确认密码</label>
+                <div class="input-with-button">
+                    <input type="password" id="mc-password-confirm" name="password_confirm"
+                           placeholder="请再次输入密码"
+                           minlength="4"
+                           title="请再次输入密码" required>
+                    <button type="button" class="password-toggle-btn" id="toggle-password-confirm">显示</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="register-btn" class="btn btn-primary">注册并绑定QQ</button>
+            </div>
+        </form>
+        
+        <div id="result-message"></div>
+    </div>
+
+    <script>
+    (function() {
+        const componentRoot = document.querySelector('.auth-wrapper');
+        if (!componentRoot) {
+            console.error("Auth component root could not be found!");
+            return;
+        }
+
+        const registerForm = componentRoot.querySelector('#register-form');
+        const submitBtn = componentRoot.querySelector('#register-btn');
+        const resultMessage = componentRoot.querySelector('#result-message');
+        
+        const passwordInput = componentRoot.querySelector('#mc-password');
+        const passwordConfirmInput = componentRoot.querySelector('#mc-password-confirm');
+        
+        const togglePasswordBtn = componentRoot.querySelector('#toggle-password');
+        const togglePasswordConfirmBtn = componentRoot.querySelector('#toggle-password-confirm');
+        
+        const qqPattern = /^\d{5,12}$/;
+        const usernamePattern = /^[a-zA-Z0-9_]{3,16}$/;
+        const minPasswordLength = 4;
+
+        function setupPasswordToggle(inputElement, toggleButtonElement) {
+            let isPasswordVisible = false;
+            
+            toggleButtonElement.addEventListener('click', function() {
+                isPasswordVisible = !isPasswordVisible;
+                
+                if (isPasswordVisible) {
+                    inputElement.type = 'text';
+                    toggleButtonElement.textContent = '隐藏';
+                    toggleButtonElement.classList.add('active');
+                } else {
+                    inputElement.type = 'password';
+                    toggleButtonElement.textContent = '显示';
+                    toggleButtonElement.classList.remove('active');
+                }
+            });
+        }
+
+        if (passwordInput && togglePasswordBtn) {
+            setupPasswordToggle(passwordInput, togglePasswordBtn);
+        }
+        if (passwordConfirmInput && togglePasswordConfirmBtn) {
+            setupPasswordToggle(passwordConfirmInput, togglePasswordConfirmBtn);
+        }
+        
+        async function handleRegistration(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(registerForm);
+            const qq = formData.get('qq');
+            const username = formData.get('username');
+            const password = formData.get('password');
+            const passwordConfirm = formData.get('password_confirm');
+
+            if (password !== passwordConfirm) {
+                alert('两次输入的密码不一致，请检查。');
+                return;
+            }
+            if (!qqPattern.test(qq)) {
+                alert('请输入一个有效的QQ号！');
+                return;
+            }
+            if (!usernamePattern.test(username)) {
+                alert('用户名无效。必须为3-16位的字母、数字或下划线。');
+                return;
+            }
+            if (password.length < minPasswordLength) {
+                alert('密码太短。最小长度为4个字符。');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '正在提交...';
+            resultMessage.style.display = 'block';
+            resultMessage.className = 'result-processing';
+            resultMessage.textContent = '正在注册，请稍后...';
+
+            try {
+                const response = await fetch('./minecraft/reg.php', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.message || '服务器发生未知错误。');
+                }
+
+                resultMessage.innerHTML = result.message;
+                resultMessage.className = result.success ? 'result-success' : 'result-fail';
+
+            } catch (error) {
+                console.error("注册失败:", error);
+                resultMessage.innerHTML = "注册失败：" + error.message;
+                resultMessage.className = 'result-fail';
+            
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '注册并绑定QQ';
+            }
+        }
+
+        if (registerForm) {
+            registerForm.addEventListener('submit', handleRegistration);
+        }
+    })();
+    </script>
+</body>
+</html>

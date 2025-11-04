@@ -10,6 +10,7 @@
   "./index.html",
   "./apple-other/battery/index.html",
   "./apple-other/disk/index.html",
+  "./apple-other/screen/index.html",
   "./auth/index.html",
   "./apple-tools/model/index.html",
   "./apple-tools/model/data.json",
@@ -135,5 +136,6 @@
   "./public-static/img/wawei.webp",
   "./public-static/img/simplehac.webp",
   "./public-static/img/apple.svg",
-  "./upload/index.html"
+  "./upload/index.html",
+  "./minecraft/index.html"
 ]

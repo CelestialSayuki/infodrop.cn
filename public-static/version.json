@@ -1,7 +1,7 @@
 {
-    "version": "temp-rev4",
+    "version": "temp-rev5",
     "notes": [
-        "整合了上传逻辑，新增屏幕上传 (Beta)，修复了硬盘页面离线后无法加载缓存的问题。由于本人身体原因，网站更新放缓。"
+        "新增 Minecraft 服务器"
     ],
     "rsr_patches": [
         {
