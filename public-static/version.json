@@ -1,7 +1,7 @@
 {
-    "version": "temp-rev5",
+    "version": "temp-rev6",
     "notes": [
-        "新增 Minecraft 服务器"
+        "新增 MC 服务器性能面版。"
     ],
     "rsr_patches": [
         {

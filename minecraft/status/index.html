@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
+<style>
+    .perf-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        border: 1px solid var(--light-border);
+        border-radius: 8px;
+        padding: 16px;
+        background-color: var(--light-glass-bg);
+        box-shadow: var(--light-glass-shadow);
+    }
+    .card-title {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: var(--light-text);
+        border-bottom: 1px solid var(--light-border);
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+    .card-full {
+        grid-column: 1 / -1;
+    }
+    .perf-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    .perf-table th, .perf-table td {
+        text-align: left;
+        padding: 10px 8px;
+        border-bottom: 1px solid var(--light-border);
+    }
+    .perf-table th {
+        color: var(--light-text-secondary);
+        font-weight: 500;
+    }
+    .perf-table td {
+        font-weight: 600;
+        font-size: 1.1em;
+        color: var(--light-text);
+    }
+    .perf-table tr:last-child th, .perf-table tr:last-child td {
+        border-bottom: none;
+    }
+    #performanceChart {
+        width: 100%;
+        height: 400px;
+        max-height: 400px;
+    }
+    .macos-window.dark-mode .card,
+    html.dark-mode .card {
+        background-color: var(--dark-glass-bg);
+        border-color: var(--dark-border);
+        box-shadow: var(--dark-glass-shadow);
+    }
+    .macos-window.dark-mode .card-title,
+    html.dark-mode .card-title {
+        color: var(--dark-text);
+        border-bottom-color: var(--dark-border);
+    }
+    .macos-window.dark-mode .perf-table th,
+    .macos-window.dark-mode .perf-table td,
+    html.dark-mode .perf-table th,
+    html.dark-mode .perf-table td {
+        border-bottom-color: var(--dark-border);
+    }
+    .macos-window.dark-mode .perf-table th,
+    html.dark-mode .perf-table th {
+        color: var(--dark-text-secondary);
+    }
+    .macos-window.dark-mode .perf-table td,
+    html.dark-mode .perf-table td {
+        color: var(--dark-text);
+    }
+</style>
+
+<div class="perf-body" id="performance-content-root">
+    <div class="card">
+        <h2 class="card-title">当前状态 (瞬时值)</h2>
+        <table class="perf-table">
+            <tbody>
+                <tr>
+                    <th>在线玩家</th>
+                    <td id="val-players">--</td>
+                </tr>
+                <tr>
+                    <th>TPS</th>
+                    <td id="val-tps">--</td>
+                </tr>
+                <tr>
+                    <th>MSPT</th>
+                    <td id="val-mspt">--</td>
+                </tr>
+                <tr>
+                    <th>CPU 占用</th>
+                    <td id="val-cpu">--</td>
+                </tr>
+                <tr>
+                    <th>内存占用</th>
+                    <td id="val-ram">-- MB</td>
+                </tr>
+                <tr>
+                    <th>硬盘占用</th>
+                    <td id="val-disk">-- GB</td>
+                </tr>
+                <tr>
+                    <th>加载区块</th>
+                    <td id="val-chunks">--</td>
+                </tr>
+                <tr>
+                    <th>实体数</th>
+                    <td id="val-entities">--</td>
+                </tr>
+            </tbody>
+            </table>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">性能概览 (平均值)</h2>
+        <table class="perf-table">
+            <tbody>
+                <tr>
+                    <th>平均 TPS (24h)</th>
+                    <td id="tbl-tps-24h">--</td>
+                </tr>
+                <tr>
+                    <th>平均 MSPT (24h)</th>
+                    <td id="tbl-mspt-24h">--</td>
+                </tr>
+                <tr>
+                    <th>平均 CPU (24h)</th>
+                    <td id="tbl-cpu-24h">--</td>
+                </tr>
+                <tr>
+                    <th>平均内存 (24h)</th>
+                    <td id="tbl-ram-24h">--</td>
+                </tr>
+                <tr>
+                    <th>平均区块 (24h)</th>
+                    <td id="tbl-chunks-24h">--</td>
+                </tr>
+                <tr>
+                    <th>平均实体 (24h)</th>
+                    <td id="tbl-entities-24h">--</td>
+                <tr>
+                    <th>服务器正常运行 (24h)</th>
+                    <td id="tbl-uptime-24h">--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card card-full">
+        <h2 class="card-title">性能图表</h2>
+        <div id="performanceChart"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+
+<script>
+(function() {
+    let performanceChart = null;
+    let pollingInterval = null;
+    let rootElement = null;
+    let cleanupObserver = null;
+    let themeObserver = null;
+    const API_PROXY_URL = './minecraft/status/get-perf-data.php';
+    let lastGraphData = null;
+    const lightTooltipStyle = {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderColor: '#E0E0E0',
+        textStyle: { color: '#333' }
+    };
+    const darkTooltipStyle = {
+        backgroundColor: 'rgba(50, 50, 50, 0.5)',
+        borderColor: '#555',
+        textStyle: { color: '#FFFFFF' }
+    };
+    function getTheme() {
+        return document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+    }
+
+    function parseGraphData(apiData) {
+        const keys = apiData.keys;
+        const values = apiData.values;
+        
+        const dataMap = {};
+        keys.forEach(key => {
+            dataMap[key] = [];
+        });
+
+        const dateIndex = keys.indexOf('date');
+        if (dateIndex === -1) {
+            console.error("API data missing 'date' key");
+            return dataMap;
+        }
+
+        values.forEach(row => {
+            const timestamp = row[dateIndex];
+            keys.forEach((key, index) => {
+                if (index === dateIndex) return;
+                dataMap[key].push([timestamp, row[index]]);
+            });
+        });
+
+        return dataMap;
+    }
+
+
+    async function updatePerformanceData() {
+        try {
+            if (typeof echarts === 'undefined') {
+                console.error("ECharts 库尚未加载。");
+                return;
+            }
+            
+            const response = await fetch(API_PROXY_URL);
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error("PHP 脚本返回错误:", errorData.error);
+                updateText('val-tps', "获取失败");
+                return;
+            }
+
+            const data = await response.json();
+            
+            if (data.error) {
+                console.error("API 返回错误:", data.error);
+                updateText('val-tps', "API错误");
+                return;
+            }
+
+            if (!data.graphs || !data.overview) {
+                console.error("API 返回的数据不完整:", data);
+                updateText('val-tps', "数据不完整");
+                return;
+            }
+
+            const parsedGraphData = parseGraphData(data.graphs);
+            lastGraphData = parsedGraphData;
+            
+            updateInstantValues(parsedGraphData);
+            updateOverviewTable(data.overview);
+            drawChart(parsedGraphData);
+
+        } catch (error) {
+            console.error("获取数据时发生 JavaScript 错误:", error);
+        }
+    }
+
+    function updateText(elementId, text) {
+        if (!rootElement || !document.body.contains(rootElement)) {
+            return;
+        }
+        const el = document.getElementById(elementId);
+        if (el) {
+            el.innerText = text;
+        }
+    }
+
+    function updateInstantValues(graphData) {
+        try {
+            const getLastValue = (arr) => arr && arr.length > 0 ? arr.slice(-1)[0][1] : null;
+
+            const currentPlayers = getLastValue(graphData.playersOnline);
+            const currentTps = getLastValue(graphData.tps);
+            const currentCpu = getLastValue(graphData.cpu);
+            const currentRam = getLastValue(graphData.ram);
+            const currentMspt = getLastValue(graphData.msptAverage);
+            const currentDisk = getLastValue(graphData.disk);
+            const currentChunks = getLastValue(graphData.chunks);
+            const currentEntities = getLastValue(graphData.entities);
+
+            updateText('val-players', currentPlayers !== null ? currentPlayers.toFixed(0) : '--');
+            updateText('val-tps', currentTps !== null ? currentTps.toFixed(1) : '--');
+            updateText('val-cpu', currentCpu !== null ? currentCpu.toFixed(2) + " %" : '-- %');
+            updateText('val-ram', currentRam !== null ? currentRam.toFixed(0) + " MB" : '-- MB');
+            updateText('val-mspt', currentMspt !== null ? currentMspt.toFixed(2) : '--');
+            updateText('val-disk', currentDisk !== null ? (currentDisk / 1024).toFixed(2) + " GB" : '-- GB');
+            updateText('val-chunks', currentChunks !== null ? currentChunks.toFixed(0) : '--');
+            updateText('val-entities', currentEntities !== null ? currentEntities.toFixed(0) : '--');
+
+        } catch (e) {
+            console.error("解析瞬时值时出错: ", e);
+        }
+    }
+
+    function updateOverviewTable(overviewData) {
+        try {
+            const numbers = overviewData.numbers;
+            
+            updateText('tbl-tps-24h', numbers.tps_24h);
+            updateText('tbl-mspt-24h', numbers.mspt_average_24h);
+            updateText('tbl-cpu-24h', numbers.cpu_24h);
+            updateText('tbl-ram-24h', numbers.ram_24h);
+            updateText('tbl-chunks-24h', numbers.chunks_24h);
+            updateText('tbl-entities-24h', numbers.entities_24h);
+
+            const uptimeMs = numbers.server_uptime_24h;
+            const hours = Math.floor(uptimeMs / 3600000);
+            const minutes = Math.floor((uptimeMs % 3600000) / 60000);
+            updateText('tbl-uptime-24h', `${hours} 小时 ${minutes} 分钟`);
+        } catch (e) {
+            console.error("解析概览表格时出错: ", e);
+        }
+    }
+
+    function drawChart(graphData) {
+        const chartDom = document.getElementById('performanceChart');
+        if (!chartDom) return;
+        const currentTheme = getTheme();
+        const tooltipStyle = currentTheme === 'dark' ? darkTooltipStyle : lightTooltipStyle;
+        try {
+            const tpsData = graphData.tps;
+            const cpuData = graphData.cpu;
+            const playersData = graphData.playersOnline;
+            const msptData = graphData.msptAverage;
+            
+            const diskDataMB = graphData.disk || [];
+            const diskDataGB = diskDataMB.map(point => [point[0], point[1] / 1024]);
+            
+            const chunksData = graphData.chunks || [];
+            const entitiesData = graphData.entities || [];
+            
+            if (!performanceChart) {
+                performanceChart = echarts.init(chartDom, currentTheme);
+            }
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    ...tooltipStyle,
+                    formatter: function (params) {
+                        if (!params || params.length === 0) {
+                            return '';
+                        }
+                        const timeStr = params[0].axisValueLabel || (new Date(params[0].value[0])).toLocaleString();
+                        
+                        let tooltipHtml = `${timeStr}<br/>`;
+
+                        params.forEach(param => {
+                            const seriesName = param.seriesName;
+                            const color = param.color;
+                            let value = param.value[1];
+
+                            if (value !== null && typeof value !== 'undefined') {
+                                if (seriesName === '玩家数' || seriesName === '加载区块' || seriesName === '实体数') {
+                                    value = value.toFixed(0);
+                                } else {
+                                    value = value.toFixed(2);
+                                }
+                            } else {
+                                value = '--';
+                            }
+
+                            tooltipHtml += `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:${color};"></span>`;
+                            tooltipHtml += `${seriesName}: <strong>${value}</strong><br/>`;
+                        });
+                        
+                        return tooltipHtml;
+                    }
+                },
+                legend: {
+                    orient: 'vertical',
+                    right: 10,
+                    top: 'center',
+                    data: ['TPS', 'CPU (%)', 'MSPT', '玩家数', '硬盘 (GB)', '加载区块', '实体数'],
+                    textStyle: {
+                        color: currentTheme === 'dark' ? '#ccc' : '#333'
+                    }
+                },
+                grid: {
+                    left: '120px',
+                    right: '300px',
+                    bottom: '5%',
+                    containLabel: false
+                },
+                xAxis: {
+                    type: 'time',
+                    boundaryGap: false,
+                },
+                yAxis: [
+                    {
+                        name: 'TPS',
+                        type: 'value',
+                        min: 0,
+                        max: 20,
+                        position: 'left',
+                        axisLine: { show: true, lineStyle: { color: '#267F00' } }
+                    },
+                    {
+                        name: 'CPU (%)',
+                        type: 'value',
+                        min: 0,
+                        max: 100,
+                        position: 'left',
+                        offset: 50,
+                        axisLine: { show: true, lineStyle: { color: '#e0d264' } }
+                    },
+                    {
+                        name: 'MSPT',
+                        type: 'value',
+                        min: 0,
+                        position: 'left',
+                        offset: 100,
+                        axisLine: { show: true, lineStyle: { color: '#FF6347' } }
+                    },
+                    {
+                        name: '玩家',
+                        type: 'value',
+                        min: 0,
+                        position: 'right',
+                        axisLine: { show: true, lineStyle: { color: '#1E90FF' } }
+                    },
+                    {
+                        name: '硬盘 (GB)',
+                        type: 'value',
+                        min: 0,
+                        position: 'right',
+                        offset: 50,
+                        axisLine: { show: true, lineStyle: { color: '#8A2BE2' } }
+                    },
+                    {
+                        name: '区块',
+                        type: 'value',
+                        min: 0,
+                        position: 'right',
+                        offset: 100,
+                        axisLine: { show: true, lineStyle: { color: '#FFA500' } }
+                    },
+                    {
+                        name: '实体',
+                        type: 'value',
+                        min: 0,
+                        position: 'right',
+                        offset: 150,
+                        axisLine: { show: true, lineStyle: { color: '#FFC0CB' } }
+                    }
+                ],
+                series: [
+                    { name: 'TPS', type: 'line', data: tpsData, yAxisIndex: 0, showSymbol: false, color: '#267F00' },
+                    { name: 'CPU (%)', type: 'line', data: cpuData, yAxisIndex: 1, showSymbol: false, color: '#e0d264' },
+                    { name: 'MSPT', type: 'line', data: msptData, yAxisIndex: 2, showSymbol: false, color: '#FF6347' },
+                    { name: '玩家数', type: 'line', data: playersData, yAxisIndex: 3, step: 'start', showSymbol: false, color: '#1E90FF' },
+                    { name: '硬盘 (GB)', type: 'line', data: diskDataGB, yAxisIndex: 4, showSymbol: false, color: '#8A2BE2' },
+                    { name: '加载区块', type: 'line', data: chunksData, yAxisIndex: 5, step: 'start', showSymbol: false, color: '#FFA500' },
+                    { name: '实体数', type: 'line', data: entitiesData, yAxisIndex: 6, step: 'start', showSymbol: false, color: '#FFC0CB' }
+                ]
+            };
+            performanceChart.setOption(option);
+            const windowElement = chartDom.closest('.macos-window');
+            if (windowElement && !windowElement.dataset.echartsResized) {
+                const resizeObserver = new ResizeObserver(() => {
+                    if (performanceChart) {
+                        performanceChart.resize();
+                    }
+                });
+                resizeObserver.observe(windowElement);
+                windowElement.dataset.echartsResized = 'true';
+            }
+        } catch(e) {
+            console.error("绘制 ECharts 图表时出错: ", e);
+        }
+    }
+
+    function cleanup() {
+        if (pollingInterval) {
+            clearInterval(pollingInterval);
+            pollingInterval = null;
+        }
+        
+        if (performanceChart) {
+            performanceChart.dispose();
+            performanceChart = null;
+        }
+        
+        if (cleanupObserver) {
+            cleanupObserver.disconnect();
+        }
+        if (themeObserver) {
+            themeObserver.disconnect();
+        }
+    }
+
+    function setupCleanupObserver() {
+        rootElement = document.getElementById('performance-content-root');
+
+        cleanupObserver = new MutationObserver((mutations) => {
+            for (let mutation of mutations) {
+                if (mutation.type === 'childList') {
+                    mutation.removedNodes.forEach(node => {
+                        if (node === rootElement) {
+                            cleanup();
+                        }
+                    });
+                }
+            }
+        });
+
+        cleanupObserver.observe(rootElement.parentElement, { childList: true });
+    }
+
+    function setupThemeObserver() {
+        themeObserver = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    if (performanceChart) {
+                        performanceChart.dispose();
+                        performanceChart = null;
+                    }
+                    
+                    if (lastGraphData) {
+                        drawChart(lastGraphData);
+                    }
+                    return;
+                }
+            }
+        });
+
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    if (typeof echarts !== 'undefined') {
+        updatePerformanceData();
+
+        pollingInterval = setInterval(updatePerformanceData, 15000);
+
+        setTimeout(setupCleanupObserver, 100);
+        setTimeout(setupThemeObserver, 100);
+
+    } else {
+        console.error("ECharts 库未能按预期加载。请确保 performance.html 中的 <script> 标签在 main.js 之前。");
+    }
+
+})();
+</script>
+
+</body>
+</html>

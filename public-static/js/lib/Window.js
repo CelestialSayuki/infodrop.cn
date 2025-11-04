@@ -323,7 +323,6 @@ export class Window {
                 this.element.appendChild(diffPopover);
                 const applyState = (state) => {
                     if (!state || !state.element) return;
-                    console.log('%c[DEBUG] Applying State:', 'color: blue', state);
                     state.element.innerHTML = state.html;
                     state.element.querySelectorAll('.info-square').forEach(square => {
                         square.setAttribute('contenteditable', true);

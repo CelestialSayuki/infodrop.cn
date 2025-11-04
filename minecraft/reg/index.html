@@ -78,6 +78,25 @@
             color: white;
             border-color: var(--accent-color);
         }
+        .copyable-server-address {
+            display: block;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-color, #007aff);
+            letter-spacing: 0.5px;
+            padding: 10px 12px;
+            margin-top: 4px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            user-select: all;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            word-break: break-all;
+        }
+        .copyable-server-address:hover {
+            background-color: #f0f0f0;
+        }
         .macos-window.dark-mode .auth-wrapper,
         html.dark-mode .auth-wrapper { background-color: var(--dark-glass-bg); }
         .macos-window.dark-mode .auth-wrapper h1,
@@ -115,6 +134,13 @@
             background-color: var(--accent-color);
             color: white;
         }
+        html.dark-mode .copyable-server-address {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #8ab4f8;
+        }
+        html.dark-mode .copyable-server-address:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
         @media (max-width: 768px) {
             .auth-wrapper {
                 padding: 20px;
@@ -130,6 +156,10 @@
             <p class="lead">欢迎来到 infodrop 的 Minecraft 服务器。每个QQ号仅限注册一个账户。</p>
 
             <div class="form-group">
+                <label>服务器地址</label>
+                <div class="copyable-server-address" data-copy-text="mc.infodrop.cn">mc.infodrop.cn</div>
+            </div>
+            <div class="form-group">
                 <label for="qq-number">请输入您的QQ号</label>
                 <input type="text" inputmode="numeric" id="qq-number" name="qq"
                        placeholder="用于验证，每个QQ号限注册一次"
@@ -137,9 +167,9 @@
             </div>
 
             <div class="form-group">
-                <label for="mc-username">Minecraft 用户名</label>
+                <label for="mc-username">您的 Minecraft 用户名</label>
                 <input type="text" id="mc-username" name="username"
-                       placeholder="游戏内昵称 (3-16位, 字母/数字/下划线)"
+                       placeholder="游戏内的昵称 (3-16位, 字母/数字/下划线), 请务必对应！否则将无法登录"
                        pattern="[a-zA-Z0-9_]{3,16}"
                        title="必须为3-16位的字母、数字或下划线" required>
             </div>
@@ -181,7 +211,26 @@
             console.error("Auth component root could not be found!");
             return;
         }
-
+        const copyableAddress = componentRoot.querySelector('.copyable-server-address');
+        if (copyableAddress) {
+            copyableAddress.addEventListener('click', function() {
+                const textToCopy = copyableAddress.dataset.copyText || copyableAddress.textContent;
+                const originalText = copyableAddress.textContent;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    copyableAddress.textContent = '已复制!';
+                    setTimeout(() => {
+                        copyableAddress.textContent = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('无法复制: ', err);
+                    copyableAddress.textContent = '复制失败';
+                    setTimeout(() => {
+                        copyableAddress.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        }
         const registerForm = componentRoot.querySelector('#register-form');
         const submitBtn = componentRoot.querySelector('#register-btn');
         const resultMessage = componentRoot.querySelector('#result-message');
@@ -254,7 +303,7 @@
             resultMessage.textContent = '正在注册，请稍后...';
 
             try {
-                const response = await fetch('./minecraft/reg.php', {
+                const response = await fetch('./minecraft/reg/reg.php', {
                     method: 'POST',
                     body: formData,
                 });

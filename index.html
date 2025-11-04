@@ -280,7 +280,12 @@
                     <a href="/upload"><i class="bi bi-upload"></i>上传</a>
                 </li>
                 <li>
-                    <a href="/minecraft"><i class="bi bi-person-check"></i>Minecraft 服务器</a>
+                    <a href="#"><i class="bi bi-bricks"></i>Minecraft 服务器</a>
+                    <ul>
+                        <li><a href="./minecraft/reg/">注册</a></li>
+                        <li><a href="./minecraft/map/">卫星图</a></li>
+                        <li><a href="./minecraft/status/">系统状态</a></li>
+                    </ul>
                 </li>
             </ul>
         </aside>
@@ -396,6 +401,7 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
+                        <li><span>2025.11.05：修复了网站第一次进入时意外刷新的bug，新增 MC 服务器性能面版。</span></li>
                         <li><span>2025.11.04：新增 Minecraft 服务器</span></li>
                         <li class="more-btn-li">
                             <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
@@ -489,6 +495,7 @@
             let updateIsPending = false;
             let pendingProgressUpdate = null;
             let isUpdateScheduled = false;
+            let isFirstInstall = false;
             let updateStartTimeout;
             let mismatchTimeout;
             function showMaintenanceMessage() {
@@ -624,6 +631,11 @@
                     const serverConfig = await response.json();
                     const latestVersion = serverConfig.version;
                     if (localVersion !== latestVersion) {
+                        if (localVersion === null) {
+                            isFirstInstall = true;
+                        } else {
+                            isFirstInstall = false;
+                        }
                         updateIsPending = true;
                         if (navigator.serviceWorker.controller) {
                             navigator.serviceWorker.controller.postMessage({
@@ -635,7 +647,7 @@
                         if (!isStandalone) {
                             runLoadingAnimation();
                             const loadingText = document.querySelector('.loading-text');
-                            if(loadingText) loadingText.textContent = '正在更新...';
+                            loadingText.textContent = isFirstInstall ? '正在准备...' : '正在更新...';
                         }
                         clearTimeout(updateStartTimeout);
                         updateStartTimeout = setTimeout(showMaintenanceMessage, 15000);
@@ -725,7 +737,7 @@
                     return;
                 }
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    if (updateIsPending) {
+                    if (updateIsPending && !isFirstInstall) {
                         const loadingScreen = document.getElementById('loading-screen');
                         if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
                             loadingScreen.addEventListener('transitionend', () => {
@@ -733,6 +745,7 @@
                             }, { once: true });
                             loadingScreen.classList.add('hidden');
                         } else {
+                            window.location.reload();
                         }
                     }
                 });
@@ -793,7 +806,7 @@
                             progressBarFill.style.width = '100%';
                         }
                         setTimeout(() => {
-                            if (!updateIsPending) {
+                            if (isFirstInstall || !updateIsPending) {
                                 hideLoadingScreen();
                             }
                         }, 500);

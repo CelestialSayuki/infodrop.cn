@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'temp-rev5';
+const CACHE_VERSION = 'temp-rev6';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -219,6 +219,11 @@ self.addEventListener('fetch', (event) => {
     '/upload/dvfs/get-dvfs-data.php',
     '/upload/disk/get-disk-data.php'
   ];
+    
+  if (url.pathname.startsWith('/minecraft/map/')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
   
   const isAllowedPhp = allowedPhpPaths.some(path => url.pathname.includes(path));
   if (url.pathname.endsWith('.php') && !isAllowedPhp) {

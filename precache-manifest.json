@@ -137,5 +137,6 @@
   "./public-static/img/simplehac.webp",
   "./public-static/img/apple.svg",
   "./upload/index.html",
-  "./minecraft/index.html"
+  "./minecraft/reg/index.html",
+  "./minecraft/status/index.html"
 ]

@@ -19,5 +19,6 @@ upload/screen/screen.php
 upload/screen/screen_data.sqlite
 upload/screen/get-encryption-key.php
 upload/screen/get_screen_data.php
-minecraft/reg.php
-minecraft/account.sqlite
+minecraft/reg/account.sqlite
+minecraft/reg/reg.php
+minecraft/status/get-perf-data.php
