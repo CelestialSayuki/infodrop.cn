@@ -22,3 +22,5 @@ upload/screen/get_screen_data.php
 minecraft/reg/account.sqlite
 minecraft/reg/reg.php
 minecraft/status/get-perf-data.php
+apple-report/gpu/benchmarks.sqlite
+apple-report/gpu/get.php

@@ -1,7 +1,7 @@
 {
-    "version": "temp-rev6",
+    "version": "temp-rev7",
     "notes": [
-        "新增 MC 服务器性能面版。"
+        "重构了 GPU 跑分展示界面，删掉了 Geekbench 6 Compute 成绩，修复了深色模式文字没有正确切换的问题，现在 GPU 跑分每天自动从 3DMark 的 API 抓取，自动化保证了数据的时效性。"
     ],
     "rsr_patches": [
         {

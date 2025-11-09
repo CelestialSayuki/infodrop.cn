@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'temp-rev6';
+const CACHE_VERSION = 'temp-rev7';
 const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';

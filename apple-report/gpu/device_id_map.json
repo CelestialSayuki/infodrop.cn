@@ -1,0 +1,751 @@
+{
+    "2": {
+        "name": "(10GPU) M2",
+        "type": "desktop",
+        "series": "M"
+    },
+    "3": {
+        "name": "(16GPU) M2 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "4": {
+        "name": "(18GPU) M3 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "5": {
+        "name": "(10GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "6": {
+        "name": "(19GPU) M2 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "16": {
+        "name": "(10GPU) M2",
+        "type": "desktop",
+        "series": "M"
+    },
+    "17": {
+        "name": "(10GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "18": {
+        "name": "(16GPU) M4 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "19": {
+        "name": "(60GPU) M2 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "21": {
+        "name": "(40GPU) M3 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "22": {
+        "name": "(7GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "25": {
+        "name": "(8GPU) M2",
+        "type": "desktop",
+        "series": "M"
+    },
+    "27": {
+        "name": "(10GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "28": {
+        "name": "(8GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "29": {
+        "name": "(10GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "30": {
+        "name": "(8GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "31": {
+        "name": "(8GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "32": {
+        "name": "(7GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "33": {
+        "name": "(10GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "34": {
+        "name": "(20GPU) M4 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "35": {
+        "name": "(40GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "36": {
+        "name": "(32GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "37": {
+        "name": "(40GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "38": {
+        "name": "(32GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "39": {
+        "name": "(20GPU) M4 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "40": {
+        "name": "(30GPU) M3 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "41": {
+        "name": "(14GPU) M3 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "42": {
+        "name": "(30GPU) M3 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "43": {
+        "name": "(40GPU) M3 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "44": {
+        "name": "(18GPU) M3 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "45": {
+        "name": "(19GPU) M2 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "46": {
+        "name": "(38GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "47": {
+        "name": "(30GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "48": {
+        "name": "(38GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "50": {
+        "name": "(32GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "51": {
+        "name": "(24GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "52": {
+        "name": "(16GPU) M1 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "53": {
+        "name": "(14GPU) M1 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "54": {
+        "name": "(32GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "55": {
+        "name": "(24GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "56": {
+        "name": "(16GPU) M1 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "57": {
+        "name": "(8GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "58": {
+        "name": "(10GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "59": {
+        "name": "(10GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "60": {
+        "name": "(8GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "61": {
+        "name": "(10GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "62": {
+        "name": "(8GPU) M3",
+        "type": "desktop",
+        "series": "M"
+    },
+    "63": {
+        "name": "(10GPU) M2",
+        "type": "desktop",
+        "series": "M"
+    },
+    "65": {
+        "name": "(10GPU) M2",
+        "type": "desktop",
+        "series": "M"
+    },
+    "66": {
+        "name": "(8GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "67": {
+        "name": "(20GPU) M4 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "68": {
+        "name": "(16GPU) M4 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "69": {
+        "name": "(10GPU) M4",
+        "type": "desktop",
+        "series": "M"
+    },
+    "70": {
+        "name": "(19GPU) M2 Pro",
+        "type": "desktop",
+        "series": "M"
+    },
+    "71": {
+        "name": "(8GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "72": {
+        "name": "(40GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "73": {
+        "name": "(32GPU) M4 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "74": {
+        "name": "(80GPU) M3 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "75": {
+        "name": "(60GPU) M3 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "76": {
+        "name": "(38GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "77": {
+        "name": "(30GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "78": {
+        "name": "(76GPU) M2 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "79": {
+        "name": "(32GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "80": {
+        "name": "(24GPU) M1 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "81": {
+        "name": "(64GPU) M1 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "82": {
+        "name": "(48GPU) M1 Ultra",
+        "type": "desktop",
+        "series": "M"
+    },
+    "84": {
+        "name": "(8GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "85": {
+        "name": "(7GPU) M1",
+        "type": "desktop",
+        "series": "M"
+    },
+    "87": {
+        "name": "(30GPU) M2 Max",
+        "type": "desktop",
+        "series": "M"
+    },
+    "88": {
+        "name": "(10GPU) M5",
+        "type": "desktop",
+        "series": "M"
+    },
+    "1880": {
+        "name": "(4GPU) A7",
+        "type": "mobile",
+        "series": "A"
+    },
+    "1939": {
+        "name": "(4GPU) A7",
+        "type": "mobile",
+        "series": "A"
+    },
+    "1994": {
+        "name": "(4GPU) A7",
+        "type": "mobile",
+        "series": "A"
+    },
+    "3106": {
+        "name": "(4GPU) A8",
+        "type": "mobile",
+        "series": "A"
+    },
+    "3107": {
+        "name": "(4GPU) A8",
+        "type": "mobile",
+        "series": "A"
+    },
+    "3227": {
+        "name": "(8GPU) A8X",
+        "type": "mobile",
+        "series": "A"
+    },
+    "3234": {
+        "name": "(4GPU) A8",
+        "type": "mobile",
+        "series": "A"
+    },
+    "4449": {
+        "name": "(4GPU) A8",
+        "type": "mobile",
+        "series": "A"
+    },
+    "4676": {
+        "name": "(6GPU) A9",
+        "type": "mobile",
+        "series": "A"
+    },
+    "4677": {
+        "name": "(6GPU) A9",
+        "type": "mobile",
+        "series": "A"
+    },
+    "4678": {
+        "name": "(4GPU) A8",
+        "type": "mobile",
+        "series": "A"
+    },
+    "4897": {
+        "name": "(12GPU) A9X",
+        "type": "mobile",
+        "series": "A"
+    },
+    "5457": {
+        "name": "(6GPU) A9",
+        "type": "mobile",
+        "series": "A"
+    },
+    "5458": {
+        "name": "(12GPU) A9X",
+        "type": "mobile",
+        "series": "A"
+    },
+    "6149": {
+        "name": "(6GPU) A10",
+        "type": "mobile",
+        "series": "A"
+    },
+    "6150": {
+        "name": "(6GPU) A10",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7310": {
+        "name": "(12GPU) A10X",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7311": {
+        "name": "(12GPU) A10X",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7335": {
+        "name": "(6GPU) A9",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7620": {
+        "name": "(3GPU) A11",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7621": {
+        "name": "(3GPU) A11",
+        "type": "mobile",
+        "series": "A"
+    },
+    "7622": {
+        "name": "(3GPU) A11",
+        "type": "mobile",
+        "series": "A"
+    },
+    "8424": {
+        "name": "(6GPU) A10",
+        "type": "mobile",
+        "series": "A"
+    },
+    "9096": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "9112": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "9194": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "9330": {
+        "name": "(7GPU) A12X",
+        "type": "mobile",
+        "series": "A",
+        "limits": {
+            "SLING_SHOT_ES_30": 14000,
+            "SLING_SHOT_METAL": 10550
+        }
+    },
+    "9331": {
+        "name": "(7GPU) A12X",
+        "type": "mobile",
+        "series": "A",
+        "limits": {
+            "SLING_SHOT_ES_30": 14000,
+            "SLING_SHOT_METAL": 10550
+        }
+    },
+    "10620": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "10621": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "10642": {
+        "name": "(4GPU) A13",
+        "type": "mobile",
+        "series": "A"
+    },
+    "10643": {
+        "name": "(4GPU) A13",
+        "type": "mobile",
+        "series": "A"
+    },
+    "10644": {
+        "name": "(4GPU) A13",
+        "type": "mobile",
+        "series": "A"
+    },
+    "10682": {
+        "name": "(6GPU) A10",
+        "type": "mobile",
+        "series": "A"
+    },
+    "11357": {
+        "name": "(6GPU) A10",
+        "type": "mobile",
+        "series": "A"
+    },
+    "11408": {
+        "name": "(8GPU) A12Z",
+        "type": "mobile",
+        "series": "A"
+    },
+    "11409": {
+        "name": "(8GPU) A12Z",
+        "type": "mobile",
+        "series": "A"
+    },
+    "11525": {
+        "name": "(4GPU) A13",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12121": {
+        "name": "(4GPU) A12",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12242": {
+        "name": "(4GPU) A14",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12243": {
+        "name": "(4GPU) A14",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12244": {
+        "name": "(4GPU) A14",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12332": {
+        "name": "(4GPU) A14",
+        "type": "mobile",
+        "series": "A"
+    },
+    "12333": {
+        "name": "(4GPU) A14",
+        "type": "mobile",
+        "series": "A"
+    },
+    "13106": {
+        "name": "(8GPU) M1",
+        "type": "mobile",
+        "series": "M",
+        "limits": {
+            "WILD_LIFE_EXTREME": 5150,
+            "SOLAR_BAY": 7600,
+            "STEEL_NOMAD_LIGHT": 2450,
+            "SOLAR_BAY_EXTREME": 400,
+            "WILD_LIFE": 18450
+        }
+    },
+    "13107": {
+        "name": "(8GPU) M1",
+        "type": "mobile",
+        "series": "M",
+        "limits": {
+            "WILD_LIFE_EXTREME": 5150,
+            "SOLAR_BAY": 7600,
+            "STEEL_NOMAD_LIGHT": 2450,
+            "SOLAR_BAY_EXTREME": 400,
+            "WILD_LIFE": 18450
+        }
+    },
+    "13651": {
+        "name": "(4GPU) A15",
+        "type": "mobile",
+        "series": "A"
+    },
+    "13652": {
+        "name": "(4GPU) A15",
+        "type": "mobile",
+        "series": "A"
+    },
+    "13653": {
+        "name": "(5GPU) A15",
+        "type": "mobile",
+        "series": "A",
+        "exclude": [
+            "SLING_SHOT_ES_30"
+        ]
+    },
+    "13654": {
+        "name": "(5GPU) A15",
+        "type": "mobile",
+        "series": "A",
+        "exclude": [
+            "SLING_SHOT_ES_30"
+        ]
+    },
+    "13655": {
+        "name": "(5GPU) A15",
+        "type": "mobile",
+        "series": "A",
+        "exclude": [
+            "SLING_SHOT_ES_30"
+        ]
+    },
+    "13656": {
+        "name": "(4GPU) A13",
+        "type": "mobile",
+        "series": "A"
+    },
+    "14384": {
+        "name": "(4GPU) A15",
+        "type": "mobile",
+        "series": "A"
+    },
+    "15148": {
+        "name": "(5GPU) A16",
+        "type": "mobile",
+        "series": "A"
+    },
+    "16709": {
+        "name": "(6GPU) A17 Pro",
+        "type": "mobile",
+        "series": "A",
+        "limits": {
+            "WILD_LIFE_EXTREME": 4450
+        },
+        "exclude": [
+            "WILD_LIFE",
+            "SLING_SHOT_METAL"
+        ]
+    },
+    "17699": {
+        "name": "(9GPU) M2",
+        "type": "mobile",
+        "series": "M"
+    },
+    "17700": {
+        "name": "(9GPU) M2",
+        "type": "mobile",
+        "series": "M"
+    },
+    "17701": {
+        "name": "(10GPU) M4",
+        "type": "mobile",
+        "series": "M",
+        "limits": {
+            "STEEL_NOMAD_LIGHT": 4050
+        }
+    },
+    "17702": {
+        "name": "(10GPU) M4",
+        "type": "mobile",
+        "series": "M",
+        "limits": {
+            "STEEL_NOMAD_LIGHT": 4050
+        }
+    },
+    "18233": {
+        "name": "(5GPU) A18",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18234": {
+        "name": "(5GPU) A18",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18235": {
+        "name": "(6GPU) A18 Pro",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18236": {
+        "name": "(6GPU) A18 Pro",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18383": {
+        "name": "(5GPU) A17 Pro",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18898": {
+        "name": "(4GPU) A18",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18958": {
+        "name": "(9GPU) M3",
+        "type": "mobile",
+        "series": "M"
+    },
+    "18963": {
+        "name": "(4GPU) A16",
+        "type": "mobile",
+        "series": "A"
+    },
+    "18964": {
+        "name": "(9GPU) M3",
+        "type": "mobile",
+        "series": "M"
+    },
+    "19758": {
+        "name": "(5GPU) A19",
+        "type": "mobile",
+        "series": "A"
+    },
+    "19760": {
+        "name": "(6GPU) A19 Pro",
+        "type": "mobile",
+        "series": "A"
+    },
+    "19761": {
+        "name": "(5GPU) A19 Pro",
+        "type": "mobile",
+        "series": "A"
+    }
+}
