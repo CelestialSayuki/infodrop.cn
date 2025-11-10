@@ -50,7 +50,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
   <script type="text/javascript">
     (() => {
-      let chartInstances = [];
+      let chartInstances = {};
 
       const geekBench6ASeriesData = [
         { device: "A8", sc: 441, mc: 727 }, { device: "A9", sc: 661, mc: 1147 }, { device: "A9X", sc: 797, mc: 1359 }, { device: "A10 Fusion", sc: 898, mc: 1527 }, { device: "A10X Fusion", sc: 983, mc: 2415 }, { device: "A11 Bionic", sc: 1167, mc: 2842 }, { device: "A12 Bionic", sc: 1371, mc: 3272 }, { device: "A12X Bionic", sc: 1394, mc: 4967 }, { device: "A12Z Bionic", sc: 1383, mc: 4956 }, { device: "A13 Bionic", sc: 1832, mc: 4497 }, { device: "A14 Bionic", sc: 2260, mc: 5668 }, { device: "A15 Bionic", sc: 2495, mc: 6465 }, { device: "A16 Bionic", sc: 2722, mc: 7373 }, { device: "A17 Pro", sc: 3051, mc: 8212 }, { device: "A18", sc: 3581, mc: 9574 }, { device: "A18 Pro", sc: 3659, mc: 9715 }, { device: "A19", sc: 3866, mc: 10018 }, { device: "A19 Pro", sc: 4028, mc: 11054 },
@@ -80,12 +80,12 @@
         },
       };
 
-      function createBarChart(domId, rawData, config, theme) {
+      function createBarChart(domId, rawData, config, theme, savedLegendState = null) {
         const domElement = document.getElementById(domId);
         if (!domElement) return;
 
         const chart = echarts.init(domElement, theme, { renderer: "svg", useDirtyRect: false });
-        chartInstances.push(chart);
+        chartInstances[domId] = chart;
 
         let currentData = [...rawData];
 
@@ -129,7 +129,7 @@
             const keyMap = config.seriesInfo.reduce((acc, s) => { acc[s.name] = s.key; return acc; }, {});
             let sortKey = null;
 
-            const legendOrder = config.seriesInfo.map((s) => s.name);
+            const legendOrder = config.seriesInfo.map((s) => s.name).reverse();
             for (const name of legendOrder) {
               if (params.selected[name]) {
                 sortKey = keyMap[name];
@@ -140,20 +140,26 @@
             chart.setOption(getOption(currentData));
           });
         }
-
-        chart.setOption(getOption(currentData));
+        const finalOptions = getOption(currentData);
+        if (savedLegendState) {
+          finalOptions.legend.selected = savedLegendState;
+        }
+        chart.setOption(finalOptions);
         if ('ResizeObserver' in window) {
           const resizeObserver = new ResizeObserver(() => chart.resize());
           resizeObserver.observe(domElement);
         }
       }
-
       function renderAllCharts() {
-        chartInstances.forEach(chart => chart.dispose());
-        chartInstances = [];
+        let currentLegends = {
+          'GeekBench6_A': chartInstances['GeekBench6_A'] ? chartInstances['GeekBench6_A'].getOption().legend[0].selected : null,
+          'GeekBench6_M': chartInstances['GeekBench6_M'] ? chartInstances['GeekBench6_M'].getOption().legend[0].selected : null
+        };
+        Object.values(chartInstances).forEach(chart => chart.dispose());
+        chartInstances = {};
         const theme = document.documentElement.classList.contains('dark-mode') ? "dark" : "light";
-        createBarChart('GeekBench6_A', geekBench6ASeriesData, geekBenchConfig, theme);
-        createBarChart('GeekBench6_M', geekBench6MSeriesData, { ...geekBenchConfig, title: '', subtext: '', gridOptions: { top: '1%' } }, theme);
+        createBarChart('GeekBench6_A', geekBench6ASeriesData, geekBenchConfig, theme, currentLegends['GeekBench6_A']);
+        createBarChart('GeekBench6_M', geekBench6MSeriesData, { ...geekBenchConfig, title: '', subtext: '', gridOptions: { top: '1%' } }, theme, currentLegends['GeekBench6_M']);
       }
       renderAllCharts();
       const themeObserver = new MutationObserver((mutationsList) => {

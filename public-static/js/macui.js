@@ -294,6 +294,9 @@ async function loadContentIntoMainArea(url, container) {
 }
 
 function setupSidebarMenu() {
+  document.querySelectorAll('.sidebar-menu a').forEach(a => {
+    a.setAttribute('draggable', 'false');
+  });
   document.querySelectorAll('.sidebar-menu li').forEach(li => {
     if (li.querySelector('ul')) li.classList.add('has-submenu');
   });

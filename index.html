@@ -401,14 +401,15 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
-                        <li><span>2025.11.09：重构了 GPU 跑分展示界面，删掉了 Geekbench 6 Compute 成绩，修复了深色模式文字没有正确切换的问题，现在 GPU 跑分每天自动从 3DMark 的 API 抓取，自动化保证了数据的时效性。</span></li>
-                        <li><span>2025.11.05：修复了网站第一次进入时意外刷新的bug，新增 MC 服务器性能面版。</span></li>
-                        <li><span>2025.11.04：新增 Minecraft 服务器</span></li>
+                        <li><span>2025.11.10：修复了 CPU 和 GPU 页面在部分情况下重新进入后没有保留原来选择的 bug，修复了各种页面深色模式相关问题，禁止部分元素的拖拽</span></li>
                         <li class="more-btn-li">
                             <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
                         </li>
                     </ul>
                     <template id="more-updates-template">
+                        <li><span>2025.11.09：重构了 GPU 跑分展示界面，删掉了 Geekbench 6 Compute 成绩，修复了深色模式文字没有正确切换的问题，现在 GPU 跑分每天自动从 3DMark 的 API 抓取，自动化保证了数据的时效性。</span></li>
+                        <li><span>2025.11.05：修复了网站第一次进入时意外刷新的bug，新增 MC 服务器性能面版。</span></li>
+                        <li><span>2025.11.04：新增 Minecraft 服务器</span></li>
                         <li><span>2025.10.30：整合了上传逻辑，新增屏幕上传 (Beta)，修复了硬盘页面离线后无法加载缓存的问题。由于本人身体原因，网站更新放缓。</span></li>
                         <li><span>2025.10.27：新增分享功能，可以直接分享直链，让他人看到和您一样的窗口</span></li>
                         <li><span>2025.10.25：因为 DVFS 上传 API 被盗用，重构 DVFS 功能，您将不能直接看到您提交数据的结果，取而代之的是一个唯一的码，您可凭这个码在 DVFS 显示页面查看您提交的数据，相比现在的版本，更方便找到您自己的数据了。修复了若干 bug。</span></li>
@@ -834,7 +835,7 @@
                         const localVersion = localStorage.getItem('sw_installed_version');
                         if (!localVersion) return false;
                         try {
-                            const cacheName = `project-mammoth-cache-${localVersion}`;
+                            const cacheName = `infodrop-cache-${localVersion}`;
                             const hasCache = await caches.has(cacheName);
                             if (!hasCache) {
                                 localStorage.removeItem('sw_installed_version');
@@ -910,15 +911,18 @@
             const themeStates = ['auto', 'light', 'dark'];
             let currentTheme = localStorage.getItem('theme') || 'auto';
             function applyTheme(theme) {
-                if (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark-mode');
-                } else {
-                    document.documentElement.classList.remove('dark-mode');
+                const shouldBeDark = (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+                const isCurrentlyDark = document.documentElement.classList.contains('dark-mode');
+                if (shouldBeDark !== isCurrentlyDark) {
+                    if (shouldBeDark) {
+                        document.documentElement.classList.add('dark-mode');
+                    } else {
+                        document.documentElement.classList.remove('dark-mode');
+                    }
+                    document.querySelectorAll('.macos-window').forEach(win => {
+                        win.classList.toggle('dark-mode', shouldBeDark);
+                    });
                 }
-                const isDark = document.documentElement.classList.contains('dark-mode');
-                document.querySelectorAll('.macos-window').forEach(win => {
-                    win.classList.toggle('dark-mode', isDark);
-                });
                 Object.values(icons).forEach(icon => icon.style.display = 'none');
                 if (icons[theme]) {
                     icons[theme].style.display = 'block';

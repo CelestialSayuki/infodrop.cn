@@ -1,6 +1,6 @@
-const CACHE_VERSION = 'temp-rev7';
-const CACHE_NAME = `project-mammoth-cache-${CACHE_VERSION}`;
-const RUNTIME_CACHE_NAME = `project-mammoth-runtime-${CACHE_VERSION}`;
+const CACHE_VERSION = 'temp-rev8';
+const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
+const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
 
 let totalFiles = 0;
@@ -52,7 +52,7 @@ self.addEventListener('install', (event) => {
     }
     if (versionConfig.rsr_patches && Array.isArray(versionConfig.rsr_patches)) {
       for (const patchBranch of versionConfig.rsr_patches) {
-        const baseCacheName = `project-mammoth-cache-${patchBranch.base}`;
+        const baseCacheName = `infodrop-cache-${patchBranch.base}`;
         if (await caches.has(baseCacheName)) {
           const baseCache = await caches.open(baseCacheName);
           const newCache = await caches.open(CACHE_NAME);
@@ -217,13 +217,9 @@ self.addEventListener('fetch', (event) => {
 
   const allowedPhpPaths = [
     '/upload/dvfs/get-dvfs-data.php',
-    '/upload/disk/get-disk-data.php'
+    '/upload/disk/get-disk-data.php',
+    '/apple-report/gpu/get.php'
   ];
-    
-  if (url.pathname.startsWith('/minecraft/map/')) {
-    event.respondWith(fetch(event.request));
-    return;
-  }
   
   const isAllowedPhp = allowedPhpPaths.some(path => url.pathname.includes(path));
   if (url.pathname.endsWith('.php') && !isAllowedPhp) {

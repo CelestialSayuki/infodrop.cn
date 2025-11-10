@@ -89,6 +89,10 @@ body.landscape-notch-right {
     background-color:transparent;
     cursor:move;
     flex-shrink:0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .macos-window-controls {
     display:flex;
@@ -311,7 +315,11 @@ ul {
 }
 .sidebar-menu {
     list-style:none;
-    padding-top: env(safe-area-inset-top);z
+    padding-top: env(safe-area-inset-top);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .sidebar-menu li.has-submenu {
     display:block;

@@ -6,6 +6,7 @@
   <style type="text/css">
     .main-content {
       padding: 20px;
+      transition: opacity 0.5s ease-out;
     }
     .card {
       margin-bottom: 20px;
@@ -52,7 +53,7 @@
   </style>
 </head>
 <body style="margin: 0;" id="mainLayout">
-  <div class="main-content">
+  <div class="main-content" style="opacity: 0;">
     <div class="card">
       <div id="container_3DMark_A" style="width: 100%;"></div>
       <div class="retext width_float">A系列</div>
@@ -63,7 +64,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
   <script type="text/javascript">
   (() => {
-      let chartInstances = [];
+      let chartInstances = {};
       let allChartData = null;
       const createTooltipFormatter = () => {
         return function (params) {
@@ -90,8 +91,12 @@
           if (!allChartData) {
               return;
           }
-          chartInstances.forEach(chart => chart.dispose());
-          chartInstances = [];
+          let currentLegends = {
+              '3DMark_A': chartInstances['3DMark_A'] ? chartInstances['3DMark_A'].getOption().legend[0].selected : null,
+              '3DMark_M': chartInstances['3DMark_M'] ? chartInstances['3DMark_M'].getOption().legend[0].selected : null
+          };
+          Object.values(chartInstances).forEach(chart => chart.dispose());
+          chartInstances = {};
           const currentTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
           const heightPerRow = 18;
           const baseHeight = 80;
@@ -107,7 +112,7 @@
           }
           if (dom_3d_a) {
               var myChart_3DMark_A = echarts.init(dom_3d_a, currentTheme, { renderer: 'svg', useDirtyRect: false });
-              chartInstances.push(myChart_3DMark_A);
+              chartInstances['3DMark_A'] = myChart_3DMark_A;
               var option_3DMark_A;
               const colors_a = ["#FFC000", "#EEB422", '#EEC900', '#CDAD00', '#2E8B57', '#3CB371', '#98FB98'];
               option_3DMark_A = {
@@ -122,9 +127,9 @@
                   legend: {
                       bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 },
                       selected: {
-                          'Wild Life Extreme': true,
+                          'Wild Life Extreme': false,
                           'Solar Bay': false,
-                          'Steel Nomad Light': false,
+                          'Steel Nomad Light': true,
                           'Solar Bay Extreme': false,
                           'Wild Life': false,
                           'Sling Shot OpenGL': false,
@@ -144,6 +149,9 @@
                       { name: 'Sling Shot Metal', type: 'bar', data: allChartData.threemark_a.ssm, itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }
                   ]
               };
+              if (currentLegends['3DMark_A']) {
+                  option_3DMark_A.legend.selected = currentLegends['3DMark_A'];
+              }
               myChart_3DMark_A.setOption(option_3DMark_A);
               updateChart_3DMark_A(option_3DMark_A.legend.selected);
               function getSortedData_3DMark_A(selectedLegend) { const { yAxis, series } = option_3DMark_A; let selectedSeries = series.filter(s => selectedLegend[s.name]); let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data; let sortedIndices = sortData.map((value, index) => ({ value: +(value.value || 0), index })).sort((a, b) => a.value - b.value).map(item => item.index); return { yAxis: sortedIndices.map(index => yAxis.data[index]), series: series.map(s => ({ ...s, data: sortedIndices.map(index => s.data[index]) })) }; }
@@ -153,7 +161,7 @@
           }
           if (dom_3d_m) {
               var myChart_3DMark_M = echarts.init(dom_3d_m, currentTheme, { renderer: 'svg', useDirtyRect: false });
-              chartInstances.push(myChart_3DMark_M);
+              chartInstances['3DMark_M'] = myChart_3DMark_M;
               var option_3DMark_M;
               const colors_m = ["#FFC000", "#EEB422", '#EEC900', '#CDAD00', '#CD9B1D', '#2E8B57', '#3CB371', '#98FB98'];
               option_3DMark_M = {
@@ -167,9 +175,9 @@
                   legend: {
                       bottom: 30, right: 0, type: 'scroll', orient: 'vertical', textStyle: { fontSize: 11 },
                       selected: {
-                          'Wild Life Extreme': true,
+                          'Wild Life Extreme': false,
                           'Solar Bay': false,
-                          'Steel Nomad Light': false,
+                          'Steel Nomad Light': true,
                           'Steel Nomad': false,
                           'Solar Bay Extreme': false,
                           'Wild Life': false,
@@ -191,18 +199,15 @@
                       { name: 'Sling Shot Metal', type: 'bar', data: allChartData.threemark_m.ssm, itemStyle: { normal: { label: { show: true, color: '#808080', fontSize: 11, fontWeight: 'bold', position: 'right' }, barBorderRadius: [0, 20, 20, 0] } } }
                   ]
               };
+              if (currentLegends['3DMark_M']) {
+                  option_3DMark_M.legend.selected = currentLegends['3DMark_M'];
+              }
               myChart_3DMark_M.setOption(option_3DMark_M);
               updateChart_3DMark_M(option_3DMark_M.legend.selected);
               function getSortedData_3DMark_M(selectedLegend) { const { yAxis, series } = option_3DMark_M; let selectedSeries = series.filter(s => selectedLegend[s.name]); let sortData = selectedSeries.length > 0 ? selectedSeries[0].data : series[0].data; let sortedIndices = sortData.map((value, index) => ({ value: +(value.value || 0), index })).sort((a, b) => a.value - b.value).map(item => item.index); return { yAxis: sortedIndices.map(index => yAxis.data[index]), series: series.map(s => ({ ...s, data: sortedIndices.map(index => s.data[index]) })) }; }
               function updateChart_3DMark_M(selectedLegend) { const sortedData = getSortedData_3DMark_M(selectedLegend); myChart_3DMark_M.setOption({ yAxis: { data: sortedData.yAxis }, series: sortedData.series }); }
               myChart_3DMark_M.on('legendselectchanged', function (params) { const selectedLegend = params.selected; updateChart_3DMark_M(selectedLegend); });
               if ('ResizeObserver' in window) { const resizeObserver_3d_m = new ResizeObserver(() => { myChart_3DMark_M.resize(); }); resizeObserver_3d_m.observe(dom_3d_m); }
-          }
-      };
-      const applyTheme = (isDark) => {
-          document.documentElement.classList.toggle('dark-mode', isDark);
-          if (allChartData) {
-              renderAllCharts();
           }
       };
       const initializePage = async () => {
@@ -212,15 +217,19 @@
                   throw new Error(`HTTP error! status: ${response.status}`);
               }
               allChartData = await response.json();
-              const darkModeMatcher = window.matchMedia('(prefers-color-scheme: dark)');
-              if (darkModeMatcher.addEventListener) {
-                  darkModeMatcher.addEventListener('change', (e) => applyTheme(e.matches));
-              } else if (darkModeMatcher.addListener) {
-                  darkModeMatcher.addListener((e) => applyTheme(e.matches));
-              }
-              applyTheme(darkModeMatcher.matches);
+              renderAllCharts();
+              document.querySelector('.main-content').style.opacity = '1';
+              const themeObserver = new MutationObserver((mutationsList) => {
+                  for (const mutation of mutationsList) {
+                      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                          renderAllCharts();
+                          break;
+                      }
+                  }
+              });
+              themeObserver.observe(document.documentElement, { attributes: true });
           } catch (error) {
-              console.error("无法加载图表数据:", error);
+            console.error("无法加载图表数据:", error);
           }
       };
       initializePage();
