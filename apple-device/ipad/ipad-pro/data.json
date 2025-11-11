@@ -159,7 +159,7 @@
         {
             "name": "iPad Pro 13 英寸",
             "generation": "(M5)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
                 "slogan": "高能猛进",
                 "releaseDate": "2025.10.15",
@@ -175,7 +175,7 @@
                         "hex": "#e3e4e5"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_13in_black_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空黑色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_13in_silver_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_13in_black_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空黑色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_13in_silver_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5<br>(3/4P+6E+10GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12G LPDDR5X<br>256G、512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR5X<br>1T、2T</div>",
                 "display": "13\" 双层串联 OLED",
@@ -202,7 +202,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(M5)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
                 "slogan": "高能猛进",
                 "releaseDate": "2025.10.15",
@@ -245,7 +245,7 @@
         {
             "name": "iPad Pro 13 英寸",
             "generation": "(M4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
                 "slogan": "磅礴的薄",
                 "releaseDate": "2024.05.07",
@@ -261,7 +261,7 @@
                         "hex": "#e3e4e5"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_13in_black_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空黑色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_13in_silver_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_13in_black_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">深空黑色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_13in_silver_m4_mgk_ap-pro_wifi.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(3/4P+6E+10GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5X<br>256G、512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR5X<br>1T、2T</div>",
                 "display": "13\" 双层串联 OLED",
@@ -288,7 +288,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(M4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad-pro-11-inch-or-13-inch-m4.webp",
             "data": {
                 "slogan": "磅礴的薄",
                 "releaseDate": "2024.05.07",
@@ -331,7 +331,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "(第 6 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_6.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_6.webp",
             "data": {
                 "slogan": "由 M2 强势驱动",
                 "releaseDate": "2022.10.18",
@@ -347,7 +347,7 @@
                         "hex": "#e2e3e4"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_12_9_6gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_12_9_6gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+10GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128/256/512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR5<br>1T、2T</div>",
                 "display": "12.9\" Liquid mini-LED",
@@ -374,7 +374,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(第 4 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_11_4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_11_4.webp",
             "data": {
                 "slogan": "由 M2 强势驱动",
                 "releaseDate": "2022.10.18",
@@ -390,7 +390,7 @@
                         "hex": "#e2e3e4"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_11in_4gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_11in_4gen_magic_keyboard_white_wifi_ios15.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+10GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128/256/512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR5<br>1T、2T</div>",
                 "display": "11\" Liquid LED",
@@ -417,7 +417,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "(第 5 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_5.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_5.webp",
             "data": {
                 "slogan": "终极 iPad 体验",
                 "releaseDate": "2021.04.21",
@@ -433,7 +433,7 @@
                         "hex": "#e2e3e4"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_12_9_5th_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_12_9_5th_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1<br>(4P+4E+8GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR4X<br>128/256/512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR4X<br>1T、2T</div>",
                 "display": "12.9\" Liquid mini-LED",
@@ -460,7 +460,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_11_3.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_11_3.webp",
             "data": {
                 "slogan": "终极 iPad 体验",
                 "releaseDate": "2021.04.21",
@@ -476,7 +476,7 @@
                         "hex": "#e2e3e4"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_11in_3rd_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_11in_3rd_Gen_magic_keyboard_white_wifi_ios14.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1<br>(4P+4E+8GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR4X<br>128/256/512G</div><div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">16G LPDDR4X<br>1T、2T</div>",
                 "display": "11\" Liquid LED",
@@ -503,7 +503,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "(第 4 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_4.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_4.webp",
             "data": {
                 "slogan": "你的下一台电脑，何必是电脑。",
                 "releaseDate": "2020.03.18",
@@ -519,7 +519,7 @@
                         "hex": "#e2e3e4"
                     }
                 ],
-                "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_pro_12_9_4th_Gen_magic_keyboard_ios13.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_pro_12_9_4th_Gen_magic_keyboard_ios13.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A12Z Bionic<br>(4P+4E+8GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6G LPDDR4X<br>128G、256G、512G、1T</div>",
                 "display": "12.9\" Liquid LED",
@@ -546,7 +546,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_11_2.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_11_2.webp",
             "data": {
                 "slogan": "你的下一台电脑，何必是电脑。",
                 "releaseDate": "2020.03.18",
@@ -589,7 +589,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_3.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_3.webp",
             "data": {
                 "slogan": "新一代 iPad Pro，全面新生。",
                 "releaseDate": "2018.10.31",
@@ -632,7 +632,7 @@
         {
             "name": "iPad Pro 11 英寸",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_11_1.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_11_1.webp",
             "data": {
                 "slogan": "新一代 iPad Pro，全面新生。",
                 "releaseDate": "2018.10.31",
@@ -675,7 +675,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_2.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_2.webp",
             "data": {
                 "slogan": "不止能做好，还能做到更好。",
                 "releaseDate": "2017.06.06",
@@ -722,7 +722,7 @@
         {
             "name": "iPad Pro 10.5 英寸",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_105_2.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_105_2.webp",
             "data": {
                 "slogan": "不止能做好，还能做到更好。",
                 "releaseDate": "2017.06.06",
@@ -773,7 +773,7 @@
         {
             "name": "iPad Pro 9.7 英寸",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_97_1.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_97_1.webp",
             "data": {
                 "slogan": "你的下一台电脑，现更以两种尺寸呈现",
                 "releaseDate": "2016.03.22",
@@ -824,7 +824,7 @@
         {
             "name": "iPad Pro 12.9 英寸",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-pro/img/ipad_pro_129_1.webp",
+            "image": "/apple-device/ipad/ipad-pro/img/ipad_pro_129_1.webp",
             "data": {
                 "slogan": "轻，薄，磅礴。",
                 "releaseDate": "2015.09.10",

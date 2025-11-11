@@ -149,7 +149,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro-3.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-pro-3.webp",
             "data": {
                 "slogan": "主动降噪升至两倍，倍加悦耳。",
                 "releaseDate": "2025.09.10",
@@ -160,7 +160,7 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-pro-3.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods-pro-3.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2 + U2 (MagSafe 充电盒)</div>",
                 "bluetooth": "Bluetooth 5.3",
                 "controlMethod": "按压耳机柄、上下轻扫",
@@ -184,7 +184,7 @@
         {
             "name": "AirPods",
             "generation": "(第 4 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-4.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-4.webp",
             "data": {
                 "slogan": "耳上经典，音质再进化。",
                 "releaseDate": "2024.09.10",
@@ -195,7 +195,7 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-4-mid.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods-4-mid.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2</div>",
                 "bluetooth": "Bluetooth 5.3",
                 "controlMethod": "按压耳机柄",
@@ -219,7 +219,7 @@
         {
             "name": "AirPods Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-max-new.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-max-new.webp",
             "data": {
                 "slogan": "澎湃贯耳",
                 "releaseDate": "2024.09.10",
@@ -246,7 +246,7 @@
                         "hex": "#e2a48d"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-max-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-max-starlight.usdz\" target=\"_blank\">星光色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-max-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-max-purple.usdz\" target=\"_blank\">紫色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods-max-orange.usdz\" target=\"_blank\">橙色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods-max-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"/AR/airpods/airpods-max-starlight.usdz\" target=\"_blank\">星光色</a> <a href=\"/AR/airpods/airpods-max-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"/AR/airpods/airpods-max-purple.usdz\" target=\"_blank\">紫色</a> <a href=\"/AR/airpods/airpods-max-orange.usdz\" target=\"_blank\">橙色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
                 "bluetooth": "Bluetooth 5.0",
                 "controlMethod": "按键",
@@ -270,7 +270,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro-2.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-pro-2.webp",
             "data": {
                 "slogan": "重塑新声",
                 "releaseDate": "2022.09.08",
@@ -281,7 +281,7 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods_pro_2_ios15.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods_pro_2_ios15.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H2 ×2 + U1 (MagSafe 充电盒)</div>",
                 "bluetooth": "Bluetooth 5.3",
                 "controlMethod": "按压耳机柄、上下轻扫",
@@ -305,7 +305,7 @@
         {
             "name": "AirPods",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-3.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-3.webp",
             "data": {
                 "slogan": "全新支持空间音频",
                 "releaseDate": "2021.10.19",
@@ -316,7 +316,7 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods_magsafe_charging_ios15.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods_magsafe_charging_ios15.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
                 "bluetooth": "Bluetooth 5.0",
                 "controlMethod": "按压耳机柄",
@@ -340,7 +340,7 @@
         {
             "name": "AirPods Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-max.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-max.webp",
             "data": {
                 "slogan": "AirPods Max 高调登场。",
                 "releaseDate": "2020.12.09",
@@ -367,7 +367,7 @@
                         "hex": "#afbfab"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods_max_silver_ios14_rev1.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods_max_silver_ios14_rev1.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
                 "bluetooth": "Bluetooth 5.0",
                 "controlMethod": "按键",
@@ -391,7 +391,7 @@
         {
             "name": "AirPods Pro",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-pro.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-pro.webp",
             "data": {
                 "slogan": "妙得不同凡响。",
                 "releaseDate": "2019.10.29",
@@ -402,7 +402,7 @@
                         "hex": "#ffffff"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/airpods/airpods_pro_ios15.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/airpods/airpods_pro_ios15.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">H1 ×2</div>",
                 "bluetooth": "Bluetooth 5.0",
                 "controlMethod": "按压耳机柄",
@@ -426,7 +426,7 @@
         {
             "name": "AirPods",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-2.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-2.webp",
             "data": {
                 "slogan": "妙出新境界。",
                 "releaseDate": "2019.03.21",
@@ -461,7 +461,7 @@
         {
             "name": "AirPods",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/airpods/img/airpods-1.webp",
+            "image": "/apple-device/audio/airpods/img/airpods-1.webp",
             "data": {
                 "slogan": "无线，无繁琐，只有妙不可言。",
                 "releaseDate": "2016.12.08",

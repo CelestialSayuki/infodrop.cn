@@ -218,6 +218,10 @@
 
 
     async function updatePerformanceData() {
+        if (rootElement && !document.body.contains(rootElement)) {
+            cleanup();
+            return;
+        }
         try {
             if (typeof echarts === 'undefined') {
                 console.error("ECharts 库尚未加载。");

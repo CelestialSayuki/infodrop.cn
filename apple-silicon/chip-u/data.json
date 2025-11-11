@@ -27,11 +27,11 @@
     {
       "name": "Apple U2",
       "generation": "(339M00298)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_product.webp",
+      "image": "/apple-silicon/chip-u/img/U2_product.webp",
       "images": {
-        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_product.webp",
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U2_temp.webp",
-        "内部图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/U2_temp.webp"
+        "宣传图": "/apple-silicon/chip-u/img/U2_product.webp",
+        "芯片图": "/apple-silicon/chip-u/img/U2_temp.webp",
+        "内部图": "/apple-silicon/chip-u/img/die/U2_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "芯片图", "内部图"],
@@ -45,12 +45,12 @@
     {
       "name": "Apple U1",
       "generation": "(TMKA75)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_product.webp",
+      "image": "/apple-silicon/chip-u/img/U1_product.webp",
       "images": {
-        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_product.webp",
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/U1_temp.webp",
-        "内部图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/U1_TMKA75_temp.webp",
-        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-u/img/die/die_shot_U1_TMKA75_temp.webp"
+        "宣传图": "/apple-silicon/chip-u/img/U1_product.webp",
+        "芯片图": "/apple-silicon/chip-u/img/U1_temp.webp",
+        "内部图": "/apple-silicon/chip-u/img/die/U1_TMKA75_temp.webp",
+        "Die": "/apple-silicon/chip-u/img/die/die_shot_U1_TMKA75_temp.webp"
       },
       "data": {
         "displayType": ["宣传图", "芯片图", "内部图", "Die"],

@@ -77,7 +77,7 @@
     {
       "name": "iPad",
       "generation": "(A16)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad-a16.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad-a16.webp",
       "data": {
         "slogan": "可圈可点可画心",
         "releaseDate": "2025.03.04",
@@ -89,7 +89,7 @@
           { "name": "蓝色", "hex": "#6480a3" },
           { "name": "黄色", "hex": "#f0d95b" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-silver.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-pink.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-blue.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-11-yellow.usdz\" target=\"_blank\">黄色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad-11-silver.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-11-pink.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-11-blue.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-11-yellow.usdz\" target=\"_blank\">黄色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A16<br>(2P+3E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">6G LPDDR5<br>128G、256G、512G</div>",
         "display": "11\" Liquid LED",
@@ -115,7 +115,7 @@
     {
       "name": "iPad",
       "generation": "(第 10 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_10.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_10.webp",
       "data": {
         "slogan": "可圈可点可画心",
         "releaseDate": "2022.10.18",
@@ -127,7 +127,7 @@
           { "name": "蓝色", "hex": "#6480a3" },
           { "name": "黄色", "hex": "#f0d95b" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_silver_wifi_ios15.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_pink_wifi_ios15.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_blue_wifi_ios15.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_10gen_yellow_wifi_ios15.usdz\" target=\"_blank\">黄色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_10gen_silver_wifi_ios15.usdz\" target=\"_blank\">银色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad_10gen_pink_wifi_ios15.usdz\" target=\"_blank\">粉色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad_10gen_blue_wifi_ios15.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad_10gen_yellow_wifi_ios15.usdz\" target=\"_blank\">黄色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">4G LPDDR4X<br>64G、256G</div>",
         "display": "10.9\" Liquid LED",
@@ -153,7 +153,7 @@
     {
       "name": "iPad",
       "generation": "(第 9 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_9.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_9.webp",
       "data": {
         "slogan": "事事玩得转",
         "releaseDate": "2021.09.15",
@@ -163,7 +163,7 @@
           { "name": "深空灰色", "hex": "#68696e" },
           { "name": "银色", "hex": "#e2e3e4" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_9th_Gen_ios15_silver_wifi.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_9th_Gen_ios15_silver_wifi.usdz\" target=\"_blank\">银色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A13 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>64G、256G</div>",
         "display": "10.2\" LED",
@@ -189,7 +189,7 @@
     {
       "name": "iPad",
       "generation": "(第 8 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_8.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_8.webp",
       "data": {
         "slogan": "特有本事，特超值。",
         "releaseDate": "2020.09.16",
@@ -200,7 +200,7 @@
           { "name": "银色", "hex": "#e2e3e4" },
           { "name": "金色", "hex": "#f6cdb9" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_8th_Gen_ios13.usdz\" target=\"_blank\">金色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_8th_Gen_ios13.usdz\" target=\"_blank\">金色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A12 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4X<br>32G、128G</div>",
         "display": "10.2\" LED",
@@ -226,7 +226,7 @@
     {
       "name": "iPad",
       "generation": "(第 7 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_7.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_7.webp",
       "data": {
         "slogan": "这个电脑, 拿掉了电脑的条条框框。",
         "releaseDate": "2019.09.11",
@@ -237,7 +237,7 @@
           { "name": "银色", "hex": "#e2e3e4" },
           { "name": "金色", "hex": "#f6cdb9" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_7th_Gen_blsh_ios13.usdz\" target=\"_blank\">金色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_7th_Gen_blsh_ios13.usdz\" target=\"_blank\">金色</a>",
         "chip": "<div class=\"li-div-cpu li-div-cpu-b\">A10 Fusion<br>(2P+2E+6GPU)</div>",
         "ramRom": "<div class=\"li-div-npu li-div-npu-b\">3G LPDDR4<br>32G、128G</div>",
         "display": "10.2\" LED",
@@ -263,7 +263,7 @@
     {
       "name": "iPad",
       "generation": "(第 6 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_6.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_6.webp",
       "data": {
         "slogan": "这个电脑, 拿掉了电脑的条条框框。",
         "releaseDate": "2018.03.27",
@@ -300,7 +300,7 @@
     {
       "name": "iPad",
       "generation": "(第 5 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_5.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_5.webp",
       "data": {
         "slogan": "这方寸间，乐趣全开。",
         "releaseDate": "2017.03.21",
@@ -337,7 +337,7 @@
     {
       "name": "iPad",
       "generation": "(第 4 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_4.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_4.webp",
       "data": {
         "slogan": "绚丽夺目一如既往, 速度提升 2 倍。",
         "releaseDate": "2012.10.24",
@@ -373,7 +373,7 @@
     {
       "name": "iPad",
       "generation": "(第 3 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_3.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_3.webp",
       "data": {
         "slogan": "配备绚丽夺目的 Retina 显示屏",
         "releaseDate": "2012.03.08",
@@ -409,7 +409,7 @@
     {
       "name": "iPad 2",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_2.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_2.webp",
       "data": {
         "slogan": "薄了，轻了，快了。",
         "releaseDate": "2011.03.03",
@@ -445,7 +445,7 @@
     {
       "name": "iPad",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad/img/ipad_1.webp",
+      "image": "/apple-device/ipad/ipad/img/ipad_1.webp",
       "data": {
         "slogan": "奇妙与革命性的产品",
         "releaseDate": "2010.01.28",

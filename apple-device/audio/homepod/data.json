@@ -55,7 +55,7 @@
     {
       "name": "HomePod",
       "generation": "(第 2 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/homepod/img/homepod-2.webp",
+      "image": "/apple-device/audio/homepod/img/homepod-2.webp",
       "data": {
         "slogan": "声声有天地",
         "releaseDate": "2023.01.18",
@@ -64,7 +64,7 @@
           { "name": "白色", "hex": "#ffffff" },
           { "name": "午夜色", "hex": "#313232" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
+        "arLink": "<a href=\"/AR/homepod/homepod_2nd_gen_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">S7</div>",
         "ramRom": "1.5GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",
@@ -84,7 +84,7 @@
     {
       "name": "HomePod mini",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/homepod/img/homepod-mini.webp",
+      "image": "/apple-device/audio/homepod/img/homepod-mini.webp",
       "data": {
         "slogan": "小宇宙爆发。",
         "releaseDate": "2020.10.14",
@@ -97,7 +97,7 @@
           { "name": "午夜色", "hex": "#222428" },
           { "name": "深空灰色", "hex": "#36373a" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"https://asia.oss.simplehac.top/infodrop/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a href=\"/AR/homepod/homepod-mini-white.usdz\" target=\"_blank\">白色</a> <a href=\"/AR/homepod/homepod-mini-yellow.usdz\" target=\"_blank\">黄色</a> <a href=\"/AR/homepod/homepod-mini-orange.usdz\" target=\"_blank\">橙色</a> <a href=\"/AR/homepod/homepod-mini-blue.usdz\" target=\"_blank\">蓝色</a> <a href=\"/AR/homepod/homepod-mini-midnight.usdz\" target=\"_blank\">午夜色</a> <a href=\"/AR/homepod/homepod_mini_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">S5</div>",
         "ramRom": "1GB<br>32GB",
         "wifi": "802.11n 2.4&5GHz",
@@ -117,7 +117,7 @@
     {
       "name": "HomePod",
       "generation": "(第 1 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/audio/homepod/img/homepod-1.webp",
+      "image": "/apple-device/audio/homepod/img/homepod-1.webp",
       "data": {
         "slogan": "家的新声。",
         "releaseDate": "2017.06.06",

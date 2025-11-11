@@ -49,11 +49,11 @@
     {
       "name": "Apple H2",
       "generation": "(T2016)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H2.webp",
+      "image": "/apple-silicon/chip-h/img/H2.webp",
       "images": {
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H2.webp",
-        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H2_product.webp",
-        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/die/die_shot_H2_temp.webp"
+        "芯片图": "/apple-silicon/chip-h/img/H2.webp",
+        "宣传图": "/apple-silicon/chip-h/img/H2_product.webp",
+        "Die": "/apple-silicon/chip-h/img/die/die_shot_H2_temp.webp"
       },
       "data": {
         "displayType": [
@@ -72,10 +72,10 @@
     {
       "name": "Apple H1 SiP",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_SiP.webp",
+      "image": "/apple-silicon/chip-h/img/H1_SiP.webp",
       "images": {
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_SiP.webp",
-        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/die/die_shot_H1_temp.webp"
+        "芯片图": "/apple-silicon/chip-h/img/H1_SiP.webp",
+        "Die": "/apple-silicon/chip-h/img/die/die_shot_H1_temp.webp"
       },
       "data": {
         "displayType": [
@@ -93,12 +93,12 @@
     {
       "name": "Apple H1",
       "generation": "(343S00404/290/289)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_343S00404.webp",
+      "image": "/apple-silicon/chip-h/img/H1_343S00404.webp",
       "images": {
-        "404": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_343S00404.webp",
-        "290": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_343S00290.webp",
-        "289": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/H1_343S00289.webp",
-        "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-h/img/die/die_shot_H1_temp.webp"
+        "404": "/apple-silicon/chip-h/img/H1_343S00404.webp",
+        "290": "/apple-silicon/chip-h/img/H1_343S00290.webp",
+        "289": "/apple-silicon/chip-h/img/H1_343S00289.webp",
+        "Die": "/apple-silicon/chip-h/img/die/die_shot_H1_temp.webp"
       },
       "data": {
         "displayType": [

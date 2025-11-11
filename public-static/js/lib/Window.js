@@ -1,6 +1,6 @@
 import { webpMachine } from '../macui.js';
 import { rewriteElementPaths, scopeCss, loadScriptsSequentially } from './utils.js';
-import { renderComparisonTable, syncRowHeights } from './table-generator.js';
+import { initializeComparisonApp } from './table-generator.js';
 
 export class Window {
 
@@ -15,6 +15,7 @@ export class Window {
     this.preSnapRect = null;
     this.activeSnapZone = null;
     this.isUnsnapping = false;
+    this.loadId = 0;
     this._createDOM();
     this._setupEventListeners();
     this.loadContent();
@@ -248,13 +249,19 @@ export class Window {
 
   async loadContent(newUrl) {
     if (newUrl) this.url = newUrl;
+    this.loadId++;
+    const currentLoadId = this.loadId;
+
     let windowBody = this.element.querySelector('.macos-window-body');
     const headerActions = this.element.querySelector('.header-actions');
+
     if (this.state !== 'opening') {
         windowBody.style.transition = 'opacity 0.2s ease-out';
         windowBody.style.opacity = 0;
         await new Promise(resolve => setTimeout(resolve, 200));
     }
+    if (currentLoadId !== this.loadId) return;
+
     const newWindowBody = document.createElement('div');
     newWindowBody.className = 'macos-window-body';
     newWindowBody.style.overflowY = 'auto';
@@ -263,15 +270,15 @@ export class Window {
     windowBody.parentNode.replaceChild(newWindowBody, windowBody);
     windowBody = newWindowBody;
     headerActions.innerHTML = '';
+    this.element.querySelector('.edit-diff-popover')?.remove();
     document.querySelectorAll(`[data-dynamic-style-for="${this.id}"]`).forEach(s => s.remove());
+
     try {
         const isComparisonPage = this.url.includes('/apple-device/') || this.url.includes('/apple-silicon/');
+        
         if (isComparisonPage) {
             windowBody.classList.add('comparison-container');
-        } else {
-            windowBody.classList.remove('comparison-container');
-        }
-        if (isComparisonPage) {
+            
             const styleId = 'comparison-ui-style';
             if (!document.getElementById(styleId)) {
                 const link = document.createElement('link');
@@ -280,464 +287,22 @@ export class Window {
                 link.href = './public-static/css/comparison-table-ui.css';
                 document.head.appendChild(link);
             }
-            const resetButton = document.createElement('a');
-            resetButton.href = '#';
-            resetButton.className = 'header-btn reset-btn';
-            resetButton.textContent = '重置';
-            resetButton.style.display = 'none';
-            const filterButton = document.createElement('a');
-            filterButton.href = '#';
-            filterButton.className = 'header-btn filter-btn';
-            filterButton.textContent = '比较';
-            const editButton = document.createElement('a');
-            editButton.href = '#';
-            editButton.className = 'header-btn edit-btn';
-            editButton.textContent = '编辑';
-            const submitButton = document.createElement('a');
-            submitButton.href = '#';
-            submitButton.className = 'header-btn submit-btn';
-            submitButton.textContent = '提交';
-            submitButton.style.display = 'none';
-            headerActions.appendChild(resetButton);
-            headerActions.appendChild(filterButton);
-            headerActions.appendChild(editButton);
-            headerActions.appendChild(submitButton);
+            
             const jsonUrl = this.url + 'data.json';
-            const gridContainer = await renderComparisonTable(jsonUrl, windowBody, this.url);
-            if (gridContainer) {
-                this.element.querySelector('.edit-diff-popover')?.remove();
-                let isEditing = false;
-                const originalValues = new Map();
-                const modifiedKeys = new Set();
-                let history = [];
-                let historyIndex = -1;
-                let debounceTimer;
-                const diffPopover = document.createElement('div');
-                diffPopover.className = 'edit-diff-popover';
-                diffPopover.innerHTML = `
-                  <div class="popover-section">
-                    <strong>原始值:</strong>
-                    <div class="popover-content" id="popover-original-value"></div>
-                  </div>
-                `;
-                this.element.appendChild(diffPopover);
-                const applyState = (state) => {
-                    if (!state || !state.element) return;
-                    state.element.innerHTML = state.html;
-                    state.element.querySelectorAll('.info-square').forEach(square => {
-                        square.setAttribute('contenteditable', true);
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.className = 'delete-square-btn';
-                        deleteBtn.innerHTML = '&times;';
-                        if (!square.querySelector('.delete-square-btn')) {
-                            square.appendChild(deleteBtn);
-                        }
-                    });
-                    state.element.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
-                };
-                const saveState = (element) => {
-                    const currentState = element.innerHTML;
-                    if (history.length > 0 && history[historyIndex]?.html === currentState) {
-                        return;
-                    }
-                    if (historyIndex < history.length - 1) {
-                        history = history.slice(0, historyIndex + 1);
-                    }
-                    history.push({ element: element, html: currentState });
-                    historyIndex++;
-                };
-                const updateUI = (options = {}) => {
-                    const { shouldResetScroll = false } = options;
-                    const isFiltering = gridContainer.classList.contains('is-filtering');
-                    const hasSelection = gridContainer.querySelectorAll('.product-column.selected').length > 0;
-                    const showEditControls = isEditing;
-                    const showStandardControls = !isEditing;
-                    editButton.textContent = showEditControls ? '取消' : '编辑';
-                    submitButton.style.display = showEditControls ? 'inline-block' : 'none';
-                    filterButton.style.display = showStandardControls && !isFiltering ? 'inline-block' : 'none';
-                    resetButton.style.display = showStandardControls && isFiltering ? 'inline-block' : 'none';
-                    if (showStandardControls) {
-                        editButton.style.display = 'inline-block';
-                        filterButton.classList.toggle('active', hasSelection);
-                    } else {
-                        editButton.style.display = 'inline-block';
-                    }
-                    const targetElement = gridContainer.querySelector('.products-grid-container');
-                    if (targetElement) {
-                        if (isFiltering) {
-                            const clone = gridContainer.cloneNode(true);
-                            Object.assign(clone.style, {
-                                position: 'absolute', left: '-9999px', top: '-9999px',
-                                visibility: 'hidden', width: 'fit-content'
-                            });
-                            document.body.appendChild(clone);
-                            clone.querySelectorAll('.product-column:not(.selected)').forEach(col => col.style.display = 'none');
-                            targetElement.style.width = `${clone.scrollWidth}px`;
-                            document.body.removeChild(clone);
-                        } else {
-                            targetElement.style.width = '';
-                        }
-                    }
-                    if (shouldResetScroll) {
-                        windowBody.scrollTo({ left: 0, behavior: 'smooth' });
-                    }
-                };
-                editButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    isEditing = !isEditing;
-                    gridContainer.classList.toggle('edit-mode', isEditing);
-                    if (isEditing) {
-                        history = [];
-                        historyIndex = -1;
-                        originalValues.clear();
-                        modifiedKeys.clear();
-                        gridContainer.querySelectorAll('.data-list li').forEach(row => {
-                            const productId = row.dataset.productId;
-                            const featureId = row.dataset.featureId;
-                            if (!productId || !featureId) return;
-                            const rowKey = `${productId}---${featureId}`;
-                            if (row.classList.contains('multi-div-row')) {
-                                const wrapper = row.querySelector('.multi-div-wrapper');
-                                if (wrapper) {
-                                    originalValues.set(rowKey, wrapper.innerHTML.trim());
-                                }
-                            } else if (!row.classList.contains('is-complex')) {
-                                originalValues.set(rowKey, row.innerHTML.trim());
-                            }
-                        });
-                        gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
-                            const btn = document.createElement('button');
-                            btn.className = 'add-square-btn';
-                            btn.textContent = '+';
-                            row.appendChild(btn);
-                            row.querySelectorAll('.info-square').forEach(square => {
-                                square.setAttribute('contenteditable', true);
-                                const deleteBtn = document.createElement('button');
-                                deleteBtn.className = 'delete-square-btn';
-                                deleteBtn.innerHTML = '&times;';
-                                square.appendChild(deleteBtn);
-                            });
-                        });
-                        gridContainer.querySelectorAll('.data-list li:not(.multi-div-row):not(.is-complex)').forEach(row => {
-                            row.setAttribute('contenteditable', true);
-                        });
-                    } else {
-                        this.loadContent();
-                        return;
-                    }
-                    updateUI();
-                });
-                submitButton.addEventListener('click', async (e) => {
-                    e.preventDefault();
-                    if (modifiedKeys.size === 0) {
-                        alert('没有检测到任何修改。');
-                        return;
-                    }
-                    if (!confirm(`您确定要提交 ${modifiedKeys.size} 项修改吗？`)) {
-                        return;
-                    }
-                    const changesToSubmit = [];
-                    modifiedKeys.forEach(key => {
-                        const [productId, featureId] = key.split('---');
-                        const cell = gridContainer.querySelector(`li[data-product-id="${productId}"][data-feature-id="${featureId}"]`);
-                        if (cell) {
-                            const originalValue = originalValues.get(key);
-                            let newValue = '';
-                            if (cell.classList.contains('multi-div-row')) {
-                                const cleanCopy = cell.cloneNode(true);
-                                cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
-                                newValue = cleanCopy.innerHTML.trim();
-                            } else {
-                                newValue = cell.innerHTML.trim();
-                            }
-                            changesToSubmit.push({
-                                productId: productId,
-                                featureId: featureId,
-                                originalValue: originalValue,
-                                newValue: newValue.replace(/\u200b/g, '')
-                            });
-                        }
-                    });
-                    try {
-                        const response = await fetch('./upload/submit_changes.php', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                source: jsonUrl,
-                                timestamp: new Date().toISOString(),
-                                changes: changesToSubmit
-                            }),
-                        });
-                        if (response.ok) {
-                            alert('修改已成功提交，感谢您的贡献！');
-                            this.loadContent();
-                        } else {
-                            throw new Error(`服务器响应: ${response.status}`);
-                        }
-                    } catch (error) {
-                        console.error('提交修改时出错:', error);
-                        alert(`提交失败: ${error.message}`);
-                    }
-                });
-                gridContainer.addEventListener('focusin', (e) => {
-                    if (!isEditing || !e.target.hasAttribute('contenteditable')) return;
-                    const target = e.target;
-                    const row = target.closest('li');
-                    if (!row || !row.dataset.productId) return;
-                    const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
-                    const originalHTML = originalValues.get(rowKey) || '';
-                    diffPopover.querySelector('#popover-original-value').innerHTML = originalHTML;
-                    const cellRect = target.getBoundingClientRect();
-                    const windowRect = this.element.getBoundingClientRect();
-                    diffPopover.style.left = `${cellRect.left - windowRect.left}px`;
-                    diffPopover.style.top = `${cellRect.bottom - windowRect.top + 5}px`;
-                    diffPopover.style.display = 'block';
-                });
-                gridContainer.addEventListener('focusout', (e) => {
-                    if (!isEditing) return;
-                    diffPopover.style.display = 'none';
-                });
-                gridContainer.addEventListener('keydown', (e) => {
-                    const isUndo = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey;
-                    const isRedo = (e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'y' || (e.shiftKey && e.key.toLowerCase() === 'z'));
-                    if (isEditing && (isUndo || isRedo)) {
-                        e.preventDefault();
-                        if (isUndo) {
-                            if (historyIndex === 0) {
-                                const state = history[historyIndex];
-                                const row = state.element.closest('li');
-                                const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
-                                const originalHTML = originalValues.get(rowKey);
-                                applyState({ element: state.element, html: originalHTML });
-                                historyIndex--;
-                            } else if (historyIndex > 0) {
-                                historyIndex--;
-                                const stateToApply = history[historyIndex];
-                                applyState(stateToApply);
-                            }
-                        } else if (isRedo) {
-                            if (historyIndex < history.length - 1) {
-                                historyIndex++;
-                                const stateToApply = history[historyIndex];
-                                applyState(stateToApply);
-                            }
-                        }
-                        return;
-                    }
-                    if (!isEditing) return;
-                    const target = e.target;
-                    if (e.key === 'Enter' && target.getAttribute('contenteditable') === 'true') {
-                        e.preventDefault();
-                        document.execCommand('insertHTML', false, '<br>\u200b');
-                    }
-                    if (e.key === 'Backspace' && target.getAttribute('contenteditable') === 'true') {
-                        const selection = window.getSelection();
-                        if (!selection || !selection.isCollapsed) return;
-                        const range = selection.getRangeAt(0);
-                        const node = range.startContainer;
-                        const offset = range.startOffset;
-                        if (node.nodeType === Node.TEXT_NODE && offset === 1 && node.textContent.startsWith('\u200b')) {
-                            const prevSibling = node.previousSibling;
-                            if (prevSibling && prevSibling.nodeName === 'BR') {
-                                e.preventDefault();
-                                const textBeforeBr = prevSibling.previousSibling;
-                                let cursorNode = textBeforeBr;
-                                let cursorOffset = 0;
-                                if(cursorNode && cursorNode.nodeType === Node.TEXT_NODE) {
-                                    cursorOffset = cursorNode.textContent.length;
-                                } else {
-                                    cursorNode = node.parentElement;
-                                }
-                                const remainingText = node.textContent.substring(1);
-                                if (textBeforeBr && textBeforeBr.nodeType === Node.TEXT_NODE) {
-                                    textBeforeBr.textContent += remainingText;
-                                }
-                                prevSibling.remove();
-                                node.remove();
-                                const newRange = document.createRange();
-                                newRange.setStart(cursorNode, cursorOffset);
-                                newRange.collapse(true);
-                                selection.removeAllRanges();
-                                selection.addRange(newRange);
-                            }
-                        }
-                    }
-                });
-                gridContainer.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('add-square-btn')) {
-                        e.preventDefault();
-                        const wrapper = e.target.closest('.multi-div-row').querySelector('.multi-div-wrapper');
-                        if (!wrapper) return;
-                        const siblingSquare = wrapper.querySelector('.info-square');
-                        const allCurrentSquares = wrapper.querySelectorAll('.info-square');
-                        const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
-                        const lastColorRgb = lastSquare ? lastSquare.style.backgroundColor : '';
-                        const newSquare = document.createElement('div');
-                        newSquare.className = 'info-square';
-                        newSquare.setAttribute('contenteditable', 'true');
-                        if (siblingSquare) {
-                            newSquare.dataset.productId = siblingSquare.dataset.productId;
-                            newSquare.dataset.featureId = siblingSquare.dataset.featureId;
-                        }
-                        newSquare.innerHTML = '新内容';
-                        if (lastColorRgb) {
-                            newSquare.style.backgroundColor = lastColorRgb;
-                        }
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.className = 'delete-square-btn';
-                        deleteBtn.innerHTML = '&times;';
-                        newSquare.appendChild(deleteBtn);
-                        wrapper.appendChild(newSquare);
-                        newSquare.focus();
-                        saveState(wrapper);
-                        wrapper.dispatchEvent(new Event('input', { bubbles: true }));
-                    }
-                    if (e.target.classList.contains('delete-square-btn')) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const squareToDelete = e.target.closest('.info-square');
-                        const wrapper = squareToDelete?.closest('.multi-div-wrapper');
-                        if (squareToDelete && wrapper) {
-                            squareToDelete.blur();
-                            squareToDelete.remove();
-                            saveState(wrapper);
-                            wrapper.dispatchEvent(new Event('input', { bubbles: true }));
-                        }
-                    }
-                });
-                let productPressTarget = null;
-                let isTextSelectionDrag = false;
-                let pressTimer = null;
-                const PRESS_DELAY = 100;
-                gridContainer.addEventListener('mousedown', (e) => {
-                    if (isEditing) return;
-                    const product = e.target.closest('.product-column');
-                    if (product && !e.target.closest('a')) {
-                        productPressTarget = product;
-                        isTextSelectionDrag = false;
-                        clearTimeout(pressTimer);
-                        pressTimer = setTimeout(() => {
-                            if (productPressTarget) {
-                                product.classList.add('is-pressing');
-                            }
-                            pressTimer = null;
-                        }, PRESS_DELAY);
-                    } else {
-                        productPressTarget = null;
-                        isTextSelectionDrag = false;
-                        clearTimeout(pressTimer);
-                        pressTimer = null;
-                    }
-                });
-                gridContainer.addEventListener('mousemove', (e) => {
-                    if (productPressTarget) {
-                        isTextSelectionDrag = true;
-                        if (pressTimer) {
-                            clearTimeout(pressTimer);
-                            pressTimer = null;
-                        }
-                        productPressTarget.classList.remove('is-pressing');
-                        productPressTarget = null;
-                    }
-                });
-                gridContainer.addEventListener('mouseup', (e) => {
-                    const wasPressAndHold = !pressTimer && productPressTarget && productPressTarget.classList.contains('is-pressing');
-                    if (pressTimer) {
-                        clearTimeout(pressTimer);
-                        pressTimer = null;
-                    }
-                    if (productPressTarget && !isTextSelectionDrag) {
-                        const target = productPressTarget;
-                        if (!wasPressAndHold) {
-                            target.classList.add('is-pressing');
-                            setTimeout(() => {
-                                target.classList.remove('is-pressing');
-                            }, 150);
-                        } else {
-                            target.classList.remove('is-pressing');
-                        }
-                    } else if (productPressTarget) {
-                        productPressTarget.classList.remove('is-pressing');
-                    }
-                    productPressTarget = null;
-                });
-                gridContainer.addEventListener('dblclick', (e) => {
-                    if (isEditing) return;
-                    const product = e.target.closest('.product-column');
-                    if (product && !e.target.closest('a')) {
-                        e.preventDefault();
-                    }
-                });
-                gridContainer.addEventListener('click', (e) => {
-                    if(isEditing) return;
-                    const product = e.target.closest('.product-column');
-                    if (!product || e.target.closest('a') ) return;
-                    if (isTextSelectionDrag) {
-                        isTextSelectionDrag = false;
-                        return;
-                    }
-                    e.preventDefault();
-                    product.classList.toggle('selected');
-                    updateUI();
-                });
-                filterButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (filterButton.classList.contains('active')) {
-                        gridContainer.classList.add('is-filtering');
-                        updateUI({ shouldResetScroll: true });
-                    }
-                });
-                resetButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    gridContainer.querySelectorAll('.product-column.selected').forEach(col => {
-                        col.classList.remove('selected');
-                    });
-                    gridContainer.classList.remove('is-filtering');
-                    updateUI({ shouldResetScroll: true });
-                });
-                gridContainer.addEventListener('input', (e) => {
-                    if (!isEditing) return;
-                    const target = e.target;
-                    const row = target.closest('.data-list li');
-                    if (!row) return;
-                    let elementToSaveForHistory = null;
-                    if (row.classList.contains('multi-div-row')) {
-                        elementToSaveForHistory = row.querySelector('.multi-div-wrapper');
-                    } else if (!row.classList.contains('is-complex')) {
-                        elementToSaveForHistory = row;
-                    }
-                    if (elementToSaveForHistory) {
-                        clearTimeout(debounceTimer);
-                        debounceTimer = setTimeout(() => {
-                           saveState(elementToSaveForHistory);
-                        }, 300);
-                    }
-                    const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
-                    let currentCellValue = '';
-                    if (row.classList.contains('multi-div-row')) {
-                       const wrapper = row.querySelector('.multi-div-wrapper');
-                       if(wrapper){
-                           const cleanCopy = wrapper.cloneNode(true);
-                           cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
-                           currentCellValue = cleanCopy.innerHTML.trim();
-                       }
-                    } else {
-                        currentCellValue = row.innerHTML.trim();
-                    }
-                    if (currentCellValue !== originalValues.get(rowKey)) {
-                         modifiedKeys.add(rowKey);
-                    } else {
-                        modifiedKeys.delete(rowKey);
-                    }
-                    submitButton.classList.toggle('active', modifiedKeys.size > 0);
-                });
-                updateUI();
-                syncRowHeights(gridContainer);
-            }
+            const reloadCallback = () => this.loadContent(this.url);
+            
+            await initializeComparisonApp(windowBody, jsonUrl, this.url, headerActions, reloadCallback);
+            if (currentLoadId !== this.loadId) return;
+
         } else {
+            windowBody.classList.remove('comparison-container');
+            
             const response = await fetch(this.url);
+            if (currentLoadId !== this.loadId) return;
+            
             if (!response.ok) throw new Error(`网络请求失败: ${response.status}`);
             let htmlText = await response.text();
+            
             const modifiedHtmlText = htmlText.replace(/(<script\b[^>]*>)([\s\S]*?)(<\/script>)/gi, (match, openTag, scriptContent, closeTag) => {
                 const newScriptContent = scriptContent.replace(
                     /document\.querySelector\((['"])(\.main-content)\1\)/g,
@@ -745,6 +310,7 @@ export class Window {
                 );
                 return openTag + newScriptContent + closeTag;
             });
+            
             const parser = new DOMParser();
             const doc = parser.parseFromString(modifiedHtmlText, 'text/html');
             doc.head.querySelectorAll('link[rel="stylesheet"]').forEach(linkNode => {
@@ -764,20 +330,28 @@ export class Window {
                 newStyle.dataset.dynamicStyleFor = this.id;
                 document.head.appendChild(newStyle);
             });
-            const content = doc.body.firstElementChild;
+            const scripts = Array.from(doc.querySelectorAll('script'));
+            scripts.forEach(script => script.remove());
+            
             windowBody.innerHTML = '';
-            if (content) {
-                rewriteElementPaths(content, response.url);
-                windowBody.appendChild(content);
-            } else {
-                windowBody.innerHTML = `<div style="padding: 20px;">无法加载内容或页面为空。</div>`;
-            }
-            loadScriptsSequentially(Array.from(doc.querySelectorAll('script')), response.url, windowBody);
+            windowBody.append(...doc.body.childNodes);
+            rewriteElementPaths(windowBody, response.url);
+            loadScriptsSequentially(
+                scripts,
+                response.url,
+                windowBody,
+                currentLoadId,
+                () => this.loadId
+            );
         }
     } catch (error) {
         console.error('加载窗口内容时出错:', error);
-        windowBody.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">内容加载失败。<br>${error.message}</div>`;
+        if (currentLoadId === this.loadId) {
+          windowBody.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">内容加载失败。<br>${error.message}</div>`;
+        }
     } finally {
+        if (currentLoadId !== this.loadId) return;
+        
         this.state = this.element.classList.contains('is-maximized') ? 'maximized' : 'open';
         requestAnimationFrame(() => {
             this.element.classList.remove('is-opening');
@@ -793,7 +367,55 @@ export class Window {
 
   updateTitle(newTitle) { this.title = newTitle; this.element.querySelector('.macos-window-title').textContent = newTitle; }
   bringToFront() { this.element.style.zIndex = this.manager.getNextZIndex(); }
-  close() { if (this.state === 'closing') return; this.state = 'closing'; this.element.classList.add('is-closing'); this.element.addEventListener('animationend', () => { this.manager.destroyWindow(this.url); }, { once: true }); }
+  close() {
+    if (this.state === 'closing') {
+        return;
+    }
+    this.state = 'closing';
+    this.loadId++;
+    this.element.querySelector('.edit-diff-popover')?.remove();
+    document.querySelectorAll(`[data-dynamic-style-for="${this.id}"]`).forEach(s => s.remove());
+    const windowInstance = this;
+    const element = this.element;
+    element.style.animation = 'none';
+    element.offsetHeight;
+    const rect = element.getBoundingClientRect();
+    const containerRect = this.manager.mainContentArea.getBoundingClientRect();
+    const currentLeft = rect.left - containerRect.left;
+    const currentTop = rect.top - containerRect.top;
+    const currentWidth = rect.width;
+    const currentHeight = rect.height;
+    const style = window.getComputedStyle(element);
+    const currentOpacity = parseFloat(style.opacity);
+    const currentTransform = style.getPropertyValue('transform') === 'none' ? '' : style.getPropertyValue('transform');
+    element.classList.remove('is-opening', 'is-snapped', 'is-maximized');
+    element.classList.remove('is-closing');
+    element.style.left = `${currentLeft}px`;
+    element.style.top = `${currentTop}px`;
+    element.style.width = `${currentWidth}px`;
+    element.style.height = `${currentHeight}px`;
+    element.style.opacity = currentOpacity;
+    element.style.transform = currentTransform;
+    const transitionDuration = 0;
+    element.style.transition = `opacity ${transitionDuration}ms ease-out, transform ${transitionDuration}ms ease-out, left ${transitionDuration}ms ease-out, top ${transitionDuration}ms ease-out, width ${transitionDuration}ms ease-out, height ${transitionDuration}ms ease-out`;
+    const windowBody = element.querySelector('.macos-window-body');
+    if (windowBody) {
+        windowBody.style.transition = 'none';
+        windowBody.style.opacity = 1;
+    }
+    requestAnimationFrame(() => {
+        element.style.transition = 'none';
+        element.classList.add('is-closing');
+        element.style.animation = '';
+        function onAnimationEnd(e) {
+            if (e.animationName === 'dissipate-like-smoke') {
+                this.removeEventListener('animationend', onAnimationEnd);
+                windowInstance.manager.destroyWindow(windowInstance.url);
+            }
+        }
+        element.addEventListener('animationend', onAnimationEnd.bind(element));
+    });
+  }
   
   toggleMaximize(force = false) {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;

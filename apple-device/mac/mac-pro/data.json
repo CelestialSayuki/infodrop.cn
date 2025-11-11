@@ -62,7 +62,7 @@
     {
       "name": "Mac Pro",
       "generation": "(机架式, 2023 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-pro/img/mac-pro-rack-2019-240.webp",
+      "image": "/apple-device/mac/mac-pro/img/mac-pro-rack-2019-240.webp",
       "data": {
         "slogan": "逆天性能，纯标配。",
         "releaseDate": "2023.06.06",
@@ -90,14 +90,14 @@
     {
       "name": "Mac Pro",
       "generation": "(2023 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-pro/img/mac-pro-2019-240.webp",
+      "image": "/apple-device/mac/mac-pro/img/mac-pro-2019-240.webp",
       "data": {
         "slogan": "逆天性能，纯标配。",
         "releaseDate": "2023.06.06",
         "supportedOS": "macOS 13 ~ 最新",
         "modelIdentifier": "Mac14,8",
         "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_pro_2023_ios16.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/mac_pro_2023_ios16.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N5P",
         "chipInfo": "M2 Ultra<br>(16P+8E Core)",
         "gpuInfo": "Apple ×60 / Apple ×76",
@@ -118,7 +118,7 @@
     {
       "name": "Mac Pro",
       "generation": "(机架式, 2019 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-pro/img/mac-pro-rack-2019-240.webp",
+      "image": "/apple-device/mac/mac-pro/img/mac-pro-rack-2019-240.webp",
       "data": {
         "slogan": "以实力刷新一切。",
         "releaseDate": "2019.06.04",
@@ -146,14 +146,14 @@
     {
       "name": "Mac Pro",
       "generation": "(2019 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-pro/img/mac-pro-2019-240.webp",
+      "image": "/apple-device/mac/mac-pro/img/mac-pro-2019-240.webp",
       "data": {
         "slogan": "以实力刷新一切。",
         "releaseDate": "2019.06.04",
         "supportedOS": "macOS 10.15 ~ 最新",
         "modelIdentifier": "MacPro7,1",
         "colors": [{ "name": "银色", "hex": "#e3e4e5" }],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_pro_2019_on.usdz\" target=\"_blank\">含外壳</a><br><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_pro_2019_off.usdz\" target=\"_blank\">不含外壳</a>",
+        "arLink": "<a href=\"/AR/mac/mac_pro_2019_on.usdz\" target=\"_blank\">含外壳</a><br><a href=\"/AR/mac/mac_pro_2019_off.usdz\" target=\"_blank\">不含外壳</a>",
         "chipProcess": "Intel 14nm (Cascade Lake)",
         "chipInfo": "Intel Xeon W-3223,3235<br>3245,3265M,3275M",
         "gpuInfo": "580X,W5500X,5700X,6600X<br>W6900X,6800X/Duo,Vega II/Duo",
@@ -174,7 +174,7 @@
     {
       "name": "Mac Pro",
       "generation": "(2013 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-pro/img/mac-pro-late2013-240.webp",
+      "image": "/apple-device/mac/mac-pro/img/mac-pro-late2013-240.webp",
       "data": {
         "slogan": "专业台式电脑的未来，先睹为快。",
         "releaseDate": "2013.06.10",

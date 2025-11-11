@@ -56,7 +56,7 @@
     {
       "name": "Mac mini",
       "generation": "(2024 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2024.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2024.webp",
       "data": {
         "slogan": "尺寸暴减，实力却暴涨。",
         "releaseDate": "2024.10.29",
@@ -65,7 +65,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2024_silver.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/mac_mini_2024_silver.usdz\" target=\"_blank\">银色</a>",
         "process": "TSMC N3E",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(4P+6E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Pro<br>(8/10P+4E)</div>",
         "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/20</div>",
@@ -85,7 +85,7 @@
     {
       "name": "Mac mini",
       "generation": "(2023 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2023.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2023.webp",
       "data": {
         "slogan": "涨内力，添迅猛。",
         "releaseDate": "2023.01.18",
@@ -94,7 +94,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2023_m2_pro_chip_silver_ios15.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/mac_mini_2023_m2_pro_chip_silver_ios15.usdz\" target=\"_blank\">银色</a>",
         "process": "TSMC N5P",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"M2\">M2<br>(4P+4E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"M2 Pro\">M2 Pro<br>(6/8P+4E)</div>",
         "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/19</div>",
@@ -114,7 +114,7 @@
     {
       "name": "Mac mini",
       "generation": "(M1, 2020 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2020.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2020.webp",
       "data": {
         "slogan": "平添内力，更霸气。",
         "releaseDate": "2020.11.11",
@@ -123,7 +123,7 @@
         "colors": [
           { "name": "银色", "hex": "#c7c8ca" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/mac_mini_2020_m1_silver_ios12.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/mac_mini_2020_m1_silver_ios12.usdz\" target=\"_blank\">银色</a>",
         "process": "TSMC N5",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\" title=\"八核 M1\">M1<br>(4P+4E Core)</div>",
         "gpu": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\" title=\"八核 M1\">Apple ×8</div>",
@@ -143,7 +143,7 @@
     {
       "name": "Developer Transition Kit",
       "generation": "Apple Development Platform",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
       "data": {
         "slogan": "Get your Universal apps ready.",
         "releaseDate": "2020.06.22",
@@ -172,7 +172,7 @@
     {
       "name": "Mac mini",
       "generation": "(2018 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2018.webp",
       "data": {
         "slogan": "全身大改造。",
         "releaseDate": "2018.10.31",
@@ -201,7 +201,7 @@
     {
       "name": "Mac mini",
       "generation": "(2014 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2014.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2014.webp",
       "data": {
         "slogan": "小身材，大作为。",
         "releaseDate": "2014.10.17",
@@ -230,7 +230,7 @@
     {
       "name": "Mac mini Server",
       "generation": "(2012 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2012-server.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2012-server.webp",
       "data": {
         "slogan": "操作 DIY，台面随便摆。",
         "releaseDate": "2012.10.24",
@@ -259,7 +259,7 @@
     {
       "name": "Mac mini",
       "generation": "(2012 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2012.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2012.webp",
       "data": {
         "slogan": "不变强，只变强。",
         "releaseDate": "2012.10.24",
@@ -288,7 +288,7 @@
     {
       "name": "Mac mini Server",
       "generation": "(2011 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2011-server.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2011-server.webp",
       "data": {
         "slogan": "小小服务器，四核威力重拳出击。",
         "releaseDate": "2011.07.21",
@@ -317,7 +317,7 @@
     {
       "name": "Mac mini",
       "generation": "(2011 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2011.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2011.webp",
       "data": {
         "slogan": "小的仅是身材而已。",
         "releaseDate": "2011.07.21",
@@ -346,7 +346,7 @@
     {
       "name": "Mac mini Server",
       "generation": "(2010 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2010-server.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2010-server.webp",
       "data": {
         "slogan": "服务器虽小，本事却大。",
         "releaseDate": "2010.06.15",
@@ -375,7 +375,7 @@
     {
       "name": "Mac mini",
       "generation": "(2010 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2010.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2010.webp",
       "data": {
         "slogan": "小个子，大改变。",
         "releaseDate": "2010.06.15",
@@ -404,7 +404,7 @@
     {
       "name": "Mac mini",
       "generation": "(2009 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2009-10.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2009-10.webp",
       "data": {
         "slogan": "更大内存，更快处理器。",
         "releaseDate": "2009.10.21",
@@ -433,7 +433,7 @@
     {
       "name": "Mac mini",
       "generation": "(2009 年初)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2009-03.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2009-03.webp",
       "data": {
         "slogan": "能效最高的苹果桌面式电脑。",
         "releaseDate": "2009.03.04",
@@ -462,7 +462,7 @@
     {
       "name": "Mac mini",
       "generation": "(2007 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/mac-mini/img/mac-mini-2007.webp",
+      "image": "/apple-device/mac/mac-mini/img/mac-mini-2007.webp",
       "data": {
         "slogan": "小即是美",
         "releaseDate": "2007.08.08",

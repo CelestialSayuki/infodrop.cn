@@ -1,5 +1,17 @@
 import { webpMachine } from '../macui.js';
 
+const CDN_DOMAIN_PREFIX = 'https://asia.oss.simplehac.top/infodrop';
+
+function getFullCdnPath(relativePath) {
+  if (!relativePath) {
+    return '#';
+  }
+  if (relativePath.startsWith('/')) {
+    relativePath = relativePath.substring(1);
+  }
+  return `${CDN_DOMAIN_PREFIX}/${relativePath}`;
+}
+
 export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
   try {
     const response = await fetch(jsonUrl);
@@ -34,7 +46,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
       const contentWrapper = document.createElement('div');
       contentWrapper.className = 'product-content-wrapper';
 
-      const imageUrl = new URL(product.image, new URL(baseUrl, window.location.origin)).href;
+      const imageUrl = getFullCdnPath(product.image);
       const generationText = product.generation || '&nbsp;';
 
       contentWrapper.innerHTML = `
@@ -79,7 +91,10 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
               const doc = parser.parseFromString(value, 'text/html');
               const links = Array.from(doc.querySelectorAll('a'));
               const arLinksHTML = links.map(link => {
-                const href = link.href;
+                
+                const relativeHref = link.getAttribute('href');
+                const href = getFullCdnPath(relativeHref);
+                
                 const name = link.textContent.trim();
                 let colorHex = '#ffffff';
                 if (product.data.colors && product.data.colors.length > 0) {
@@ -175,12 +190,13 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
           overlay.style.transition = 'clip-path 2s cubic-bezier(0.33, 0.66, 0.66, 1)';
           overlay.style.clipPath = `circle(250% at ${x}px ${y}px)`;
         }, 16);
-
       } else if (event.target.classList.contains('image-swap-link')) {
         const link = event.target;
         const imgSrc = link.dataset.imgSrc;
         if (imgSrc) {
-          const newSrc = new URL(imgSrc, new URL(baseUrl, window.location.origin)).href;
+          
+          const newSrc = getFullCdnPath(imgSrc);
+          
           const productColumn = link.closest('.product-column');
           if (productColumn) {
             const image = productColumn.querySelector('.product-image');
@@ -232,14 +248,15 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
         let isCurrentlyShowingDie = imageElementToOpen.dataset.currentImageType === 'Die';
 
         if (!isCurrentlyShowingDie && isDieObjectType) {
-          const dieUrls = Object.values(product.images.Die).map(url => new URL(url, new URL(baseUrl, window.location.origin)).href);
+          
+          const dieUrls = Object.values(product.images.Die).map(url => getFullCdnPath(url));
+          
           if (dieUrls.includes(imageElementToOpen.src)) {
             isCurrentlyShowingDie = true;
           }
         }
-
+        
         const shouldShowToggleButton = isToggleableDie && isCurrentlyShowingDie;
-
         const styleId = 'viewer-glass-styles';
         const filterId = 'viewer-glass-distortion';
         if (!document.getElementById(styleId)) {
@@ -570,10 +587,9 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
             img.src = url;
           });
           try {
-            const resolvedBaseUrl = new URL(baseUrl, window.location.origin);
-            const viewPromises = Object.entries(product.images.Die).map(([name, url]) => getDimensions(new URL(url, resolvedBaseUrl).href).then(dims => ({
+            const viewPromises = Object.entries(product.images.Die).map(([name, url]) => getDimensions(getFullCdnPath(url)).then(dims => ({
               name,
-              url: new URL(url, resolvedBaseUrl).href,
+              url: getFullCdnPath(url),
               ...dims
             })));
             dieViewData = await Promise.all(viewPromises);
@@ -678,6 +694,7 @@ export async function renderComparisonTable(jsonUrl, targetElement, baseUrl) {
 
   } catch (error) {
     targetElement.innerHTML = `<div style="color:red; text-align:center; padding: 50px;">加载对比数据失败。<br>${error.message}</div>`;
+    return null;
   }
 }
 
@@ -735,4 +752,539 @@ export function syncRowHeights(gridContainer) {
       });
     });
   });
+}
+
+function _attachComparisonAppLogic(gridContainer, headerActions, jsonUrl, reloadCallback) {
+    const resetButton = document.createElement('a');
+    resetButton.href = '#';
+    resetButton.className = 'header-btn reset-btn';
+    resetButton.textContent = '重置';
+    resetButton.style.display = 'none';
+    
+    const filterButton = document.createElement('a');
+    filterButton.href = '#';
+    filterButton.className = 'header-btn filter-btn';
+    filterButton.textContent = '比较';
+    
+    const editButton = document.createElement('a');
+    editButton.href = '#';
+    editButton.className = 'header-btn edit-btn';
+    editButton.textContent = '编辑';
+    
+    const submitButton = document.createElement('a');
+    submitButton.href = '#';
+    submitButton.className = 'header-btn submit-btn';
+    submitButton.textContent = '提交';
+    submitButton.style.display = 'none';
+
+    headerActions.appendChild(resetButton);
+    headerActions.appendChild(filterButton);
+    headerActions.appendChild(editButton);
+    headerActions.appendChild(submitButton);
+
+    const windowBody = gridContainer.closest('.macos-window-body');
+    const windowElement = gridContainer.closest('.macos-window');
+
+    let isEditing = false;
+    const originalValues = new Map();
+    const modifiedKeys = new Set();
+    let history = [];
+    let historyIndex = -1;
+    let debounceTimer;
+
+    const diffPopover = document.createElement('div');
+    diffPopover.className = 'edit-diff-popover';
+    diffPopover.innerHTML = `
+      <div class="popover-section">
+        <strong>原始值:</strong>
+        <div class="popover-content" id="popover-original-value"></div>
+      </div>
+    `;
+    windowElement.appendChild(diffPopover);
+
+    const applyState = (state) => {
+        if (!state || !state.element) return;
+        state.element.innerHTML = state.html;
+        state.element.querySelectorAll('.info-square').forEach(square => {
+            square.setAttribute('contenteditable', true);
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-square-btn';
+            deleteBtn.innerHTML = '&times;';
+            if (!square.querySelector('.delete-square-btn')) {
+                square.appendChild(deleteBtn);
+            }
+        });
+        state.element.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
+    };
+
+    const saveState = (element) => {
+        const currentState = element.innerHTML;
+        if (history.length > 0 && history[historyIndex]?.html === currentState) {
+            return;
+        }
+        if (historyIndex < history.length - 1) {
+            history = history.slice(0, historyIndex + 1);
+        }
+        history.push({ element: element, html: currentState });
+        historyIndex++;
+    };
+
+    const updateUI = (options = {}) => {
+        const { shouldResetScroll = false } = options;
+        const isFiltering = gridContainer.classList.contains('is-filtering');
+        const hasSelection = gridContainer.querySelectorAll('.product-column.selected').length > 0;
+        const showEditControls = isEditing;
+        const showStandardControls = !isEditing;
+        
+        editButton.textContent = showEditControls ? '取消' : '编辑';
+        submitButton.style.display = showEditControls ? 'inline-block' : 'none';
+        filterButton.style.display = showStandardControls && !isFiltering ? 'inline-block' : 'none';
+        resetButton.style.display = showStandardControls && isFiltering ? 'inline-block' : 'none';
+        
+        if (showStandardControls) {
+            editButton.style.display = 'inline-block';
+            filterButton.classList.toggle('active', hasSelection);
+        } else {
+            editButton.style.display = 'inline-block';
+        }
+
+        const targetElement = gridContainer.querySelector('.products-grid-container');
+        if (targetElement) {
+            if (isFiltering) {
+                const clone = gridContainer.cloneNode(true);
+                Object.assign(clone.style, {
+                    position: 'absolute', left: '-9999px', top: '-9999px',
+                    visibility: 'hidden', width: 'fit-content'
+                });
+                document.body.appendChild(clone);
+                clone.querySelectorAll('.product-column:not(.selected)').forEach(col => col.style.display = 'none');
+                targetElement.style.width = `${clone.scrollWidth}px`;
+                document.body.removeChild(clone);
+            } else {
+                targetElement.style.width = '';
+            }
+        }
+        if (shouldResetScroll && windowBody) {
+            windowBody.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+    };
+
+    editButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        isEditing = !isEditing;
+        gridContainer.classList.toggle('edit-mode', isEditing);
+        
+        if (isEditing) {
+            history = [];
+            historyIndex = -1;
+            originalValues.clear();
+            modifiedKeys.clear();
+            
+            gridContainer.querySelectorAll('.data-list li').forEach(row => {
+                const productId = row.dataset.productId;
+                const featureId = row.dataset.featureId;
+                if (!productId || !featureId) return;
+                const rowKey = `${productId}---${featureId}`;
+                if (row.classList.contains('multi-div-row')) {
+                    const wrapper = row.querySelector('.multi-div-wrapper');
+                    if (wrapper) {
+                        originalValues.set(rowKey, wrapper.innerHTML.trim());
+                    }
+                } else if (!row.classList.contains('is-complex')) {
+                    originalValues.set(rowKey, row.innerHTML.trim());
+                }
+            });
+            
+            gridContainer.querySelectorAll('.multi-div-row').forEach(row => {
+                const btn = document.createElement('button');
+                btn.className = 'add-square-btn';
+                btn.textContent = '+';
+                row.appendChild(btn);
+                row.querySelectorAll('.info-square').forEach(square => {
+                    square.setAttribute('contenteditable', true);
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'delete-square-btn';
+                    deleteBtn.innerHTML = '&times;';
+                    square.appendChild(deleteBtn);
+                });
+            });
+            gridContainer.querySelectorAll('.data-list li:not(.multi-div-row):not(.is-complex)').forEach(row => {
+                row.setAttribute('contenteditable', true);
+            });
+        } else {
+            diffPopover.remove();
+            
+            if (reloadCallback) {
+                reloadCallback();
+                return;
+            } else {
+                gridContainer.classList.remove('edit-mode');
+                gridContainer.querySelectorAll('.add-square-btn').forEach(b => b.remove());
+                gridContainer.querySelectorAll('.delete-square-btn').forEach(b => b.remove());
+                gridContainer.querySelectorAll('[contenteditable="true"]').forEach(el => el.setAttribute('contenteditable', 'false'));
+                originalValues.forEach((html, key) => {
+                    const [productId, featureId] = key.split('---');
+                    const row = gridContainer.querySelector(`li[data-product-id="${productId}"][data-feature-id="${featureId}"]`);
+                    if (row) {
+                        if (row.classList.contains('multi-div-row')) {
+                            row.querySelector('.multi-div-wrapper').innerHTML = html;
+                        } else {
+                            row.innerHTML = html;
+                        }
+                    }
+                });
+            }
+        }
+        updateUI();
+    });
+
+    submitButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+        if (modifiedKeys.size === 0) {
+            alert('没有检测到任何修改。');
+            return;
+        }
+        if (!confirm(`您确定要提交 ${modifiedKeys.size} 项修改吗？`)) {
+            return;
+        }
+        const changesToSubmit = [];
+        modifiedKeys.forEach(key => {
+            const [productId, featureId] = key.split('---');
+            const cell = gridContainer.querySelector(`li[data-product-id="${productId}"][data-feature-id="${featureId}"]`);
+            if (cell) {
+                const originalValue = originalValues.get(rowKey);
+                let newValue = '';
+                if (cell.classList.contains('multi-div-row')) {
+                    const cleanCopy = cell.cloneNode(true);
+                    cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+                    newValue = cleanCopy.querySelector('.multi-div-wrapper').innerHTML.trim();
+                } else {
+                    newValue = cell.innerHTML.trim();
+                }
+                changesToSubmit.push({
+                    productId: productId,
+                    featureId: featureId,
+                    originalValue: originalValue,
+                    newValue: newValue.replace(/\u200b/g, '')
+                });
+            }
+        });
+        
+        try {
+            const response = await fetch('./upload/submit_changes.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    source: jsonUrl,
+                    timestamp: new Date().toISOString(),
+                    changes: changesToSubmit
+                }),
+            });
+            if (response.ok) {
+                alert('修改已成功提交，感谢您的贡献！');
+                if (reloadCallback) {
+                    diffPopover.remove();
+                    reloadCallback();
+                } else {
+                    editButton.click();
+                }
+            } else {
+                throw new Error(`服务器响应: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('提交修改时出错:', error);
+            alert(`提交失败: ${error.message}`);
+        }
+    });
+
+    filterButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (filterButton.classList.contains('active')) {
+            gridContainer.classList.add('is-filtering');
+            updateUI({ shouldResetScroll: true });
+        }
+    });
+
+    resetButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        gridContainer.querySelectorAll('.product-column.selected').forEach(col => {
+            col.classList.remove('selected');
+        });
+        gridContainer.classList.remove('is-filtering');
+        updateUI({ shouldResetScroll: true });
+    });
+
+    gridContainer.addEventListener('focusin', (e) => {
+        if (!isEditing || !e.target.hasAttribute('contenteditable')) return;
+        const target = e.target;
+        const row = target.closest('li');
+        if (!row || !row.dataset.productId) return;
+        const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+        const originalHTML = originalValues.get(rowKey) || '';
+        
+        diffPopover.querySelector('#popover-original-value').innerHTML = originalHTML;
+        const cellRect = target.getBoundingClientRect();
+        const windowRect = windowElement.getBoundingClientRect();
+        diffPopover.style.left = `${cellRect.left - windowRect.left}px`;
+        diffPopover.style.top = `${cellRect.bottom - windowRect.top + 5}px`;
+        diffPopover.style.display = 'block';
+    });
+
+    gridContainer.addEventListener('focusout', (e) => {
+        if (!isEditing) return;
+        diffPopover.style.display = 'none';
+    });
+
+    gridContainer.addEventListener('keydown', (e) => {
+        const isUndo = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey;
+        const isRedo = (e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'y' || (e.shiftKey && e.key.toLowerCase() === 'z'));
+        
+        if (isEditing && (isUndo || isRedo)) {
+            e.preventDefault();
+            if (isUndo) {
+                if (historyIndex === 0) {
+                    const state = history[historyIndex];
+                    const row = state.element.closest('li');
+                    const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+                    const originalHTML = originalValues.get(rowKey);
+                    applyState({ element: state.element, html: originalHTML });
+                    historyIndex--;
+                } else if (historyIndex > 0) {
+                    historyIndex--;
+                    const stateToApply = history[historyIndex];
+                    applyState(stateToApply);
+                }
+            } else if (isRedo) {
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    const stateToApply = history[historyIndex];
+                    applyState(stateToApply);
+                }
+            }
+            return;
+        }
+        if (!isEditing) return;
+        
+        const target = e.target;
+        if (e.key === 'Enter' && target.getAttribute('contenteditable') === 'true') {
+            e.preventDefault();
+            document.execCommand('insertHTML', false, '<br>\u200b');
+        }
+        if (e.key === 'Backspace' && target.getAttribute('contenteditable') === 'true') {
+            const selection = window.getSelection();
+            if (!selection || !selection.isCollapsed) return;
+            const range = selection.getRangeAt(0);
+            const node = range.startContainer;
+            const offset = range.startOffset;
+            if (node.nodeType === Node.TEXT_NODE && offset === 1 && node.textContent.startsWith('\u200b')) {
+                const prevSibling = node.previousSibling;
+                if (prevSibling && prevSibling.nodeName === 'BR') {
+                    e.preventDefault();
+                    const textBeforeBr = prevSibling.previousSibling;
+                    let cursorNode = textBeforeBr;
+                    let cursorOffset = 0;
+                    if(cursorNode && cursorNode.nodeType === Node.TEXT_NODE) {
+                        cursorOffset = cursorNode.textContent.length;
+                    } else {
+                        cursorNode = node.parentElement;
+                    }
+                    const remainingText = node.textContent.substring(1);
+                    if (textBeforeBr && textBeforeBr.nodeType === Node.TEXT_NODE) {
+                        textBeforeBr.textContent += remainingText;
+                    }
+                    prevSibling.remove();
+                    node.remove();
+                    const newRange = document.createRange();
+                    newRange.setStart(cursorNode, cursorOffset);
+                    newRange.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(newRange);
+                }
+            }
+        }
+    });
+
+    gridContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('add-square-btn')) {
+            e.preventDefault();
+            const wrapper = e.target.closest('.multi-div-row').querySelector('.multi-div-wrapper');
+            if (!wrapper) return;
+            const siblingSquare = wrapper.querySelector('.info-square');
+            const allCurrentSquares = wrapper.querySelectorAll('.info-square');
+            const lastSquare = allCurrentSquares.length > 0 ? allCurrentSquares[allCurrentSquares.length - 1] : null;
+            const lastColorRgb = lastSquare ? lastSquare.style.backgroundColor : '';
+            
+            const newSquare = document.createElement('div');
+            newSquare.className = 'info-square';
+            newSquare.setAttribute('contenteditable', 'true');
+            if (siblingSquare) {
+                newSquare.dataset.productId = siblingSquare.dataset.productId;
+                newSquare.dataset.featureId = siblingSquare.dataset.featureId;
+            }
+            newSquare.innerHTML = '新内容';
+            if (lastColorRgb) {
+                newSquare.style.backgroundColor = lastColorRgb;
+            }
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-square-btn';
+            deleteBtn.innerHTML = '&times;';
+            newSquare.appendChild(deleteBtn);
+            
+            wrapper.appendChild(newSquare);
+            newSquare.focus();
+            
+            saveState(wrapper);
+            wrapper.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        
+        if (e.target.classList.contains('delete-square-btn')) {
+            e.preventDefault();
+            e.stopPropagation();
+            const squareToDelete = e.target.closest('.info-square');
+            const wrapper = squareToDelete?.closest('.multi-div-wrapper');
+            if (squareToDelete && wrapper) {
+                squareToDelete.blur();
+                squareToDelete.remove();
+                saveState(wrapper);
+                wrapper.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        }
+
+        if(isEditing) return;
+        
+        const product = e.target.closest('.product-column');
+        if (!product || e.target.closest('a') ) return;
+
+        if (isTextSelectionDrag) {
+            isTextSelectionDrag = false;
+            return;
+        }
+        e.preventDefault();
+        product.classList.toggle('selected');
+        updateUI();
+    });
+
+    let productPressTarget = null;
+    let isTextSelectionDrag = false;
+    let pressTimer = null;
+    const PRESS_DELAY = 100;
+
+    gridContainer.addEventListener('mousedown', (e) => {
+        if (isEditing) return;
+        const product = e.target.closest('.product-column');
+        if (product && !e.target.closest('a')) {
+            productPressTarget = product;
+            isTextSelectionDrag = false;
+            clearTimeout(pressTimer);
+            pressTimer = setTimeout(() => {
+                if (productPressTarget) {
+                    product.classList.add('is-pressing');
+                }
+                pressTimer = null;
+            }, PRESS_DELAY);
+        } else {
+            productPressTarget = null;
+            isTextSelectionDrag = false;
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    });
+
+    gridContainer.addEventListener('mousemove', (e) => {
+        if (productPressTarget) {
+            isTextSelectionDrag = true;
+            if (pressTimer) {
+                clearTimeout(pressTimer);
+                pressTimer = null;
+            }
+            productPressTarget.classList.remove('is-pressing');
+            productPressTarget = null;
+        }
+    });
+
+    gridContainer.addEventListener('mouseup', (e) => {
+        const wasPressAndHold = !pressTimer && productPressTarget && productPressTarget.classList.contains('is-pressing');
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+        if (productPressTarget && !isTextSelectionDrag) {
+            const target = productPressTarget;
+            if (!wasPressAndHold) {
+                target.classList.add('is-pressing');
+                setTimeout(() => {
+                    target.classList.remove('is-pressing');
+                }, 150);
+            } else {
+                target.classList.remove('is-pressing');
+            }
+        } else if (productPressTarget) {
+            productPressTarget.classList.remove('is-pressing');
+        }
+        productPressTarget = null;
+    });
+
+    gridContainer.addEventListener('dblclick', (e) => {
+        if (isEditing) return;
+        const product = e.target.closest('.product-column');
+        if (product && !e.target.closest('a')) {
+            e.preventDefault();
+        }
+    });
+
+    gridContainer.addEventListener('input', (e) => {
+        if (!isEditing) return;
+        const target = e.target;
+        const row = target.closest('.data-list li');
+        if (!row) return;
+
+        let elementToSaveForHistory = null;
+        if (row.classList.contains('multi-div-row')) {
+            elementToSaveForHistory = row.querySelector('.multi-div-wrapper');
+        } else if (!row.classList.contains('is-complex')) {
+            elementToSaveForHistory = row;
+        }
+
+        if (elementToSaveForHistory) {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+               saveState(elementToSaveForHistory);
+            }, 300);
+        }
+
+        const rowKey = `${row.dataset.productId}---${row.dataset.featureId}`;
+        let currentCellValue = '';
+        if (row.classList.contains('multi-div-row')) {
+           const wrapper = row.querySelector('.multi-div-wrapper');
+           if(wrapper){
+               const cleanCopy = wrapper.cloneNode(true);
+               cleanCopy.querySelectorAll('.add-square-btn, .delete-square-btn').forEach(b => b.remove());
+               currentCellValue = cleanCopy.innerHTML.trim();
+           }
+        } else {
+            currentCellValue = row.innerHTML.trim();
+        }
+        
+        if (currentCellValue !== originalValues.get(rowKey)) {
+             modifiedKeys.add(rowKey);
+        } else {
+            modifiedKeys.delete(rowKey);
+        }
+        submitButton.classList.toggle('active', modifiedKeys.size > 0);
+    });
+    updateUI();
+}
+
+export async function initializeComparisonApp(containerElement, jsonUrl, baseUrl, headerActionsElement, reloadCallback) {
+    try {
+        const gridContainer = await renderComparisonTable(jsonUrl, containerElement, baseUrl);
+
+        if (gridContainer) {
+            _attachComparisonAppLogic(gridContainer, headerActionsElement, jsonUrl, reloadCallback);
+            syncRowHeights(gridContainer);
+        }
+    } catch (error) {
+        console.error("初始化对比表应用失败:", error);
+    }
 }

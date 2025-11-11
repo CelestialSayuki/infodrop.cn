@@ -102,13 +102,13 @@
         {
             "name": "Apple C1X",
             "generation": "(Leda, APL1114)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
+            "image": "/apple-silicon/chip-c/img/C1X_product.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_product.webp",
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1X_APL1114.webp",
+                "宣传图": "/apple-silicon/chip-c/img/C1X_product.webp",
+                "芯片图": "/apple-silicon/chip-c/img/C1X_APL1114.webp",
                 "Die": {
-                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1_Layout.webp",
-                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1.webp"
+                    "Layout": "/apple-silicon/chip-c/img/die/C1_Layout.webp",
+                    "Die": "/apple-silicon/chip-c/img/die/C1.webp"
                 }
             },
             "data": {
@@ -140,15 +140,15 @@
         {
             "name": "Apple C1",
             "generation": "(Leda, APL1114)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
+            "image": "/apple-silicon/chip-c/img/C1_product.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_product.webp",
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_APL1114.webp",
+                "宣传图": "/apple-silicon/chip-c/img/C1_product.webp",
+                "芯片图": "/apple-silicon/chip-c/img/C1_APL1114.webp",
                 "Die": {
-                    "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1_Layout.webp",
-                    "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/die/C1.webp"
+                    "Layout": "/apple-silicon/chip-c/img/die/C1_Layout.webp",
+                    "Die": "/apple-silicon/chip-c/img/die/C1.webp"
                 },
-                "RF": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-c/img/C1_RF.webp"
+                "RF": "/apple-silicon/chip-c/img/C1_RF.webp"
             },
             "data": {
                 "displayType": [

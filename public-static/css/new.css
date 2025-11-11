@@ -213,8 +213,6 @@ body.landscape-notch-right {
 }
 }@keyframes dissipate-like-smoke {
     0% {
-    opacity:1;
-    transform:translate(0,0) scale(1) rotate(0deg);
     filter:blur(0);
 }
 100% {

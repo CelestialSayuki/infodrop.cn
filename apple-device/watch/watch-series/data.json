@@ -133,7 +133,7 @@
         {
             "name": "Apple Watch Series 11",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s11.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s11.webp",
             "data": {
                 "slogan": "满手高招，时刻照看好你的健康。",
                 "releaseDate": "2025.09.10",
@@ -169,7 +169,7 @@
                         "hex": "#746D6A"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/watch-series-11.usdz\" target=\"_blank\">玫瑰金色铝金属</a>",
+                "arLink": "<a href=\"/AR/watch/watch-series-11.usdz\" target=\"_blank\">玫瑰金色铝金属</a>",
                 "chipInfo": "S10 SiP",
                 "ramRom": "2GB<br>64GB",
                 "wirelessChip": "W3",
@@ -192,7 +192,7 @@
         {
             "name": "Apple Watch Series 10",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s10.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s10.webp",
             "data": {
                 "slogan": "薄爆表",
                 "releaseDate": "2024.09.10",
@@ -212,7 +212,7 @@
                         "hex": "#deddde"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_10-jet-black.usdz\" target=\"_blank\">亮黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_10-titanium-gold.usdz\" target=\"_blank\">金色钛金属</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_10-jet-black.usdz\" target=\"_blank\">亮黑色</a><a href=\"/AR/watch/apple_watch_series_10-titanium-gold.usdz\" target=\"_blank\">金色钛金属</a>",
                 "chipInfo": "S10 SiP",
                 "ramRom": "2GB<br>64GB",
                 "wirelessChip": "W3",
@@ -235,7 +235,7 @@
         {
             "name": "Apple Watch Series 9",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s9.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s9.webp",
             "data": {
                 "slogan": "智能加成，加亮加实力。",
                 "releaseDate": "2023.09.13",
@@ -275,7 +275,7 @@
                         "hex": "#d4bda1"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_9.usdz\" target=\"_blank\">星光色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_9.usdz\" target=\"_blank\">星光色</a>",
                 "chipInfo": "S9 SiP",
                 "ramRom": "2GB<br>64GB",
                 "wirelessChip": "W3",
@@ -298,7 +298,7 @@
         {
             "name": "Apple Watch Series 8",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s8.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s8.webp",
             "data": {
                 "slogan": "健康的一大步",
                 "releaseDate": "2022.09.08",
@@ -322,7 +322,7 @@
                         "hex": "#c80e2d"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_8.usdz\" target=\"_blank\">星光色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_8.usdz\" target=\"_blank\">星光色</a>",
                 "chipInfo": "S8 SiP",
                 "ramRom": "1.5GB<br>32GB",
                 "wirelessChip": "W3",
@@ -345,7 +345,7 @@
         {
             "name": "Apple Watch Series 7",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s7.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s7.webp",
             "data": {
                 "slogan": "全屏先手",
                 "releaseDate": "2021.09.15",
@@ -393,7 +393,7 @@
                         "hex": "#282727"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_7_gps_alum_midnight_l_sport_band_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_7_gps_alum_midnight_l_sport_band_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
                 "chipInfo": "S7 SiP",
                 "ramRom": "1.5GB<br>32GB",
                 "wirelessChip": "W3",
@@ -416,7 +416,7 @@
         {
             "name": "Apple Watch Series 6",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s6.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s6.webp",
             "data": {
                 "slogan": "健康的未来，现在戴上。",
                 "releaseDate": "2020.09.16",
@@ -464,7 +464,7 @@
                         "hex": "#282727"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_6.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_6.usdz\" target=\"_blank\">银色</a>",
                 "chipInfo": "S6 SiP",
                 "ramRom": "1.5GB<br>32GB",
                 "wirelessChip": "W3",
@@ -487,7 +487,7 @@
         {
             "name": "Apple Watch Series 5",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s5.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s5.webp",
             "data": {
                 "slogan": "这块表，好不一样。",
                 "releaseDate": "2019.09.11",
@@ -531,7 +531,7 @@
                         "hex": "#FFFFFF"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_5.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_5.usdz\" target=\"_blank\">银色</a>",
                 "chipInfo": "S5 SiP",
                 "ramRom": "1GB<br>32GB",
                 "wirelessChip": "W3",
@@ -554,7 +554,7 @@
         {
             "name": "Apple Watch Series 4",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s4.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s4.webp",
             "data": {
                 "slogan": "焕然一新，唤醒更好的你。",
                 "releaseDate": "2018.09.13",
@@ -609,7 +609,7 @@
         {
             "name": "Apple Watch Series 3",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s3.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s3.webp",
             "data": {
                 "slogan": "更自由，更来电。",
                 "releaseDate": "2017.09.13",
@@ -645,7 +645,7 @@
                         "hex": "#FFFFFF"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_series_3.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_series_3.usdz\" target=\"_blank\">银色</a>",
                 "chipInfo": "S3 SiP",
                 "ramRom": "768MB<br>8GB、16GB",
                 "wirelessChip": "W2",
@@ -668,7 +668,7 @@
         {
             "name": "Apple Watch Series 2",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s2.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s2.webp",
             "data": {
                 "slogan": "Series 2 新登场。",
                 "releaseDate": "2016.09.08",
@@ -727,7 +727,7 @@
         {
             "name": "Apple Watch Series 1",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch_s1.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch_s1.webp",
             "data": {
                 "slogan": "原作之上，再添源动力。",
                 "releaseDate": "2016.09.08",
@@ -774,7 +774,7 @@
         {
             "name": "Apple Watch",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-series/img/apple_watch.webp",
+            "image": "/apple-device/watch/watch-series/img/apple_watch.webp",
             "data": {
                 "slogan": "我们真正与你贴近的个人设备",
                 "releaseDate": "2014.09.10",

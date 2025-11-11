@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'temp-rev8';
+const CACHE_VERSION = '2A1001z';
 const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -40,9 +40,11 @@ self.addEventListener('install', (event) => {
     if (await isUpdatePausedByClient()) {
       throw new Error('Installation aborted by user setting.');
     }
+    
     const versionResponse = await fetch('./public-static/version.json', { cache: 'no-store' });
     if (!versionResponse.ok) throw new Error('Failed to fetch version.json.');
     const versionConfig = await versionResponse.json();
+    
     if (versionConfig.version !== CACHE_VERSION) {
       const clients = await self.clients.matchAll({ includeUncontrolled: true });
       for (const client of clients) {
@@ -50,6 +52,48 @@ self.addEventListener('install', (event) => {
       }
       throw new Error(`Version mismatch. SW: ${CACHE_VERSION}, JSON: ${versionConfig.version}. Aborting.`);
     }
+
+    if (versionConfig.preserve_runtime === true) {
+      
+      const allCacheKeys = await caches.keys();
+      const newRuntimeCacheName = RUNTIME_CACHE_NAME;
+      let oldRuntimeCacheName = null;
+
+      for (const key of allCacheKeys) {
+        if (key.startsWith('infodrop-runtime-') && key !== newRuntimeCacheName) {
+          oldRuntimeCacheName = key;
+          break;
+        }
+      }
+
+      if (oldRuntimeCacheName) {
+        try {
+          const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+          for (const client of allClients) {
+            client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: 100, current: 25, percent: 25, currentFile: '正在迁移运行时缓存...', estimatedRemainingTime: null } });
+          }
+
+          const oldCache = await caches.open(oldRuntimeCacheName);
+          const newCache = await caches.open(newRuntimeCacheName);
+          const requests = await oldCache.keys();
+          
+          await Promise.all(requests.map(async (request) => {
+            const response = await oldCache.match(request);
+            if (response) {
+              await newCache.put(request, response);
+            }
+          }));
+
+          for (const client of allClients) {
+            client.postMessage({ type: 'CACHE_PROGRESS', payload: { total: 100, current: 50, percent: 50, currentFile: '运行时缓存迁移完毕', estimatedRemainingTime: null } });
+          }
+
+        } catch (err) {
+          console.warn(`Runtime cache migration from ${oldRuntimeCacheName} failed:`, err);
+        }
+      }
+    }
+    
     if (versionConfig.rsr_patches && Array.isArray(versionConfig.rsr_patches)) {
       for (const patchBranch of versionConfig.rsr_patches) {
         const baseCacheName = `infodrop-cache-${patchBranch.base}`;
@@ -253,32 +297,31 @@ self.addEventListener('fetch', (event) => {
   event.respondWith((async () => {
     const precache = await caches.open(CACHE_NAME);
     const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
-
-    const precachedResponse = await precache.match(event.request);
+    let cacheKey = event.request;
+    if (url.searchParams.has('sign')) {
+      cacheKey = url.pathname;
+    }
+    const precachedResponse = await precache.match(cacheKey);
     if (precachedResponse) {
       return precachedResponse;
     }
-
-    const runtimeCachedResponse = await runtimeCache.match(event.request);
+    const runtimeCachedResponse = await runtimeCache.match(cacheKey);
     if (runtimeCachedResponse) {
       return runtimeCachedResponse;
     }
-    
     const hasFileExtension = /[^/]+\.[^/]+$/.test(url.pathname);
     if (!hasFileExtension && url.origin === self.location.origin) {
       const path = url.pathname.endsWith('/') ? url.pathname : url.pathname + '/';
       const pathIndexUrl = new URL(path + 'index.html', url.origin);
-      
       const precachedIndexResponse = await precache.match(pathIndexUrl);
       if (precachedIndexResponse) {
         return precachedIndexResponse;
       }
     }
-
     try {
       const networkResponse = await fetch(event.request);
       if (networkResponse.ok || networkResponse.type === 'opaque') {
-        await runtimeCache.put(event.request, networkResponse.clone());
+        await runtimeCache.put(cacheKey, networkResponse.clone());
       }
       return networkResponse;
     } catch (error) {

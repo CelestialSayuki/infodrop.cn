@@ -175,11 +175,11 @@
         {
             "name": "iPhone 17 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+            "image": "/apple-device/iphone/img/iPhone_17p.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_17_Pro_Max_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -235,11 +235,11 @@
         {
             "name": "iPhone 17 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
+            "image": "/apple-device/iphone/img/iPhone_17p.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17p.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_Pro_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_17p.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_17_Pro_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_17_Pro_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -265,7 +265,7 @@
                         "hex": "#444D77"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-pro-p-sim.usdz\" target=\"_blank\">星宇橙色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-17-pro-p-sim.usdz\" target=\"_blank\">星宇橙色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+6GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
                 "display": "6.3\" XDR OLED",
@@ -295,11 +295,11 @@
         {
             "name": "iPhone Air",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
+            "image": "/apple-device/iphone/img/iPhone_Air.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_Air.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_Air_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_Air_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_Air.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_Air_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_Air_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -329,7 +329,7 @@
                         "hex": "#181818"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-air-e-sim.usdz\" target=\"_blank\">云白色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-air-e-sim.usdz\" target=\"_blank\">云白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19 Pro<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">12GB LPDDR5X<br>256G、512G、1T</div>",
                 "display": "6.5\" XDR OLED",
@@ -359,11 +359,11 @@
         {
             "name": "iPhone 17",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
+            "image": "/apple-device/iphone/img/iPhone_17.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_17.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_17_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_17.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_17_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_17_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -397,7 +397,7 @@
                         "hex": "#4F5255"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-17-p-sim.usdz\" target=\"_blank\">薰衣草紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-17-p-sim.usdz\" target=\"_blank\">薰衣草紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G</div>",
                 "display": "6.3\" XDR OLED",
@@ -427,11 +427,11 @@
         {
             "name": "iPhone 16e",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16e.webp",
+            "image": "/apple-device/iphone/img/iPhone_16e.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16e.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16e_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16e_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_16e.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_16e_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_16e_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -453,7 +453,7 @@
                         "hex": "rgb(250, 250, 250)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_16_e_Sim_Black_ios18.usdz\" target=\"_blank\">黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_16_e_Sim_White_ios18.usdz\" target=\"_blank\">白色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_16_e_Sim_Black_ios18.usdz\" target=\"_blank\">黑色</a><a href=\"/AR/iphone/iphone_16_e_Sim_White_ios18.usdz\" target=\"_blank\">白色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -483,11 +483,11 @@
         {
             "name": "iPhone 16 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_16_Pro_Max.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_16_Pro_Max_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -517,7 +517,7 @@
                         "hex": "rgb(24, 25, 25)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-max-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-16-pro-max-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"/AR/iphone/iphone-16-pro-max-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"/AR/iphone/iphone-16-pro-max-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone-16-pro-max-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18 Pro<br>(2P+4E+6GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G、1T</div>",
                 "display": "6.9\" XDR OLED",
@@ -547,11 +547,11 @@
         {
             "name": "iPhone 16 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_16_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Pro.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Pro_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_16_Pro.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_16_Pro_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_16_Pro_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -581,7 +581,7 @@
                         "hex": "rgb(24, 25, 25)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pro-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-16-pro-sim-natural-titanium.usdz\" target=\"_blank\">原色</a><a href=\"/AR/iphone/iphone-16-pro-sim-desert-titanium.usdz\" target=\"_blank\">沙漠色</a><a href=\"/AR/iphone/iphone-16-pro-sim-white-titanium.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone-16-pro-sim-black-titanium.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18 Pro<br>(2P+4E+6GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G、1T</div>",
                 "display": "6.3\" XDR OLED",
@@ -611,11 +611,11 @@
         {
             "name": "iPhone 16 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_16_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16_Plus.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Plus_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_Plus_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_16_Plus.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_16_Plus_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_16_Plus_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -649,7 +649,7 @@
                         "hex": "#202020"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-plus-black-sim.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-16-plus-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"/AR/iphone/iphone-16-plus-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"/AR/iphone/iphone-16-plus-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"/AR/iphone/iphone-16-plus-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone-16-plus-black-sim.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
                 "display": "6.7\" XDR OLED",
@@ -679,11 +679,11 @@
         {
             "name": "iPhone 16",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16.webp",
+            "image": "/apple-device/iphone/img/iPhone_16.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_16.webp",
-                "内部图 1": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_1_temp.webp",
-                "内部图 2": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_16_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_16.webp",
+                "内部图 1": "/apple-device/iphone/img/Board/Board_iPhone_16_1_temp.webp",
+                "内部图 2": "/apple-device/iphone/img/Board/Board_iPhone_16_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -717,7 +717,7 @@
                         "hex": "#202020"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone-16-black-sim.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone-16-ultramarine-sim.usdz\" target=\"_blank\">群青色</a><a href=\"/AR/iphone/iphone-16-teal-sim.usdz\" target=\"_blank\">深青色</a><a href=\"/AR/iphone/iphone-16-pink-sim.usdz\" target=\"_blank\">粉色</a><a href=\"/AR/iphone/iphone-16-white-sim.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone-16-black-sim.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A18<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -747,10 +747,10 @@
         {
             "name": "iPhone 15 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Pro_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_15_Pro_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_15_Pro_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -779,7 +779,7 @@
                         "hex": "#1b1b1b"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_max_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_15_pro_max_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"/AR/iphone/iphone_15_pro_max_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"/AR/iphone/iphone_15_pro_max_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone_15_pro_max_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+6GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5<br>256G、512G、1T</div>",
                 "display": "6.7\" XDR OLED",
@@ -809,10 +809,10 @@
         {
             "name": "iPhone 15 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_15_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Pro.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Pro_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_15_Pro.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_15_Pro_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -841,7 +841,7 @@
                         "hex": "#1b1b1b"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_pro_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_15_pro_natural_titanium_no5g.usdz\" target=\"_blank\">原色</a><a href=\"/AR/iphone/iphone_15_pro_blue_titanium_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"/AR/iphone/iphone_15_pro_white_titanium_no5g.usdz\" target=\"_blank\">白色</a><a href=\"/AR/iphone/iphone_15_pro_black_titanium_no5g.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A17 Pro<br>(2P+4E+6GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5<br>128G、256G、512G、1T</div>",
                 "display": "6.1\" XDR OLED",
@@ -871,10 +871,10 @@
         {
             "name": "iPhone 15 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_15_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_15_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_15_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -907,7 +907,7 @@
                         "hex": "#35393B"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G</div>",
                 "display": "6.7\" XDR OLED",
@@ -937,10 +937,10 @@
         {
             "name": "iPhone 15",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15.webp",
+            "image": "/apple-device/iphone/img/iPhone_15.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_15.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_15_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_15.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_15_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -973,7 +973,7 @@
                         "hex": "#35393B"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_15_plus_iphone_15_pink_no5g.usdz\" target=\"_blank\">粉色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_yellow_no5g.usdz\" target=\"_blank\">黄色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_green_no5g.usdz\" target=\"_blank\">绿色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_blue_no5g.usdz\" target=\"_blank\">蓝色</a><a href=\"/AR/iphone/iphone_15_plus_iphone_15_black_no5g.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -1003,10 +1003,10 @@
         {
             "name": "iPhone 14 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Pro_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_14_Pro_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_14_Pro_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1035,7 +1035,7 @@
                         "hex": "#403e3d"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_pro_max_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_14_pro_max_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
                 "display": "6.7\" XDR OLED",
@@ -1065,10 +1065,10 @@
         {
             "name": "iPhone 14 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_14_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Pro.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Pro_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_14_Pro.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_14_Pro_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1097,7 +1097,7 @@
                         "hex": "#403e3d"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_pro_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_14_pro_deep_purple_no5G.usdz\" target=\"_blank\">暗紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A16 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR5<br>128G、256G、512G、1T</div>",
                 "display": "6.1\" XDR OLED",
@@ -1127,10 +1127,10 @@
         {
             "name": "iPhone 14 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_14_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_14_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_14_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1167,7 +1167,7 @@
                         "hex": "#f5e488"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_plus_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_14_plus_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
                 "display": "6.7\" XDR OLED",
@@ -1197,10 +1197,10 @@
         {
             "name": "iPhone 14",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14.webp",
+            "image": "/apple-device/iphone/img/iPhone_14.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_14.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_14_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_14.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_14_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1237,7 +1237,7 @@
                         "hex": "#f5e488"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_14_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_14_blue_no5G.usdz\" target=\"_blank\">蓝色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -1267,10 +1267,10 @@
         {
             "name": "iPhone SE",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_3.webp",
+            "image": "/apple-device/iphone/img/iPhone_SE_3.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_3.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_3_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_SE_3.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_SE_3_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1295,7 +1295,7 @@
                         "hex": "#bf0013"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_se_3rd_Gen_midnight.usdz\" target=\"_blank\">午夜色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_se_3rd_Gen_midnight.usdz\" target=\"_blank\">午夜色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
                 "display": "4.7\" LCD",
@@ -1325,10 +1325,10 @@
         {
             "name": "iPhone 13 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_Pro_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_13_Pro_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_13_Pro_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1361,7 +1361,7 @@
                         "hex": "#a7c1d9"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
                 "display": "6.7\" XDR OLED",
@@ -1391,10 +1391,10 @@
         {
             "name": "iPhone 13 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_13_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_Pro.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_Pro_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_13_Pro.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_13_Pro_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1427,7 +1427,7 @@
                         "hex": "#a7c1d9"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/iphone_13_pro_iphone_13_pro_max_silver_no5G_ios15.usdz\" target=\"_blank\">银色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+5GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G、1T</div>",
                 "display": "6.1\" XDR OLED",
@@ -1457,10 +1457,10 @@
         {
             "name": "iPhone 13",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13.webp",
+            "image": "/apple-device/iphone/img/iPhone_13.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_13.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_13_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1497,7 +1497,7 @@
                         "hex": "#bf0013"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -1527,10 +1527,10 @@
         {
             "name": "iPhone 13 mini",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_mini.webp",
+            "image": "/apple-device/iphone/img/iPhone_13_mini.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_13_mini.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_13_mini_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_13_mini.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_13_mini_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1567,7 +1567,7 @@
                         "hex": "#bf0013"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_13_mini_iphone_13_green_no5G_ios15.usdz\" target=\"_blank\">绿色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A15 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>128G、256G、512G</div>",
                 "display": "5.4\" XDR OLED",
@@ -1597,10 +1597,10 @@
         {
             "name": "iPhone 12 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_Pro_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_12_Pro_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_12_Pro_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1659,10 +1659,10 @@
         {
             "name": "iPhone 12 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_12_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_Pro.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_Pro_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_12_Pro.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_12_Pro_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1691,7 +1691,7 @@
                         "hex": "#e3e4df"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_pro_pacific_blue_no_5G_ios14.usdz\" target=\"_blank\">海蓝色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_12_pro_pacific_blue_no_5G_ios14.usdz\" target=\"_blank\">海蓝色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">6GB LPDDR4X<br>128G、256G、512G</div>",
                 "display": "6.1\" XDR OLED",
@@ -1721,10 +1721,10 @@
         {
             "name": "iPhone 12",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12.webp",
+            "image": "/apple-device/iphone/img/iPhone_12.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_12.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_12_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1761,7 +1761,7 @@
                         "hex": "#25212b"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
                 "display": "6.1\" XDR OLED",
@@ -1791,10 +1791,10 @@
         {
             "name": "iPhone 12 mini",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_mini.webp",
+            "image": "/apple-device/iphone/img/iPhone_12_mini.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_12_mini.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_12_mini_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_12_mini.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_12_mini_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1831,7 +1831,7 @@
                         "hex": "#25212b"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_12_mini_v_iphone_12_purple_no_5G_ios14.usdz\" target=\"_blank\">紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
                 "display": "5.4\" XDR OLED",
@@ -1861,10 +1861,10 @@
         {
             "name": "iPhone SE",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_2.webp",
+            "image": "/apple-device/iphone/img/iPhone_SE_2.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE_2.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_2_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_SE_2.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_SE_2_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1889,7 +1889,7 @@
                         "hex": "#b41325"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_se_2nd_Gen_black_ios13.usdz\" target=\"_blank\">黑色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_se_2nd_Gen_black_ios13.usdz\" target=\"_blank\">黑色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">3GB LPDDR4X<br>64G、128G、256G</div>",
                 "display": "4.7\" LCD",
@@ -1919,10 +1919,10 @@
         {
             "name": "iPhone 11 Pro Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_Pro_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_11_Pro_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_11_Pro_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -1981,10 +1981,10 @@
         {
             "name": "iPhone 11 Pro",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro.webp",
+            "image": "/apple-device/iphone/img/iPhone_11_Pro.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11_Pro.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_Pro_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_11_Pro.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_11_Pro_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2013,7 +2013,7 @@
                         "hex": "#fad7bd"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_11_pro.usdz\" target=\"_blank\">暗夜绿色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_11_pro.usdz\" target=\"_blank\">暗夜绿色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、256G、512G</div>",
                 "display": "5.8\" XDR OLED",
@@ -2043,10 +2043,10 @@
         {
             "name": "iPhone 11",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11.webp",
+            "image": "/apple-device/iphone/img/iPhone_11.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_11.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_11_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_11.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_11_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2083,7 +2083,7 @@
                         "hex": "#ba0c2e"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/iphone/iphone_11.usdz\" target=\"_blank\">紫色</a>",
+                "arLink": "<a href=\"/AR/iphone/iphone_11.usdz\" target=\"_blank\">紫色</a>",
                 "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A13 Bionic<br>(2P+4E+4GPU)</div>",
                 "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4GB LPDDR4X<br>64G、128G、256G</div>",
                 "display": "6.1\" Liquid LCD",
@@ -2113,10 +2113,10 @@
         {
             "name": "iPhone XS Max",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS_Max.webp",
+            "image": "/apple-device/iphone/img/iPhone_XS_Max.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS_Max.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XS_Max_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_XS_Max.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_XS_Max_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2171,10 +2171,10 @@
         {
             "name": "iPhone XS",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS.webp",
+            "image": "/apple-device/iphone/img/iPhone_XS.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XS.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XS_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_XS.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_XS_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2229,10 +2229,10 @@
         {
             "name": "iPhone XR",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XR.webp",
+            "image": "/apple-device/iphone/img/iPhone_XR.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_XR.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_XR_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_XR.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_XR_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2299,10 +2299,10 @@
         {
             "name": "iPhone X",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_X.webp",
+            "image": "/apple-device/iphone/img/iPhone_X.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_X.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_X_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_X.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_X_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2353,10 +2353,10 @@
         {
             "name": "iPhone 8 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_8_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_8_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_8_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_8_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2415,10 +2415,10 @@
         {
             "name": "iPhone 8",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8.webp",
+            "image": "/apple-device/iphone/img/iPhone_8.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_8.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_8_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_8.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_8_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2477,10 +2477,10 @@
         {
             "name": "iPhone 7 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_7_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_7_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_7_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_7_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2543,10 +2543,10 @@
         {
             "name": "iPhone 7",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7.webp",
+            "image": "/apple-device/iphone/img/iPhone_7.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_7.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_7_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_7.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_7_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2609,10 +2609,10 @@
         {
             "name": "iPhone SE",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE.webp",
+            "image": "/apple-device/iphone/img/iPhone_SE.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_SE.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_SE_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_SE.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_SE_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2671,10 +2671,10 @@
         {
             "name": "iPhone 6s Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_6s_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6s_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_6s_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_6s_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2733,10 +2733,10 @@
         {
             "name": "iPhone 6s",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s.webp",
+            "image": "/apple-device/iphone/img/iPhone_6s.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6s.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6s_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_6s.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_6s_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2795,10 +2795,10 @@
         {
             "name": "iPhone 6 Plus",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6_Plus.webp",
+            "image": "/apple-device/iphone/img/iPhone_6_Plus.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6_Plus.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6_Plus_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_6_Plus.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_6_Plus_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2853,10 +2853,10 @@
         {
             "name": "iPhone 6",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6.webp",
+            "image": "/apple-device/iphone/img/iPhone_6.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_6.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_6_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_6.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_6_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2911,10 +2911,10 @@
         {
             "name": "iPhone 5s",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5s.webp",
+            "image": "/apple-device/iphone/img/iPhone_5s.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5s.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5s_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_5s.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_5s_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -2969,10 +2969,10 @@
         {
             "name": "iPhone 5c",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5c.webp",
+            "image": "/apple-device/iphone/img/iPhone_5c.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5c.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5c_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_5c.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_5c_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -3035,10 +3035,10 @@
         {
             "name": "iPhone 5",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5.webp",
+            "image": "/apple-device/iphone/img/iPhone_5.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_5.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_5_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_5.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_5_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -3089,10 +3089,10 @@
         {
             "name": "iPhone 4S",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4s.webp",
+            "image": "/apple-device/iphone/img/iPhone_4s.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4s.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_4s_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_4s.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_4s_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -3143,10 +3143,10 @@
         {
             "name": "iPhone 4",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4.webp",
+            "image": "/apple-device/iphone/img/iPhone_4.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_4.webp",
-                "内部图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/Board/Board_iPhone_4_temp.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_4.webp",
+                "内部图": "/apple-device/iphone/img/Board/Board_iPhone_4_temp.webp"
             },
             "data": {
                 "displayType": [
@@ -3197,9 +3197,9 @@
         {
             "name": "iPhone 3GS",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3gs.webp",
+            "image": "/apple-device/iphone/img/iPhone_3gs.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3gs.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_3gs.webp"
             },
             "data": {
                 "displayType": [
@@ -3249,9 +3249,9 @@
         {
             "name": "iPhone 3G",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3g.webp",
+            "image": "/apple-device/iphone/img/iPhone_3g.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone_3g.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone_3g.webp"
             },
             "data": {
                 "displayType": [
@@ -3297,9 +3297,9 @@
         {
             "name": "iPhone",
             "generation": "",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone.webp",
+            "image": "/apple-device/iphone/img/iPhone.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-device/iphone/img/iPhone.webp"
+                "宣传图": "/apple-device/iphone/img/iPhone.webp"
             },
             "data": {
                 "displayType": [

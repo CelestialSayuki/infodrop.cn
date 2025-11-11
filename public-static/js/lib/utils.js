@@ -41,8 +41,11 @@ export function scopeCss(cssText, scopeSelector) {
   });
 }
 
-export function loadScriptsSequentially(scripts, baseUrl, container) {
-  if (scripts.length === 0) return;
+export function loadScriptsSequentially(scripts, baseUrl, container, currentLoadId, getLatestLoadId) {
+  if (!scripts || scripts.length === 0 || (getLatestLoadId && currentLoadId !== getLatestLoadId())) {
+    return;
+  }
+  
   const scriptNode = scripts.shift();
   const newScript = document.createElement('script');
 
@@ -50,7 +53,12 @@ export function loadScriptsSequentially(scripts, baseUrl, container) {
     newScript.setAttribute(attr.name, attr.value);
   }
 
-  const next = () => loadScriptsSequentially(scripts, baseUrl);
+  const next = () => {
+    if (getLatestLoadId && currentLoadId !== getLatestLoadId()) {
+        return;
+    }
+    loadScriptsSequentially(scripts, baseUrl, container, currentLoadId, getLatestLoadId);
+  };
 
   if (scriptNode.src) {
     const absoluteUrl = new URL(scriptNode.src, baseUrl).href;

@@ -53,10 +53,10 @@
         {
             "name": "Apple N1",
             "generation": "(Proxima/Centauri, T2026)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
+            "image": "/apple-silicon/chip-n/img/N1_product.webp",
             "images": {
-                "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_product.webp",
-                "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-n/img/N1_chip.webp"
+                "宣传图": "/apple-silicon/chip-n/img/N1_product.webp",
+                "芯片图": "/apple-silicon/chip-n/img/N1_chip.webp"
             },
             "data": {
                 "displayType": [

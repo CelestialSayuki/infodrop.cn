@@ -84,7 +84,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M4, 2025 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
       "data": {
         "slogan": "身轻身手快",
         "releaseDate": "2025.03.05",
@@ -96,7 +96,7 @@
           { "name": "天蓝色", "hex": "rgb(200, 216, 224)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-15in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-15in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-15in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-15in-silver.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook-air-2025-15in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"/AR/mac/macbook-air-2025-15in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"/AR/mac/macbook-air-2025-15in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"/AR/mac/macbook-air-2025-15in-silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(4P+6E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -124,7 +124,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, M4, 2025 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2025-13inch-15inch.webp",
       "data": {
         "slogan": "身轻身手快",
         "releaseDate": "2025.03.05",
@@ -136,7 +136,7 @@
           { "name": "天蓝色", "hex": "rgb(200, 216, 224)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-13in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-13in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-13in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook-air-2025-13in-silver.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook-air-2025-13in-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"/AR/mac/macbook-air-2025-13in-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"/AR/mac/macbook-air-2025-13in-sky-blue.usdz\" target=\"_blank\">天蓝色</a><a href=\"/AR/mac/macbook-air-2025-13in-silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N3E",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(4P+6E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -164,7 +164,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M3, 2024 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2024-15inch.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2024-15inch.webp",
       "data": {
         "slogan": "轻装重拳 M3",
         "releaseDate": "2024.03.04",
@@ -176,7 +176,7 @@
           { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_air_2024_15_midnight.usdz\" target=\"_blank\">午夜色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook_air_2024_15_midnight.usdz\" target=\"_blank\">午夜色</a>",
         "chipProcess": "TSMC N3B",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -204,7 +204,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, M3, 2024 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2024-13inch-m3.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2024-13inch-m3.webp",
       "data": {
         "slogan": "轻装重拳 M3",
         "releaseDate": "2024.03.04",
@@ -216,7 +216,7 @@
           { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_air_2024_13_midnight.usdz\" target=\"_blank\">午夜色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook_air_2024_13_midnight.usdz\" target=\"_blank\">午夜色</a>",
         "chipProcess": "TSMC N3B",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -244,7 +244,7 @@
     {
       "name": "MacBook Air",
       "generation": "(15 英寸, M2, 2023 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2023-15-m2.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2023-15-m2.webp",
       "data": {
         "slogan": "巨给力、巨纤薄。",
         "releaseDate": "2023.06.06",
@@ -256,7 +256,7 @@
           { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_air_2023_15_silver.usdz\" target=\"_blank\">银色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook_air_2023_15_silver.usdz\" target=\"_blank\">银色</a>",
         "chipProcess": "TSMC N5P",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -284,7 +284,7 @@
     {
       "name": "MacBook Air",
       "generation": "(M2, 2022 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2022-m2.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2022-m2.webp",
       "data": {
         "slogan": "超薄进化新形态",
         "releaseDate": "2022.06.07",
@@ -296,7 +296,7 @@
           { "name": "深空灰色", "hex": "rgb(125, 126, 128)" },
           { "name": "银色", "hex": "rgb(227, 228, 230)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_air_2022_m2_chip_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook_air_2022_m2_chip_midnight_ios15.usdz\" target=\"_blank\">午夜色</a>",
         "chipProcess": "TSMC N5P",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -324,7 +324,7 @@
     {
       "name": "MacBook Air",
       "generation": "(M1, 2020 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2020-m1.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2020-m1.webp",
       "data": {
         "slogan": "实力，来的轻巧。",
         "releaseDate": "2020.11.11",
@@ -335,7 +335,7 @@
           { "name": "银色", "hex": "rgb(199, 200, 202)" },
           { "name": "金色", "hex": "rgb(223, 204, 183)" }
         ],
-        "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_air_2020_m1_chip_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a href=\"/AR/mac/macbook_air_2020_m1_chip_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
         "chipProcess": "TSMC N5",
         "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1<br>(4P+4E Core)</div>",
         "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×7</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8</div>",
@@ -363,7 +363,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2020 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2020.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2020.webp",
       "data": {
         "slogan": "够轻，够轻快。",
         "releaseDate": "2020.03.19",
@@ -402,7 +402,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2019 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2019.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2019.webp",
       "data": {
         "slogan": "轻轻地，再次倾心。",
         "releaseDate": "2019.07.10",
@@ -441,7 +441,7 @@
     {
       "name": "MacBook Air",
       "generation": "(Retina, 13 英寸, 2018 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2018.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2018.webp",
       "data": {
         "slogan": "轻轻地，再次倾心。",
         "releaseDate": "2018.10.31",
@@ -480,7 +480,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13.3 英寸, 2017 年)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2017.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2017.webp",
       "data": {
         "slogan": "能力胜任大小事, 电力满足一天所需",
         "releaseDate": "2017.06.06",
@@ -517,7 +517,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2015 年初)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2015-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2015-13.webp",
       "data": {
         "slogan": "满足一天所需的电池使用时间",
         "releaseDate": "2015.03.10",
@@ -554,7 +554,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2015 年初)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2015-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2015-11.webp",
       "data": {
         "slogan": "满足一天所需的电池使用时间",
         "releaseDate": "2015.03.10",
@@ -591,7 +591,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2014 年初)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2014-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2014-13.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2014.04.30",
@@ -628,7 +628,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2014 年初)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2014-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2014-11.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2014.04.30",
@@ -665,7 +665,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13英寸, 2013 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2013-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2013-13.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2013.06.11",
@@ -702,7 +702,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2013 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2013-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2013-11.webp",
       "data": {
         "slogan": "满载动力，满足你的一天。",
         "releaseDate": "2013.06.11",
@@ -739,7 +739,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2012 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2012-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2012-13.webp",
       "data": {
         "slogan": "看起来快，动起来更快。",
         "releaseDate": "2012.06.12",
@@ -776,7 +776,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2012 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2012-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2012-11.webp",
       "data": {
         "slogan": "看起来快，动起来更快。",
         "releaseDate": "2012.06.12",
@@ -813,7 +813,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2011 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2011-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2011-13.webp",
       "data": {
         "slogan": "是人人早该拥有的先进笔记本电脑",
         "releaseDate": "2011.07.21",
@@ -850,7 +850,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2011 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2011-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2011-11.webp",
       "data": {
         "slogan": "是人人早该拥有的先进笔记本电脑",
         "releaseDate": "2011.07.21",
@@ -887,7 +887,7 @@
     {
       "name": "MacBook Air",
       "generation": "(13 英寸, 2010 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2010-13.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2010-13.webp",
       "data": {
         "slogan": "未来一代 MacBook 诞生",
         "releaseDate": "2010.10.21",
@@ -924,7 +924,7 @@
     {
       "name": "MacBook Air",
       "generation": "(11 英寸, 2010 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2010-11.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2010-11.webp",
       "data": {
         "slogan": "未来一代 MacBook 诞生",
         "releaseDate": "2010.10.21",
@@ -961,7 +961,7 @@
     {
       "name": "MacBook Air",
       "generation": "(2009 年中)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2009.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2009.webp",
       "data": {
         "slogan": "更大存储空间，更快图形性能",
         "releaseDate": "2009.06.09",
@@ -998,7 +998,7 @@
     {
       "name": "MacBook Air",
       "generation": "(2008 年末)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air-2008.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air-2008.webp",
       "data": {
         "slogan": "更大存储空间，更快图形性能",
         "releaseDate": "2008.10.15",
@@ -1035,7 +1035,7 @@
     {
       "name": "MacBook Air",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-air/img/macbook-air.webp",
+      "image": "/apple-device/mac/macbook-air/img/macbook-air.webp",
       "data": {
         "slogan": "轻薄极致，超乎想象。",
         "releaseDate": "2008.01.16",

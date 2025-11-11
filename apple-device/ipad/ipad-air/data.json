@@ -77,7 +77,7 @@
     {
       "name": "iPad Air 13 英寸",
       "generation": "(M3)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m3.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m3.webp",
       "data": {
         "slogan": "快如飞",
         "releaseDate": "2025.03.04",
@@ -89,7 +89,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "13\" Liquid LED",
@@ -115,7 +115,7 @@
     {
       "name": "iPad Air 11 英寸",
       "generation": "(M3)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m3.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m3.webp",
       "data": {
         "slogan": "快如飞",
         "releaseDate": "2025.03.04",
@@ -127,7 +127,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "11\" Liquid LED",
@@ -153,7 +153,7 @@
     {
       "name": "iPad Air 13 英寸",
       "generation": "(M2)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m2.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m2.webp",
       "data": {
         "slogan": "好清新",
         "releaseDate": "2024.05.27",
@@ -165,7 +165,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-13in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "13\" Liquid LED",
@@ -191,7 +191,7 @@
     {
       "name": "iPad Air 11 英寸",
       "generation": "(M2)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m2.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad-air-11-inch-13-inch-m2.webp",
       "data": {
         "slogan": "好清新",
         "releaseDate": "2024.05.27",
@@ -203,7 +203,7 @@
           { "name": "星光色", "hex": "#e3dcd1" },
           { "name": "深空灰色", "hex": "#6b696e" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-blue-with-accessories.usdz\" target=\"_blank\">蓝色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-purple-with-accessories.usdz\" target=\"_blank\">紫色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-starlight-with-accessories.usdz\" target=\"_blank\">星光色</a><a style=\"display:;;\" href=\"/AR/ipad/ipad-air-11in-m3-space-gray-with-accessories.usdz\" target=\"_blank\">深空灰色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E+9GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR5<br>128G、256G、512G、1T</div>",
         "display": "11\" Liquid LED",
@@ -229,7 +229,7 @@
     {
       "name": "iPad Air",
       "generation": "(第 5 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad_air_5.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad_air_5.webp",
       "data": {
         "slogan": "轻，靓，重量级。",
         "releaseDate": "2022.03.09",
@@ -242,7 +242,7 @@
           { "name": "紫色", "hex": "#b9b8d1" },
           { "name": "蓝色", "hex": "#88aebf" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_air_5th_Gen_purple_wifi.usdz\" target=\"_blank\">紫色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_air_5th_Gen_purple_wifi.usdz\" target=\"_blank\">紫色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1<br>(4P+4E+8GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8G LPDDR4X<br>64G、256G</div>",
         "display": "10.9\" Liquid LED",
@@ -268,7 +268,7 @@
     {
       "name": "iPad Air",
       "generation": "(第 4 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad_air_4.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad_air_4.webp",
       "data": {
         "slogan": "凭实力出彩。",
         "releaseDate": "2020.09.16",
@@ -281,7 +281,7 @@
           { "name": "天蓝色", "hex": "#cee3f6" },
           { "name": "绿色", "hex": "#ccdfc9" }
         ],
-        "arLink": "<a style=\"display:;;\" href=\"https://asia.oss.simplehac.top/infodrop/AR/ipad/ipad_air_4th_Gen_ios13.usdz\" target=\"_blank\">天蓝色</a>",
+        "arLink": "<a style=\"display:;;\" href=\"/AR/ipad/ipad_air_4th_Gen_ios13.usdz\" target=\"_blank\">天蓝色</a>",
         "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A14 Bionic<br>(2P+4E+4GPU)</div>",
         "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">4G LPDDR4X<br>64G、256G</div>",
         "display": "10.9\" Liquid LED",
@@ -307,7 +307,7 @@
     {
       "name": "iPad Air",
       "generation": "(第 3 代)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad_air_3.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad_air_3.webp",
       "data": {
         "slogan": "强劲在手，无论高手新手。",
         "releaseDate": "2019.03.18",
@@ -344,7 +344,7 @@
     {
       "name": "iPad Air 2",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad_air_2.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad_air_2.webp",
       "data": {
         "slogan": "轻轻地，改变一切。",
         "releaseDate": "2014.10.17",
@@ -381,7 +381,7 @@
     {
       "name": "iPad Air",
       "generation": "",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-device/ipad/ipad-air/img/ipad_air_1.webp",
+      "image": "/apple-device/ipad/ipad-air/img/ipad_air_1.webp",
       "data": {
         "slogan": "轻出份量",
         "releaseDate": "2013.10.23",

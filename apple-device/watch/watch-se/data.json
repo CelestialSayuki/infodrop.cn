@@ -133,7 +133,7 @@
         {
             "name": "Apple Watch SE",
             "generation": "(第 3 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se_3.webp",
+            "image": "/apple-device/watch/watch-se/img/apple_watch_se_3.webp",
             "data": {
                 "slogan": "陪你练，随你聊，帮你记，懂你心。",
                 "releaseDate": "2025.09.10",
@@ -149,7 +149,7 @@
                         "hex": "rgb(222, 214, 209)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/watch-se-3.usdz\" target=\"_blank\">午夜色</a>",
+                "arLink": "<a href=\"/AR/watch/watch-se-3.usdz\" target=\"_blank\">午夜色</a>",
                 "chipInfo": "S10 SiP",
                 "ramRom": "2GB<br>64GB",
                 "wirelessChip": "W3",
@@ -172,7 +172,7 @@
         {
             "name": "Apple Watch SE",
             "generation": "(第 2 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se_2.webp",
+            "image": "/apple-device/watch/watch-se/img/apple_watch_se_2.webp",
             "data": {
                 "slogan": "超值超有料",
                 "releaseDate": "2022.09.08",
@@ -215,7 +215,7 @@
         {
             "name": "Apple Watch SE",
             "generation": "(第 1 代)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/watch/watch-se/img/apple_watch_se.webp",
+            "image": "/apple-device/watch/watch-se/img/apple_watch_se.webp",
             "data": {
                 "slogan": "事事拿手，轻松入手。",
                 "releaseDate": "2020.09.16",
@@ -235,7 +235,7 @@
                         "hex": "#D2D3D4"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/watch/apple_watch_SE_gps_alum_silver_l_sport_band_abyss_blue_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/watch/apple_watch_SE_gps_alum_silver_l_sport_band_abyss_blue_ios15.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipInfo": "S5 SiP",
                 "ramRom": "1GB<br>32GB",
                 "wirelessChip": "W3",

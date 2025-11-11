@@ -1,83 +1,126 @@
 {
-  "title": "苹果 R 系列参数对比",
-  "featureGroups": [
-    {
-      "groupName": "基础",
-      "features": [
-        { "id": "displayType", "name": "型号展示" },
-        { "id": "releaseDate", "name": "发布时间" },
-        { "id": "processTech", "name": "技术工艺" },
-        { "id": "transistorCount", "name": "晶体管数" },
-        { "id": "dieSize", "name": "裸片尺寸" }
-      ]
-    },
-    {
-      "groupName": "CPU",
-      "features": [
-        { "id": "cpuSpec", "name": "CPU规格" },
-      ]
-    },
-    {
-      "groupName": "缓存",
-      "features": [
-          { "id": "LCache", "name": "次级缓存" },
-          { "id": "memorycache", "name": "Memory Cache" }
-      ]
-    },
-    {
-      "groupName": "接口",
-      "features": [
-        { "id": "internalIo", "name": "内置I/O" }
-      ]
-    },
-    {
-      "groupName": "信号",
-      "features": [
-        { "id": "signalType", "name": "信号类型" },
-        { "id": "processingSpeed", "name": "处理速度" }
-      ]
-    },
-    {
-      "groupName": "带宽",
-      "features": [
-        { "id": "bandwidth", "name": "通信带宽" }
-      ]
-    },
-    {
-      "groupName": "其他",
-      "features": [
-        { "id": "usedIn", "name": "使用设备" }
-      ]
-    }
-  ],
-  "products": [
-    {
-      "name": "R1",
-      "generation": "(Bora, APL1W08-T6500)",
-      "image": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_product.webp",
-      "images": {
-        "宣传图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_product.webp",
-        "芯片图": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1.webp",
-        "Die": {
-            "Layout": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_Layout.webp",
-            "Die": "https://asia.oss.simplehac.top/infodrop/apple-silicon/chip-r/img/R1_Die.webp"
+    "title": "苹果 R 系列参数对比",
+    "featureGroups": [
+        {
+            "groupName": "基础",
+            "features": [
+                {
+                    "id": "displayType",
+                    "name": "型号展示"
+                },
+                {
+                    "id": "releaseDate",
+                    "name": "发布时间"
+                },
+                {
+                    "id": "processTech",
+                    "name": "技术工艺"
+                },
+                {
+                    "id": "transistorCount",
+                    "name": "晶体管数"
+                },
+                {
+                    "id": "dieSize",
+                    "name": "裸片尺寸"
+                }
+            ]
+        },
+        {
+            "groupName": "CPU",
+            "features": [
+                {
+                    "id": "cpuSpec",
+                    "name": "CPU规格"
+                }
+            ]
+        },
+        {
+            "groupName": "缓存",
+            "features": [
+                {
+                    "id": "LCache",
+                    "name": "次级缓存"
+                },
+                {
+                    "id": "memorycache",
+                    "name": "Memory Cache"
+                }
+            ]
+        },
+        {
+            "groupName": "接口",
+            "features": [
+                {
+                    "id": "internalIo",
+                    "name": "内置I/O"
+                }
+            ]
+        },
+        {
+            "groupName": "信号",
+            "features": [
+                {
+                    "id": "signalType",
+                    "name": "信号类型"
+                },
+                {
+                    "id": "processingSpeed",
+                    "name": "处理速度"
+                }
+            ]
+        },
+        {
+            "groupName": "带宽",
+            "features": [
+                {
+                    "id": "bandwidth",
+                    "name": "通信带宽"
+                }
+            ]
+        },
+        {
+            "groupName": "其他",
+            "features": [
+                {
+                    "id": "usedIn",
+                    "name": "使用设备"
+                }
+            ]
         }
-      },
-      "data": {
-        "displayType": ["宣传图", "芯片图","Die"],
-        "releaseDate": "2023.06",
-        "processTech": "TSMC N5",
-        "transistorCount": "",
-        "dieSize": "8.18×11.35 (92.84mm²)",
-        "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">LPE-Core ×4</div>",
-        "LCache": "共享 256KB ×2 组",
-        "memorycache": "20MB",
-        "internalIo": "Camera Serial Interface ×26<br>PCIe ×(1+2) Lines",
-        "signalType": "相机、各传感器及麦克风输入",
-        "processingSpeed": "12毫秒 (从信号采集到显示)",
-        "bandwidth": "256GB/s",
-        "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Vision Pro</div>"
-      }
-    }
-  ]
+    ],
+    "products": [
+        {
+            "name": "R1",
+            "generation": "(Bora, APL1W08-T6500)",
+            "image": "/apple-silicon/chip-r/img/R1_product.webp",
+            "images": {
+                "宣传图": "/apple-silicon/chip-r/img/R1_product.webp",
+                "芯片图": "/apple-silicon/chip-r/img/R1.webp",
+                "Die": {
+                    "Layout": "/apple-silicon/chip-r/img/R1_Layout.webp",
+                    "Die": "/apple-silicon/chip-r/img/R1_Die.webp"
+                }
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "芯片图",
+                    "Die"
+                ],
+                "releaseDate": "2023.06",
+                "processTech": "TSMC N5",
+                "transistorCount": "",
+                "dieSize": "8.18×11.35 (92.84mm²)",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">LPE-Core ×4</div>",
+                "LCache": "共享 256KB ×2 组",
+                "memorycache": "20MB",
+                "internalIo": "Camera Serial Interface ×26<br>PCIe ×(1+2) Lines",
+                "signalType": "相机、各传感器及麦克风输入",
+                "processingSpeed": "12毫秒 (从信号采集到显示)",
+                "bandwidth": "256GB/s",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">Apple Vision Pro</div>"
+            }
+        }
+    ]
 }

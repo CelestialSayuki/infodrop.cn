@@ -168,7 +168,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, M5)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
             "data": {
                 "slogan": "强势动力来自 M5",
                 "releaseDate": "2025.10.15",
@@ -184,7 +184,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
                 "chipProcess": "TSMC N3P",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5<br>(4P+6E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -212,7 +212,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(16 英寸, 2024 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2024-16in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2024-16in.webp",
             "data": {
                 "slogan": "强势动力来自 M4",
                 "releaseDate": "2024.10.30",
@@ -228,7 +228,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_16in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_16in_silver.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2024_16in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"/AR/mac/macbook_pro_2024_16in_silver.usdz\" target=\"_blank\">银色</a>",
                 "chipProcess": "TSMC N3E",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Pro<br>(10P+4E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Max<br>(10/12P+4E)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×20</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×32/40</div>",
@@ -256,7 +256,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, M4 Pro/Max, 2024 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
             "data": {
                 "slogan": "强势动力来自 M4",
                 "releaseDate": "2024.10.30",
@@ -272,7 +272,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
                 "chipProcess": "TSMC N3E",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Pro<br>(8/10P+4E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4 Max<br>(10/12P+4E)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/20</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×32/40</div>",
@@ -300,7 +300,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, M4, 2024 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
             "data": {
                 "slogan": "强势动力来自 M4",
                 "releaseDate": "2024.10.30",
@@ -316,7 +316,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2024_14in_space_black.usdz\" target=\"_blank\">深空黑色</a><a href=\"/AR/mac/macbook_pro_2024_14in_silver.usdz\" target=\"_blank\">银色</a>",
                 "chipProcess": "TSMC N3E",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M4<br>(4P+6E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -344,7 +344,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(16 英寸, 2023 年 11 月)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2023-16in-m3-pro-m3-max.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2023-16in-m3-pro-m3-max.webp",
             "data": {
                 "slogan": "狠角色，很绝色。",
                 "releaseDate": "2023.10.31",
@@ -360,7 +360,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2023_m3_pro_16_space_black.usdz\" target=\"_blank\">深空黑色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2023_m3_pro_16_space_black.usdz\" target=\"_blank\">深空黑色</a>",
                 "chipProcess": "TSMC N3B",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3 Pro<br>(6P+6E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3 Max<br>(10/12P+4E)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×18</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×30/40</div>",
@@ -388,7 +388,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, M3 Pro/Max, 2023 年 11 月)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in-m3-pro-m3-max.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in-m3-pro-m3-max.webp",
             "data": {
                 "slogan": "狠角色，很绝色。",
                 "releaseDate": "2023.10.31",
@@ -404,7 +404,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2023_m3_pro_14_space_black.usdz\" target=\"_blank\">深空黑色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2023_m3_pro_14_space_black.usdz\" target=\"_blank\">深空黑色</a>",
                 "chipProcess": "TSMC N3B",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3 Pro<br>(5/6P+6E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3 Max<br>(10/12P+4E)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×14/18</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×30/40</div>",
@@ -432,7 +432,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, M3, 2023 年 11 月)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in-m3.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in-m3.webp",
             "data": {
                 "slogan": "狠角色，很绝色。",
                 "releaseDate": "2023.10.31",
@@ -448,7 +448,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2023_m3_14_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2023_m3_14_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N3B",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M3<br>(4P+4E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -476,7 +476,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(16 英寸, 2023 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in.webp",
             "data": {
                 "slogan": "行走的突破力",
                 "releaseDate": "2023.01.18",
@@ -492,7 +492,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2023_16_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2023_16_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5P",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 Pro<br>(8P+4E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 Max<br>(8P+4E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×19</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×30/38</div>",
@@ -520,7 +520,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, 2023 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2023-14in.webp",
             "data": {
                 "slogan": "行走的突破力",
                 "releaseDate": "2023.01.18",
@@ -536,7 +536,7 @@
                         "hex": "rgb(227, 228, 229)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2023_14_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2023_14_space_gray_ios15.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5P",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 Pro<br>(6/8P+4E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2 Max<br>(8P+4E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/19</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×30/38</div>",
@@ -564,7 +564,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, M2, 2022 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2022-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2022-13in.webp",
             "data": {
                 "slogan": "超机动，硬实力。",
                 "releaseDate": "2022.06.07",
@@ -580,7 +580,7 @@
                         "hex": "rgb(199, 200, 202)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5P",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M2<br>(4P+4E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10</div>",
@@ -608,7 +608,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(16 英寸, 2021 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2021-16in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2021-16in.webp",
             "data": {
                 "slogan": "强者的强",
                 "releaseDate": "2021.10.19",
@@ -624,7 +624,7 @@
                         "hex": "rgb(199, 200, 202)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2021_16_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2021_16_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1 Pro<br>(8P+2E Core)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1 Max<br>(8P+2E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×24/32</div>",
@@ -652,7 +652,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(14 英寸, 2021 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2021-14in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2021-14in.webp",
             "data": {
                 "slogan": "强者的强",
                 "releaseDate": "2021.10.19",
@@ -668,7 +668,7 @@
                         "hex": "rgb(199, 200, 202)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2021_14_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2021_14_space_gray.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1 Pro<br>(6/8P+2E)</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1 Max<br>(8P+2E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×14/16</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×24/32</div>",
@@ -696,7 +696,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, M1, 2020 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2020-late-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2020-late-13in.webp",
             "data": {
                 "slogan": "一 Pro 到位。",
                 "releaseDate": "2020.11.11",
@@ -712,7 +712,7 @@
                         "hex": "rgb(199, 200, 202)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2022_2020_13_space_gray_ios12.usdz\" target=\"_blank\">深空灰色</a>",
                 "chipProcess": "TSMC N5",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M1<br>(4P+4E Core)</div>",
                 "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8</div>",
@@ -740,7 +740,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2020 年, 雷雳×4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2020-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2020-13in.webp",
             "data": {
                 "slogan": "动力，行动力。",
                 "releaseDate": "2020.05.05",
@@ -784,7 +784,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2020 年, 雷雳×2)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2020-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2020-13in.webp",
             "data": {
                 "slogan": "动力，行动力。",
                 "releaseDate": "2020.05.05",
@@ -828,7 +828,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(16 英寸, 2019 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2019-16in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2019-16in.webp",
             "data": {
                 "slogan": "高能，召唤高手。",
                 "releaseDate": "2019.11.14",
@@ -844,7 +844,7 @@
                         "hex": "rgb(199, 200, 202)"
                     }
                 ],
-                "arLink": "<a href=\"https://asia.oss.simplehac.top/infodrop/AR/mac/macbook_pro_2019_16.usdz\" target=\"_blank\">银色</a>",
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2019_16.usdz\" target=\"_blank\">银色</a>",
                 "chipProcess": "Intel 14nm (Coffee Lake)",
                 "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">六核 i7<br>9750H</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">八核 i9<br>9880H</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">八核 i9<br>9980HK</div>",
                 "gpuInfo": "Intel® UHD Graphics 630<br>AMD 5300M/5500M/5600M",
@@ -872,7 +872,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2019 年, 雷雳×2)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2019-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2019-13in.webp",
             "data": {
                 "slogan": "更强劲，更专业的强劲。",
                 "releaseDate": "2019.07.10",
@@ -916,7 +916,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(15 英寸, 2018 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2018-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2018-15in.webp",
             "data": {
                 "slogan": "更强劲，更专业的强劲。",
                 "releaseDate": "2018.07.13",
@@ -960,7 +960,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2018 年, 雷雳×4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2018-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2018-13in.webp",
             "data": {
                 "slogan": "更强劲，更专业的强劲。",
                 "releaseDate": "2018.07.13",
@@ -1004,7 +1004,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(15 英寸, 2017 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2017-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2017-15in.webp",
             "data": {
                 "slogan": "一身才华，一触，即发。",
                 "releaseDate": "2017.06.06",
@@ -1048,7 +1048,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2017 年, 雷雳×4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2017-13in-4.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2017-13in-4.webp",
             "data": {
                 "slogan": "一身才华，一触，即发。",
                 "releaseDate": "2017.06.06",
@@ -1092,7 +1092,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2017 年, 雷雳×2)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2017-13in-2.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2017-13in-2.webp",
             "data": {
                 "slogan": "/",
                 "releaseDate": "2017.06.06",
@@ -1136,7 +1136,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(15 英寸, 2016 年)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2016-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2016-15in.webp",
             "data": {
                 "slogan": "一身才华，一触，即发。",
                 "releaseDate": "2016.11.13",
@@ -1180,7 +1180,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2016 年, 雷雳×4)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2016-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2016-13in.webp",
             "data": {
                 "slogan": "一身才华，一触，即发。",
                 "releaseDate": "2016.11.13",
@@ -1224,7 +1224,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(13 英寸, 2016 年, 雷雳×2)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2016-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2016-13in.webp",
             "data": {
                 "slogan": "/",
                 "releaseDate": "2016.10.28",
@@ -1268,7 +1268,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 15 英寸, 2015 年中)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2015-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2015-15in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2015.05.20",
@@ -1308,7 +1308,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 13 英寸, 2015 年初)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2015-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2015-13in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2015.03.10",
@@ -1348,7 +1348,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 15 英寸, 2014 年中)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2014-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2014-15in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2014.07.30",
@@ -1388,7 +1388,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 13 英寸, 2014 年中)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2014-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2014-13in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2014.07.30",
@@ -1428,7 +1428,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 15 英寸, 2013 年末)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2013-15in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2013-15in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2013.10.23",
@@ -1468,7 +1468,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 13 英寸, 2013 年末)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2013-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2013-13in.webp",
             "data": {
                 "slogan": "每一像素颗粒，尽显澎湃动力。",
                 "releaseDate": "2013.10.23",
@@ -1508,7 +1508,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 15英寸, 2013 年初)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2013-15in-early.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2013-15in-early.webp",
             "data": {
                 "slogan": "超高笔记本电脑分辨率, 超越你所见",
                 "releaseDate": "2013.02.14",
@@ -1548,7 +1548,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 13 英寸, 2013 年初)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2013-13in-early.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2013-13in-early.webp",
             "data": {
                 "slogan": "超高笔记本电脑分辨率, 超越你所见",
                 "releaseDate": "2013.02.14",
@@ -1588,7 +1588,7 @@
         {
             "name": "MacBook Pro",
             "generation": "(Retina, 13 英寸, 2012 年末)",
-            "image": "https://asia.oss.simplehac.top/infodrop/apple-device/mac/macbook-pro/img/macbook-pro-2012-13in.webp",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2012-13in.webp",
             "data": {
                 "slogan": "前所未有的超高分辨率, 数一, 数二",
                 "releaseDate": "2012.10.24",
