@@ -1,4 +1,4 @@
-const CACHE_VERSION = '2A1001z';
+const CACHE_VERSION = '2A1002z';
 const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -240,18 +240,20 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          const expectedCaches = [CACHE_NAME, RUNTIME_CACHE_NAME];
-          if (!expectedCaches.includes(key)) {
-            return caches.delete(key);
-          }
-        })
-      );
-    })
+    Promise.all([
+      caches.keys().then((keyList) => {
+        return Promise.all(
+          keyList.map((key) => {
+            const expectedCaches = [CACHE_NAME, RUNTIME_CACHE_NAME];
+            if (!expectedCaches.includes(key)) {
+              return caches.delete(key);
+            }
+          })
+        );
+      }),
+      self.clients.claim()
+    ])
   );
-  return self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {

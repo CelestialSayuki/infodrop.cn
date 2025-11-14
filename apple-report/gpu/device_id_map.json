@@ -701,12 +701,18 @@
     "18235": {
         "name": "(6GPU) A18 Pro",
         "type": "mobile",
-        "series": "A"
+        "series": "A",
+        "limits": {
+            "STEEL_NOMAD_LIGHT": 2200
+        }
     },
     "18236": {
         "name": "(6GPU) A18 Pro",
         "type": "mobile",
-        "series": "A"
+        "series": "A",
+        "limits": {
+            "STEEL_NOMAD_LIGHT": 2200
+        }
     },
     "18383": {
         "name": "(5GPU) A17 Pro",

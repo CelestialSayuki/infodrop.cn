@@ -374,7 +374,6 @@ export class Window {
     this.state = 'closing';
     this.loadId++;
     this.element.querySelector('.edit-diff-popover')?.remove();
-    document.querySelectorAll(`[data-dynamic-style-for="${this.id}"]`).forEach(s => s.remove());
     const windowInstance = this;
     const element = this.element;
     element.style.animation = 'none';
@@ -410,6 +409,7 @@ export class Window {
         function onAnimationEnd(e) {
             if (e.animationName === 'dissipate-like-smoke') {
                 this.removeEventListener('animationend', onAnimationEnd);
+                document.querySelectorAll(`[data-dynamic-style-for="${this.id}"]`).forEach(s => s.remove());
                 windowInstance.manager.destroyWindow(windowInstance.url);
             }
         }

@@ -168,7 +168,7 @@ body.landscape-notch-right {
     white-space:nowrap;
 }
 .macos-window.is-closing {
-    animation:dissipate-like-smoke 0.3s ease-in forwards;
+    animation:dissipate-like-smoke 0.3s linear forwards;
 }
 .macos-window.is-maximized {
     top:0 !important;
