@@ -24,3 +24,5 @@ minecraft/reg/reg.php
 minecraft/status/get-perf-data.php
 apple-report/gpu/benchmarks.sqlite
 apple-report/gpu/get.php
+auth/socpowerbudxts/devices.sqlite
+auth/socpowerbudxts/preflight.php
