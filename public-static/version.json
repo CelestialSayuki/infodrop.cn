@@ -1,12 +1,10 @@
 {
-    "version": "2A1002z",
+    "version": "2A1003f",
     "notes": [
-        "修复了 OTA 后没有刷新的问题",
-        "修正 A8 GPU 名称",
-        "修正 A18 Pro GPU 跑分",
-        "更换部分 Dieshot 图片",
-        "修复了窗口关闭时 CSS 样式过早清理导致的错位",
-        "修复了 Minecraft 服务器系统状态页面的表格错位"
+        "缓解了iPad PWA模式重新进入窗口会意外放大的问题",
+        "重构设备屏幕厂家页面",
+        "修复了GPU跑分页面手机版不显示的bug",
+        "进群验证可以在群里申请查看问题及答案"
     ],
     "rsr_patches": [
         {
@@ -15,5 +13,5 @@
             ]
         }
     ],
-    "preserve_runtime": false
+    "preserve_runtime": true
 }

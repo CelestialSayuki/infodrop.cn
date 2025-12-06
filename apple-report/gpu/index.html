@@ -218,7 +218,7 @@
               }
               allChartData = await response.json();
               renderAllCharts();
-              document.querySelector('.main-content').style.opacity = '1';
+              document.querySelectorAll('.main-content').forEach(el => el.style.opacity = '1');
               const themeObserver = new MutationObserver((mutationsList) => {
                   for (const mutation of mutationsList) {
                       if (mutation.type === 'attributes' && mutation.attributeName === 'class') {

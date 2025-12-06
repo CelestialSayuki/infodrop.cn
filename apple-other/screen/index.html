@@ -7,26 +7,109 @@
   <link rel="stylesheet" type="text/css" href="../../public-static/css/new.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
   <style type="text/css">
-    .main-content { padding: 20px; }
-    .card { margin-bottom: 20px; }
+    .main-content { padding: 20px; height: 100%; box-sizing: border-box; }
+    .card {
+        margin-bottom: 20px;
+        background: var(--light-card-bg, #fff);
+        border-radius: 12px;
+        overflow: hidden;
+    }
     .retext { text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 20px; margin-bottom: 20px; color: var(--light-text-secondary); width: 100%; }
-    hr { border: 0; height: 1px; background-color: rgba(237, 237, 237, 0.3); max-width: 1500px; margin: 40px auto; }
-    #mainLayout { margin: 0; }
-    .macos-window.dark-mode .retext, html.dark-mode .retext { color: var(--dark-text-secondary); }
-    .macos-window.dark-mode hr, html.dark-mode hr { background-color: rgba(255, 255, 255, 0.15); }
-    .macos-window.dark-mode .card, html.dark-mode .card { box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05); }
+    .chart-layout {
+        display: flex;
+        height: 600px;
+        width: 100%;
+    }
+    .device-sidebar {
+        width: 160px;
+        height: 100%;
+        overflow-y: auto;
+        border-right: 1px solid rgba(0,0,0,0.05);
+        padding: 10px;
+        box-sizing: border-box;
+        scrollbar-width: thin;
+    }
+    .device-item {
+        padding: 10px 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        color: #333;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .device-item:hover {
+        background-color: rgba(0,0,0,0.03);
+    }
+    .device-item.active {
+        background-color: #007aff;
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+        transform: scale(1.02);
+    }
+    .device-item:active {
+        transform: scale(0.95);
+        transition: transform 0.1s;
+    }
+    .macos-window.dark-mode .device-sidebar, html.dark-mode .device-sidebar {
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .macos-window.dark-mode .device-item, html.dark-mode .device-item {
+        color: #eee;
+    }
+    .macos-window.dark-mode .device-item:hover, html.dark-mode .device-item:hover {
+        background-color: rgba(255,255,255,0.05);
+    }
+    .macos-window.dark-mode .device-item.active, html.dark-mode .device-item.active {
+        background-color: #0a84ff;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(10, 132, 255, 0.3);
+    }
     @media (max-width: 768px) {
-      .main-content { padding: 5px; }
-      .card { margin: 0; }
+        .main-content { padding: 10px 5px; }
+        .chart-layout {
+            flex-direction: column;
+            height: auto;
+        }
+        .device-sidebar {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            border-right: none;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 10px 5px;
+        }
+        .device-item {
+            flex: 0 0 auto;
+            margin-right: 10px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #screen-pie-chart {
+            height: 400px !important;
+        }
     }
   </style>
 </head>
 <body style="margin: 0;" id="mainLayout">
   <div class="main-content">
     <div class="card">
-        <div id="screen-pie-chart" style="width: 100%; height: 600px;"></div>
+        <div class="chart-layout">
+            <div id="device-sidebar" class="device-sidebar">
+                </div>
+            <div id="screen-pie-chart" style="flex: 1; height: 100%; min-height: 400px;"></div>
+        </div>
     </div>
   </div>
+  
   <script type="text/javascript">
     (async () => {
       let screenChartInstance = null;
@@ -34,107 +117,76 @@
       let allDeviceNames = [];
       let currentSelectedDevice = '所有设备';
       const chartDom = document.getElementById('screen-pie-chart');
+      const sidebarDom = document.getElementById('device-sidebar');
       const base64ToArrayBuffer = (base64) => {
           const binaryString = window.atob(base64);
           const len = binaryString.length;
           const bytes = new Uint8Array(len);
-          for (let i = 0; i < len; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
-          }
+          for (let i = 0; i < len; i++) { bytes[i] = binaryString.charCodeAt(i); }
           return bytes.buffer;
       };
       const decryptData = async (keyData, b64Ciphertext, b64Iv, b64Tag) => {
-          const cryptoKey = await window.crypto.subtle.importKey(
-              "raw",
-              keyData,
-              { name: "AES-GCM" },
-              false,
-              ["decrypt"]
-          );
+          const cryptoKey = await window.crypto.subtle.importKey("raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]);
           const ciphertext = base64ToArrayBuffer(b64Ciphertext);
           const iv = base64ToArrayBuffer(b64Iv);
           const tag = base64ToArrayBuffer(b64Tag);
           const fullCiphertext = new Uint8Array(ciphertext.byteLength + tag.byteLength);
           fullCiphertext.set(new Uint8Array(ciphertext), 0);
           fullCiphertext.set(new Uint8Array(tag), ciphertext.byteLength);
-          const decrypted = await window.crypto.subtle.decrypt(
-              {
-                  name: "AES-GCM",
-                  iv: iv,
-                  tagLength: 128
-              },
-              cryptoKey,
-              fullCiphertext.buffer
-          );
+          const decrypted = await window.crypto.subtle.decrypt({ name: "AES-GCM", iv: iv, tagLength: 128 }, cryptoKey, fullCiphertext.buffer);
           return new TextDecoder().decode(decrypted);
       };
       const getChartTheme = () => document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
-      const lightTooltipStyle = {
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          borderColor: '#E0E0E0',
-          textStyle: { color: '#333' }
-      };
-      const darkTooltipStyle = {
-          backgroundColor: 'rgba(50, 50, 50, 0.5)',
-          borderColor: '#555',
-          textStyle: { color: '#FFFFFF' }
-      };
-      function updateChartOptions(selectedDevice) {
-          if (!allScreenData || !screenChartInstance) return;
-          currentSelectedDevice = selectedDevice;
-          let filteredData = allScreenData;
-          if (selectedDevice !== '所有设备') {
-              filteredData = allScreenData.filter(item => item.device_model === selectedDevice);
-          }
-          const manufacturerCounts = {};
-          filteredData.forEach(item => {
-              const manufacturer = item.manufacturer || "未知厂商";
-              manufacturerCounts[manufacturer] = (manufacturerCounts[manufacturer] || 0) + 1;
-          });
-          const pieData = Object.entries(manufacturerCounts).map(([name, value]) => ({
-              name: name,
-              value: value
-          }));
-          const manufacturerNames = pieData.map(d => d.name);
-          const totalCount = filteredData.length;
-          let subtext = selectedDevice;
-          subtext += ` (总计: ${totalCount} 台)`;
-          screenChartInstance.setOption({
-              title: {
-                  subtext: subtext
-              },
-              legend: [
-                  {
-                      id: 'deviceFilter',
-                      selected: { [selectedDevice]: true }
-                  },
-                  {
-                      id: 'manufacturerLegend',
-                      data: manufacturerNames
-                  }
-              ],
-              series: {
-                  id: 'mainPie',
-                  data: pieData
+      function sortDeviceList(names) {
+          return names.sort((a, b) => {
+              if (a === '所有设备') return -1;
+              if (b === '所有设备') return 1;
+              const getTypePriority = (name) => {
+                  if (name.startsWith('iPhone')) return 4;
+                  if (name.startsWith('iPad')) return 3;
+                  if (name.startsWith('Mac')) return 2;
+                  return 1;
+              };
+              const typeA = getTypePriority(a);
+              const typeB = getTypePriority(b);
+              if (typeA !== typeB) return typeB - typeA;
+              if (typeA === 4) {
+                  const numA = parseInt(a.match(/iPhone\s*(\d+)/)?.[1] || 0);
+                  const numB = parseInt(b.match(/iPhone\s*(\d+)/)?.[1] || 0);
+                  if (numA !== numB) return numB - numA;
               }
+              if (typeA === 3) {
+                  const getiPadScore = (n) => {
+                      if (n.includes('Pro')) return 400;
+                      if (n.includes('Air')) return 300;
+                      if (n.includes('mini')) return 200;
+                      const num = parseInt(n.match(/iPad\s*(\d+)/)?.[1] || 0);
+                      return 100 + num;
+                  };
+                  const scoreA = getiPadScore(a);
+                  const scoreB = getiPadScore(b);
+                  if (scoreA !== scoreB) return scoreB - scoreA;
+              }
+              return a.localeCompare(b);
           });
       }
-      function renderScreenChart(selectedDevice) {
-          if (!allScreenData) return;
-          if (!chartDom) return;
-          currentSelectedDevice = selectedDevice;
-          if (screenChartInstance) {
-              screenChartInstance.dispose();
-          }
-          if (!allScreenData || allScreenData.length === 0) {
-              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
-              chartDom.style.height = '100px';
-              return;
-          } else {
-              chartDom.style.height = '600px';
-          }
+      function renderSidebar() {
+          sidebarDom.innerHTML = '';
+          allDeviceNames.forEach(name => {
+              const div = document.createElement('div');
+              div.className = `device-item ${name === currentSelectedDevice ? 'active' : ''}`;
+              div.textContent = name;
+              div.onclick = () => {
+                  currentSelectedDevice = name;
+                  document.querySelectorAll('.device-item').forEach(el => el.classList.remove('active'));
+                  div.classList.add('active');
+                  updateChart(name);
+              };
+              sidebarDom.appendChild(div);
+          });
+      }
+      function getOption(selectedDevice) {
           const theme = getChartTheme();
-          screenChartInstance = echarts.init(chartDom, theme);
           let filteredData = allScreenData;
           if (selectedDevice !== '所有设备') {
               filteredData = allScreenData.filter(item => item.device_model === selectedDevice);
@@ -150,13 +202,19 @@
           }));
           const manufacturerNames = pieData.map(d => d.name);
           const totalCount = filteredData.length;
-          let subtext = selectedDevice + ` (总计: ${totalCount} 台)`;
-          const option = {
+          const lightTooltipStyle = { backgroundColor: 'rgba(255, 255, 255, 0.9)', borderColor: '#E0E0E0', textStyle: { color: '#333' } };
+          const darkTooltipStyle = { backgroundColor: 'rgba(50, 50, 50, 0.9)', borderColor: '#555', textStyle: { color: '#FFFFFF' } };
+          const chartColors = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
+          return {
               backgroundColor: 'transparent',
+              animationDurationUpdate: 500,
+              animationEasingUpdate: 'quinticInOut',
               title: {
                   text: '屏幕厂家占比',
-                  subtext: subtext,
-                  left: 'center'
+                  subtext: `${selectedDevice} (总计: ${totalCount} 台)`,
+                  left: 'center',
+                  top: 10,
+                  textStyle: { color: theme === 'dark' ? '#eee' : '#333' }
               },
               tooltip: {
                   trigger: 'item',
@@ -165,86 +223,73 @@
               },
               legend: [
                   {
-                      id: 'deviceFilter',
-                      data: allDeviceNames,
-                      selected: { [selectedDevice]: true },
-                      selectedMode: 'single',
-                      orient: 'vertical',
-                      left: '3%',
-                      top: 'middle',
-                      type: 'scroll',
-                      textStyle: { fontSize: 11 }
-                  },
-                  {
                       id: 'manufacturerLegend',
                       data: manufacturerNames,
-                      selectedMode: false,
                       orient: 'vertical',
-                      right: '3%',
+                      right: '5%',
                       top: 'middle',
                       type: 'scroll',
-                      textStyle: { fontSize: 11 }
+                      textStyle: { fontSize: 12, color: theme === 'dark' ? '#eee' : '#333' }
                   }
               ],
               series: [
-                  {
-                      id: 'dummySeriesForFilter',
-                      type: 'pie',
-                      radius: ['0%', '1%'],
-                      center: ['-100%', '-100%'],
-                      data: allDeviceNames.map(name => ({ name: name, value: 0 })),
-                      legendIndex: 0,
-                      silent: true,
-                      label: { show: false },
-                      tooltip: { show: false }
-                  },
                   {
                       id: 'mainPie',
                       name: '厂家分布',
                       type: 'pie',
                       radius: ['40%', '70%'],
-                      center: ['50%', '50%'],
+                      center: ['50%', '55%'],
                       avoidLabelOverlap: true,
-                      legendIndex: 1,
-                      color: [
-                        '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de',
-                        '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'
-                      ],
+                      color: chartColors,
                       itemStyle: {
                           borderRadius: 10,
-                          borderColor: theme === 'dark' ? 'var(--dark-card-bg, #1e1e1e)' : 'var(--light-card-bg, #fff)',
+                          borderColor: theme === 'dark' ? '#1e1e1e' : '#fff',
                           borderWidth: 2
                       },
                       label: {
                           show: true,
                           position: 'outside',
-                          formatter: '{b}: {d}%'
+                          formatter: '{b}: {d}%',
+                          color: theme === 'dark' ? '#eee' : '#333'
                       },
                       emphasis: {
-                          label: { show: true, fontSize: 18, fontWeight: 'bold' }
+                          label: { show: true, fontSize: 18, fontWeight: 'bold' },
+                          itemStyle: {
+                              shadowBlur: 10,
+                              shadowOffsetX: 0,
+                              shadowColor: 'rgba(0, 0, 0, 0.5)'
+                          }
                       },
-                      labelLine: { show: true },
                       data: pieData
                   }
               ],
               toolbox: {
                   show: true,
                   feature: {
-                      mark: { show: true },
-                      saveAsImage: { show: true }
+                      saveAsImage: { show: true, title: '保存图片', iconStyle: { borderColor: theme === 'dark' ? '#eee' : '#333' } }
                   }
               }
           };
+      }
+      function updateChart(selectedDevice) {
+          if (!allScreenData || !screenChartInstance) return;
+          const option = getOption(selectedDevice);
           screenChartInstance.setOption(option);
-          screenChartInstance.on('legendselectchanged', (params) => {
-              if (allDeviceNames.includes(params.name) && params.selected[params.name] === true && params.name !== currentSelectedDevice) {
-                   updateChartOptions(params.name);
-              }
-          });
+      }
+      function renderScreenChart(selectedDevice) {
+          if (!allScreenData || !chartDom) return;
+          if (screenChartInstance) {
+              screenChartInstance.dispose();
+          }
+          if (allScreenData.length === 0) {
+              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
+              return;
+          }
+          const theme = getChartTheme();
+          screenChartInstance = echarts.init(chartDom, theme);
+          updateChart(selectedDevice);
           const resizeObserver = new ResizeObserver(() => {
-              if (screenChartInstance) {
-                  screenChartInstance.resize();
-              }
+              if (screenChartInstance) screenChartInstance.resize();
           });
           resizeObserver.observe(chartDom);
       }
@@ -254,27 +299,24 @@
               if (!keyResponse.ok) throw new Error(`获取密钥失败! 状态: ${keyResponse.status}`);
               const keyPayload = await keyResponse.json();
               if (keyPayload.error) throw new Error(keyPayload.error);
-              const keyData = base64ToArrayBuffer(keyPayload.key);
               const dataResponse = await fetch('./upload/screen/get_screen_data.php');
               if (!dataResponse.ok) throw new Error(`获取数据失败! 状态: ${dataResponse.status}`);
               const encryptedPayload = await dataResponse.json();
               if (encryptedPayload.error) throw new Error(encryptedPayload.error);
-              const decryptedJson = await decryptData(
-                  keyData,
-                  encryptedPayload.ciphertext,
-                  encryptedPayload.iv,
-                  encryptedPayload.tag
-              );
+              const keyData = base64ToArrayBuffer(keyPayload.key);
+              const decryptedJson = await decryptData(keyData, encryptedPayload.ciphertext, encryptedPayload.iv, encryptedPayload.tag);
               const data = JSON.parse(decryptedJson);
               if (data.error) throw new Error(data.error);
               allScreenData = data;
-              allDeviceNames = ['所有设备', ...new Set(allScreenData.map(item => item.device_model))];
+              const rawDeviceNames = [...new Set(allScreenData.map(item => item.device_model))];
+              const sortedNames = sortDeviceList(rawDeviceNames);
+              allDeviceNames = ['所有设备', ...sortedNames];
+              renderSidebar();
               renderScreenChart('所有设备');
           } catch (error) {
-              console.error("加载或渲染图表失败:", error);
+              console.error("加载失败:", error);
               if (chartDom) {
                   chartDom.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
-                  chartDom.style.height = '100px';
               }
           }
       }

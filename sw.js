@@ -1,4 +1,4 @@
-const CACHE_VERSION = '2A1002z';
+const CACHE_VERSION = '2A1003f';
 const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -281,8 +281,14 @@ self.addEventListener('fetch', (event) => {
         const networkResponse = await fetch(event.request);
         if (networkResponse.ok) {
           await runtimeCache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        } else {
+          const cachedResponse = await runtimeCache.match(event.request);
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          return networkResponse;
         }
-        return networkResponse;
       } catch (error) {
         const cachedResponse = await runtimeCache.match(event.request);
         return cachedResponse || Promise.reject(new Error("Network error and no cache available."));

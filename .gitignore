@@ -26,3 +26,6 @@ apple-report/gpu/benchmarks.sqlite
 apple-report/gpu/get.php
 auth/socpowerbudxts/devices.sqlite
 auth/socpowerbudxts/preflight.php
+auth/socpowerbudxts/admin.php
+auth/socpowerbudxts/heartbeat.php
+auth/socpowerbudxts/keygen.php
