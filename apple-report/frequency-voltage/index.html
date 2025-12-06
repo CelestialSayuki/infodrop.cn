@@ -133,7 +133,7 @@
       .radio-item {
           flex: 1;
           text-align: center;
-      }600
+      }
       .control-bar input[type="text"] {
           width: 100%;
       }
@@ -274,7 +274,8 @@
                       z: baseStyle.z,
                       customInfo: {
                           type: 'Logic',
-                          device: item.devices
+                          device: item.devices,
+                          chip: item.chip
                       }
                   });
               }
@@ -295,7 +296,8 @@
                       z: baseStyle.z,
                       customInfo: {
                           type: 'SRAM',
-                          device: item.devices
+                          device: item.devices,
+                          chip: item.chip
                       }
                   });
               }
@@ -314,20 +316,26 @@
                   formatter: (params) => {
                       if (!params || params.length === 0) return '';
                       let tooltipHtml = '';
-                      const groupedByChip = {};
+                      const groupedByUniqueDevice = {};
                       params.forEach(p => {
-                          const chipName = p.seriesName;
-                          if (!groupedByChip[chipName]) groupedByChip[chipName] = [];
-                          groupedByChip[chipName].push(p);
+                          const info = processedSeriesData[p.seriesIndex].customInfo;
+                          const key = `${info.chip}___${info.device}`;
+                          if (!groupedByUniqueDevice[key]) {
+                              groupedByUniqueDevice[key] = {
+                                  chip: info.chip,
+                                  device: info.device,
+                                  points: []
+                              };
+                          }
+                          groupedByUniqueDevice[key].points.push(p);
                       });
-                      for (const [chip, points] of Object.entries(groupedByChip)) {
-                          const deviceName = points[0].dataIndex !== undefined && processedSeriesData[points[0].seriesIndex].customInfo.device;
-                          tooltipHtml += `<strong>${chip}</strong> <span style="font-size:0.8em;color:#888">${deviceName}</span><br/>`;
-                          points.sort((a, b) => {
+                      for (const group of Object.values(groupedByUniqueDevice)) {
+                          tooltipHtml += `<strong>${group.chip}</strong> <span style="font-size:0.8em;color:#888">${group.device}</span><br/>`;
+                          group.points.sort((a, b) => {
                               const typeA = processedSeriesData[a.seriesIndex].customInfo.type;
                               return typeA === 'Logic' ? -1 : 1;
                           });
-                          points.forEach(point => {
+                          group.points.forEach(point => {
                               const info = processedSeriesData[point.seriesIndex].customInfo;
                               const typeLabel = info.type === 'Logic' ? 'Logic' : 'SRAM ';
                               const typeStyle = info.type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';

@@ -1,12 +1,13 @@
 {
-    "version": "2A1004q",
+    "version": "2A1005f",
     "notes": [
-        "完全重构 DVFS 页面，修正了了长期以来 Apple 芯片逆向分析的错误，清空原来的所有数据，请重新上传。"
+        "修复tooltip bug"
     ],
     "rsr_patches": [
         {
-            "base": "",
+            "base": "2A1004q",
             "delta": [
+                "./apple-report/frequency-voltage/index.html"
             ]
         }
     ],
