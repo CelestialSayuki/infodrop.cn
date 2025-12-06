@@ -9,56 +9,162 @@
     .retext { text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 20px; margin-bottom: 20px; color: var(--light-text-secondary); width: 100%; }
     hr { border: 0; height: 1px; background-color: rgba(237, 237, 237, 0.3); max-width: 1500px; margin: 40px auto; }
     #mainLayout { margin: 0; }
-    .search-bar {
-        padding: 20px;
+    .control-bar {
+        padding: 15px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .search-group, .view-mode-group {
         display: flex;
         align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
+        gap: 12px;
     }
-    .search-bar label {
-        font-weight: 500;
-        font-size: 1rem;
+      
+    .control-bar label, .view-mode-group label {
+        font-weight: 600;
+        font-size: 0.95rem;
         color: var(--light-text);
+        white-space: nowrap;
     }
-    .search-bar input[type="text"] {
-        flex-grow: 1;
-        min-width: 250px;
+    .control-bar input[type="text"] {
+        min-width: 200px;
         padding: 8px 12px;
         font-size: 0.9rem;
-        border: 1px solid var(--light-border, #ddd);
-        border-radius: 6px;
-        background-color: var(--light-bg, #fff);
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 8px;
+        background-color: rgba(255,255,255,0.8);
         color: var(--light-text, #333);
-        transition: border-color 0.3s;
+        transition: all 0.3s ease;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .control-bar input[type="text"]:focus {
+        outline: none;
+        border-color: #007AFF;
+        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+    }
+    .radio-group {
+        display: flex;
+        background-color: rgba(118, 118, 128, 0.12);
+        padding: 3px;
+        border-radius: 9px;
+        gap: 0;
+    }
+    .radio-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #666;
+        padding: 6px 14px;
+        border-radius: 7px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
+        user-select: none;
+    }
+    .radio-item input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .radio-item:hover {
+        color: #333;
+    }
+    .radio-item:has(input:checked) {
+        background-color: #FFFFFF;
+        color: #000;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0,0,0,0.05);
     }
     .macos-window.dark-mode .retext, html.dark-mode .retext { color: var(--dark-text-secondary); }
     .macos-window.dark-mode hr, html.dark-mode hr { background-color: rgba(255, 255, 255, 0.15); }
     .macos-window.dark-mode .card, html.dark-mode .card { box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05); }
-    .macos-window.dark-mode .search-bar label,
-    html.dark-mode .search-bar label {
+    .macos-window.dark-mode .control-bar label,
+    html.dark-mode .control-bar label {
         color: var(--dark-text, #eee);
     }
-    html.dark-mode .search-bar input[type="text"] {
-        background-color: var(--dark-bg-secondary, rgba(0, 0, 0, 0.2));
-        border-color: var(--dark-border, #555);
-        color: var(--dark-text);
+
+    html.dark-mode .control-bar input[type="text"] {
+        background-color: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.1);
+        color: #fff;
     }
+    html.dark-mode .control-bar input[type="text"]:focus {
+        border-color: #0A84FF;
+        background-color: rgba(0,0,0,0.3);
+    }
+    html.dark-mode .radio-group {
+        background-color: rgba(118, 118, 128, 0.24);
+    }
+    html.dark-mode .radio-item {
+        color: #aaa;
+    }
+    html.dark-mode .radio-item:hover {
+        color: #ddd;
+    }
+    html.dark-mode .radio-item:has(input:checked) {
+        background-color: #636366;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
     @media (max-width: 768px) {
       .main-content { padding: 5px; }
       .card { margin: 0; }
+      .control-bar {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+      }
+      .search-group, .view-mode-group {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+      }
+      .radio-group {
+          width: 100%;
+      }
+      .radio-item {
+          flex: 1;
+          text-align: center;
+      }600
+      .control-bar input[type="text"] {
+          width: 100%;
+      }
     }
   </style>
 </head>
-
 <body style="margin: 0;" id="mainLayout">
-
   <div class="main-content">
-    <div class="card search-bar">
-      <label for="hash-search-input">数据码:</label>
-      <input type="text" id="hash-search-input" placeholder="输入后自动高亮...">
+    <div class="card control-bar">
+      <div class="search-group">
+          <label for="hash-search-input">数据特征码:</label>
+          <input type="text" id="hash-search-input" placeholder="输入即可高亮特定数据...">
+      </div>
+      <div class="view-mode-group">
+          <label>显示模式:</label>
+          <div class="radio-group">
+              <label class="radio-item">
+                  <input type="radio" name="viewMode" value="all" checked>
+                  <span>全部</span>
+              </label>
+              <label class="radio-item">
+                  <input type="radio" name="viewMode" value="logic">
+                  <span>Logic</span>
+              </label>
+              <label class="radio-item">
+                  <input type="radio" name="viewMode" value="sram">
+                  <span>SRAM</span>
+              </label>
+          </div>
+      </div>
     </div>
-
     <div class="card">
         <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
         <hr>
@@ -69,45 +175,39 @@
         <div id="ANE_Freq_Volt" style="height: 500px;"></div>
     </div>
   </div>
-
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
   <script type="text/javascript">
     (async () => {
       const chartInstances = {};
       let chartData = null;
       let currentSearchHash = '';
-      
+      let currentViewMode = 'all';
       let userLegendState = {};
-      
       const hashSearchInput = document.getElementById('hash-search-input');
+      const viewModeRadios = document.querySelectorAll('input[name="viewMode"]');
       let debounceTimer;
-
       const colorPalette = [
           '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
           '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
       ];
-      
       const renderChart = (containerId, originalSeriesData, titleText, yAxisMin, yAxisMax, theme) => {
           const lightTooltipStyle = {
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
               borderColor: '#E0E0E0',
               textStyle: { color: '#333' }
           };
-
           const darkTooltipStyle = {
-              backgroundColor: 'rgba(50, 50, 50, 0.5)',
+              backgroundColor: 'rgba(50, 50, 50, 0.9)',
               borderColor: '#555',
               textStyle: { color: '#FFFFFF' }
           };
           const chartDom = document.getElementById(containerId);
           if (!chartDom) return;
-
           if (chartInstances[containerId]) {
               chartInstances[containerId].dispose();
           }
-          
           if (!originalSeriesData || originalSeriesData.length === 0) {
-              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请先通过上传页面提交数据。</div>`;
+              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请上传新版数据以查看。</div>`;
               chartDom.style.height = '100px';
               return;
           } else {
@@ -116,11 +216,9 @@
           const tooltipStyle = theme === 'dark' ? darkTooltipStyle : lightTooltipStyle;
           let myChart = echarts.init(chartDom, theme);
           chartInstances[containerId] = myChart;
-
           const legendData = [...new Set(originalSeriesData.map(s => s.chip))];
           const selected = {};
           let hashFoundInThisChart = false;
-          
           const chipsWithHash = new Set();
           if (currentSearchHash) {
               originalSeriesData.forEach(s => {
@@ -130,7 +228,6 @@
                   }
               });
           }
-
           if (legendData.length > 0) {
               if (currentSearchHash && hashFoundInThisChart) {
                   legendData.forEach(chipName => {
@@ -145,143 +242,138 @@
                   userLegendState[containerId] = { ...selected };
               }
           }
-          
-          const uniqueGroupKeys = [...new Set(originalSeriesData.map(s => `${s.chip}|${s.devices}`))];
-          const colorMap = {};
-          uniqueGroupKeys.forEach((key, index) => {
-              colorMap[key] = colorPalette[index % colorPalette.length];
-          });
-          
-          const processedSeriesData = originalSeriesData.map(series => {
-              const groupKey = `${series.chip}|${series.devices}`;
-              const color = colorMap[groupKey];
-              let seriesStyle = {};
+          const processedSeriesData = [];
+          originalSeriesData.forEach((item, index) => {
+              const color = colorPalette[index % colorPalette.length];
+              let baseStyle = {};
 
               if (currentSearchHash && hashFoundInThisChart) {
-                  const hasHash = series.hashes && series.hashes.includes(currentSearchHash);
+                  const hasHash = item.hashes && item.hashes.includes(currentSearchHash);
                   if (hasHash) {
-                      seriesStyle = {
-                          symbolSize: 12,
-                          lineStyle: { width: 4 },
-                          z: 100
-                      };
+                      baseStyle = { z: 100, widthMultiplier: 1.5 };
                   } else {
-                      seriesStyle = {
-                          itemStyle: { opacity: 0.2 },
-                          lineStyle: { opacity: 0.2, width: 2 },
-                          z: 1
-                      };
+                      baseStyle = { opacity: 0.1, z: 1, widthMultiplier: 1 };
                   }
+              } else {
+                  baseStyle = { opacity: 1, z: 2, widthMultiplier: 1 };
               }
-
-              return {
-                  ...series,
-                  ...seriesStyle,
-                  name: series.chip,
-                  type: 'line',
-                  symbol: 'circle',
-                  symbolSize: seriesStyle.symbolSize || 6,
-                  itemStyle: { color: color, ...seriesStyle.itemStyle },
-                  lineStyle: { color: color, width: 2, ...seriesStyle.lineStyle }
-              };
+              if ((currentViewMode === 'all' || currentViewMode === 'logic') && item.logic_data && item.logic_data.length > 0) {
+                  processedSeriesData.push({
+                      name: item.chip,
+                      type: 'line',
+                      symbol: 'circle',
+                      symbolSize: 6 * baseStyle.widthMultiplier,
+                      data: item.logic_data,
+                      lineStyle: {
+                          color: color,
+                          width: 2 * baseStyle.widthMultiplier,
+                          opacity: baseStyle.opacity,
+                          type: 'solid'
+                      },
+                      itemStyle: { color: color, opacity: baseStyle.opacity },
+                      z: baseStyle.z,
+                      customInfo: {
+                          type: 'Logic',
+                          device: item.devices
+                      }
+                  });
+              }
+              if ((currentViewMode === 'all' || currentViewMode === 'sram') && item.sram_data && item.sram_data.length > 0) {
+                  processedSeriesData.push({
+                      name: item.chip,
+                      type: 'line',
+                      symbol: 'rect',
+                      symbolSize: 6 * baseStyle.widthMultiplier,
+                      data: item.sram_data,
+                      lineStyle: {
+                          color: color,
+                          width: 2 * baseStyle.widthMultiplier,
+                          opacity: baseStyle.opacity,
+                          type: 'dashed'
+                      },
+                      itemStyle: { color: color, opacity: baseStyle.opacity },
+                      z: baseStyle.z,
+                      customInfo: {
+                          type: 'SRAM',
+                          device: item.devices
+                      }
+                  });
+              }
           });
-          
           const option = {
               backgroundColor: 'transparent',
-              title: { text: titleText, subtext: '聚合了相同芯片及DVFS配置的数据', textStyle: { fontSize: 16 }, subtextStyle: { fontSize: 12 } },
+              title: {
+                  text: titleText,
+                  subtext: '实线: Logic (核心) / 虚线: SRAM (缓存)',
+                  textStyle: { fontSize: 16 },
+                  subtextStyle: { fontSize: 12 }
+              },
               tooltip: {
                   trigger: 'axis',
                   axisPointer: { type: 'line' },
                   formatter: (params) => {
                       if (!params || params.length === 0) return '';
-                      const grouped = new Map();
+                      let tooltipHtml = '';
+                      const groupedByChip = {};
                       params.forEach(p => {
-                          const series = processedSeriesData[p.seriesIndex];
-                          if (!series) return;
-                          const key = `${series.chip}|${series.devices}`;
-                          if (!grouped.has(key)) {
-                              grouped.set(key, {
-                                  chip: series.chip,
-                                  devices: series.devices,
-                                  points: []
-                              });
-                          }
-                          const group = grouped.get(key);
-                          group.points.push(p);
+                          const chipName = p.seriesName;
+                          if (!groupedByChip[chipName]) groupedByChip[chipName] = [];
+                          groupedByChip[chipName].push(p);
                       });
-                      const groupsArray = Array.from(grouped.values());
-                      if (groupsArray.length === 0) return '';
-                      let leftColumnHtml = '';
-                      let rightColumnHtml = '';
-                      const midpoint = Math.ceil(groupsArray.length / 2);
-                      groupsArray.forEach((group, index) => {
-                          
-                          let seriesHtml = `<strong>${group.chip}</strong><br/>` +
-                                         `设备型号: ${group.devices}<hr style="margin: 5px 0; background-color: #555; border:0; height:1px;">`;
-
-                          const displayedPoints = new Set();
-                          group.points.sort((a, b) => {
-                              if (a.value?.length === 2 && b.value?.length === 2) {
-                                  return b.value[1] - b.value[1];
-                              }
-                              return 0;
+                      for (const [chip, points] of Object.entries(groupedByChip)) {
+                          const deviceName = points[0].dataIndex !== undefined && processedSeriesData[points[0].seriesIndex].customInfo.device;
+                          tooltipHtml += `<strong>${chip}</strong> <span style="font-size:0.8em;color:#888">${deviceName}</span><br/>`;
+                          points.sort((a, b) => {
+                              const typeA = processedSeriesData[a.seriesIndex].customInfo.type;
+                              return typeA === 'Logic' ? -1 : 1;
                           });
-                          group.points.forEach(point => {
-                              if (point.value?.length === 2) {
-                                  const pointKey = `${point.value[0]}|${point.value[1]}`;
-                                  if (displayedPoints.has(pointKey)) return;
-                                  seriesHtml += `${point.marker} 频率: ${point.value[0]} MHz, 电压: ${point.value[1]} mV<br/>`;
-                                  displayedPoints.add(pointKey);
+                          points.forEach(point => {
+                              const info = processedSeriesData[point.seriesIndex].customInfo;
+                              const typeLabel = info.type === 'Logic' ? 'Logic' : 'SRAM ';
+                              const typeStyle = info.type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';
+                              
+                              if (point.value && point.value.length === 2) {
+                                  tooltipHtml += `${point.marker} <span style="${typeStyle}">${typeLabel}</span>: ${point.value[0]} MHz @ ${point.value[1]} mV<br/>`;
                               }
                           });
-                          const groupContainerHtml = `<div style="margin-bottom: 15px;">${seriesHtml.replace(/<br\/>$/, '')}</div>`;
-                          if (index < midpoint) {
-                              leftColumnHtml += groupContainerHtml;
-                          } else {
-                              rightColumnHtml += groupContainerHtml;
-                          }
-                      });
-                      let tooltipHtml = `
-                          <div style="display: flex; flex-direction: row; gap: 25px;">
-                              <div style="flex: 1;">${leftColumnHtml}</div>
-                      `;
-                      if (rightColumnHtml) {
-                          tooltipHtml += `<div style="flex: 1;">${rightColumnHtml}</div>`;
+                          tooltipHtml += '<hr style="margin: 5px 0; border:0; border-top:1px solid #666; opacity:0.3">';
                       }
-                      tooltipHtml += `</div>`;
-                      return tooltipHtml;
+                      return tooltipHtml.replace(/<hr[^>]+>$/, '');
                   },
                   ...tooltipStyle
               },
-              
-              grid: { top: '15%', left: '3%', right: '18%', bottom: '5%', containLabel: true },
-              legend: { data: legendData, selected: selected, type: 'scroll', orient: 'vertical', right: '1%', top: '20%', bottom: '5%', textStyle: { fontSize: 11 } },
+              grid: { top: '15%', left: '3%', right: '10%', bottom: '5%', containLabel: true },
+              legend: {
+                  data: legendData,
+                  selected: selected,
+                  type: 'scroll',
+                  orient: 'vertical',
+                  right: '1%',
+                  top: '20%',
+                  bottom: '5%',
+                  textStyle: { fontSize: 11 }
+              },
               xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
               yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
               series: processedSeriesData
           };
           myChart.setOption(option);
-
           myChart.on('legendselectchanged', (params) => {
               if (!currentSearchHash) {
                   userLegendState[containerId] = params.selected;
               }
           });
-
           const resizeObserver = new ResizeObserver(() => myChart.resize());
           resizeObserver.observe(chartDom);
       };
-
       const renderAllCharts = () => {
           if (!chartData) return;
           const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
-          
-          renderChart('P_CPU_Freq_Volt', chartData.p_core_dvfs, 'DVFS P-CPU 核心频率电压对应表', 700, 1250, theme);
-          renderChart('E_CPU_Freq_Volt', chartData.e_core_dvfs, 'DVFS E-CPU 核心频率电压对应表', 500, 1100, theme);
-          renderChart('GPU_Freq_Volt', chartData.gpu_dvfs, 'DVFS GPU 核心频率电压对应表', 500, 1100, theme);
-          renderChart('ANE_Freq_Volt', chartData.ane_dvfs, 'DVFS ANE 核心频率电压对应表', 500, 1250, theme);
+          renderChart('P_CPU_Freq_Volt', chartData.p_core, 'DVFS P-Core 性能核', 500, 1300, theme);
+          renderChart('E_CPU_Freq_Volt', chartData.e_core, 'DVFS E-Core 能效核', 500, 1100, theme);
+          renderChart('GPU_Freq_Volt', chartData.gpu,    'DVFS GPU 图形核心', 500, 1100, theme);
+          renderChart('ANE_Freq_Volt', chartData.ane,    'DVFS ANE 神经引擎', 500, 1250, theme);
       };
-      
       const base64ToArrayBuffer = (base64) => {
           const binaryString = window.atob(base64);
           const len = binaryString.length;
@@ -291,14 +383,9 @@
           }
           return bytes.buffer;
       };
-
       const decryptData = async (keyData, b64Ciphertext, b64Iv, b64Tag) => {
           const cryptoKey = await window.crypto.subtle.importKey(
-              "raw",
-              keyData,
-              { name: "AES-GCM" },
-              false,
-              ["decrypt"]
+              "raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]
           );
           const ciphertext = base64ToArrayBuffer(b64Ciphertext);
           const iv = base64ToArrayBuffer(b64Iv);
@@ -307,52 +394,37 @@
           fullCiphertext.set(new Uint8Array(ciphertext), 0);
           fullCiphertext.set(new Uint8Array(tag), ciphertext.byteLength);
           const decrypted = await window.crypto.subtle.decrypt(
-              {
-                  name: "AES-GCM",
-                  iv: iv,
-                  tagLength: 128
-              },
+              { name: "AES-GCM", iv: iv, tagLength: 128 },
               cryptoKey,
               fullCiphertext.buffer
           );
           return new TextDecoder().decode(decrypted);
       };
-
       const main = async () => {
           try {
               const keyResponse = await fetch('./upload/dvfs/get-encryption-key.php');
-              if (!keyResponse.ok) throw new Error(`获取密钥失败! 状态: ${keyResponse.status}`);
+              if (!keyResponse.ok) throw new Error(`获取密钥失败!`);
               const keyPayload = await keyResponse.json();
               if (keyPayload.error) throw new Error(keyPayload.error);
-              
               const keyData = base64ToArrayBuffer(keyPayload.key);
-
               const dataResponse = await fetch('./upload/dvfs/get-dvfs-data.php');
-              if (!dataResponse.ok) throw new Error(`获取数据失败! Z状态: ${dataResponse.status}`);
+              if (!dataResponse.ok) throw new Error(`获取数据失败!`);
               const encryptedPayload = await dataResponse.json();
               if (encryptedPayload.error) throw new Error(encryptedPayload.error);
-              
               const decryptedJson = await decryptData(
-                  keyData,
-                  encryptedPayload.ciphertext,
-                  encryptedPayload.iv,
-                  encryptedPayload.tag
+                  keyData, encryptedPayload.ciphertext, encryptedPayload.iv, encryptedPayload.tag
               );
               const data = JSON.parse(decryptedJson);
-              if (data.error) throw new Error(data.error);
-              
               chartData = data;
               renderAllCharts();
-
           } catch (error) {
-              console.error("加载或渲染图表失败:", error);
+              console.error("加载失败:", error);
               const mainContent = document.querySelector('.main-content');
               if (mainContent) {
                   mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
               }
           }
       };
-
       const debounce = (func, delay) => {
           return (...args) => {
               clearTimeout(debounceTimer);
@@ -361,36 +433,30 @@
               }, delay);
           };
       };
-
       const handleSearchInput = () => {
           const hashToSearch = hashSearchInput.value.trim();
-          
           currentSearchHash = hashToSearch;
           renderAllCharts();
-
           if (hashToSearch) {
               let hashFoundAnywhere = false;
               if (chartData) {
-                  const allData = [chartData.p_core_dvfs, chartData.e_core_dvfs, chartData.gpu_dvfs, chartData.ane_dvfs];
-                  for (let data of allData) {
-                      if (data && data.some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
+                  ['p_core', 'e_core', 'gpu', 'ane'].forEach(key => {
+                      if (chartData[key] && chartData[key].some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
                           hashFoundAnywhere = true;
-                          break;
                       }
-                  }
+                  });
               }
-              if (hashFoundAnywhere) {
-                  hashSearchInput.style.borderColor = 'var(--success-color, #28C940)';
-              } else {
-                  hashSearchInput.style.borderColor = 'var(--fail-color, #FF5F57)';
-              }
+              hashSearchInput.style.borderColor = hashFoundAnywhere ? 'var(--success-color, #28C940)' : 'var(--fail-color, #FF5F57)';
           } else {
               hashSearchInput.style.borderColor = '';
           }
       };
-
+      const handleViewModeChange = (e) => {
+          currentViewMode = e.target.value;
+          renderAllCharts();
+      };
       hashSearchInput.addEventListener('input', debounce(handleSearchInput, 300));
-      
+      viewModeRadios.forEach(radio => radio.addEventListener('change', handleViewModeChange));
       const themeObserver = new MutationObserver((mutationsList) => {
           for (const mutation of mutationsList) {
               if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
@@ -400,10 +466,8 @@
           }
       });
       themeObserver.observe(document.documentElement, { attributes: true });
-      
       main();
     })();
   </script>
-
 </body>
 </html>
