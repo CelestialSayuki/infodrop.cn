@@ -584,7 +584,7 @@
         "limits": {
             "WILD_LIFE_EXTREME": 5150,
             "SOLAR_BAY": 7600,
-            "STEEL_NOMAD_LIGHT": 2450,
+            "STEEL_NOMAD_LIGHT": 2200,
             "SOLAR_BAY_EXTREME": 400,
             "WILD_LIFE": 18450
         }
@@ -596,7 +596,7 @@
         "limits": {
             "WILD_LIFE_EXTREME": 5150,
             "SOLAR_BAY": 7600,
-            "STEEL_NOMAD_LIGHT": 2450,
+            "STEEL_NOMAD_LIGHT": 2200,
             "SOLAR_BAY_EXTREME": 400,
             "WILD_LIFE": 18450
         }
