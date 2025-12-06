@@ -1,202 +1,162 @@
 [
   {
     "chipModel": "T8142",
-    "cpuModel": "M5",
-    "isLegacy": false
+    "cpuModel": "M5"
   },
   {
     "chipModel": "T8103",
-    "cpuModel": "M1",
-    "isLegacy": true
+    "cpuModel": "M1"
   },
   {
     "chipModel": "T6000",
-    "cpuModel": "M1 Pro",
-    "isLegacy": true
+    "cpuModel": "M1 Pro"
   },
   {
     "chipModel": "T6001",
-    "cpuModel": "M1 Max",
-    "isLegacy": true
+    "cpuModel": "M1 Max"
   },
   {
     "chipModel": "T6002",
-    "cpuModel": "M1 Ultra",
-    "isLegacy": true
+    "cpuModel": "M1 Ultra"
   },
   {
     "chipModel": "T8112",
-    "cpuModel": "M2",
-    "isLegacy": true
+    "cpuModel": "M2"
   },
   {
     "chipModel": "T6020",
-    "cpuModel": "M2 Pro",
-    "isLegacy": true
+    "cpuModel": "M2 Pro"
   },
   {
     "chipModel": "T6021",
-    "cpuModel": "M2 Max",
-    "isLegacy": true
+    "cpuModel": "M2 Max"
   },
   {
     "chipModel": "T6022",
-    "cpuModel": "M2 Ultra",
-    "isLegacy": true
+    "cpuModel": "M2 Ultra"
   },
   {
     "chipModel": "T8122",
-    "cpuModel": "M3",
-    "isLegacy": true
+    "cpuModel": "M3"
   },
   {
     "chipModel": "T6030",
-    "cpuModel": "M3 Pro",
-    "isLegacy": true
+    "cpuModel": "M3 Pro"
   },
   {
     "chipModel": "T6031",
-    "cpuModel": "M3 Max",
-    "isLegacy": true
+    "cpuModel": "M3 Max"
   },
   {
     "chipModel": "T6034",
-    "cpuModel": "M3 Max",
-    "isLegacy": true
+    "cpuModel": "M3 Max"
   },
   {
     "chipModel": "T6032",
-    "cpuModel": "M3 Ultra",
-    "isLegacy": true
+    "cpuModel": "M3 Ultra"
   },
   {
     "chipModel": "T8132",
-    "cpuModel": "M4",
-    "isLegacy": false
+    "cpuModel": "M4"
   },
   {
     "chipModel": "T6040",
-    "cpuModel": "M4 Pro",
-    "isLegacy": false
+    "cpuModel": "M4 Pro"
   },
   {
     "chipModel": "T6041",
-    "cpuModel": "M4 Max",
-    "isLegacy": false
+    "cpuModel": "M4 Max"
   },
   {
     "chipModel": "T8140",
-    "cpuModel": "A18/A18 Pro",
-    "isLegacy": true
+    "cpuModel": "A18/A18 Pro"
   },
   {
     "chipModel": "T8150",
-    "cpuModel": "A19/A19 Pro",
-    "isLegacy": false
+    "cpuModel": "A19/A19 Pro"
   },
   {
     "chipModel": "T8130",
-    "cpuModel": "A17 Pro",
-    "isLegacy": true
+    "cpuModel": "A17 Pro"
   },
   {
     "chipModel": "T8120",
-    "cpuModel": "A16 Bionic",
-    "isLegacy": true
+    "cpuModel": "A16 Bionic"
   },
   {
     "chipModel": "T8110",
-    "cpuModel": "A15 Bionic",
-    "isLegacy": true
+    "cpuModel": "A15 Bionic"
   },
   {
     "chipModel": "T8101",
-    "cpuModel": "A14 Bionic",
-    "isLegacy": true
+    "cpuModel": "A14 Bionic"
   },
   {
     "chipModel": "T8030",
-    "cpuModel": "A13 Bionic",
-    "isLegacy": true
+    "cpuModel": "A13 Bionic"
   },
   {
     "chipModel": "T8027",
-    "cpuModel": "A12Z/A12X Bionic",
-    "isLegacy": true
+    "cpuModel": "A12Z/A12X Bionic"
   },
   {
     "chipModel": "T8020",
-    "cpuModel": "A12 Bionic",
-    "isLegacy": true
+    "cpuModel": "A12 Bionic"
   },
   {
     "chipModel": "T8015",
-    "cpuModel": "A11 Bionic",
-    "isLegacy": true
+    "cpuModel": "A11 Bionic"
   },
   {
     "chipModel": "T8011",
-    "cpuModel": "A10X Fusion",
-    "isLegacy": true
+    "cpuModel": "A10X Fusion"
   },
   {
     "chipModel": "T8010",
-    "cpuModel": "A10 Fusion",
-    "isLegacy": true
+    "cpuModel": "A10 Fusion"
   },
   {
     "chipModel": "S8001",
-    "cpuModel": "A9X",
-    "isLegacy": true
+    "cpuModel": "A9X"
   },
   {
     "chipModel": "S8000",
-    "cpuModel": "A9",
-    "isLegacy": true
+    "cpuModel": "A9"
   },
   {
     "chipModel": "S8003",
-    "cpuModel": "A9",
-    "isLegacy": true
+    "cpuModel": "A9"
   },
   {
     "chipModel": "T7001",
-    "cpuModel": "A8X",
-    "isLegacy": true
+    "cpuModel": "A8X"
   },
   {
     "chipModel": "T7000",
-    "cpuModel": "A8",
-    "isLegacy": true
+    "cpuModel": "A8"
   },
   {
     "chipModel": "T8310",
-    "cpuModel": "S10/S9",
-    "isLegacy": true
+    "cpuModel": "S10/S9"
   },
   {
     "chipModel": "T8301",
-    "cpuModel": "S8/S7/S6",
-    "isLegacy": true
+    "cpuModel": "S8/S7/S6"
   },
   {
     "chipModel": "T8006",
-    "cpuModel": "S5/S4",
-    "isLegacy": true
+    "cpuModel": "S5/S4"
   },
   {
     "chipModel": "T8004",
-    "cpuModel": "S3",
-    "isLegacy": true
+    "cpuModel": "S3"
   },
   {
     "chipModel": "T8002",
-    "cpuModel": "S2/S1P",
-    "isLegacy": true
+    "cpuModel": "S2/S1P"
   },
   {
     "chipModel": "S7002",
-    "cpuModel": "S1",
-    "isLegacy": true
+    "cpuModel": "S1"
   }
 ]
