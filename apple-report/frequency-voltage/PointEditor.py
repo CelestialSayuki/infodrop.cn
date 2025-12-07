@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (
     QHeaderView, QMessageBox, QLabel, QTabWidget, QTextEdit,
     QPushButton, QGroupBox, QSizePolicy
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QEvent
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
@@ -188,22 +188,6 @@ class CurveGroupWidget(QWidget):
         self.setLayout(self._create_main_layout())
         self.canvas.plot_data(self.data_storage, self._update_table_from_drag)
         self._sync_json_from_data()
-        self.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-        self.grabKeyboard()
-    def keyPressEvent(self, event):
-        is_ctrl_or_cmd = event.modifiers() & (Qt.KeyboardModifier.ControlModifier | Qt.KeyboardModifier.MetaModifier)
-        is_shift = event.modifiers() & Qt.KeyboardModifier.ShiftModifier
-        if is_ctrl_or_cmd and event.key() == Qt.Key.Key_Z:
-            if is_shift:
-                self.redo()
-            else:
-                self.undo()
-            event.accept()
-        elif is_ctrl_or_cmd and event.key() == Qt.Key.Key_Y:
-            self.redo()
-            event.accept()
-        else:
-            super().keyPressEvent(event)
     def _save_history(self, initial_load=False):
         if not initial_load:
             if self.history_pointer < len(self.history_stack) - 1:
@@ -374,7 +358,25 @@ class MainWindow(QMainWindow):
         else:
              for name, data in initial_data_groups.items():
                 self._create_and_add_group_tab(name, data)
+        QApplication.instance().installEventFilter(self)
         self.show()
+    def eventFilter(self, source, event):
+        if event.type() == QEvent.Type.KeyPress:
+            is_ctrl_or_cmd = event.modifiers() & (Qt.KeyboardModifier.ControlModifier | Qt.KeyboardModifier.MetaModifier)
+            is_shift = event.modifiers() & Qt.KeyboardModifier.ShiftModifier
+            current_widget = self.group_tabs.currentWidget()
+            if not current_widget:
+                return super().eventFilter(source, event)
+            if is_ctrl_or_cmd and event.key() == Qt.Key.Key_Z:
+                if is_shift:
+                    current_widget.redo()
+                else:
+                    current_widget.undo()
+                return True
+            elif is_ctrl_or_cmd and event.key() == Qt.Key.Key_Y:
+                current_widget.redo()
+                return True
+        return super().eventFilter(source, event)
     def _create_group_controls(self):
         control_bar = QHBoxLayout()
         control_bar.addWidget(QLabel("曲线组操作:"))
