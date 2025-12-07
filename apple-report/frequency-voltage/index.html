@@ -17,13 +17,11 @@
         align-items: center;
         justify-content: space-between;
     }
-    
     .search-group, .view-mode-group {
         display: flex;
         align-items: center;
         gap: 12px;
     }
-      
     .control-bar label, .view-mode-group label {
         font-weight: 600;
         font-size: 0.95rem;
@@ -246,60 +244,59 @@
           originalSeriesData.forEach((item, index) => {
               const color = colorPalette[index % colorPalette.length];
               let baseStyle = {};
-
               if (currentSearchHash && hashFoundInThisChart) {
                   const hasHash = item.hashes && item.hashes.includes(currentSearchHash);
                   if (hasHash) {
-                      baseStyle = { z: 100, widthMultiplier: 1.5 };
+                      baseStyle = { z: 100, widthMultiplier: 1.5, opacity: 1 };
                   } else {
                       baseStyle = { opacity: 0.1, z: 1, widthMultiplier: 1 };
                   }
               } else {
                   baseStyle = { opacity: 1, z: 2, widthMultiplier: 1 };
               }
+              const createSeries = (data, type, symbol, lineType) => ({
+                  name: item.chip,
+                  type: 'line',
+                  symbol: symbol,
+                  symbolSize: 6 * baseStyle.widthMultiplier,
+                  data: data,
+                  lineStyle: {
+                      color: color,
+                      width: 2 * baseStyle.widthMultiplier,
+                      opacity: baseStyle.opacity,
+                      type: lineType
+                  },
+                  itemStyle: { color: color, opacity: baseStyle.opacity },
+                  z: baseStyle.z,
+                  customInfo: {
+                      type: type,
+                      device: item.devices,
+                      chip: item.chip
+                  }
+              });
               if ((currentViewMode === 'all' || currentViewMode === 'logic') && item.logic_data && item.logic_data.length > 0) {
-                  processedSeriesData.push({
-                      name: item.chip,
-                      type: 'line',
-                      symbol: 'circle',
-                      symbolSize: 6 * baseStyle.widthMultiplier,
-                      data: item.logic_data,
-                      lineStyle: {
-                          color: color,
-                          width: 2 * baseStyle.widthMultiplier,
-                          opacity: baseStyle.opacity,
-                          type: 'solid'
-                      },
-                      itemStyle: { color: color, opacity: baseStyle.opacity },
-                      z: baseStyle.z,
-                      customInfo: {
-                          type: 'Logic',
-                          device: item.devices,
-                          chip: item.chip
-                      }
-                  });
+                  const isForked = Array.isArray(item.logic_data[0]) && Array.isArray(item.logic_data[0][0]);
+                  if (isForked) {
+                      item.logic_data.forEach(forkData => {
+                          if (forkData.length > 0) {
+                             processedSeriesData.push(createSeries(forkData, 'Logic', 'circle', 'solid'));
+                          }
+                      });
+                  } else {
+                      processedSeriesData.push(createSeries(item.logic_data, 'Logic', 'circle', 'solid'));
+                  }
               }
               if ((currentViewMode === 'all' || currentViewMode === 'sram') && item.sram_data && item.sram_data.length > 0) {
-                  processedSeriesData.push({
-                      name: item.chip,
-                      type: 'line',
-                      symbol: 'rect',
-                      symbolSize: 6 * baseStyle.widthMultiplier,
-                      data: item.sram_data,
-                      lineStyle: {
-                          color: color,
-                          width: 2 * baseStyle.widthMultiplier,
-                          opacity: baseStyle.opacity,
-                          type: 'dashed'
-                      },
-                      itemStyle: { color: color, opacity: baseStyle.opacity },
-                      z: baseStyle.z,
-                      customInfo: {
-                          type: 'SRAM',
-                          device: item.devices,
-                          chip: item.chip
-                      }
-                  });
+                  const isForked = Array.isArray(item.sram_data[0]) && Array.isArray(item.sram_data[0][0]);
+                  if (isForked) {
+                       item.sram_data.forEach(forkData => {
+                          if (forkData.length > 0) {
+                            processedSeriesData.push(createSeries(forkData, 'SRAM', 'rect', 'dashed'));
+                          }
+                      });
+                  } else {
+                      processedSeriesData.push(createSeries(item.sram_data, 'SRAM', 'rect', 'dashed'));
+                  }
               }
           });
           const option = {
@@ -318,11 +315,11 @@
                       let tooltipHtml = '';
                       const groupedByUniqueDevice = {};
                       params.forEach(p => {
-                          const info = processedSeriesData[p.seriesIndex].customInfo;
-                          const key = `${info.chip}___${info.device}`;
+                           const info = processedSeriesData[p.seriesIndex].customInfo;
+                           const key = `${p.seriesName}___${info.device}`;
                           if (!groupedByUniqueDevice[key]) {
                               groupedByUniqueDevice[key] = {
-                                  chip: info.chip,
+                                  chip: p.seriesName,
                                   device: info.device,
                                   points: []
                               };
@@ -335,13 +332,21 @@
                               const typeA = processedSeriesData[a.seriesIndex].customInfo.type;
                               return typeA === 'Logic' ? -1 : 1;
                           });
+                          const seenValues = new Set();
                           group.points.forEach(point => {
                               const info = processedSeriesData[point.seriesIndex].customInfo;
-                              const typeLabel = info.type === 'Logic' ? 'Logic' : 'SRAM ';
-                              const typeStyle = info.type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';
-                              
+                              const freq = point.value[0];
+                              const volt = point.value[1];
+                              const type = info.type;
+                              const uniqueKey = `${type}_${freq}_${volt}`;
+                              if (seenValues.has(uniqueKey)) {
+                                  return;
+                              }
+                              seenValues.add(uniqueKey);
+                              const typeLabel = type === 'Logic' ? 'Logic' : 'SRAM ';
+                              const typeStyle = type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';
                               if (point.value && point.value.length === 2) {
-                                  tooltipHtml += `${point.marker} <span style="${typeStyle}">${typeLabel}</span>: ${point.value[0]} MHz @ ${point.value[1]} mV<br/>`;
+                                  tooltipHtml += `${point.marker} <span style="${typeStyle}">${typeLabel}</span>: ${freq} MHz @ ${volt} mV<br/>`;
                               }
                           });
                           tooltipHtml += '<hr style="margin: 5px 0; border:0; border-top:1px solid #666; opacity:0.3">';
