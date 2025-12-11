@@ -744,10 +744,10 @@
                     if (updateIsPending && !isFirstInstall) {
                         const loadingScreen = document.getElementById('loading-screen');
                         if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                            loadingScreen.addEventListener('transitionend', () => {
-                                window.location.reload();
-                            }, { once: true });
                             loadingScreen.classList.add('hidden');
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 600);
                         } else {
                             window.location.reload();
                         }
@@ -804,6 +804,14 @@
                             localStorage.setItem(`rsr-patch-${version}`, 'true');
                         }
                         localStorage.setItem('sw_installed_version', version);
+                        const versionElement = document.getElementById('version-display');
+                        const localVersionInfo = document.getElementById('local-version-info');
+                        if (versionElement) {
+                            versionElement.textContent = `前端版本：${version}`;
+                        }
+                        if (localVersionInfo) {
+                            localVersionInfo.textContent = version;
+                        }
                         const progressBarFill = document.querySelector('.progress-bar-fill');
                         if (progressBarFill) {
                             progressBarFill.style.transition = 'width 0.2s ease-out';
