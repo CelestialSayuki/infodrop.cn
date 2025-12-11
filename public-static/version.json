@@ -1,7 +1,8 @@
 {
-    "version": "2A1006f",
+    "version": "2A1006e",
     "notes": [
-        "DVFS页面新增声明"
+        "DVFS页面新增声明",
+        "刷版本号"
     ],
     "rsr_patches": [
         {
@@ -18,6 +19,11 @@
                 "./apple-report/frequency-voltage/index.html",
                 "./upload/index.html",
                 "./index.html"
+            ]
+        },
+        {
+            "base": "2A1006f",
+            "delta": [
             ]
         }
     ],
