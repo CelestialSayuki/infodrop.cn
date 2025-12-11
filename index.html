@@ -249,7 +249,6 @@
                         <li><a href="./apple-device/iphone/cmos.">iPhone 摄像头</a></li>
                         <li><a href="./apple-other/battery/">电池详细信息</a></li>
                         <li><a href="./apple-other/disk/">硬盘详细信息</a></li>
-                        <li><a href="./apple-other/screen/">设备屏幕厂家</a></li>
                     </ul>
                 </li>
                 <li>
@@ -401,12 +400,13 @@
                 </div>
                 <div class="card">
                     <ul id="update-history-list">
-                        <li><span>2025.12.06：缓解了iPad PWA重新进入窗口会意外放大的问题，重构设备屏幕厂家页面，修复了GPU跑分页面手机版不显示的bug，进群验证可以在群里申请查看问题及答案，完全重构 DVFS 页面，修正了了长期以来 Apple 芯片逆向分析的错误，清空原来的所有数据，请重新上传。</span></li>
+                        <li><span>2025.12.11：新增了 DVFS 页面的数据使用声明，以防止滥用，下线屏幕上传功能</span></li>
                         <li class="more-btn-li">
                             <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
                         </li>
                     </ul>
                     <template id="more-updates-template">
+                        <li><span>2025.12.06：缓解了iPad PWA重新进入窗口会意外放大的问题，重构设备屏幕厂家页面，修复了GPU跑分页面手机版不显示的bug，进群验证可以在群里申请查看问题及答案，完全重构 DVFS 页面，修正了了长期以来 Apple 芯片逆向分析的错误，清空原来的所有数据，请重新上传。</span></li>
                         <li><span>2025.11.12：infodrop 2.0的第一个测试版，修复内存泄露，将 cdn 链接改为动态生成以压缩前端代码，后续可能考虑加密，电池信息页面支持调用图片查看器，为部分加载较慢的页面增加延迟减少顿挫感，新增部分芯片 Diesize 与 Dieshot，删除 AOP 主板位置图，新增打断动画，修正了因比较页面参考 hubweb 导致的海量错误信息的一小部分。</span></li>
                         <li><span>2025.11.10：修复了 CPU 和 GPU 页面在部分情况下重新进入后没有保留原来选择的 bug，修复了各种页面深色模式相关问题，禁止部分元素的拖拽，修改了缓存的逻辑</span></li>
                         <li><span>2025.11.09：重构了 GPU 跑分展示界面，删掉了 Geekbench 6 Compute 成绩，修复了深色模式文字没有正确切换的问题，现在 GPU 跑分每天自动从 3DMark 的 API 抓取，自动化保证了数据的时效性。</span></li>

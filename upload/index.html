@@ -114,17 +114,13 @@
             font-size: 0.9rem; color: var(--light-text-secondary);
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
         }
-        #disk-result-message,
-        #screen-result-message {
+        #disk-result-message {
             display: none; margin-top: 1rem; padding: 20px;
             border-radius: 10px; font-size: 1.1rem; font-weight: 500;
             text-align: left; line-height: 1.8;
         }
-        #disk-result-message ul,
-        #screen-result-message ul { padding-left: 20px; margin: 10px 0; }
-        #disk-result-message li,
-        #screen-result-message li { margin-bottom: 5px; }
-        
+        #disk-result-message ul { padding-left: 20px; margin: 10px 0; }
+        #disk-result-message li { margin-bottom: 5px; }
         .macos-window.dark-mode .auth-wrapper,
         html.dark-mode .auth-wrapper { background-color: var(--dark-glass-bg); }
         .macos-window.dark-mode .auth-wrapper h1,
@@ -234,10 +230,6 @@
                         <input type="checkbox" id="chk-disk" value="disk">
                         <label for="chk-disk">解析磁盘数据</label>
                     </li>
-                    <li id="li-chk-screen">
-                        <input type="checkbox" id="chk-screen" value="screen">
-                        <label for="chk-screen">解析屏幕</label>
-                    </li>
                     </ul>
             </div>
             <div class="form-group">
@@ -248,15 +240,9 @@
             <h3>📊 DVFS 分析结果</h3>
             <div id="dvfs-result-message"></div>
         </div>
-
         <div id="disk-result-wrapper" class="result-wrapper">
             <h3>💽 磁盘分析结果</h3>
             <div id="disk-result-message"></div>
-        </div>
-
-        <div id="screen-result-wrapper" class="result-wrapper">
-            <h3>🖥️ 屏幕分析结果</h3>
-            <div id="screen-result-message"></div>
         </div>
         </div>
     <script>
@@ -274,11 +260,9 @@
             
             const chkDvfs = windowRoot.querySelector('#chk-dvfs');
             const chkDisk = windowRoot.querySelector('#chk-disk');
-            const chkScreen = windowRoot.querySelector('#chk-screen');
             
             const dvfsLi = windowRoot.querySelector('#li-chk-dvfs');
             const diskLi = windowRoot.querySelector('#li-chk-disk');
-            const screenLi = windowRoot.querySelector('#li-chk-screen');
 
             const uploadBtn = windowRoot.querySelector('#global-upload-btn');
             
@@ -286,8 +270,6 @@
             const dvfsResultMessage = windowRoot.querySelector('#dvfs-result-message');
             const diskResultWrapper = windowRoot.querySelector('#disk-result-wrapper');
             const diskResultMessage = windowRoot.querySelector('#disk-result-message');
-            const screenResultWrapper = windowRoot.querySelector('#screen-result-wrapper');
-            const screenResultMessage = windowRoot.querySelector('#screen-result-message');
 
             let ioserviceFile = null;
             let asptoolFile = null;
@@ -327,21 +309,14 @@
                 checkFormValidity();
             });
 
-            screenLi.addEventListener('click', () => {
-                chkScreen.checked = !chkScreen.checked;
-                screenLi.classList.toggle('selected', chkScreen.checked);
-                checkFormValidity();
-            });
-
             uploadBtn.addEventListener('click', handleUpload);
 
             function checkFormValidity() {
                 const dvfsChecked = chkDvfs.checked;
                 const diskChecked = chkDisk.checked;
-                const screenChecked = chkScreen.checked;
                 let isReady = false;
 
-                if (!dvfsChecked && !diskChecked && !screenChecked) {
+                if (!dvfsChecked && !diskChecked) {
                     isReady = false;
                 } else if (!ioserviceFile) {
                     isReady = false;
@@ -359,14 +334,11 @@
                 uploadBtn.textContent = '正在处理...';
                 dvfsResultWrapper.style.display = 'none';
                 diskResultWrapper.style.display = 'none';
-                screenResultWrapper.style.display = 'none';
                 dvfsResultMessage.style.display = 'none';
                 diskResultMessage.style.display = 'none';
-                screenResultMessage.style.display = 'none';
 
                 const dvfsChecked = chkDvfs.checked;
                 const diskChecked = chkDisk.checked;
-                const screenChecked = chkScreen.checked;
 
                 try {
                     if (dvfsChecked) {
@@ -374,9 +346,6 @@
                     }
                     if (diskChecked) {
                         await processDisk(ioserviceFile, asptoolFile, diskResultMessage);
-                    }
-                    if (screenChecked) {
-                        await processScreen(ioserviceFile, screenResultMessage);
                     }
                 } catch (error) {
                     console.error("处理任务时发生意外错误:", error);
@@ -464,48 +433,6 @@
                 } catch (error) {
                     console.error("磁盘处理失败:", error);
                     resultMessageElement.innerHTML = `磁盘处理失败：${error.message}`;
-                    resultMessageElement.className = 'result-fail';
-                }
-            }
-
-            async function processScreen(file, resultMessageElement) {
-                screenResultWrapper.style.display = 'block';
-                resultMessageElement.style.display = 'block';
-                resultMessageElement.className = 'result-processing';
-                resultMessageElement.innerHTML = '正在分析屏幕序列号...';
-                
-                const formData = new FormData();
-                formData.append('ioservice_file', file);
-
-                try {
-                    const response = await fetch('./upload/screen/screen.php', { method: 'POST', body: formData });
-
-                    if (!response.ok) {
-                        let errorMsg = `服务器错误 (状态码: ${response.status})`;
-                        try { const errorResult = await response.json(); if (errorResult && errorResult.message) { errorMsg = errorResult.message; } } catch (e) {}
-                        throw new Error(errorMsg);
-                    }
-
-                    const result = await response.json();
-                    if (!result.success) {
-                        throw new Error(result.message);
-                    }
-                    
-                    let html = `<strong>${result.message}</strong>`;
-                    if (result.success && result.设备型号) {
-                        html += "<ul style='padding-left: 20px; margin-top: 10px;'>";
-                        html += `<li><strong>设备型号：</strong> ${result.设备型号}</li>`;
-                        html += `<li><strong>屏幕序列号：</strong> ${result.屏幕序列号}</li>`;
-                        html += `<li><strong>厂家：</strong> ${result.厂家}</li>`;
-                        html += "</ul>";
-                    }
-                    
-                    resultMessageElement.innerHTML = html;
-                    resultMessageElement.className = 'result-success';
-
-                } catch (error) {
-                    console.error("屏幕序列号处理失败:", error);
-                    resultMessageElement.innerHTML = `屏幕序列号处理失败：${error.message}`;
                     resultMessageElement.className = 'result-fail';
                 }
             }

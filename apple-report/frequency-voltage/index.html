@@ -80,38 +80,83 @@
         font-weight: 600;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0,0,0,0.05);
     }
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-window {
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 90%;
+        max-width: 600px;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-align: center;
+        transform: scale(0.95);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .modal-overlay.active .modal-window {
+        transform: scale(1);
+    }
+    .modal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; color: #333; }
+    .modal-text { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 25px; text-align: left; }
+    .modal-btn {
+        background-color: #007AFF; color: white; border: none;
+        padding: 10px 25px; border-radius: 8px; font-size: 1rem; font-weight: 500;
+        cursor: pointer; transition: background-color 0.2s;
+    }
+    .modal-btn:hover { background-color: #0056b3; }
+    .tooltip-columns {
+        column-count: 2;
+        column-gap: 20px;
+        max-height: 400px;
+        display: block;
+    }
+    .tooltip-item { break-inside: avoid; page-break-inside: avoid; }
     .macos-window.dark-mode .retext, html.dark-mode .retext { color: var(--dark-text-secondary); }
     .macos-window.dark-mode hr, html.dark-mode hr { background-color: rgba(255, 255, 255, 0.15); }
     .macos-window.dark-mode .card, html.dark-mode .card { box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05); }
     .macos-window.dark-mode .control-bar label,
-    html.dark-mode .control-bar label {
-        color: var(--dark-text, #eee);
-    }
-
-    html.dark-mode .control-bar input[type="text"] {
+    .macos-window.dark-mode .control-bar label, html.dark-mode .control-bar label { color: var(--dark-text, #eee); }
+    .macos-window.dark-mode .control-bar input[type="text"], html.dark-mode .control-bar input[type="text"] {
         background-color: rgba(255,255,255,0.1);
         border-color: rgba(255,255,255,0.1);
         color: #fff;
     }
-    html.dark-mode .control-bar input[type="text"]:focus {
+    .macos-window.dark-mode .control-bar input[type="text"]:focus, html.dark-mode .control-bar input[type="text"]:focus {
         border-color: #0A84FF;
         background-color: rgba(0,0,0,0.3);
     }
-    html.dark-mode .radio-group {
-        background-color: rgba(118, 118, 128, 0.24);
-    }
-    html.dark-mode .radio-item {
-        color: #aaa;
-    }
-    html.dark-mode .radio-item:hover {
-        color: #ddd;
-    }
-    html.dark-mode .radio-item:has(input:checked) {
+    .macos-window.dark-mode .radio-group, html.dark-mode .radio-group { background-color: rgba(118, 118, 128, 0.24); }
+    .macos-window.dark-mode .radio-item, html.dark-mode .radio-item { color: #aaa; }
+    .macos-window.dark-mode .radio-item:hover, html.dark-mode .radio-item:hover { color: #ddd; }
+    .macos-window.dark-mode .radio-item:has(input:checked), html.dark-mode .radio-item:has(input:checked) {
         background-color: #636366;
         color: #fff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
-
+    .macos-window.dark-mode .modal-window, html.dark-mode .modal-window {
+        background-color: rgba(40, 40, 40, 0.85);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #eee;
+    }
+    .macos-window.dark-mode .modal-title, html.dark-mode .modal-title { color: #fff; }
+    .macos-window.dark-mode .modal-text, html.dark-mode .modal-text { color: #ccc; }
     @media (max-width: 768px) {
       .main-content { padding: 5px; }
       .card { margin: 0; }
@@ -137,350 +182,384 @@
       }
     }
   </style>
-</head>
-<body style="margin: 0;" id="mainLayout">
+ </head>
+ <body style="margin: 0;" id="mainLayout">
   <div class="main-content">
-    <div class="card control-bar">
-      <div class="search-group">
-          <label for="hash-search-input">数据特征码:</label>
-          <input type="text" id="hash-search-input" placeholder="输入即可高亮特定数据...">
-      </div>
-      <div class="view-mode-group">
-          <label>显示模式:</label>
-          <div class="radio-group">
-              <label class="radio-item">
-                  <input type="radio" name="viewMode" value="all" checked>
-                  <span>全部</span>
-              </label>
-              <label class="radio-item">
-                  <input type="radio" name="viewMode" value="logic">
-                  <span>Logic</span>
-              </label>
-              <label class="radio-item">
-                  <input type="radio" name="viewMode" value="sram">
-                  <span>SRAM</span>
-              </label>
-          </div>
-      </div>
+   <div class="card control-bar">
+    <div class="search-group">
+     <label for="hash-search-input">数据特征码:</label>
+     <input type="text" id="hash-search-input" placeholder="输入即可高亮特定数据..." />
     </div>
-    <div class="card">
-        <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
-        <hr>
-        <div id="E_CPU_Freq_Volt" style="height: 500px;"></div>
-        <hr>
-        <div id="GPU_Freq_Volt" style="height: 500px;"></div>
-        <hr>
-        <div id="ANE_Freq_Volt" style="height: 500px;"></div>
+    <div class="view-mode-group">
+     <label>显示模式:</label>
+     <div class="radio-group">
+      <label class="radio-item"> <input type="radio" name="viewMode" value="all" checked="" /> <span>全部</span> </label>
+      <label class="radio-item"> <input type="radio" name="viewMode" value="logic" /> <span>Logic</span> </label>
+      <label class="radio-item"> <input type="radio" name="viewMode" value="sram" /> <span>SRAM</span> </label>
+     </div>
     </div>
+   </div>
+   <div class="card">
+    <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
+    <hr />
+    <div id="E_CPU_Freq_Volt" style="height: 500px;"></div>
+    <hr />
+    <div id="GPU_Freq_Volt" style="height: 500px;"></div>
+    <hr />
+    <div id="ANE_Freq_Volt" style="height: 500px;"></div>
+   </div>
+  </div>
+  <div class="modal-overlay" id="disclaimerModal">
+   <div class="modal-window">
+    <div class="modal-title">
+     数据使用声明
+    </div>
+    <div class="modal-text">
+     <p>1. 本页面展示的 DVFS（动态电压频率调整）数据仅供研究。</p>
+     <p>2. 数据仅代表出厂值，不代表硬件的运行时绝对电压。</p>
+     <p>3. 请勿将此数据用于退换货、商业宣传或误导性对比。</p>
+     <p>4. 继续浏览即表示您已知悉并同意上述条款。</p>
+    </div>
+    <button class="modal-btn" onclick="closeModal()">我已知悉</button>
+   </div>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
   <script type="text/javascript">
-    (async () => {
-      const chartInstances = {};
-      let chartData = null;
-      let currentSearchHash = '';
-      let currentViewMode = 'all';
-      let userLegendState = {};
-      const hashSearchInput = document.getElementById('hash-search-input');
-      const viewModeRadios = document.querySelectorAll('input[name="viewMode"]');
-      let debounceTimer;
-      const colorPalette = [
-          '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
-          '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
-      ];
-      const renderChart = (containerId, originalSeriesData, titleText, yAxisMin, yAxisMax, theme) => {
-          const lightTooltipStyle = {
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              borderColor: '#E0E0E0',
-              textStyle: { color: '#333' }
-          };
-          const darkTooltipStyle = {
-              backgroundColor: 'rgba(50, 50, 50, 0.9)',
-              borderColor: '#555',
-              textStyle: { color: '#FFFFFF' }
-          };
-          const chartDom = document.getElementById(containerId);
-          if (!chartDom) return;
-          if (chartInstances[containerId]) {
-              chartInstances[containerId].dispose();
-          }
-          if (!originalSeriesData || originalSeriesData.length === 0) {
-              chartDom.innerHTML = `<div class="retext">无可用数据。<br>请上传新版数据以查看。</div>`;
-              chartDom.style.height = '100px';
-              return;
-          } else {
-              chartDom.style.height = '500px';
-          }
-          const tooltipStyle = theme === 'dark' ? darkTooltipStyle : lightTooltipStyle;
-          let myChart = echarts.init(chartDom, theme);
-          chartInstances[containerId] = myChart;
-          const legendData = [...new Set(originalSeriesData.map(s => s.chip))];
-          const selected = {};
-          let hashFoundInThisChart = false;
-          const chipsWithHash = new Set();
-          if (currentSearchHash) {
-              originalSeriesData.forEach(s => {
-                  if (s.hashes && s.hashes.includes(currentSearchHash)) {
-                      chipsWithHash.add(s.chip);
-                      hashFoundInThisChart = true;
-                  }
-              });
-          }
-          if (legendData.length > 0) {
-              if (currentSearchHash && hashFoundInThisChart) {
-                  legendData.forEach(chipName => {
-                      selected[chipName] = chipsWithHash.has(chipName);
-                  });
-              } else if (userLegendState[containerId]) {
-                  Object.assign(selected, userLegendState[containerId]);
-              } else {
-                  legendData.forEach((chipName, index) => {
-                      selected[chipName] = (index === 0);
-                  });
-                  userLegendState[containerId] = { ...selected };
-              }
-          }
-          const processedSeriesData = [];
-          originalSeriesData.forEach((item, index) => {
-              const color = colorPalette[index % colorPalette.length];
-              let baseStyle = {};
-              if (currentSearchHash && hashFoundInThisChart) {
-                  const hasHash = item.hashes && item.hashes.includes(currentSearchHash);
-                  if (hasHash) {
-                      baseStyle = { z: 100, widthMultiplier: 1.5, opacity: 1 };
-                  } else {
-                      baseStyle = { opacity: 0.1, z: 1, widthMultiplier: 1 };
-                  }
-              } else {
-                  baseStyle = { opacity: 1, z: 2, widthMultiplier: 1 };
-              }
-              const createSeries = (data, type, symbol, lineType) => ({
-                  name: item.chip,
-                  type: 'line',
-                  symbol: symbol,
-                  symbolSize: 6 * baseStyle.widthMultiplier,
-                  data: data,
-                  lineStyle: {
-                      color: color,
-                      width: 2 * baseStyle.widthMultiplier,
-                      opacity: baseStyle.opacity,
-                      type: lineType
-                  },
-                  itemStyle: { color: color, opacity: baseStyle.opacity },
-                  z: baseStyle.z,
-                  customInfo: {
-                      type: type,
-                      device: item.devices,
-                      chip: item.chip
-                  }
-              });
-              if ((currentViewMode === 'all' || currentViewMode === 'logic') && item.logic_data && item.logic_data.length > 0) {
-                  const isForked = Array.isArray(item.logic_data[0]) && Array.isArray(item.logic_data[0][0]);
-                  if (isForked) {
-                      item.logic_data.forEach(forkData => {
-                          if (forkData.length > 0) {
-                             processedSeriesData.push(createSeries(forkData, 'Logic', 'circle', 'solid'));
-                          }
-                      });
-                  } else {
-                      processedSeriesData.push(createSeries(item.logic_data, 'Logic', 'circle', 'solid'));
-                  }
-              }
-              if ((currentViewMode === 'all' || currentViewMode === 'sram') && item.sram_data && item.sram_data.length > 0) {
-                  const isForked = Array.isArray(item.sram_data[0]) && Array.isArray(item.sram_data[0][0]);
-                  if (isForked) {
-                       item.sram_data.forEach(forkData => {
-                          if (forkData.length > 0) {
-                            processedSeriesData.push(createSeries(forkData, 'SRAM', 'rect', 'dashed'));
-                          }
-                      });
-                  } else {
-                      processedSeriesData.push(createSeries(item.sram_data, 'SRAM', 'rect', 'dashed'));
-                  }
-              }
-          });
-          const option = {
-              backgroundColor: 'transparent',
-              title: {
-                  text: titleText,
-                  subtext: '实线: Logic (核心) / 虚线: SRAM (缓存)',
-                  textStyle: { fontSize: 16 },
-                  subtextStyle: { fontSize: 12 }
-              },
-              tooltip: {
-                  trigger: 'axis',
-                  axisPointer: { type: 'line' },
-                  formatter: (params) => {
-                      if (!params || params.length === 0) return '';
-                      let tooltipHtml = '';
-                      const groupedByUniqueDevice = {};
-                      params.forEach(p => {
-                           const info = processedSeriesData[p.seriesIndex].customInfo;
-                           const key = `${p.seriesName}___${info.device}`;
-                          if (!groupedByUniqueDevice[key]) {
-                              groupedByUniqueDevice[key] = {
-                                  chip: p.seriesName,
-                                  device: info.device,
-                                  points: []
-                              };
-                          }
-                          groupedByUniqueDevice[key].points.push(p);
-                      });
-                      for (const group of Object.values(groupedByUniqueDevice)) {
-                          tooltipHtml += `<strong>${group.chip}</strong> <span style="font-size:0.8em;color:#888">${group.device}</span><br/>`;
-                          group.points.sort((a, b) => {
-                              const typeA = processedSeriesData[a.seriesIndex].customInfo.type;
-                              return typeA === 'Logic' ? -1 : 1;
-                          });
-                          const seenValues = new Set();
-                          group.points.forEach(point => {
-                              const info = processedSeriesData[point.seriesIndex].customInfo;
-                              const freq = point.value[0];
-                              const volt = point.value[1];
-                              const type = info.type;
-                              const uniqueKey = `${type}_${freq}_${volt}`;
-                              if (seenValues.has(uniqueKey)) {
-                                  return;
-                              }
-                              seenValues.add(uniqueKey);
-                              const typeLabel = type === 'Logic' ? 'Logic' : 'SRAM ';
-                              const typeStyle = type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';
-                              if (point.value && point.value.length === 2) {
-                                  tooltipHtml += `${point.marker} <span style="${typeStyle}">${typeLabel}</span>: ${freq} MHz @ ${volt} mV<br/>`;
-                              }
-                          });
-                          tooltipHtml += '<hr style="margin: 5px 0; border:0; border-top:1px solid #666; opacity:0.3">';
-                      }
-                      return tooltipHtml.replace(/<hr[^>]+>$/, '');
-                  },
-                  ...tooltipStyle
-              },
-              grid: { top: '15%', left: '3%', right: '10%', bottom: '5%', containLabel: true },
-              legend: {
-                  data: legendData,
-                  selected: selected,
-                  type: 'scroll',
-                  orient: 'vertical',
-                  right: '1%',
-                  top: '20%',
-                  bottom: '5%',
-                  textStyle: { fontSize: 11 }
-              },
-              xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
-              yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
-              series: processedSeriesData
-          };
-          myChart.setOption(option);
-          myChart.on('legendselectchanged', (params) => {
-              if (!currentSearchHash) {
-                  userLegendState[containerId] = params.selected;
-              }
-          });
-          const resizeObserver = new ResizeObserver(() => myChart.resize());
-          resizeObserver.observe(chartDom);
-      };
-      const renderAllCharts = () => {
-          if (!chartData) return;
-          const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
-          renderChart('P_CPU_Freq_Volt', chartData.p_core, 'DVFS P-Core 性能核', 500, 1300, theme);
-          renderChart('E_CPU_Freq_Volt', chartData.e_core, 'DVFS E-Core 能效核', 500, 1100, theme);
-          renderChart('GPU_Freq_Volt', chartData.gpu,    'DVFS GPU 图形核心', 500, 1100, theme);
-          renderChart('ANE_Freq_Volt', chartData.ane,    'DVFS ANE 神经引擎', 500, 1250, theme);
-      };
-      const base64ToArrayBuffer = (base64) => {
-          const binaryString = window.atob(base64);
-          const len = binaryString.length;
-          const bytes = new Uint8Array(len);
-          for (let i = 0; i < len; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
-          }
-          return bytes.buffer;
-      };
-      const decryptData = async (keyData, b64Ciphertext, b64Iv, b64Tag) => {
-          const cryptoKey = await window.crypto.subtle.importKey(
-              "raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]
-          );
-          const ciphertext = base64ToArrayBuffer(b64Ciphertext);
-          const iv = base64ToArrayBuffer(b64Iv);
-          const tag = base64ToArrayBuffer(b64Tag);
-          const fullCiphertext = new Uint8Array(ciphertext.byteLength + tag.byteLength);
-          fullCiphertext.set(new Uint8Array(ciphertext), 0);
-          fullCiphertext.set(new Uint8Array(tag), ciphertext.byteLength);
-          const decrypted = await window.crypto.subtle.decrypt(
-              { name: "AES-GCM", iv: iv, tagLength: 128 },
-              cryptoKey,
-              fullCiphertext.buffer
-          );
-          return new TextDecoder().decode(decrypted);
-      };
-      const main = async () => {
-          try {
-              const keyResponse = await fetch('./upload/dvfs/get-encryption-key.php');
-              if (!keyResponse.ok) throw new Error(`获取密钥失败!`);
-              const keyPayload = await keyResponse.json();
-              if (keyPayload.error) throw new Error(keyPayload.error);
-              const keyData = base64ToArrayBuffer(keyPayload.key);
-              const dataResponse = await fetch('./upload/dvfs/get-dvfs-data.php');
-              if (!dataResponse.ok) throw new Error(`获取数据失败!`);
-              const encryptedPayload = await dataResponse.json();
-              if (encryptedPayload.error) throw new Error(encryptedPayload.error);
-              const decryptedJson = await decryptData(
-                  keyData, encryptedPayload.ciphertext, encryptedPayload.iv, encryptedPayload.tag
-              );
-              const data = JSON.parse(decryptedJson);
-              chartData = data;
-              renderAllCharts();
-          } catch (error) {
-              console.error("加载失败:", error);
-              const mainContent = document.querySelector('.main-content');
-              if (mainContent) {
-                  mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
-              }
-          }
-      };
-      const debounce = (func, delay) => {
-          return (...args) => {
-              clearTimeout(debounceTimer);
-              debounceTimer = setTimeout(() => {
-                  func.apply(this, args);
-              }, delay);
-          };
-      };
-      const handleSearchInput = () => {
-          const hashToSearch = hashSearchInput.value.trim();
-          currentSearchHash = hashToSearch;
-          renderAllCharts();
-          if (hashToSearch) {
-              let hashFoundAnywhere = false;
-              if (chartData) {
-                  ['p_core', 'e_core', 'gpu', 'ane'].forEach(key => {
-                      if (chartData[key] && chartData[key].some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
-                          hashFoundAnywhere = true;
-                      }
-                  });
-              }
-              hashSearchInput.style.borderColor = hashFoundAnywhere ? 'var(--success-color, #28C940)' : 'var(--fail-color, #FF5F57)';
-          } else {
-              hashSearchInput.style.borderColor = '';
-          }
-      };
-      const handleViewModeChange = (e) => {
-          currentViewMode = e.target.value;
-          renderAllCharts();
-      };
-      hashSearchInput.addEventListener('input', debounce(handleSearchInput, 300));
-      viewModeRadios.forEach(radio => radio.addEventListener('change', handleViewModeChange));
-      const themeObserver = new MutationObserver((mutationsList) => {
-          for (const mutation of mutationsList) {
-              if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                  renderAllCharts();
-                  break;
-              }
+      (async () => {
+        const chartInstances = {};
+        let chartData = null;
+        let currentSearchHash = '';
+        let currentViewMode = 'all';
+        let userLegendState = {};
+        const hashSearchInput = document.getElementById('hash-search-input');
+        const viewModeRadios = document.querySelectorAll('input[name="viewMode"]');
+        let debounceTimer;
+        
+        const colorPalette = [
+            '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
+            '#26b3a9', '#ffdb5c', '#ff9f7f', '#8378ea', '#f29cb9', '#b5d564', '#f0a286', '#7980e1', '#64c7d8'
+        ];
+        window.closeModal = () => {
+            const modal = document.getElementById('disclaimerModal');
+            if (modal) modal.classList.remove('active');
+        };
+        const renderChart = (containerId, originalSeriesData, titleText, yAxisMin, yAxisMax, theme) => {
+            const lightTooltipStyle = {
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                borderColor: '#E0E0E0',
+                textStyle: { color: '#333' }
+            };
+            const darkTooltipStyle = {
+                backgroundColor: 'rgba(50, 50, 50, 0.9)',
+                borderColor: '#555',
+                textStyle: { color: '#FFFFFF' }
+            };
+            const chartDom = document.getElementById(containerId);
+            if (!chartDom) return;
+            if (chartInstances[containerId]) {
+                chartInstances[containerId].dispose();
+            }
+            if (!originalSeriesData || originalSeriesData.length === 0) {
+                chartDom.innerHTML = `<div class="retext">无可用数据。<br>请上传新版数据以查看。</div>`;
+                chartDom.style.height = '100px';
+                return;
+            } else {
+                chartDom.style.height = '500px';
+            }
+            const tooltipStyle = theme === 'dark' ? darkTooltipStyle : lightTooltipStyle;
+            let myChart = echarts.init(chartDom, theme);
+            chartInstances[containerId] = myChart;
+            const legendData = [...new Set(originalSeriesData.map(s => s.chip))];
+            const selected = {};
+            let hashFoundInThisChart = false;
+            const chipsWithHash = new Set();
+            if (currentSearchHash) {
+                originalSeriesData.forEach(s => {
+                    if (s.hashes && s.hashes.includes(currentSearchHash)) {
+                        chipsWithHash.add(s.chip);
+                        hashFoundInThisChart = true;
+                    }
+                });
+            }
+            if (legendData.length > 0) {
+                if (currentSearchHash && hashFoundInThisChart) {
+                    legendData.forEach(chipName => {
+                        selected[chipName] = chipsWithHash.has(chipName);
+                    });
+                } else if (userLegendState[containerId]) {
+                    Object.assign(selected, userLegendState[containerId]);
+                } else {
+                    legendData.forEach((chipName, index) => {
+                        selected[chipName] = (index === 0);
+                    });
+                    userLegendState[containerId] = { ...selected };
+                }
+            }
+            const processedSeriesData = [];
+            originalSeriesData.forEach((item, index) => {
+                const color = colorPalette[index % colorPalette.length];
+                let baseStyle = {};
+                if (currentSearchHash && hashFoundInThisChart) {
+                    const hasHash = item.hashes && item.hashes.includes(currentSearchHash);
+                    if (hasHash) {
+                        baseStyle = { z: 100, widthMultiplier: 1.5, opacity: 1 };
+                    } else {
+                        baseStyle = { opacity: 0.1, z: 1, widthMultiplier: 1 };
+                    }
+                } else {
+                    baseStyle = { opacity: 1, z: 2, widthMultiplier: 1 };
+                }
+                const createSeries = (data, type, symbol, lineType) => ({
+                    name: item.chip,
+                    type: 'line',
+                    symbol: symbol,
+                    symbolSize: 6 * baseStyle.widthMultiplier,
+                    data: data,
+                    lineStyle: {
+                        color: color,
+                        width: 2 * baseStyle.widthMultiplier,
+                        opacity: baseStyle.opacity,
+                        type: lineType
+                    },
+                    itemStyle: { color: color, opacity: baseStyle.opacity },
+                    z: baseStyle.z,
+                    customInfo: {
+                        type: type,
+                        device: item.devices,
+                        chip: item.chip
+                    }
+                });
+                if ((currentViewMode === 'all' || currentViewMode === 'logic') && item.logic_data && item.logic_data.length > 0) {
+                    const isForked = Array.isArray(item.logic_data[0]) && Array.isArray(item.logic_data[0][0]);
+                    if (isForked) {
+                        item.logic_data.forEach(forkData => {
+                            if (forkData.length > 0) processedSeriesData.push(createSeries(forkData, 'Logic', 'circle', 'solid'));
+                        });
+                    } else {
+                        processedSeriesData.push(createSeries(item.logic_data, 'Logic', 'circle', 'solid'));
+                    }
+                }
+                if ((currentViewMode === 'all' || currentViewMode === 'sram') && item.sram_data && item.sram_data.length > 0) {
+                    const isForked = Array.isArray(item.sram_data[0]) && Array.isArray(item.sram_data[0][0]);
+                    if (isForked) {
+                         item.sram_data.forEach(forkData => {
+                            if (forkData.length > 0) processedSeriesData.push(createSeries(forkData, 'SRAM', 'rect', 'dashed'));
+                        });
+                    } else {
+                        processedSeriesData.push(createSeries(item.sram_data, 'SRAM', 'rect', 'dashed'));
+                    }
+                }
+            });
+            const option = {
+                backgroundColor: 'transparent',
+                title: {
+                    text: titleText,
+                    subtext: '实线: Logic (核心) / 虚线: SRAM (缓存)',
+                    textStyle: { fontSize: 16 },
+                    subtextStyle: { fontSize: 12 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'line' },
+                    formatter: (params) => {
+                        if (!params || params.length === 0) return '';
+                        let tooltipHtml = '';
+                        const groupedByUniqueDevice = {};
+                        params.forEach(p => {
+                             const info = processedSeriesData[p.seriesIndex].customInfo;
+                             let devicesList = [];
+                             if (Array.isArray(info.device)) {
+                                 devicesList = info.device;
+                             } else if (typeof info.device === 'string') {
+                                 devicesList = info.device.split(/,\s*/);
+                             } else {
+                                 devicesList = ['Unknown Device'];
+                             }
+                             devicesList.forEach(deviceName => {
+                                 if(!deviceName) return;
+                                 const key = `${p.seriesName}___${deviceName}`;
+                                 if (!groupedByUniqueDevice[key]) {
+                                     groupedByUniqueDevice[key] = {
+                                         chip: p.seriesName,
+                                         device: deviceName,
+                                         points: []
+                                     };
+                                 }
+                                 groupedByUniqueDevice[key].points.push(p);
+                             });
+                        });
+                        for (const group of Object.values(groupedByUniqueDevice)) {
+                            tooltipHtml += `<strong>${group.chip}</strong> <span style="font-size:0.8em;color:#888">${group.device}</span><br/>`;
+                            group.points.sort((a, b) => {
+                                const infoA = processedSeriesData[a.seriesIndex].customInfo;
+                                const infoB = processedSeriesData[b.seriesIndex].customInfo;
+                                if (infoA.type !== infoB.type) {
+                                    return infoA.type === 'Logic' ? -1 : 1;
+                                }
+                                if (b.value[0] !== a.value[0]) {
+                                    return b.value[0] - a.value[0];
+                                }
+                                return b.value[1] - a.value[1];
+                            });
+                            const uniquePoints = [];
+                            const seenValues = new Set();
+                            group.points.forEach(point => {
+                                const info = processedSeriesData[point.seriesIndex].customInfo;
+                                const freq = point.value[0];
+                                const volt = point.value[1];
+                                const type = info.type;
+                                const uniqueKey = `${type}_${freq}_${volt}`;
+                                
+                                if (!seenValues.has(uniqueKey)) {
+                                    seenValues.add(uniqueKey);
+                                    uniquePoints.push({ point, info, freq, volt });
+                                }
+                            });
+                            const useColumns = uniquePoints.length > 8;
+                            if (useColumns) tooltipHtml += '<div class="tooltip-columns">';
+                            uniquePoints.forEach(item => {
+                                const typeLabel = item.info.type === 'Logic' ? 'Logic' : 'SRAM ';
+                                const typeStyle = item.info.type === 'Logic' ? 'font-weight:bold;' : 'font-style:italic;';
+                                tooltipHtml += `<div class="tooltip-item">${item.point.marker} <span style="${typeStyle}">${typeLabel}</span>: ${item.freq} MHz @ ${item.volt} mV</div>`;
+                            });
+                            if (useColumns) tooltipHtml += '</div>';
+                            tooltipHtml += '<hr style="margin: 5px 0; border:0; border-top:1px solid #666; opacity:0.3">';
+                        }
+                        return tooltipHtml.replace(/<hr[^>]+>$/, '');
+                    },
+                    ...tooltipStyle
+                },
+                grid: { top: '15%', left: '3%', right: '10%', bottom: '5%', containLabel: true },
+                legend: {
+                    data: legendData,
+                    selected: selected,
+                    type: 'scroll',
+                    orient: 'vertical',
+                    right: '1%',
+                    top: '20%',
+                    bottom: '5%',
+                    textStyle: { fontSize: 11 }
+                },
+                xAxis: { type: 'value', name: '频率 (MHz)', splitLine: { show: false }, axisLabel: { textStyle: { fontSize: "11" } } },
+                yAxis: { type: 'value', name: '电压 (mV)', splitLine: { show: true }, axisLabel: { textStyle: { fontSize: "11" } }, min: yAxisMin, max: yAxisMax },
+                series: processedSeriesData
+            };
+            myChart.setOption(option);
+            myChart.on('legendselectchanged', (params) => {
+                if (!currentSearchHash) {
+                    userLegendState[containerId] = params.selected;
+                }
+            });
+            const resizeObserver = new ResizeObserver(() => myChart.resize());
+            resizeObserver.observe(chartDom);
+        };
+        const renderAllCharts = () => {
+            if (!chartData) return;
+            const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            renderChart('P_CPU_Freq_Volt', chartData.p_core, 'DVFS P-Core 性能核', 500, 1300, theme);
+            renderChart('E_CPU_Freq_Volt', chartData.e_core, 'DVFS E-Core 能效核', 500, 1100, theme);
+            renderChart('GPU_Freq_Volt', chartData.gpu,    'DVFS GPU 图形核心', 500, 1100, theme);
+            renderChart('ANE_Freq_Volt', chartData.ane,    'DVFS ANE 神经引擎', 500, 1250, theme);
+        };
+        const base64ToArrayBuffer = (base64) => {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        };
+        const decryptData = async (keyData, b64Ciphertext, b64Iv, b64Tag) => {
+            const cryptoKey = await window.crypto.subtle.importKey(
+                "raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]
+            );
+            const ciphertext = base64ToArrayBuffer(b64Ciphertext);
+            const iv = base64ToArrayBuffer(b64Iv);
+            const tag = base64ToArrayBuffer(b64Tag);
+            const fullCiphertext = new Uint8Array(ciphertext.byteLength + tag.byteLength);
+            fullCiphertext.set(new Uint8Array(ciphertext), 0);
+            fullCiphertext.set(new Uint8Array(tag), ciphertext.byteLength);
+            const decrypted = await window.crypto.subtle.decrypt(
+                { name: "AES-GCM", iv: iv, tagLength: 128 },
+                cryptoKey,
+                fullCiphertext.buffer
+            );
+            return new TextDecoder().decode(decrypted);
+        };
+        const main = async () => {
+            try {
+                setTimeout(() => {
+                    const modal = document.getElementById('disclaimerModal');
+                    if (modal) modal.classList.add('active');
+                }, 100);
+                const keyResponse = await fetch('./upload/dvfs/get-encryption-key.php');
+                if (!keyResponse.ok) throw new Error(`获取密钥失败!`);
+                const keyPayload = await keyResponse.json();
+                if (keyPayload.error) throw new Error(keyPayload.error);
+                const keyData = base64ToArrayBuffer(keyPayload.key);
+                const dataResponse = await fetch('./upload/dvfs/get-dvfs-data.php');
+                if (!dataResponse.ok) throw new Error(`获取数据失败!`);
+                const encryptedPayload = await dataResponse.json();
+                if (encryptedPayload.error) throw new Error(encryptedPayload.error);
+                const decryptedJson = await decryptData(
+                    keyData, encryptedPayload.ciphertext, encryptedPayload.iv, encryptedPayload.tag
+                );
+                const data = JSON.parse(decryptedJson);
+                chartData = data;
+                renderAllCharts();
+            } catch (error) {
+                console.error("加载失败:", error);
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                    mainContent.innerHTML = `<div class="retext">错误: ${error.message}</div>`;
+                }
+            }
+        };
+        const debounce = (func, delay) => {
+            return (...args) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        };
+        const handleSearchInput = () => {
+            const hashToSearch = hashSearchInput.value.trim();
+            currentSearchHash = hashToSearch;
+            renderAllCharts();
+            if (hashToSearch) {
+                let hashFoundAnywhere = false;
+                if (chartData) {
+                    ['p_core', 'e_core', 'gpu', 'ane'].forEach(key => {
+                        if (chartData[key] && chartData[key].some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
+                            hashFoundAnywhere = true;
+                        }
+                    });
+                }
+                hashSearchInput.style.borderColor = hashFoundAnywhere ? 'var(--success-color, #28C940)' : 'var(--fail-color, #FF5F57)';
+            } else {
+                hashSearchInput.style.borderColor = '';
+            }
+        };
+        const handleViewModeChange = (e) => {
+            currentViewMode = e.target.value;
+            renderAllCharts();
+        };
+        hashSearchInput.addEventListener('input', debounce(handleSearchInput, 300));
+        viewModeRadios.forEach(radio => radio.addEventListener('change', handleViewModeChange));
+        
+        const themeObserver = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    renderAllCharts();
+              break;
+            }
           }
       });
       themeObserver.observe(document.documentElement, { attributes: true });
       main();
     })();
   </script>
-</body>
+ </body>
 </html>

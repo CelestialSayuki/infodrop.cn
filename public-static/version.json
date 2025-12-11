@@ -1,13 +1,23 @@
 {
-    "version": "2A1005f",
+    "version": "2A1006f",
     "notes": [
-        "修复tooltip bug"
+        "DVFS页面新增声明"
     ],
     "rsr_patches": [
         {
             "base": "2A1004q",
             "delta": [
-                "./apple-report/frequency-voltage/index.html"
+                "./apple-report/frequency-voltage/index.html",
+                "./upload/index.html",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "2A1005f",
+            "delta": [
+                "./apple-report/frequency-voltage/index.html",
+                "./upload/index.html",
+                "./index.html"
             ]
         }
     ],

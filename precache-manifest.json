@@ -10,7 +10,6 @@
   "./index.html",
   "./apple-other/battery/index.html",
   "./apple-other/disk/index.html",
-  "./apple-other/screen/index.html",
   "./auth/index.html",
   "./apple-tools/model/index.html",
   "./apple-tools/model/data.json",
