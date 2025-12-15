@@ -2,7 +2,8 @@
     "version": "2A1006e",
     "notes": [
         "DVFS页面新增声明",
-        "刷版本号"
+        "刷版本号",
+        "DVFS typo"
     ],
     "rsr_patches": [
         {
@@ -24,6 +25,7 @@
         {
             "base": "2A1006f",
             "delta": [
+                "./index.html"
             ]
         }
     ],
