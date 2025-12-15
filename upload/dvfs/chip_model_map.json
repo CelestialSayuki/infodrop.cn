@@ -136,6 +136,10 @@
     "cpuModel": "A8"
   },
   {
+    "chipModel": "s5l8960x",
+    "cpuModel": "A7"
+  },
+  {
     "chipModel": "T8310",
     "cpuModel": "S10/S9"
   },
