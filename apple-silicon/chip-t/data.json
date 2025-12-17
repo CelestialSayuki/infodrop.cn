@@ -50,7 +50,7 @@
       "data": {
         "displayType": ["芯片图", "宣传图", "Die"],
         "releaseDate": "2017.06",
-        "processTech": "TSMC N16",
+        "processTech": "TSMC 16FFC",
         "dieSize": "104mm²",
         "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">2.34GHz ×2<br>1.09GHz ×2</div>",
         "microArchitecture": "Hurricane + Zephyr<br>(6-wide + 3-wide)",

@@ -1,13 +1,20 @@
 {
-    "version": "2A1007e",
+    "version": "2A1007d",
     "notes": [
-        "DVFS typo"
+        "修正了部分制程名字",
+        "修正了因比较页面参考 hubweb 导致的海量错误信息的一小部分",
+        "修正了iPad mini 5/6链接"
     ],
     "rsr_patches": [
         {
             "base": "2A1004q",
             "delta": [
                 "./apple-report/frequency-voltage/index.html",
+                "./apple-silicon/chip-u/data.json",
+                "./apple-silicon/chip-a/data.json",
+                "./apple-device/ipad/ipad-mini/data.json",
+                "./apple-silicon/chip-s/data.json",
+                "./apple-silicon/chip-t/data.json",
                 "./upload/index.html",
                 "./index.html"
             ]
@@ -16,6 +23,11 @@
             "base": "2A1005f",
             "delta": [
                 "./apple-report/frequency-voltage/index.html",
+                "./apple-silicon/chip-u/data.json",
+                "./apple-silicon/chip-a/data.json",
+                "./apple-silicon/chip-s/data.json",
+                "./apple-device/ipad/ipad-mini/data.json",
+                "./apple-silicon/chip-t/data.json",
                 "./upload/index.html",
                 "./index.html"
             ]
@@ -23,12 +35,33 @@
         {
             "base": "2A1006f",
             "delta": [
+                "./apple-silicon/chip-u/data.json",
+                "./apple-silicon/chip-a/data.json",
+                "./apple-silicon/chip-s/data.json",
+                "./apple-device/ipad/ipad-mini/data.json",
+                "./apple-silicon/chip-t/data.json",
                 "./index.html"
             ]
         },
         {
             "base": "2A1006e",
             "delta": [
+                "./apple-silicon/chip-u/data.json",
+                "./apple-silicon/chip-a/data.json",
+                "./apple-silicon/chip-s/data.json",
+                "./apple-device/ipad/ipad-mini/data.json",
+                "./apple-silicon/chip-t/data.json",
+                "./index.html"
+            ]
+        },
+        {
+            "base": "2A1007e",
+            "delta": [
+                "./apple-silicon/chip-u/data.json",
+                "./apple-silicon/chip-a/data.json",
+                "./apple-silicon/chip-s/data.json",
+                "./apple-silicon/chip-t/data.json",
+                "./apple-device/ipad/ipad-mini/data.json",
                 "./index.html"
             ]
         }

@@ -759,7 +759,7 @@
                 ],
                 "releaseDate": "2014.09",
                 "chipCodename": "-",
-                "processTech": "Samsung S.LSI 28nm HKMG",
+                "processTech": "Samsung 28LPP",
                 "dieSize": "-",
                 "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">APL0778-S7002<br>520MHz ×1</div>",
                 "microArchitecture": "Cortex-A7",
