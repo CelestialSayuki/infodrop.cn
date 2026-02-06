@@ -1,9 +1,7 @@
 {
-    "version": "2A1007d",
+    "version": "2A1008d",
     "notes": [
-        "修正了部分制程名字",
-        "修正了因比较页面参考 hubweb 导致的海量错误信息的一小部分",
-        "修正了iPad mini 5/6链接"
+        "更新部分 GB6 跑分"
     ],
     "rsr_patches": [
         {
@@ -15,6 +13,7 @@
                 "./apple-device/ipad/ipad-mini/data.json",
                 "./apple-silicon/chip-s/data.json",
                 "./apple-silicon/chip-t/data.json",
+                "./apple-report/cpu/index.html",
                 "./upload/index.html",
                 "./index.html"
             ]
@@ -23,6 +22,7 @@
             "base": "2A1005f",
             "delta": [
                 "./apple-report/frequency-voltage/index.html",
+                "./apple-report/cpu/index.html",
                 "./apple-silicon/chip-u/data.json",
                 "./apple-silicon/chip-a/data.json",
                 "./apple-silicon/chip-s/data.json",
@@ -36,6 +36,7 @@
             "base": "2A1006f",
             "delta": [
                 "./apple-silicon/chip-u/data.json",
+                "./apple-report/cpu/index.html",
                 "./apple-silicon/chip-a/data.json",
                 "./apple-silicon/chip-s/data.json",
                 "./apple-device/ipad/ipad-mini/data.json",
@@ -47,6 +48,7 @@
             "base": "2A1006e",
             "delta": [
                 "./apple-silicon/chip-u/data.json",
+                "./apple-report/cpu/index.html",
                 "./apple-silicon/chip-a/data.json",
                 "./apple-silicon/chip-s/data.json",
                 "./apple-device/ipad/ipad-mini/data.json",
@@ -58,11 +60,18 @@
             "base": "2A1007e",
             "delta": [
                 "./apple-silicon/chip-u/data.json",
+                "./apple-report/cpu/index.html",
                 "./apple-silicon/chip-a/data.json",
                 "./apple-silicon/chip-s/data.json",
                 "./apple-silicon/chip-t/data.json",
                 "./apple-device/ipad/ipad-mini/data.json",
                 "./index.html"
+            ]
+        },
+        {
+            "base": "2A1007d",
+            "delta": [
+                "./apple-report/cpu/index.html"
             ]
         }
     ],

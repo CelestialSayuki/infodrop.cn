@@ -1,4 +1,4 @@
-const CACHE_VERSION = '2A1007d';
+const CACHE_VERSION = '2A1008d';
 const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
