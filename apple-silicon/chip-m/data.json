@@ -162,6 +162,96 @@
     ],
     "products": [
         {
+            "name": "M5 Max",
+            "generation": "(Sotra_C, APL1xxx-T6051)",
+            "image": "/apple-silicon/chip-s/img/null.webp",
+            "images": {
+                "宣传图": "/apple-silicon/chip-s/img/null.webp",
+                "芯片图": "/apple-silicon/chip-s/img/null.webp",
+                "结构图": "/apple-silicon/chip-s/img/null.webp",
+                "Die": "/apple-silicon/chip-s/img/null.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "",
+                "releaseDate": "2026.03",
+                "processTech": "TSMC N3P",
+                "transistorCount": "",
+                "dieSize": "",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.61G ×6<br>4.38G ×12</div>",
+                "microArchitecture": "Sotra-P + Sotra-M<br>(10-wide + 7-wide)",
+                "l1iCache": "6×192KB + 12×192KB",
+                "l1dCache": "6×128KB + 12×128KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>1M pL2<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">中核<br>共享2x8M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×40<br>640 EUs<br>5120 ALUs<br>@1620MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×32<br>512 EUs<br>4096 ALUs<br>@1620MHz</div>",
+                "gpuModel": "Apple10 家族, Apple G17C",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4<br>Tensor Core",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes/RAW",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×2<br>AV1 Decode ×1</div>",
+                "memorycache": "48MB",
+                "internalIo": "Camera Serial Interface ×?<br>USB4/Thunderbolt ×?<br>PCIe ×(?+?) Lines",
+                "packaging": "晶片基板 (统一内存)",
+                "ramSpec": "LPDDR5X-9600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">36GB<br>384-bit<br>460GB/s</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">48/64/128GB<br>512-bit<br>614GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">MacBook Pro (14-inch, 2026)<br>i<br>MacBook Pro (16-inch, 2026)</div>"
+            }
+        },
+        {
+            "name": "M5 Pro",
+            "generation": "(Sotra_S, APL1xxx-T6052)",
+            "image": "/apple-silicon/chip-s/img/null.webp",
+            "images": {
+                "宣传图": "/apple-silicon/chip-s/img/null.webp",
+                "芯片图": "/apple-silicon/chip-s/img/null.webp",
+                "结构图": "/apple-silicon/chip-s/img/null.webp",
+                "Die": "/apple-silicon/chip-s/img/null.webp"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图",
+                    "芯片图",
+                    "结构图",
+                    "Die"
+                ],
+                "slogan": "",
+                "releaseDate": "2026.03",
+                "processTech": "TSMC N3P",
+                "transistorCount": "",
+                "dieSize": "",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.61G ×6<br>4.38G ×12</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.61G ×5<br>4.38G ×10</div>",
+                "microArchitecture": "Sotra-P + Sotra-M<br>(10-wide + 7-wide)",
+                "l1iCache": "5/6×192KB + 10/12×192KB",
+                "l1dCache": "5/6×128KB + 10/12×128KB",
+                "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>1M pL2<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">中核<br>共享2x8M LLC</div>",
+                "mlAccelerator": "SME + AMX",
+                "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×20<br>320 EUs<br>2560 ALUs<br>@1620MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16<br>256 EUs<br>2048 ALUs<br>@1620MHz</div>",
+                "gpuModel": "Apple10 家族, Apple G17S",
+                "gpuFeatures": "光线追踪, 支持 Metal 3 & 4<br>Tensor Core",
+                "aneInfo": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">H17<br>16 核 @ 35TOPS (FP16 稀疏化)<br>@2172MHz</div>",
+                "aneCoreCache": "64KB ×16 核",
+                "aneSram": "2MB ANE SRAM",
+                "hardwareAccel": "H.264, HEVC, ProRes/RAW",
+                "mediaEngine": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">Video Decode ×1<br>Video Encode ×1<br>ProRes Encode/Decode ×1<br>AV1 Decode ×1</div>",
+                "memorycache": "24MB",
+                "internalIo": "Camera Serial Interface ×?<br>USB4/Thunderbolt ×?<br>PCIe ×(?+?) Lines",
+                "packaging": "晶片基板 (统一内存)",
+                "ramSpec": "LPDDR5X-9600",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">24/48/64GB<br>256-bit<br>307GB/s</div>",
+                "storageProtocol": "NVMe",
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">MacBook Pro (14-inch, 2026)<br>i<br>MacBook Pro (16-inch, 2026)</div>"
+            }
+        },
+        {
             "name": "M5",
             "generation": "(Hidra, APL1xxx-T8142)",
             "image": "/apple-silicon/chip-m/img/M5_product.webp",
@@ -203,7 +293,7 @@
                 "ramSpec": "LPDDR5X-9600",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12/16/24/32GB<br>128-bit<br>153.6GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>Apple Vision Pro (M5))<br>MacBook Pro (14-inch, M5)</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Air 11 英寸 (M5)<br>iPad Air 13 英寸 (M5)<br>iPad Pro 11 英寸 (M5)<br>iPad Pro 13 英寸 (M5)<br>Apple Vision Pro (M5))<br>MacBook Pro (14-inch, M5)</div>"
             }
         },
         {
@@ -317,10 +407,10 @@
                 "processTech": "TSMC N3E",
                 "transistorCount": "28.0 billion",
                 "dieSize": "13.21×12.82 (169.35mm²)",
-                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×6</div>",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3br>2.89G ×5</div>",
                 "microArchitecture": "Donan-P + Donan-E<br>(10-wide + 5-wide)",
-                "l1iCache": "3/4×192KB + 4/6×128KB",
-                "l1dCache": "3/4×128KB + 4/6×64KB",
+                "l1iCache": "3/4×192KB + 4/5/6×128KB",
+                "l1dCache": "3/4×128KB + 4/5/6×64KB",
                 "LCache": "<div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">大核<br>共享16M LLC</div><div class=\"info-square\" style=\"background-color: rgba(255, 89, 136, 0.27);\">小核<br>共享4M LLC</div>",
                 "mlAccelerator": "SME + AMX",
                 "gpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×8<br>128 EUs<br>1024 ALUs<br>@1470MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10<br>128 EUs<br>1280 ALUs<br>@1470MHz</div><div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×10<br>160 EUs<br>1280 ALUs<br>@1578MHz</div>",
@@ -335,9 +425,9 @@
                 "internalIo": "Camera Serial Interface ×8<br>USB4/Thunderbolt ×4<br>PCIe ×(2+3) Lines",
                 "packaging": "晶片基板 (统一内存)",
                 "ramSpec": "LPDDR5X-7500",
-                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8/16/24/32GB<br>128-bit<br>120GB/s</div>",
+                "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8/1216/24/32GB<br>128-bit<br>120GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Pro 11 英寸 (M4)<br>iPad Pro 13 英寸 (M4)<br>iMac (24 英寸, 2024)<br>Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Air (13 英寸, M4, 2025)<br>MacBook Air (15 英寸, M4, 2025)</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPad Air 11 英寸 (M4)<br>iPad Air 13 英寸 (M4)<br>iPad Pro 11 英寸 (M4)<br>iPad Pro 13 英寸 (M4)<br>iMac (24 英寸, 2024)<br>Mac mini (2024)<br>MacBook Pro (14 英寸, 2024)<br>MacBook Air (13 英寸, M4, 2025)<br>MacBook Air (15 英寸, M4, 2025)</div>"
             }
         },
         {

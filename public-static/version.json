@@ -1,79 +1,9 @@
 {
-    "version": "2A1008d",
+    "version": "temp",
     "notes": [
-        "更新部分 GB6 跑分"
+        "本网站旧时代的最后一个版本"
     ],
     "rsr_patches": [
-        {
-            "base": "2A1004q",
-            "delta": [
-                "./apple-report/frequency-voltage/index.html",
-                "./apple-silicon/chip-u/data.json",
-                "./apple-silicon/chip-a/data.json",
-                "./apple-device/ipad/ipad-mini/data.json",
-                "./apple-silicon/chip-s/data.json",
-                "./apple-silicon/chip-t/data.json",
-                "./apple-report/cpu/index.html",
-                "./upload/index.html",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "2A1005f",
-            "delta": [
-                "./apple-report/frequency-voltage/index.html",
-                "./apple-report/cpu/index.html",
-                "./apple-silicon/chip-u/data.json",
-                "./apple-silicon/chip-a/data.json",
-                "./apple-silicon/chip-s/data.json",
-                "./apple-device/ipad/ipad-mini/data.json",
-                "./apple-silicon/chip-t/data.json",
-                "./upload/index.html",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "2A1006f",
-            "delta": [
-                "./apple-silicon/chip-u/data.json",
-                "./apple-report/cpu/index.html",
-                "./apple-silicon/chip-a/data.json",
-                "./apple-silicon/chip-s/data.json",
-                "./apple-device/ipad/ipad-mini/data.json",
-                "./apple-silicon/chip-t/data.json",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "2A1006e",
-            "delta": [
-                "./apple-silicon/chip-u/data.json",
-                "./apple-report/cpu/index.html",
-                "./apple-silicon/chip-a/data.json",
-                "./apple-silicon/chip-s/data.json",
-                "./apple-device/ipad/ipad-mini/data.json",
-                "./apple-silicon/chip-t/data.json",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "2A1007e",
-            "delta": [
-                "./apple-silicon/chip-u/data.json",
-                "./apple-report/cpu/index.html",
-                "./apple-silicon/chip-a/data.json",
-                "./apple-silicon/chip-s/data.json",
-                "./apple-silicon/chip-t/data.json",
-                "./apple-device/ipad/ipad-mini/data.json",
-                "./index.html"
-            ]
-        },
-        {
-            "base": "2A1007d",
-            "delta": [
-                "./apple-report/cpu/index.html"
-            ]
-        }
     ],
-    "preserve_runtime": true
+    "preserve_runtime": false
 }
