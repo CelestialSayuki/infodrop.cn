@@ -407,7 +407,7 @@
                 "processTech": "TSMC N3E",
                 "transistorCount": "28.0 billion",
                 "dieSize": "13.21×12.82 (169.35mm²)",
-                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3br>2.89G ×5</div>",
+                "cpuSpec": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×3<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×4</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.46G ×4<br>2.89G ×6</div><div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">4.10G ×3<br>2.89G ×5</div>",
                 "microArchitecture": "Donan-P + Donan-E<br>(10-wide + 5-wide)",
                 "l1iCache": "3/4×192KB + 4/5/6×128KB",
                 "l1dCache": "3/4×128KB + 4/5/6×64KB",
