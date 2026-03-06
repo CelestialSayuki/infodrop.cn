@@ -1,15 +1,15 @@
 {
-    "version": "temp2",
-    "notes": [
-        "本网站旧时代的最后一个版本"
-    ],
-    "rsr_patches": [
-        {
-            "base": "temp",
-            "delta": [
-                "./apple-silicon/chip-m/data.json"
-            ]
-        },
-    ],
-    "preserve_runtime": false
+  "version": "temp2",
+  "notes": [
+    "本网站旧时代的最后一个版本"
+  ],
+  "rsr_patches": [
+    {
+      "base": "temp",
+      "delta": [
+        "./apple-silicon/chip-m/data.json"
+      ]
+    }
+  ],
+  "preserve_runtime": false
 }
