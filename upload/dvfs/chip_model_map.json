@@ -4,6 +4,10 @@
     "cpuModel": "M5"
   },
   {
+    "chipModel": "T6050",
+    "cpuModel": "M5 Pro/Max"
+  },
+  {
     "chipModel": "T8103",
     "cpuModel": "M1"
   },
