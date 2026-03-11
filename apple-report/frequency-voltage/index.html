@@ -202,6 +202,8 @@
    <div class="card">
     <div id="P_CPU_Freq_Volt" style="height: 500px;"></div>
     <hr />
+    <div id="M_CPU_Freq_Volt" style="height: 500px;"></div>
+    <hr />
     <div id="E_CPU_Freq_Volt" style="height: 500px;"></div>
     <hr />
     <div id="GPU_Freq_Volt" style="height: 500px;"></div>
@@ -457,6 +459,7 @@
             if (!chartData) return;
             const theme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
             renderChart('P_CPU_Freq_Volt', chartData.p_core, 'DVFS P-Core 性能核', 500, 1300, theme);
+            renderChart('M_CPU_Freq_Volt', chartData.m_core, 'DVFS M-Core 次核/中核', 500, 1200, theme);
             renderChart('E_CPU_Freq_Volt', chartData.e_core, 'DVFS E-Core 能效核', 500, 1100, theme);
             renderChart('GPU_Freq_Volt', chartData.gpu,    'DVFS GPU 图形核心', 500, 1100, theme);
             renderChart('ANE_Freq_Volt', chartData.ane,    'DVFS ANE 神经引擎', 500, 1250, theme);
@@ -531,7 +534,7 @@
             if (hashToSearch) {
                 let hashFoundAnywhere = false;
                 if (chartData) {
-                    ['p_core', 'e_core', 'gpu', 'ane'].forEach(key => {
+                    ['p_core', 'm_core', 'e_core', 'gpu', 'ane'].forEach(key => {
                         if (chartData[key] && chartData[key].some(s => s.hashes && s.hashes.includes(currentSearchHash))) {
                             hashFoundAnywhere = true;
                         }
