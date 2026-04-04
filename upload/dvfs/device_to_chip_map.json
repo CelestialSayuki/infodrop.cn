@@ -282,5 +282,8 @@
     "Watch2,6": "S1P",
     "Watch2,7": "S1P",
     "Watch1,1": "S1",
-    "Watch1,2": "S1"
+    "Watch1,2": "S1",
+    "AppleDisplay2,1": "A13 Bionic",
+    "AppleDisplay18,2": "A19",
+    "AppleDisplay18,1": "A19 Pro"
 }

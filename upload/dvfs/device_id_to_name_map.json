@@ -282,5 +282,8 @@
     "Watch2,6": "Apple Watch Series 1",
     "Watch2,7": "Apple Watch Series 1",
     "Watch1,1": "Apple Watch",
-    "Watch1,2": "Apple Watch"
+    "Watch1,2": "Apple Watch",
+    "AppleDisplay2,1": "Apple Studio Display",
+    "AppleDisplay18,2": "Apple Studio Display (2026)",
+    "AppleDisplay18,1": "Apple Studio Display XDR"
 }
