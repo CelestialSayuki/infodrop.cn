@@ -1,515 +1,1227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="canonical" href="https://infodrop.cn/">
-    <link rel="manifest" href="/manifest.json">
-    <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
-    <meta name="description" content="infodrop.cn 是一个先进的 Apple 产品参数中心，提供关于 Apple Silicon (A系列/M系列)、iPhone、iPad、Mac 等设备的详细规格、性能跑分数据和系统兼容性信息。">
-    <script>
-        (function() {
-            const ua = navigator.userAgent;
-            if (ua.includes('HuaweiBrowser') || ua.includes('HUAWEI')) {
-                document.documentElement.classList.add('wawei');
-                document.addEventListener('DOMContentLoaded', function() {
-                    const heroImage = document.querySelector('.hero-banner-image');
-                    if (heroImage) {
-                        heroImage.src = '/public-static/img/wawei.webp';
-                    }
-                });
-            }
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark-mode');
-            }
-            window.isBrowserSupported = true;
-            function getBrowserInfo() {
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="canonical" href="https://infodrop.cn/" />
+        <link rel="manifest" href="/manifest.json" />
+        <title>先进的 Apple 产品参数中心 / infodrop.cn</title>
+        <meta
+            name="description"
+            content="infodrop.cn 是一个先进的 Apple 产品参数中心，提供关于 Apple Silicon (A系列/M系列)、iPhone、iPad、Mac 等设备的详细规格、性能跑分数据和系统兼容性信息。"
+        />
+        <script>
+            (function () {
                 const ua = navigator.userAgent;
-                if (ua.indexOf('Trident/') !== -1) {
-                    const versionMatch = ua.match(/rv:([\d.]+)/);
-                    if (versionMatch && versionMatch[1]) {
-                        return { name: 'IE', version: parseInt(versionMatch[1], 10) };
-                    }
-                    return { name: 'IE', version: 11 };
-                }
-                const isSafari = ua.indexOf('Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Edg') === -1;
-                if (isSafari) {
-                    const versionMatch = ua.match(/Version\/([\d.]+)/) || ua.match(/OS (\d+)_/);
-                    if (versionMatch && versionMatch[1]) {
-                        return { name: 'Safari', version: parseInt(versionMatch[1].replace('_', '.'), 10) };
-                    }
-                }
-                if (ua.indexOf('Chrome') !== -1) {
-                    const versionMatch = ua.match(/Chrome\/([\d.]+)/);
-                    if (versionMatch && versionMatch[1]) {
-                        return { name: 'Chrome', version: parseInt(versionMatch[1], 10) };
-                    }
-                }
-                if (ua.indexOf('Firefox') !== -1) {
-                    const versionMatch = ua.match(/Firefox\/([\d.]+)/);
-                    if (versionMatch && versionMatch[1]) {
-                        return { name: 'Firefox', version: parseInt(versionMatch[1], 10) };
-                    }
-                }
-                return { name: 'unknown', version: 0 };
-            }
-            window.browserInfo = getBrowserInfo();
-            const browser = window.browserInfo;
-            let isUnsupported = false;
-            let requiredVersion = '';
-            let browserNameForDisplay = '';
-            let updateTargetWord = '浏览器';
-            let mainTitle = '浏览器版本过低';
-            if (browser.name === 'Safari' && browser.version > 0 && browser.version < 13) {
-                isUnsupported = true;
-                requiredVersion = '13.0';
-                browserNameForDisplay = 'Safari ' + browser.version;
-                updateTargetWord = '系统浏览器';
-                mainTitle = '系统版本过低';
-            } else if (browser.name === 'Chrome' && browser.version > 0 && browser.version < 70) {
-                isUnsupported = true;
-                requiredVersion = '70';
-                browserNameForDisplay = 'Chrome/Chromium ' + browser.version;
-            } else if (browser.name === 'Firefox' && browser.version > 0 && browser.version < 70) {
-                isUnsupported = true;
-                requiredVersion = '70';
-                browserNameForDisplay = 'Firefox ' + browser.version;
-            } else if (browser.name === 'IE') {
-                isUnsupported = true;
-                requiredVersion = 'Edge、Chrome 或 Firefox 等现代浏览器';
-                browserNameForDisplay = 'Internet Explorer ' + browser.version;
-                mainTitle = '您的浏览器不受支持';
-                updateTargetWord = '浏览器';
-            }
-            if (isUnsupported) {
-                window.isBrowserSupported = false;
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(function() {
-                        const logo = document.querySelector('#loading-screen .apple-logo');
-                        const loadingScreen = document.getElementById('loading-screen');
-                        if (logo && loadingScreen) {
-                            logo.style.opacity = '0';
-                            setTimeout(function() {
-                                let buttonHTML = '';
-                                if (browser.name !== 'IE') {
-                                    buttonHTML = '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
-                                }
-                                const errorMessageHTML =
-                                    '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
-                                    '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
-                                    '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                                    '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>' +
-                                    '<path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>' +
-                                    '</svg>' +
-                                    '</div>' +
-                                    '<div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">' +
-                                    '<h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">' + mainTitle + '</h1>' +
-                                    '<p style="font-size: 1em; line-height: 1.6;">您当前的' + updateTargetWord + ' (' + browserNameForDisplay + ') 不受支持。</p>' +
-                                    '<p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请升级或更换为' + requiredVersion + '。</p>' +
-                                    buttonHTML +
-                                    '</div>' +
-                                    '</div>';
-                                const layer = document.getElementById('loading-screen-layer');
-                                if (layer) {
-                                    loadingScreen.innerHTML = layer.outerHTML + errorMessageHTML;
-                                } else {
-                                    loadingScreen.innerHTML = errorMessageHTML;
-                                }
-                                if (browser.name !== 'IE') {
-                                    const ignoreBtn = document.getElementById('ignore-unsupported-btn');
-                                    if (ignoreBtn) {
-                                        ignoreBtn.addEventListener('click', function() {
-                                            const screen = document.getElementById('loading-screen');
-                                            if (screen) {
-                                                screen.addEventListener('transitionend', function() {
-                                                    if (screen) {
-                                                        screen.remove();
-                                                    }
-                                                }, { once: true });
-                                                screen.classList.add('hidden');
-                                            }
-                                            if (window.initializeApp) {
-                                                window.initializeApp();
-                                            }
-                                        });
-                                    }
-                                }
-                                const prohibitedIcon = document.getElementById('prohibited-icon');
-                                const messageText = document.getElementById('unsupported-message-text');
-                                if (prohibitedIcon && messageText) {
-                                    setTimeout(function() {
-                                        prohibitedIcon.style.opacity = '1';
-                                        messageText.style.opacity = '1';
-                                    }, 50);
-                                }
-                            }, 500);
+                if (ua.includes("HuaweiBrowser") || ua.includes("HUAWEI")) {
+                    document.documentElement.classList.add("wawei");
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const heroImage =
+                            document.querySelector(".hero-banner-image");
+                        if (heroImage) {
+                            heroImage.src = "/public-static/img/wawei.webp";
                         }
-                    }, 500);
-                });
-            } else {
-                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-                if (localStorage.getItem('sw_installed_version') && !isStandalone) {
-                    document.documentElement.className += ' is-preloaded';
+                    });
                 }
-            }
-        })();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F0F2F5">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171C2A">
-    <meta name="apple-mobile-web-app-title" content="苹果产品参数">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./public-static/css/new.css">
-</head>
+                const theme = localStorage.getItem("theme");
+                if (
+                    theme === "dark" ||
+                    (!theme &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                ) {
+                    document.documentElement.classList.add("dark-mode");
+                }
+                window.isBrowserSupported = true;
+                function getBrowserInfo() {
+                    const ua = navigator.userAgent;
+                    if (ua.indexOf("Trident/") !== -1) {
+                        const versionMatch = ua.match(/rv:([\d.]+)/);
+                        if (versionMatch && versionMatch[1]) {
+                            return {
+                                name: "IE",
+                                version: parseInt(versionMatch[1], 10),
+                            };
+                        }
+                        return { name: "IE", version: 11 };
+                    }
+                    const isSafari =
+                        ua.indexOf("Safari") !== -1 &&
+                        ua.indexOf("Chrome") === -1 &&
+                        ua.indexOf("Edg") === -1;
+                    if (isSafari) {
+                        const versionMatch =
+                            ua.match(/Version\/([\d.]+)/) ||
+                            ua.match(/OS (\d+)_/);
+                        if (versionMatch && versionMatch[1]) {
+                            return {
+                                name: "Safari",
+                                version: parseInt(
+                                    versionMatch[1].replace("_", "."),
+                                    10,
+                                ),
+                            };
+                        }
+                    }
+                    if (ua.indexOf("Chrome") !== -1) {
+                        const versionMatch = ua.match(/Chrome\/([\d.]+)/);
+                        if (versionMatch && versionMatch[1]) {
+                            return {
+                                name: "Chrome",
+                                version: parseInt(versionMatch[1], 10),
+                            };
+                        }
+                    }
+                    if (ua.indexOf("Firefox") !== -1) {
+                        const versionMatch = ua.match(/Firefox\/([\d.]+)/);
+                        if (versionMatch && versionMatch[1]) {
+                            return {
+                                name: "Firefox",
+                                version: parseInt(versionMatch[1], 10),
+                            };
+                        }
+                    }
+                    return { name: "unknown", version: 0 };
+                }
+                window.browserInfo = getBrowserInfo();
+                const browser = window.browserInfo;
+                let isUnsupported = false;
+                let requiredVersion = "";
+                let browserNameForDisplay = "";
+                let updateTargetWord = "浏览器";
+                let mainTitle = "浏览器版本过低";
+                if (
+                    browser.name === "Safari" &&
+                    browser.version > 0 &&
+                    browser.version < 13
+                ) {
+                    isUnsupported = true;
+                    requiredVersion = "13.0";
+                    browserNameForDisplay = "Safari " + browser.version;
+                    updateTargetWord = "系统浏览器";
+                    mainTitle = "系统版本过低";
+                } else if (
+                    browser.name === "Chrome" &&
+                    browser.version > 0 &&
+                    browser.version < 70
+                ) {
+                    isUnsupported = true;
+                    requiredVersion = "70";
+                    browserNameForDisplay =
+                        "Chrome/Chromium " + browser.version;
+                } else if (
+                    browser.name === "Firefox" &&
+                    browser.version > 0 &&
+                    browser.version < 70
+                ) {
+                    isUnsupported = true;
+                    requiredVersion = "70";
+                    browserNameForDisplay = "Firefox " + browser.version;
+                } else if (browser.name === "IE") {
+                    isUnsupported = true;
+                    requiredVersion = "Edge、Chrome 或 Firefox 等现代浏览器";
+                    browserNameForDisplay =
+                        "Internet Explorer " + browser.version;
+                    mainTitle = "您的浏览器不受支持";
+                    updateTargetWord = "浏览器";
+                }
+                if (isUnsupported) {
+                    window.isBrowserSupported = false;
+                    document.addEventListener("DOMContentLoaded", function () {
+                        setTimeout(function () {
+                            const logo = document.querySelector(
+                                "#loading-screen .apple-logo",
+                            );
+                            const loadingScreen =
+                                document.getElementById("loading-screen");
+                            if (logo && loadingScreen) {
+                                logo.style.opacity = "0";
+                                setTimeout(function () {
+                                    let buttonHTML = "";
+                                    if (browser.name !== "IE") {
+                                        buttonHTML =
+                                            '<p style="margin-top: 25px;"><button id="ignore-unsupported-btn" style="background-color: #555; color: #f5f5f7; border: 1px solid #777; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-family: inherit;">忽略并继续访问</button></p>';
+                                    }
+                                    const errorMessageHTML =
+                                        '<div id="unsupported-container" style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px;">' +
+                                        '<div id="prohibited-icon" style="opacity: 0; transition: opacity 0.6s ease-in; margin-bottom: 25px;">' +
+                                        '<svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                                        '<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="1.5"/>' +
+                                        '<path d="M5.5 18.5L18.5 5.5" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>' +
+                                        "</svg>" +
+                                        "</div>" +
+                                        '<div id="unsupported-message-text" style="opacity: 0; transition: opacity 0.6s ease-in 0.3s;">' +
+                                        '<h1 style="color: #f5f5f7; font-size: 1.5em; margin-bottom: 1em;">' +
+                                        mainTitle +
+                                        "</h1>" +
+                                        '<p style="font-size: 1em; line-height: 1.6;">您当前的' +
+                                        updateTargetWord +
+                                        " (" +
+                                        browserNameForDisplay +
+                                        ") 不受支持。</p>" +
+                                        '<p style="font-size: 1em; line-height: 1.6;">为了正常访问本网站，请升级或更换为' +
+                                        requiredVersion +
+                                        "。</p>" +
+                                        buttonHTML +
+                                        "</div>" +
+                                        "</div>";
+                                    const layer = document.getElementById(
+                                        "loading-screen-layer",
+                                    );
+                                    if (layer) {
+                                        loadingScreen.innerHTML =
+                                            layer.outerHTML + errorMessageHTML;
+                                    } else {
+                                        loadingScreen.innerHTML =
+                                            errorMessageHTML;
+                                    }
+                                    if (browser.name !== "IE") {
+                                        const ignoreBtn =
+                                            document.getElementById(
+                                                "ignore-unsupported-btn",
+                                            );
+                                        if (ignoreBtn) {
+                                            ignoreBtn.addEventListener(
+                                                "click",
+                                                function () {
+                                                    const screen =
+                                                        document.getElementById(
+                                                            "loading-screen",
+                                                        );
+                                                    if (screen) {
+                                                        screen.addEventListener(
+                                                            "transitionend",
+                                                            function () {
+                                                                if (screen) {
+                                                                    screen.remove();
+                                                                }
+                                                            },
+                                                            { once: true },
+                                                        );
+                                                        screen.classList.add(
+                                                            "hidden",
+                                                        );
+                                                    }
+                                                    if (window.initializeApp) {
+                                                        window.initializeApp();
+                                                    }
+                                                },
+                                            );
+                                        }
+                                    }
+                                    const prohibitedIcon =
+                                        document.getElementById(
+                                            "prohibited-icon",
+                                        );
+                                    const messageText = document.getElementById(
+                                        "unsupported-message-text",
+                                    );
+                                    if (prohibitedIcon && messageText) {
+                                        setTimeout(function () {
+                                            prohibitedIcon.style.opacity = "1";
+                                            messageText.style.opacity = "1";
+                                        }, 50);
+                                    }
+                                }, 500);
+                            }
+                        }, 500);
+                    });
+                } else {
+                    const isStandalone =
+                        window.matchMedia("(display-mode: standalone)")
+                            .matches || window.navigator.standalone;
+                    if (
+                        localStorage.getItem("sw_installed_version") &&
+                        !isStandalone
+                    ) {
+                        document.documentElement.className += " is-preloaded";
+                    }
+                }
+            })();
+        </script>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="theme-color"
+            media="(prefers-color-scheme: light)"
+            content="#F0F2F5"
+        />
+        <meta
+            name="theme-color"
+            media="(prefers-color-scheme: dark)"
+            content="#171C2A"
+        />
+        <meta name="apple-mobile-web-app-title" content="苹果产品参数" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="./public-static/css/new.css" />
+    </head>
 
-<body>
-    <div id="loading-screen">
-        <div id="loading-screen-layer"></div>
-        <img class="apple-logo" src="./public-static/img/apple.svg" alt="Apple Logo">
-        <div class="progress-bar-container">
-            <div class="progress-bar-fill"></div>
+    <body>
+        <div id="loading-screen">
+            <div id="loading-screen-layer"></div>
+            <img
+                class="apple-logo"
+                src="./public-static/img/apple.svg"
+                alt="Apple Logo"
+            />
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="loading-text"></div>
         </div>
-        <div class="loading-text"></div>
-    </div>
-    
-    <div id="app-container">
-        <aside class="sidebar">
-            <ul class="sidebar-menu">
-                <li>
-                    <a href="#">
-                        <i class="bi bi-cpu"></i>Apple Silicon</a>
-                    <ul>
-                        <li><a href="./apple-silicon/chip-a/">苹果 A 系列</a></li>
-                        <li><a href="./apple-silicon/chip-c/">苹果 C 系列</a></li>
-                        <li><a href="./apple-silicon/chip-h/">苹果 H 系列</a></li>
-                        <li><a href="./apple-silicon/chip-m/">苹果 M 系列</a></li>
-                        <li><a href="./apple-silicon/chip-n/">苹果 N 系列</a></li>
-                        <li><a href="./apple-silicon/chip-r/">苹果 R 系列</a></li>
-                        <li><a href="./apple-silicon/chip-s/">苹果 S 系列</a></li>
-                        <li><a href="./apple-silicon/chip-t/">苹果 T 系列</a></li>
-                        <li><a href="./apple-silicon/chip-u/">苹果 U 系列</a></li>
-                        <li><a href="./apple-silicon/chip-w/">苹果 W 系列</a></li>
-                        <li><a href="./apple-silicon/chip-aop/">协处理器</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="bi bi-apple"></i>Apple 设备</a>
-                    <ul>
-                        <li>
-                            <a href="#">Mac</a>
-                            <ul class="sub-menu">
-                                <li><a href="./apple-device/mac/macbook/">MacBook</a></li>
-                                <li><a href="./apple-device/mac/macbook-air/">MacBook Air</a></li>
-                                <li><a href="./apple-device/mac/macbook-pro/">MacBook Pro</a></li>
-                                <li><a href="./apple-device/mac/imac/">iMac</a></li>
-                                <li><a href="./apple-device/mac/mac-mini/">Mac mini</a></li>
-                                <li><a href="./apple-device/mac/mac-studio/">Mac Studio</a></li>
-                                <li><a href="./apple-device/mac/mac-pro/">Mac Pro</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">iPad</a>
-                            <ul class="sub-menu">
-                                <li><a href="./apple-device/ipad/ipad-pro/">iPad Pro</a></li>
-                                <li><a href="./apple-device/ipad/ipad-air/">iPad Air</a></li>
-                                <li><a href="./apple-device/ipad/ipad/">iPad</a></li>
-                                <li><a href="./apple-device/ipad/ipad-mini/">iPad mini</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Watch</a>
-                            <ul class="sub-menu">
-                                <li><a href="./apple-device/watch/watch-ultra/">Apple Watch Ultra</a></li>
-                                <li><a href="./apple-device/watch/watch-series/">Apple Watch Series</a></li>
-                                <li><a href="./apple-device/watch/watch-se/">Apple Watch SE</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Audio</a>
-                            <ul class="sub-menu">
-                                <li><a href="./apple-device/audio/airpods/">AirPods</a></li>
-                                <li><a href="./apple-device/audio/homepod/">HomePod</a></li>
-                                <li><a href="./apple-device/audio/beats/">Beats (Beta)</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./apple-device/iphone/">iPhone</a></li>
-                        <li><a href="./apple-device/vision/">Vision</a></li>
-                        <li><a href="./apple-device/tv/">Apple TV</a></li>
-                        <li><a href="./apple-device/ipod/">iPod touch</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="bi bi-motherboard"></i>其他参数</a>
-                    <ul>
-                        <li><a href="./apple-device/iphone/cmos.">iPhone 摄像头</a></li>
-                        <li><a href="./apple-other/battery/">电池详细信息</a></li>
-                        <li><a href="./apple-other/disk/">硬盘详细信息</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="bi bi-tools"></i>苹果工具</a>
-                    <ul>
-                        <li><a href="./apple-tools/support/">系统兼容情况</a></li>
-                        <li><a href="./apple-tools/resources/">苹果资源汇总</a></li>
-                        <li><a href="/apple-tools/model">型号查询</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="bi bi-bar-chart-line"></i>测试与结果</a>
-                    <ul>
-                        <li><a href="./apple-report/cpu/">CPU 跑分报表</a></li>
-                        <li><a href="./apple-report/gpu/">GPU 跑分报表</a></li>
-                        <li><a href="./apple-report/ai/">AI 跑分报表</a></li>
-                        <li><a href="./apple-report/frequency-voltage/">DVFS 频率电压表</a></li>
-                        <li><a href="./apple-report/latency-test/">缓存延迟测试</a></li>
-                        <li><a href="./apple-report/latency-result/">缓存测试结果</a></li>
-                        <li><a href="./apple-report/disk/">Disk 读写性能</a></li>
-                        <li><a href="./apple-report/speedometer-result/">Web 测试结果</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/auth"><i class="bi bi-person-check"></i>QQ进群认证</a>
-                </li>
-                <li>
-                    <a href="/upload"><i class="bi bi-upload"></i>上传</a>
-                </li>
-                <li>
-                    <a href="#"><i class="bi bi-bricks"></i>Minecraft 服务器</a>
-                    <ul>
-                        <li><a href="./minecraft/reg/">注册</a></li>
-                        <li><a href="http://mc.infodrop.cn:8100">卫星图（单独页面）</a></li>
-                        <li><a href="./minecraft/status/">系统状态</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-        <header class="main-header">
-            <div class="top_left_logo">
-                <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu">
-                    <i class="bi bi-list"></i>
-                </button>
-                <a href="index.html">
-                    <img src="./favicon.ico" height="30px" width="30px" alt="网站 Logo">
-                </a>
-                <div class="top_title" id="top_title">先进的 Apple 产品参数中心 / infodrop.cn</div>
-            </div>
-            <div class="top_right_menu">
-                <div id="version-container" style="position: relative;">
-                    <button type="button" id="version-display" style="background:none; border:none; padding:0; color:inherit; font:inherit; cursor:pointer; text-align: left;"></button>
-                    <div id="version-popup" class="version-popup">
-                        <div>本地版本：<span id="local-version-info">未知</span></div>
-                        <div>远程版本：<span id="remote-version-info">查询中...</span></div>
-                        <div class="update-switch-container">
-                            <span>自动更新</span>
-                            <label class="switch">
-                                <input type="checkbox" id="update-toggle">
-                                <span class="slider round"></span>
-                            </label>
+
+        <div id="app-container">
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#"> <i class="bi bi-cpu"></i>Apple Silicon</a>
+                        <ul>
+                            <li>
+                                <a href="./apple-silicon/chip-a/"
+                                    >苹果 A 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-c/"
+                                    >苹果 C 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-h/"
+                                    >苹果 H 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-m/"
+                                    >苹果 M 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-n/"
+                                    >苹果 N 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-r/"
+                                    >苹果 R 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-s/"
+                                    >苹果 S 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-t/"
+                                    >苹果 T 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-u/"
+                                    >苹果 U 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-w/"
+                                    >苹果 W 系列</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-silicon/chip-aop/">协处理器</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="bi bi-apple"></i>Apple 设备</a>
+                        <ul>
+                            <li>
+                                <a href="#">Mac</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="./apple-device/mac/macbook/"
+                                            >MacBook</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="./apple-device/mac/macbook-air/"
+                                            >MacBook Air</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="./apple-device/mac/macbook-pro/"
+                                            >MacBook Pro</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/mac/imac/"
+                                            >iMac</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/mac/mac-mini/"
+                                            >Mac mini</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/mac/mac-studio/"
+                                            >Mac Studio</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/mac/mac-pro/"
+                                            >Mac Pro</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">iPad</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="./apple-device/ipad/ipad-pro/"
+                                            >iPad Pro</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/ipad/ipad-air/"
+                                            >iPad Air</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/ipad/ipad/"
+                                            >iPad</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/ipad/ipad-mini/"
+                                            >iPad mini</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Watch</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a
+                                            href="./apple-device/watch/watch-ultra/"
+                                            >Apple Watch Ultra</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="./apple-device/watch/watch-series/"
+                                            >Apple Watch Series</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/watch/watch-se/"
+                                            >Apple Watch SE</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Audio</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="./apple-device/audio/airpods/"
+                                            >AirPods</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/audio/homepod/"
+                                            >HomePod</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="./apple-device/audio/beats/"
+                                            >Beats (Beta)</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="./apple-device/iphone/">iPhone</a></li>
+                            <li><a href="./apple-device/vision/">Vision</a></li>
+                            <li><a href="./apple-device/tv/">Apple TV</a></li>
+                            <li>
+                                <a href="./apple-device/ipod/">iPod touch</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><i class="bi bi-motherboard"></i>其他参数</a
+                        >
+                        <ul>
+                            <li>
+                                <a href="./apple-device/iphone/cmos."
+                                    >iPhone 摄像头</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-other/battery/"
+                                    >电池详细信息</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-other/disk/">硬盘详细信息</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="bi bi-tools"></i>苹果工具</a>
+                        <ul>
+                            <li>
+                                <a href="./apple-tools/support/"
+                                    >系统兼容情况</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-tools/resources/"
+                                    >苹果资源汇总</a
+                                >
+                            </li>
+                            <li><a href="/apple-tools/model">型号查询</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><i class="bi bi-bar-chart-line"></i>测试与结果</a
+                        >
+                        <ul>
+                            <li>
+                                <a href="./apple-report/cpu/">CPU 跑分报表</a>
+                            </li>
+                            <li>
+                                <a href="./apple-report/gpu/">GPU 跑分报表</a>
+                            </li>
+                            <li>
+                                <a href="./apple-report/ai/">AI 跑分报表</a>
+                            </li>
+                            <li>
+                                <a href="./apple-report/frequency-voltage/"
+                                    >DVFS 频率电压表</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-report/latency-test/"
+                                    >缓存延迟测试</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-report/latency-result/"
+                                    >缓存测试结果</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./apple-report/disk/">Disk 读写性能</a>
+                            </li>
+                            <li>
+                                <a href="./apple-report/speedometer-result/"
+                                    >Web 测试结果</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/auth"
+                            ><i class="bi bi-person-check"></i>QQ进群认证</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/upload"><i class="bi bi-upload"></i>上传</a>
+                    </li>
+                </ul>
+            </aside>
+            <header class="main-header">
+                <div class="top_left_logo">
+                    <button
+                        id="hamburger-btn"
+                        class="hamburger-btn"
+                        aria-label="Toggle menu"
+                    >
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <a href="index.html">
+                        <img
+                            src="./favicon.ico"
+                            height="30px"
+                            width="30px"
+                            alt="网站 Logo"
+                        />
+                    </a>
+                    <div class="top_title" id="top_title">
+                        先进的 Apple 产品参数中心 / infodrop.cn
+                    </div>
+                </div>
+                <div class="top_right_menu">
+                    <div id="version-container" style="position: relative">
+                        <button
+                            type="button"
+                            id="version-display"
+                            style="
+                                background: none;
+                                border: none;
+                                padding: 0;
+                                color: inherit;
+                                font: inherit;
+                                cursor: pointer;
+                                text-align: left;
+                            "
+                        ></button>
+                        <div id="version-popup" class="version-popup">
+                            <div>
+                                本地版本：<span id="local-version-info"
+                                    >未知</span
+                                >
+                            </div>
+                            <div>
+                                远程版本：<span id="remote-version-info"
+                                    >查询中...</span
+                                >
+                            </div>
+                            <div class="update-switch-container">
+                                <span>自动更新</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="update-toggle" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div
+                                id="update-notes-container"
+                                style="display: none"
+                            >
+                                <div class="update-notes-title">本次更新</div>
+                                <ul id="update-notes-list"></ul>
+                            </div>
                         </div>
-                        <div id="update-notes-container" style="display: none;">
-                            <div class="update-notes-title">本次更新</div>
-                            <ul id="update-notes-list"></ul>
+                    </div>
+                    <a
+                        href="https://www.github.com/CelestialSayuki/infodrop.cn"
+                        class="theme-toggle-btn"
+                        aria-label="查看源码"
+                        title="查看源码"
+                        target="_blank"
+                    >
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <button
+                        id="share-url-btn"
+                        class="theme-toggle-btn"
+                        aria-label="分享当前视图"
+                        title="分享当前视图"
+                    >
+                        <i class="bi bi-share-fill"></i>
+                    </button>
+                    <button
+                        id="theme-toggle-btn"
+                        class="theme-toggle-btn"
+                        aria-label="切换主题"
+                    >
+                        <i class="bi bi-circle-half" title="跟随系统"></i>
+                        <i class="bi bi-sun-fill" title="浅色模式"></i>
+                        <i class="bi bi-moon-stars-fill" title="深色模式"></i>
+                    </button>
+                </div>
+            </header>
+            <main class="main-content">
+                <div class="main-content-scroller">
+                    <div class="hero-banner">
+                        <img
+                            src="/public-static/img/2025-devices.webp"
+                            class="hero-banner-image"
+                            alt="产品横幅图"
+                        />
+                        <h1>先进的 Apple 产品参数中心</h1>
+                    </div>
+                    <div class="title" id="divdown1" style="display: none">
+                        <strong
+                            >倒计时 (Apple Special Event -
+                            Awe dropping.)🥳</strong
+                        >
+                        <br />
+                        <span
+                            >北京时间 2025 年 9 月 10 日凌晨 1 点 ( 太平洋时间
+                            2025 年 9 月 9 日上午 10 点 )</span
+                        >
+                    </div>
+                    <div class="div" id="divdown2" style="display: none">
+                        加载中......
+                    </div>
+                    <div class="title">
+                        <strong>未来工作</strong>
+                        <br />
+                        <span
+                            >说明：针对 infodrop.cn
+                            的改造，以求更加完美的体验。</span
+                        >
+                    </div>
+                    <div class="card">
+                        <ul>
+                            <li><span>实现高清化</span></li>
+                        </ul>
+                    </div>
+                    <div class="title">
+                        <strong>媒体账号</strong>
+                        <br />
+                        <span
+                            >说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span
+                        >
+                    </div>
+                    <div class="card">
+                        <b style="font-style: oblique">开发者Bilibili：</b>
+                        <a href="https://space.bilibili.com/514518697"
+                            >Celestial紗雪</a
+                        >
+                        <br />
+                        <b style="font-style: oblique">开发者Twitter：</b>
+                        <a href="https://x.com/CelestialSayuki"
+                            >@CelestialSayuki</a
+                        >
+                        <br />
+                        <b style="font-style: oblique">开发者E-mail：</b
+                        >CelestialSayuki@qq.com
+                        <br />
+                        <b style="font-style: oblique">开发者Telegram：</b>
+                        <a href="https://t.me/CelestialSayuki"
+                            >@CelestialSayuki</a
+                        >
+                        <br />
+                        <b style="font-style: oblique">运行维护E-mail：</b
+                        >wxcznb@qq.com
+                        <br />
+                        <b style="font-style: oblique">运行维护Bilibili：</b>
+                        <a href="https://space.bilibili.com/504306154"
+                            >laobamac</a
+                        >
+                        <br />
+                    </div>
+                    <div class="title">
+                        <strong>运行信息</strong>
+                        <br />
+                        <span
+                            >说明：没有 SimpleHac
+                            的帮助，本网站几乎无法上线，感谢 SimpleHac
+                            对本项目的支持。</span
+                        >
+                    </div>
+                    <div
+                        class="card"
+                        style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        "
+                    >
+                        <div>
+                            <b style="font-style: oblique">云服务赞助：</b>
+                            <a href="https://space.bilibili.com/504306154"
+                                >SimpleHac 团队</a
+                            >
+                            <br />
+                            <b style="font-style: oblique">运行维护：</b>
+                            <a href="https://github.com/laobamac">laobamac</a>
+                            <br />
+                            <b style="font-style: oblique">爱发电支持：</b>
+                            <a href="https://afdian.com/a/laobamac"
+                                >SimpleHac 团队</a
+                            >
+                        </div>
+                        <img
+                            src="./public-static/img/simplehac.webp"
+                            alt="SimpleHac"
+                            class="sponsor-logo"
+                        />
+                    </div>
+                    <div class="title">
+                        <strong>更新记录</strong>
+                        <br />
+                        <span
+                            >说明：网站收录的信息不定期更新以保证正确性，该处显示当前网站的更新日志。</span
+                        >
+                    </div>
+                    <div class="card">
+                        <ul id="update-history-list">
+                            <li>
+                                <span
+                                    >2026.05.17：删除进群验证，准备迎接 infodrop
+                                    26.0 吧！</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2026.03.03：本网站即将迎来重大更新，infodrop
+                                    26.0
+                                    将会带来视觉，交互，细节，功能性，数据广度等各方面的重大更新，并同期推出
+                                    iOS 原生版和 SocBud+
+                                    等各种使用工具的组件包，在此之前，先更新一下
+                                    M5 高阶的信息，这是 infodrop
+                                    v1的最后一版</span
+                                >
+                            </li>
+                            <li class="more-btn-li">
+                                <button
+                                    type="button"
+                                    class="show-more-btn"
+                                    id="show-more-updates"
+                                >
+                                    点击加载更多
+                                </button>
+                            </li>
+                        </ul>
+                        <template id="more-updates-template">
+                            <li>
+                                <span>2026.02.06：更新部分芯片的 GB6 跑分</span>
+                            </li>
+                            <li>
+                                <span
+                                    >2025.12.17：修正了部分制程名字，修正了因比较页面参考
+                                    hubweb
+                                    导致的海量错误信息的一小部分，修正了iPad
+                                    mini 5/6链接</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.12.11：新增了 DVFS
+                                    页面的数据使用声明，以防止滥用，下线屏幕上传功能</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.12.06：缓解了iPad
+                                    PWA重新进入窗口会意外放大的问题，重构设备屏幕厂家页面，修复了GPU跑分页面手机版不显示的bug，进群验证可以在群里申请查看问题及答案，完全重构
+                                    DVFS 页面，修正了了长期以来 Apple
+                                    芯片逆向分析的错误，清空原来的所有数据，请重新上传。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.11.12：infodrop
+                                    2.0的第一个测试版，修复内存泄露，将 cdn
+                                    链接改为动态生成以压缩前端代码，后续可能考虑加密，电池信息页面支持调用图片查看器，为部分加载较慢的页面增加延迟减少顿挫感，新增部分芯片
+                                    Diesize 与 Dieshot，删除 AOP
+                                    主板位置图，新增打断动画，修正了因比较页面参考
+                                    hubweb 导致的海量错误信息的一小部分。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.11.10：修复了 CPU 和 GPU
+                                    页面在部分情况下重新进入后没有保留原来选择的
+                                    bug，修复了各种页面深色模式相关问题，禁止部分元素的拖拽，修改了缓存的逻辑</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.11.09：重构了 GPU 跑分展示界面，删掉了
+                                    Geekbench 6 Compute
+                                    成绩，修复了深色模式文字没有正确切换的问题，现在
+                                    GPU 跑分每天自动从 3DMark 的 API
+                                    抓取，自动化保证了数据的时效性。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.11.05：修复了网站第一次进入时意外刷新的bug，新增
+                                    MC 服务器性能面版。</span
+                                >
+                            </li>
+                            <li>
+                                <span>2025.11.04：新增 Minecraft 服务器</span>
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.30：整合了上传逻辑，新增屏幕上传
+                                    (Beta)，修复了硬盘页面离线后无法加载缓存的问题。由于本人身体原因，网站更新放缓。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.27：新增分享功能，可以直接分享直链，让他人看到和您一样的窗口</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.25：因为 DVFS 上传 API 被盗用，重构
+                                    DVFS
+                                    功能，您将不能直接看到您提交数据的结果，取而代之的是一个唯一的码，您可凭这个码在
+                                    DVFS
+                                    显示页面查看您提交的数据，相比现在的版本，更方便找到您自己的数据了。修复了若干
+                                    bug。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.22：更新 DVFS 上传页，以支持 Apple
+                                    Watch 等设备的上传，修复了 Chrome
+                                    上液态玻璃扭曲过重的 bug</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.21：修正了芯片的使用机型。更新
+                                    Apple Watch 的基带型号。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.19：增加了M系列部分芯片的图片
+                                    Layout 线开关</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.18：新增 Dieshot Layout
+                                    线开关，仅部分图片可用。（感谢<a
+                                        href="https://space.bilibili.com/381535123"
+                                        >@Littertree66</a
+                                    >,
+                                    <a
+                                        href="https://space.bilibili.com/427356495"
+                                        >@Kurnal</a
+                                    >,
+                                    <a
+                                        href="https://space.bilibili.com/374034429"
+                                        >@万扯淡</a
+                                    >）</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.17：更新 M5
+                                    部分信息，更新缓存描述，删除来自 Hubweb.cn
+                                    的错误的 AirPods Pro 3 电池信息</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.15：因原始数据包含诸多错误，删除
+                                    GPU L2 Cache 相关信息、更新 M5
+                                    系列设备信息。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.14：修正系统支持页面 iPhone 17
+                                    系列标识符信息</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.13：修正 iPad Pro M5芯片名称</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.12：新增：图片查看器，修复了 DVFS
+                                    数据错误合并的 bug，修复了双击意外放大的
+                                    bug，修正 iPhone Air 扬声器个数</span
+                                >
+                            </li>
+                            <li><span>2025.10.10：更新C1 RF图片</span></li>
+                            <li>
+                                <span
+                                    >2025.10.06：修复系统兼容情况无法打开的bug，窗口支持智能吸附</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.05：对编辑模式进行全面升级，更新部分
+                                    Dieshot 至高清图，感谢 @Littertree66
+                                    提供图片</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.03：新增 Beats 信息展示
+                                    (Beta)，新增编辑模式 (Beta)</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.10.01：假期快乐！新增 M5
+                                    相关信息，修正 M4 频率，修正 M3 / M3 Pro
+                                    小核架构，修复了更新失败的bug，新增单击放大查看图片，网站图片将会逐步高清化，预计需要很长时间。</span
+                                >
+                            </li>
+                            <li><span>2025.09.30：修正错误信息</span></li>
+                            <li>
+                                <span
+                                    >2025.09.27：新增硬盘详细信息，您可以在上传页面上传信息，将会在这里显示。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.25：修复了错误显示正在维护的bug，修改dvfs页面展示</span
+                                >
+                            </li>
+                            <li><span>2025.09.24：加密了 DVFS 数据</span></li>
+                            <li>
+                                <span>2025.09.23：修复移动端断网进入问题</span>
+                            </li>
+                            <li>
+                                <span>2025.09.20：修正 iPad mini 数据错误</span>
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.19：更新 iPhone 基带，修复了 A19
+                                    系列 DVFS
+                                    上传的数据不准的问题，下线speedometer测试，请去旧网站测试，“后台”改名为“上传”，新增硬盘信息上传界面，等数据足够后，将会开放显示。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.18：更新跑分，修复 GPU
+                                    跑分页面显示不开的 bug，新增 RSR 更新</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.13：修复了 DVFS 页颜色问题，更新
+                                    Accessory-Design-Guidelines</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.12：收录红色 Mac Pro
+                                    2013，新增“恩情”彩蛋，修改了进群验证逻辑</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.11：在型号查询里，增加了部分机器</span
+                                >
+                            </li>
+                            <li><span>2025.09.10：更新部分新设备信息</span></li>
+                            <li>
+                                <span
+                                    >2025.09.09：修正了 PWA
+                                    模式下错位的问题，为发布会做准备，修复 DTK
+                                    图片错误</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.07：修正了 iPod touch 3
+                                    的参数，缩小了缓存测试有效判定区间，优化了无效算法，修复若干
+                                    bug</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.06：正式上线！修复了进群验证的一处安全漏洞，增加了暗黑模式的开关，修正了
+                                    MacBook Air 2018/2019, MacBook 2017 Refresh
+                                    的颜色，临时扩大了缓存延迟测试数据有效的判定区间，可能导致更低质量数据的出现，修改了本弹窗的透明度，网页加载改为多线程</span
+                                >
+                            </li>
+                            <li><span>2025.09.05：禁止IE进入</span></li>
+                            <li>
+                                <span
+                                    >2025.09.04：删除 ?force 调试 flag,
+                                    因为已经确认 iOS 13
+                                    工作的稳定性，增加更新管理器</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.03：微调移动端样式，更正 MacPro4,1
+                                    支持信息，增加窗口限位检查</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.09.01：修复了表格对齐bug，部分修复
+                                    Safari 14 兼容性，修复 Safari 12
+                                    滚动问题</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.28：新增两个调试选项，在地址后面增加
+                                    ?force
+                                    可以强制使用本网站自带的webp解析器，?offline
+                                    可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari
+                                    12 兼容，维护手机界面</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.27：修复了旧版浏览器 UI
+                                    边距问题</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.26：调整比较界面样式，为 iOS 14
+                                    及以下设备增加 Web 解析器（Beta）</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.25：调整 3DMark
+                                    GPU展示方法，优化了手机版的部分界面，修复部分
+                                    Javascript 无法运行的
+                                    bug，优化了进群考试界面点击</span
+                                >
+                            </li>
+                            <li><span>2025.08.23：修复若干bug</span></li>
+                            <li>
+                                <span
+                                    >2025.08.22：新增型号查询，补充部分Solar Bay
+                                    Extreme成绩</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.21：系统支持页面修正了iMac部分机型的错误数据，M1
+                                    芯片设备收录 A2620，修改 CPU 跑分表格</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.18：系统支持页面合并了部分机型</span
+                                >
+                            </li>
+                            <li>
+                                <span>2025.08.17：系统支持页面增加悬停</span>
+                            </li>
+                            <li>
+                                <span>2025.08.09：尝试修复系统支持页面</span>
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.08：补充 Apple Watch SiP
+                                    的标识符，更正 Apple Watch
+                                    Edition，iMac，DTK，Apple H1/H2
+                                    信息，增强网站兼容性，为窗口按钮增加鼠标靠近图标</span
+                                >
+                            </li>
+                            <li><span>2025.08.07：苹果资源页新增内容</span></li>
+                            <li><span>2025.08.06：新增 dvfs 上传</span></li>
+                            <li>
+                                <span
+                                    >2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.08.04：入群考试上线，删掉老旧文档</span
+                                >
+                            </li>
+                            <li>
+                                <span>2025.08.01：新增原生缓存测试软件</span>
+                            </li>
+                            <li><span>2025.07.31：新增启动界面</span></li>
+                            <li>
+                                <span>2025.07.30：新增 Speedometer 测试</span>
+                            </li>
+                            <li>
+                                <span
+                                    >2025.07.28：新增 Mac mini DTK
+                                    的数据，修复若干bug，为进群考试实施做准备</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.07.27：将QQ讨论群临时移至主页显示</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.07.25：默认使用最大化窗口，修复若干UI
+                                    Bug，新增电池详细信息页面</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >2025.07.10：删除设备发售价格，官网序列号查询</span
+                                >
+                            </li>
+                            <li><span>2025.07.08：重写了比较页面</span></li>
+                            <li>
+                                <span
+                                    >2025.07.07：移除依赖 hubweb.cn
+                                    的支持文件</span
+                                >
+                            </li>
+                            <li><span>2025.07.05：支持窗口化显示</span></li>
+                            <li><span>2025.06.27：开始逐步替换UI</span></li>
+                            <li>
+                                <span
+                                    >2025.06.23：本网站与 hubweb.cn
+                                    分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span
+                                >
+                            </li>
+                        </template>
+                    </div>
+                    <div class="footer-content">
+                        <div class="copyright">
+                            <a
+                                href="https://beian.miit.gov.cn/"
+                                class="beian-link"
+                                target="_blank"
+                                >豫ICP备2024082352号-3</a
+                            >
+                            <span> | </span>
+                            <span
+                                >This Website Is Not Affiliated With Apple Inc.
+                                © 2025 CelestialSayuki. All Rights
+                                Reserved.</span
+                            >
                         </div>
                     </div>
+                    <svg
+                        id="animation-svg-container"
+                        style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            pointer-events: none;
+                            z-index: 9999;
+                        "
+                    ></svg>
                 </div>
-                <a href="https://www.github.com/CelestialSayuki/infodrop.cn" class="theme-toggle-btn" aria-label="查看源码" title="查看源码" target="_blank">
-                    <i class="bi bi-github"></i>
-                </a>
-                <button id="share-url-btn" class="theme-toggle-btn" aria-label="分享当前视图" title="分享当前视图">
-                    <i class="bi bi-share-fill"></i>
-                </button>
-                <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="切换主题">
-                    <i class="bi bi-circle-half" title="跟随系统"></i>
-                    <i class="bi bi-sun-fill" title="浅色模式"></i>
-                    <i class="bi bi-moon-stars-fill" title="深色模式"></i>
-                </button>
-            </div>
-        </header>
-        <main class="main-content">
-            <div class="main-content-scroller">
-                <div class="hero-banner">
-                    <img src="/public-static/img/2025-devices.webp" class="hero-banner-image" alt="产品横幅图">
-                    <h1>先进的 Apple 产品参数中心</h1>
-                </div>
-                <div class="title" id="divdown1" style="display: none;">
-                    <strong>倒计时 (Apple Special Event - Awe dropping.)🥳</strong>
-                    <br>
-                    <span>北京时间 2025 年 9 月 10 日凌晨 1 点 ( 太平洋时间 2025 年 9 月 9 日上午 10 点 )</span>
-                </div>
-                <div class="div" id="divdown2" style="display: none;">加载中......</div>
-                <div class="title">
-                    <strong>未来工作</strong>
-                    <br>
-                    <span>说明：针对 infodrop.cn 的改造，以求更加完美的体验。</span>
-                </div>
-                <div class="card">
-                    <ul>
-                        <li><span>实现高清化</span></li>
-                    </ul>
-                </div>
-                <div class="title">
-                    <strong>媒体账号</strong>
-                    <br>
-                    <span>说明：关于本站维护者其他媒体的信息，网站内容错误或建议可通过下方渠道进行私信反馈。</span>
-                </div>
-                <div class="card">
-                    <b style="font-style:oblique;">开发者Bilibili：</b>
-                    <a href="https://space.bilibili.com/514518697">Celestial紗雪</a>
-                    <br>
-                    <b style="font-style:oblique;">开发者Twitter：</b>
-                    <a href="https://x.com/CelestialSayuki">@CelestialSayuki</a>
-                    <br>
-                    <b style="font-style:oblique;">开发者E-mail：</b>CelestialSayuki@qq.com
-                    <br>
-                    <b style="font-style:oblique;">开发者Telegram：</b>
-                    <a href="https://t.me/CelestialSayuki">@CelestialSayuki</a>
-                    <br>
-                    <b style="font-style:oblique;">运行维护E-mail：</b>wxcznb@qq.com
-                    <br>
-                    <b style="font-style:oblique;">运行维护Bilibili：</b>
-                    <a href="https://space.bilibili.com/504306154">laobamac</a>
-                    <br>
-                </div>
-                <div class="title">
-                    <strong>运行信息</strong>
-                    <br>
-                    <span>说明：没有 SimpleHac 的帮助，本网站几乎无法上线，感谢 SimpleHac 对本项目的支持。</span>
-                </div>
-                <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
-                    <div>
-                        <b style="font-style:oblique;">云服务赞助：</b>
-                        <a href="https://space.bilibili.com/504306154">SimpleHac 团队</a>
-                        <br>
-                        <b style="font-style:oblique;">运行维护：</b>
-                        <a href="https://github.com/laobamac">laobamac</a>
-                        <br>
-                        <b style="font-style:oblique;">爱发电支持：</b>
-                        <a href="https://afdian.com/a/laobamac">SimpleHac 团队</a>
-                    </div>
-                    <img src="./public-static/img/simplehac.webp" alt="SimpleHac" class="sponsor-logo">
-                </div>
-                <div class="title">
-                    <strong>更新记录</strong>
-                    <br>
-                    <span>说明：网站收录的信息不定期更新以保证正确性，该处显示当前网站的更新日志。</span>
-                </div>
-                <div class="card">
-                    <ul id="update-history-list">
-                        <li><span>2026.03.03：本网站即将迎来重大更新，infodrop 26.0 将会带来视觉，交互，细节，功能性，数据广度等各方面的重大更新，并同期推出 iOS 原生版和 SocBud+ 等各种使用工具的组件包，在此之前，先更新一下 M5 高阶的信息，这是 infodrop v1的最后一版</span></li>
-                        <li class="more-btn-li">
-                            <button type="button" class="show-more-btn" id="show-more-updates">点击加载更多</button>
-                        </li>
-                    </ul>
-                    <template id="more-updates-template">
-                        <li><span>2026.02.06：更新部分芯片的 GB6 跑分</span></li>
-                        <li><span>2025.12.17：修正了部分制程名字，修正了因比较页面参考 hubweb 导致的海量错误信息的一小部分，修正了iPad mini 5/6链接</span></li>
-                        <li><span>2025.12.11：新增了 DVFS 页面的数据使用声明，以防止滥用，下线屏幕上传功能</span></li>
-                        <li><span>2025.12.06：缓解了iPad PWA重新进入窗口会意外放大的问题，重构设备屏幕厂家页面，修复了GPU跑分页面手机版不显示的bug，进群验证可以在群里申请查看问题及答案，完全重构 DVFS 页面，修正了了长期以来 Apple 芯片逆向分析的错误，清空原来的所有数据，请重新上传。</span></li>
-                        <li><span>2025.11.12：infodrop 2.0的第一个测试版，修复内存泄露，将 cdn 链接改为动态生成以压缩前端代码，后续可能考虑加密，电池信息页面支持调用图片查看器，为部分加载较慢的页面增加延迟减少顿挫感，新增部分芯片 Diesize 与 Dieshot，删除 AOP 主板位置图，新增打断动画，修正了因比较页面参考 hubweb 导致的海量错误信息的一小部分。</span></li>
-                        <li><span>2025.11.10：修复了 CPU 和 GPU 页面在部分情况下重新进入后没有保留原来选择的 bug，修复了各种页面深色模式相关问题，禁止部分元素的拖拽，修改了缓存的逻辑</span></li>
-                        <li><span>2025.11.09：重构了 GPU 跑分展示界面，删掉了 Geekbench 6 Compute 成绩，修复了深色模式文字没有正确切换的问题，现在 GPU 跑分每天自动从 3DMark 的 API 抓取，自动化保证了数据的时效性。</span></li>
-                        <li><span>2025.11.05：修复了网站第一次进入时意外刷新的bug，新增 MC 服务器性能面版。</span></li>
-                        <li><span>2025.11.04：新增 Minecraft 服务器</span></li>
-                        <li><span>2025.10.30：整合了上传逻辑，新增屏幕上传 (Beta)，修复了硬盘页面离线后无法加载缓存的问题。由于本人身体原因，网站更新放缓。</span></li>
-                        <li><span>2025.10.27：新增分享功能，可以直接分享直链，让他人看到和您一样的窗口</span></li>
-                        <li><span>2025.10.25：因为 DVFS 上传 API 被盗用，重构 DVFS 功能，您将不能直接看到您提交数据的结果，取而代之的是一个唯一的码，您可凭这个码在 DVFS 显示页面查看您提交的数据，相比现在的版本，更方便找到您自己的数据了。修复了若干 bug。</span></li>
-                        <li><span>2025.10.22：更新 DVFS 上传页，以支持 Apple Watch 等设备的上传，修复了 Chrome 上液态玻璃扭曲过重的 bug</span></li>
-                        <li><span>2025.10.21：修正了芯片的使用机型。更新 Apple Watch 的基带型号。</span></li>
-                        <li><span>2025.10.19：增加了M系列部分芯片的图片 Layout 线开关</span></li>
-                        <li><span>2025.10.18：新增 Dieshot Layout 线开关，仅部分图片可用。（感谢<a href="https://space.bilibili.com/381535123">@Littertree66</a>, <a href="https://space.bilibili.com/427356495">@Kurnal</a>, <a href="https://space.bilibili.com/374034429">@万扯淡</a>）</span></li>
-                        <li><span>2025.10.17：更新 M5 部分信息，更新缓存描述，删除来自 Hubweb.cn 的错误的 AirPods Pro 3 电池信息</span></li>
-                        <li><span>2025.10.15：因原始数据包含诸多错误，删除 GPU L2 Cache 相关信息、更新 M5 系列设备信息。</span></li>
-                        <li><span>2025.10.14：修正系统支持页面 iPhone 17 系列标识符信息</span></li>
-                        <li><span>2025.10.13：修正 iPad Pro M5芯片名称</span></li>
-                        <li><span>2025.10.12：新增：图片查看器，修复了 DVFS 数据错误合并的 bug，修复了双击意外放大的 bug，修正 iPhone Air 扬声器个数</span></li>
-                        <li><span>2025.10.10：更新C1 RF图片</span></li>
-                        <li><span>2025.10.06：修复系统兼容情况无法打开的bug，窗口支持智能吸附</span></li>
-                        <li><span>2025.10.05：对编辑模式进行全面升级，更新部分 Dieshot 至高清图，感谢 @Littertree66 提供图片</span></li>
-                        <li><span>2025.10.03：新增 Beats 信息展示 (Beta)，新增编辑模式 (Beta)</span></li>
-                        <li><span>2025.10.01：假期快乐！新增 M5 相关信息，修正 M4 频率，修正 M3 / M3 Pro 小核架构，修复了更新失败的bug，新增单击放大查看图片，网站图片将会逐步高清化，预计需要很长时间。</span></li>
-                        <li><span>2025.09.30：修正错误信息</span></li>
-                        <li><span>2025.09.27：新增硬盘详细信息，您可以在上传页面上传信息，将会在这里显示。</span></li>
-                        <li><span>2025.09.25：修复了错误显示正在维护的bug，修改dvfs页面展示</span></li>
-                        <li><span>2025.09.24：加密了 DVFS 数据</span></li>
-                        <li><span>2025.09.23：修复移动端断网进入问题</span></li>
-                        <li><span>2025.09.20：修正 iPad mini 数据错误</span></li>
-                        <li><span>2025.09.19：更新 iPhone 基带，修复了 A19 系列 DVFS 上传的数据不准的问题，下线speedometer测试，请去旧网站测试，“后台”改名为“上传”，新增硬盘信息上传界面，等数据足够后，将会开放显示。</span></li>
-                        <li><span>2025.09.18：更新跑分，修复 GPU 跑分页面显示不开的 bug，新增 RSR 更新</span></li>
-                        <li><span>2025.09.13：修复了 DVFS 页颜色问题，更新 Accessory-Design-Guidelines</span></li>
-                        <li><span>2025.09.12：收录红色 Mac Pro 2013，新增“恩情”彩蛋，修改了进群验证逻辑</span></li>
-                        <li><span>2025.09.11：在型号查询里，增加了部分机器</span></li>
-                        <li><span>2025.09.10：更新部分新设备信息</span></li>
-                        <li><span>2025.09.09：修正了 PWA 模式下错位的问题，为发布会做准备，修复 DTK 图片错误</span></li>
-                        <li><span>2025.09.07：修正了 iPod touch 3 的参数，缩小了缓存测试有效判定区间，优化了无效算法，修复若干 bug</span></li>
-                        <li><span>2025.09.06：正式上线！修复了进群验证的一处安全漏洞，增加了暗黑模式的开关，修正了 MacBook Air 2018/2019, MacBook 2017 Refresh 的颜色，临时扩大了缓存延迟测试数据有效的判定区间，可能导致更低质量数据的出现，修改了本弹窗的透明度，网页加载改为多线程</span></li>
-                        <li><span>2025.09.05：禁止IE进入</span></li>
-                        <li><span>2025.09.04：删除 ?force 调试 flag, 因为已经确认 iOS 13 工作的稳定性，增加更新管理器</span></li>
-                        <li><span>2025.09.03：微调移动端样式，更正 MacPro4,1 支持信息，增加窗口限位检查</span></li>
-                        <li><span>2025.09.01：修复了表格对齐bug，部分修复 Safari 14 兼容性，修复 Safari 12 滚动问题</span></li>
-                        <li><span>2025.08.31：新增旧版浏览器忽略选项，方便旧设备进入。</span></li>
-                        <li><span>2025.08.28：新增两个调试选项，在地址后面增加 ?force 可以强制使用本网站自带的webp解析器，?offline 可以屏蔽更新，同时修复了一些webp图片在旧设备无法显示的bug，放弃Safari 12 兼容，维护手机界面</span></li>
-                        <li><span>2025.08.27：修复了旧版浏览器 UI 边距问题</span></li>
-                        <li><span>2025.08.26：调整比较界面样式，为 iOS 14 及以下设备增加 Web 解析器（Beta）</span></li>
-                        <li><span>2025.08.25：调整 3DMark GPU展示方法，优化了手机版的部分界面，修复部分 Javascript 无法运行的 bug，优化了进群考试界面点击</span></li>
-                        <li><span>2025.08.23：修复若干bug</span></li>
-                        <li><span>2025.08.22：新增型号查询，补充部分Solar Bay Extreme成绩</span></li>
-                        <li><span>2025.08.21：系统支持页面修正了iMac部分机型的错误数据，M1 芯片设备收录 A2620，修改 CPU 跑分表格</span></li>
-                        <li><span>2025.08.18：系统支持页面合并了部分机型</span></li>
-                        <li><span>2025.08.17：系统支持页面增加悬停</span></li>
-                        <li><span>2025.08.09：尝试修复系统支持页面</span></li>
-                        <li><span>2025.08.08：补充 Apple Watch SiP 的标识符，更正 Apple Watch Edition，iMac，DTK，Apple H1/H2 信息，增强网站兼容性，为窗口按钮增加鼠标靠近图标</span></li>
-                        <li><span>2025.08.07：苹果资源页新增内容</span></li>
-                        <li><span>2025.08.06：新增 dvfs 上传</span></li>
-                        <li><span>2025.08.05：删除最小化功能，增加网页缓存，删掉了不能用的最小化功能</span></li>
-                        <li><span>2025.08.04：入群考试上线，删掉老旧文档</span></li>
-                        <li><span>2025.08.01：新增原生缓存测试软件</span></li>
-                        <li><span>2025.07.31：新增启动界面</span></li>
-                        <li><span>2025.07.30：新增 Speedometer 测试</span></li>
-                        <li><span>2025.07.28：新增 Mac mini DTK 的数据，修复若干bug，为进群考试实施做准备</span></li>
-                        <li><span>2025.07.27：将QQ讨论群临时移至主页显示</span></li>
-                        <li><span>2025.07.25：默认使用最大化窗口，修复若干UI Bug，新增电池详细信息页面</span></li>
-                        <li><span>2025.07.10：删除设备发售价格，官网序列号查询</span></li>
-                        <li><span>2025.07.08：重写了比较页面</span></li>
-                        <li><span>2025.07.07：移除依赖 hubweb.cn 的支持文件</span></li>
-                        <li><span>2025.07.05：支持窗口化显示</span></li>
-                        <li><span>2025.06.27：开始逐步替换UI</span></li>
-                        <li><span>2025.06.23：本网站与 hubweb.cn 分离，修改了系统支持页面的样式，增加Xserve等机器统计，删掉所有广告，测试对比和统计报表合并，删除交互式色域比较，删除频率测试，删除打赏列表，允许复制文本</span></li>
-                    </template>
-                </div>
-                <div class="footer-content">
-                    <div class="copyright">
-                        <a href="https://beian.miit.gov.cn/" class="beian-link" target="_blank">豫ICP备2024082352号-3</a>
-                        <span> | </span>
-                        <span>This Website Is Not Affiliated With Apple Inc. © 2025 CelestialSayuki. All Rights Reserved.</span>
-                    </div>
-                </div>
-                <svg id="animation-svg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></svg>
-            </div>
-        </main>
-        <div class="overlay" id="overlay"></div>
-    </div>
-    
-    <script type="module" src="public-static/js/macui.js"></script>
-    <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/polyfills.js"></script>
-    <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js"></script>
-    <script>
-        (async function() {
-            let updateIsPending = false;
-            let pendingProgressUpdate = null;
-            let isUpdateScheduled = false;
-            let isFirstInstall = false;
-            let updateStartTimeout;
-            let mismatchTimeout;
-            function showMaintenanceMessage() {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen && !loadingScreen.dataset.finalState) {
-                    loadingScreen.dataset.finalState = 'true';
-                    const maintenanceHTML = `
+            </main>
+            <div class="overlay" id="overlay"></div>
+        </div>
+
+        <script type="module" src="public-static/js/macui.js"></script>
+        <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/polyfills.js"></script>
+        <script src="https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js"></script>
+        <script>
+            (async function () {
+                let updateIsPending = false;
+                let pendingProgressUpdate = null;
+                let isUpdateScheduled = false;
+                let isFirstInstall = false;
+                let updateStartTimeout;
+                let mismatchTimeout;
+                function showMaintenanceMessage() {
+                    const loadingScreen =
+                        document.getElementById("loading-screen");
+                    if (loadingScreen && !loadingScreen.dataset.finalState) {
+                        loadingScreen.dataset.finalState = "true";
+                        const maintenanceHTML = `
                         <div style="color: #a8a8b1; text-align: center; padding: 20px; font-family: sans-serif; max-width: 400px; opacity: 0; transition: opacity 0.6s ease-in;" id="maintenance-message">
                             <div style="margin-bottom: 25px;">
                                 <svg width="85" height="85" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#777" stroke-width="1.5">
@@ -521,440 +1233,606 @@
                             <p style="font-size: 1em; line-height: 1.6;">请您稍后重试。</p>
                         </div>
                     `;
-                    const layer = document.getElementById('loading-screen-layer');
-                    if(layer) {
-                       loadingScreen.innerHTML = layer.outerHTML + maintenanceHTML;
-                    } else {
-                       loadingScreen.innerHTML = maintenanceHTML;
-                    }
-                    setTimeout(() => {
-                        const messageElem = document.getElementById('maintenance-message');
-                        if (messageElem) messageElem.style.opacity = '1';
-                    }, 50);
-                }
-            }
-            function updateProgressBar() {
-                if (!pendingProgressUpdate) {
-                    isUpdateScheduled = false;
-                    return;
-                }
-                const progressBarFill = document.querySelector('.progress-bar-fill');
-                const loadingText = document.querySelector('.loading-text');
-                const { percent, estimatedRemainingTime } = pendingProgressUpdate;
-                if (progressBarFill) {
-                    progressBarFill.style.width = `${percent}%`;
-                }
-                if (loadingText) {
-                    loadingText.textContent = formatRemainingTime(estimatedRemainingTime);
-                }
-                pendingProgressUpdate = null;
-                isUpdateScheduled = false;
-            }
-            function formatRemainingTime(ms) {
-                if (ms === null || !isFinite(ms) || ms <= 0) {
-                    return '正在计算剩余时间...';
-                }
-                const totalSeconds = Math.round(ms / 1000);
-                const minutes = Math.floor(totalSeconds / 60);
-                const seconds = totalSeconds % 60;
-                if (minutes > 0) {
-                    return `还剩大约${minutes}分钟`;
-                }
-                return `还剩大约${seconds}秒`;
-            }
-            
-            const hideLoadingScreen = () => {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                    loadingScreen.addEventListener('transitionend', () => {
-                        if (loadingScreen) {
-                            loadingScreen.remove();
-                        }
-                    }, { once: true });
-                    loadingScreen.classList.add('hidden');
-                }
-            };
-            const runLoadingAnimation = () => {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (!loadingScreen) return;
-                document.documentElement.classList.remove('is-preloaded');
-                loadingScreen.style.display = 'flex';
-                const progressBarContainer = loadingScreen.querySelector('.progress-bar-container');
-                const progressBarFill = loadingScreen.querySelector('.progress-bar-fill');
-                const loadingText = loadingScreen.querySelector('.loading-text');
-                
-                if (progressBarContainer) {
-                    progressBarContainer.style.opacity = '1';
-                }
-                if (progressBarFill) {
-                    progressBarFill.style.transition = 'none';
-                    progressBarFill.style.width = '0%';
-                }
-                if (loadingText) {
-                    loadingText.textContent = '正在准备更新...';
-                    loadingText.style.opacity = '1';
-                }
-            };
-            const simulateLoadingProgress = () => {
-                const progressBarFill = document.querySelector('.progress-bar-fill');
-                const loadingText = document.querySelector('.loading-text');
-                if (progressBarFill && loadingText) {
-                    loadingText.textContent = '正在启动...';
-                    setTimeout(() => {
-                        progressBarFill.style.transition = 'width 1.2s cubic-bezier(0.65, 0, 0.35, 1)';
-                        progressBarFill.style.width = '100%';
-                    }, 50);
-
-                    setTimeout(hideLoadingScreen, 1500);
-                } else {
-                    hideLoadingScreen();
-                }
-            };
-            function fetchWithTimeout(url, options = {}, timeout = 3000) {
-              const controller = new AbortController();
-              const { signal } = controller;
-
-              const fetchPromise = fetch(url, { ...options, signal });
-
-              const timeoutPromise = new Promise((_, reject) => {
-                setTimeout(() => {
-                  controller.abort();
-                  reject(new Error('Request timed out'));
-                }, timeout);
-              });
-              return Promise.race([fetchPromise, timeoutPromise]);
-            }
-            async function checkForUpdates(registration) {
-                if (localStorage.getItem('updates_paused') === 'true') {
-                    return false;
-                }
-                const localVersion = localStorage.getItem('sw_installed_version');
-                try {
-                    const response = await fetchWithTimeout(
-                        './public-static/version.json',
-                        { cache: 'no-store' },
-                        3000
-                    );
-                    const serverConfig = await response.json();
-                    const latestVersion = serverConfig.version;
-                    if (localVersion !== latestVersion) {
-                        if (localVersion === null) {
-                            isFirstInstall = true;
+                        const layer = document.getElementById(
+                            "loading-screen-layer",
+                        );
+                        if (layer) {
+                            loadingScreen.innerHTML =
+                                layer.outerHTML + maintenanceHTML;
                         } else {
-                            isFirstInstall = false;
-                        }
-                        updateIsPending = true;
-                        if (navigator.serviceWorker.controller) {
-                            navigator.serviceWorker.controller.postMessage({
-                                type: 'VALIDATE_VERSION',
-                                payload: { expectedVersion: latestVersion }
-                            });
-                        }
-                        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-                        if (!isStandalone) {
-                            runLoadingAnimation();
-                            const loadingText = document.querySelector('.loading-text');
-                            loadingText.textContent = isFirstInstall ? '正在准备...' : '正在更新...';
-                        }
-                        clearTimeout(updateStartTimeout);
-                        updateStartTimeout = setTimeout(showMaintenanceMessage, 15000);
-                        if (registration && registration.update) {
-                            await registration.update();
-                        }
-                        return true;
-                    }
-                } catch (error) {
-                }
-                return false;
-            }
-            
-            window.initializeApp = async function() {
-                const localVersion = localStorage.getItem('sw_installed_version');
-                const versionElement = document.getElementById('version-display');
-                
-                const versionPopup = document.getElementById('version-popup');
-                const localVersionInfo = document.getElementById('local-version-info');
-                const remoteVersionInfo = document.getElementById('remote-version-info');
-                const updateToggle = document.getElementById('update-toggle');
-
-                if (localVersion) {
-                    localVersionInfo.textContent = localVersion;
-                    versionElement.textContent = `前端版本：${localVersion}`;
-                } else {
-                    versionElement.textContent = '查询版本中...';
-                }
-                
-                const updatesPaused = localStorage.getItem('updates_paused') === 'true';
-                updateToggle.checked = !updatesPaused;
-
-                updateToggle.addEventListener('change', () => {
-                    if (updateToggle.checked) {
-                        localStorage.removeItem('updates_paused');
-                    } else {
-                        localStorage.setItem('updates_paused', 'true');
-                    }
-                });
-
-                versionElement.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    versionPopup.classList.toggle('show');
-                });
-
-                versionPopup.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                });
-
-                window.addEventListener('click', () => {
-                    if (versionPopup.classList.contains('show')) {
-                        versionPopup.classList.remove('show');
-                    }
-                });
-
-                fetch('./public-static/version.json', { cache: 'no-store' })
-                .then(response => response.json())
-                .then(data => {
-                    const latestVersion = (data.rsr && data.patch) ? data.patch : data.version;
-                    remoteVersionInfo.textContent = latestVersion;
-                    if (!localVersion) {
-                        versionElement.textContent = `前端版本：${latestVersion}`;
-                    }
-
-                    const updateNotesContainer = document.getElementById('update-notes-container');
-                    const updateNotesList = document.getElementById('update-notes-list');
-                    if (data.notes && Array.isArray(data.notes) && data.notes.length > 0) {
-                        updateNotesList.innerHTML = '';
-                        data.notes.forEach(noteText => {
-                            const li = document.createElement('li');
-                            li.textContent = noteText;
-                            updateNotesList.appendChild(li);
-                        });
-                        updateNotesContainer.style.display = 'block';
-                    } else {
-                        updateNotesContainer.style.display = 'none';
-                    }
-                })
-                .catch(error => {
-                    console.error('获取远程版本信息失败:', error);
-                    remoteVersionInfo.textContent = '获取失败';
-                    document.getElementById('update-notes-container').style.display = 'none';
-                });
-
-                if (!('serviceWorker' in navigator)) {
-                    hideLoadingScreen();
-                    return;
-                }
-                navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    if (updateIsPending && !isFirstInstall) {
-                        const loadingScreen = document.getElementById('loading-screen');
-                        if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                            loadingScreen.classList.add('hidden');
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 600);
-                        } else {
-                            window.location.reload();
-                        }
-                    }
-                });
-                navigator.serviceWorker.addEventListener('message', event => {
-                    if (!event.data) return;
-                    if (event.data.type === 'INSTALLATION_STARTED' || event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS' || event.data.type === 'CACHE_COMPLETE') {
-                        clearTimeout(updateStartTimeout);
-                        clearTimeout(mismatchTimeout);
-                    }
-                    if (event.data.type === 'INSTALLATION_STARTED') {
-                        return;
-                    }
-                    if (event.data.type === 'VERSION_MISMATCH') {
-                        clearTimeout(updateStartTimeout);
-                        clearTimeout(mismatchTimeout);
-                        showMaintenanceMessage();
-                        return;
-                    }
-                    if (event.data.type === 'ACTIVE_WORKER_VERSION_MISMATCH') {
-                        mismatchTimeout = setTimeout(() => { showMaintenanceMessage(); }, 15000);
-                        return;
-                    }
-                    if (event.data.type === 'IS_RSR_PATCH_APPLIED') {
-                        const patchVersion = event.data.version;
-                        const applied = localStorage.getItem(`rsr-patch-${patchVersion}`) === 'true';
-                        if (event.source) {
-                            event.source.postMessage({ type: 'RSR_PATCH_STATUS_RESPONSE', version: patchVersion, applied: applied });
-                        }
-                        return;
-                    }
-                    if (event.data.type === 'GET_UPDATE_SETTING') {
-                        const isPaused = localStorage.getItem('updates_paused') === 'true';
-                        if (event.source) {
-                            event.source.postMessage({ type: 'UPDATE_SETTING_RESPONSE', isPaused: isPaused });
-                        }
-                        return;
-                    }
-                    if (event.data.type === 'CACHE_PROGRESS' || event.data.type === 'CURRENT_PROGRESS') {
-                        const progressBarContainer = document.querySelector('.progress-bar-container');
-                        const loadingText = document.querySelector('.loading-text');
-                        if (progressBarContainer) progressBarContainer.style.opacity = '1';
-                        if (loadingText) loadingText.style.opacity = '1';
-                        pendingProgressUpdate = event.data.payload;
-                        if (!isUpdateScheduled) {
-                            isUpdateScheduled = true;
-                            requestAnimationFrame(updateProgressBar);
-                        }
-                    }
-                    if (event.data.type === 'CACHE_COMPLETE') {
-                        const { version, isRsrUpdate } = event.data.payload;
-                        if (isRsrUpdate) {
-                            localStorage.setItem(`rsr-patch-${version}`, 'true');
-                        }
-                        localStorage.setItem('sw_installed_version', version);
-                        const versionElement = document.getElementById('version-display');
-                        const localVersionInfo = document.getElementById('local-version-info');
-                        if (versionElement) {
-                            versionElement.textContent = `前端版本：${version}`;
-                        }
-                        if (localVersionInfo) {
-                            localVersionInfo.textContent = version;
-                        }
-                        const progressBarFill = document.querySelector('.progress-bar-fill');
-                        if (progressBarFill) {
-                            progressBarFill.style.transition = 'width 0.2s ease-out';
-                            progressBarFill.style.width = '100%';
+                            loadingScreen.innerHTML = maintenanceHTML;
                         }
                         setTimeout(() => {
-                            if (isFirstInstall || !updateIsPending) {
-                                hideLoadingScreen();
-                            }
-                        }, 500);
+                            const messageElem = document.getElementById(
+                                "maintenance-message",
+                            );
+                            if (messageElem) messageElem.style.opacity = "1";
+                        }, 50);
                     }
-                });
-                navigator.serviceWorker.register('./sw.js').then(async (registration) => {
-                    if (registration.waiting) {
-                        if (!new URL(window.location.href).searchParams.has('offline')) {
-                            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                        }
+                }
+                function updateProgressBar() {
+                    if (!pendingProgressUpdate) {
+                        isUpdateScheduled = false;
+                        return;
                     }
-                    registration.onupdatefound = () => {
-                        const installingWorker = registration.installing;
-                        if (installingWorker) {
-                            installingWorker.onstatechange = () => {
-                                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    installingWorker.postMessage({ type: 'SKIP_WAITING' });
+                    const progressBarFill =
+                        document.querySelector(".progress-bar-fill");
+                    const loadingText = document.querySelector(".loading-text");
+                    const { percent, estimatedRemainingTime } =
+                        pendingProgressUpdate;
+                    if (progressBarFill) {
+                        progressBarFill.style.width = `${percent}%`;
+                    }
+                    if (loadingText) {
+                        loadingText.textContent = formatRemainingTime(
+                            estimatedRemainingTime,
+                        );
+                    }
+                    pendingProgressUpdate = null;
+                    isUpdateScheduled = false;
+                }
+                function formatRemainingTime(ms) {
+                    if (ms === null || !isFinite(ms) || ms <= 0) {
+                        return "正在计算剩余时间...";
+                    }
+                    const totalSeconds = Math.round(ms / 1000);
+                    const minutes = Math.floor(totalSeconds / 60);
+                    const seconds = totalSeconds % 60;
+                    if (minutes > 0) {
+                        return `还剩大约${minutes}分钟`;
+                    }
+                    return `还剩大约${seconds}秒`;
+                }
+
+                const hideLoadingScreen = () => {
+                    const loadingScreen =
+                        document.getElementById("loading-screen");
+                    if (
+                        loadingScreen &&
+                        !loadingScreen.classList.contains("hidden")
+                    ) {
+                        loadingScreen.addEventListener(
+                            "transitionend",
+                            () => {
+                                if (loadingScreen) {
+                                    loadingScreen.remove();
                                 }
-                            };
-                        }
-                    };
-                    async function isCacheValid() {
-                        if (!window.caches) return false;
-                        const localVersion = localStorage.getItem('sw_installed_version');
-                        if (!localVersion) return false;
-                        try {
-                            const cacheName = `infodrop-cache-${localVersion}`;
-                            const hasCache = await caches.has(cacheName);
-                            if (!hasCache) {
-                                localStorage.removeItem('sw_installed_version');
-                                return false;
+                            },
+                            { once: true },
+                        );
+                        loadingScreen.classList.add("hidden");
+                    }
+                };
+                const runLoadingAnimation = () => {
+                    const loadingScreen =
+                        document.getElementById("loading-screen");
+                    if (!loadingScreen) return;
+                    document.documentElement.classList.remove("is-preloaded");
+                    loadingScreen.style.display = "flex";
+                    const progressBarContainer = loadingScreen.querySelector(
+                        ".progress-bar-container",
+                    );
+                    const progressBarFill =
+                        loadingScreen.querySelector(".progress-bar-fill");
+                    const loadingText =
+                        loadingScreen.querySelector(".loading-text");
+
+                    if (progressBarContainer) {
+                        progressBarContainer.style.opacity = "1";
+                    }
+                    if (progressBarFill) {
+                        progressBarFill.style.transition = "none";
+                        progressBarFill.style.width = "0%";
+                    }
+                    if (loadingText) {
+                        loadingText.textContent = "正在准备更新...";
+                        loadingText.style.opacity = "1";
+                    }
+                };
+                const simulateLoadingProgress = () => {
+                    const progressBarFill =
+                        document.querySelector(".progress-bar-fill");
+                    const loadingText = document.querySelector(".loading-text");
+                    if (progressBarFill && loadingText) {
+                        loadingText.textContent = "正在启动...";
+                        setTimeout(() => {
+                            progressBarFill.style.transition =
+                                "width 1.2s cubic-bezier(0.65, 0, 0.35, 1)";
+                            progressBarFill.style.width = "100%";
+                        }, 50);
+
+                        setTimeout(hideLoadingScreen, 1500);
+                    } else {
+                        hideLoadingScreen();
+                    }
+                };
+                function fetchWithTimeout(url, options = {}, timeout = 3000) {
+                    const controller = new AbortController();
+                    const { signal } = controller;
+
+                    const fetchPromise = fetch(url, { ...options, signal });
+
+                    const timeoutPromise = new Promise((_, reject) => {
+                        setTimeout(() => {
+                            controller.abort();
+                            reject(new Error("Request timed out"));
+                        }, timeout);
+                    });
+                    return Promise.race([fetchPromise, timeoutPromise]);
+                }
+                async function checkForUpdates(registration) {
+                    if (localStorage.getItem("updates_paused") === "true") {
+                        return false;
+                    }
+                    const localVersion = localStorage.getItem(
+                        "sw_installed_version",
+                    );
+                    try {
+                        const response = await fetchWithTimeout(
+                            "./public-static/version.json",
+                            { cache: "no-store" },
+                            3000,
+                        );
+                        const serverConfig = await response.json();
+                        const latestVersion = serverConfig.version;
+                        if (localVersion !== latestVersion) {
+                            if (localVersion === null) {
+                                isFirstInstall = true;
+                            } else {
+                                isFirstInstall = false;
+                            }
+                            updateIsPending = true;
+                            if (navigator.serviceWorker.controller) {
+                                navigator.serviceWorker.controller.postMessage({
+                                    type: "VALIDATE_VERSION",
+                                    payload: { expectedVersion: latestVersion },
+                                });
+                            }
+                            const isStandalone =
+                                window.matchMedia("(display-mode: standalone)")
+                                    .matches || window.navigator.standalone;
+                            if (!isStandalone) {
+                                runLoadingAnimation();
+                                const loadingText =
+                                    document.querySelector(".loading-text");
+                                loadingText.textContent = isFirstInstall
+                                    ? "正在准备..."
+                                    : "正在更新...";
+                            }
+                            clearTimeout(updateStartTimeout);
+                            updateStartTimeout = setTimeout(
+                                showMaintenanceMessage,
+                                15000,
+                            );
+                            if (registration && registration.update) {
+                                await registration.update();
                             }
                             return true;
-                        } catch {
-                            localStorage.removeItem('sw_installed_version');
-                            return false;
                         }
-                    }
-                    const cacheIsValid = await isCacheValid();
-                    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-                    const updateStarted = await checkForUpdates(registration);
-                    if (updateStarted) {
-                    } else if (isStandalone) {
-                        runLoadingAnimation();
-                        simulateLoadingProgress();
-                    } else if (cacheIsValid) {
-                        hideLoadingScreen();
-                    } else {
-                        runLoadingAnimation();
-                        const sw = registration.active || registration.waiting || registration.installing;
-                        if (sw) {
-                            sw.postMessage({ type: 'GET_PROGRESS' });
-                        }
-                    }
-                }).catch(err => {
-                    console.error('Service Worker 注册失败:', err);
-                    hideLoadingScreen();
-                });
-            };
+                    } catch (error) {}
+                    return false;
+                }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                if (window.isBrowserSupported === false) return;
-                window.initializeApp();
-            });
-        })();
-        function applyOrientationClass() {
-            if (!screen || !screen.orientation) {
-                document.body.classList.add('portrait-mode');
-                return;
-            }
-            var orientationType = screen.orientation.type;
-            var body = document.body;
-            body.classList.remove('landscape-notch-left', 'landscape-notch-right', 'portrait-mode');
-            switch (orientationType) {
-                case 'landscape-primary':
-                    body.classList.add('landscape-notch-left');
-                    break;
-                case 'landscape-secondary':
-                    body.classList.add('landscape-notch-right');
-                    break;
-                default:
-                    body.classList.add('portrait-mode');
-                    break;
-            }
-        }
-        document.addEventListener('DOMContentLoaded', applyOrientationClass);
-        if (screen && screen.orientation) {
-            screen.orientation.addEventListener('change', applyOrientationClass);
-        }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggleBtn = document.getElementById('theme-toggle-btn');
-            if (!themeToggleBtn) return;
-            const icons = {
-                auto: themeToggleBtn.querySelector('.bi-circle-half'),
-                light: themeToggleBtn.querySelector('.bi-sun-fill'),
-                dark: themeToggleBtn.querySelector('.bi-moon-stars-fill')
-            };
-            const themeStates = ['auto', 'light', 'dark'];
-            let currentTheme = localStorage.getItem('theme') || 'auto';
-            function applyTheme(theme) {
-                const shouldBeDark = (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches));
-                const isCurrentlyDark = document.documentElement.classList.contains('dark-mode');
-                if (shouldBeDark !== isCurrentlyDark) {
-                    if (shouldBeDark) {
-                        document.documentElement.classList.add('dark-mode');
+                window.initializeApp = async function () {
+                    const localVersion = localStorage.getItem(
+                        "sw_installed_version",
+                    );
+                    const versionElement =
+                        document.getElementById("version-display");
+
+                    const versionPopup =
+                        document.getElementById("version-popup");
+                    const localVersionInfo =
+                        document.getElementById("local-version-info");
+                    const remoteVersionInfo = document.getElementById(
+                        "remote-version-info",
+                    );
+                    const updateToggle =
+                        document.getElementById("update-toggle");
+
+                    if (localVersion) {
+                        localVersionInfo.textContent = localVersion;
+                        versionElement.textContent = `前端版本：${localVersion}`;
                     } else {
-                        document.documentElement.classList.remove('dark-mode');
+                        versionElement.textContent = "查询版本中...";
                     }
-                    document.querySelectorAll('.macos-window').forEach(win => {
-                        win.classList.toggle('dark-mode', shouldBeDark);
+
+                    const updatesPaused =
+                        localStorage.getItem("updates_paused") === "true";
+                    updateToggle.checked = !updatesPaused;
+
+                    updateToggle.addEventListener("change", () => {
+                        if (updateToggle.checked) {
+                            localStorage.removeItem("updates_paused");
+                        } else {
+                            localStorage.setItem("updates_paused", "true");
+                        }
                     });
+
+                    versionElement.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        versionPopup.classList.toggle("show");
+                    });
+
+                    versionPopup.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                    });
+
+                    window.addEventListener("click", () => {
+                        if (versionPopup.classList.contains("show")) {
+                            versionPopup.classList.remove("show");
+                        }
+                    });
+
+                    fetch("./public-static/version.json", { cache: "no-store" })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            const latestVersion =
+                                data.rsr && data.patch
+                                    ? data.patch
+                                    : data.version;
+                            remoteVersionInfo.textContent = latestVersion;
+                            if (!localVersion) {
+                                versionElement.textContent = `前端版本：${latestVersion}`;
+                            }
+
+                            const updateNotesContainer =
+                                document.getElementById(
+                                    "update-notes-container",
+                                );
+                            const updateNotesList =
+                                document.getElementById("update-notes-list");
+                            if (
+                                data.notes &&
+                                Array.isArray(data.notes) &&
+                                data.notes.length > 0
+                            ) {
+                                updateNotesList.innerHTML = "";
+                                data.notes.forEach((noteText) => {
+                                    const li = document.createElement("li");
+                                    li.textContent = noteText;
+                                    updateNotesList.appendChild(li);
+                                });
+                                updateNotesContainer.style.display = "block";
+                            } else {
+                                updateNotesContainer.style.display = "none";
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("获取远程版本信息失败:", error);
+                            remoteVersionInfo.textContent = "获取失败";
+                            document.getElementById(
+                                "update-notes-container",
+                            ).style.display = "none";
+                        });
+
+                    if (!("serviceWorker" in navigator)) {
+                        hideLoadingScreen();
+                        return;
+                    }
+                    navigator.serviceWorker.addEventListener(
+                        "controllerchange",
+                        () => {
+                            if (updateIsPending && !isFirstInstall) {
+                                const loadingScreen =
+                                    document.getElementById("loading-screen");
+                                if (
+                                    loadingScreen &&
+                                    !loadingScreen.classList.contains("hidden")
+                                ) {
+                                    loadingScreen.classList.add("hidden");
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 600);
+                                } else {
+                                    window.location.reload();
+                                }
+                            }
+                        },
+                    );
+                    navigator.serviceWorker.addEventListener(
+                        "message",
+                        (event) => {
+                            if (!event.data) return;
+                            if (
+                                event.data.type === "INSTALLATION_STARTED" ||
+                                event.data.type === "CACHE_PROGRESS" ||
+                                event.data.type === "CURRENT_PROGRESS" ||
+                                event.data.type === "CACHE_COMPLETE"
+                            ) {
+                                clearTimeout(updateStartTimeout);
+                                clearTimeout(mismatchTimeout);
+                            }
+                            if (event.data.type === "INSTALLATION_STARTED") {
+                                return;
+                            }
+                            if (event.data.type === "VERSION_MISMATCH") {
+                                clearTimeout(updateStartTimeout);
+                                clearTimeout(mismatchTimeout);
+                                showMaintenanceMessage();
+                                return;
+                            }
+                            if (
+                                event.data.type ===
+                                "ACTIVE_WORKER_VERSION_MISMATCH"
+                            ) {
+                                mismatchTimeout = setTimeout(() => {
+                                    showMaintenanceMessage();
+                                }, 15000);
+                                return;
+                            }
+                            if (event.data.type === "IS_RSR_PATCH_APPLIED") {
+                                const patchVersion = event.data.version;
+                                const applied =
+                                    localStorage.getItem(
+                                        `rsr-patch-${patchVersion}`,
+                                    ) === "true";
+                                if (event.source) {
+                                    event.source.postMessage({
+                                        type: "RSR_PATCH_STATUS_RESPONSE",
+                                        version: patchVersion,
+                                        applied: applied,
+                                    });
+                                }
+                                return;
+                            }
+                            if (event.data.type === "GET_UPDATE_SETTING") {
+                                const isPaused =
+                                    localStorage.getItem("updates_paused") ===
+                                    "true";
+                                if (event.source) {
+                                    event.source.postMessage({
+                                        type: "UPDATE_SETTING_RESPONSE",
+                                        isPaused: isPaused,
+                                    });
+                                }
+                                return;
+                            }
+                            if (
+                                event.data.type === "CACHE_PROGRESS" ||
+                                event.data.type === "CURRENT_PROGRESS"
+                            ) {
+                                const progressBarContainer =
+                                    document.querySelector(
+                                        ".progress-bar-container",
+                                    );
+                                const loadingText =
+                                    document.querySelector(".loading-text");
+                                if (progressBarContainer)
+                                    progressBarContainer.style.opacity = "1";
+                                if (loadingText)
+                                    loadingText.style.opacity = "1";
+                                pendingProgressUpdate = event.data.payload;
+                                if (!isUpdateScheduled) {
+                                    isUpdateScheduled = true;
+                                    requestAnimationFrame(updateProgressBar);
+                                }
+                            }
+                            if (event.data.type === "CACHE_COMPLETE") {
+                                const { version, isRsrUpdate } =
+                                    event.data.payload;
+                                if (isRsrUpdate) {
+                                    localStorage.setItem(
+                                        `rsr-patch-${version}`,
+                                        "true",
+                                    );
+                                }
+                                localStorage.setItem(
+                                    "sw_installed_version",
+                                    version,
+                                );
+                                const versionElement =
+                                    document.getElementById("version-display");
+                                const localVersionInfo =
+                                    document.getElementById(
+                                        "local-version-info",
+                                    );
+                                if (versionElement) {
+                                    versionElement.textContent = `前端版本：${version}`;
+                                }
+                                if (localVersionInfo) {
+                                    localVersionInfo.textContent = version;
+                                }
+                                const progressBarFill =
+                                    document.querySelector(
+                                        ".progress-bar-fill",
+                                    );
+                                if (progressBarFill) {
+                                    progressBarFill.style.transition =
+                                        "width 0.2s ease-out";
+                                    progressBarFill.style.width = "100%";
+                                }
+                                setTimeout(() => {
+                                    if (isFirstInstall || !updateIsPending) {
+                                        hideLoadingScreen();
+                                    }
+                                }, 500);
+                            }
+                        },
+                    );
+                    navigator.serviceWorker
+                        .register("./sw.js")
+                        .then(async (registration) => {
+                            if (registration.waiting) {
+                                if (
+                                    !new URL(
+                                        window.location.href,
+                                    ).searchParams.has("offline")
+                                ) {
+                                    registration.waiting.postMessage({
+                                        type: "SKIP_WAITING",
+                                    });
+                                }
+                            }
+                            registration.onupdatefound = () => {
+                                const installingWorker =
+                                    registration.installing;
+                                if (installingWorker) {
+                                    installingWorker.onstatechange = () => {
+                                        if (
+                                            installingWorker.state ===
+                                                "installed" &&
+                                            navigator.serviceWorker.controller
+                                        ) {
+                                            installingWorker.postMessage({
+                                                type: "SKIP_WAITING",
+                                            });
+                                        }
+                                    };
+                                }
+                            };
+                            async function isCacheValid() {
+                                if (!window.caches) return false;
+                                const localVersion = localStorage.getItem(
+                                    "sw_installed_version",
+                                );
+                                if (!localVersion) return false;
+                                try {
+                                    const cacheName = `infodrop-cache-${localVersion}`;
+                                    const hasCache =
+                                        await caches.has(cacheName);
+                                    if (!hasCache) {
+                                        localStorage.removeItem(
+                                            "sw_installed_version",
+                                        );
+                                        return false;
+                                    }
+                                    return true;
+                                } catch {
+                                    localStorage.removeItem(
+                                        "sw_installed_version",
+                                    );
+                                    return false;
+                                }
+                            }
+                            const cacheIsValid = await isCacheValid();
+                            const isStandalone =
+                                window.matchMedia("(display-mode: standalone)")
+                                    .matches || window.navigator.standalone;
+                            const updateStarted =
+                                await checkForUpdates(registration);
+                            if (updateStarted) {
+                            } else if (isStandalone) {
+                                runLoadingAnimation();
+                                simulateLoadingProgress();
+                            } else if (cacheIsValid) {
+                                hideLoadingScreen();
+                            } else {
+                                runLoadingAnimation();
+                                const sw =
+                                    registration.active ||
+                                    registration.waiting ||
+                                    registration.installing;
+                                if (sw) {
+                                    sw.postMessage({ type: "GET_PROGRESS" });
+                                }
+                            }
+                        })
+                        .catch((err) => {
+                            console.error("Service Worker 注册失败:", err);
+                            hideLoadingScreen();
+                        });
+                };
+
+                document.addEventListener("DOMContentLoaded", () => {
+                    if (window.isBrowserSupported === false) return;
+                    window.initializeApp();
+                });
+            })();
+            function applyOrientationClass() {
+                if (!screen || !screen.orientation) {
+                    document.body.classList.add("portrait-mode");
+                    return;
                 }
-                Object.values(icons).forEach(icon => icon.style.display = 'none');
-                if (icons[theme]) {
-                    icons[theme].style.display = 'block';
+                var orientationType = screen.orientation.type;
+                var body = document.body;
+                body.classList.remove(
+                    "landscape-notch-left",
+                    "landscape-notch-right",
+                    "portrait-mode",
+                );
+                switch (orientationType) {
+                    case "landscape-primary":
+                        body.classList.add("landscape-notch-left");
+                        break;
+                    case "landscape-secondary":
+                        body.classList.add("landscape-notch-right");
+                        break;
+                    default:
+                        body.classList.add("portrait-mode");
+                        break;
                 }
-                localStorage.setItem('theme', theme);
-                currentTheme = theme;
             }
-            themeToggleBtn.addEventListener('click', () => {
-                const currentIndex = themeStates.indexOf(currentTheme);
-                const nextIndex = (currentIndex + 1) % themeStates.length;
-                applyTheme(themeStates[nextIndex]);
-            });
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                if (currentTheme === 'auto') {
-                    applyTheme('auto');
+            document.addEventListener(
+                "DOMContentLoaded",
+                applyOrientationClass,
+            );
+            if (screen && screen.orientation) {
+                screen.orientation.addEventListener(
+                    "change",
+                    applyOrientationClass,
+                );
+            }
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeToggleBtn =
+                    document.getElementById("theme-toggle-btn");
+                if (!themeToggleBtn) return;
+                const icons = {
+                    auto: themeToggleBtn.querySelector(".bi-circle-half"),
+                    light: themeToggleBtn.querySelector(".bi-sun-fill"),
+                    dark: themeToggleBtn.querySelector(".bi-moon-stars-fill"),
+                };
+                const themeStates = ["auto", "light", "dark"];
+                let currentTheme = localStorage.getItem("theme") || "auto";
+                function applyTheme(theme) {
+                    const shouldBeDark =
+                        theme === "dark" ||
+                        (theme === "auto" &&
+                            window.matchMedia("(prefers-color-scheme: dark)")
+                                .matches);
+                    const isCurrentlyDark =
+                        document.documentElement.classList.contains(
+                            "dark-mode",
+                        );
+                    if (shouldBeDark !== isCurrentlyDark) {
+                        if (shouldBeDark) {
+                            document.documentElement.classList.add("dark-mode");
+                        } else {
+                            document.documentElement.classList.remove(
+                                "dark-mode",
+                            );
+                        }
+                        document
+                            .querySelectorAll(".macos-window")
+                            .forEach((win) => {
+                                win.classList.toggle("dark-mode", shouldBeDark);
+                            });
+                    }
+                    Object.values(icons).forEach(
+                        (icon) => (icon.style.display = "none"),
+                    );
+                    if (icons[theme]) {
+                        icons[theme].style.display = "block";
+                    }
+                    localStorage.setItem("theme", theme);
+                    currentTheme = theme;
                 }
+                themeToggleBtn.addEventListener("click", () => {
+                    const currentIndex = themeStates.indexOf(currentTheme);
+                    const nextIndex = (currentIndex + 1) % themeStates.length;
+                    applyTheme(themeStates[nextIndex]);
+                });
+                window
+                    .matchMedia("(prefers-color-scheme: dark)")
+                    .addEventListener("change", () => {
+                        if (currentTheme === "auto") {
+                            applyTheme("auto");
+                        }
+                    });
+                applyTheme(currentTheme);
             });
-            applyTheme(currentTheme);
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>

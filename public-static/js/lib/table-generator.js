@@ -1,6 +1,6 @@
 import { webpMachine } from '../macui.js';
 
-const CDN_DOMAIN_PREFIX = 'https://asia.oss.simplehac.top/infodrop';
+const CDN_DOMAIN_PREFIX = 'https://oss.simplehac.cn/infodrop';
 
 function getFullCdnPath(relativePath) {
   if (!relativePath) {

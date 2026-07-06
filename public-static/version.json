@@ -1,22 +1,6 @@
 {
-  "version": "temp3",
-  "notes": [
-    "支持 M5 系列 DVFS"
-  ],
-  "rsr_patches": [
-    {
-      "base": "temp",
-      "delta": [
-        "./apple-silicon/chip-m/data.json",
-        "./apple-report/frequency-voltage/index.html"
-      ]
-    },
-    {
-      "base": "temp2",
-      "delta": [
-        "./apple-report/frequency-voltage/index.html"
-      ]
-    }
-  ],
+  "version": "final",
+  "notes": ["取消进群验证"],
+  "rsr_patches": [],
   "preserve_runtime": false
 }
