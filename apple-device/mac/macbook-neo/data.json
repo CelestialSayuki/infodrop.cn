@@ -203,7 +203,7 @@
                 "brightness": "500 尼特",
                 "colorGamut": "sRGB",
                 "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">USB-C (最高 10Gb/s) ×1<br>USB-C (最高 480Mb/s) ×1<br>3.5 毫米耳机插孔 ×1</div>",
-                "wifi": "802.11ax Wi-Fi 6",
+                "wifi": "802.11ax Wi-Fi 6E",
                 "bluetooth": "Bluetooth 6.0",
                 "batteryCapacity": "36.5Wh",
                 "chargingSpecs": "USB-C, 20W Max",

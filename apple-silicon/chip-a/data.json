@@ -206,7 +206,7 @@
                 "ramSpec": "LPDDR5X-8533/9600",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>64-bit<br>68.3GB/s</div><div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">12GB<br>64-bit<br>76.8GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17 Pro<br>iPhone 17 Pro Max<br>iPhone Air</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone Air<br>iPhone 17 Pro<br>iPhone 17 Pro Max<br>Studio Display XDR</div>"
             }
         },
         {
@@ -251,7 +251,7 @@
                 "ramSpec": "LPDDR5X-8533",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>68.3GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 17<br>iPhone 17e<br>Studio Display (2026)</div>"
             }
         },
         {
@@ -299,7 +299,7 @@
                 "ramSpec": "LPDDR5X-7500",
                 "ramCapacity": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">8GB<br>64-bit<br>60GB/s</div>",
                 "storageProtocol": "NVMe",
-                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 16 Pro<br>iPhone 16 Pro Max</div>"
+                "usedIn": "<div class=\"info-square\" style=\"background-color: rgba(75, 192, 192, 0.267);\">iPhone 16 Pro<br>iPhone 16 Pro Max<br>MacBook Neo (13 英寸, A18 Pro)</div>"
             }
         },
         {
