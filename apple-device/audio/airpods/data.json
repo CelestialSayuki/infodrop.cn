@@ -218,6 +218,57 @@
         },
         {
             "name": "AirPods Max",
+            "generation": "(第 2 代)",
+            "image": "/apple-device/audio/airpods/img/airpods-max-2.png",
+            "data": {
+                "slogan": "声声升华",
+                "releaseDate": "2026.03.16",
+                "modelId": "-",
+                "colors": [
+                    {
+                        "name": "午夜色",
+                        "hex": "#1d1d1f"
+                    },
+                    {
+                        "name": "星光色",
+                        "hex": "#e9e1d4"
+                    },
+                    {
+                        "name": "蓝色",
+                        "hex": "#91a9b5"
+                    },
+                    {
+                        "name": "紫色",
+                        "hex": "#afa6bb"
+                    },
+                    {
+                        "name": "橙色",
+                        "hex": "#e2a48d"
+                    }
+                ],
+                "arLink": "<a href=\"/AR/airpods/airpods-max-midnight.usdz\" target=\"_blank\">午夜色</a><a href=\"/AR/airpods/airpods-max-starlight.usdz\" target=\"_blank\">星光色</a><a href=\"/AR/airpods/airpods-max-blue.usdz\" target=\"_blank\">蓝色</a><a href=\"/AR/airpods/airpods-max-purple.usdz\" target=\"_blank\">紫色</a><a href=\"/AR/airpods/airpods-max-orange.usdz\" target=\"_blank\">橙色</a>",
+                "chip": "H2 ×2",
+                "bluetooth": "Bluetooth 5.3",
+                "controlMethod": "按键",
+                "spatialAudio": "动态头部追踪的空间音频",
+                "anc": "主动降噪",
+                "transparency": "通透模式",
+                "listenTimeSingle": "20 小时",
+                "listenTimeTotal": "❌",
+                "batterySingle": "-",
+                "batteryCase": "❌",
+                "chargeMethod": "USB‑C",
+                "weightSingle": "386.2g",
+                "weightCase": "134.5g",
+                "dimensionsCase": "168.6×187.3×83.4mm",
+                "waterResistance": "❌",
+                "micCount": "九个",
+                "heartrate": "-",
+                "links": "<a href=\"https://support.apple.com/zh-cn/126620\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "AirPods Max",
             "generation": "",
             "image": "/apple-device/audio/airpods/img/airpods-max-new.webp",
             "data": {

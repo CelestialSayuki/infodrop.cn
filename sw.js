@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'final';
+const CACHE_VERSION = '2026.07.15';
 const CACHE_NAME = `infodrop-cache-${CACHE_VERSION}`;
 const RUNTIME_CACHE_NAME = `infodrop-runtime-${CACHE_VERSION}`;
 const MANIFEST_URL = './precache-manifest.json';
@@ -272,9 +272,7 @@ self.addEventListener('fetch', (event) => {
       event.respondWith(fetch(event.request, { cache: 'no-store' }));
       return;
   }
-  const isSupabaseApi = url.href.includes('supabase.co/rest/v1/speedometer_results');
-
-  if (isAllowedPhp || isSupabaseApi) {
+  if (isAllowedPhp) {
     event.respondWith((async () => {
       const runtimeCache = await caches.open(RUNTIME_CACHE_NAME);
       try {

@@ -167,6 +167,94 @@
     "products": [
         {
             "name": "MacBook Pro",
+            "generation": "(16 英寸, 2026 年)",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2026-16in.png",
+            "data": {
+                "slogan": "全员疾速派",
+                "releaseDate": "2026.03.03",
+                "supportedOS": "macOS 26 ~ 最新",
+                "modelIdentifier": "Mac17,6 / Mac17,8",
+                "colors": [
+                    {
+                        "name": "深空黑色",
+                        "hex": "#404040"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#e3e4e5"
+                    }
+                ],
+                "arLink": "/",
+                "chipProcess": "TSMC N3P",
+                "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5 Pro<br>(6P+12M)</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5 Max<br>(6P+12M)</div>",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×20</div>\n<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×32/40</div>",
+                "neuralEngine": "16 核 38 TOPS",
+                "memoryStorage": "24、36、48、64、128GB 统一内存<br>1TB、2TB、4TB、8TB",
+                "screenSpecs": "16.2\" XDR ProMotion",
+                "resolution": "3456×2234, 254ppi",
+                "brightness": "1000(SDR), 1600(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">雷雳5 (最高 120Gb/s) ×3<br>3.5 毫米耳机插孔 ×1<br>HDMI 2.1 ×1<br>SDXC 卡插槽 ×1<br><br></div>",
+                "wifi": "802.11be Wi-Fi 7",
+                "bluetooth": "Bluetooth 6.0",
+                "batteryCapacity": "100Wh",
+                "chargingSpecs": "USB-C/MagSafe 3, 140W Max",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线上网<br>17/16小时</div>\n<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">影片播放<br>24/22小时</div>",
+                "camera": "1200W 像素",
+                "touchId": "支持",
+                "keyboard": "背光妙控键盘",
+                "dimensionsWeight": "1.68×35.57×24.81cm,2.14/2.15kg",
+                "securityChip": "/",
+                "modelNumber": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3428<br>(M5 Pro)</div>\n<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3429<br>(M5 Max)</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/126319\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/125836\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "MacBook Pro",
+            "generation": "(14 英寸, M5 Pro/Max, 2026 年)",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2026-14in.png",
+            "data": {
+                "slogan": "全员疾速派",
+                "releaseDate": "2026.03.03",
+                "supportedOS": "macOS 26 ~ 最新",
+                "modelIdentifier": "Mac17,7 / Mac17,9",
+                "colors": [
+                    {
+                        "name": "深空黑色",
+                        "hex": "#404040"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#e3e4e5"
+                    }
+                ],
+                "arLink": "<a href=\"/AR/mac/macbook_pro_2026_14in_space_black_variant.usdz\" target=\"_blank\">深空黑色</a>",
+                "chipProcess": "TSMC N3P",
+                "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5 Pro<br>(5P+10M)</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5 Pro<br>(6P+12M)</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">M5 Max<br>(6P+12M)</div>",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×16/20</div>\n<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Apple ×32/40</div>",
+                "neuralEngine": "16 核 38 TOPS",
+                "memoryStorage": "24、36、48、64、128GB 统一内存<br>1TB、2TB、4TB、8TB",
+                "screenSpecs": "14.2\" XDR ProMotion",
+                "resolution": "3024×1964, 254ppi",
+                "brightness": "1000(SDR), 1600(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">雷雳5 (最高 120Gb/s) ×3<br>3.5 毫米耳机插孔 ×1<br>HDMI 2.1 ×1<br>SDXC 卡插槽 ×1<br><br></div>",
+                "wifi": "802.11be Wi-Fi 7",
+                "bluetooth": "Bluetooth 6.0",
+                "batteryCapacity": "72.4Wh",
+                "chargingSpecs": "USB-C/MagSafe 3, 96W Max",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线上网<br>14/13小时</div>\n<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">影片播放<br>22/20小时</div>",
+                "camera": "1200W 像素",
+                "touchId": "支持",
+                "keyboard": "背光妙控键盘",
+                "dimensionsWeight": "1.55×31.26×22.12cm,1.60/1.62kg",
+                "securityChip": "/",
+                "modelNumber": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3426<br>(M5 Pro)</div>\n<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A3427<br>(M5 Max)</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/126318\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/125819\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
+            "name": "MacBook Pro",
             "generation": "(14 英寸, M5)",
             "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2024-14in.webp",
             "data": {
@@ -915,6 +1003,50 @@
         },
         {
             "name": "MacBook Pro",
+            "generation": "(15 英寸, 2019 年)",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2019-15in.webp",
+            "data": {
+                "slogan": "更强劲，更专业的强劲。",
+                "releaseDate": "2019.05.22",
+                "supportedOS": "macOS 10.14 ~ macOS 15",
+                "modelIdentifier": "MacBookPro15,1 / 15,3",
+                "colors": [
+                    {
+                        "name": "深空灰色",
+                        "hex": "#abaeb3"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#c7c8ca"
+                    }
+                ],
+                "arLink": "/",
+                "chipProcess": "Intel 14nm (Coffee Lake)",
+                "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">六核 i7<br>9750H</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">八核 i9<br>9880H</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">八核 i9<br>9980HK</div>",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® UHD Graphics 630<br>AMD 555X/560X/Vega16/20</div>",
+                "neuralEngine": "/",
+                "memoryStorage": "16、32GB<br>256GB、512GB、1TB、2TB、4TB",
+                "screenSpecs": "15.4\" IPS 显示屏",
+                "resolution": "2880×1800, 220ppi",
+                "brightness": "500 尼特",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">雷雳3 (最高 40Gb/s) ×4<br>3.5 毫米耳机插孔 ×1<br><br><br><br></div>",
+                "wifi": "802.11ac",
+                "bluetooth": "Bluetooth 5.0",
+                "batteryCapacity": "83.6Wh",
+                "chargingSpecs": "USB-C, 87W Max",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线上网<br>10小时</div>\n<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">影片播放<br>-<br></div>",
+                "camera": "720p",
+                "touchId": "支持",
+                "keyboard": "全尺寸背光键盘 + 触控栏",
+                "dimensionsWeight": "1.55×34.93×24.07cm,1.83kg",
+                "securityChip": "Apple T2 安全芯片",
+                "modelNumber": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1990</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/111941\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "MacBook Pro",
             "generation": "(15 英寸, 2018 年)",
             "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2018-15in.webp",
             "data": {
@@ -955,6 +1087,50 @@
                 "securityChip": "Apple T2 安全芯片",
                 "modelNumber": "A1990",
                 "specsManual": "<a href=\"https://support.apple.com/zh-cn/111949\" target=\"_blank\">技术规格</a>"
+            }
+        },
+        {
+            "name": "MacBook Pro",
+            "generation": "(13 英寸, 2019 年, 雷雳×4)",
+            "image": "/apple-device/mac/macbook-pro/img/macbook-pro-2019-13in.webp",
+            "data": {
+                "slogan": "更强劲，更专业的强劲。",
+                "releaseDate": "2019.05.22",
+                "supportedOS": "macOS 10.14 ~ macOS 15",
+                "modelIdentifier": "MacBookPro15,2",
+                "colors": [
+                    {
+                        "name": "深空灰色",
+                        "hex": "#abaeb3"
+                    },
+                    {
+                        "name": "银色",
+                        "hex": "#c7c8ca"
+                    }
+                ],
+                "arLink": "/",
+                "chipProcess": "Intel 14nm (Coffee Lake)",
+                "chipInfo": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i5<br>8279U</div>\n<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">四核 i7<br>8569U</div>",
+                "gpuInfo": "<div class=\"info-square\" style=\"background-color: rgba(96, 210, 96, 0.267);\">Intel® Iris Plus 655</div>",
+                "neuralEngine": "/",
+                "memoryStorage": "8、16GB<br>256GB、512GB、1TB、2TB",
+                "screenSpecs": "13.3\" IPS 显示屏",
+                "resolution": "2560×1600, 227ppi",
+                "brightness": "500 尼特",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "ports": "<div class=\"li-div-iostyle li-div-iostyle-b\">雷雳3 (最高 40Gb/s) ×4<br>3.5 毫米耳机插孔 ×1<br><br><br><br></div>",
+                "wifi": "802.11ac",
+                "bluetooth": "Bluetooth 5.0",
+                "batteryCapacity": "58.0Wh",
+                "chargingSpecs": "USB-C, 61W Max",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">无线上网<br>10小时</div>\n<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">影片播放<br>10小时</div>",
+                "camera": "720p",
+                "touchId": "支持",
+                "keyboard": "全尺寸背光键盘 + 触控栏",
+                "dimensionsWeight": "1.49×30.41×21.24cm,1.37kg",
+                "securityChip": "Apple T2 安全芯片",
+                "modelNumber": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">A1989</div>",
+                "specsManual": "<a href=\"https://support.apple.com/zh-cn/111997\" target=\"_blank\">技术规格</a>"
             }
         },
         {

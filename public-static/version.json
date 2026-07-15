@@ -1,6 +1,6 @@
 {
-  "version": "final",
-  "notes": ["取消进群验证"],
+  "version": "2026.07.15",
+  "notes": ["同步最新设备参数，新增 MacBook Neo 等适配"],
   "rsr_patches": [],
-  "preserve_runtime": false
+  "preserve_runtime": true
 }

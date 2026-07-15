@@ -425,6 +425,62 @@
             }
         },
         {
+            "name": "iPhone 17e",
+            "generation": "",
+            "image": "/apple-device/iphone/img/iPhone_17e.png",
+            "images": {
+                "宣传图": "/apple-device/iphone/img/iPhone_17e.png"
+            },
+            "data": {
+                "displayType": [
+                    "宣传图"
+                ],
+                "slogan": "本领叠满，超值加满",
+                "releaseDate": "2026.03.02",
+                "osSupport": "iOS 26 ~ 最新",
+                "modelId": "iPhone18,5",
+                "colors": [
+                    {
+                        "name": "黑色",
+                        "hex": "#3c4042"
+                    },
+                    {
+                        "name": "白色",
+                        "hex": "#fafafa"
+                    },
+                    {
+                        "name": "浅粉色",
+                        "hex": "#fce7e6"
+                    }
+                ],
+                "arLink": "<a href=\"/AR/iphone/iphone_17_e_p_sim_soft_pink.usdz\" target=\"_blank\">浅粉色</a>",
+                "chip": "<div class=\"info-square\" style=\"background-color: rgba(89, 167, 255, 0.267);\">A19<br>(2P+4E+4GPU)</div>",
+                "ramRom": "<div class=\"info-square\" style=\"background-color: rgba(200, 101, 245, 0.267);\">8GB LPDDR5X<br>256G、512G</div>",
+                "display": "6.1\" XDR OLED",
+                "resolution": "2532×1170, 460ppi",
+                "refreshRate": "60Hz",
+                "brightness": "800(典), 1200(HDR)",
+                "colorGamut": "原彩显示, 广色域显示(P3)",
+                "rearCamera": "主摄：4800W 像素 ƒ/1.6",
+                "frontCamera": "1200W 像素 ƒ/1.9",
+                "lidar": "-",
+                "wiredInterface": "USB-C (最高可达 480Mb/s)",
+                "cellular": "Apple C1X",
+                "wifi": "802.11ax 2x2 MIMO",
+                "bluetooth": "Bluetooth 5.3",
+                "nfc": "支持读卡器模式 NFC",
+                "unlockMethod": "面容 ID",
+                "batteryCapacity": "15.556Wh (4005mAh)",
+                "chargeMethod": "USB-C/MagSafe/Qi/Qi2",
+                "batteryLife": "<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">视频<br>26小时</div>\n<div class=\"info-square\" style=\"background-color: rgba(255, 159, 67, 0.267);\">流媒体<br>21小时</div>",
+                "audioIO": "麦克风 ×4 + 扬声器 ×2",
+                "dimensionsWeight": "71.5×146.7×7.8mm, 170g",
+                "sim": "双 eSIM 或 nano-SIM+eSIM",
+                "waterResistance": "IP68",
+                "links": "<a href=\"https://support.apple.com/zh-cn/126470\" target=\"_blank\">技术规格</a> / <a href=\"https://support.apple.com/en-us/125956\" target=\"_blank\">维修手册</a>"
+            }
+        },
+        {
             "name": "iPhone 16e",
             "generation": "",
             "image": "/apple-device/iphone/img/iPhone_16e.webp",
